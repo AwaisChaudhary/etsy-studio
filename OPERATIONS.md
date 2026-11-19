@@ -74,3 +74,6 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Awais said go. Needs from him: KDP account + tax interview + bank/Payoneer. Claude designs books; AI disclosure honest on every title.
 - 20 Nov 04:20: LoveCrafts affiliate applied (pending). Awin publisher account ZAWN Tech ID 3161628 created, under review (publisher pages not accessible yet) -> when approved: join Padel Market (+ other padel advertisers), swap AFF URLs. Amazon Associates: form filled (store ID purlandpaper, 4 sites) — Awais must tick Operating Agreement + Finish; then put tag into NeonCoast/DayOneDrop AFF URLs (&tag=<id>).
 - KDP books 1 (Race Ready) and 2 (Knit & Crochet Project Journal) built: /home/claude/kdp/*, generators etsy-studio/tools/book_*.py, listing drafts etsy-studio/kdp/LISTINGS.md. Waiting on Awais's KDP account.
+- 20 Nov 04:40: Amazon Associates COMPLETE (tag purlandpaper-20, tax done, Payoneer bank added, earning globally). Live on NeonCoast + DayOneDrop.
+- Hyrox site built locally: /home/claude/hyrox-site (brand "Split Lab"; simulator, race calendar 70 races, weights, stations, 12-week plan, Amazon gear links). Not deployed: needs domain (splitlab.com taken) + Cloudflare Pages project + GA4 + Kit form.
+- KDP postponed to 21 Nov at Awais's request.
