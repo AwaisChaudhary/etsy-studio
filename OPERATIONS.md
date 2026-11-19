@@ -54,3 +54,12 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Proposed SaaS #1: browser-based mockup studio for Etsy/Gumroad digital sellers (reuses tools/scenes.py), sold via Lemon Squeezy (Pakistan bank payouts supported). Awaiting Awais's go-ahead.
 - Hyrox build paused at 02:43 (weights verified; 112-race calendar collected from rundida.com).
 - 20 Nov 02:55: Awais happy to pay ~$10/domain and asked about 10 sites/month (100/year). Proposed instead: 4–6/month, rising toward 10 if quality and Claude usage hold; every site needs a real tool or data hook; 90-day keep/kill rule; separate AdSense risk carefully.
+
+## Email newsletter (Kit) — set up 20 Nov 03:15
+- beehiiv is not available in Pakistan; using Kit (account M AWAIS KARAMAT, from address awaiskaramat@hotmail.com).
+- Forms (Clare inline, double opt-in, redirect to /thanks, after confirm to /welcome with PDF):
+  Purl & Paper 10215409, NeonCoast 10215418, DayOneDrop 10215426, Padel Glass Box 10215431. Hyrox: create one at launch.
+- Sites post a plain HTML form to https://app.kit.com/forms/<id>/subscriptions (field email_address); block is signup(file) in each build.py.
+- Freebies built by work/freebies.py into each site's assets/free/ (rebuild NeonCoast/DayOneDrop PDFs weekly as data grows).
+- Waiting on Awais: confirm Kit account email + confirm from-address email (otherwise confirmation emails don't send).
+- Next: welcome sequence and weekly digest per site once subscribers arrive (Awais approved newsletters for all sites).
