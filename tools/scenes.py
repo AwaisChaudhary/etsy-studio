@@ -229,9 +229,9 @@ def scenes(p):
                 + seal(780, 870, 180, t["seal"], t["acc"], t["paper"]) + brand(70, 1410))
         out["pin-b"] = (1000, 1500, body)
         # Etsy hero 2000x1600: label left, wide fan right
-        body = (label(110, 380, 820, t, -1.5, chips=True, tsize=6.4 if tl else 7.6) + tape(160, 360, 170, 46, -8) + tape(760, 365, 150, 46, 7)
-                + fan(imgs[:5], 1390, 300, 600, 95, [-12, -6, 0, 6, 12])
-                + seal(1680, 1180, 260, t["seal"], t["acc"], t["paper"]) + brand(110, 1420))
+        body = (label(250, 330, 760, t, -1.5, chips=True, tsize=6.4 if tl else 7.6) + tape(300, 310, 170, 46, -8) + tape(860, 315, 140, 46, 7)
+                + fan(imgs[:5], 1400, 260, 560, 80, [-11, -5, 0, 5, 11])
+                + seal(1500, 1180, 250, t["seal"], t["acc"], t["paper"]) + brand(250, 1400))
         out["etsy-hero"] = (2000, 1600, body)
         # Gumroad cover 1280x720
         body = (label(60, 110, 560, t, -1.5, tsize=6.6 if tl else 8.4) + tape(90, 92, 120, 34, -8)
@@ -254,10 +254,10 @@ def scenes(p):
         body = (laptop(p, t, 80, 80, 840, s2) + note.format(x=600, y=520, w=320, r=-5)
                 + label(60, 820, 880, t, 1.2, chips=True, tsize=7.6) + seal(790, 740, 170, t["seal"], t["acc"], t["paper"], "✓") + brand(70, 1410))
         out["pin-b"] = (1000, 1500, body)
-        body = (label(110, 330, 780, t, -1.5, chips=True, tsize=6.6) + tape(160, 310, 170, 46, -8)
-                + laptop(p, t, 930, 380, 1010) + note.format(x=1560, y=1050, w=330, r=5)
-                + f'<div class="pencil" style="left:1000px;top:1330px;width:520px;transform:rotate(-6deg)"></div>'
-                + seal(1720, 200, 230, t["seal"], t["acc"], t["paper"], "✓") + brand(110, 1420))
+        body = (label(240, 300, 700, t, -1.5, chips=True, tsize=6.4) + tape(290, 280, 170, 46, -8)
+                + laptop(p, t, 980, 380, 900) + note.format(x=1420, y=1000, w=330, r=5)
+                + f'<div class="pencil" style="left:1000px;top:1320px;width:480px;transform:rotate(-6deg)"></div>'
+                + seal(1560, 170, 220, t["seal"], t["acc"], t["paper"], "✓") + brand(240, 1400))
         out["etsy-hero"] = (2000, 1600, body)
         body = (label(50, 90, 560, t, -1.5, tsize=6) + laptop(p, t, 660, 90, 560)
                 + note.format(x=1010, y=470, w=230, r=5).replace("--u:10px", "--u:7px") + brand(50, 610))
