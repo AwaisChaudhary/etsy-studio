@@ -31,3 +31,9 @@ gumroad.com/products/new -> name + price -> Next; edit page: square thumbnail, c
 Render pages first: `pdftoppm -r 110 -png files/<slug>-US-Letter.pdf pages/<slug>/p`, then
 `python3 tools/scenes.py <pages> <demo_xlsx_dir> <out> [slug...]`. Each new product needs an entry in `T` (surface, colours, title, chips, seal text; spreadsheets also a sticky `note`).
 `tools/xlview.py` holds the spreadsheet-window renderer shared with mockups.py. Pins are marked "AI-modified" on Pinterest.
+
+## Pinterest (business account "Purl & Paper", pinterest.com/purlandpaperco)
+Boards: Junk Journal Printables, Crochet & Knitting Planners, Small Business Spreadsheets (add a board when a new lane has 3+ products, e.g. Christmas Printables).
+`pins/queue.json` = pins to post, in order; set `status` to "published <date>" / "scheduled <date time>" after posting. Daily: post the next 3 queued pins + pin-a of each new product (render with tools/scenes.py, add pin-b to the END of the queue).
+Playbook (pinterest.com/pin-creation-tool/): upload the JPG via the hidden file input (find "File Upload"), title, description, link, board dropdown, Tagged topics (type, wait, pick first match; if suggestions look unrelated, delete and retype the last letter), turn ON "Mark as AI-Modified", Publish. "Publish at a later date" shows date/time fields (default tomorrow 12:00 PM) then Schedule -> confirm. Pins link to the Etsy listing (pin-a) or Gumroad product (pin-b). Etsy shop claim is not offered for this account; claim the crafts website once it has a domain.
+Rules: max ~5 new pins a day while the account is new; never repost the same image; no follow/comment automation.
