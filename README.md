@@ -14,6 +14,7 @@ Product factory for the PurlAndPaperCo Etsy shop and karamat4 Gumroad store.
 Batch 1 (19 Nov 2026): 10 products live on both Etsy (etsy.com/shop/PurlAndPaperCo) and Gumroad (karamat4.gumroad.com), see batch1/listings.json.
 
 ## Etsy listing playbook (Shop Manager > Add a listing, https://www.etsy.com/your/shops/me/listing-editor/create)
+Changing the main photo of a live listing (edit/<id>#media): photos are dnd-kit sortables ([aria-roledescription=sortable], id = photo id). Upload to "Add photos", then focus the new tile via JS, press Space, Up, Left x5, Space (repeat once), check order via JS, delete old tiles by hovering a tile and clicking its trash icon, then "Publish changes". Mouse drag does NOT work. Etsy shows square crops in the shop grid: keep hero text inside the centre square (x 200-1800 of 2000).
 1. Photos: upload 5 JPGs to the hidden "Add photos" file input (max 3.8 MB per upload call).
 2. Category (combobox): spreadsheets -> Bookkeeping Templates (stash tracker -> Planner Templates); planners -> Planner Templates; kits/ephemera -> Scrapbooking Ephemera; cards -> Journaling Spots.
 3. "What type of item is it?" -> Digital. Then set title (#listing-title-input) and description (#listing-description-textarea) via JS native value setter + input/change/blur events.
@@ -25,6 +26,9 @@ Batch 1 (19 Nov 2026): 10 products live on both Etsy (etsy.com/shop/PurlAndPaper
 
 ## Gumroad playbook
 gumroad.com/products/new -> name + price -> Next; edit page: square thumbnail, cover images, description (no lines starting "1." - they auto-number), URL slug, summary; Save; Content tab: upload files; Save; Publish.
+- Covers: click "Upload images or videos" (or "Add cover" then that button), THEN `find` the file input labelled "Computer files" and upload several JPGs in one call (order is kept: scenes etsy-hero first, then features/details/how-it-works). Remove a cover: hover its small thumbnail, click the red x at its top-right.
+- Thumbnail: click the trash icon on the thumbnail, then the "Upload" file input appears; upload scenes gumroad-thumb (600x600).
+- Use the 2000x1600 etsy-hero as cover 1 so all covers share one aspect ratio. Profile: name "Purl & Paper", shop icon avatar, bio with Etsy link (set 19 Nov).
 
 ## Scenes (v2 design, 19 Nov 2026)
 `tools/scenes.py` makes styled product scenes from the real product pages: pins (pin-a fan, pin-b tossed pages, 1000x1500), Etsy hero (2000x1600), Gumroad cover (1280x720) and thumbnail (600x600).
