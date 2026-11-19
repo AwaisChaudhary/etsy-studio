@@ -25,3 +25,9 @@ Batch 1 (19 Nov 2026): 10 products live on both Etsy (etsy.com/shop/PurlAndPaper
 
 ## Gumroad playbook
 gumroad.com/products/new -> name + price -> Next; edit page: square thumbnail, cover images, description (no lines starting "1." - they auto-number), URL slug, summary; Save; Content tab: upload files; Save; Publish.
+
+## Scenes (v2 design, 19 Nov 2026)
+`tools/scenes.py` makes styled product scenes from the real product pages: pins (pin-a fan, pin-b tossed pages, 1000x1500), Etsy hero (2000x1600), Gumroad cover (1280x720) and thumbnail (600x600).
+Render pages first: `pdftoppm -r 110 -png files/<slug>-US-Letter.pdf pages/<slug>/p`, then
+`python3 tools/scenes.py <pages> <demo_xlsx_dir> <out> [slug...]`. Each new product needs an entry in `T` (surface, colours, title, chips, seal text; spreadsheets also a sticky `note`).
+`tools/xlview.py` holds the spreadsheet-window renderer shared with mockups.py. Pins are marked "AI-modified" on Pinterest.
