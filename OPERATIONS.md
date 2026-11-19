@@ -47,3 +47,9 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Also: division weights/standards tables, training plans (also sold as Etsy/Gumroad printables), gear.
 - Domain must not contain the HYROX trademark.
 - Rule agreed 20 Nov: launch new sites without waiting for AdSense; ads go on all sites once one is approved.
+
+## 20 Nov: 6-month roadmap and exit plan (sent to Awais)
+- Dec: Hyrox + espresso live; Etsy 5/day; AdSense approval is the key unlock. Jan: podcasting + Fable. Feb–Mar: LA28, Fable launch spike. Apr–May: site 9, prune/double down, first sale candidates prepared.
+- Exit rule: sell a site once it has 6+ months of steady profit; content sites sell around 24–45x monthly profit.
+- Proposed SaaS #1: browser-based mockup studio for Etsy/Gumroad digital sellers (reuses tools/scenes.py), sold via Lemon Squeezy (Pakistan bank payouts supported). Awaiting Awais's go-ahead.
+- Hyrox build paused at 02:43 (weights verified; 112-race calendar collected from rundida.com).
