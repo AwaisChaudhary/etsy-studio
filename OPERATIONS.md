@@ -63,3 +63,12 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Freebies built by work/freebies.py into each site's assets/free/ (rebuild NeonCoast/DayOneDrop PDFs weekly as data grows).
 - Waiting on Awais: confirm Kit account email + confirm from-address email (otherwise confirmation emails don't send).
 - Next: welcome sequence and weekly digest per site once subscribers arrive (Awais approved newsletters for all sites).
+
+## Affiliate links — live 20 Nov 03:50
+- System: each build.py has AFF dict -> writes Cloudflare _redirects (/go/<slug> -> store, 302); robots.txt Disallow /go/; links rel="sponsored nofollow"; disclosure line next to every placement. Script: etsy-studio/tools/add_affiliates.py. Every future site gets the same (Hyrox, espresso, podcasting, LA28).
+- Placements: Padel (racket finder result + gear box on finder/beginners -> Padel Market), Purl & Paper (yarn calculator result, hook/needle + yarn weight pages -> LoveCrafts), DayOneDrop (Pre-order on Amazon on each game page), NeonCoast (home: GTA 6 + controllers on Amazon).
+- Links currently go to plain store URLs (no commission yet). When each programme approves, swap URL in AFF and rebuild.
+- Waiting on Awais to sign up (needs his identity + Payoneer): Awin (Padel Market), LoveCrafts affiliate (Post Affiliate Pro), Amazon Associates (US, Payoneer USD account for direct deposit).
+
+## KDP — agreed 20 Nov 03:48
+- Awais said go. Needs from him: KDP account + tax interview + bank/Payoneer. Claude designs books; AI disclosure honest on every title.
