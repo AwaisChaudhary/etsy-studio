@@ -53,3 +53,4 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Exit rule: sell a site once it has 6+ months of steady profit; content sites sell around 24–45x monthly profit.
 - Proposed SaaS #1: browser-based mockup studio for Etsy/Gumroad digital sellers (reuses tools/scenes.py), sold via Lemon Squeezy (Pakistan bank payouts supported). Awaiting Awais's go-ahead.
 - Hyrox build paused at 02:43 (weights verified; 112-race calendar collected from rundida.com).
+- 20 Nov 02:55: Awais happy to pay ~$10/domain and asked about 10 sites/month (100/year). Proposed instead: 4–6/month, rising toward 10 if quality and Claude usage hold; every site needs a real tool or data hook; 90-day keep/kill rule; separate AdSense risk carefully.
