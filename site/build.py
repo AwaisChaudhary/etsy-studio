@@ -7,7 +7,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 DOMAIN = "https://purlandpaperco.com"
 SITE = "Purl & Paper"
 ADSENSE_CLIENT = "ca-pub-1558743317014653"
-GA_ID = ""                            # added at launch
+GA_ID = "G-CDBWSR0KT3"                # GA4 property "Purl & Paper (purlandpaperco.com)"
 PREVIEW = "--preview" in sys.argv
 D = json.loads((ROOT / "assets" / "data.json").read_text())
 UPDATED = D["updated"]
@@ -98,6 +98,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="p:domain_verify" content="745e513870bb39b37db2c4334a6fa032">
 {ga}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>

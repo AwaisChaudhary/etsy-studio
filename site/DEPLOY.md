@@ -1,0 +1,6 @@
+# Purl & Paper website (purlandpaperco.com)
+Source of truth: this folder (etsy-studio/site). Cloudflare Pages project "purlandpaper" (Direct Upload; custom domains purlandpaperco.com + www.purlandpaperco.com).
+Build: `cd site && python3 build.py` (live, clean URLs) or `--preview` for local file links. GA4: G-CDBWSR0KT3. Search Console: URL-prefix property https://purlandpaperco.com/ verified by google7cb8a0335ce88e7c.html (never delete). Pinterest claim meta p:domain_verify is in the <head> template (keep).
+Deploy (needs Chrome on Awais's computer): zip the CONTENTS of: all *.html, robots.txt, sitemap.xml, ads.txt, assets/ ; then dash.cloudflare.com -> Workers & Pages -> purlandpaper -> Create deployment -> Production -> upload the zip via the hidden "file" input -> wait for "29/29 files uploaded" style message -> Save and deploy. Check https://purlandpaperco.com/sitemap.xml afterwards.
+Shop boxes: SHOP / SHOP_FOR dicts in build.py (key -> name, price, Etsy listing path, Gumroad slug); thumbnails in assets/shop/<key>.jpg (400x400 from scenes gumroad-thumb).
+AdSense: script with ca-pub-1558743317014653 is in the template and ads.txt is set, but the site is NOT yet added in AdSense. Only add it (AdSense -> Sites -> Add site) after neoncoast.org or getdayonedrop.com is approved and the site has 15+ useful pages.
