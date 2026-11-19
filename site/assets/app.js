@@ -159,7 +159,7 @@
         (n ? '<div class="balls" aria-hidden="true">' + icons + "</div>" : "") +
         "<p>You'll need about <strong>" + fmt(lo) + "–" + fmt(hi) + " yards</strong> (" + fmt(lo * 0.9144) + "–" + fmt(hi * 0.9144) + " m) of weight " + w.n + " " + esc(w.name.toLowerCase()) + " yarn.</p>" +
         (n ? '<p class="sub">That covers the high end of the estimate, so you shouldn\'t run short.' + (n > Math.ceil(exact) ? " The paler skein is your spare." : "") + "</p>" : '<p class="sub">Enter the length per skein from your yarn label to see how many to buy.</p>') +
-        "<hr><p class=\"sub\">Needles: " + esc(w.needle) + "<br>Hook: " + esc(w.hook) + "</p>";
+        "<hr><p class=\"sub\">Needles: " + esc(w.needle) + "<br>Hook: " + esc(w.hook) + "</p>" + '<p class="aff-shop"><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Shop ' + esc(w.name.toLowerCase()) + ' yarn</a> · <a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">hooks</a> · <a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">needles</a></p><p class="aff-note">We may earn a commission if you buy through these links, at no extra cost to you.</p>';
       store.set("pp-yarn", { p: proj.value, w: wt.value, s: sk.value, u: unit.value });
     }
     seg($("#yc-craft"), calc); seg($("#yc-dense"), calc); seg($("#yc-col"), calc);

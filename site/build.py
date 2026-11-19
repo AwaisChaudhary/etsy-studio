@@ -105,6 +105,23 @@ NL_WELCOME = """<section><div class="wrap nl-done"><h1>You're in!</h1>
 <div class="nl-links"><a href="/row-counter">Row counter</a><a href="/yarn-calculator">Yarn calculator</a><a href="/journal-prompts">Journal prompts</a></div></div></section>"""
 
 
+AFF = {
+    "yarn": "https://www.lovecrafts.com/en-us/collections/yarns",
+    "yarn-by-weight": "https://www.lovecrafts.com/en-us/collections/yarn-by-weight",
+    "crochet-hooks": "https://www.lovecrafts.com/en-us/collections/crochet-hooks",
+    "knitting-needles": "https://www.lovecrafts.com/en-us/collections/knitting-needles",
+    "free-patterns": "https://www.lovecrafts.com/en-us/collections/all-free-patterns",
+}
+# ---- Affiliate links. Pages link to /go/<slug>; _redirects sends it to the store.
+# Until a programme approves us these are plain store URLs; when approved, replace the URL with the tracked link and rebuild.
+AFF_ATTR = 'rel="sponsored nofollow noopener" target="_blank"'
+AFF_NOTE = '<p class="aff-note">We may earn a commission if you buy through these links, at no extra cost to you.</p>'
+def go(slug): return "/go/" + slug
+def write_redirects(root):
+    lines = "".join(f"/go/{k} {v} 302\n" for k, v in AFF.items())
+    (root / "_redirects").write_text(lines)
+
+
 def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=None):
     url = canon(file)
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": url, "dateModified": UPDATED,
@@ -368,7 +385,7 @@ yw_faq = [
 ]
 page("yarn-weights.html", "Yarn Weight Chart: Lace to Jumbo, Needle and Hook Sizes | Purl & Paper",
      "Yarn weight chart from 0 lace to 7 jumbo: US and UK names, knit and crochet gauge, needle and hook sizes, and what each weight is good for.",
-     yw, yw_faq, "Yarn weight chart")
+     yw + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', yw_faq, "Yarn weight chart")
 
 # ---------------- HOOK / NEEDLE SIZES ----------------
 srows = "".join(f'<tr data-mm="{e(s[0][:-3])}"><td><strong>{e(s[0])}</strong></td><td>{e(s[1])}</td><td>{e(s[2])}</td><td>{e(s[3])}</td></tr>' for s in D["sizes"])
@@ -389,7 +406,7 @@ hn_faq = [
 ]
 page("hook-needle-sizes.html", "Crochet Hook and Knitting Needle Size Chart (mm, US, UK) | Purl & Paper",
      "Crochet hook and knitting needle size conversion chart: metric mm, US numbers and letters, and old UK sizes, with a quick size finder.",
-     hn, hn_faq, "Hook and needle sizes")
+     hn + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', hn_faq, "Hook and needle sizes")
 
 # ---------------- CROCHET TERMS ----------------
 trows = "".join(f'<tr><td><strong>{e(t[0])}</strong>{f" ({e(t[1])})" if t[1] else ""}</td><td><strong>{e(t[2])}</strong>{f" ({e(t[3])})" if t[3] else ""}</td><td class="muted">{e(t[4])}</td></tr>' for t in D["terms"])
@@ -476,6 +493,7 @@ page("welcome.html", "Your free printables | Purl & Paper", "Download your free 
 pages = ["index.html"] + [f for f, _ in NAV] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>2026-11-19</lastmod></url>\n" for p in pages) + "</urlset>\n")
-(ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+(ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /go/\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 (ROOT / "ads.txt").write_text("google.com, pub-1558743317014653, DIRECT, f08c47fec0942fa0\n")
 print("built", len(pages) + 1, "pages", "(preview)" if PREVIEW else "")
+write_redirects(ROOT)
