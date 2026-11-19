@@ -369,3 +369,22 @@ footer a { color: var(--ink); }
 .shop-name { display: block; font-weight: 700; margin-top: 10px; }
 .shop-meta { font-size: .92rem; opacity: .8; }
 @media (prefers-reduced-motion: reduce) { .shop-card img { transition: none; } }
+
+/* ---- Email signup (Kit) ---- */
+.nl { padding: 28px 0 8px; }
+.nl-card { background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px 28px; align-items: center; color: var(--ink); }
+.nl-card h2 { font-family: var(--display); margin: 0 0 6px; font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.15; }
+.nl-card p { margin: 0; color: var(--ink-2); }
+.nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.nl-form input { flex: 1 1 220px; min-height: 48px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; font-size: 1rem; }
+.nl-form button { min-height: 48px; padding: 0 20px; border: 0; border-radius: 10px; background: var(--berry); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.nl-form button:hover { filter: brightness(1.08); }
+.nl-form input:focus-visible, .nl-form button:focus-visible { outline: 3px solid var(--berry); outline-offset: 2px; }
+.nl-fine { grid-column: 1 / -1; font-size: .85rem; }
+.nl-fine a { color: inherit; }
+.nl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.nl-done { text-align: center; max-width: 640px; margin: 0 auto; padding: 56px 0 28px; }
+.nl-done .nl-btn { display: inline-block; margin: 18px 0 8px; padding: 14px 24px; border-radius: 12px; background: var(--berry); color: #fff; font-weight: 700; text-decoration: none; }
+.nl-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+.nl-links a { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: inherit; text-decoration: none; }
+@media (max-width: 760px) { .nl-card { grid-template-columns: 1fr; padding: 20px; } }

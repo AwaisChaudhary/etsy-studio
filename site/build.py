@@ -79,6 +79,32 @@ def shop_box(file):
             f'<ul class="shop-grid">{cards}</ul><p><a class="btn ghost" href="{ETSY}" rel="noopener">See the whole shop on Etsy</a></p></div></section>')
 
 
+# ---- Email signup (Kit form 10215409). Sign-ups go to Kit; Kit redirects to /thanks, then /welcome after confirming. ----
+NL_SKIP = ("thanks.html", "welcome.html", "404.html", "privacy.html")
+NOINDEX = ("thanks.html", "welcome.html", "404.html")
+def signup(file):
+    if file in NL_SKIP:
+        return ""
+    return """<section class="nl" id="newsletter"><div class="wrap"><div class="nl-card">
+<div><h2>Free printable sampler</h2><p>Journaling cards, a vintage ephemera sheet and a planner page from our shop, free to print. Plus new freebies and pattern ideas now and then.</p></div>
+<form class="nl-form" action="https://app.kit.com/forms/10215409/subscriptions" method="post">
+<label class="nl-sr" for="nl-email">Email address</label>
+<input id="nl-email" type="email" name="email_address" required placeholder="Your email address" autocomplete="email">
+<button type="submit">Send my printables</button>
+</form>
+<p class="nl-fine">Free. No spam, unsubscribe in one click. See our <a href="/privacy.html">privacy policy</a>.</p>
+</div></div></section>"""
+NL_THANKS = """<section><div class="wrap nl-done"><h1>Check your inbox</h1>
+<p>We've just emailed you a confirmation link. Tap the button in that email and your free printable sampler opens straight away.</p>
+<p>Can't see it after a minute? Look in your spam or promotions folder.</p>
+<div class="nl-links"><a href="/row-counter">Row counter</a><a href="/yarn-calculator">Yarn calculator</a><a href="/journal-prompts">Journal prompts</a></div></div></section>"""
+NL_WELCOME = """<section><div class="wrap nl-done"><h1>You're in!</h1>
+<p>Thanks for confirming. Here's your free printable sampler:</p>
+<a class="nl-btn" href="/assets/free/purl-and-paper-free-sampler.pdf" download>Download the PDF</a>
+<p>We'll email you when there's something worth knowing, never more than once a week.</p>
+<div class="nl-links"><a href="/row-counter">Row counter</a><a href="/yarn-calculator">Yarn calculator</a><a href="/journal-prompts">Journal prompts</a></div></div></section>"""
+
+
 def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=None):
     url = canon(file)
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": url, "dateModified": UPDATED,
@@ -104,7 +130,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="{"noindex, follow" if file in NOINDEX else "index, follow, max-image-preview:large"}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{e(SITE)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
 <meta name="twitter:card" content="summary"><meta name="theme-color" content="#1f2a44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='15' cy='17' r='12' fill='%23b8326a'/%3E%3Crect x='19' y='2' width='11' height='8' rx='2' fill='%23f4a823'/%3E%3C/svg%3E">
@@ -123,6 +149,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <main id="main">
 {body}
 {faq_html(faqs)}
+{signup(file)}
 {AD.format(file)}
 </main>
 {shop_box(file)}
@@ -434,6 +461,7 @@ page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for kni
 <h2>Contact</h2><p>Spotted a mistake or have an idea for a tool? We'd love to hear it. A contact address will be added here soon.</p></div></section>''', crumb="About")
 page("privacy.html", "Privacy Policy | Purl & Paper", "How Purl & Paper handles your data.",
      top("Privacy policy", "Short version: your counters, projects and saved prompts never leave your device.", "Privacy") + f'''<section style="padding-top:10px"><div class="narrow prose">
+<h2>Email list</h2><p>If you join our email list, we keep your email address with our email provider, Kit (kit.com), to send you the free printables and our updates. Every email has an unsubscribe link, and you can ask us to delete your address at any time.</p>
 <h2>What we store</h2><p>The tools save your counters, projects and saved prompts in your browser's local storage on your device. We can't see them and they're not sent to us. Clearing your browser data removes them.</p>
 <h2>Analytics</h2><p>We use Google Analytics to count visits and see which pages are useful. It uses cookies and collects information such as pages viewed, device type and approximate location. It doesn't tell us who you are.</p>
 <h2>Advertising</h2><p>We show ads through Google AdSense. Google and its partners may use cookies to show ads based on your visits to this and other sites. You can turn off personalised ads in <a href="https://adssettings.google.com" rel="nofollow noopener">Google's ad settings</a>. More detail is in <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener">how Google uses information from sites that use its services</a>.</p>
@@ -442,6 +470,9 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
      f'<section><div class="narrow" style="text-align:center"><h1>Dropped a stitch.</h1><p class="lead" style="margin-inline:auto">This page doesn\'t exist. It may have moved.</p><div class="btns" style="justify-content:center"><a class="btn gold" href="{href("index.html")}">Back to the home page</a><a class="btn ghost" href="{href("row-counter.html")}">Open the row counter</a></div></div></section>')
 
 # ---------------- SITEMAP / ROBOTS ----------------
+page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
+page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
+
 pages = ["index.html"] + [f for f, _ in NAV] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>2026-11-19</lastmod></url>\n" for p in pages) + "</urlset>\n")
