@@ -36,5 +36,14 @@ Agreed launch plan (resent by Awais 20 Nov):
 7. Home podcasting — January
 8. LA28 Olympics fan guide — Feb–Mar
 9. Mushroom kits or astrology (Claude's pick) — after that
-Extra candidates found 20 Nov (not on the list yet): Fable game guide (out 23 Feb 2027), 2027 total eclipse guide (2 Aug 2027).
+Added 20 Nov (Awais agreed): Fable game guide, built alongside #7 in January, live by late Dec/early Jan (game out 23 Feb 2027, early access 18 Feb). Expect a fraction of GTA 6 traffic.
+Still a candidate: 2027 total eclipse guide (2 Aug 2027).
+
+## Hyrox site brief (site #5, early December)
+- Awais: must have "wow factor" and bring massive traffic.
+- Market: 2M+ athletes expected 2026/27, 107 race weekends on 6 continents. Already has fan sites (roxlyfe, hyranking, roxradar, rundida), so we must beat them on tools and data.
+- Wow piece: race-day simulator. Enter run and station times to get a predicted finish, a percentile for your age group, a pacing plan per station and a printable race card.
+- Traffic engine: one real data page per race weekend (dates, venue, divisions, weights, travel, past-results stats); "HYROX <city>" searches.
+- Also: division weights/standards tables, training plans (also sold as Etsy/Gumroad printables), gear.
+- Domain must not contain the HYROX trademark.
 - Rule agreed 20 Nov: launch new sites without waiting for AdSense; ads go on all sites once one is approved.
