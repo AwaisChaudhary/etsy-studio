@@ -72,3 +72,5 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 
 ## KDP — agreed 20 Nov 03:48
 - Awais said go. Needs from him: KDP account + tax interview + bank/Payoneer. Claude designs books; AI disclosure honest on every title.
+- 20 Nov 04:20: LoveCrafts affiliate applied (pending). Awin publisher account ZAWN Tech ID 3161628 created, under review (publisher pages not accessible yet) -> when approved: join Padel Market (+ other padel advertisers), swap AFF URLs. Amazon Associates: form filled (store ID purlandpaper, 4 sites) — Awais must tick Operating Agreement + Finish; then put tag into NeonCoast/DayOneDrop AFF URLs (&tag=<id>).
+- KDP books 1 (Race Ready) and 2 (Knit & Crochet Project Journal) built: /home/claude/kdp/*, generators etsy-studio/tools/book_*.py, listing drafts etsy-studio/kdp/LISTINGS.md. Waiting on Awais's KDP account.
