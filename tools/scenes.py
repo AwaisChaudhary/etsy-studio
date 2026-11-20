@@ -13,7 +13,7 @@ gumroad-cover.png (1280x720), gumroad-thumb.png (600x600)
 import base64, glob, html, pathlib, random, sys
 from playwright.sync_api import sync_playwright
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from products import P
+from products import P, EXTRA_T
 from xlview import xl_html, XL_CSS
 from openpyxl import load_workbook
 
@@ -69,6 +69,8 @@ T = {
    sub="Know what yarn you have and if it's enough for the next project", seal="EXCEL • GOOGLE SHEETS • ",
    note="Enough for the cardigan? Yes!", chips=["Stash list", "Yards by weight", "Project check", "Wishlist"]),
 }
+
+T.update(EXTRA_T)
 
 CSS = """
 *{margin:0;padding:0;box-sizing:border-box}

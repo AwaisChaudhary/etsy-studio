@@ -126,6 +126,36 @@
   "status": "queued"
  },
  {
+  "image": "pins/batch3/christmas-party-games-bundle-pin-a.jpg",
+  "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
+  "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
+  "link": null,
+  "link_from": "batch3/listings.json:christmas-party-games-bundle:etsy_url",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "waiting for Etsy listing"
+ },
+ {
+  "image": "pins/batch3/kids-christmas-activity-pack-pin-a.jpg",
+  "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
+  "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
+  "link": null,
+  "link_from": "batch3/listings.json:kids-christmas-activity-pack:etsy_url",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "waiting for Etsy listing"
+ },
+ {
+  "image": "pins/batch3/winter-woodland-wall-art-set-pin-a.jpg",
+  "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
+  "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
+  "link": null,
+  "link_from": "batch3/listings.json:winter-woodland-wall-art-set:etsy_url",
+  "board": "Printable Wall Art (create board; until then Christmas Printables)",
+  "topic": "Home Decor",
+  "status": "waiting for Etsy listing"
+ },
+ {
   "image": "pins/batch1/home-baker-cost-pricing-calculator-pin-b.jpg",
   "title": "How to Price Cakes | Recipe Cost Calculator Spreadsheet",
   "description": "A recipe cost calculator for home bakers: enter ingredient prices once and see the cost and suggested price of every recipe. Instant download. #cakebusiness #bakerytips #recipecosting",
@@ -241,5 +271,35 @@
   "board": "Junk Journal Printables",
   "topic": "Christmas",
   "status": "queued"
+ },
+ {
+  "image": "pins/batch3/christmas-party-games-bundle-pin-b.jpg",
+  "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
+  "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
+  "link": null,
+  "link_from": "batch3/listings.json:christmas-party-games-bundle:gumroad_url (planned slug christmas-party-games)",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "waiting for Gumroad listing"
+ },
+ {
+  "image": "pins/batch3/kids-christmas-activity-pack-pin-b.jpg",
+  "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
+  "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
+  "link": null,
+  "link_from": "batch3/listings.json:kids-christmas-activity-pack:gumroad_url (planned slug kids-christmas-activity-pack)",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "waiting for Gumroad listing"
+ },
+ {
+  "image": "pins/batch3/winter-woodland-wall-art-set-pin-b.jpg",
+  "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
+  "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
+  "link": null,
+  "link_from": "batch3/listings.json:winter-woodland-wall-art-set:gumroad_url (planned slug winter-woodland-wall-art)",
+  "board": "Printable Wall Art (create board; until then Christmas Printables)",
+  "topic": "Home Decor",
+  "status": "waiting for Gumroad listing"
  }
 ]

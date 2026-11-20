@@ -26,7 +26,9 @@
   ],
   "etsy": "https://www.etsy.com/listing/4621713425/christmas-gift-planner-spreadsheet",
   "gumroad": "https://karamat4.gumroad.com/l/christmas-gift-planner",
-  "listed": true
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4621713425/christmas-gift-planner-spreadsheet",
+  "gumroad_url": "https://karamat4.gumroad.com/l/christmas-gift-planner"
  },
  {
   "slug": "2027-monthly-budget-planner",
@@ -55,7 +57,9 @@
   ],
   "etsy": "https://www.etsy.com/listing/4621714773/2027-budget-planner-spreadsheet-monthly",
   "gumroad": "https://karamat4.gumroad.com/l/2027-budget-planner",
-  "listed": true
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4621714773/2027-budget-planner-spreadsheet-monthly",
+  "gumroad_url": "https://karamat4.gumroad.com/l/2027-budget-planner"
  },
  {
   "slug": "christmas-gift-tags",
@@ -85,6 +89,8 @@
   ],
   "etsy": "https://www.etsy.com/listing/4621715645/printable-christmas-gift-tags-holiday",
   "gumroad": "https://karamat4.gumroad.com/l/christmas-gift-tags",
-  "listed": true
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4621715645/printable-christmas-gift-tags-holiday",
+  "gumroad_url": "https://karamat4.gumroad.com/l/christmas-gift-tags"
  }
 ]

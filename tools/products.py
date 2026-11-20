@@ -116,3 +116,10 @@ P = [
   bullets=["The Tea Room kit (16 pages)", "Night Garden kit (16 pages)", "Vintage Ephemera Pack (7 pages)", "24 Journaling Cards (6 pages)", "45 pages in US Letter and A4", "Save over 30% versus buying separately"],
   inside=["Tea Room", "Night Garden", "Ephemera Pack", "Journaling Cards"], pages=[]),
 ]
+
+# Later batches: PRODUCTS=products_b3 python3 tools/scenes.py ... swaps in that batch's P (and its T scene entries via EXTRA_T).
+import os as _os, importlib as _il
+EXTRA_T = {}
+if _os.environ.get("PRODUCTS"):
+    _m = _il.import_module(_os.environ["PRODUCTS"])
+    P = _m.P; EXTRA_T = getattr(_m, "T", {})
