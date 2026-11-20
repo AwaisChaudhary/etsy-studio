@@ -146,6 +146,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <meta name="p:domain_verify" content="745e513870bb39b37db2c4334a6fa032">
 {ga}
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msvalidate.01" content="215145BE38DEE30C2985F40FB4D4041F">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
