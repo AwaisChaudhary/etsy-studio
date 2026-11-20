@@ -77,3 +77,4 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - 20 Nov 04:40: Amazon Associates COMPLETE (tag purlandpaper-20, tax done, Payoneer bank added, earning globally). Live on NeonCoast + DayOneDrop.
 - Hyrox site built locally: /home/claude/hyrox-site (brand "Split Lab"; simulator, race calendar 70 races, weights, stations, 12-week plan, Amazon gear links). Not deployed: needs domain (splitlab.com taken) + Cloudflare Pages project + GA4 + Kit form.
 - KDP postponed to 21 Nov at Awais's request.
+- 20 Nov 05:05: KDP account set up; identity verification was in progress; payment = Pakistan bank *****704 for all marketplaces (Payoneer rejected by KDP's PSP rule). KDP verifies bank up to 3 days. Some marketplaces pay by wire with minimum thresholds.
