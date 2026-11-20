@@ -78,3 +78,14 @@ Still a candidate: 2027 total eclipse guide (2 Aug 2027).
 - Hyrox site built locally: /home/claude/hyrox-site (brand "Split Lab"; simulator, race calendar 70 races, weights, stations, 12-week plan, Amazon gear links). Not deployed: needs domain (splitlab.com taken) + Cloudflare Pages project + GA4 + Kit form.
 - KDP postponed to 21 Nov at Awais's request.
 - 20 Nov 05:05: KDP account set up; identity verification was in progress; payment = Pakistan bank *****704 for all marketplaces (Payoneer rejected by KDP's PSP rule). KDP verifies bank up to 3 days. Some marketplaces pay by wire with minimum thresholds.
+
+## 20 Nov 16:00-17:15: TRAFFIC PUSH (Awais: "I need traffic, that's all I want")
+Data (GA4 13-19 Nov): NeonCoast 95 users (16 Google), DayOneDrop 76, Padel ~60, Purl 20; most "direct" visits are data-centre bots (Ashburn/Boardman/Council Bluffs). GSC 16-18 Nov: NeonCoast 398 impressions, pos 8.9, ~50% "GTA 6 voice actors / who plays Jason and Lucia".
+Done:
+- Bing Webmaster Tools: neoncoast.org, getdayonedrop.com, padelglassbox.com, purlandpaperco.com added + verified (meta msvalidate.01 215145BE38DEE30C2985F40FB4D4041F in every build.py; never remove), sitemaps submitted, all URLs submitted (Bing quota 100/day/site). Bing also feeds ChatGPT search, Copilot, DuckDuckGo.
+- Google: sitemaps resubmitted; indexing requested for new NeonCoast pages (GSC quota ~10/day/property; hit for neoncoast 20 Nov).
+- NeonCoast: /characters rebuilt with launch credits (Dylan Rourke = Jason, 24 roles), homepage made post-launch (was still countdown), stale pre-launch wording fixed. SEO task now 4x daily + mandatory staleness sweep each run.
+- DayOneDrop: month pages /months/<month>-2027 (6), 6 new game guides (Until Dawn 2, Metroid Ravenous, Forza Horizon 6 PS5, Witchbrook, Metro 2039, Wo Long 2). Sitemap 16 -> 30 URLs. SEO task fixed (fresh fetch/reset + verify push).
+- Purl & Paper: blanket calculator deployed (site deploys only via zip upload; batch task does it nightly).
+DAILY TRAFFIC LOOP (main session, at each morning check-in): read GSC queries per site (rows=100) -> find high-impression/low-CTR or stale pages -> fix -> push -> GSC request indexing (top 5-10) + Bing URL submit -> note in this file.
+Next levers: more DayOneDrop game pages as facts appear (Kingdom Hearts IV, Pokemon Winds and Waves, 007 First Light Switch 2, Squadron 42, Stranger Than Heaven); Pinterest for Purl (needs "Require this computer"); Reddit posts are Awais's to make (drafts can be prepared).
