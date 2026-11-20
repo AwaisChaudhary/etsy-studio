@@ -1,4 +1,4 @@
-# Batch 3 — 20 Nov 2026 (built, NOT yet listed)
+# Batch 3 — 20 Nov 2026 (LIVE on Etsy + Gumroad, listed 21:20 PKT)
 
 Status: built and checked in the cloud run at 18:54 PKT. Chrome on Awais's computer was not reachable (scheduled task does not
 have "Require this computer" on), so nothing was listed, pinned or deployed this run. Next run with Chrome: list these 3 first.
@@ -31,3 +31,10 @@ Listing notes
 - After listing: set listed/etsy_url/gumroad_url in batch3/listings.json, fill `link` on the 6 batch-3 pins in pins/queue.json.
 
 Double-down check: not possible this run (Etsy Stats / Gumroad need Chrome). batch1/batch2 listings.json now carry their live Etsy/Gumroad URLs (backfilled from the pin queue).
+
+## Listed 20 Nov, 21:20 PKT (evening follow-up from Awais's Chrome)
+- Etsy: party games 4621829841, kids pack 4621831051, wall art 4621832807. New shop sections: "Christmas Printables", "Wall Art".
+- Gumroad: /l/christmas-party-games, /l/kids-christmas-activity-pack, /l/winter-woodland-wall-art (wall-art ZIPs in 2 named folders).
+- Wall-art copy corrected: files are 300 dpi at 16x24 in / A2 (200 dpi at 24x36 / A1); tools/b3_zip.py added for the ZIP step.
+- Pinterest: new board "Christmas Printables"; pin-a x3 scheduled 21 Nov 12:00, 14:00, 17:00.
+- To do: move the Christmas gift tags listing into the "Christmas Printables" Etsy section.
