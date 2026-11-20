@@ -33,7 +33,7 @@ td { border-bottom: .8pt solid #ccc; padding: 2pt 5pt; height: .3in; font-size: 
 .cb { display:inline-flex; align-items:center; gap:4pt; margin-right: 10pt; font-size: 8pt; }
 .cb i { width: 9pt; height: 9pt; border: 1.1pt solid #1a1a1a; border-radius: 2pt; }
 .counter { display:grid; grid-template-columns: repeat(20, 1fr); gap: 3pt; }
-.counter span { aspect-ratio: 1; border: .8pt solid #999; border-radius: 50%; font-size: 5.5pt; display:flex; align-items:center; justify-content:center; color:#888; }
+.counter span { aspect-ratio: 1; border: .8pt solid #999; border-radius: 0; font-size: 5.5pt; display:flex; align-items:center; justify-content:center; color:#888; }
 .pn { position:absolute; bottom: .32in; font-size: 7pt; color: #888; }
 .swatch { width: 2.2in; height: 2.2in; border: 1pt dashed #555; border-radius: 4pt; }
 """
