@@ -688,5 +688,105 @@
    "range": "108 × 90 to 108 × 100 in",
    "use": "King bed with drop over the sides"
   }
+ ],
+ "gifts": [
+  {
+   "id": "dishcloth",
+   "name": "Dishcloth or washcloth",
+   "knit": 2,
+   "crochet": 1.5,
+   "src": "est"
+  },
+  {
+   "id": "ornament",
+   "name": "Christmas ornament",
+   "knit": 1.5,
+   "crochet": 1,
+   "src": "est"
+  },
+  {
+   "id": "headband",
+   "name": "Headband or ear warmer",
+   "knit": 3,
+   "crochet": 2.5,
+   "src": "est"
+  },
+  {
+   "id": "cowl",
+   "name": "Cowl",
+   "knit": 6,
+   "crochet": 5,
+   "src": "est"
+  },
+  {
+   "id": "hat",
+   "name": "Hat or beanie",
+   "knit": 9,
+   "crochet": 9.5,
+   "src": "lc"
+  },
+  {
+   "id": "mittens",
+   "name": "Mittens (pair)",
+   "knit": 10,
+   "crochet": 8,
+   "src": "est"
+  },
+  {
+   "id": "toy",
+   "name": "Small toy or amigurumi",
+   "knit": 8,
+   "crochet": 6,
+   "src": "est"
+  },
+  {
+   "id": "cushion",
+   "name": "Cushion cover",
+   "knit": 14,
+   "crochet": 11,
+   "src": "lc-c"
+  },
+  {
+   "id": "scarf",
+   "name": "Scarf",
+   "knit": 15,
+   "crochet": 12,
+   "src": "lc"
+  },
+  {
+   "id": "shawl",
+   "name": "Shawl or wrap",
+   "knit": 20,
+   "crochet": 15,
+   "src": "est"
+  },
+  {
+   "id": "socks",
+   "name": "Socks (pair)",
+   "knit": 22,
+   "crochet": 16,
+   "src": "lc-k"
+  },
+  {
+   "id": "baby",
+   "name": "Baby blanket",
+   "knit": 25,
+   "crochet": 13,
+   "src": "est"
+  },
+  {
+   "id": "throw",
+   "name": "Throw blanket",
+   "knit": 50,
+   "crochet": 25,
+   "src": "lc"
+  },
+  {
+   "id": "sweater",
+   "name": "Adult sweater",
+   "knit": 65,
+   "crochet": 22,
+   "src": "lc"
+  }
  ]
 }

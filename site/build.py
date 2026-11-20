@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -58,6 +58,8 @@ SHOP = {
  "2027-crochet-knitting-planner": ("2027 crochet and knitting planner", "7.99", "4620606347/2027-crochet-planner-printable-knitting", "2027-crochet-knitting-planner"),
  "yarn-stash-tracker": ("Yarn stash tracker spreadsheet", "5.99", "4620611752/yarn-stash-tracker-spreadsheet-yarn", "yarn-stash-tracker"),
  "crochet-knitting-pricing-calculator": ("Crochet pricing calculator", "9.99", "4620610040/crochet-pricing-calculator-knitting", "crochet-pricing-calculator"),
+ "christmas-gift-planner-budget": ("Christmas gift planner and budget", "6.99", "4621713425/christmas-gift-planner-spreadsheet", "christmas-gift-planner"),
+ "christmas-gift-tags": ("Printable Christmas gift tags", "3.99", "4621715645/printable-christmas-gift-tags-holiday", "christmas-gift-tags"),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
 JJ = ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
@@ -65,7 +67,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "row-counter.html": KNIT, "yarn-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
             "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
-            "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"]}
+            "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
+            "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
 def shop_box(file):
@@ -182,7 +185,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <p class="legal">{e(SITE)} is an independent site. Your counters, projects and saved prompts stay on your own device; nothing is uploaded. Yarn amounts are estimates, so always check your pattern. Last checked {e(UPDATED)}.</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets")}, ensure_ascii=False)};</script>
+<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts")}, ensure_ascii=False)};</script>
 {scripts}<script src="{asset("app.js")}"></script>
 </body>
 </html>
@@ -221,7 +224,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -332,10 +335,16 @@ pj = top("Project tracker", "Every work in progress in one place. Note the yarn,
 <div class="toolbar"><div class="seg" role="group" aria-label="Show projects" id="pj-filter"><button type="button" data-v="" aria-pressed="true">All</button><button type="button" data-v="Planned" aria-pressed="false">Planned</button><button type="button" data-v="In progress" aria-pressed="false">In progress</button><button type="button" data-v="Finished" aria-pressed="false">Finished</button></div>
 <span class="spacer"></span><button type="button" class="btn ghost sm" id="pj-export">Back up my projects</button><label class="btn ghost sm" for="pj-import" style="margin:0">Restore a backup</label><input type="file" id="pj-import" accept="application/json" hidden></div>
 <div class="proj-list" id="pj-list"></div>
-</div></section>'''
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>Getting the most from the tracker</h2>
+<p>Write down anything you changed from the pattern the moment you change it: a different hook for the ribbing, an extra repeat on the sleeves, the colour you swapped in. Six weeks later, when you start the second sock or the matching mitten, that note saves you from guessing.</p>
+<p>Keep the yarn label details too: the brand, colour name and dye lot. If you run short, the dye lot is what lets you find a skein that matches.</p>
+<h2>Making gifts this year?</h2>
+<p>Add each gift as a planned project, then check the timing in our <a href="@@GP@@">handmade gift planner</a>. It adds up the hours for every hat, scarf and blanket on your list and tells you whether they'll be finished by Christmas or another deadline. For how much yarn each one needs, use the <a href="@@YC@@">yarn calculator</a>.</p></div></section>'''.replace("@@GP@@", href("crochet-knitting-gift-planner.html")).replace("@@YC@@", href("yarn-calculator.html"))
 pj_faq = [
     ("Where are my projects saved?", "On this device, in your browser. Nothing is uploaded. Use 'Back up my projects' to download a file you can restore on another phone or computer."),
     ("What does 'frogged' mean?", "Frogging is pulling a project out to reuse the yarn. It comes from 'rip it, rip it', which sounds like a frog."),
+    ("How do I keep track of several knitting projects at once?", "Give each one its own entry with the yarn, needle or hook size and a note of exactly where you stopped, like 'row 14 of the chart, right side next'. Set planned gifts to 'Planned' so you can see what's still to start."),
 ]
 page("projects.html", "Knitting and Crochet Project Tracker (Free) | Purl & Paper",
      "Keep track of every knitting, crochet and journal project: yarn, hook or needle size, progress and notes. Free, private, saved on your device.",
@@ -515,6 +524,58 @@ page("blanket-size-calculator.html", "Blanket Size Chart and Yarn Calculator for
      "Free blanket size chart and calculator: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm, with the yards and skeins for your yarn weight.",
      bk, bk_faq, "Blanket size calculator", app_name="Blanket size calculator")
 
+# ---------------- HANDMADE GIFT PLANNER ----------------
+SRC = {"lc": "LoveCrafts", "lc-k": "LoveCrafts (knit); our estimate (crochet)", "lc-c": "LoveCrafts (crochet); our estimate (knit)", "est": "Our estimate"}
+gp_opts = "".join(f'<option value="{g["id"]}"{" selected" if g["id"] == "hat" else ""}>{e(g["name"])}</option>' for g in D["gifts"])
+gp_rows = "".join(f'<tr><td><strong>{e(g["name"])}</strong></td><td>{g["knit"]:g} h</td><td>{g["crochet"]:g} h</td><td class="muted">{e(SRC[g["src"]])}</td></tr>' for g in D["gifts"])
+gp = top("Handmade gift planner", "List the hats, scarves and blankets you want to give, tell us how many hours a week you can craft, and see if they'll all be ready by Christmas, or which ones to swap for something quicker.", "Handmade gift planner") + f'''
+<section style="padding-top:10px"><div class="wrap tool">
+<div class="sheet">
+<h3 style="margin-top:0">Your time</h3>
+<div class="row2"><div class="field"><label for="gp-due">Finish by</label><input type="date" id="gp-due"></div>
+<div class="field"><label for="gp-hrs">Hours I can craft a week</label><input type="number" id="gp-hrs" value="7" min="0.5" max="100" step="0.5" inputmode="decimal"></div></div>
+<div class="field"><span class="label" id="gp-speed-l">How fast are you?</span><div class="seg" role="group" aria-labelledby="gp-speed-l" id="gp-speed"><button type="button" data-v="1.25" aria-pressed="false">Still learning</button><button type="button" data-v="1" aria-pressed="true">Comfortable</button><button type="button" data-v="0.8" aria-pressed="false">Speedy</button></div></div>
+<h3>Add a gift</h3>
+<form id="gp-form">
+<div class="row2"><div class="field"><label for="gp-who">Who is it for?</label><input type="text" id="gp-who" placeholder="Mum" maxlength="40"></div>
+<div class="field"><label for="gp-proj">What are you making?</label><select id="gp-proj">{gp_opts}</select></div></div>
+<div class="field"><span class="label" id="gp-craft-l">Knitting or crochet?</span><div class="seg" role="group" aria-labelledby="gp-craft-l" id="gp-craft"><button type="button" data-v="knit" aria-pressed="true">Knitting</button><button type="button" data-v="crochet" aria-pressed="false">Crochet</button></div></div>
+<div class="row2"><div class="field"><label for="gp-yarn">Yarn thickness</label><select id="gp-yarn"><option value="1.3">Fine (fingering to DK)</option><option value="1" selected>Medium (worsted, aran)</option><option value="0.65">Chunky or bulky</option></select></div>
+<div class="field"><label for="gp-h">Hours to make it</label><input type="number" id="gp-h" min="0.5" max="300" step="0.5" inputmode="decimal"></div></div>
+<p class="note" id="gp-hint" style="margin:-4px 0 14px"></p>
+<button type="submit" class="btn gold">Add to my list</button>
+</form>
+<h3 style="margin-top:26px">My gift list</h3>
+<ol class="gp-list" id="gp-list"></ol>
+<div class="toolbar" style="margin-top:14px"><button type="button" class="btn ghost sm" id="gp-print">Print my list</button><button type="button" class="btn ghost sm" id="gp-clear">Clear the list</button></div>
+</div>
+<div class="result" aria-live="polite" id="gp-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How long does it take to knit or crochet a gift?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Gift</th><th scope="col">Knitting</th><th scope="col">Crochet</th><th scope="col">Where the number comes from</th></tr></thead><tbody>{gp_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Hours for a comfortable, not brand-new, maker in medium (worsted) yarn. Hat, scarf, socks, blanket and sweater times follow the middle skill level in LoveCrafts' knitting and crochet time guides; the rest are our own rough estimates for simple patterns. Everyone's pace is different, so treat every number as a starting point and change the hours to suit you.</p>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How the planner works</h2>
+<p>It takes your hours per week and the days left until your finish date to work out how much crafting time you really have. Then it lines your gifts up in the order you listed them, like beads on a strand, and shows roughly when each one will be done. Anything that runs past the deadline turns red.</p>
+<p>Fine yarn makes small stitches, so it takes longer to cover the same area; chunky yarn works up much faster. The planner allows about 30 percent more time for fine yarn and about a third less for chunky. If you've timed yourself on a similar project, type your own hours instead.</p>
+<div class="callout"><strong>Time yourself once.</strong> Work for 30 minutes on your swatch or the first rows of the gift and count how much you finished. Multiply out to the whole piece and you'll have a far better number than any chart.</div>
+<h2>Making it all fit</h2>
+<ul><li><strong>Start the biggest gift first.</strong> Put blankets and sweaters at the top of the list so the small things fill the last weeks.</li>
+<li><strong>Swap the yarn, not the gift.</strong> A hat in chunky yarn can take half the time of one in DK.</li>
+<li><strong>Keep a few quick makes in reserve.</strong> Dishcloths, ornaments and headbands take an evening or two.</li>
+<li><strong>Give an IOU.</strong> A wrapped skein with a note saying what it will become is a lovely gift too.</li></ul>
+<p>Once you know what you're making, check how much yarn to buy with the <a href="{href("yarn-calculator.html")}">yarn calculator</a> or, for blankets, the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>. Keep notes on each gift in the <a href="{href("projects.html")}">project tracker</a>, and count rows with the <a href="{href("row-counter.html")}">row counter</a>.</p></div></section>'''
+gp_faq = [
+    ("How long does it take to knit a hat?", "Roughly 7 to 11 hours for a simple adult hat in worsted yarn, depending on experience. A chunky hat can be done in an evening or two."),
+    ("How long does it take to crochet a blanket?", "A throw often takes 20 to 30 hours of crochet, and a knitted one about twice as long. Bigger blankets, fine yarn and fancy stitches take longer."),
+    ("What can I knit or crochet in one evening?", "A dishcloth, an ornament, a headband or a chunky cowl are all realistic in one to three hours for most makers."),
+    ("Is it too late to make Christmas gifts?", "Usually not. Even one hour a day gives you over 30 hours in five weeks, enough for a couple of hats and a scarf. Put your numbers into the planner to see what fits."),
+    ("Where is my gift list saved?", "On this device, in your browser. Nothing is uploaded. Use 'Print my list' to keep a paper copy."),
+]
+page("crochet-knitting-gift-planner.html", "Christmas Knitting and Crochet Gift Planner: Will It Be Ready in Time? | Purl & Paper",
+     "Free handmade gift planner for knitters and crocheters. List your gifts, add your crafting hours per week and see if they'll be finished by Christmas, plus how long hats, scarves and blankets take.",
+     gp, gp_faq, "Handmade gift planner", app_name="Handmade gift planner")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -536,9 +597,11 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
+LASTMOD = {"blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-20"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    "".join(f"<url><loc>{canon(p)}</loc><lastmod>2026-11-19</lastmod></url>\n" for p in pages) + "</urlset>\n")
+    "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /go/\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 (ROOT / "ads.txt").write_text("google.com, pub-1558743317014653, DIRECT, f08c47fec0942fa0\n")
 print("built", len(pages) + 1, "pages", "(preview)" if PREVIEW else "")

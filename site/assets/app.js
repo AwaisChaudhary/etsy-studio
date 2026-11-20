@@ -361,4 +361,92 @@
       } else hit.textContent = "No exact match. Try a millimetre size like 4.5 or 5 mm.";
     });
   }
+
+  /* ---------- HANDMADE GIFT PLANNER ---------- */
+  if ($("#gp-form") && $("#gp-out") && P.gifts) {
+    var GKEY = "pp-gifts", gifts = P.gifts, gpCols = ["#b8326a", "#f4a823", "#2f8f8a", "#efe6d6", "#8a5a44", "#9aa4b8"];
+    var gById = function (id) { return gifts.filter(function (g) { return g.id === id; })[0]; };
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var defDue = function () { var d = new Date(today.getFullYear(), 11, 24); if (d < today) d = new Date(today.getFullYear() + 1, 11, 24); return d; };
+    var iso = function (d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); };
+    var nice = function (d) { return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }); };
+    var half = function (n) { return Math.max(0.5, Math.round(n * 2) / 2); };
+    var GS = store.get(GKEY, null);
+    if (!GS || !GS.list) GS = { due: iso(defDue()), hrs: 7, speed: "1", next: 4, list: [
+      { id: 1, who: "Mum", proj: "hat", craft: "knit", h: 9, done: false },
+      { id: 2, who: "Sam", proj: "scarf", craft: "crochet", h: 12, done: false },
+      { id: 3, who: "Neighbour", proj: "dishcloth", craft: "crochet", h: 1.5, done: false }] };
+    var gDue = $("#gp-due"), gHrs = $("#gp-hrs"), gWho = $("#gp-who"), gProj = $("#gp-proj"), gYarn = $("#gp-yarn"), gH = $("#gp-h"), gList = $("#gp-list"), gOut = $("#gp-out");
+    gDue.value = GS.due || iso(defDue()); gHrs.value = GS.hrs || 7;
+    $$("#gp-speed button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === String(GS.speed || "1")); });
+    var gSave = function () { store.set(GKEY, GS); };
+    function suggest() {
+      var g = gById(gProj.value); if (!g) return;
+      var craft = segVal($("#gp-craft")) || "knit", base = g[craft] * parseFloat(gYarn.value || 1);
+      gH.value = half(base);
+      $("#gp-hint").textContent = "Typical: about " + half(base) + " hours to " + (craft === "knit" ? "knit" : "crochet") + " in this yarn at a comfortable pace. Change it if you know your own speed.";
+    }
+    function gpRender() {
+      var speed = parseFloat(segVal($("#gp-speed")) || 1), hrs = Math.max(0, parseFloat(gHrs.value) || 0);
+      var due = gDue.value ? new Date(gDue.value + "T00:00:00") : defDue();
+      var days = Math.max(0, Math.round((due - today) / 86400000)), avail = days / 7 * hrs, perDay = hrs / 7;
+      var todo = GS.list.filter(function (x) { return !x.done; }), need = 0;
+      var sched = todo.map(function (x) { var h = x.h * speed; need += h; return { x: x, h: h, end: need }; });
+      gList.innerHTML = GS.list.length ? GS.list.map(function (x, i) {
+        var g = gById(x.proj) || { name: x.proj };
+        return '<li class="gp-item' + (x.done ? " done" : "") + '" data-id="' + x.id + '"><i class="gp-dot" style="--c:' + gpCols[i % gpCols.length] + '" aria-hidden="true"></i>' +
+          '<div class="gp-what"><strong>' + esc(x.who || "Someone") + "</strong><span>" + esc(g.name) + " · " + (x.craft === "crochet" ? "crochet" : "knit") + " · " + x.h + " h</span></div>" +
+          '<label class="gp-done"><input type="checkbox" data-act="done"' + (x.done ? " checked" : "") + "> Done</label>" +
+          (i ? '<button type="button" class="gp-mini" data-act="up" aria-label="Make this one sooner">↑</button>' : '<span class="gp-mini-sp"></span>') +
+          '<button type="button" class="gp-mini" data-act="del" aria-label="Remove this gift">✕</button></li>';
+      }).join("") : '<li class="note">No gifts yet. Add the first one above.</li>';
+      var over = need - avail, scale = Math.max(avail, need, 1), cum = 0;
+      var segs = sched.map(function (s) {
+        var i = GS.list.indexOf(s.x), w = s.h / scale * 100, late = s.end > avail + 0.01; cum += s.h;
+        return '<i class="gp-seg' + (late ? " late" : "") + '" style="width:' + w.toFixed(2) + "%;--c:" + gpCols[i % gpCols.length] + '" title="' + esc(s.x.who) + '"></i>';
+      }).join("");
+      var mark = Math.min(100, avail / scale * 100);
+      var rows = sched.map(function (s) {
+        var d = perDay > 0 ? new Date(today.getTime() + Math.ceil(s.end / perDay) * 86400000) : null, late = s.end > avail + 0.01, g = gById(s.x.proj) || { name: s.x.proj };
+        return "<li" + (late ? ' class="late"' : "") + "><span>" + esc(s.x.who || "Someone") + ": " + esc(g.name.toLowerCase()) + "</span><b>" + (d ? (late ? "after the deadline" : "around " + nice(d)) : "–") + "</b></li>";
+      }).join("");
+      var verdict;
+      if (!todo.length) verdict = '<p class="gp-ok">' + (GS.list.length ? "Everything on your list is done. Time to wrap!" : "Add a gift to see if it fits.") + "</p>";
+      else if (over <= 0) verdict = '<p class="gp-ok">On track, with about <strong>' + fmt(-over) + " hours</strong> to spare.</p>";
+      else {
+        var lateOnes = sched.filter(function (s) { return s.end > avail + 0.01; }).length, big = sched.slice().sort(function (a, b) { return b.h - a.h; })[0];
+        verdict = '<p class="gp-short">About <strong>' + fmt(over) + " hours short</strong>. " + lateOnes + " gift" + (lateOnes > 1 ? "s" : "") + " won't be ready in time.</p>" +
+          '<p class="sub">Ideas: ' + (big.h >= 5 ? "make " + (big.x.who && big.x.who !== "Someone" ? esc(big.x.who) + "'s " : "the ") + esc((gById(big.x.proj) || { name: "" }).name.toLowerCase()) + " in chunky yarn (saves about " + fmt(big.h * 0.35) + " hours), " : "") +
+          "find " + fmt(over / Math.max(days / 7, 0.15)) + " more hours a week, or swap something big for a quick hat or cowl.</p>";
+      }
+      gOut.innerHTML = "<h3>Time until " + esc(nice(due)) + '</h3><div class="big">' + fmt(avail) + "<small> h</small></div>" +
+        '<p class="sub">' + days + " days at " + hrs + " hours a week. Your list needs about " + fmt(need) + " hours" + (speed !== 1 ? " at your pace" : "") + ".</p>" + verdict +
+        (sched.length ? '<div class="gp-strand" role="img" aria-label="Your gifts in order along the time you have; the line marks your deadline">' + segs + '<span class="gp-due" style="left:' + mark.toFixed(2) + '%"></span></div><p class="sub" style="margin-top:6px">Each bead is a gift. The line is your deadline.</p><ul class="gp-dates">' + rows + "</ul>" : "") +
+        '<hr><p class="sub">Times are estimates. Your own pace is the best guide.</p>';
+      GS.due = gDue.value; GS.hrs = gHrs.value; GS.speed = segVal($("#gp-speed")); gSave();
+    }
+    seg($("#gp-craft"), suggest); seg($("#gp-speed"), gpRender);
+    [gProj, gYarn].forEach(function (el) { el.addEventListener("change", suggest); });
+    [gDue, gHrs].forEach(function (el) { el.addEventListener("input", gpRender); el.addEventListener("change", gpRender); });
+    $("#gp-form").addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var h = parseFloat(gH.value); if (!(h > 0)) { suggest(); h = parseFloat(gH.value); }
+      GS.list.push({ id: GS.next++, who: gWho.value.trim().slice(0, 40) || "Someone", proj: gProj.value, craft: segVal($("#gp-craft")) || "knit", h: Math.min(300, h), done: false });
+      gWho.value = ""; gpRender(); toast("Added to your list");
+    });
+    gList.addEventListener("click", function (ev) {
+      var b = ev.target.closest("[data-act]"), li = ev.target.closest("li[data-id]"); if (!b || !li) return;
+      var id = parseInt(li.getAttribute("data-id"), 10), i = -1;
+      GS.list.forEach(function (x, j) { if (x.id === id) i = j; }); if (i < 0) return;
+      var act = b.getAttribute("data-act");
+      if (act === "del") { GS.list.splice(i, 1); toast("Gift removed"); }
+      else if (act === "up" && i > 0) { var t = GS.list[i - 1]; GS.list[i - 1] = GS.list[i]; GS.list[i] = t; }
+      else if (act === "done") GS.list[i].done = b.checked;
+      else return;
+      gpRender();
+    });
+    $("#gp-print").addEventListener("click", function () { window.print(); });
+    $("#gp-clear").addEventListener("click", function () { if (!GS.list.length) return; if (window.confirm("Remove every gift from the list?")) { GS.list = []; gpRender(); } });
+    suggest(); gpRender();
+  }
 })();
