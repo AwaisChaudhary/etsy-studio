@@ -38,3 +38,4 @@ Double-down check: not possible this run (Etsy Stats / Gumroad need Chrome). bat
 - Wall-art copy corrected: files are 300 dpi at 16x24 in / A2 (200 dpi at 24x36 / A1); tools/b3_zip.py added for the ZIP step.
 - Pinterest: new board "Christmas Printables"; pin-a x3 scheduled 21 Nov 12:00, 14:00, 17:00.
 - To do: move the Christmas gift tags listing into the "Christmas Printables" Etsy section.
+- Site deployed 21:40 PKT (15 pages incl. /crochet-knitting-gift-planner); Bing: gift planner + /projects submitted; site pin scheduled 21 Nov 20:00.
