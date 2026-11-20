@@ -162,7 +162,7 @@ pages.append(hd("Wall balls: break them up", "100 reps") +
              '<tr><td>C</td><td>15, 15, 15, 15, 15, 15, 10</td><td>4 to 6 breaths</td><td>First race, newer to squats</td></tr>'
              '<tr><td>D</td><td>10 x 10</td><td>3 to 5 breaths</td><td>Keeping no-reps low when very tired</td></tr></table>'
              '<h3>How to rest</h3><p>Hold the ball at your chest or set it down right in front of you. Count your breaths, not seconds. Start the next set before you feel ready.</p>'
-             '<h3>My plan</h3>' + f('Sets') + f('Rest') + '<h3>Practice log</h3><table><tr><th>Date</th><th>Plan used</th><th>Total time</th><th>No-reps</th></tr>' + "<tr><td></td><td></td><td></td><td></td></tr>" * 12 + '</table><h3>Notes</h3><div class="lines" style="min-height:1.2in"></div>')
+             '<h3>My plan</h3>' + f('Sets') + f('Rest') + '<h3>Practice log</h3><table><tr><th>Date</th><th>Plan used</th><th>Total time</th><th>No-reps</th></tr>' + "<tr><td></td><td></td><td></td><td></td></tr>" * 10 + '</table><h3>Notes</h3><div class="lines" style="min-height:.9in"></div>')
 pages.append(hd("Your first race: pacing plan") +
              '<p>Most first-timers start too fast. The first 1 km run feels easy on fresh legs and the crowd is loud, so it is easy to run 30 seconds too quick and pay for it at the sled.</p>'
              '<table><tr><th>Part</th><th>Aim</th><th>Effort (RPE)</th></tr>'
