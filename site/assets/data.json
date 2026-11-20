@@ -1,56 +1,692 @@
 {
-  "updated": "19 November 2026",
-  "weights": [
-    {"n": 0, "name": "Lace", "also": "Fingering 10-count thread, cobweb", "uk": "1–2 ply", "knit": "33–40", "needle": "1.5–2.25 mm (US 000–1)", "croc": "32–42 dc", "hook": "Steel 1.4–1.6 mm, or 2.25 mm (B-1)", "use": "Shawls, doilies, airy wraps", "m": 1.9},
-    {"n": 1, "name": "Super Fine", "also": "Sock, fingering, baby", "uk": "3–4 ply", "knit": "27–32", "needle": "2.25–3.25 mm (US 1–3)", "croc": "21–32 sc", "hook": "2.25–3.5 mm (B-1 to E-4)", "use": "Socks, baby clothes, light shawls", "m": 1.6},
-    {"n": 2, "name": "Fine", "also": "Sport, baby", "uk": "5 ply", "knit": "23–26", "needle": "3.25–3.75 mm (US 3–5)", "croc": "16–20 sc", "hook": "3.5–4.5 mm (E-4 to 7)", "use": "Baby blankets, light sweaters", "m": 1.35},
-    {"n": 3, "name": "Light", "also": "DK, light worsted", "uk": "DK / 8 ply", "knit": "21–24", "needle": "3.75–4.5 mm (US 5–7)", "croc": "12–17 sc", "hook": "4.5–5.5 mm (7 to I-9)", "use": "Sweaters, hats, everyday garments", "m": 1.18},
-    {"n": 4, "name": "Medium", "also": "Worsted, afghan, aran", "uk": "Aran / 10 ply", "knit": "16–20", "needle": "4.5–5.5 mm (US 7–9)", "croc": "11–14 sc", "hook": "5.5–6.5 mm (I-9 to K-10½)", "use": "Blankets, hats, scarves, most beginner patterns", "m": 1.0},
-    {"n": 5, "name": "Bulky", "also": "Chunky, craft, rug", "uk": "Chunky / 12 ply", "knit": "12–15", "needle": "5.5–8 mm (US 9–11)", "croc": "8–11 sc", "hook": "6.5–9 mm (K-10½ to M-13)", "use": "Cosy hats, cowls, quick blankets", "m": 0.72},
-    {"n": 6, "name": "Super Bulky", "also": "Super chunky, roving", "uk": "Super chunky / 14 ply", "knit": "7–11", "needle": "8–12.75 mm (US 11–17)", "croc": "7–9 sc", "hook": "9–15 mm (M-13 to Q)", "use": "Chunky throws, fast scarves", "m": 0.52},
-    {"n": 7, "name": "Jumbo", "also": "Jumbo, roving", "uk": "—", "knit": "6 and fewer", "needle": "12.75 mm and larger (US 17+)", "croc": "6 sc and fewer", "hook": "15 mm and larger (Q+)", "use": "Arm knitting, giant blankets", "m": 0.38}
-  ],
-  "sizes": [
-    ["2 mm", "0", "14", "—"], ["2.25 mm", "1", "13", "B-1"], ["2.5 mm", "1½", "—", "—"], ["2.75 mm", "2", "12", "C-2"],
-    ["3 mm", "2½", "11", "—"], ["3.25 mm", "3", "10", "D-3"], ["3.5 mm", "4", "—", "E-4"], ["3.75 mm", "5", "9", "F-5"],
-    ["4 mm", "6", "8", "G-6"], ["4.5 mm", "7", "7", "7"], ["5 mm", "8", "6", "H-8"], ["5.5 mm", "9", "5", "I-9"],
-    ["6 mm", "10", "4", "J-10"], ["6.5 mm", "10½", "3", "K-10½"], ["7 mm", "—", "2", "—"], ["7.5 mm", "—", "1", "—"],
-    ["8 mm", "11", "0", "L-11"], ["9 mm", "13", "00", "M/N-13"], ["10 mm", "15", "000", "N/P-15"], ["12.75 mm", "17", "—", "—"],
-    ["15 mm", "19", "—", "P/Q"], ["16 mm", "—", "—", "Q"], ["19 mm", "35", "—", "S"], ["25 mm", "50", "—", "—"]
-  ],
-  "terms": [
-    ["Chain", "ch", "Chain", "ch", "Same in both"],
-    ["Slip stitch", "sl st", "Slip stitch", "ss", "Same stitch, different abbreviation"],
-    ["Single crochet", "sc", "Double crochet", "dc", "The big one: a UK 'dc' is a US 'sc'"],
-    ["Half double crochet", "hdc", "Half treble crochet", "htr", ""],
-    ["Double crochet", "dc", "Treble crochet", "tr", ""],
-    ["Treble crochet", "tr", "Double treble crochet", "dtr", ""],
-    ["Double treble crochet", "dtr", "Triple treble crochet", "trtr", ""],
-    ["Skip", "sk", "Miss", "—", ""],
-    ["Gauge", "", "Tension", "", ""],
-    ["Yarn over", "yo", "Yarn over hook", "yoh", ""],
-    ["Fasten off", "", "Fasten off", "", "Same in both"]
-  ],
-  "projects": [
-    {"id": "hat", "name": "Hat (adult beanie)", "yd": 200, "sizes": null},
-    {"id": "kidhat", "name": "Hat (child)", "yd": 130, "sizes": null},
-    {"id": "scarf", "name": "Scarf (about 180 cm / 6 ft)", "yd": 400, "sizes": null},
-    {"id": "cowl", "name": "Cowl", "yd": 220, "sizes": null},
-    {"id": "mitts", "name": "Mittens (adult pair)", "yd": 200, "sizes": null},
-    {"id": "socks", "name": "Socks (adult pair)", "yd": 260, "sizes": null},
-    {"id": "shawl", "name": "Shawl (medium)", "yd": 450, "sizes": null},
-    {"id": "amig", "name": "Amigurumi (small toy)", "yd": 90, "sizes": null},
-    {"id": "babyb", "name": "Baby blanket (75 × 75 cm / 30 × 30 in)", "yd": 900, "sizes": null},
-    {"id": "throw", "name": "Throw blanket (125 × 150 cm / 50 × 60 in)", "yd": 2000, "sizes": null},
-    {"id": "sweater", "name": "Sweater (adult pullover)", "yd": 1300, "sizes": {"XS": 0.85, "S": 0.92, "M": 1, "L": 1.1, "XL": 1.22, "2XL": 1.35, "3XL": 1.48}},
-    {"id": "cardi", "name": "Cardigan (adult)", "yd": 1450, "sizes": {"XS": 0.85, "S": 0.92, "M": 1, "L": 1.1, "XL": 1.22, "2XL": 1.35, "3XL": 1.48}},
-    {"id": "babysw", "name": "Baby sweater (0–12 months)", "yd": 400, "sizes": null}
-  ],
-  "prompts": {
-    "theme": ["A walk you took this week", "Your grandmother's kitchen", "Things that are blue", "Rainy afternoons", "The best meal you ever ate", "A place you want to go", "Your childhood bedroom", "Letters you never sent", "Seasons changing", "A song on repeat", "Small wins this month", "Things you collect", "Morning rituals", "A forgotten hobby", "The ocean", "Night sky", "Old maps and journeys", "Your favourite book", "Garden and growing things", "A color you don't usually use", "Tea time", "Train tickets and travel", "Something you're learning", "A friend who changed things", "Home", "Late summer", "Winter quiet", "Vintage botanicals", "Lists of five", "Courage"],
-    "ephemera": ["A receipt from this week", "A tea bag, dried and stained", "Postage stamps", "A ticket stub", "Pages from an old dictionary", "Pressed flowers or leaves", "A paper bag cut open", "Sewing pattern tissue", "An envelope with a window", "Coffee filter, dyed", "Library card pocket", "Book page with one circled word", "Fabric scrap", "Lace or ribbon", "A map scrap", "Old sheet music (yours or public domain)", "Washi tape strips", "A luggage tag", "Seed packet", "Cardboard from a cereal box", "Bus or train map", "A fortune cookie slip", "A doily", "Labels from jars", "Brown kraft paper", "A playing card", "Tracing paper", "An old photo (a copy)", "Twine", "A button"],
-    "technique": ["Tea or coffee staining", "Torn edges instead of cut ones", "Make a hidden pocket", "Add a tuck spot for a tag", "Stitch around one element by hand", "Layer three papers, smallest on top", "Use a stamp only in one corner", "Fold a page into a flip-out", "Doodle a border by hand", "Use a stencil with a sponge", "Collage only in a strip down one side", "Leave half the page empty on purpose", "Write sideways along an edge", "Make a mini envelope", "Distress edges with ink", "Glue only the top so it lifts", "Punch a hole and add a tag", "Rub the page with a crayon over texture", "Cut a window to peek through", "Add one bold word cut from a magazine"],
-    "write": ["What made you smile today?", "Describe a smell that takes you back.", "Three things you'd tell yourself a year ago.", "What does a perfect slow day look like?", "Write about a door you walked through.", "What's in your pockets right now?", "A list of small comforts.", "Who would you write a letter to, and why?", "What are you looking forward to?", "Describe your view right now in five words.", "What did you learn the hard way?", "A recipe you know by heart.", "What do you want to remember about this week?", "Write about a hand-me-down.", "Your favourite place to sit.", "What's something you made with your hands?", "A quote you keep coming back to (in your words).", "Something you're grateful for that's tiny.", "What would you put in a time capsule?", "A memory with a sound in it."],
-    "palette": [["#9c4f2e", "#d9a066", "#f2e3c6", "#3e4a3d"], ["#2b3a55", "#ce7b91", "#f2d0a4", "#e8e1d9"], ["#5b7f6b", "#c8d5b9", "#f4ead5", "#8a5a44"], ["#2f2a3a", "#c06c84", "#f6b26b", "#f0e6d6"], ["#1d4e5f", "#7fb7be", "#efd9b4", "#d06c4f"], ["#6b4226", "#b7895c", "#e6d2b5", "#a3b18a"], ["#3a3a3a", "#9a8c98", "#c9ada7", "#f2e9e4"], ["#7a1f2b", "#d8a48f", "#efe2c8", "#40513b"], ["#264653", "#2a9d8f", "#e9c46a", "#f4a261"], ["#4a3f6b", "#a68dd1", "#f1c6d7", "#fbf3e4"]]
+ "updated": "20 November 2026",
+ "weights": [
+  {
+   "n": 0,
+   "name": "Lace",
+   "also": "Fingering 10-count thread, cobweb",
+   "uk": "1–2 ply",
+   "knit": "33–40",
+   "needle": "1.5–2.25 mm (US 000–1)",
+   "croc": "32–42 dc",
+   "hook": "Steel 1.4–1.6 mm, or 2.25 mm (B-1)",
+   "use": "Shawls, doilies, airy wraps",
+   "m": 1.9
+  },
+  {
+   "n": 1,
+   "name": "Super Fine",
+   "also": "Sock, fingering, baby",
+   "uk": "3–4 ply",
+   "knit": "27–32",
+   "needle": "2.25–3.25 mm (US 1–3)",
+   "croc": "21–32 sc",
+   "hook": "2.25–3.5 mm (B-1 to E-4)",
+   "use": "Socks, baby clothes, light shawls",
+   "m": 1.6
+  },
+  {
+   "n": 2,
+   "name": "Fine",
+   "also": "Sport, baby",
+   "uk": "5 ply",
+   "knit": "23–26",
+   "needle": "3.25–3.75 mm (US 3–5)",
+   "croc": "16–20 sc",
+   "hook": "3.5–4.5 mm (E-4 to 7)",
+   "use": "Baby blankets, light sweaters",
+   "m": 1.35
+  },
+  {
+   "n": 3,
+   "name": "Light",
+   "also": "DK, light worsted",
+   "uk": "DK / 8 ply",
+   "knit": "21–24",
+   "needle": "3.75–4.5 mm (US 5–7)",
+   "croc": "12–17 sc",
+   "hook": "4.5–5.5 mm (7 to I-9)",
+   "use": "Sweaters, hats, everyday garments",
+   "m": 1.18
+  },
+  {
+   "n": 4,
+   "name": "Medium",
+   "also": "Worsted, afghan, aran",
+   "uk": "Aran / 10 ply",
+   "knit": "16–20",
+   "needle": "4.5–5.5 mm (US 7–9)",
+   "croc": "11–14 sc",
+   "hook": "5.5–6.5 mm (I-9 to K-10½)",
+   "use": "Blankets, hats, scarves, most beginner patterns",
+   "m": 1.0
+  },
+  {
+   "n": 5,
+   "name": "Bulky",
+   "also": "Chunky, craft, rug",
+   "uk": "Chunky / 12 ply",
+   "knit": "12–15",
+   "needle": "5.5–8 mm (US 9–11)",
+   "croc": "8–11 sc",
+   "hook": "6.5–9 mm (K-10½ to M-13)",
+   "use": "Cosy hats, cowls, quick blankets",
+   "m": 0.72
+  },
+  {
+   "n": 6,
+   "name": "Super Bulky",
+   "also": "Super chunky, roving",
+   "uk": "Super chunky / 14 ply",
+   "knit": "7–11",
+   "needle": "8–12.75 mm (US 11–17)",
+   "croc": "7–9 sc",
+   "hook": "9–15 mm (M-13 to Q)",
+   "use": "Chunky throws, fast scarves",
+   "m": 0.52
+  },
+  {
+   "n": 7,
+   "name": "Jumbo",
+   "also": "Jumbo, roving",
+   "uk": "—",
+   "knit": "6 and fewer",
+   "needle": "12.75 mm and larger (US 17+)",
+   "croc": "6 sc and fewer",
+   "hook": "15 mm and larger (Q+)",
+   "use": "Arm knitting, giant blankets",
+   "m": 0.38
   }
+ ],
+ "sizes": [
+  [
+   "2 mm",
+   "0",
+   "14",
+   "—"
+  ],
+  [
+   "2.25 mm",
+   "1",
+   "13",
+   "B-1"
+  ],
+  [
+   "2.5 mm",
+   "1½",
+   "—",
+   "—"
+  ],
+  [
+   "2.75 mm",
+   "2",
+   "12",
+   "C-2"
+  ],
+  [
+   "3 mm",
+   "2½",
+   "11",
+   "—"
+  ],
+  [
+   "3.25 mm",
+   "3",
+   "10",
+   "D-3"
+  ],
+  [
+   "3.5 mm",
+   "4",
+   "—",
+   "E-4"
+  ],
+  [
+   "3.75 mm",
+   "5",
+   "9",
+   "F-5"
+  ],
+  [
+   "4 mm",
+   "6",
+   "8",
+   "G-6"
+  ],
+  [
+   "4.5 mm",
+   "7",
+   "7",
+   "7"
+  ],
+  [
+   "5 mm",
+   "8",
+   "6",
+   "H-8"
+  ],
+  [
+   "5.5 mm",
+   "9",
+   "5",
+   "I-9"
+  ],
+  [
+   "6 mm",
+   "10",
+   "4",
+   "J-10"
+  ],
+  [
+   "6.5 mm",
+   "10½",
+   "3",
+   "K-10½"
+  ],
+  [
+   "7 mm",
+   "—",
+   "2",
+   "—"
+  ],
+  [
+   "7.5 mm",
+   "—",
+   "1",
+   "—"
+  ],
+  [
+   "8 mm",
+   "11",
+   "0",
+   "L-11"
+  ],
+  [
+   "9 mm",
+   "13",
+   "00",
+   "M/N-13"
+  ],
+  [
+   "10 mm",
+   "15",
+   "000",
+   "N/P-15"
+  ],
+  [
+   "12.75 mm",
+   "17",
+   "—",
+   "—"
+  ],
+  [
+   "15 mm",
+   "19",
+   "—",
+   "P/Q"
+  ],
+  [
+   "16 mm",
+   "—",
+   "—",
+   "Q"
+  ],
+  [
+   "19 mm",
+   "35",
+   "—",
+   "S"
+  ],
+  [
+   "25 mm",
+   "50",
+   "—",
+   "—"
+  ]
+ ],
+ "terms": [
+  [
+   "Chain",
+   "ch",
+   "Chain",
+   "ch",
+   "Same in both"
+  ],
+  [
+   "Slip stitch",
+   "sl st",
+   "Slip stitch",
+   "ss",
+   "Same stitch, different abbreviation"
+  ],
+  [
+   "Single crochet",
+   "sc",
+   "Double crochet",
+   "dc",
+   "The big one: a UK 'dc' is a US 'sc'"
+  ],
+  [
+   "Half double crochet",
+   "hdc",
+   "Half treble crochet",
+   "htr",
+   ""
+  ],
+  [
+   "Double crochet",
+   "dc",
+   "Treble crochet",
+   "tr",
+   ""
+  ],
+  [
+   "Treble crochet",
+   "tr",
+   "Double treble crochet",
+   "dtr",
+   ""
+  ],
+  [
+   "Double treble crochet",
+   "dtr",
+   "Triple treble crochet",
+   "trtr",
+   ""
+  ],
+  [
+   "Skip",
+   "sk",
+   "Miss",
+   "—",
+   ""
+  ],
+  [
+   "Gauge",
+   "",
+   "Tension",
+   "",
+   ""
+  ],
+  [
+   "Yarn over",
+   "yo",
+   "Yarn over hook",
+   "yoh",
+   ""
+  ],
+  [
+   "Fasten off",
+   "",
+   "Fasten off",
+   "",
+   "Same in both"
+  ]
+ ],
+ "projects": [
+  {
+   "id": "hat",
+   "name": "Hat (adult beanie)",
+   "yd": 200,
+   "sizes": null
+  },
+  {
+   "id": "kidhat",
+   "name": "Hat (child)",
+   "yd": 130,
+   "sizes": null
+  },
+  {
+   "id": "scarf",
+   "name": "Scarf (about 180 cm / 6 ft)",
+   "yd": 400,
+   "sizes": null
+  },
+  {
+   "id": "cowl",
+   "name": "Cowl",
+   "yd": 220,
+   "sizes": null
+  },
+  {
+   "id": "mitts",
+   "name": "Mittens (adult pair)",
+   "yd": 200,
+   "sizes": null
+  },
+  {
+   "id": "socks",
+   "name": "Socks (adult pair)",
+   "yd": 260,
+   "sizes": null
+  },
+  {
+   "id": "shawl",
+   "name": "Shawl (medium)",
+   "yd": 450,
+   "sizes": null
+  },
+  {
+   "id": "amig",
+   "name": "Amigurumi (small toy)",
+   "yd": 90,
+   "sizes": null
+  },
+  {
+   "id": "babyb",
+   "name": "Baby blanket (75 × 75 cm / 30 × 30 in)",
+   "yd": 900,
+   "sizes": null
+  },
+  {
+   "id": "throw",
+   "name": "Throw blanket (125 × 150 cm / 50 × 60 in)",
+   "yd": 2000,
+   "sizes": null
+  },
+  {
+   "id": "sweater",
+   "name": "Sweater (adult pullover)",
+   "yd": 1300,
+   "sizes": {
+    "XS": 0.85,
+    "S": 0.92,
+    "M": 1,
+    "L": 1.1,
+    "XL": 1.22,
+    "2XL": 1.35,
+    "3XL": 1.48
+   }
+  },
+  {
+   "id": "cardi",
+   "name": "Cardigan (adult)",
+   "yd": 1450,
+   "sizes": {
+    "XS": 0.85,
+    "S": 0.92,
+    "M": 1,
+    "L": 1.1,
+    "XL": 1.22,
+    "2XL": 1.35,
+    "3XL": 1.48
+   }
+  },
+  {
+   "id": "babysw",
+   "name": "Baby sweater (0–12 months)",
+   "yd": 400,
+   "sizes": null
+  }
+ ],
+ "prompts": {
+  "theme": [
+   "A walk you took this week",
+   "Your grandmother's kitchen",
+   "Things that are blue",
+   "Rainy afternoons",
+   "The best meal you ever ate",
+   "A place you want to go",
+   "Your childhood bedroom",
+   "Letters you never sent",
+   "Seasons changing",
+   "A song on repeat",
+   "Small wins this month",
+   "Things you collect",
+   "Morning rituals",
+   "A forgotten hobby",
+   "The ocean",
+   "Night sky",
+   "Old maps and journeys",
+   "Your favourite book",
+   "Garden and growing things",
+   "A color you don't usually use",
+   "Tea time",
+   "Train tickets and travel",
+   "Something you're learning",
+   "A friend who changed things",
+   "Home",
+   "Late summer",
+   "Winter quiet",
+   "Vintage botanicals",
+   "Lists of five",
+   "Courage"
+  ],
+  "ephemera": [
+   "A receipt from this week",
+   "A tea bag, dried and stained",
+   "Postage stamps",
+   "A ticket stub",
+   "Pages from an old dictionary",
+   "Pressed flowers or leaves",
+   "A paper bag cut open",
+   "Sewing pattern tissue",
+   "An envelope with a window",
+   "Coffee filter, dyed",
+   "Library card pocket",
+   "Book page with one circled word",
+   "Fabric scrap",
+   "Lace or ribbon",
+   "A map scrap",
+   "Old sheet music (yours or public domain)",
+   "Washi tape strips",
+   "A luggage tag",
+   "Seed packet",
+   "Cardboard from a cereal box",
+   "Bus or train map",
+   "A fortune cookie slip",
+   "A doily",
+   "Labels from jars",
+   "Brown kraft paper",
+   "A playing card",
+   "Tracing paper",
+   "An old photo (a copy)",
+   "Twine",
+   "A button"
+  ],
+  "technique": [
+   "Tea or coffee staining",
+   "Torn edges instead of cut ones",
+   "Make a hidden pocket",
+   "Add a tuck spot for a tag",
+   "Stitch around one element by hand",
+   "Layer three papers, smallest on top",
+   "Use a stamp only in one corner",
+   "Fold a page into a flip-out",
+   "Doodle a border by hand",
+   "Use a stencil with a sponge",
+   "Collage only in a strip down one side",
+   "Leave half the page empty on purpose",
+   "Write sideways along an edge",
+   "Make a mini envelope",
+   "Distress edges with ink",
+   "Glue only the top so it lifts",
+   "Punch a hole and add a tag",
+   "Rub the page with a crayon over texture",
+   "Cut a window to peek through",
+   "Add one bold word cut from a magazine"
+  ],
+  "write": [
+   "What made you smile today?",
+   "Describe a smell that takes you back.",
+   "Three things you'd tell yourself a year ago.",
+   "What does a perfect slow day look like?",
+   "Write about a door you walked through.",
+   "What's in your pockets right now?",
+   "A list of small comforts.",
+   "Who would you write a letter to, and why?",
+   "What are you looking forward to?",
+   "Describe your view right now in five words.",
+   "What did you learn the hard way?",
+   "A recipe you know by heart.",
+   "What do you want to remember about this week?",
+   "Write about a hand-me-down.",
+   "Your favourite place to sit.",
+   "What's something you made with your hands?",
+   "A quote you keep coming back to (in your words).",
+   "Something you're grateful for that's tiny.",
+   "What would you put in a time capsule?",
+   "A memory with a sound in it."
+  ],
+  "palette": [
+   [
+    "#9c4f2e",
+    "#d9a066",
+    "#f2e3c6",
+    "#3e4a3d"
+   ],
+   [
+    "#2b3a55",
+    "#ce7b91",
+    "#f2d0a4",
+    "#e8e1d9"
+   ],
+   [
+    "#5b7f6b",
+    "#c8d5b9",
+    "#f4ead5",
+    "#8a5a44"
+   ],
+   [
+    "#2f2a3a",
+    "#c06c84",
+    "#f6b26b",
+    "#f0e6d6"
+   ],
+   [
+    "#1d4e5f",
+    "#7fb7be",
+    "#efd9b4",
+    "#d06c4f"
+   ],
+   [
+    "#6b4226",
+    "#b7895c",
+    "#e6d2b5",
+    "#a3b18a"
+   ],
+   [
+    "#3a3a3a",
+    "#9a8c98",
+    "#c9ada7",
+    "#f2e9e4"
+   ],
+   [
+    "#7a1f2b",
+    "#d8a48f",
+    "#efe2c8",
+    "#40513b"
+   ],
+   [
+    "#264653",
+    "#2a9d8f",
+    "#e9c46a",
+    "#f4a261"
+   ],
+   [
+    "#4a3f6b",
+    "#a68dd1",
+    "#f1c6d7",
+    "#fbf3e4"
+   ]
+  ]
+ },
+ "blankets": [
+  {
+   "id": "lovey",
+   "name": "Lovey",
+   "w": 12,
+   "l": 12,
+   "range": "12 × 12 to 18 × 18 in",
+   "use": "A small comfort square for babies"
+  },
+  {
+   "id": "preemie",
+   "name": "Preemie or car seat",
+   "w": 18,
+   "l": 24,
+   "range": "about 18 × 24 in",
+   "use": "Hospital donations and car seats"
+  },
+  {
+   "id": "stroller",
+   "name": "Stroller",
+   "w": 30,
+   "l": 36,
+   "range": "30 × 36 to 30 × 40 in",
+   "use": "Pram, stroller or play mat"
+  },
+  {
+   "id": "baby",
+   "name": "Baby or receiving",
+   "w": 36,
+   "l": 36,
+   "range": "30 × 30 to 40 × 40 in",
+   "use": "The classic baby shower gift"
+  },
+  {
+   "id": "crib",
+   "name": "Crib",
+   "w": 45,
+   "l": 60,
+   "range": "36 × 45 to 45 × 60 in",
+   "use": "Covers a standard crib mattress"
+  },
+  {
+   "id": "toddler",
+   "name": "Toddler",
+   "w": 42,
+   "l": 52,
+   "range": "40 × 50 to 50 × 60 in",
+   "use": "Toddler bed or nap mat"
+  },
+  {
+   "id": "lap",
+   "name": "Lapghan",
+   "w": 36,
+   "l": 48,
+   "range": "about 36 × 48 in",
+   "use": "Over the knees in a chair or wheelchair"
+  },
+  {
+   "id": "throw",
+   "name": "Throw",
+   "w": 50,
+   "l": 60,
+   "range": "48 × 60 to 54 × 72 in",
+   "use": "The sofa blanket, the most popular size"
+  },
+  {
+   "id": "twin",
+   "name": "Twin",
+   "w": 66,
+   "l": 90,
+   "range": "66 × 90 in",
+   "use": "Covers a single bed with some drop"
+  },
+  {
+   "id": "full",
+   "name": "Full or double",
+   "w": 80,
+   "l": 90,
+   "range": "80 × 90 in",
+   "use": "Double bed"
+  },
+  {
+   "id": "queen",
+   "name": "Queen",
+   "w": 90,
+   "l": 100,
+   "range": "90 × 90 to 90 × 100 in",
+   "use": "Queen bed with drop over the sides"
+  },
+  {
+   "id": "king",
+   "name": "King",
+   "w": 108,
+   "l": 100,
+   "range": "108 × 90 to 108 × 100 in",
+   "use": "King bed with drop over the sides"
+  }
+ ]
 }

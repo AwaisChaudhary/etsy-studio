@@ -167,6 +167,55 @@
     sizes(); calc();
   }
 
+  /* ---------- BLANKET SIZE CALCULATOR ---------- */
+  if ($("#bk-size") && $("#bk-out")) {
+    var bkS = $("#bk-size"), bkC = $("#bk-custom"), bkW = $("#bk-w"), bkL = $("#bk-l"), bkWt = $("#bk-weight"), bkSk = $("#bk-skein"), bkU = $("#bk-unit"), bkO = $("#bk-out"), bkSvg = $("#bk-svg");
+    var blankets = P.blankets || [], bkWeights = P.weights || [];
+    var YD_PER_SQIN = 0.667; /* plain worsted knitting; matches the yarn calculator's throw estimate */
+    var bkPref = store.get("pp-blanket", null);
+    if (bkPref) { if (bkPref.s) bkS.value = bkPref.s; if (bkPref.w) bkW.value = bkPref.w; if (bkPref.l) bkL.value = bkPref.l; if (bkPref.y) bkWt.value = bkPref.y; if (bkPref.k) bkSk.value = bkPref.k; if (bkPref.u) bkU.value = bkPref.u; }
+    function bkDraw(w, l, name) {
+      /* everything in inches, 1 unit = 1 inch; a queen bed (60 x 80) for scale */
+      var bedW = 60, bedL = 80, pad = 12, maxL = Math.max(l, bedL + 10);
+      var sc = Math.min((320 - pad * 2) / (bedW + 30 + w), (240 - pad * 2 - 20) / maxL);
+      var bx = pad, by = 240 - pad - bedL * sc, kx = pad + (bedW + 30) * sc, ky = 240 - pad - l * sc;
+      var stripes = "", n = Math.max(3, Math.round(l / 6));
+      for (var i = 1; i < n; i++) stripes += '<line x1="' + kx + '" x2="' + (kx + w * sc) + '" y1="' + (ky + i * l * sc / n) + '" y2="' + (ky + i * l * sc / n) + '" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="3 2"/>';
+      bkSvg.innerHTML =
+        '<rect x="' + bx + '" y="' + by + '" width="' + bedW * sc + '" height="' + bedL * sc + '" rx="4" fill="#eef2ef" stroke="#1f2a44" stroke-width="1.5"/>' +
+        '<rect x="' + (bx + 6 * sc) + '" y="' + (by + 4 * sc) + '" width="' + 21 * sc + '" height="' + 12 * sc + '" rx="3" fill="#fff" stroke="#1f2a44" stroke-width="1"/>' +
+        '<rect x="' + (bx + 33 * sc) + '" y="' + (by + 4 * sc) + '" width="' + 21 * sc + '" height="' + 12 * sc + '" rx="3" fill="#fff" stroke="#1f2a44" stroke-width="1"/>' +
+        '<text x="' + (bx + bedW * sc / 2) + '" y="' + (by + bedL * sc / 2 + 12) + '" text-anchor="middle" font-size="10" fill="#4a5470">Queen bed</text>' +
+        '<text x="' + (bx + bedW * sc / 2) + '" y="' + (by + bedL * sc / 2 + 25) + '" text-anchor="middle" font-size="9" fill="#4a5470">60 × 80 in</text>' +
+        '<rect x="' + kx + '" y="' + ky + '" width="' + w * sc + '" height="' + l * sc + '" rx="3" fill="#b8326a"/>' + stripes +
+        '<rect x="' + kx + '" y="' + ky + '" width="' + w * sc + '" height="' + l * sc + '" rx="3" fill="none" stroke="#f4a823" stroke-width="3" stroke-dasharray="5 3"/>' +
+        '<text x="' + (kx + w * sc / 2) + '" y="' + Math.max(12, ky - 6) + '" text-anchor="middle" font-size="10" font-weight="700" fill="#1f2a44">' + esc(name) + "</text>";
+      $("#bk-cap").textContent = "Drawn to scale next to a queen mattress (60 × 80 in). Your blanket: " + w + " × " + l + " in.";
+    }
+    function bkCalc() {
+      var custom = bkS.value === "custom", b = blankets.filter(function (x) { return x.id === bkS.value; })[0];
+      bkC.hidden = !custom;
+      var w = custom ? Math.min(140, Math.max(6, parseFloat(bkW.value) || 0)) : (b ? b.w : 50), l = custom ? Math.min(140, Math.max(6, parseFloat(bkL.value) || 0)) : (b ? b.l : 60);
+      var name = custom ? "Your blanket" : (b ? b.name : "");
+      var wt = bkWeights.filter(function (x) { return String(x.n) === bkWt.value; })[0]; if (!wt) return;
+      var craft = segVal($("#bk-craft")) === "crochet" ? 1.27 : 1, dense = parseFloat(segVal($("#bk-dense")) || 1);
+      var yd = w * l * YD_PER_SQIN * wt.m * craft * dense, lo = yd * 0.88, hi = yd * 1.12;
+      var per = parseFloat(bkSk.value) || 0, perYd = bkU.value === "m" ? per / 0.9144 : per;
+      var n = perYd > 0 ? Math.ceil(hi / perYd) : 0, exact = perYd > 0 ? yd / perYd : 0;
+      var icons = ""; for (var i = 0; i < Math.min(n, 30); i++) icons += ball("#2f8f8a", i >= Math.ceil(exact), i);
+      bkO.innerHTML = "<h3>" + esc(name) + '</h3><div class="bk-dims">' + w + " × " + l + " in<small>" + Math.round(w * 2.54) + " × " + Math.round(l * 2.54) + " cm" + (b && !custom ? " · common range " + esc(b.range) : "") + "</small></div>" +
+        "<p>You'll need about <strong>" + fmt(lo) + "–" + fmt(hi) + " yards</strong> (" + fmt(lo * 0.9144) + "–" + fmt(hi * 0.9144) + " m) of weight " + wt.n + " " + esc(wt.name.toLowerCase()) + " yarn.</p>" +
+        "<h3>Skeins to buy</h3><div class=\"big\">" + (n || "–") + "</div>" + (n ? '<div class="balls" aria-hidden="true">' + icons + "</div>" : "") +
+        (n ? '<p class="sub">Covers the high end of the estimate' + (n > 30 ? " (first 30 skeins shown)" : "") + ". Add 5 to 10 percent for a wide border or fringe.</p>" : '<p class="sub">Enter the length per skein from your yarn label to see how many to buy.</p>') +
+        '<hr><p class="sub">Hook: ' + esc(wt.hook) + "<br>Needles: " + esc(wt.needle) + "</p>";
+      bkDraw(w, l, name);
+      store.set("pp-blanket", { s: bkS.value, w: bkW.value, l: bkL.value, y: bkWt.value, k: bkSk.value, u: bkU.value });
+    }
+    seg($("#bk-craft"), bkCalc); seg($("#bk-dense"), bkCalc);
+    [bkS, bkW, bkL, bkWt, bkSk, bkU].forEach(function (el) { el.addEventListener("input", bkCalc); el.addEventListener("change", bkCalc); });
+    bkCalc();
+  }
+
   /* ---------- GAUGE ---------- */
   if (page === "gauge-converter") {
     var ids = ["gc-ps", "gc-pr", "gc-ys", "gc-yr", "gc-cast", "gc-len"], go = $("#gc-out");

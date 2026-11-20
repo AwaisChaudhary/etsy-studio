@@ -22,6 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -63,7 +64,8 @@ JJ = ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-jun
 SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-planner", "night-garden-junk-journal-kit", "yarn-stash-tracker"],
             "row-counter.html": KNIT, "yarn-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
-            "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ}
+            "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
+            "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"]}
 
 
 def shop_box(file):
@@ -172,14 +174,14 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 {shop_box(file)}
 <footer><div class="wrap"><div class="fgrid">
 <div><a class="brand" href="{href("index.html")}">{LOGO}<span>Purl <i>&amp;</i> Paper</span></a><p style="margin-top:12px" class="muted">Free tools for knitters, crocheters and junk journalers. Count your rows, plan your yarn, and never run out of ideas for the next page.</p></div>
-<div><strong>Tools</strong><ul>{"".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n in NAV)}</ul></div>
+<div><strong>Tools</strong><ul>{"".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n in NAV + TOOLS_MORE)}</ul></div>
 <div><strong>Shop</strong><ul><li><a href="{ETSY}" rel="noopener">Purl &amp; Paper on Etsy</a></li><li><a href="{GUM}" rel="noopener">Purl &amp; Paper on Gumroad</a></li><li><a href="https://www.pinterest.com/purlandpaperco/" rel="noopener">Pinterest</a></li></ul></div>
 <div><strong>Guides</strong><ul>{"".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n in GUIDES)}<li><a href="{href("about.html")}">About and contact</a></li><li><a href="{href("privacy.html")}">Privacy policy</a></li></ul></div>
 </div>
 <p class="legal">{e(SITE)} is an independent site. Your counters, projects and saved prompts stay on your own device; nothing is uploaded. Yarn amounts are estimates, so always check your pattern. Last checked {e(UPDATED)}.</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights")}, ensure_ascii=False)};</script>
+<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets")}, ensure_ascii=False)};</script>
 {scripts}<script src="{asset("app.js")}"></script>
 </body>
 </html>
@@ -196,7 +198,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <h1>Count rows. <span class="l2">Plan yarn.</span> <span class="l3">Fill the journal.</span></h1>
 <p class="lead">Free tools for knitters, crocheters and junk journalers: a row counter that keeps your screen awake, a yarn calculator, a gauge fixer and prompts for your next page.</p>
 <div class="btns"><a class="btn gold" href="{href("row-counter.html")}">Open the row counter</a><a class="btn ghost" href="{href("yarn-calculator.html")}">How much yarn do I need?</a></div>
-<dl class="bb-specs"><div><dt>Tools</dt><dd>5</dd></div><div><dt>Price</dt><dd>Free</dd></div><div><dt>Saves to</dt><dd>Your device</dd></div><div><dt>Account</dt><dd>None</dd></div></dl>
+<dl class="bb-specs"><div><dt>Tools</dt><dd>6</dd></div><div><dt>Price</dt><dd>Free</dd></div><div><dt>Saves to</dt><dd>Your device</dd></div><div><dt>Account</dt><dd>None</dd></div></dl>
 </div>
 <div class="knit-ctl"><span class="kc-l">Knit in colour</span><div class="yarns" role="group" aria-label="Yarn colour">
 <button type="button" class="yarn-btn" style="--c:#b8326a" data-c="#b8326a" aria-pressed="true" aria-label="Berry yarn"></button><button type="button" class="yarn-btn" style="--c:#f4a823" data-c="#f4a823" aria-pressed="false" aria-label="Marigold yarn"></button><button type="button" class="yarn-btn" style="--c:#2f8f8a" data-c="#2f8f8a" aria-pressed="false" aria-label="Teal yarn"></button><button type="button" class="yarn-btn" style="--c:#1f2a44" data-c="#1f2a44" aria-pressed="false" aria-label="Navy yarn"></button><button type="button" class="yarn-btn" style="--c:#f3eee6" data-c="#f3eee6" aria-pressed="false" aria-label="Cream yarn"></button></div>
@@ -218,7 +220,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -270,9 +272,12 @@ yc = top("How much yarn do I need?", "Choose what you're making, the size and yo
 <section style="padding-top:0"><div class="narrow prose"><h2>How the estimate works</h2>
 <p>We start from typical amounts for each project in worsted (weight 4) yarn, then adjust for your yarn's thickness: thinner yarn needs more length, thicker yarn less. Crochet usually uses around a quarter more yarn than knitting for the same piece, and cables or bobbles use more again.</p>
 <div class="callout"><strong>Buy from the same dye lot.</strong> Skeins dyed in different batches can look slightly different side by side. The dye lot number is on the label, so buy everything you need at once, plus one spare if you can return it.</div>
-<p>Your pattern's yarn amount always wins. Use this when you're designing your own piece, swapping yarn, or the pattern doesn't say.</p></div></section>'''
+<p>Your pattern's yarn amount always wins. Use this when you're designing your own piece, swapping yarn, or the pattern doesn't say.</p>
+<h2>Making a blanket?</h2>
+<p>Blankets vary so much in size that a single number isn't much help. Our <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> lists the usual sizes from lovey to king, draws your blanket next to a bed, and works out the yarn from the exact width and length you want.</p></div></section>'''
 yc_faq = [
-    ("How many skeins do I need for a blanket?", "A throw of about 125 by 150 cm (50 by 60 in) usually takes around 1,800 to 2,200 yards of worsted yarn when knitted, which is often 9 to 11 skeins of 200 yards. Crochet takes more. Use the calculator for your exact yarn."),
+    ("How many skeins do I need for a blanket?", "A throw of about 125 by 150 cm (50 by 60 in) usually takes around 1,800 to 2,200 yards of worsted yarn when knitted, which is often 9 to 11 skeins of 200 yards. Crochet takes more. For other blanket sizes, use the blanket size calculator."),
+    ("How do I work out yarn for a project that isn't listed?", "Pick a similar project in the list and adjust, or use a swatch: weigh a 10 cm (4 in) square, multiply by how many squares fit your piece to get the grams, then use the yards per gram on your yarn label. Add about 10 percent for seams and borders."),
     ("Does crochet use more yarn than knitting?", "Usually yes, often about 25 to 30 percent more for the same size piece, because crochet stitches are taller and denser."),
     ("Why does thinner yarn need more yards?", "Thin yarn makes small stitches, so you need many more of them, and much more length, to cover the same area."),
 ]
@@ -376,6 +381,7 @@ yw = top("Yarn weight chart", "Yarn is grouped from 0 (thinnest) to 7 (thickest)
 </div></section>
 <section style="padding-top:0"><div class="narrow prose"><h2>How to tell a yarn's weight without a label</h2>
 <p>Wrap the yarn snugly (not stretched) around a ruler or pencil for one inch, strands touching but not overlapping, and count the wraps. That's the <strong>wraps per inch</strong>. Roughly: 18 or more is fingering or thinner, 12 to 14 is DK, 9 to 11 is worsted or aran, 7 to 8 is bulky, and 6 or fewer is super bulky.</p>
+<p>Planning a blanket? The <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> turns your yarn weight and blanket size into yards and skeins.</p>
 <h2>Swapping one yarn for another</h2>
 <p>Stay in the same weight number, then knit or crochet a swatch. Two yarns in the same category can still differ, so check the length per 100 g on both labels: if they're close, the swap usually works.</p></div></section>'''
 yw_faq = [
@@ -469,6 +475,45 @@ page("junk-journal-beginners.html", "Junk Journaling for Beginners: Supplies, Bi
      "How to start a junk journal: what it is, the free supplies you need, how to sew your first signature, and easy techniques to fill the pages.",
      jj, jj_faq, "Junk journaling for beginners")
 
+# ---------------- BLANKET SIZE CALCULATOR ----------------
+bopts = "".join(f'<option value="{b["id"]}"{" selected" if b["id"] == "throw" else ""}>{e(b["name"])} ({b["w"]} × {b["l"]} in)</option>' for b in D["blankets"]) + '<option value="custom">My own size</option>'
+bw_opts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"] if w["n"] >= 1)
+brows = "".join(f'<tr><td><strong>{e(b["name"])}</strong></td><td>{b["w"]} × {b["l"]} in</td><td>{round(b["w"] * 2.54)} × {round(b["l"] * 2.54)} cm</td><td>{e(b["range"])}</td><td>{e(b["use"])}</td></tr>' for b in D["blankets"])
+bk = top("Blanket size calculator", "Pick a blanket size or type your own, choose your yarn, and see the finished size next to a bed, plus how many yards and skeins to buy.", "Blanket size calculator") + f'''
+<section style="padding-top:10px"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="bk-size">Blanket size</label><select id="bk-size">{bopts}</select></div>
+<div class="row2" id="bk-custom" hidden><div class="field"><label for="bk-w">Width (in)</label><input type="number" id="bk-w" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="bk-l">Length (in)</label><input type="number" id="bk-l" value="60" min="6" max="140" inputmode="decimal"></div></div>
+<div class="field"><span class="label" id="bk-craft-l">Knitting or crochet?</span><div class="seg" role="group" aria-labelledby="bk-craft-l" id="bk-craft"><button type="button" data-v="knit" aria-pressed="false">Knitting</button><button type="button" data-v="crochet" aria-pressed="true">Crochet</button></div></div>
+<div class="field"><label for="bk-weight">Yarn weight</label><select id="bk-weight">{bw_opts}</select></div>
+<div class="field"><span class="label" id="bk-dense-l">Stitch pattern</span><div class="seg" role="group" aria-labelledby="bk-dense-l" id="bk-dense"><button type="button" data-v="1" aria-pressed="true">Plain</button><button type="button" data-v="1.15" aria-pressed="false">Textured or cables</button><button type="button" data-v="0.85" aria-pressed="false">Lacy or granny</button></div></div>
+<div class="row2"><div class="field"><label for="bk-skein">Length per skein</label><input type="number" id="bk-skein" value="200" min="1" inputmode="decimal"></div>
+<div class="field"><label for="bk-unit">Unit on the label</label><select id="bk-unit"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
+<figure class="bk-fig"><svg id="bk-svg" viewBox="0 0 320 240" role="img" aria-label="Blanket drawn to scale next to a bed"></svg><figcaption class="note" id="bk-cap">Drawn to scale.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="bk-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>Blanket size chart</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Blanket</th><th scope="col">Size we use</th><th scope="col">In cm</th><th scope="col">Common range</th><th scope="col">Good for</th></tr></thead><tbody>{brows}</tbody></table></div>
+<p class="note" style="margin-top:12px">There is no single official blanket standard. These are the sizes most often quoted by crochet and knitting designers, so patterns can differ by a few inches. Bed sizes include some drop over the sides.</p>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How the yarn estimate works</h2>
+<p>We work out the blanket's area and multiply it by a typical amount of yarn per square inch for plain worsted knitting, then adjust for your yarn: thinner yarn needs more length, thicker yarn less. Crochet usually takes about a quarter more yarn than knitting, cables and bobbles take more again, and open granny or lace stitches take a little less.</p>
+<p>The answer is a range, because tension, stitch and borders all change it. Buy enough for the high end, from one dye lot. For hats, scarves and other projects, use our <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and if your swatch doesn't match the pattern, the <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big the blanket will really be.</p>
+<div class="callout"><strong>Allow for the border.</strong> A few rounds of border can add 5 to 10 percent more yarn on a big blanket. Fringe or tassels add more.</div>
+<h2>Choosing a size</h2>
+<p>For a gift, a throw (about 50 × 60 in) is the safest choice: it fits a sofa, the foot of a bed or a lap. For a baby, 30 to 36 inches square is easy to carry and wash. For a bed, measure the top of the mattress and add the drop you want on each side, usually 10 to 15 inches.</p>
+<p>Making a long blanket? Keep count of rows or rounds with our <a href="{href("row-counter.html")}">row counter</a>, and log yarn and hours in the <a href="{href("projects.html")}">project tracker</a>. Not sure which yarn is which? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a>.</p></div></section>'''
+bk_faq = [
+    ("What size is a crochet throw blanket?", "Most throws are about 50 × 60 inches (127 × 152 cm). Some patterns go up to 54 × 72 inches for a longer sofa blanket."),
+    ("What size is a baby blanket?", "A baby or receiving blanket is usually 30 to 40 inches square. A stroller blanket is a little smaller, about 30 × 36 inches, and a crib blanket can be as big as 45 × 60 inches."),
+    ("How much yarn for a queen size crochet blanket?", "Very roughly 6,700 to 8,500 yards of worsted weight yarn for plain crochet, which is often 34 to 43 skeins of 200 yards. Chunky yarn needs far fewer yards. Use the calculator for your own yarn, and treat it as an estimate."),
+    ("How many skeins for a throw blanket?", "In worsted yarn, a knitted throw takes roughly 1,800 to 2,200 yards and a crocheted one about 2,300 to 2,800 yards, so roughly 10 to 15 skeins of 200 yards once you allow a little spare. These are estimates."),
+]
+page("blanket-size-calculator.html", "Blanket Size Chart and Yarn Calculator for Crochet and Knitting | Purl & Paper",
+     "Free blanket size chart and calculator: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm, with the yards and skeins for your yarn weight.",
+     bk, bk_faq, "Blanket size calculator", app_name="Blanket size calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -490,7 +535,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-pages = ["index.html"] + [f for f, _ in NAV] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
+pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>2026-11-19</lastmod></url>\n" for p in pages) + "</urlset>\n")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /go/\n\nSitemap: {DOMAIN}/sitemap.xml\n")

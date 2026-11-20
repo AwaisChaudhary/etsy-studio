@@ -395,3 +395,15 @@ footer a { color: var(--ink); }
 .aff-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
 .aff-links a { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid currentColor; text-decoration: none; color: inherit; font-weight: 600; }
 .aff-note { font-size: .8rem; opacity: .75; margin: 8px 0 0; }
+
+/* home: extra tools line under the guides */
+.guides-more { margin: 22px 0 0; color: rgba(255,255,255,0.82); }
+.guides-more a { color: var(--marigold); font-weight: 700; }
+.guides-more a:hover { color: #fff; }
+
+/* blanket size calculator */
+.bk-fig { margin: 18px 0 0; }
+.bk-fig svg { display: block; width: 100%; height: auto; background: #fff; border-radius: 12px; border: 2px dashed var(--line); }
+.bk-fig figcaption { margin-top: 8px; }
+.result .bk-dims { font: 800 clamp(2rem, 5vw, 2.8rem)/1.05 var(--display); letter-spacing: -0.03em; margin: 4px 0 8px; }
+.result .bk-dims small { display: block; font: 400 1rem var(--body); letter-spacing: 0; color: rgba(255,255,255,0.75); margin-top: 6px; }
