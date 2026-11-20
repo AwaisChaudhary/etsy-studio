@@ -80,6 +80,71 @@ pages.append(hd("UK and US crochet terms", "Reference") + '<table><tr><th>US ter
              "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in D["terms"]) + "</table>"
              '<p style="margin-top:8pt;font-size:8pt;color:#555">The same name can mean different stitches: a UK double crochet is a US single crochet. Check which terms your pattern uses before you start.</p>'
              '<h3>Notes</h3><div class="lines"></div>')
+# ---- extra reference pages (added 20 Nov) ----
+KN = [("BO", "bind off"), ("CO", "cast on"), ("k", "knit"), ("p", "purl"), ("k2tog", "knit 2 together (right-leaning decrease)"), ("ssk", "slip, slip, knit (left-leaning decrease)"),
+      ("kfb", "knit front and back (increase)"), ("M1L / M1R", "make 1 left / right (increase)"), ("yo", "yarn over"), ("sl", "slip"), ("pm / sm", "place marker / slip marker"),
+      ("RS / WS", "right side / wrong side"), ("tbl", "through the back loop"), ("st st", "stockinette stitch"), ("rnd", "round"), ("rep", "repeat"), ("w&amp;t", "wrap and turn (short rows)")]
+CR = [("ch", "chain"), ("sl st", "slip stitch"), ("sc", "single crochet (UK dc)"), ("hdc", "half double crochet (UK htr)"), ("dc", "double crochet (UK tr)"), ("tr", "treble crochet (UK dtr)"),
+      ("sk", "skip"), ("sp", "space"), ("inc", "increase (2 sts in one)"), ("sc2tog", "single crochet 2 together (decrease)"), ("BLO / FLO", "back loop / front loop only"),
+      ("MR", "magic ring"), ("FPdc / BPdc", "front / back post double crochet"), ("yo", "yarn over"), ("st(s)", "stitch(es)"), ("tch", "turning chain"), ("rnd", "round")]
+def abbr(rows):
+    return '<table><tr><th style="width:28%">Abbr.</th><th>Meaning</th></tr>' + "".join(f"<tr><td><b>{a}</b></td><td>{b}</td></tr>" for a, b in rows) + '</table>'
+pages.append(hd("Abbreviations", "Reference") + '<div class="g2" style="align-items:start"><div><h3 style="margin-top:0">Knitting</h3>' + abbr(KN) +
+             '</div><div><h3 style="margin-top:0">Crochet (US terms)</h3>' + abbr(CR) + '</div></div>'
+             '<p style="margin-top:8pt;font-size:8pt;color:#555">Patterns usually list their own abbreviations near the start. When they differ from this page, follow the pattern.</p>')
+pages.append(hd("Gauge maths &amp; yarn swaps", "Worksheet") +
+             '<h3>From a swatch to stitches per inch</h3><p>Measure 4 in (10 cm) across the middle of your washed swatch and count the stitches. Stitches per inch = stitches in 4 in ÷ 4.</p>'
+             '<div class="g3">' + f("Stitches in 4 in") + f("Stitches per inch") + f("Rows per inch") + '</div>'
+             '<h3>How many stitches to cast on or chain</h3><p>Stitches = finished width (in) × stitches per inch. Then round to fit the pattern repeat.</p>'
+             '<p style="font-size:8.5pt;color:#444"><b>Example:</b> 20 in wide × 4.5 sts per inch = 90 stitches.</p>'
+             '<div class="g3">' + f("Width wanted (in)") + f("× stitches per inch") + f("= stitches") + '</div>'
+             '<h3>Swapping to a different yarn</h3><p>1. Choose the same weight category and similar fibre. 2. Total yards needed = yards per ball × balls in the pattern. '
+             '3. New balls = total yards ÷ yards per ball of your yarn, rounded up. 4. Knit or crochet a swatch: if your gauge matches, the size will match.</p>'
+             '<p style="font-size:8.5pt;color:#444"><b>Example:</b> pattern uses 6 balls × 220 yd = 1,320 yd. Your yarn has 190 yd per ball: 1,320 ÷ 190 = 6.95, so buy 7, plus 1 spare.</p>'
+             '<table><tr><th>Pattern yarn</th><th>Yd per ball</th><th>Balls</th><th>Total yd</th><th>My yarn</th><th>Yd per ball</th><th>Balls to buy</th></tr>' + ("<tr>" + "<td></td>" * 7 + "</tr>") * 5 + '</table>')
+def tub(dots="", hand=False, cross=False):
+    inner = (f'<text x="20" y="22" text-anchor="middle" font-size="9" font-family="Poppins">{dots}</text>' if dots else "") + ('<path d="M14,8 q6,-6 12,0" stroke="#111" fill="none" stroke-width="1.6"/>' if hand else "")
+    x = '<path d="M4,2 L36,30 M36,2 L4,30" stroke="#111" stroke-width="1.8"/>' if cross else ""
+    return f'<svg viewBox="0 0 40 32" width="40" height="32"><path d="M4,8 L8,28 L32,28 L36,8" stroke="#111" fill="none" stroke-width="1.8"/><path d="M4,8 q4,-4 8,0 q4,4 8,0 q4,-4 8,0 q4,4 8,0" stroke="#111" fill="none" stroke-width="1.5"/>{inner}{x}</svg>'
+def sq(inner="", cross=False):
+    x = '<path d="M4,4 L36,28 M36,4 L4,28" stroke="#111" stroke-width="1.8"/>' if cross else ""
+    return f'<svg viewBox="0 0 40 32" width="40" height="32"><rect x="6" y="2" width="28" height="28" fill="none" stroke="#111" stroke-width="1.8"/>{inner}{x}</svg>'
+def tri(cross=False):
+    x = '<path d="M6,4 L34,30 M34,4 L6,30" stroke="#111" stroke-width="1.8"/>' if cross else ""
+    return f'<svg viewBox="0 0 40 32" width="40" height="32"><path d="M20,3 L36,29 L4,29 Z" fill="none" stroke="#111" stroke-width="1.8"/>{x}</svg>'
+def iron(dots, cross=False):
+    x = '<path d="M4,6 L36,30 M36,6 L4,30" stroke="#111" stroke-width="1.8"/>' if cross else ""
+    return f'<svg viewBox="0 0 40 32" width="40" height="32"><path d="M6,26 L34,26 L34,18 Q30,8 16,8 L12,8 Q6,14 6,26 Z" fill="none" stroke="#111" stroke-width="1.8"/><text x="22" y="22" text-anchor="middle" font-size="8">{dots}</text>{x}</svg>'
+CARE = [(tub("•"), "Machine wash cold, up to 30 °C"), (tub("••"), "Machine wash warm, up to 40 °C"), (tub(hand=True), "Hand wash only"), (tub(cross=True), "Do not wash"),
+        (tri(), "Any bleach allowed"), (tri(True), "Do not bleach"), (sq('<circle cx="20" cy="16" r="10" fill="none" stroke="#111" stroke-width="1.6"/>'), "Tumble dry"),
+        (sq('<circle cx="20" cy="16" r="10" fill="none" stroke="#111" stroke-width="1.6"/>', True), "Do not tumble dry"), (sq('<path d="M12,16 L28,16" stroke="#111" stroke-width="1.8"/>'), "Dry flat"),
+        (iron("•"), "Iron on low heat"), (iron("", True), "Do not iron"), ('<svg viewBox="0 0 40 32" width="40" height="32"><circle cx="20" cy="16" r="12" fill="none" stroke="#111" stroke-width="1.8"/></svg>', "Dry clean")]
+pages.append(hd("Yarn care symbols", "Reference") + '<p>Most ball bands show care symbols. Wool and other animal fibres usually need a hand wash or a wool cycle and drying flat; many acrylics and cottons can go in the machine.</p>'
+             '<table><tr><th style="width:16%">Symbol</th><th>Meaning</th><th style="width:16%">Symbol</th><th>Meaning</th></tr>' +
+             "".join(f"<tr><td style='height:.55in'>{CARE[i][0]}</td><td>{CARE[i][1]}</td><td>{CARE[i + 1][0]}</td><td>{CARE[i + 1][1]}</td></tr>" for i in range(0, 12, 2)) + '</table>'
+             '<p style="margin-top:8pt;font-size:8pt;color:#555">More dots mean a higher temperature. A line under a symbol means a gentler cycle. Always follow the ball band of your yarn.</p>'
+             '<h3>Care cards for gifts</h3><p>When you give something handmade, copy its care symbols onto a small card. Keep the ball band in your project pages.</p><div class="lines"></div>')
+pages.append(hd("Blocking guide", "Reference") +
+             '<p>Blocking evens out stitches, opens up lace and sets the final size. Always test on your swatch first.</p>'
+             '<table><tr><th>Method</th><th>How</th><th>Best for</th></tr>'
+             '<tr><td><b>Wet blocking</b></td><td>Soak in cool water with a little wool wash for 20 min, press out water in a towel (do not wring), pin to size, dry flat.</td><td>Wool, alpaca, most natural fibres, lace</td></tr>'
+             '<tr><td><b>Steam blocking</b></td><td>Pin to size, hold a steam iron just above the fabric without pressing, let it cool and dry before unpinning.</td><td>Wool and blends, quick touch-ups</td></tr>'
+             '<tr><td><b>Spray blocking</b></td><td>Pin to size dry, mist with water until damp, leave to dry.</td><td>Delicate fibres, textured stitches, cotton</td></tr></table>'
+             '<p style="margin-top:6pt"><b>Acrylic:</b> it will not hold a new shape from water alone. Use gentle steam, keep the iron off the fabric, and test first: too much heat makes acrylic go flat and shiny for good.</p>'
+             '<h3>You will need</h3><p>Blocking mats or a folded towel, rust-proof pins, a tape measure, blocking wires for straight edges (optional).</p>'
+             '<h3>My blocking notes</h3><table><tr><th>Project</th><th>Fibre</th><th>Method</th><th>Size before → after</th></tr>' + ("<tr>" + "<td></td>" * 4 + "</tr>") * 6 + '</table>')
+pages.append(hd("How much yarn?", "Typical ranges") +
+             '<p>Rough ranges for planning and shopping. Your pattern, size, stitch and gauge change the real amount, so always check the pattern and buy one extra ball from the same dye lot. Crochet usually uses about a quarter to a third more yarn than knitting.</p>'
+             '<table><tr><th>Project</th><th>Yarn weight</th><th>Typical yardage</th></tr>' +
+             "".join(f"<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>" for a, b, c in [
+                 ("Adult hat", "Worsted", "150-250 yd"), ("Pair of mittens", "Worsted", "150-250 yd"), ("Pair of adult socks", "Fingering", "350-450 yd"),
+                 ("Scarf, 60 in", "Worsted", "300-500 yd"), ("Cowl", "Bulky", "100-200 yd"), ("Shawl", "Fingering", "400-800 yd"),
+                 ("Baby blanket", "Worsted", "700-1,000 yd"), ("Throw blanket", "Worsted", "1,200-1,800 yd"), ("Adult sweater (size M)", "Worsted", "1,000-1,500 yd"),
+                 ("Baby cardigan", "DK", "300-500 yd"), ("Amigurumi toy, small", "Worsted", "50-150 yd")]) + '</table>'
+             '<p style="margin-top:6pt;font-size:8pt;color:#555">These are typical ranges collected from common patterns, not exact figures.</p><h3>My notes</h3><div class="lines"></div>')
+pages.append(hd("Handmade gift tracker") + '<table><tr><th>For</th><th>Project</th><th>Occasion</th><th>Start by</th><th>Given</th><th>Care card?</th></tr>' + ("<tr>" + "<td></td>" * 6 + "</tr>") * 24 + '</table>')
+pages.append(hd("Ideas for next year") + '<div class="lines"></div>')
+pages.append(hd("Year in review") + '<div class="g2">' + f("Projects finished") + f("Yards / metres used") + f("Favourite make") + f("Biggest challenge") + f("New technique learned") + f("Gifts given") + '</div><h3>What I want to make next year</h3><div class="lines"></div>')
 # inventories
 for t, cols, n in (("Yarn stash", ["Brand &amp; yarn", "Weight", "Colour / dye lot", "Yardage", "Skeins", "Where kept"], 3),
                    ("Needles &amp; hooks", ["Size", "Type (straight / circ / DPN / hook)", "Length", "Material", "Have"], 1),

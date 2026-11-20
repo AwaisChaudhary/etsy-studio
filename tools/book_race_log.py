@@ -118,6 +118,99 @@ pages.append(hd("Finish time planner") + '<p>Split your goal time into runs, sta
              "".join(f"<tr><td>Run {i + 1}</td><td></td><td>{s}</td><td></td></tr>" for i, (s, _) in enumerate(STATIONS)) +
              '<tr><td><b>Transitions total</b></td><td></td><td><b>Total</b></td><td></td></tr></table>'
              '<h3>Where I can gain the most time</h3><div class="lines"></div>')
+# ---- coaching content (added 20 Nov) ----
+TECH = [
+ ("SkiErg", "1,000 m", ["Hinge at the hips and drive the handles down with your lats, not just your arms.", "Finish each pull with hands near your thighs, then let the handles rise as you stand tall.",
+   "Find a steady rhythm of about 30 to 40 strokes a minute. Long, strong pulls beat fast, short ones."],
+  ["Pulling only with the arms", "Starting too fast after run 1"], "3 x 500 m at race effort, 90 s rest. Note your split per 500 m."),
+ ("Sled push", "50 m", ["Arms long or bent, low body angle, drive through the balls of your feet.", "Short, quick steps. Keep pushing: restarting a stopped sled costs the most energy.",
+   "Look down a few metres ahead, not up the lane."],
+  ["Standing too upright", "Big, slow strides that let the sled stop"], "4 x 25 m heavy push, 2 min rest. Add a 400 m run straight after the last one."),
+ ("Sled pull", "50 m", ["Sit back into a low squat and pull the rope hand over hand to your hip.", "Brace your core and keep a slight bend in the arms at the end of each pull.",
+   "Keep the rope tidy behind you so it doesn't tangle."],
+  ["Pulling with straight legs (back takes the load)", "Long rests between pulls"], "5 x 15 m heavy pulls, 90 s rest. Grip work: 3 x 30 s dead hang."),
+ ("Burpee broad jumps", "80 m", ["Step back or jump back into the burpee; choose what you can repeat for 80 m.", "Jump forward a comfortable distance. Steady small jumps beat a few big ones followed by rests.",
+   "Land soft and go straight into the next rep."],
+  ["Huge first jumps, then walking", "Holding your breath"], "EMOM 10 min: 6 burpee broad jumps. Then 1 km run at race pace."),
+ ("Rowing", "1,000 m", ["Push with the legs first, then swing the body, then pull the arms. Return in the opposite order.", "Damper around 5 to 7 suits most people. Higher is not faster.",
+   "Use this station to settle your breathing after the burpees."],
+  ["Pulling with the arms before the legs", "Rushing the slide forward"], "4 x 500 m, 1 min rest, holding the same split each time."),
+ ("Farmers carry", "200 m", ["Stand tall, shoulders back and down, short fast steps.", "Squeeze the handles. Grip, not legs, is what usually fails.",
+   "If you must put the weights down, rest for 3 to 5 seconds only and pick them up the same way."],
+  ["Shrugging and leaning", "Long rests with the weights down"], "4 x 100 m heavy carry, 90 s rest. Finish with a 3 x 45 s plank."),
+ ("Sandbag lunges", "100 m", ["Bag high on the shoulders behind the neck, chest up.", "Back knee touches the floor gently on every rep; full hip extension at the top.",
+   "Pick a steady count, for example 10 lunges then 3 breaths."],
+  ["Short steps that fail the depth standard", "Letting the bag slide forward"], "4 x 25 m walking lunges with the bag, 1 min rest. Then 2 x 1 km run."),
+ ("Wall balls", "100 reps", ["Full squat below parallel, then drive up and throw in one motion.", "Catch the ball high and ride it straight down into the next squat.",
+   "Plan your sets before the race (see Wall balls: break them up)."],
+  ["Unbroken first set, then long rests", "Ball short of the target line (no rep)"], "5 rounds: 20 wall balls + 200 m run. Note how many reps before your first break."),
+]
+for k in range(0, 8, 2):
+    blocks = ""
+    for name, dist, cues, errs, drill in TECH[k:k + 2]:
+        blocks += (f'<div class="box" style="flex:1;display:flex;flex-direction:column;gap:2pt"><div style="display:flex;justify-content:space-between;align-items:baseline">'
+                   f'<h3 style="margin:2pt 0">{name}</h3><span class="lab">{dist}</span></div>'
+                   + "".join(f'<p style="margin:0 0 3pt">&bull; {c}</p>' for c in cues)
+                   + f'<p style="margin:3pt 0"><b>Common mistakes:</b> {"; ".join(errs)}.</p><p style="margin:0 0 4pt"><b>Training drill:</b> {drill}</p>'
+                   + '<div class="f">My best time</div><span class="lab" style="margin-top:4pt">Technique notes</span><div class="lines" style="flex:1;min-height:.5in"></div></div>')
+    pages.append(hd("Station technique", f"{k + 1}-{k + 2} of 8") + f'<div style="flex:1;display:flex;flex-direction:column;gap:8pt">{blocks}</div>')
+pages.append(hd("Wall balls: break them up", "100 reps") +
+             '<p>Wall balls come last, when your legs are tired. Going unbroken until you fail usually leads to long rests later. Pick a plan before race day and practise it.</p>'
+             '<table><tr><th>Plan</th><th>Sets</th><th>Rest between sets</th><th>Good for</th></tr>'
+             '<tr><td>A</td><td>25 x 4</td><td>5 to 8 breaths</td><td>Strong legs, wall balls practised often</td></tr>'
+             '<tr><td>B</td><td>20 x 5</td><td>5 to 8 breaths</td><td>Most athletes</td></tr>'
+             '<tr><td>C</td><td>15, 15, 15, 15, 15, 15, 10</td><td>4 to 6 breaths</td><td>First race, newer to squats</td></tr>'
+             '<tr><td>D</td><td>10 x 10</td><td>3 to 5 breaths</td><td>Keeping no-reps low when very tired</td></tr></table>'
+             '<h3>How to rest</h3><p>Hold the ball at your chest or set it down right in front of you. Count your breaths, not seconds. Start the next set before you feel ready.</p>'
+             '<h3>My plan</h3>' + f('Sets') + f('Rest') + '<h3>Practice log</h3><table><tr><th>Date</th><th>Plan used</th><th>Total time</th><th>No-reps</th></tr>' + "<tr><td></td><td></td><td></td><td></td></tr>" * 12 + '</table><h3>Notes</h3><div class="lines" style="min-height:1.2in"></div>')
+pages.append(hd("Your first race: pacing plan") +
+             '<p>Most first-timers start too fast. The first 1 km run feels easy on fresh legs and the crowd is loud, so it is easy to run 30 seconds too quick and pay for it at the sled.</p>'
+             '<table><tr><th>Part</th><th>Aim</th><th>Effort (RPE)</th></tr>'
+             '<tr><td>Run 1</td><td>Slower than you want. You should be able to talk.</td><td>5 to 6</td></tr>'
+             '<tr><td>SkiErg, row</td><td>Steady rhythm, settle your breathing.</td><td>6 to 7</td></tr>'
+             '<tr><td>Sled push and pull</td><td>Keep moving. Short steps, short rests.</td><td>8</td></tr>'
+             '<tr><td>Runs 2 to 6</td><td>Same pace each time. Use the first 200 m to recover.</td><td>6 to 7</td></tr>'
+             '<tr><td>Burpees, farmers, lunges</td><td>Planned rhythm, rests of a few breaths only.</td><td>7 to 8</td></tr>'
+             '<tr><td>Runs 7 and 8</td><td>Hold pace. Run 8 is the time to empty the tank.</td><td>8 to 9</td></tr>'
+             '<tr><td>Wall balls</td><td>Your planned sets. Finish strong.</td><td>9 to 10</td></tr></table>'
+             '<h3>Transitions</h3><p>Walk briskly, breathe and drink a sip of water if you need it. Do not stop in the transition zone; small stops add up to minutes.</p>'
+             '<h3>My first-race targets</h3>' + f('Run 1 pace') + f('Average run pace') + f('Wall ball plan') + f('Finish time goal') + '<h3>Notes</h3><div class="lines" style="min-height:2in"></div>')
+pages.append(hd("Doubles and relay") +
+             '<p>Racing with others is a great first step and a lot of fun. Rules differ by event, so check your race\'s rulebook. The common formats work like this:</p>'
+             '<h3>Doubles</h3><p>Both partners run every 1 km together. At each station you share the work however you like, for example switching every 250 m on the SkiErg or every 10 wall balls. Only one partner works at a time.</p>'
+             '<h3>Relay</h3><p>A team of four. Each athlete does two of the eight run-plus-station legs, then tags the next team member.</p>'
+             '<h3>Our split plan</h3><table><tr><th>Station</th><th>How we split it</th><th>Who starts</th></tr>' +
+             "".join(f"<tr><td>{s}</td><td></td><td></td></tr>" for s, _ in STATIONS) + '</table>'
+             '<h3>Team notes</h3><div class="lines" style="min-height:2.6in"></div>')
+PLAN = [
+ ("1", "Base + test", "Benchmark tests. Easy 5 km run.", "40 min easy run + 3 stations at easy effort"),
+ ("2", "Base", "6 x 400 m run, 90 s rest", "45 min hybrid: 4 x (1 km run + 1 station)"),
+ ("3", "Build", "5 x 800 m at goal race pace", "50 min hybrid: 5 x (1 km + station)"),
+ ("4", "Easier week", "Easy runs only, technique work", "30 min easy run"),
+ ("5", "Build", "4 x 1 km at race pace + 20 wall balls after each", "Half race simulation (4 runs + 4 stations)"),
+ ("6", "Build + retest", "Retest benchmarks", "60 min hybrid, steady effort"),
+ ("7", "Strength focus", "Heavy sled push and pull, 5 sets", "6 x (1 km + station) at race pace"),
+ ("8", "Easier week", "Easy runs, mobility", "35 min easy run"),
+ ("9", "Race practice", "8 x 1 km at race pace, 1 min rest", "Full race simulation at 80% effort"),
+ ("10", "Sharpen", "Race-order stations, short rests", "5 x (1 km + 2 stations)"),
+ ("11", "Taper", "3 x 1 km at race pace", "30 min easy + 2 stations, light"),
+ ("12", "Race week", "Retest only what you need; 2 easy runs", "RACE DAY"),
+]
+pages.append(hd("Your 12-week plan", "A suggested plan, adjust to you") +
+             '<p>A simple plan for most athletes training 4 to 5 times a week. Add one or two strength sessions each week (squats, lunges, deadlifts, pulls). Easier weeks let your body adapt.</p>'
+             '<table><tr><th style="width:9%">Wk</th><th style="width:18%">Phase</th><th>Key session</th><th>Long session</th></tr>' +
+             "".join(f"<tr style='height:.47in'><td style='height:.47in'>{a}</td><td>{b}</td><td>{c}</td><td>{d}</td></tr>" for a, b, c, d in PLAN) + '</table>'
+             '<p style="margin-top:6pt;font-size:8pt;color:#444">Copy each week\'s key and long session onto that week\'s planning page.</p>')
+pages.append(hd("Exercise library", "Strength that carries over") +
+             '<table><tr><th>Exercise</th><th>Helps with</th><th>Typical sets</th></tr>' +
+             "".join(f"<tr style='height:.34in'><td style='height:.34in'>{a}</td><td>{b}</td><td>{c}</td></tr>" for a, b, c in [
+                 ("Back or front squat", "Wall balls, lunges, sled push", "4 x 6-8"), ("Walking lunges", "Sandbag lunges", "3 x 20 steps"),
+                 ("Romanian deadlift", "Sled pull, rowing, farmers carry", "3 x 8"), ("Sled push / heavy prowler", "Sled push", "5 x 20 m"),
+                 ("Bent-over row", "Sled pull, SkiErg, rowing", "3 x 10"), ("Pull-ups or lat pulldown", "SkiErg, sled pull", "3 x 8"),
+                 ("Farmers hold", "Farmers carry grip", "3 x 45 s"), ("Thrusters", "Wall balls", "4 x 10"),
+                 ("Box step-ups", "Lunges, running", "3 x 10 each leg"), ("Plank / side plank", "Every station", "3 x 45 s"),
+                 ("Burpees", "Burpee broad jumps", "EMOM 8-10 min"), ("Calf raises", "Running, sled push", "3 x 15")]) + '</table>'
+             '<h3>Notes</h3><div class="lines"></div>')
 # 8-9 benchmarks
 bench = ["1 km run (fresh)", "5 km run", "1,000 m SkiErg", "1,000 m row", "50 m sled push (race weight)", "50 m sled pull (race weight)",
          "80 m burpee broad jumps", "200 m farmers carry", "100 m sandbag lunges", "100 wall balls", "Half race simulation (4 runs + 4 stations)"]
@@ -171,7 +264,7 @@ plan = ["Eat a familiar meal 3 hours before", "Arrive 60 minutes early", "Find y
         "Start the first run slower than you want to", "Breathe through the transitions", "Break wall balls into planned sets", "Finish strong: smile for the photo"]
 pages.append(hd("Race-day checklist") + '<h3>Pack</h3>' + "".join(f'<div style="padding:3pt 0;border-bottom:.8pt solid #ddd">{cbs([x])}</div>' for x in pack) +
              '<h3>On the day</h3>' + "".join(f'<div style="padding:3pt 0;border-bottom:.8pt solid #ddd">{cbs([x])}</div>' for x in plan))
-while len(pages) < 96:
+while len(pages) < 108:
     pages.append(hd("Notes") + '<div class="lines"></div>')
 
 # page numbers (skip title + copyright)
@@ -207,7 +300,7 @@ back = ('<div class="kick" style="margin-top:.35in">Train smarter for race day</
         '<div class="feat"><div>12-week plan with weekly planning and review pages</div><div>Daily session logs with sets, weights, pace and RPE</div>'
         '<div>Benchmark tests for every station, at week 1, 6 and 12</div><div>Run pace chart and finish-time planner</div>'
         '<div>Season 2026/27 station weights for every division</div><div>6 race logs with full split sheets</div><div>Race-day packing and pacing checklist</div></div>'
-        '<p class="blurb" style="margin-top:16pt;font-size:9pt;color:#99a">7 x 10 in · 96 pages · Independent publication, not affiliated with any race organiser.</p>'
+        '<p class="blurb" style="margin-top:16pt;font-size:9pt;color:#99a">7 x 10 in · 108 pages · Independent publication, not affiliated with any race organiser.</p>'
         '<div class="barcode"></div>')
 spine = '<div class="spine-t">RACE READY · TRAINING LOG</div>'
 info = cover(front, back, spine, COVER_CSS, TW, TH, n, OUT / "race-ready-cover.pdf", preview=OUT / "cover.png")
