@@ -54,6 +54,42 @@
   "status": "published 20 Nov"
  },
  {
+  "image": "pins/site/blanket-size-calculator.jpg",
+  "title": "Crochet Blanket Size Chart + Free Yarn Calculator (Baby to King)",
+  "description": "Free blanket size chart for crochet and knitting: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm. Pick your yarn weight to see how many yards and skeins to buy. #crochetblanket #blanketsizes #knittingblanket #crochettips",
+  "link": "https://purlandpaperco.com/blanket-size-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
+  "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
+  "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
+  "link": "https://www.etsy.com/listing/4621713425/christmas-gift-planner-spreadsheet",
+  "board": "Small Business Spreadsheets",
+  "topic": "Christmas",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch2/2027-monthly-budget-planner-pin-a.jpg",
+  "title": "2027 Budget Planner Spreadsheet | Monthly Budget Template",
+  "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
+  "link": "https://www.etsy.com/listing/4621714773/2027-budget-planner-spreadsheet-monthly",
+  "board": "Small Business Spreadsheets",
+  "topic": "Budgeting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-tags-pin-a.jpg",
+  "title": "Printable Christmas Gift Tags | 48 Tags + Round Labels",
+  "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
+  "link": "https://www.etsy.com/listing/4621715645/printable-christmas-gift-tags-holiday",
+  "board": "Junk Journal Printables",
+  "topic": "Christmas",
+  "status": "queued"
+ },
+ {
   "image": "pins/batch1/journaling-cards-3x4-pin-a.jpg",
   "title": "Printable Journaling Cards 3x4 | Pocket Cards for Junk Journals",
   "description": "24 printable journaling cards sized 3x4 inches for pocket pages, junk journals and project life albums. Instant download. #journalingcards #projectlife #pocketletters #junkjournal #printables",
@@ -180,12 +216,30 @@
   "status": "queued"
  },
  {
-  "image": "pins/site/blanket-size-calculator.jpg",
-  "title": "Crochet Blanket Size Chart + Free Yarn Calculator (Baby to King)",
-  "description": "Free blanket size chart for crochet and knitting: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm. Pick your yarn weight to see how many yards and skeins to buy. #crochetblanket #blanketsizes #knittingblanket #crochettips",
-  "link": "https://purlandpaperco.com/blanket-size-calculator",
-  "board": "Crochet & Knitting Planners",
-  "topic": "Crochet",
-  "status": "published 20 Nov"
+  "image": "pins/batch2/christmas-gift-planner-budget-pin-b.jpg",
+  "title": "Christmas Gift Planner Spreadsheet | Instant Download",
+  "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
+  "link": "https://karamat4.gumroad.com/l/christmas-gift-planner",
+  "board": "Small Business Spreadsheets",
+  "topic": "Christmas",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch2/2027-monthly-budget-planner-pin-b.jpg",
+  "title": "2027 Budget Planner Spreadsheet | Instant Download",
+  "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
+  "link": "https://karamat4.gumroad.com/l/2027-budget-planner",
+  "board": "Small Business Spreadsheets",
+  "topic": "Budgeting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-tags-pin-b.jpg",
+  "title": "Printable Christmas Gift Tags | Instant Download",
+  "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
+  "link": "https://karamat4.gumroad.com/l/christmas-gift-tags",
+  "board": "Junk Journal Printables",
+  "topic": "Christmas",
+  "status": "queued"
  }
 ]
