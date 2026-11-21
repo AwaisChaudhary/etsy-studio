@@ -22,9 +22,9 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -71,6 +71,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "increase-decrease-calculator.html": KNIT,
+            "how-to-price-crochet-items.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -227,7 +229,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -247,13 +249,26 @@ rc = top("Row counter", "Tap the big button each time you finish a row. Add a ta
 <div class="counters" id="counters"></div>
 <p class="note" style="margin-top:20px">Keyboard: press <strong>Space</strong> or <strong>+</strong> to add a row on the first counter, <strong>−</strong> to take one away.</p>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>How to use the repeat counter</h2>
+<section style="padding-top:0"><div class="narrow prose"><div class="quick"><strong>Quick answer:</strong> tap the big + button after every row (or press Space on a keyboard). Set "Repeat every" to the length of your pattern repeat, add a target if you know the total, and tick "Keep screen on" so the phone doesn't lock mid-row. Counts save on this device automatically.</div>
+<h2>How do I use the repeat counter?</h2>
 <p>Many patterns repeat a set of rows, like "repeat rows 1 to 8 six times". Put <strong>8</strong> in "Repeat every". The counter then shows which row of the repeat you're on and adds one to your repeat count each time you finish the set.</p>
-<p>Use a second counter for something separate, like decreases on a sleeve or rounds on a hat crown, so you never have to keep two numbers in your head.</p></div></section>'''
+<p>Use a second counter for something separate, like decreases on a sleeve or rounds on a hat crown, so you never have to keep two numbers in your head.</p>
+<h2>How do I keep track of increase and decrease rows?</h2>
+<p>Patterns often say something like "decrease at each end every 6th row, 8 times". Make a second counter called "Decreases", set its repeat to <strong>6</strong>, and give it a target of <strong>48</strong> (6 × 8). It tells you which row of the six you're on, and adds one to the repeat count each time you reach a decrease row. Your main counter keeps the total rows.</p>
+<p>Need to work out the spacing first, like "increase 14 stitches evenly across the row"? The <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> writes the row out for you.</p>
+<h2>How do I count rows I've already knitted?</h2>
+<ul><li><strong>Knitting:</strong> each V in a column of stockinette is one row. Count the Vs from just above the cast-on edge up to the needle; the loops on the needle are the current row, not yet counted.</li>
+<li><strong>Garter stitch:</strong> each ridge is two rows.</li>
+<li><strong>Crochet:</strong> count the tall stitch posts in one column; for single crochet, each little ridge of loops is one row.</li></ul>
+<p>Tap "Set number" on the counter, type the rows you counted, then carry on tapping.</p>
+<h2>What next?</h2>
+<p>Log the project, its yarn and where you got to in the <a href="{href("projects.html")}">project tracker</a>, check you've got enough yarn with the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, or plan a hat with the <a href="{href("hat-size-chart.html")}">hat size calculator</a>.</p></div></section>'''
 rc_faq = [
     ("How do I stop my phone screen turning off while I knit?", "Tick 'Keep screen on'. It uses your browser's screen wake feature, which works in most up-to-date browsers on Android, iPhone and computers. It switches off when you leave the page."),
     ("Does the row counter work offline?", "Once the page has loaded it keeps working without a connection, and your counts are saved on your device."),
     ("Can I count rounds instead of rows?", "Yes. Rename the counter to 'Rounds' by tapping its name. It counts the same way."),
+    ("How do I count decrease rows like every 6th row?", "Add a second counter, set its repeat to 6 and its target to 6 times the number of decreases. It shows which row of the six you're on and counts each completed repeat, while your first counter keeps the total."),
+    ("How do I count rows in knitting?", "In stockinette, count the Vs in one column from above the cast-on edge; each V is one row. In garter stitch each ridge is two rows. Don't count the loops on your needle."),
 ]
 page("row-counter.html", "Free Online Row Counter for Knitting and Crochet | Purl & Paper",
      "A free row counter for knitting and crochet with big tap buttons, repeat counting, targets, multiple counters and a keep-screen-on switch. Saves automatically.",
@@ -352,8 +367,10 @@ pj = top("Project tracker", "Every work in progress in one place. Note the yarn,
 <section style="padding-top:0"><div class="narrow prose"><h2>Getting the most from the tracker</h2>
 <p>Write down anything you changed from the pattern the moment you change it: a different hook for the ribbing, an extra repeat on the sleeves, the colour you swapped in. Six weeks later, when you start the second sock or the matching mitten, that note saves you from guessing.</p>
 <p>Keep the yarn label details too: the brand, colour name and dye lot. If you run short, the dye lot is what lets you find a skein that matches.</p>
+<h2>Selling what you make?</h2>
+<p>Note the hours and the cost of the yarn as you go. Those two numbers are most of a fair price, and our guide on <a href="@@PR@@">how to price crochet and knitting items</a> turns them into one, Etsy and craft fair fees included.</p>
 <h2>Making gifts this year?</h2>
-<p>Add each gift as a planned project, then check the timing in our <a href="@@GP@@">handmade gift planner</a>. It adds up the hours for every hat, scarf and blanket on your list and tells you whether they'll be finished by Christmas or another deadline. For how much yarn each one needs, use the <a href="@@YC@@">yarn calculator</a>.</p></div></section>'''.replace("@@GP@@", href("crochet-knitting-gift-planner.html")).replace("@@YC@@", href("yarn-calculator.html"))
+<p>Add each gift as a planned project, then check the timing in our <a href="@@GP@@">handmade gift planner</a>. It adds up the hours for every hat, scarf and blanket on your list and tells you whether they'll be finished by Christmas or another deadline. For how much yarn each one needs, use the <a href="@@YC@@">yarn calculator</a>.</p></div></section>'''.replace("@@PR@@", href("how-to-price-crochet-items.html")).replace("@@GP@@", href("crochet-knitting-gift-planner.html")).replace("@@YC@@", href("yarn-calculator.html"))
 pj_faq = [
     ("Where are my projects saved?", "On this device, in your browser. Nothing is uploaded. Use 'Back up my projects' to download a file you can restore on another phone or computer."),
     ("What does 'frogged' mean?", "Frogging is pulling a project out to reuse the yarn. It comes from 'rip it, rip it', which sounds like a frog."),
@@ -633,7 +650,7 @@ ht = top("Hat size chart and calculator", "Head sizes from preemie to large adul
 <li><strong>Babies and children</strong> grow fast. When in doubt, go a little bigger.</li></ul>
 <div class="callout"><strong>Swatch in the round if you can.</strong> Measure your stitches over 4 inches (10 cm) after washing the swatch. Half a stitch per inch can change an adult hat by 2 inches.</div>
 <h2>Knitting a hat: the cast-on maths</h2>
-<p>Multiply the hat width by your stitches per inch, then round to a number that suits your rib and crown. For example, a 22 inch head with 12 percent ease gives a 19.4 inch hat. At 4.5 stitches per inch that's 87 stitches, so cast on 88. Knit until the hat is about 2.5 to 3 inches short of the full height, then start the crown decreases.</p>
+<p>Multiply the hat width by your stitches per inch, then round to a number that suits your rib and crown. For example, a 22 inch head with 12 percent ease gives a 19.4 inch hat. At 4.5 stitches per inch that's 87 stitches, so cast on 88. Knit until the hat is about 2.5 to 3 inches short of the full height, then start the crown decreases. Adding stitches after a ribbed brim? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> spaces them for you.</p>
 <h2>Crocheting a hat from the top down</h2>
 <p>Work a flat circle, increasing each round, until it measures the hat width divided by 3.14 across. Then stop increasing and work even rounds until the hat reaches the full height, measured from the centre of the crown. For a 19 inch hat that's a circle about 6 inches across.</p>
 <p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>.</p></div></section>'''
@@ -702,6 +719,149 @@ page("granny-square-blanket-calculator.html", "Granny Square Blanket Calculator:
      "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, the layout, and an estimate of the yarn for squares, joins and border.",
      gs, gs_faq, "Granny square calculator", app_name="Granny square blanket calculator")
 
+# ---------------- INCREASE / DECREASE EVENLY CALCULATOR ----------------
+def spacing(S, N, kind, flat):
+    """Same maths as app.js. kind: m1 (inc between sts), into (inc worked into a st), dec (2 sts worked together).
+    Returns list of (plain, action) tokens and the trailing plain count, or None if impossible."""
+    use = {"m1": 0, "into": 1, "dec": 2}[kind]
+    if N < 1 or S < 1 or N * max(use, 1) > S: return None
+    L = [((i + 1) * S) // N - (i * S) // N for i in range(N)]
+    p = [x - use for x in L]
+    if flat:
+        a = p[-1] // 2
+        return [(a, 1)] + [(x, 1) for x in p[:-1]], p[-1] - a
+    return [(x, 1) for x in p], 0
+def spacing_text(S, N, kind, flat, craft="knit"):
+    r = spacing(S, N, kind, flat)
+    if not r: return "not possible"
+    toks, tail = r
+    if craft == "knit":
+        act = {"m1": "M1", "into": "kfb", "dec": "k2tog"}[kind]
+        unit = lambda n: f"K{n}"
+    else:
+        act = "dec" if kind == "dec" else "inc"
+        unit = lambda n: f"{n} sc"
+    def tok(t): return ", ".join(([unit(t[0])] if t[0] else []) + [act])
+    out, i = [], 0
+    while i < len(toks):
+        best = (1, 1)
+        for per in (1, 2, 3):
+            c = 1
+            while i + (c + 1) * per <= len(toks) and toks[i + c * per:i + (c + 1) * per] == toks[i:i + per]: c += 1
+            if c >= 2 and c * per > best[0] * best[1] and not (best[1] >= 2 and per > best[0]): best = (per, c)
+        per, c = best
+        blk = ", ".join(tok(t) for t in toks[i:i + per])
+        out.append(blk if c == 1 else ((f"[{blk}] {c} times") if craft == "knit" else f"({blk}) {c} times"))
+        i += per * c
+    if tail: out.append(unit(tail))
+    return ", ".join(out)
+ID_EX = [(48, 12, "m1", True), (60, 8, "m1", False), (80, 10, "into", True), (90, 10, "dec", True), (72, 12, "dec", False), (120, 20, "dec", False)]
+id_rows = "".join(f'<tr><td>{S} sts</td><td>{"Increase" if k != "dec" else "Decrease"} {N}</td><td>{"Flat" if fl else "In the round"}</td><td><code>{e(spacing_text(S, N, k, fl))}</code></td><td>{S + N if k != "dec" else S - N}</td></tr>' for S, N, k, fl in ID_EX)
+idc = top("Increase and decrease evenly calculator", "Type how many stitches you have and how many to add or take away. You get a written line you can follow, with the increases or decreases spread as evenly as the maths allows.", "Increase evenly calculator") + f'''
+<section style="padding-top:10px"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><span class="label" id="id-craft-l">Knitting or crochet?</span><div class="seg" role="group" aria-labelledby="id-craft-l" id="id-craft"><button type="button" data-v="knit" aria-pressed="true">Knitting</button><button type="button" data-v="crochet" aria-pressed="false">Crochet</button></div></div>
+<div class="field"><span class="label" id="id-dir-l">Add or take away?</span><div class="seg" role="group" aria-labelledby="id-dir-l" id="id-dir"><button type="button" data-v="inc" aria-pressed="true">Increase</button><button type="button" data-v="dec" aria-pressed="false">Decrease</button></div></div>
+<div class="row2"><div class="field"><label for="id-s">Stitches you have now</label><input type="number" id="id-s" value="60" min="2" max="2000" inputmode="numeric"></div>
+<div class="field"><label for="id-n" id="id-n-l">How many to increase</label><input type="number" id="id-n" value="12" min="1" max="1000" inputmode="numeric"></div></div>
+<p class="note" id="id-target" style="margin-top:-6px">You'll end with 72 stitches.</p>
+<div class="field"><span class="label" id="id-way-l">Working</span><div class="seg" role="group" aria-labelledby="id-way-l" id="id-way"><button type="button" data-v="flat" aria-pressed="true">Flat, in rows</button><button type="button" data-v="round" aria-pressed="false">In the round</button></div></div>
+<div class="field" id="id-kind-f"><label for="id-kind">Increase type</label><select id="id-kind"><option value="m1">M1, make one between stitches</option><option value="into">Kfb, knit front and back of a stitch</option></select></div>
+<label class="switch" id="id-stag-f" hidden><input type="checkbox" id="id-stag"> Stagger: start halfway into a repeat (so increases don't stack up round after round)</label>
+<figure class="id-fig"><svg id="id-svg" viewBox="0 0 320 120" role="img" aria-label="Your stitches with the increases or decreases marked"></svg><figcaption class="note" id="id-cap">Your row.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="id-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<div class="quick"><strong>Quick answer:</strong> divide the stitches you have by the number of increases or decreases. For 60 stitches and 12 increases, 60 ÷ 12 = 5, so work K5, M1 twelve times in the round, or start with K2 or K3 when working flat so the first and last increase sit away from the edges. If it doesn't divide exactly, alternate the shorter and longer gaps.</div>
+<h2>How do you increase evenly across a row?</h2>
+<ol><li><strong>Divide.</strong> Stitches now ÷ increases. 80 ÷ 10 = 8, so there's an increase every 8 stitches.</li>
+<li><strong>Working flat, split one gap.</strong> Put half a gap at each end: K4, M1, then (K8, M1) nine times, K4. That keeps increases off the selvedge, where they'd be hidden in the seam or look untidy.</li>
+<li><strong>In the round, there are no edges.</strong> (K8, M1) ten times brings you back to the start.</li>
+<li><strong>If it doesn't divide exactly</strong>, some gaps are one stitch longer. 62 ÷ 8 = 7.75, so six gaps of 8 and two of 7. The calculator spreads the longer gaps out instead of bunching them at one end.</li></ol>
+<h2>How do you decrease evenly?</h2>
+<p>The same way, with one difference: each decrease uses two stitches. If you need to decrease 10 from 90, every 9 stitches hold one decrease, so you knit 7 and then knit 2 together. Forgetting this is the most common reason a row ends with the wrong count. In crochet a decrease (sc2tog) also works two stitches together.</p>
+<h2>Increases worked into a stitch use it up</h2>
+<p>A make one (M1) is lifted from the bar between stitches, so it doesn't use a stitch. Kfb and the crochet increase (2 sc in the same stitch) are worked into a stitch, so that stitch counts as part of the gap. "Sc 4, inc" is 5 stitches of the old round becoming 6. Pick the right type in the calculator and it adjusts.</p>
+<div class="callout"><strong>Crochet circles and hat crowns:</strong> if every round starts with its increase in the same place, the circle turns into a hexagon. Tick "Stagger" on alternate rounds to start halfway into a repeat. The count is the same; only the position moves.</div>
+<h2>Examples worked out</h2></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">You have</th><th scope="col">Change</th><th scope="col">Working</th><th scope="col">Instruction</th><th scope="col">You end with</th></tr></thead><tbody>{id_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Square brackets mean repeat what's inside. The numbers come from the same maths as the calculator above.</p></div>
+<div class="narrow prose"><h2>What next?</h2>
+<p>Changing the stitch count because your swatch came out different? Check the new number with the <a href="{href("gauge-converter.html")}">gauge converter</a>. Shaping a hat crown? The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the cast-on and where to start decreasing. Keep track of increase rows with a second counter in the <a href="{href("row-counter.html")}">row counter</a>, and if a UK crochet pattern says "inc" in trebles, the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> chart translates it.</p></div></section>'''
+id_faq = [
+    ("How do I increase evenly across a row in knitting?", "Divide your stitches by the number of increases to get the gap. Working flat, split one gap between the two ends: for 80 stitches and 10 increases, K4, M1, (K8, M1) nine times, K4. In the round, just repeat (K8, M1) ten times."),
+    ("How do I decrease evenly across a row?", "Divide your stitches by the number of decreases, then knit two fewer than that before each k2tog, because a decrease uses two stitches. For 90 stitches and 10 decreases: (K7, k2tog) ten times gives 80."),
+    ("What if the stitches don't divide evenly by the increases?", "Some gaps are one stitch longer than others. For 62 stitches and 8 increases, six gaps are 8 stitches and two are 7. Spread the longer gaps out; the calculator does this for you."),
+    ("Does kfb count as a stitch when spacing increases?", "Yes. Kfb and the crochet 2 sc in one stitch are worked into a stitch, so that stitch is part of the gap. M1 is made between stitches and uses none."),
+    ("Why does my crochet circle look like a hexagon?", "The increases are stacking in the same place every round. Start alternate rounds halfway into the repeat, so the increases fall between the ones below."),
+]
+page("increase-decrease-calculator.html", "Increase and Decrease Evenly Calculator for Knitting and Crochet | Purl & Paper",
+     "Free calculator to increase or decrease evenly across a row or round, for knitting (M1, kfb, k2tog) and crochet (inc, sc2tog), with a written instruction and a stitch diagram.",
+     idc, id_faq, "Increase evenly calculator", app_name="Increase and decrease evenly calculator")
+
+# ---------------- HOW TO PRICE CROCHET ITEMS (guide + calculator) ----------------
+PR_EX = [("Beanie", 5, 2.5), ("Amigurumi toy (15 cm)", 6, 5), ("Granny square throw", 60, 45), ("Market tote bag", 7, 4), ("Baby blanket", 35, 25)]
+def pr_base(m, h, rate=15, oh=0.10): return (m + h * rate) * (1 + oh)
+def pr_etsy(b): return (b + 0.45) / (1 - 0.095)
+pr_rows = "".join(f'<tr><td>{n}</td><td>${m}</td><td>{h} h</td><td>${pr_base(m, h):,.0f}</td><td>${pr_etsy(pr_base(m, h)):,.0f}</td><td>${m * 3:,.0f}</td></tr>' for n, m, h in [(a, c, b) for a, b, c in PR_EX])
+prc = top("How to price crochet and knitting items", "A fair price covers your materials, pays you for your time, and still leaves that after the shop or card reader takes its cut. Here's the formula, and a calculator that does the sums.", "How to price crochet") + f'''
+<section style="padding-top:10px"><div class="narrow prose"><div class="quick"><strong>Quick answer:</strong> price = (materials + hours × your hourly rate) + a little for overheads, then add the selling fees. A beanie with $5 of yarn and 2.5 hours at $15 an hour is $42.50, about $47 with 10% for overheads, and about $52 on Etsy once its fees are covered. "Materials × 3" would say $15, which pays you about $4 an hour.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="pr-m">Materials for one item ($)</label><input type="number" id="pr-m" value="8" min="0" step="0.01" inputmode="decimal"><span class="note">Yarn (the share you used, stash yarn included), stuffing, eyes, buttons, labels, tags and packaging.</span></div>
+<div class="row2"><div class="field"><label for="pr-h">Hours to make it</label><input type="number" id="pr-h" value="4" min="0" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="pr-r">Your hourly rate ($)</label><input type="number" id="pr-r" value="15" min="0" step="0.5" inputmode="decimal"></div></div>
+<div class="field"><label for="pr-oh">Overheads (%)</label><input type="number" id="pr-oh" value="10" min="0" max="100" step="1" inputmode="decimal"><span class="note">Hooks, needles, printer ink, your phone photos, travel to the post office. 10% is our starting suggestion; raise it if you spend a lot on these.</span></div>
+<div class="field"><label for="pr-ch">Where will you sell it?</label><select id="pr-ch"><option value="etsy">Etsy (US fees)</option><option value="fair">Craft fair or market</option><option value="direct">Direct to friends (cash or bank transfer)</option><option value="consign">Shop on consignment</option></select></div>
+<div id="pr-fair"><div class="row2"><div class="field"><label for="pr-bf">Booth or table fee ($)</label><input type="number" id="pr-bf" value="40" min="0" step="1" inputmode="decimal"></div>
+<div class="field"><label for="pr-bn">Items you expect to sell</label><input type="number" id="pr-bn" value="20" min="1" step="1" inputmode="numeric"></div></div>
+<div class="field"><label for="pr-cf">Card reader fee (%)</label><input type="number" id="pr-cf" value="3" min="0" max="20" step="0.1" inputmode="decimal"><span class="note">Most card readers take roughly 2.5 to 3.5% of each sale. Check your provider's rate.</span></div></div>
+<div class="field" id="pr-con" hidden><label for="pr-cp">Shop's share (%)</label><input type="number" id="pr-cp" value="35" min="0" max="80" step="1" inputmode="decimal"><span class="note">Consignment shops usually keep somewhere between 20 and 50%.</span></div>
+<div class="field"><label for="pr-try">A price you had in mind (optional, $)</label><input type="number" id="pr-try" placeholder="e.g. 30" min="0" step="0.5" inputmode="decimal"><span class="note">We'll show what you'd really earn per hour at that price.</span></div>
+</div>
+<div class="result" aria-live="polite" id="pr-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>What is the formula for pricing crochet items?</h2>
+<p>Most experienced sellers use some version of this:</p>
+<ol><li><strong>Materials.</strong> Every bit that goes into or onto the item: the yarn you used (work out the share of a skein by weight), stuffing, safety eyes, buttons, labels, tags, the bag it goes in.</li>
+<li><strong>Labour.</strong> Hours × an hourly rate. Time yourself on the next one and round up to the nearest quarter hour; most people guess low.</li>
+<li><strong>Overheads.</strong> Tools wear out and photos, printing and trips to the post office cost money. A percentage on top covers them without tracking every penny.</li>
+<li><strong>Fees.</strong> Whoever processes the payment takes a cut. Add it on top, or it comes out of your hourly rate.</li></ol>
+<p>Shipping is separate: charge what it costs you to post. (On Etsy the 6.5% transaction fee applies to the shipping you charge too.)</p>
+<h2>What hourly rate should I charge for crochet?</h2>
+<p>Start at no less than your local minimum wage. Popular crochet business guides suggest somewhere between $12 and $20 an hour in the US, and more for skilled work like garments, colourwork or custom orders. You can make your own choices about charging less for a friend, but price your shop items as a job, so a sale never costs you money.</p>
+<h2>How much are Etsy's fees on a handmade item?</h2>
+<ul><li><strong>Listing fee:</strong> $0.20 per item, renewed every 4 months or when it sells.</li>
+<li><strong>Transaction fee:</strong> 6.5% of the order total, shipping and gift wrap included.</li>
+<li><strong>Payment processing (US):</strong> 3% + $0.25 per order.</li>
+<li><strong>Offsite Ads:</strong> 12 or 15% of an order, but only when the sale came from an ad Etsy placed for you.</li></ul>
+<p>Together that's roughly 9.5% plus $0.45 on most sales, which the calculator adds for you. Fees change, and they're different outside the US, so check Etsy's own fees page before you set prices for the year.</p>
+<h2>Why not just charge materials × 3?</h2>
+<p>Because it ignores time. A beanie that takes 2 hours and a blanket that takes 45 can use similar money's worth of yarn. "Materials × 3" prices them almost the same and pays you a few dollars an hour for the blanket. It works for quick, cheap-to-make items, and that's about it.</p>
+<h2>Example prices</h2></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Item</th><th scope="col">Materials</th><th scope="col">Time</th><th scope="col">Fair price</th><th scope="col">On Etsy</th><th scope="col">Materials × 3</th></tr></thead><tbody>{pr_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our own examples, at $15 an hour plus 10% overheads; the Etsy column adds US fees (9.5% + $0.45). Materials and hours are typical guesses; use your own. Prices are rounded.</p></div>
+<div class="narrow prose"><h2>What if the price feels too high?</h2>
+<p>That's normal, and it's a sign the item takes real skill and time. You have three honest choices: sell it anyway to buyers who value handmade (craft fairs and gift buyers often do), make it faster (thicker yarn, a simpler stitch, fewer colour changes), or make something smaller that sells at a price you're happy with. Lowering your hourly rate until it hurts is the one that burns people out.</p>
+<h2>Pricing for a craft fair</h2>
+<ul><li><strong>Spread the table fee</strong> over the items you realistically expect to sell, not the number you're bringing.</li>
+<li><strong>Bring a range</strong>: a few small makes under $15 (scrunchies, coasters, keychains) so people can buy something, and bigger pieces that show what you can do.</li>
+<li><strong>Use round prices</strong> like $15, $25, $40. They're quicker to take and to make change for.</li></ul>
+<h2>What next?</h2>
+<p>Not sure how long an item takes? The <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a> has typical hours for 14 projects. Work out the yarn first with the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, then log each make with its hours and yarn in the <a href="{href("projects.html")}">project tracker</a> so the next price is easier. Want this as a spreadsheet you can keep? Our pricing calculator in the shop below does it for every item you make.</p></div></section>'''
+pr_faq = [
+    ("What is the formula for pricing crochet items?", "Materials + (hours × your hourly rate), plus a percentage for overheads such as tools and packaging, plus the selling fees. Shipping is charged separately."),
+    ("What hourly rate should I charge for crochet?", "At least your local minimum wage. Crochet business guides commonly suggest $12 to $20 an hour in the US, more for skilled or custom work."),
+    ("How much should I charge for a crochet hat?", "With about $5 of yarn and 2.5 hours at $15 an hour, around $45 to $50, or about $52 on Etsy once fees are covered. Quick chunky hats can be less; colourwork or fine yarn more."),
+    ("How much does Etsy take from a sale?", "In the US, 6.5% of the order including shipping, plus 3% + $0.25 for payment processing and $0.20 to list. That's roughly 9.5% + $0.45, more if the sale came from an Offsite Ad."),
+    ("Is materials times 3 a good way to price crochet?", "Only for quick items. It ignores time, so anything that takes more than an hour or two ends up paying you very little."),
+]
+page("how-to-price-crochet-items.html", "How to Price Crochet and Knitting Items (Free Calculator) | Purl & Paper",
+     "The formula for pricing crochet and knitted items to sell: materials, an hourly rate, overheads and Etsy or craft fair fees, with a free calculator and example prices.",
+     prc, pr_faq, "How to price crochet", app_name="Crochet and knitting price calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -723,7 +883,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+LASTMOD = {"increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-21"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

@@ -569,4 +569,117 @@
     gsKeys.forEach(function (k) { gsEl[k].addEventListener("input", gsCalc); gsEl[k].addEventListener("change", gsCalc); });
     gsCalc();
   }
+  /* ---- Increase / decrease evenly calculator (same maths as spacing() in build.py) ---- */
+  if ($("#id-s") && $("#id-out")) {
+    var idE = {}; ["craft", "dir", "s", "n", "n-l", "target", "way", "kind", "kind-f", "stag", "stag-f", "svg", "cap", "out"].forEach(function (k) { idE[k] = $("#id-" + k); });
+    var idPref = store.get("pp-incdec", null);
+    var idSetSeg = function (el, v) { $$("button", el).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); }); };
+    if (idPref) { idSetSeg(idE.craft, idPref.craft); idSetSeg(idE.dir, idPref.dir); idSetSeg(idE.way, idPref.way); if (idPref.s) idE.s.value = idPref.s; if (idPref.n) idE.n.value = idPref.n; }
+    function idPlan(S, N, use, flat) {
+      if (N < 1 || S < 1 || N * Math.max(use, 1) > S) return null;
+      var p = [], i; for (i = 0; i < N; i++) p.push(Math.floor((i + 1) * S / N) - Math.floor(i * S / N) - use);
+      if (!flat) return { t: p, tail: 0 };
+      var last = p[p.length - 1], a = Math.floor(last / 2);
+      return { t: [a].concat(p.slice(0, -1)), tail: last - a };
+    }
+    function idText(pl, knit, act) {
+      var unit = function (n) { return knit ? "K" + n : n + " sc"; };
+      var tok = function (n) { return (n ? unit(n) + ", " : "") + act; };
+      var t = pl.t, out = [], i = 0;
+      while (i < t.length) {
+        var bp = 1, bc = 1;
+        for (var per = 1; per <= 3; per++) {
+          var c = 1;
+          while (i + (c + 1) * per <= t.length && t.slice(i + c * per, i + (c + 1) * per).join() === t.slice(i, i + per).join()) c++;
+          if (c >= 2 && c * per > bp * bc && !(bc >= 2 && per > bp)) { bp = per; bc = c; }
+        }
+        var blk = t.slice(i, i + bp).map(tok).join(", ");
+        out.push(bc === 1 ? blk : (knit ? "[" + blk + "] " : "(" + blk + ") ") + bc + " times");
+        i += bp * bc;
+      }
+      if (pl.tail) out.push(unit(pl.tail));
+      return out.join(", ");
+    }
+    function idDraw(pl, use, S, dec) {
+      var per = 30, cw = 320 / per, seq = [], i, j;
+      pl.t.forEach(function (n) { for (j = 0; j < n; j++) seq.push(0); seq.push(use === 0 ? 3 : (dec ? 2 : 1)); });
+      for (j = 0; j < pl.tail; j++) seq.push(0);
+      var cells = [];  /* each old stitch is a cell; type 3 = M1 marker drawn between cells */
+      seq.forEach(function (k) { if (k === 3) { if (cells.length) cells[cells.length - 1].m1 = true; else cells.push({ k: -1, m1: true }); } else if (k === 2) { cells.push({ k: 2 }); cells.push({ k: 2, second: true }); } else cells.push({ k: k }); });
+      cells = cells.filter(function (c) { return c.k !== -1 || c.m1; });
+      var shown = Math.min(cells.length, 360), rows = Math.ceil(shown / per), h = Math.max(40, rows * 26 + 12), g = "";
+      for (i = 0; i < shown; i++) {
+        var c = cells[i], x = (i % per) * cw + cw / 2, y = Math.floor(i / per) * 26 + 20;
+        if (c.k === -1) { g += '<circle cx="' + (x - cw / 2) + '" cy="' + y + '" r="3.4" fill="#b8326a"/>'; continue; }
+        var col = c.k === 2 ? "#2f8f8a" : c.k === 1 ? "#b8326a" : "#1f2a44";
+        g += '<path d="M' + (x - cw * 0.34) + " " + (y - 8) + "L" + x + " " + (y + 7) + "L" + (x + cw * 0.34) + " " + (y - 8) + '" fill="none" stroke="' + col + '" stroke-width="' + (c.k ? 2.4 : 1.5) + '" stroke-linecap="round" stroke-linejoin="round"/>';
+        if (c.k === 2 && !c.second) g += '<path d="M' + (x - cw * 0.4) + " " + (y + 10) + "Q" + (x + cw / 2) + " " + (y + 16) + " " + (x + cw * 1.4) + " " + (y + 10) + '" fill="none" stroke="#2f8f8a" stroke-width="1.6"/>';
+        if (c.m1) g += '<circle cx="' + (x + cw / 2) + '" cy="' + y + '" r="3.4" fill="#b8326a"/>';
+      }
+      idE.svg.setAttribute("viewBox", "0 0 320 " + h); idE.svg.innerHTML = g;
+      idE.cap.textContent = "Each V is a stitch you have now. " + (dec ? "Teal pairs are worked together." : use === 0 ? "Berry dots are the new stitches made between." : "Berry stitches are the ones you increase into.") + (cells.length > shown ? " Showing the first " + shown + " stitches." : "");
+    }
+    function idCalc() {
+      var knit = segVal(idE.craft) === "knit", dec = segVal(idE.dir) === "dec", flat = segVal(idE.way) === "flat";
+      var S = parseInt(idE.s.value, 10) || 0, N = parseInt(idE.n.value, 10) || 0;
+      idE["kind-f"].hidden = !knit || dec; idE["stag-f"].hidden = flat;
+      idE["n-l"].textContent = dec ? "How many to decrease" : "How many to increase";
+      var use = dec ? 2 : (knit && idE.kind.value === "m1" ? 0 : 1);
+      var act = dec ? (knit ? "k2tog" : "dec") : (knit ? (use ? "kfb" : "M1") : "inc");
+      idE.target.textContent = S > 0 && N > 0 ? "You'll end with " + (dec ? S - N : S + N) + " stitches." : "";
+      var pl = idPlan(S, N, use, flat || idE.stag.checked);
+      if (!pl) {
+        idE.out.innerHTML = "<h3>Check the numbers</h3><p>" + (S < 1 || N < 1 ? "Type the stitches you have and how many to change." : dec ? "Each decrease uses two stitches, so " + S + " stitches allow at most " + Math.floor(S / 2) + " decreases in one row." : "That's more increases than stitches. Spread them over two rows, or increase twice into some stitches.") + "</p>";
+        idE.svg.innerHTML = ""; idE.cap.textContent = ""; return;
+      }
+      var rp = idPlan(S, N, use, false), line = idText(pl, knit, act), lo = Math.min.apply(null, rp.t), hi = Math.max.apply(null, rp.t);
+      idE.out.innerHTML = "<h3>" + (flat ? "Your row" : "Your round") + '</h3><p class="id-line" id="id-line">' + esc(line) + "</p>" +
+        '<button type="button" class="btn gold sm" id="id-copy">Copy instruction</button>' +
+        "<h3 style=\"margin-top:18px\">Stitch count</h3><div class=\"big\">" + S + "<small> → </small>" + (dec ? S - N : S + N) + "</div>" +
+        '<p class="sub">' + N + " " + (dec ? "decreases" : "increases") + ", " + (lo === hi ? "every " + (lo + use) + " stitches" : "every " + (lo + use) + " or " + (hi + use) + " stitches") + (flat ? ", with half a gap at each edge." : idE.stag.checked ? ", starting halfway into a repeat." : ".") + "</p>" +
+        '<p class="sub">' + (knit ? (dec ? "k2tog = knit 2 together." : use ? "kfb = knit into the front and back of the same stitch." : "M1 = make one: lift the bar between stitches and knit into the back of it.") + (flat ? " On a purl row, purl the plain stitches (p2tog or M1P for the shaping)." : "") : (dec ? "dec = sc2tog (or an invisible decrease)." : "inc = 2 sc in the same stitch.") + " Using hdc or dc? Swap sc for your stitch.") + "</p>" +
+        '<hr><p class="sub">Next: <a href="' + (location.protocol === "file:" ? "row-counter.html" : "/row-counter") + '" style="color:#f4a823">count the rows</a> or <a href="' + (location.protocol === "file:" ? "gauge-converter.html" : "/gauge-converter") + '" style="color:#f4a823">check your gauge</a>.</p>';
+      var cp = $("#id-copy"); if (cp) cp.addEventListener("click", function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(line).then(function () { toast("Copied"); }, function () { toast("Couldn't copy. Select the text instead."); });
+        else toast("Select the text to copy it");
+      });
+      idDraw(pl, use, S, dec);
+      store.set("pp-incdec", { craft: knit ? "knit" : "crochet", dir: dec ? "dec" : "inc", way: flat ? "flat" : "round", s: S, n: N });
+    }
+    [idE.craft, idE.dir, idE.way].forEach(function (el) { seg(el, idCalc); });
+    [idE.s, idE.n, idE.kind, idE.stag].forEach(function (el) { el.addEventListener("input", idCalc); el.addEventListener("change", idCalc); });
+    idCalc();
+  }
+  /* ---- Crochet / knitting price calculator ---- */
+  if ($("#pr-m") && $("#pr-out")) {
+    var prE = {}; ["m", "h", "r", "oh", "ch", "fair", "bf", "bn", "cf", "con", "cp", "try", "out"].forEach(function (k) { prE[k] = $("#pr-" + k); });
+    var prKeys = ["m", "h", "r", "oh", "ch", "bf", "bn", "cf", "cp"], prPref = store.get("pp-price", null);
+    if (prPref) prKeys.forEach(function (k) { if (prPref[k] != null && prPref[k] !== "") prE[k].value = prPref[k]; });
+    var money = function (n) { return "$" + (Math.round(n * 100) / 100).toFixed(2); };
+    var num = function (el) { return Math.max(0, parseFloat(el.value) || 0); };
+    function prCalc() {
+      var m = num(prE.m), h = num(prE.h), r = num(prE.r), oh = num(prE.oh) / 100, ch = prE.ch.value;
+      prE.fair.hidden = ch !== "fair"; prE.con.hidden = ch !== "consign";
+      var labour = h * r, base = (m + labour) * (1 + oh), pct = 0, fix = 0, extra = 0, note = "";
+      if (ch === "etsy") { pct = 0.095; fix = 0.45; note = "Etsy US fees: 6.5% transaction + 3% and $0.25 processing + $0.20 listing. Offsite Ads sales cost 12–15% more."; }
+      else if (ch === "fair") { pct = num(prE.cf) / 100; extra = num(prE.bf) / Math.max(1, parseInt(prE.bn.value, 10) || 1); note = "Includes " + money(extra) + " of the table fee per item and the card reader fee."; }
+      else if (ch === "consign") { pct = Math.min(0.8, num(prE.cp) / 100); note = "The shop keeps " + Math.round(pct * 100) + "%, so the price is raised to leave you the full amount."; }
+      else note = "No fees, so you keep the whole price.";
+      var price = (base + extra + fix) / (1 - pct), fees = price * pct + fix;
+      var nice = price < 20 ? Math.ceil(price) : Math.ceil(price / 5) * 5;
+      var x3 = m * 3, t = parseFloat(prE.try.value) || 0, tryHtml = "";
+      if (t > 0) {
+        var keep = t * (1 - pct) - fix - extra, perHr = h > 0 ? (keep - m * (1 + oh)) / h / (1 + oh) : 0;
+        tryHtml = '<hr><h3>At ' + money(t) + "</h3><p>You'd keep about <strong>" + money(Math.max(0, keep)) + "</strong>, which pays you about <strong>" + money(Math.max(0, perHr)) + " an hour</strong>" + (perHr < r ? " (below your " + money(r) + " rate)." : ".") + "</p>";
+      }
+      prE.out.innerHTML = "<h3>Price to charge</h3><div class=\"big\">" + money(price) + "</div>" +
+        '<p class="sub">Round it to about <strong>' + money(nice) + "</strong>. " + esc(note) + "</p>" +
+        '<p class="sub">Materials ' + money(m) + "<br>Your time " + money(labour) + " (" + h + " h × " + money(r) + ")<br>Overheads " + money(base - m - labour) + (extra ? "<br>Table fee share " + money(extra) : "") + (fees > 0.004 ? "<br>Fees about " + money(fees) : "") + "</p>" +
+        '<p class="sub">Wholesale to a shop that resells: about ' + money(base) + ". Materials × 3 would say " + money(x3) + (h > 0 ? ", which pays " + money(Math.max(0, (x3 - m) / h)) + " an hour." : ".") + "</p>" + tryHtml +
+        '<hr><p class="sub">Shipping is extra: charge what posting costs you. Fees are estimates; check your platform. Next: <a href="' + (location.protocol === "file:" ? "projects.html" : "/projects") + '" style="color:#f4a823">log the hours in the project tracker</a>.</p>';
+      var sv = {}; prKeys.forEach(function (k) { sv[k] = prE[k].value; }); store.set("pp-price", sv);
+    }
+    prKeys.concat(["try"]).forEach(function (k) { prE[k].addEventListener("input", prCalc); prE[k].addEventListener("change", prCalc); });
+    prCalc();
+  }
 })();

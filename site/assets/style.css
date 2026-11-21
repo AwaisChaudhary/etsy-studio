@@ -441,3 +441,12 @@ footer a { color: var(--ink); }
 .gs-fig { margin: 18px 0 0; }
 .gs-fig svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; background: #fff; border-radius: 12px; border: 2px dashed var(--line); }
 .gs-fig figcaption { margin-top: 8px; }
+
+/* quick answer box (standing rule: direct answer first) */
+.quick { background: var(--sheet); border: 2px solid var(--ink); border-left: 8px solid var(--marigold); border-radius: 12px; padding: 16px 18px; margin: 6px 0 22px; box-shadow: 4px 4px 0 var(--line); }
+/* increase / decrease evenly calculator */
+.id-fig { margin: 18px 0 0; }
+.id-fig svg { display: block; width: 100%; height: auto; background: #fff; border-radius: 12px; border: 2px dashed var(--line); }
+.id-fig figcaption { margin-top: 8px; }
+.result .id-line { font: 700 1.18rem/1.5 var(--body); color: #fff; background: rgba(255,255,255,0.08); border-left: 4px solid var(--marigold); border-radius: 8px; padding: 12px 14px; margin: 6px 0 12px; overflow-wrap: anywhere; }
+td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
