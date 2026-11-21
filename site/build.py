@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -69,6 +69,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
             "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
+            "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -225,7 +226,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -448,13 +449,23 @@ ct = top("US vs UK crochet terms", "The same stitch has a different name on each
 <li><strong>Check the hook sizes.</strong> Letter sizes like H-8 suggest US; millimetres only don't tell you much.</li>
 <li><strong>Read the notes at the top.</strong> Most designers say which terms they use.</li></ul>
 <h2>Why are they different?</h2>
-<p>The two systems count differently. US names count the loops left on the hook after the first "yarn over and pull through"; UK names count the yarn wraps made at the start of the stitch. Same stitch, different counting.</p></div></section>'''
+<p>The two systems count differently. US names count the loops left on the hook after the first "yarn over and pull through"; UK names count the yarn wraps made at the start of the stitch. Same stitch, different counting.</p>
+<h2>Crochet abbreviations: US and UK</h2>
+<p>These short forms look the same in both kinds of pattern. Only the stitch names in the table above change.</p>
+</div><div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Abbreviation</th><th scope="col">Means</th><th scope="col">Note</th></tr></thead><tbody><tr><td><strong>ch</strong></td><td>chain</td><td class="muted">same in both</td></tr><tr><td><strong>sl st</strong></td><td>slip stitch</td><td class="muted">same in both (UK patterns sometimes say ss)</td></tr><tr><td><strong>st(s)</strong></td><td>stitch(es)</td><td class="muted"></td></tr><tr><td><strong>sp</strong></td><td>space</td><td class="muted">e.g. ch-2 sp, the gap under a chain of 2</td></tr><tr><td><strong>rnd</strong></td><td>round</td><td class="muted">worked in a circle or square</td></tr><tr><td><strong>RS / WS</strong></td><td>right side / wrong side</td><td class="muted"></td></tr><tr><td><strong>rep</strong></td><td>repeat</td><td class="muted"></td></tr><tr><td><strong>yo / yoh</strong></td><td>yarn over / yarn over hook</td><td class="muted">US says yo, UK often yoh or yrh</td></tr><tr><td><strong>sk / miss</strong></td><td>skip</td><td class="muted">US skip, UK miss</td></tr><tr><td><strong>inc</strong></td><td>increase</td><td class="muted">2 or more stitches in one stitch</td></tr><tr><td><strong>dec / tog</strong></td><td>decrease / together</td><td class="muted">e.g. sc2tog (US) is dc2tog (UK)</td></tr><tr><td><strong>BLO / FLO</strong></td><td>back loop only / front loop only</td><td class="muted"></td></tr><tr><td><strong>beg</strong></td><td>beginning</td><td class="muted"></td></tr><tr><td><strong>cont</strong></td><td>continue</td><td class="muted"></td></tr><tr><td><strong>FO</strong></td><td>fasten off</td><td class="muted">same in both</td></tr><tr><td><strong>*  *</strong></td><td>repeat the part between the asterisks</td><td class="muted"></td></tr></tbody></table></div></div>
+<div class="narrow prose"><h2>One granny square round, written both ways</h2>
+<p>Here's the second round of a classic granny square. Same stitches, same square, two sets of names.</p>
+<p><strong>US terms:</strong> sl st into the ch-2 sp, ch 3 (counts as dc), 2 dc in same sp, ch 1, *(3 dc, ch 2, 3 dc) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 dc in the first sp, ch 2, sl st to top of ch 3.</p>
+<p><strong>UK terms:</strong> ss into the ch-2 sp, ch 3 (counts as tr), 2 tr in same sp, ch 1, *(3 tr, ch 2, 3 tr) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 tr in the first sp, ch 2, ss to top of ch 3.</p>
+<p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn.</p></div></section>'''.replace("@@GS@@", href("granny-square-blanket-calculator.html"))
 ct_faq = [
     ("Is UK double crochet the same as US single crochet?", "Yes. A UK double crochet (dc) is worked exactly like a US single crochet (sc)."),
     ("What is a treble crochet in US terms?", "A UK treble (tr) is a US double crochet (dc). A US treble (tr) is a UK double treble (dtr)."),
+    ("What does ch-2 sp mean in crochet?", "It means the space under a chain of 2 made on the round before. You work the new stitches into that gap, not into the chains themselves. It's written the same way in US and UK patterns."),
+    ("Is a granny square made with double or treble crochet?", "Both, depending on the pattern's terms. A classic granny square uses clusters of US double crochet, which a UK pattern calls treble crochet. The stitch is the same."),
 ]
-page("crochet-terms.html", "US vs UK Crochet Terms: Conversion Chart | Purl & Paper",
-     "US and UK crochet terms side by side: single crochet vs double crochet, treble, half treble and more, plus how to tell which a pattern uses.",
+page("crochet-terms.html", "US vs UK Crochet Terms and Abbreviations: Conversion Chart | Purl & Paper",
+     "US and UK crochet terms side by side: single crochet vs double crochet, treble, half treble and more, common abbreviations, how to tell which a pattern uses, and a granny square round in both.",
      ct, ct_faq, "US vs UK crochet terms")
 
 # ---------------- JUNK JOURNAL BEGINNERS ----------------
@@ -507,7 +518,7 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 <div class="row2" id="bk-custom" hidden><div class="field"><label for="bk-w">Width (in)</label><input type="number" id="bk-w" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="bk-l">Length (in)</label><input type="number" id="bk-l" value="60" min="6" max="140" inputmode="decimal"></div></div>
 <div class="field"><span class="label" id="bk-craft-l">Knitting or crochet?</span><div class="seg" role="group" aria-labelledby="bk-craft-l" id="bk-craft"><button type="button" data-v="knit" aria-pressed="false">Knitting</button><button type="button" data-v="crochet" aria-pressed="true">Crochet</button></div></div>
 <div class="field"><label for="bk-weight">Yarn weight</label><select id="bk-weight">{bw_opts}</select></div>
-<div class="field"><span class="label" id="bk-dense-l">Stitch pattern</span><div class="seg" role="group" aria-labelledby="bk-dense-l" id="bk-dense"><button type="button" data-v="1" aria-pressed="true">Plain</button><button type="button" data-v="1.15" aria-pressed="false">Textured or cables</button><button type="button" data-v="0.85" aria-pressed="false">Lacy or granny</button></div></div>
+<div class="field"><span class="label" id="bk-dense-l">Stitch pattern</span><div class="seg" role="group" aria-labelledby="bk-dense-l" id="bk-dense"><button type="button" data-v="1" aria-pressed="true">Plain</button><button type="button" data-v="1.15" aria-pressed="false">Textured or cables</button><button type="button" data-v="0.85" aria-pressed="false">Lacy</button></div></div>
 <div class="row2"><div class="field"><label for="bk-skein">Length per skein</label><input type="number" id="bk-skein" value="200" min="1" inputmode="decimal"></div>
 <div class="field"><label for="bk-unit">Unit on the label</label><select id="bk-unit"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
 <figure class="bk-fig"><svg id="bk-svg" viewBox="0 0 320 240" role="img" aria-label="Blanket drawn to scale next to a bed"></svg><figcaption class="note" id="bk-cap">Drawn to scale.</figcaption></figure>
@@ -519,12 +530,12 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 <p class="note" style="margin-top:12px">There is no single official blanket standard. These are the sizes most often quoted by crochet and knitting designers, so patterns can differ by a few inches. Bed sizes include some drop over the sides.</p>
 </div></section>
 <section style="padding-top:0"><div class="narrow prose"><h2>How the yarn estimate works</h2>
-<p>We work out the blanket's area and multiply it by a typical amount of yarn per square inch for plain worsted knitting, then adjust for your yarn: thinner yarn needs more length, thicker yarn less. Crochet usually takes about a quarter more yarn than knitting, cables and bobbles take more again, and open granny or lace stitches take a little less.</p>
+<p>We work out the blanket's area and multiply it by a typical amount of yarn per square inch for plain worsted knitting, then adjust for your yarn: thinner yarn needs more length, thicker yarn less. Crochet usually takes about a quarter more yarn than knitting, cables and bobbles take more again, and open lace stitches take a little less. Granny squares are a special case, because the joins and border add up: use the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> for those.</p>
 <p>The answer is a range, because tension, stitch and borders all change it. Buy enough for the high end, from one dye lot. For hats, scarves and other projects, use our <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and if your swatch doesn't match the pattern, the <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big the blanket will really be.</p>
 <div class="callout"><strong>Allow for the border.</strong> A few rounds of border can add 5 to 10 percent more yarn on a big blanket. Fringe or tassels add more.</div>
 <h2>Choosing a size</h2>
 <p>For a gift, a throw (about 50 × 60 in) is the safest choice: it fits a sofa, the foot of a bed or a lap. For a baby, 30 to 36 inches square is easy to carry and wash. For a bed, measure the top of the mattress and add the drop you want on each side, usually 10 to 15 inches.</p>
-<p>Making a long blanket? Keep count of rows or rounds with our <a href="{href("row-counter.html")}">row counter</a>, and log yarn and hours in the <a href="{href("projects.html")}">project tracker</a>. Not sure which yarn is which? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a>.</p></div></section>'''
+<p>Making a long blanket? Keep count of rows or rounds with our <a href="{href("row-counter.html")}">row counter</a>, and log yarn and hours in the <a href="{href("projects.html")}">project tracker</a>. Not sure which yarn is which? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a>. Making it from squares? The <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> tells you how many to make.</p></div></section>'''
 bk_faq = [
     ("What size is a crochet throw blanket?", "Most throws are about 50 × 60 inches (127 × 152 cm). Some patterns go up to 54 × 72 inches for a longer sofa blanket."),
     ("What size is a baby blanket?", "A baby or receiving blanket is usually 30 to 40 inches square. A stroller blanket is a little smaller, about 30 × 36 inches, and a crib blanket can be as big as 45 × 60 inches."),
@@ -636,6 +647,60 @@ page("hat-size-chart.html", "Hat Size Chart for Knitting and Crochet, with Stitc
      "Free knit and crochet hat size chart from preemie to adult, with head sizes, hat height and negative ease, plus a calculator for cast-on stitches or crochet crown size.",
      ht, ht_faq, "Hat size chart", app_name="Hat size calculator")
 
+# ---------------- GRANNY SQUARE BLANKET CALCULATOR ----------------
+GS_SIZES = [("baby", "Baby", 36, 36), ("lap", "Lapghan", 36, 48), ("throw", "Throw", 50, 60), ("twin", "Twin", 66, 90), ("queen", "Queen", 90, 100), ("king", "King", 108, 100)]
+def gs_count(t, s): return max(1, int(t / s + 0.5))
+gs_rows = "".join(f'<tr><td><strong>{n}</strong><br><span class="muted">{w} × {l} in</span></td>' + "".join(
+    f'<td>{gs_count(w, s) * gs_count(l, s)}<br><span class="muted">{gs_count(w, s)} × {gs_count(l, s)}</span></td>' for s in (4, 5, 6, 8, 12)) + "</tr>" for _, n, w, l in GS_SIZES)
+gs_opts = "".join(f'<option value="{b["id"]}"{" selected" if b["id"] == "throw" else ""}>{e(b["name"])} ({b["w"]} × {b["l"]} in)</option>' for b in D["blankets"]) + '<option value="custom">My own size</option>'
+gs_w = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"] if 1 <= w["n"] <= 6)
+gs = top("Granny square blanket calculator", "How many granny squares you need for any blanket, how to lay them out, and roughly how much yarn the squares, joins and border will take.", "Granny square calculator") + f'''
+<section style="padding-top:10px"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="gs-size">Blanket size</label><select id="gs-size">{gs_opts}</select></div>
+<div class="row2" id="gs-custom" hidden><div class="field"><label for="gs-bw">Width (in)</label><input type="number" id="gs-bw" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="gs-bl">Length (in)</label><input type="number" id="gs-bl" value="60" min="6" max="140" inputmode="decimal"></div></div>
+<div class="row2"><div class="field"><label for="gs-sq">Size of one square</label><input type="number" id="gs-sq" value="6" min="1" max="40" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="gs-su">Unit</label><select id="gs-su"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><label for="gs-join">How will you join them?</label><select id="gs-join"><option value="0|0.05">Sewn seam (whip or mattress stitch)</option><option value="0|0.06">Join as you go</option><option value="0.25|0.08" selected>Slip stitch or single crochet seam</option><option value="0.5|0.12">Decorative join (zipper, flat braid)</option></select></div>
+<div class="field"><label for="gs-border">Border width on each side (in)</label><input type="number" id="gs-border" value="1" min="0" max="12" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="gs-weight">Yarn weight</label><select id="gs-weight">{gs_w}</select></div>
+<div class="field"><label for="gs-ypsq">Yarn in one finished square (optional)</label><input type="number" id="gs-ypsq" placeholder="Leave blank for our estimate" min="0" step="0.5" inputmode="decimal"><span class="note">Make one square, unravel or measure the leftover, and type the yards here for a better answer.</span></div>
+<div class="row2"><div class="field"><label for="gs-skein">Length per skein</label><input type="number" id="gs-skein" value="200" min="1" inputmode="decimal"></div>
+<div class="field"><label for="gs-unit">Unit on the label</label><select id="gs-unit"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
+<div class="field"><label for="gs-cols">Colours (each square in one colour)</label><input type="number" id="gs-cols" value="4" min="1" max="12" inputmode="numeric"></div>
+<figure class="gs-fig"><svg id="gs-svg" viewBox="0 0 320 320" role="img" aria-label="Your granny square layout"></svg><figcaption class="note" id="gs-cap">Your layout.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="gs-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How many granny squares for a blanket?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Blanket</th><th scope="col">4 in squares</th><th scope="col">5 in squares</th><th scope="col">6 in squares</th><th scope="col">8 in squares</th><th scope="col">12 in squares</th></tr></thead><tbody>{gs_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Total squares, with squares across × squares down underneath. Worked out from the blanket sizes on our <a href="{href("blanket-size-calculator.html")}">blanket size chart</a>, rounded to the nearest whole square, before any joining or border. A border adds width all round, so you can often drop a row or column. Use the calculator above for your own size, join and border.</p>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How to work out the number of squares</h2>
+<ol><li><strong>Make one square and block it.</strong> Measure it flat, side to side. Squares from the same pattern can vary by half an inch between crocheters, so measure yours.</li>
+<li><strong>Take off the border.</strong> If the border will be 2 inches wide, a 50 inch blanket needs 46 inches of squares.</li>
+<li><strong>Divide by the square size.</strong> 46 ÷ 6 = 7.7, so 8 squares across. Do the same for the length.</li>
+<li><strong>Multiply across by down.</strong> 8 across × 10 down = 80 squares.</li></ol>
+<p>A joining round or a decorative join adds a little to every seam. Over 10 seams a quarter inch each adds 2.5 inches, which is why the calculator asks how you'll join.</p>
+<div class="callout"><strong>Odd numbers look better</strong> for patterns with a centre, like a checkerboard or a big diamond. If the count lands on an even number, try a slightly wider border to go down one, or a narrower one to go up.</div>
+<h2>How much yarn does a granny square take?</h2>
+<p>A classic 5 inch granny square of five rounds in worsted yarn uses roughly 25 to 30 yards, and finished granny blankets in worsted usually come out at about a yard of yarn for every square inch of blanket, joins and border included. One published 50 × 66 inch throw of 8 inch squares, for example, calls for about 3,300 yards. The calculator uses a little under a yard per square inch for the squares, then adds the joins and border, and scales it all for your yarn weight. Solid granny squares and squares with popcorns take more; lacy squares take less. Treat our numbers as estimates, and if you've made one square already, type its yardage in for a much better answer.</p>
+<ul><li><strong>Joining</strong> takes about 5 to 12 percent of the yarn in the squares, depending on the method.</li>
+<li><strong>The border</strong> is worked in solid rounds, so even a narrow one adds up on a big blanket.</li>
+<li><strong>Several colours?</strong> Each colour only needs to cover its own squares, but buy at least one spare skein of the colour you'll join and border with.</li></ul>
+<h2>Squares versus a one-piece granny blanket</h2>
+<p>Separate squares are portable and easy to fit in, and you can stop the moment the blanket is big enough. A giant granny square worked as one piece has no seams to sew, but it gets heavy and you can't change its shape later. Either way, check the size against a bed or sofa with the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>, keep count of finished squares with the <a href="{href("row-counter.html")}">row counter</a>, and see how long it will take in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Following a UK pattern? Our <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> page explains why a UK treble is a US double.</p></div></section>'''
+gs_faq = [
+    ("How many granny squares do I need for a throw blanket?", "With 6 inch squares, a 50 × 60 inch throw takes about 8 across by 10 down, or 80 squares, before a border. With 4 inch squares it's about 195."),
+    ("How many 6 inch granny squares for a queen blanket?", "About 15 across by 17 down, or 255 squares, for a 90 × 100 inch queen blanket with no border. A 3 inch border on each side brings it down to about 14 × 16, or 224."),
+    ("How much yarn is in one granny square?", "A 5 inch worsted granny square of five rounds uses roughly 25 to 30 yards. For a whole blanket, allow roughly a yard of worsted yarn per square inch of blanket, so about 3,000 yards for a 50 × 60 inch throw. This is an estimate; measure one of yours to be sure."),
+    ("How many granny squares for a baby blanket?", "A 36 inch square baby blanket takes 36 squares of 6 inches (6 × 6), or 81 squares of 4 inches (9 × 9), before a border."),
+    ("Does joining granny squares make the blanket bigger?", "Sewn seams and join as you go add almost nothing. A slip stitch or single crochet seam adds roughly a quarter inch per seam, and decorative joins can add half an inch or more."),
+]
+page("granny-square-blanket-calculator.html", "Granny Square Blanket Calculator: How Many Squares and How Much Yarn | Purl & Paper",
+     "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, the layout, and an estimate of the yarn for squares, joins and border.",
+     gs, gs_faq, "Granny square calculator", app_name="Granny square blanket calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -657,7 +722,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+LASTMOD = {"granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-21"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

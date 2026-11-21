@@ -507,4 +507,66 @@
     [htS, htH, htHU, htE, htG, htGU, htR].forEach(function (el) { el.addEventListener("input", htCalc); el.addEventListener("change", htCalc); });
     htCalc();
   }
+  /* ---- Granny square blanket calculator ---- */
+  if ($("#gs-size") && $("#gs-out")) {
+    var gsEl = {}; ["size", "custom", "bw", "bl", "sq", "su", "join", "border", "weight", "ypsq", "skein", "unit", "cols", "out", "svg", "cap"].forEach(function (k) { gsEl[k] = $("#gs-" + k); });
+    var gsB = P.blankets || [], gsWts = P.weights || [];
+    var GS_YD = 0.9;      /* yd per sq in of a worsted granny square (estimate): 5 in square ~25 yd; whole granny throws land near 1 yd per sq in incl. joins and border */
+    var GS_SOLID = 0.85;  /* yd per sq in of solid crochet border in worsted (estimate, as the blanket calculator) */
+    var GS_PAL = ["#b8326a", "#f4a823", "#2f8f8a", "#1f2a44", "#e07a9f", "#7fc4bd", "#c9822a", "#6b7aa6", "#9a2456", "#f6cf7a", "#246f6b", "#4a5470"];
+    var gsKeys = ["size", "bw", "bl", "sq", "su", "join", "border", "weight", "ypsq", "skein", "unit", "cols"];
+    var gsPref = store.get("pp-granny", null);
+    if (gsPref) gsKeys.forEach(function (k) { if (gsPref[k] != null && gsPref[k] !== "") gsEl[k].value = gsPref[k]; });
+    var r1 = function (n) { return Math.round(n * 10) / 10; };
+    function gsSquare(x, y, s, c1, c2) {
+      var g = '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + c1 + '"/>';
+      if (s >= 9) g += '<rect x="' + (x + s * 0.2) + '" y="' + (y + s * 0.2) + '" width="' + s * 0.6 + '" height="' + s * 0.6 + '" fill="none" stroke="' + c2 + '" stroke-width="' + Math.max(1, s * 0.09) + '" stroke-dasharray="' + s * 0.12 + " " + s * 0.06 + '"/>';
+      if (s >= 16) g += '<rect x="' + (x + s * 0.4) + '" y="' + (y + s * 0.4) + '" width="' + s * 0.2 + '" height="' + s * 0.2 + '" fill="' + c2 + '"/>';
+      return g;
+    }
+    function gsDraw(cols, rows, nc, bdr, sq, fw, fl) {
+      var room = 300, sc = Math.min(room / fw, room / fl), bw = fw * sc, bh = fl * sc, x0 = (320 - bw) / 2, y0 = (320 - bh) / 2;
+      var b = bdr * sc, cell = (bw - 2 * b) / cols, cellH = (bh - 2 * b) / rows, s = Math.min(cell, cellH), gap = Math.max(0.6, s * 0.06);
+      var g = '<rect x="' + x0 + '" y="' + y0 + '" width="' + bw + '" height="' + bh + '" rx="3" fill="' + (b > 0.5 ? "#f6f1e7" : "none") + '" stroke="#1f2a44" stroke-width="1.5"/>';
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var i = (r + c * 2) % nc, j = (i + 1 + (r % 2)) % Math.max(2, nc);
+        g += gsSquare(x0 + b + c * cell + gap / 2, y0 + b + r * cellH + gap / 2, s - gap, GS_PAL[i % 12], nc > 1 ? GS_PAL[j % 12] : "#fbfcfa");
+      }
+      gsEl.svg.innerHTML = g;
+      gsEl.cap.textContent = cols + " across × " + rows + " down" + (bdr > 0 ? ", with a " + bdr + " in border" : "") + ". Colours are shuffled for the preview only.";
+    }
+    function gsCalc() {
+      var custom = gsEl.size.value === "custom", b = gsB.filter(function (x) { return x.id === gsEl.size.value; })[0];
+      gsEl.custom.hidden = !custom;
+      var tw = custom ? Math.min(140, Math.max(6, parseFloat(gsEl.bw.value) || 0)) : (b ? b.w : 50);
+      var tl = custom ? Math.min(140, Math.max(6, parseFloat(gsEl.bl.value) || 0)) : (b ? b.l : 60);
+      var sq = parseFloat(gsEl.sq.value) || 0; if (gsEl.su.value === "cm") sq = sq / 2.54;
+      if (sq < 0.5) { gsEl.out.innerHTML = "<h3>Square size</h3><p>Type the size of one finished square to start.</p>"; return; }
+      var jp = gsEl.join.value.split("|"), seam = parseFloat(jp[0]) || 0, jFrac = parseFloat(jp[1]) || 0;
+      var bdr = Math.max(0, parseFloat(gsEl.border.value) || 0), nc = Math.min(12, Math.max(1, parseInt(gsEl.cols.value, 10) || 1));
+      var fit = function (t) { var room = t - 2 * bdr + seam; return Math.max(1, Math.round(room / (sq + seam))); };
+      var cols = fit(tw), rows = fit(tl), n = cols * rows;
+      var fw = cols * sq + (cols - 1) * seam + 2 * bdr, fl = rows * sq + (rows - 1) * seam + 2 * bdr;
+      var wt = gsWts.filter(function (x) { return String(x.n) === gsEl.weight.value; })[0]; if (!wt) return;
+      var mine = parseFloat(gsEl.ypsq.value) || 0, per = mine > 0 ? mine : sq * sq * GS_YD * wt.m;
+      var sqYd = per * n, joinYd = sqYd * jFrac, bYd = (fw * fl - (fw - 2 * bdr) * (fl - 2 * bdr)) * GS_SOLID * wt.m, tot = sqYd + joinYd + bYd;
+      var spread = mine > 0 ? 0.08 : 0.15, hi = tot * (1 + spread), lo = tot * (1 - spread);
+      var skein = parseFloat(gsEl.skein.value) || 0, skYd = gsEl.unit.value === "m" ? skein / 0.9144 : skein;
+      var sk = skYd > 0 ? Math.ceil(hi / skYd) : 0;
+      var perCol = Math.ceil(n / nc), colYd = per * perCol * (1 + spread), colSk = skYd > 0 ? Math.ceil(colYd / skYd) : 0;
+      var diff = function (f, t, big, small) { var d = r1(f - t); return d === 0 ? "exact " + (big === "wider" ? "width" : "length") : (d > 0 ? d + " in " + big : (-d) + " in " + small); };
+      gsEl.out.innerHTML = "<h3>Squares to make</h3><div class=\"big\">" + fmt(n) + "</div>" +
+        '<p class="sub">' + cols + " across × " + rows + " down, " + r1(sq) + " in (" + r1(sq * 2.54) + " cm) squares.</p>" +
+        '<h3>Finished size</h3><div class="bk-dims">' + r1(fw) + " × " + r1(fl) + " in<small>" + Math.round(fw * 2.54) + " × " + Math.round(fl * 2.54) + " cm · " + diff(fw, tw, "wider", "narrower") + ", " + diff(fl, tl, "longer", "shorter") + " than " + tw + " × " + tl + " in</small></div>" +
+        "<p>Yarn, about <strong>" + fmt(lo) + "–" + fmt(hi) + " yards</strong> (" + fmt(lo * 0.9144) + "–" + fmt(hi * 0.9144) + " m) of weight " + wt.n + " " + esc(wt.name.toLowerCase()) + ":</p>" +
+        '<p class="sub">Squares ' + fmt(sqYd) + " yd (" + r1(per) + " yd each" + (mine > 0 ? ", your figure" : ", our estimate") + ")<br>Joining " + fmt(joinYd) + " yd<br>Border " + fmt(bYd) + " yd</p>" +
+        (sk ? "<h3>Skeins to buy</h3><div class=\"big\">" + sk + "</div>" : '<p class="sub">Enter the length per skein to see how many to buy.</p>') +
+        (nc > 1 ? '<p class="sub">With ' + nc + " colours: about " + perCol + " squares each, roughly " + fmt(colYd) + " yd" + (colSk ? " (" + colSk + " skein" + (colSk > 1 ? "s" : "") + ")" : "") + " per colour, plus " + fmt((joinYd + bYd) * (1 + spread)) + " yd for joining and border in your main colour.</p>" : "") +
+        '<hr><p class="sub">Yarn amounts are estimates. Buy from one dye lot and keep a spare skein of the joining colour.</p>';
+      gsDraw(cols, rows, nc, bdr, sq, fw, fl);
+      var sv = {}; gsKeys.forEach(function (k) { sv[k] = gsEl[k].value; }); store.set("pp-granny", sv);
+    }
+    gsKeys.forEach(function (k) { gsEl[k].addEventListener("input", gsCalc); gsEl[k].addEventListener("change", gsCalc); });
+    gsCalc();
+  }
 })();
