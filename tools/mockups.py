@@ -26,7 +26,8 @@ def fmt(v, nf):
             return ("-$" if v < 0 else "$") + f"{abs(v):,.{dec}f}"
         if nf.endswith("x"): return f"{v:.1f}x"
         if "0.0" in nf: return f"{v:,.1f}"
-        if nf in ("#,##0", "0"): return f"{v:,.0f}"
+        if nf == "0": return f"{v:.0f}"
+        if nf == "#,##0": return f"{v:,.0f}"
         if isinstance(v, float) and not v.is_integer(): return f"{v:,.2f}"
         return f"{v:,.0f}"
     return str(v)
@@ -132,11 +133,14 @@ def shot_fit(body, theme, path):
 
 def sizes_badges(p):
     if p["kind"] == "xlsx": return '<span>Instant download</span><span class="alt">Excel</span><span class="alt">Google Sheets</span>'
+    if p["kind"] == "clipart": return '<span>Commercial use</span><span class="alt">PNG</span><span class="alt">SVG</span>'
     return '<span>Instant download</span><span class="alt">US Letter</span><span class="alt">A4</span>'
 
 def how(p):
     if p["kind"] == "xlsx":
         s = [("1", "Download", "Your file is ready the moment you buy."), ("2", "Open", "In Excel, or upload to Google Drive and open with Google Sheets."), ("3", "Type in yellow", "Your numbers go in the yellow cells. Everything else is calculated.")]
+    elif p["kind"] == "clipart":
+        s = [("1", "Download", "Get the ZIP files instantly after you buy."), ("2", "Unzip", "Transparent PNGs, scalable SVGs and seamless patterns."), ("3", "Create", "Use them in Canva, Cricut, Procreate and more, for gifts or products you sell.")]
     else:
         s = [("1", "Download", "Get the PDF instantly after you buy."), ("2", "Print", "Print at home at 100% on paper or cardstock, US Letter or A4."), ("3", "Make", "Cut, layer, write and create. Print again whenever you like.")]
     return "".join(f"<div><b>{a}</b><h3>{bb}</h3><p>{c}</p></div>" for a, bb, c in s)
@@ -164,9 +168,9 @@ def build(p):
             covers = [page_png(FILES / f"{s}-US-Letter.pdf", 1, 80) for s in ("tea-room-junk-journal-kit", "night-garden-junk-journal-kit", "vintage-ephemera-pack", "journaling-cards-3x4")]
             pages = covers
         else:
-            pdf = FILES / f'{p["slug"]}-US-Letter.pdf'; pages = [page_png(pdf, n) for n in p["pages"]]
+            pdf = FILES / p.get("pdf", f'{p["slug"]}-US-Letter.pdf'); pages = [page_png(pdf, n) for n in p["pages"]]
         cards = "".join(f'<div class="pagecard" style="left:{1010 + i * 175}px;top:{190 + (i % 2) * 70}px;width:600px;transform:rotate({[-8, -2, 4, 9][i]}deg)"><img src="{pg}"></div>' for i, pg in enumerate(pages[:4]))
-        hero = (f'<div style="position:absolute;left:110px;top:170px;width:760px"><div class="kick">{"Printable bundle" if p["kind"] == "bundle" else "Printable"}</div><h1 style="margin-top:20px">{e(p["name"])}</h1>'
+        hero = (f'<div style="position:absolute;left:110px;top:170px;width:760px"><div class="kick">{"Printable bundle" if p["kind"] == "bundle" else "Clipart pack" if p["kind"] == "clipart" else "Printable"}</div><h1 style="margin-top:20px">{e(p["name"])}</h1>'
                 f'<p style="font-size:40px;margin-top:30px;line-height:1.35;color:#3b4560">{e(p["hook"])}</p><div class="badges">{sizes_badges(p)}</div></div>{cards}')
         shot(hero, th, d / "1-hero.png")
         grid = "".join(f'<div class="pagecard" style="position:relative;width:100%"><img src="{pg}"></div>' for pg in pages[:6])
@@ -181,7 +185,7 @@ def build(p):
                 shot(body, th, d / f"{3 + i}-detail.png")
     body = (f'<div class="cap" style="position:absolute;left:0;right:0;top:150px;text-align:center">How it works</div>'
             f'<div class="steps" style="position:absolute;left:110px;right:110px;top:420px">{how(p)}</div>'
-            f'<p style="position:absolute;left:0;right:0;bottom:200px;text-align:center;font-size:38px;color:#5b6478">Digital download · nothing is shipped · {"works on Windows, Mac and Google Sheets" if p["kind"] == "xlsx" else "print as many copies as you need for personal use"}</p>')
+            f'<p style="position:absolute;left:0;right:0;bottom:200px;text-align:center;font-size:38px;color:#5b6478">Digital download · nothing is shipped · {"works on Windows, Mac and Google Sheets" if p["kind"] == "xlsx" else "small business commercial use included" if p["kind"] == "clipart" else "print as many copies as you need for personal use"}</p>')
     shot(body, th, d / "5-how-it-works.png")
     print(p["slug"], len(list(d.glob("*.png"))), "images")
 

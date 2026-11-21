@@ -34,6 +34,8 @@ gumroad.com/products/new -> name + price -> Next; edit page: square thumbnail, c
 `tools/scenes.py` makes styled product scenes from the real product pages: pins (pin-a fan, pin-b tossed pages, 1000x1500), Etsy hero (2000x1600), Gumroad cover (1280x720) and thumbnail (600x600).
 Render pages first: `pdftoppm -r 110 -png files/<slug>-US-Letter.pdf pages/<slug>/p`, then
 `python3 tools/scenes.py <pages> <demo_xlsx_dir> <out> [slug...]`. Each new product needs an entry in `T` (surface, colours, title, chips, seal text; spreadsheets also a sticky `note`).
+Kinds: xlsx, pdf, bundle, wallart, clipart (mockups shows PNG/SVG badges; optional `pdf` key names the preview PDF; optional `scene_pages` sets the scene fan order separately from mockup `pages`).
+PDF tip: pages with many inline SVGs need `.page{contain:strict}` + `html,body{width:var(--pw);overflow:hidden}` or Chrome shrinks the whole PDF (~77%).
 `tools/xlview.py` holds the spreadsheet-window renderer shared with mockups.py. Pins are marked "AI-modified" on Pinterest.
 
 ## Pinterest (business account "Purl & Paper", pinterest.com/purlandpaperco)

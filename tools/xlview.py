@@ -19,7 +19,8 @@ def fmt(v, nf):
             return ("-$" if v < 0 else "$") + f"{abs(v):,.{dec}f}"
         if nf.endswith("x"): return f"{v:.1f}x"
         if "0.0" in nf: return f"{v:,.1f}"
-        if nf in ("#,##0", "0"): return f"{v:,.0f}"
+        if nf == "0": return f"{v:.0f}"
+        if nf == "#,##0": return f"{v:,.0f}"
         if isinstance(v, float) and not v.is_integer(): return f"{v:,.2f}"
         return f"{v:,.0f}"
     return str(v)

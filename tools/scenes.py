@@ -164,7 +164,7 @@ def pages_for(p):
         tea = sorted(glob.glob(str(PAGES / "tea-room-junk-journal-kit" / "*.png")))
         return out + [extra[4], tea[6]]
     fs = sorted(glob.glob(str(PAGES / p["slug"] / "*.png")))
-    return [fs[n - 1] for n in p["pages"] if n - 1 < len(fs)]
+    return [fs[n - 1] for n in p.get("scene_pages", p["pages"]) if n - 1 < len(fs)]
 
 
 def fan(imgs, cx, by, pw, spread, angles):
