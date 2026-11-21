@@ -1,5 +1,5 @@
 {
- "updated": "20 November 2026",
+ "updated": "21 November 2026",
  "weights": [
   {
    "n": 0,
@@ -787,6 +787,80 @@
    "knit": 65,
    "crochet": 22,
    "src": "lc"
+  }
+ ],
+ "hats": [
+  {
+   "id": "preemie",
+   "name": "Preemie",
+   "age": "Born early",
+   "head": 12,
+   "cyc": "9–12 in",
+   "h": "4–5",
+   "hn": 4.5
+  },
+  {
+   "id": "newborn",
+   "name": "Newborn",
+   "age": "0–3 months",
+   "head": 14,
+   "cyc": "14–16 in (baby)",
+   "h": "6",
+   "hn": 6
+  },
+  {
+   "id": "baby",
+   "name": "Baby",
+   "age": "3–12 months",
+   "head": 17,
+   "cyc": "14–16 in (baby)",
+   "h": "7–7.5",
+   "hn": 7.25
+  },
+  {
+   "id": "toddler",
+   "name": "Toddler",
+   "age": "1–3 years",
+   "head": 18.5,
+   "cyc": "16–18 in",
+   "h": "8",
+   "hn": 8
+  },
+  {
+   "id": "child",
+   "name": "Child",
+   "age": "3–10 years",
+   "head": 20,
+   "cyc": "18–20 in",
+   "h": "8.5",
+   "hn": 8.5
+  },
+  {
+   "id": "teen",
+   "name": "Tween and teen",
+   "age": "10+ years",
+   "head": 21,
+   "cyc": "20–22 in",
+   "h": "10",
+   "hn": 10
+  },
+  {
+   "id": "adult",
+   "name": "Adult average",
+   "age": "Most women, smaller men",
+   "head": 22,
+   "cyc": "21–23 in",
+   "h": "11",
+   "hn": 11
+  },
+  {
+   "id": "adultl",
+   "name": "Adult large",
+   "age": "Most men",
+   "head": 23.5,
+   "cyc": "22–24 in",
+   "h": "11.5",
+   "hn": 11.5
   }
  ]
 }

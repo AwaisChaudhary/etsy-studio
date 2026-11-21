@@ -449,4 +449,62 @@
     $("#gp-clear").addEventListener("click", function () { if (!GS.list.length) return; if (window.confirm("Remove every gift from the list?")) { GS.list = []; gpRender(); } });
     suggest(); gpRender();
   }
+  /* ---------- Hat size calculator ---------- */
+  if ($("#ht-size") && $("#ht-out")) {
+    var htS = $("#ht-size"), htC = $("#ht-custom"), htH = $("#ht-head"), htHU = $("#ht-hu"), htE = $("#ht-ease"), htG = $("#ht-g"), htGU = $("#ht-gu"), htR = $("#ht-rep"), htO = $("#ht-out"), htSvg = $("#ht-svg");
+    var hats = P.hats || [], htTouched = { e: false, g: false, r: false };
+    var htPref = store.get("pp-hat", null);
+    if (htPref) { ["s", "h", "hu", "e", "g", "gu", "r"].forEach(function (k) { var el = { s: htS, h: htH, hu: htHU, e: htE, g: htG, gu: htGU, r: htR }[k]; if (htPref[k] != null && htPref[k] !== "") el.value = htPref[k]; }); htTouched = { e: true, g: true, r: true }; if (htPref.c === "crochet") $$("#ht-craft button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "crochet"); }); }
+    var r1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var both = function (inch) { return r1(inch) + " in (" + Math.round(inch * 2.54) + " cm)"; };
+    function htDraw(fw, h, crochet) {
+      var sc = 14, cx = 150, base = 196, w = Math.max(30, fw * sc), hh = Math.max(30, h * sc), x0 = cx - w / 2, top = base - hh, brim = Math.max(8, hh * 0.2), dome = Math.min(w * 0.42, hh * 0.45);
+      var body = "M" + x0 + " " + base + " L" + x0 + " " + (top + dome) + " C" + x0 + " " + (top + dome * 0.2) + " " + (cx - w * 0.22) + " " + top + " " + cx + " " + top + " C" + (cx + w * 0.22) + " " + top + " " + (x0 + w) + " " + (top + dome * 0.2) + " " + (x0 + w) + " " + (top + dome) + " L" + (x0 + w) + " " + base + " Z";
+      var lines = "", step = crochet ? 9 : 7, i;
+      for (i = x0 + step / 2; i < x0 + w; i += step) lines += '<line x1="' + i + '" x2="' + i + '" y1="' + (base - brim) + '" y2="' + base + '" stroke="rgba(255,255,255,.45)" stroke-width="2"/>';
+      for (var y = base - brim - 8; y > top + 6; y -= 8) lines += '<path d="M' + (x0 + 4) + " " + y + " q" + (w / 2 - 4) + " -4 " + (w - 8) + ' 0" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5" stroke-dasharray="' + (crochet ? "2 3" : "4 2") + '"/>';
+      htSvg.innerHTML = '<defs><clipPath id="htc"><path d="' + body + '"/></clipPath></defs>' +
+        '<path d="' + body + '" fill="#b8326a"/><g clip-path="url(#htc)">' + lines + '<rect x="' + x0 + '" y="' + (base - brim) + '" width="' + w + '" height="' + brim + '" fill="rgba(31,42,68,.18)"/></g>' +
+        '<path d="' + body + '" fill="none" stroke="#1f2a44" stroke-width="2"/>' +
+        '<circle cx="' + cx + '" cy="' + (top - 7) + '" r="' + Math.max(6, w * 0.08) + '" fill="#f4a823" stroke="#1f2a44" stroke-width="1.5"/>' +
+        '<line x1="' + x0 + '" x2="' + (x0 + w) + '" y1="' + (base + 14) + '" y2="' + (base + 14) + '" stroke="#2f8f8a" stroke-width="2"/><line x1="' + x0 + '" x2="' + x0 + '" y1="' + (base + 9) + '" y2="' + (base + 19) + '" stroke="#2f8f8a" stroke-width="2"/><line x1="' + (x0 + w) + '" x2="' + (x0 + w) + '" y1="' + (base + 9) + '" y2="' + (base + 19) + '" stroke="#2f8f8a" stroke-width="2"/>' +
+        '<text x="' + cx + '" y="' + (base + 30) + '" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2a44">' + r1(fw) + ' in flat</text>' +
+        '<line x1="' + (x0 + w + 16) + '" x2="' + (x0 + w + 16) + '" y1="' + top + '" y2="' + base + '" stroke="#2f8f8a" stroke-width="2"/><line x1="' + (x0 + w + 11) + '" x2="' + (x0 + w + 21) + '" y1="' + top + '" y2="' + top + '" stroke="#2f8f8a" stroke-width="2"/><line x1="' + (x0 + w + 11) + '" x2="' + (x0 + w + 21) + '" y1="' + base + '" y2="' + base + '" stroke="#2f8f8a" stroke-width="2"/>' +
+        '<text x="' + (x0 + w + 26) + '" y="' + ((top + base) / 2 + 4) + '" font-size="11" font-weight="700" fill="#1f2a44">' + r1(h) + ' in</text>';
+    }
+    function htCalc() {
+      var crochet = segVal($("#ht-craft")) === "crochet", custom = htS.value === "custom";
+      htC.hidden = !custom;
+      var preset = hats.filter(function (x) { return x.id === htS.value; })[0], head;
+      if (custom) { head = parseFloat(htH.value) || 0; if (htHU.value === "cm") head = head / 2.54; head = Math.min(30, Math.max(8, head)); }
+      else head = preset ? preset.head : 22;
+      var near = preset; if (custom || !near) near = hats.reduce(function (a, b) { return Math.abs(b.head - head) < Math.abs(a.head - head) ? b : a; }, hats[0] || { hn: 11, name: "Adult" });
+      var h = near ? near.hn : 11, ease = parseFloat(htE.value) || 0, hat = head * (1 - ease / 100);
+      var g = parseFloat(htG.value) || 0, spi = g / (htGU.value === "10" ? 10 / 2.54 : 4), rep = parseInt(htR.value, 10) || 1;
+      var n = spi > 0 ? Math.max(rep, Math.round(hat * spi / rep) * rep) : 0, real = spi > 0 ? n / spi : hat;
+      var crown = Math.min(3.25, Math.max(1.5, real / 7)), dia = real / Math.PI;
+      var who = custom ? "A " + r1(head) + " in head" : (preset ? preset.name + " · " + preset.age : "");
+      var out = "<h3>" + esc(who) + '</h3><div class="bk-dims">' + r1(real) + " in around<small>" + Math.round(real * 2.54) + " cm hat on a " + both(head) + " head · " + r1((1 - real / head) * 100) + "% smaller</small></div>";
+      if (!n) out += '<p class="sub">Enter the stitches in your swatch to see the count.</p>';
+      else if (!crochet) out += "<h3>Cast on</h3><div class=\"big\">" + n + "</div><p class=\"sub\">stitches, " + (rep > 1 ? "a multiple of " + rep + ", " : "") + "at " + r1(spi) + " stitches per inch.</p><hr>" +
+        "<p>Knit until the hat measures about <strong>" + both(Math.max(1, h - crown)) + "</strong>, then start the crown decreases. The finished hat should be about <strong>" + both(h) + "</strong> tall, before any fold-up brim.</p>";
+      else out += "<h3>Crochet the crown circle to</h3><div class=\"big\">" + r1(dia) + " in</div><p class=\"sub\">across (" + Math.round(dia * 2.54) + " cm), with about " + n + " stitches in the last increase round" + (rep > 1 ? " (a multiple of " + rep + ")" : "") + ".</p><hr>" +
+        "<p>Then stop increasing and work even rounds until the hat measures about <strong>" + both(h) + "</strong> from the centre of the crown.</p>";
+      out += '<p class="sub">Every head is different. These are good starting numbers, so try the hat on as you go.</p>';
+      htO.innerHTML = out;
+      htDraw(real / 2, h, crochet);
+      $("#ht-cap").textContent = "Your hat laid flat: " + r1(real / 2) + " in wide and " + r1(h) + " in tall (" + Math.round(real / 2 * 2.54) + " × " + Math.round(h * 2.54) + " cm).";
+      store.set("pp-hat", { s: htS.value, h: htH.value, hu: htHU.value, e: htE.value, g: htG.value, gu: htGU.value, r: htR.value, c: crochet ? "crochet" : "knit" });
+    }
+    seg($("#ht-craft"), function () {
+      var crochet = segVal($("#ht-craft")) === "crochet";
+      if (!htTouched.e) htE.value = crochet ? "8" : "12";
+      if (!htTouched.g) htG.value = crochet ? "14" : "18";
+      if (!htTouched.r) htR.value = crochet ? "6" : "8";
+      htCalc();
+    });
+    htE.addEventListener("change", function () { htTouched.e = true; }); htG.addEventListener("input", function () { htTouched.g = true; }); htR.addEventListener("change", function () { htTouched.r = true; });
+    [htS, htH, htHU, htE, htG, htGU, htR].forEach(function (el) { el.addEventListener("input", htCalc); el.addEventListener("change", htCalc); });
+    htCalc();
+  }
 })();

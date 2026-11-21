@@ -433,3 +433,8 @@ footer a { color: var(--ink); }
 .gp-dates li.late b { color: #ffb3b3; }
 @media (max-width: 480px) { .gp-done { font-size: .82rem; } .gp-mini, .gp-mini-sp { width: 32px; height: 32px; } }
 @media print { #gp-form, .page-top .lead { display: none; } .result { position: static; } }
+
+/* hat size calculator */
+.ht-fig { margin: 18px 0 0; }
+.ht-fig svg { display: block; width: 100%; height: auto; background: #fff; border-radius: 12px; border: 2px dashed var(--line); }
+.ht-fig figcaption { margin-top: 8px; }

@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -68,6 +68,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
             "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
             "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
+            "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -185,7 +186,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <p class="legal">{e(SITE)} is an independent site. Your counters, projects and saved prompts stay on your own device; nothing is uploaded. Yarn amounts are estimates, so always check your pattern. Last checked {e(UPDATED)}.</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts")}, ensure_ascii=False)};</script>
+<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts", "hats")}, ensure_ascii=False)};</script>
 {scripts}<script src="{asset("app.js")}"></script>
 </body>
 </html>
@@ -224,7 +225,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -306,8 +307,18 @@ gc = top("Gauge converter", "Your swatch came out different from the pattern? Se
 <section style="padding-top:0"><div class="narrow prose"><h2>Should you change needles or the numbers?</h2>
 <p>If you have <strong>more</strong> stitches than the pattern, your fabric is tighter: go up a needle or hook size. If you have <strong>fewer</strong>, it's looser: go down a size. Changing tool size is usually the best first fix, because it keeps the fabric feel the designer intended.</p>
 <p>If you love your fabric as it is, use the new stitch and row numbers above instead. Round to suit your stitch pattern: if it repeats over 4 stitches, pick the nearest multiple of 4.</p>
-<div class="callout">Measure your swatch after washing and drying it the way you'll treat the finished piece. Many yarns grow or shrink a little.</div></div></section>'''
+<div class="callout">Measure your swatch after washing and drying it the way you'll treat the finished piece. Many yarns grow or shrink a little.</div>
+<h2>How to measure a swatch</h2>
+<ol><li>Make a swatch at least 6 inches (15 cm) wide in the stitch the pattern uses for its gauge, with the same needles or hook.</li>
+<li>Wash and dry it, then lay it flat without stretching.</li>
+<li>Count the stitches across 4 inches (10 cm) in the middle, away from the edges. Count half stitches too.</li>
+<li>Do the same for rows, measuring up and down.</li></ol>
+<p>For hats, socks and anything else worked in the round, knit the swatch in the round too if you can. Many knitters purl a little looser than they knit, so a flat swatch can give a slightly different number.</p>
+<h2>Gauge for a hat or a sweater</h2>
+<p>Small differences add up on fitted pieces. On a 20 inch hat, being half a stitch per inch off changes the size by about 2 inches. Got your stitches per inch? The <a href="@@HAT@@">hat size calculator</a> turns them into a cast-on count for any head size, and the <a href="@@YW@@">yarn weight chart</a> shows the usual gauge for each yarn.</p></div></section>'''
+gc = gc.replace("@@HAT@@", href("hat-size-chart.html")).replace("@@YW@@", href("yarn-weights.html"))
 gc_faq = [
+    ("How do I measure gauge in crochet?", "Crochet a swatch at least 6 inches wide in the pattern's stitch, block it, then count the stitches and rows over 4 inches (10 cm) in the middle. Include half stitches."),
     ("What is gauge in knitting and crochet?", "Gauge (called tension in the UK) is how many stitches and rows fit in a set width, usually 4 inches or 10 cm. Matching it is what makes a garment come out the size the pattern says."),
     ("Does gauge matter for scarves and blankets?", "Less. A scarf a little wider is usually fine, but it changes how much yarn you need. For fitted garments, hats and socks it matters a lot."),
     ("Why is my gauge different from the pattern?", "Everyone holds yarn with a different tension, and needle materials and yarn brands vary. That's normal, which is why patterns ask you to swatch."),
@@ -576,6 +587,55 @@ page("crochet-knitting-gift-planner.html", "Christmas Knitting and Crochet Gift 
      "Free handmade gift planner for knitters and crocheters. List your gifts, add your crafting hours per week and see if they'll be finished by Christmas, plus how long hats, scarves and blankets take.",
      gp, gp_faq, "Handmade gift planner", app_name="Handmade gift planner")
 
+# ---------------- HAT SIZE CHART + CALCULATOR ----------------
+H = D["hats"]
+h_opts = "".join(f'<option value="{x["id"]}"{" selected" if x["id"] == "adult" else ""}>{e(x["name"])} ({e(x["age"])})</option>' for x in H) + '<option value="custom">I measured a head</option>'
+h_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong><br><span class="muted">{e(x["age"])}</span></td><td>{x["head"]:g} in<br><span class="muted">{round(x["head"] * 2.54)} cm</span></td><td>{e(x["cyc"])}</td>'
+                 f'<td>{round(x["head"] * 0.88 * 2) / 2:g} in<br><span class="muted">{round(x["head"] * 0.88 * 2.54)} cm</span></td><td>{e(x["h"])} in<br><span class="muted">{round(x["hn"] * 2.54)} cm</span></td></tr>' for x in H)
+ht = top("Hat size chart and calculator", "Head sizes from preemie to large adult, how much smaller to make the hat, and the exact number of stitches to cast on (or how wide to crochet the crown) for your yarn.", "Hat size chart") + f'''
+<section style="padding-top:10px"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="ht-size">Who is it for?</label><select id="ht-size">{h_opts}</select></div>
+<div class="row2" id="ht-custom" hidden><div class="field"><label for="ht-head">Head measurement</label><input type="number" id="ht-head" value="22" min="8" max="70" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="ht-hu">Unit</label><select id="ht-hu"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><span class="label" id="ht-craft-l">Knitting or crochet?</span><div class="seg" role="group" aria-labelledby="ht-craft-l" id="ht-craft"><button type="button" data-v="knit" aria-pressed="true">Knitting</button><button type="button" data-v="crochet" aria-pressed="false">Crochet</button></div></div>
+<div class="field"><label for="ht-ease">How snug?</label><select id="ht-ease"><option value="15">Snug, stretchy rib (about 15% smaller)</option><option value="12" selected>Classic beanie (about 12% smaller)</option><option value="8">Relaxed, firm fabric (about 8% smaller)</option><option value="3">Loose or slouchy band (about 3% smaller)</option></select></div>
+<div class="row2"><div class="field"><label for="ht-g">Stitches in your swatch</label><input type="number" id="ht-g" value="18" min="4" max="60" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="ht-gu">Measured over</label><select id="ht-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<div class="field"><label for="ht-rep">Round the count to a multiple of</label><select id="ht-rep"><option value="1">Any number</option><option value="2">2 (1x1 rib)</option><option value="4">4 (2x2 rib)</option><option value="8" selected>8 (rib plus an easy crown)</option><option value="6">6 (crochet crown of 6 wedges)</option></select></div>
+<figure class="ht-fig"><svg id="ht-svg" viewBox="0 0 320 230" role="img" aria-label="Hat drawn with its width and height"></svg><figcaption class="note" id="ht-cap">Your hat.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="ht-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>Hat size chart</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Typical head</th><th scope="col">Craft Yarn Council range</th><th scope="col">Hat width around (12% smaller)</th><th scope="col">Hat height</th></tr></thead><tbody>{h_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Head ranges are from the Craft Yarn Council's head circumference chart. The typical head is the middle size that yarn companies and hat designers most often quote. Hat height runs from the bottom of an unfolded brim to the top of the crown on a fitted beanie, as listed by Knit Picks. Add 2 to 3 inches for a slouchy hat or a brim you fold up (our rule of thumb). Heads vary, so measure when you can.</p>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How to measure a head for a hat</h2>
+<p>Wrap a soft tape measure around the head just above the eyebrows and ears, across the widest part at the back. Keep it level and comfortably snug, not tight. Making a surprise gift? Lay a hat the person already wears flat, without stretching it, measure across and double it.</p>
+<h2>Why a hat is smaller than the head</h2>
+<p>Knitted and crocheted fabric stretches, so a hat made the exact size of the head slides down over the eyes. Designers make the hat a little smaller, which is called negative ease. Most patterns use around 2 to 3 inches less than the head on an adult, or roughly 10 to 15 percent.</p>
+<ul><li><strong>Ribbing</strong> pulls in and springs back, so ribbed hats can be made smaller.</li>
+<li><strong>Thick yarn</strong> and firm stitches stretch less, so they need less ease.</li>
+<li><strong>Crochet</strong> usually stretches less than knitting, so many crocheters make the band only a little smaller than the head. That's why the calculator suggests less ease for crochet.</li>
+<li><strong>Babies and children</strong> grow fast. When in doubt, go a little bigger.</li></ul>
+<div class="callout"><strong>Swatch in the round if you can.</strong> Measure your stitches over 4 inches (10 cm) after washing the swatch. Half a stitch per inch can change an adult hat by 2 inches.</div>
+<h2>Knitting a hat: the cast-on maths</h2>
+<p>Multiply the hat width by your stitches per inch, then round to a number that suits your rib and crown. For example, a 22 inch head with 12 percent ease gives a 19.4 inch hat. At 4.5 stitches per inch that's 87 stitches, so cast on 88. Knit until the hat is about 2.5 to 3 inches short of the full height, then start the crown decreases.</p>
+<h2>Crocheting a hat from the top down</h2>
+<p>Work a flat circle, increasing each round, until it measures the hat width divided by 3.14 across. Then stop increasing and work even rounds until the hat reaches the full height, measured from the centre of the crown. For a 19 inch hat that's a circle about 6 inches across.</p>
+<p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>.</p></div></section>'''
+ht_faq = [
+    ("What size should an adult knit hat be?", "Most adult heads are 21 to 24 inches around. A fitted beanie is usually made 2 to 3 inches smaller, so about 19 to 21 inches around, and about 11 inches tall before any fold-up brim."),
+    ("How many stitches do I cast on for a hat?", "Multiply the hat width (head size minus about 12 percent) by your stitches per inch, then round to suit your rib. In worsted yarn at 4.5 stitches per inch, an average adult hat is about 88 stitches."),
+    ("How big should a crochet hat crown circle be?", "Divide the hat width by 3.14. For an adult hat about 20 inches around, increase until the flat circle is about 6.4 inches across, then work even."),
+    ("What size is a newborn hat?", "A newborn head is about 14 inches around, so a newborn hat is usually about 12 to 13 inches around and 6 inches tall."),
+    ("What is negative ease in a hat?", "It means the hat is smaller than the head, so the stretchy fabric holds it in place. Hats usually have about 10 to 15 percent negative ease, more for ribbing and less for thick or firm fabric."),
+]
+page("hat-size-chart.html", "Hat Size Chart for Knitting and Crochet, with Stitch Calculator | Purl & Paper",
+     "Free knit and crochet hat size chart from preemie to adult, with head sizes, hat height and negative ease, plus a calculator for cast-on stitches or crochet crown size.",
+     ht, ht_faq, "Hat size chart", app_name="Hat size calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -597,8 +657,8 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
-           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-20"}
+LASTMOD = {"hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-21"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")
