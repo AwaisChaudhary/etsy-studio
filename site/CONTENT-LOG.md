@@ -38,3 +38,6 @@
 - Refreshed: /crochet-terms (new crochet abbreviations table, a granny square round written in US and UK terms, 2 new FAQs, title now targets "crochet abbreviations US UK"); /blanket-size-calculator ("Lacy or granny" stitch option renamed "Lacy", since granny blankets with joins and borders run closer to 1 yd/sq in; points granny makers to the new calculator).
 - Pin queued: pins/site/granny-square-blanket-calculator.jpg.
 - Shop boxes: no new batches since batch3 (not craft-related); all craft products already in SHOP.
+
+## 2026-11-21 (evening follow-up)
+- Batch 4 live on Etsy and Gumroad. Added "December Days journal kit" to SHOP (thumbnail assets/shop/december-days-journal-kit.jpg) and to the shop boxes on /journal-prompts and the junk journal pages (JJ). Candle spreadsheet and Nordic clipart are not craft-tool matches, so not added.

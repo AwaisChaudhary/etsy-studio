@@ -59,14 +59,15 @@ SHOP = {
  "yarn-stash-tracker": ("Yarn stash tracker spreadsheet", "5.99", "4620611752/yarn-stash-tracker-spreadsheet-yarn", "yarn-stash-tracker"),
  "crochet-knitting-pricing-calculator": ("Crochet pricing calculator", "9.99", "4620610040/crochet-pricing-calculator-knitting", "crochet-pricing-calculator"),
  "christmas-gift-planner-budget": ("Christmas gift planner and budget", "6.99", "4621713425/christmas-gift-planner-spreadsheet", "christmas-gift-planner"),
+ "december-days-journal-kit": ("December Days journal kit", "6.99", "4622484083/december-daily-journal-kit-printable-25", "december-days-journal-kit"),
  "christmas-gift-tags": ("Printable Christmas gift tags", "3.99", "4621715645/printable-christmas-gift-tags-holiday", "christmas-gift-tags"),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
-JJ = ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
+JJ = ["december-days-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
 SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-planner", "night-garden-junk-journal-kit", "yarn-stash-tracker"],
             "row-counter.html": KNIT, "yarn-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
-            "journal-prompts.html": ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
+            "journal-prompts.html": ["december-days-journal-kit", "journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
             "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
