@@ -1,5 +1,5 @@
 {
- "updated": "21 November 2026",
+ "updated": "22 November 2026",
  "weights": [
   {
    "n": 0,
@@ -861,6 +861,118 @@
    "cyc": "22–24 in",
    "h": "11.5",
    "hn": 11.5
+  }
+ ],
+ "socks": [
+  {
+   "id": "baby",
+   "name": "Baby",
+   "age": "6–18 months",
+   "shoe": "US shoe 0–4",
+   "circ": 4.5,
+   "leg": 2.5,
+   "lmin": 3,
+   "lmax": 4.5
+  },
+  {
+   "id": "toddler",
+   "name": "Toddler",
+   "age": "2–3 years",
+   "shoe": "US shoe 5–9",
+   "circ": 5.5,
+   "leg": 3.5,
+   "lmin": 4.75,
+   "lmax": 6
+  },
+  {
+   "id": "child",
+   "name": "Child",
+   "age": "4–5 years",
+   "shoe": "US shoe 10–13",
+   "circ": 6,
+   "leg": 4.5,
+   "lmin": 6.5,
+   "lmax": 7.5
+  },
+  {
+   "id": "youth-s",
+   "name": "Youth small",
+   "age": "6–9 years",
+   "shoe": "US youth 1–3",
+   "circ": 6.5,
+   "leg": 5.5,
+   "lmin": 7.75,
+   "lmax": 8.5
+  },
+  {
+   "id": "youth-l",
+   "name": "Youth large",
+   "age": "10–13 years",
+   "shoe": "US youth 4–6",
+   "circ": 7,
+   "leg": 6.5,
+   "lmin": 8.75,
+   "lmax": 9.5
+  },
+  {
+   "id": "women-s",
+   "name": "Women small",
+   "age": "US women's 4–6½",
+   "shoe": "US women's 4–6½",
+   "circ": 7,
+   "leg": 6.5,
+   "lmin": 8,
+   "lmax": 9
+  },
+  {
+   "id": "women-m",
+   "name": "Women medium",
+   "age": "US women's 7–9½",
+   "shoe": "US women's 7–9½",
+   "circ": 8,
+   "leg": 7,
+   "lmin": 9.25,
+   "lmax": 10
+  },
+  {
+   "id": "women-l",
+   "name": "Women large",
+   "age": "US women's 10–12½",
+   "shoe": "US women's 10–12½",
+   "circ": 9,
+   "leg": 7.5,
+   "lmin": 10.25,
+   "lmax": 11
+  },
+  {
+   "id": "men-s",
+   "name": "Men small",
+   "age": "US men's 6–8½",
+   "shoe": "US men's 6–8½",
+   "circ": 8,
+   "leg": 7.5,
+   "lmin": 9.25,
+   "lmax": 10
+  },
+  {
+   "id": "men-m",
+   "name": "Men medium",
+   "age": "US men's 9–11½",
+   "shoe": "US men's 9–11½",
+   "circ": 9,
+   "leg": 8,
+   "lmin": 10.25,
+   "lmax": 11
+  },
+  {
+   "id": "men-l",
+   "name": "Men large",
+   "age": "US men's 12–14",
+   "shoe": "US men's 12–14",
+   "circ": 10,
+   "leg": 8.5,
+   "lmin": 11.25,
+   "lmax": 12
   }
  ]
 }

@@ -507,6 +507,73 @@
     [htS, htH, htHU, htE, htG, htGU, htR].forEach(function (el) { el.addEventListener("input", htCalc); el.addEventListener("change", htCalc); });
     htCalc();
   }
+  /* ---------- Sock size calculator ---------- */
+  if ($("#sk-size") && $("#sk-out")) {
+    var skEl = {}; ["size", "custom", "circ", "len", "mu", "yarn", "g", "gu", "ease", "rep", "out", "svg", "cap"].forEach(function (k) { skEl[k] = $("#sk-" + k); });
+    var socks = P.socks || [], skKeys = ["size", "circ", "len", "mu", "yarn", "g", "gu", "ease", "rep"], skTouchedG = false;
+    var SOCK_K = 1.32; /* yd of fingering per sq in of sock fabric, heel and toe included (estimate; women's medium pair ~350 yd) */
+    var skPref = store.get("pp-sock", null);
+    if (skPref) { skKeys.forEach(function (k) { if (skPref[k] != null && skPref[k] !== "") skEl[k].value = skPref[k]; }); skTouchedG = true; }
+    var s1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var sBoth = function (inch) { return s1(inch) + " in (" + Math.round(inch * 2.54) + " cm)"; };
+    var even = function (n) { return Math.max(2, Math.round(n / 2) * 2); };
+    function skDraw(leg, foot, circ) {
+      var sc = Math.min(150 / Math.max(foot, 1), 140 / Math.max(leg, 1), 16), w = Math.max(26, circ / 2 * sc * 0.9);
+      var x0 = 70, top = 22, lh = leg * sc, fl = foot * sc, base = top + lh + w * 0.55, xr = x0 + w;
+      if (base + w * 0.5 > 200) { var k = (200 - top) / (lh + w * 1.05); sc *= k; lh = leg * sc; fl = foot * sc; w *= k; xr = x0 + w; base = top + lh + w * 0.55; }
+      var heelX = x0, toeX = x0 + fl, fy = base - w * 0.5;
+      var d = "M" + x0 + " " + top + " L" + xr + " " + top + " L" + xr + " " + fy + " L" + (toeX - w * 0.45) + " " + fy +
+        " Q" + toeX + " " + fy + " " + toeX + " " + (fy + w * 0.25) + " Q" + toeX + " " + base + " " + (toeX - w * 0.45) + " " + base +
+        " L" + (heelX + w * 0.4) + " " + base + " Q" + (heelX - w * 0.15) + " " + base + " " + (heelX - w * 0.12) + " " + (base - w * 0.5) + " L" + x0 + " " + (top + lh) + " Z";
+      var cuff = Math.min(lh * 0.3, 1.5 * sc), ribs = "", i;
+      for (i = x0 + 4; i < xr - 2; i += 6) ribs += '<line x1="' + i + '" x2="' + i + '" y1="' + top + '" y2="' + (top + cuff) + '" stroke="rgba(255,255,255,.5)" stroke-width="2"/>';
+      var toeL = Math.min(w * 0.9, fl * 0.22);
+      skEl.svg.innerHTML = '<defs><clipPath id="skc"><path d="' + d + '"/></clipPath></defs><path d="' + d + '" fill="#2f8f8a"/>' +
+        '<g clip-path="url(#skc)">' + ribs + '<rect x="' + (heelX - w) + '" y="' + (base - w * 0.75) + '" width="' + (w * 1.3) + '" height="' + w + '" fill="#f4a823" opacity=".9"/><rect x="' + (toeX - toeL) + '" y="' + (fy - 2) + '" width="' + (toeL + 4) + '" height="' + (w + 4) + '" fill="#b8326a" opacity=".9"/></g>' +
+        '<path d="' + d + '" fill="none" stroke="#1f2a44" stroke-width="2"/>' +
+        '<line x1="' + (x0 - 14) + '" x2="' + (x0 - 14) + '" y1="' + top + '" y2="' + (top + lh) + '" stroke="#1f2a44" stroke-width="1.5"/><text x="' + (x0 - 18) + '" y="' + (top + lh / 2) + '" text-anchor="end" font-size="11" font-weight="700" fill="#1f2a44">' + s1(leg) + ' in</text>' +
+        '<text x="' + (x0 - 18) + '" y="' + (top + lh / 2 + 13) + '" text-anchor="end" font-size="10" fill="#1f2a44">leg</text>' +
+        '<line x1="' + (heelX - w * 0.12) + '" x2="' + toeX + '" y1="' + (base + 14) + '" y2="' + (base + 14) + '" stroke="#1f2a44" stroke-width="1.5"/><text x="' + ((heelX + toeX) / 2) + '" y="' + (base + 28) + '" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2a44">' + s1(foot) + ' in foot</text>';
+    }
+    function skCalc() {
+      var custom = skEl.size.value === "custom"; skEl.custom.hidden = !custom;
+      var pre = socks.filter(function (x) { return x.id === skEl.size.value; })[0], circ, len, leg, who;
+      if (custom) {
+        var f = skEl.mu.value === "cm" ? 1 / 2.54 : 1;
+        circ = Math.min(14, Math.max(3, (parseFloat(skEl.circ.value) || 0) * f)); len = Math.min(16, Math.max(2.5, (parseFloat(skEl.len.value) || 0) * f));
+        var near = socks.reduce(function (a, b) { return Math.abs((b.lmin + b.lmax) / 2 - len) < Math.abs((a.lmin + a.lmax) / 2 - len) ? b : a; }, socks[0] || { leg: 7 });
+        leg = near.leg; who = "A foot " + s1(circ) + " in around, " + s1(len) + " in long";
+      } else { pre = pre || socks[0]; circ = pre.circ; len = (pre.lmin + pre.lmax) / 2; leg = pre.leg; who = pre.name + " · " + pre.shoe; }
+      var yp = skEl.yarn.value.split("|"), yf = parseFloat(yp[0]) || 1;
+      var g = parseFloat(skEl.g.value) || 0, spi = g / (skEl.gu.value === "10" ? 10 / 2.54 : 4), ease = parseFloat(skEl.ease.value) || 0, rep = parseInt(skEl.rep.value, 10) || 4;
+      var target = circ * (1 - ease / 100), n = spi > 0 ? Math.max(rep, Math.round(target * spi / rep) * rep) : 0, real = spi > 0 ? n / spi : target;
+      var toe = len >= 8 ? 2 : Math.max(0.75, len * 0.2), heel = even(n / 2), flapRows = heel, pick = Math.round(flapRows / 2) + 1, toeEnd = Math.max(8, even(n / 4));
+      var yd = SOCK_K * circ * (len + leg) * 2 * yf, lo = Math.round(yd * 0.88 / 5) * 5, hi = Math.round(yd * 1.12 / 5) * 5;
+      var out = "<h3>" + esc(who) + '</h3><div class="bk-dims">' + s1(real) + " in around<small>" + Math.round(real * 2.54) + " cm sock on a " + sBoth(circ) + " foot · " + s1((1 - real / circ) * 100) + "% smaller</small></div>";
+      if (!n) out += '<p class="sub">Enter the stitches in your swatch to see the numbers.</p>';
+      else out += "<h3>Cast on</h3><div class=\"big\">" + n + "</div><p class=\"sub\">stitches, a multiple of " + rep + ", at " + s1(spi) + " stitches per inch.</p><hr>" +
+        "<ol class=\"sk-steps\"><li><strong>Leg:</strong> cuff and leg about " + sBoth(leg) + " for a crew sock.</li>" +
+        "<li><strong>Heel flap:</strong> " + heel + " stitches, worked for about " + flapRows + " rows.</li>" +
+        "<li><strong>Gusset:</strong> pick up about " + pick + " stitches on each side, then decrease every other round back to " + n + ".</li>" +
+        "<li><strong>Foot:</strong> knit until it measures <strong>" + sBoth(Math.max(1, len - toe)) + "</strong> from the back of the heel.</li>" +
+        "<li><strong>Toe:</strong> decrease 4 every other round to " + even(n / 2) + ", then every round to about " + toeEnd + ". Graft closed.</li></ol>";
+      out += "<hr><h3>Yarn for the pair</h3><p><strong>" + lo + "–" + hi + " yd</strong> (" + Math.round(lo * 0.9144) + "–" + Math.round(hi * 0.9144) + " m). An estimate for plain socks; buy a little extra for cables or a taller leg.</p>";
+      out += '<p class="sub">Feet vary, so try the sock on as you go. Next: <a href="' + (location.protocol === "file:" ? "row-counter.html" : "/row-counter") + '">row counter</a> for the heel flap, <a href="' + (location.protocol === "file:" ? "hook-needle-sizes.html" : "/hook-needle-sizes") + '">needle sizes</a>.</p>';
+      skEl.out.innerHTML = out;
+      skDraw(leg, len, circ);
+      skEl.cap.textContent = "Your sock: leg about " + s1(leg) + " in, foot " + s1(len) + " in, heel in gold and toe in pink.";
+      var save = {}; skKeys.forEach(function (k) { save[k] = skEl[k].value; }); store.set("pp-sock", save);
+    }
+    var skMu = skEl.mu.value;
+    skEl.mu.addEventListener("change", function () {
+      var f = skEl.mu.value === "cm" && skMu === "in" ? 2.54 : (skEl.mu.value === "in" && skMu === "cm" ? 1 / 2.54 : 1); skMu = skEl.mu.value;
+      [skEl.circ, skEl.len].forEach(function (el) { var v = parseFloat(el.value); if (v) el.value = Math.round(v * f * 4) / 4; });
+    });
+    skEl.g.addEventListener("input", function () { skTouchedG = true; });
+    skEl.yarn.addEventListener("change", function () { if (!skTouchedG) skEl.g.value = skEl.yarn.value.split("|")[1]; });
+    skKeys.forEach(function (k) { skEl[k].addEventListener("input", skCalc); skEl[k].addEventListener("change", skCalc); });
+    skCalc();
+  }
   /* ---- Granny square blanket calculator ---- */
   if ($("#gs-size") && $("#gs-out")) {
     var gsEl = {}; ["size", "custom", "bw", "bl", "sq", "su", "join", "border", "weight", "ypsq", "skein", "unit", "cols", "out", "svg", "cap"].forEach(function (k) { gsEl[k] = $("#gs-" + k); });

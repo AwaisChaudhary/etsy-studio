@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -72,6 +72,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "increase-decrease-calculator.html": KNIT,
+            "sock-size-chart.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "christmas-gift-tags", "crochet-knitting-pricing-calculator"],
             "how-to-price-crochet-items.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
@@ -190,7 +191,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <p class="legal">{e(SITE)} is an independent site. Your counters, projects and saved prompts stay on your own device; nothing is uploaded. Yarn amounts are estimates, so always check your pattern. Last checked {e(UPDATED)}.</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts", "hats")}, ensure_ascii=False)};</script>
+<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts", "hats", "socks")}, ensure_ascii=False)};</script>
 {scripts}<script src="{asset("app.js")}"></script>
 </body>
 </html>
@@ -229,7 +230,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -435,20 +436,36 @@ page("yarn-weights.html", "Yarn Weight Chart: Lace to Jumbo, Needle and Hook Siz
 
 # ---------------- HOOK / NEEDLE SIZES ----------------
 srows = "".join(f'<tr data-mm="{e(s[0][:-3])}"><td><strong>{e(s[0])}</strong></td><td>{e(s[1])}</td><td>{e(s[2])}</td><td>{e(s[3])}</td></tr>' for s in D["sizes"])
+hw_rows = "".join(f'<tr><td><strong>{w["n"]} {e(w["name"])}</strong><br><span class="muted">{e(w["also"])}</span></td><td>{e(w["needle"])}</td><td>{e(w["hook"])}</td></tr>' for w in D["weights"])
 hn = top("Hook and needle size chart", "Metric, US and old UK sizes side by side. Type any size to jump to it.", "Hook and needle sizes") + f'''
 <section style="padding-top:10px"><div class="narrow">
+<div class="quick"><strong>Quick answer:</strong> go by the millimetre size. A 5 mm hook is a US H-8; a 5 mm knitting needle is a US 8 and an old UK 6. A 4 mm needle is a US 6 (UK 8), and a 4 mm hook is a G-6. For worsted yarn most people start with a 5.5 mm (I-9) hook or 4.5 to 5.5 mm (US 7 to 9) needles.</div>
 <div class="finder"><div class="field"><label for="hn-q">Find a size</label><input type="search" id="hn-q" placeholder="e.g. 4.5, US 8, H-8, UK 6"></div><p class="note" id="hn-hit" style="margin:0 0 12px"></p></div>
 <div class="tbl-wrap"><table id="hn-table"><thead><tr><th scope="col">Metric</th><th scope="col">US knitting needle</th><th scope="col">Old UK / Canadian needle</th><th scope="col">US crochet hook</th></tr></thead><tbody>{srows}</tbody></table></div>
 <p class="note" style="margin-top:12px">"—" means there's no common size at that point. Brands sometimes label in-between sizes differently, so the millimetre size is the one to trust.</p>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>Always go by millimetres</h2>
+<section style="padding-top:0"><div class="narrow"><h2>Which hook or needle size for each yarn weight?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Yarn weight</th><th scope="col">Knitting needles</th><th scope="col">Crochet hook</th></tr></thead><tbody>{hw_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Recommended starting ranges from the Craft Yarn Council's Standard Yarn Weight System. Your yarn label and your swatch come first: if you have too many stitches, go up a size; too few, go down. More detail on each weight is on the <a href="{href("yarn-weights.html")}">yarn weight chart</a>.</p></div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>Why go by millimetres?</h2>
 <p>US letters and numbers, and old UK numbers, were never fully standard, and the old UK system runs backwards (a bigger number means a thinner needle). The metric size is printed on almost every modern hook and needle, so if a pattern gives a millimetre size, use that.</p>
-<h2>Steel crochet hooks are different</h2>
-<p>Tiny steel hooks for crochet thread use their own numbers, where a <strong>higher</strong> number is a <strong>smaller</strong> hook. Check the millimetre size on the handle.</p></div></section>'''
+<h2>Are steel crochet hooks sized differently?</h2>
+<p>Yes. Tiny steel hooks for crochet thread use their own numbers, where a <strong>higher</strong> number is a <strong>smaller</strong> hook. Check the millimetre size on the handle.</p>
+<h2>What size needles for socks?</h2>
+<p>Most socks in fingering yarn are knitted on 2.25 to 2.75 mm needles (US 1 to 2), smaller than the yarn label often suggests, so the fabric is firm and hard-wearing. The <a href="{href("sock-size-chart.html")}">sock size chart and calculator</a> turns your gauge into a cast-on number.</p>
+<h2>My stitches don't match the pattern. Which way do I change size?</h2>
+<ul><li><strong>Too many stitches per 4 in:</strong> your fabric is tight, so go up a needle or hook size.</li>
+<li><strong>Too few stitches:</strong> your fabric is loose, so go down a size.</li>
+<li>One size step usually changes gauge by about half a stitch per inch, so swatch again after you switch.</li></ul>
+<p>What next? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big your piece will turn out if you keep your gauge, and the <a href="{href("yarn-calculator.html")}">yarn calculator</a> tells you how much yarn to buy. Following a UK crochet pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> too.</p></div></section>'''
 hn_faq = [
     ("What size is an H crochet hook?", "An H-8 hook is 5 mm."),
     ("What is a US size 8 knitting needle in mm?", "A US 8 needle is 5 mm, the same as an old UK size 6."),
     ("What size hook for worsted yarn?", "Worsted (weight 4) usually starts with a 5.5 to 6.5 mm hook (I-9 to K-10½). Check your yarn label and swatch."),
+    ("What size is a G crochet hook?", "A G-6 hook is 4 mm. Some brands also sell a 4.25 mm G hook, so check the millimetre size on the handle."),
+    ("What is a 4 mm knitting needle in US size?", "A 4 mm knitting needle is a US 6, the same as an old UK size 8."),
+    ("What size needles for sock yarn?", "Socks in fingering yarn are usually knitted on 2.25 to 2.75 mm needles (US 1 to 2) for a firm fabric."),
+    ("Should I go up or down a needle size to get gauge?", "If you have more stitches per 4 inches than the pattern, go up a size. If you have fewer, go down a size, then swatch again."),
 ]
 page("hook-needle-sizes.html", "Crochet Hook and Knitting Needle Size Chart (mm, US, UK) | Purl & Paper",
      "Crochet hook and knitting needle size conversion chart: metric mm, US numbers and letters, and old UK sizes, with a quick size finder.",
@@ -653,7 +670,7 @@ ht = top("Hat size chart and calculator", "Head sizes from preemie to large adul
 <p>Multiply the hat width by your stitches per inch, then round to a number that suits your rib and crown. For example, a 22 inch head with 12 percent ease gives a 19.4 inch hat. At 4.5 stitches per inch that's 87 stitches, so cast on 88. Knit until the hat is about 2.5 to 3 inches short of the full height, then start the crown decreases. Adding stitches after a ribbed brim? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> spaces them for you.</p>
 <h2>Crocheting a hat from the top down</h2>
 <p>Work a flat circle, increasing each round, until it measures the hat width divided by 3.14 across. Then stop increasing and work even rounds until the hat reaches the full height, measured from the centre of the crown. For a 19 inch hat that's a circle about 6 inches across.</p>
-<p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>.</p></div></section>'''
+<p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Matching socks? The <a href="{href("sock-size-chart.html")}">sock size chart</a> works out the cast-on the same way.</p></div></section>'''
 ht_faq = [
     ("What size should an adult knit hat be?", "Most adult heads are 21 to 24 inches around. A fitted beanie is usually made 2 to 3 inches smaller, so about 19 to 21 inches around, and about 11 inches tall before any fold-up brim."),
     ("How many stitches do I cast on for a hat?", "Multiply the hat width (head size minus about 12 percent) by your stitches per inch, then round to suit your rib. In worsted yarn at 4.5 stitches per inch, an average adult hat is about 88 stitches."),
@@ -862,6 +879,75 @@ page("how-to-price-crochet-items.html", "How to Price Crochet and Knitting Items
      "The formula for pricing crochet and knitted items to sell: materials, an hourly rate, overheads and Etsy or craft fair fees, with a free calculator and example prices.",
      prc, pr_faq, "How to price crochet", app_name="Crochet and knitting price calculator")
 
+# ---------------- SOCK SIZE CHART + CALCULATOR ----------------
+SK = D["socks"]
+SOCK_K = 1.32   # yd of fingering per sq in of sock fabric (leg + foot, heel and toe included). Our estimate: a women's medium pair ~350 yd.
+def sk_mid(x): return (x["lmin"] + x["lmax"]) / 2
+def sk_co(circ, spi=8, ease=0.10, rep=4): return max(rep, int(circ * (1 - ease) * spi / rep + 0.5) * rep)
+def sk_yd(x, f=1.0): return int(SOCK_K * x["circ"] * (sk_mid(x) + x["leg"]) * 2 * f / 5 + 0.5) * 5
+sk_opts = "".join(f'<option value="{x["id"]}"{" selected" if x["id"] == "women-m" else ""}>{e(x["name"])} ({e(x["shoe"])})</option>' for x in SK) + '<option value="custom">I measured a foot</option>'
+sk_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong><br><span class="muted">{e(x["shoe"] if x["shoe"] == x["age"] else x["age"] + ", " + x["shoe"])}</span></td><td>{x["circ"]:g} in<br><span class="muted">{round(x["circ"] * 2.54, 1):g} cm</span></td>'
+                  f'<td>{x["lmin"]:g}–{x["lmax"]:g} in<br><span class="muted">{round(x["lmin"] * 2.54)}–{round(x["lmax"] * 2.54)} cm</span></td><td>{x["leg"]:g} in<br><span class="muted">{round(x["leg"] * 2.54)} cm</span></td>'
+                  f'<td>{sk_co(x["circ"])}</td><td>about {sk_yd(x)} yd</td></tr>' for x in SK)
+_wm = next(x for x in SK if x["id"] == "women-m"); _mm = next(x for x in SK if x["id"] == "men-m"); _ml = next(x for x in SK if x["id"] == "men-l")
+sk = top("Sock size chart and sock knitting calculator", "Foot sizes from baby to men's 14, how much smaller to knit the sock, and the numbers for your cast-on, heel flap, gusset and toe, worked out from your own gauge.", "Sock size chart") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> knit socks about 10% smaller around than the foot. A women's medium foot (US 7–9½) is about 8 in around, so the sock is about 7.2 in; at 8 stitches per inch in fingering yarn that's <strong>{sk_co(_wm["circ"])} stitches</strong>. A men's medium (US 9–11½) foot is about 9 in around, so <strong>{sk_co(_mm["circ"])} stitches</strong>. Start the toe when the foot measures 2 in less than the whole foot.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="sk-size">Who is it for?</label><select id="sk-size">{sk_opts}</select></div>
+<div id="sk-custom" hidden><div class="row2"><div class="field"><label for="sk-circ">Foot around (ball of foot)</label><input type="number" id="sk-circ" value="8" min="3" max="40" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="sk-len">Foot length (heel to toe)</label><input type="number" id="sk-len" value="9.5" min="3" max="40" step="0.25" inputmode="decimal"></div></div>
+<div class="field"><label for="sk-mu">Unit</label><select id="sk-mu"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><label for="sk-yarn">Yarn</label><select id="sk-yarn"><option value="1|32" selected>Fingering or sock yarn (4 ply)</option><option value="0.8|26">Sport (5 ply)</option><option value="0.65|22">DK (8 ply)</option></select></div>
+<div class="row2"><div class="field"><label for="sk-g">Stitches in your swatch</label><input type="number" id="sk-g" value="32" min="8" max="60" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="sk-gu">Measured over</label><select id="sk-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<div class="field"><label for="sk-ease">How snug?</label><select id="sk-ease"><option value="15">Firm, for thin or very stretchy yarn (15% smaller)</option><option value="10" selected>Standard fit (10% smaller)</option><option value="5">Roomy, for thick yarn or bed socks (5% smaller)</option></select></div>
+<div class="field"><label for="sk-rep">Round the count to a multiple of</label><select id="sk-rep"><option value="2">2 (1x1 rib)</option><option value="4" selected>4 (2x2 rib, 4 needles)</option><option value="8">8 (bigger stitch patterns)</option></select></div>
+<figure class="ht-fig"><svg id="sk-svg" viewBox="0 0 320 240" role="img" aria-label="Sock drawn with its leg and foot lengths"></svg><figcaption class="note" id="sk-cap">Your sock.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="sk-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>What size sock do I knit? Sock size chart</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Foot around</th><th scope="col">Foot length</th><th scope="col">Leg (cuff to heel)</th><th scope="col">Cast on at 8 sts/in</th><th scope="col">Fingering yarn, pair</th></tr></thead><tbody>{sk_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Foot around, foot length and leg height are from the Craft Yarn Council's foot size chart (US shoe sizes). Cast-on counts are our own maths: 10% negative ease at 8 stitches per inch, rounded to a multiple of 4. Yarn per pair is our estimate for plain stockinette socks with a ribbed cuff; textured stitches, cables and taller legs need more. Buy an extra ball if you're between amounts.</p>
+</div></section>
+{AD.format("sock-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I measure a foot for socks?</h2>
+<ul><li><strong>Around:</strong> wrap a soft tape around the widest part of the foot, across the ball just behind the toes. Keep it snug, not tight.</li>
+<li><strong>Length:</strong> stand on a piece of paper, mark the back of the heel and the tip of the longest toe, and measure between the marks.</li>
+<li><strong>Making a surprise?</strong> Use the chart for their shoe size, or measure a pair of their own socks laid flat (double the width).</li></ul>
+<p>The ankle is usually about the same size around as the ball of the foot, so a plain sock keeps the same stitch count from cuff to toe.</p>
+<h2>How much negative ease should socks have?</h2>
+<p>About 10%. A sock that's slightly smaller than the foot stretches to hug it and doesn't wrinkle or slip down. Knitty and Mary Maxim both recommend around 10%. Go a little smaller for loose, stretchy fabric and a little bigger for thick yarn, firm stitch patterns or colourwork, which stretch less.</p>
+<h2>How many stitches do I cast on for socks?</h2>
+<p>Multiply the foot measurement by 0.9, then by your stitches per inch, and round to a number that fits your rib. A women's medium foot of 8 in × 0.9 = 7.2 in. At 8 stitches per inch that's 57.6, so cast on {sk_co(_wm["circ"])}. At 7.5 stitches per inch it's 54, which rounds to 56 too. Thicker sock yarn at 6.5 stitches per inch gives 47, so cast on 48.</p>
+<div class="callout"><strong>Swatch in the round</strong> on the needles you'll use, then wash and dry it. Sock gauge is tight (often 28 to 32 stitches over 4 in), so a quarter stitch per inch changes a sock by about 2 stitches.</div>
+<h2>Heel flap, gusset and toe: the numbers</h2>
+<ol><li><strong>Leg:</strong> knit the cuff and leg to the height you like. The chart gives a standard crew height.</li>
+<li><strong>Heel flap:</strong> work back and forth on half the stitches. Many patterns make the flap about as many rows as it has stitches, so it ends up roughly square; others use fewer rows for a shallower heel.</li>
+<li><strong>Turn the heel,</strong> then pick up about one stitch for every two flap rows along each side, plus one in the corner to close the gap.</li>
+<li><strong>Gusset:</strong> decrease 2 stitches every other round until you're back to the cast-on count.</li>
+<li><strong>Foot:</strong> knit straight until the sock measures 2 in less than the whole foot (adults). Children's toes are shorter, so the calculator uses about a fifth of the foot length for small sizes (our estimate).</li>
+<li><strong>Toe:</strong> decrease 4 stitches every other round until about half the stitches are left, then every round until about a quarter remain. Graft the toe closed.</li></ol>
+<p>Knitting toe-up? Use the same stitch count for the foot, work the toe increases first, and start the heel when the foot reaches the front of the ankle. Spacing increases or decreases around a cuff? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> writes the round out for you.</p>
+<h2>How much yarn do I need for a pair of socks?</h2>
+<p>One 100 g skein of fingering sock yarn (usually around 400 to 460 yards) makes a pair of plain adult socks in most sizes up to a men's medium. A men's large or a tall leg can need around {sk_yd(_ml)} yards, so buy a little extra. Children's socks often fit in one 50 g ball. Sport and DK socks use fewer yards but more grams. The calculator above gives an estimate for your size and yarn.</p>
+<h2>What about crochet socks?</h2>
+<p>Crochet stretches less than knitting, so crochet sock patterns usually leave less negative ease. Measure the same way, then follow your pattern's ease and try the sock on as you go.</p>
+<p>What next? Check your needle size on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see what "fingering" means on the <a href="{href("yarn-weights.html")}">yarn weight chart</a>, keep track of heel rows with the <a href="{href("row-counter.html")}">row counter</a>, and see if gift socks will be ready by Christmas in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Matching hat? Try the <a href="{href("hat-size-chart.html")}">hat size calculator</a>.</p></div></section>'''
+sk_faq = [
+    ("How many stitches do I cast on for women's socks?", f"For an average women's foot (about 8 in around) in fingering yarn at 8 stitches per inch, cast on about {sk_co(_wm['circ'])} stitches. That's 10% smaller than the foot, rounded to a multiple of 4."),
+    ("How many stitches for men's socks?", f"An average men's foot (US 9–11½) is about 9 in around, so at 8 stitches per inch cast on about {sk_co(_mm['circ'])} stitches. A large men's foot (US 12–14) needs about {sk_co(_ml['circ'])}."),
+    ("How much negative ease for socks?", "About 10%. Knit the sock 10% smaller around than the ball of the foot so it stretches to fit; a little more for loose fabric, a little less for thick yarn or colourwork."),
+    ("When do I start the toe on a sock?", "On a cuff-down adult sock, start the toe decreases when the foot measures about 2 inches less than the full length of the foot. Children's toes are shorter."),
+    ("How much yarn do I need for socks?", "A pair of plain adult socks usually takes one 100 g skein of fingering yarn, roughly 350 to 450 yards. Large men's sizes and tall legs may need more, and children's socks often fit in a 50 g ball."),
+    ("How long should a heel flap be?", "Work the heel flap on half the stitches. Many patterns make it about as many rows as it has stitches, so it's roughly square; some use fewer rows for a shallower heel."),
+]
+page("sock-size-chart.html", "Sock Size Chart for Knitting, with Cast-On Calculator | Purl & Paper",
+     "Free sock size chart from baby to men's 14 (foot around, length, leg height) plus a sock knitting calculator: cast-on stitches, heel flap, gusset, toe and yarn for your gauge.",
+     sk, sk_faq, "Sock size chart", app_name="Sock knitting calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -883,8 +969,8 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "hat-size-chart.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
-           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-21"}
+LASTMOD = {"sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-22"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")

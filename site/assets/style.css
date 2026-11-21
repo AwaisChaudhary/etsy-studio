@@ -450,3 +450,5 @@ footer a { color: var(--ink); }
 .id-fig figcaption { margin-top: 8px; }
 .result .id-line { font: 700 1.18rem/1.5 var(--body); color: #fff; background: rgba(255,255,255,0.08); border-left: 4px solid var(--marigold); border-radius: 8px; padding: 12px 14px; margin: 6px 0 12px; overflow-wrap: anywhere; }
 td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
+.sk-steps { margin: 6px 0 0; padding-left: 20px; }
+.sk-steps li { margin: 0 0 6px; }
