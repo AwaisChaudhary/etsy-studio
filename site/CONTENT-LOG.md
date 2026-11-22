@@ -83,3 +83,7 @@
 ## 2026-11-22 15:44 PKT (main chat): early deploy
 - Deployed the site to Cloudflare from the main chat (22 pages live, was 16) so the 6 new pages don't wait for the evening batch: cast-on-calculator, yarn-substitution-calculator, how-to-tea-stain-paper, how-to-price-crochet-items, sock-size-chart, increase-decrease-calculator.
 - Requested Google indexing (URL-prefix property) for all 6 and submitted all 6 to Bing.
+
+## NOTE (2026-11-22, main chat): IndexNow key file
+- Key file /587793d06442be2254b0454e95cf84ff.txt is in the site root (Bing IndexNow; Awais approved IndexNow on 22 Nov). Never delete or rename it.
+- Pinging api.indexnow.org from scheduled runs needs approval, so runs should NOT try it; the main chat pings new pages.
