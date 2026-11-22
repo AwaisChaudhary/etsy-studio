@@ -79,3 +79,7 @@
 - Refreshed + upgraded: /journal-prompts. New "Prompts for" season picker in the generator (winter and Christmas, new year, spring, summer and travel, autumn, memories and family, self-care and calm; 154 new original prompts + 2 palettes per season in data.json prompts.sets, choice saved on device), Quick answer, crawlable "Junk journal prompts by season" lists, "How do you use a junk journal prompt?" steps, "How often should you journal?" and "What if I don't like writing?" sections, what-next links, 3 new FAQs; title now targets "winter / Christmas / seasonal junk journal prompts".
 - Pin queued: pins/site/cast-on-calculator.jpg.
 - Shop boxes: no new batches since batch4; all craft products already in SHOP.
+
+## 2026-11-22 15:44 PKT (main chat): early deploy
+- Deployed the site to Cloudflare from the main chat (22 pages live, was 16) so the 6 new pages don't wait for the evening batch: cast-on-calculator, yarn-substitution-calculator, how-to-tea-stain-paper, how-to-price-crochet-items, sock-size-chart, increase-decrease-calculator.
+- Requested Google indexing (URL-prefix property) for all 6 and submitted all 6 to Bing.
