@@ -87,3 +87,9 @@
 ## NOTE (2026-11-22, main chat): IndexNow key file
 - Key file /587793d06442be2254b0454e95cf84ff.txt is in the site root (Bing IndexNow; Awais approved IndexNow on 22 Nov). Never delete or rename it.
 - Pinging api.indexnow.org from scheduled runs needs approval, so runs should NOT try it; the main chat pings new pages.
+
+## STANDING RULE (22 Nov 2026 16:05 PKT, Awais: "You don't need my approval, just do it"): IndexNow after every push
+- After every push that adds or changes pages, ping IndexNow for each new/changed page (up to 10 per run, clean URLs) with WebFetch:
+  https://api.indexnow.org/indexnow?url=https%3A%2F%2Fpurlandpaperco.com%2F<page>&key=587793d06442be2254b0454e95cf84ff
+- Awais approved these pings for all runs. An empty/binary response means accepted. If WebFetch is unavailable or the call is blocked, skip silently (don't retry) and list the pages under "IndexNow pending" in your CONTENT-LOG entry so the main chat can send them.
+- Key file /587793d06442be2254b0454e95cf84ff.txt must stay in the site root (never delete or rename it).
