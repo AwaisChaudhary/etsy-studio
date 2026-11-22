@@ -37,3 +37,9 @@ Listing notes
 - Shop sections: reading tracker + kids pack -> new "Planners & Trackers"; NYE games -> "Christmas Printables" (rename to "Holiday Printables" later if wanted).
 - Gumroad slugs planned: 2027-reading-tracker, new-years-eve-party-games, kids-routine-chore-charts.
 - After listing: set listed / etsy_url / gumroad_url in batch5/listings.json and fill `link` on the 6 batch-5 pins in pins/queue.json.
+
+## Listed 23 Nov 2026 02:20-02:33 PKT (main chat)
+- Etsy: reading tracker 4623371099 (Planner Templates, section Planners), NYE games 4623381612 (Party Games, Celebration New Year's, section Christmas Printables), kids pack 4623374247 (Chore Chart Templates, section Planners). Used existing "Planners" section instead of creating "Planners & Trackers".
+- A duplicate kids listing (4623384240) was created because the first publish took ~1 min to appear; deactivated (not deleted). Lesson: after Publish, wait 60 s and re-check the listing grid before retrying.
+- Pinterest: created board "Planners & Trackers"; pin-a of all 3 published now (AI-modified on).
+- Gumroad: not yet.
