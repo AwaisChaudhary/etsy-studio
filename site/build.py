@@ -24,7 +24,7 @@ NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calcu
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
 TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -78,6 +78,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "crochet-circle-calculator.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "cast-on-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
+            "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -234,7 +236,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -441,7 +443,7 @@ jp = top("Junk journal prompts", "Shuffle a whole spread: a theme, something to 
 <p>As often as you enjoy it. Some people make one spread a week, others one page a day through December. A prompt a day works well for a month-long project like December Daily, because each page stays small and you don't have to decide what to make.</p>
 <h2>What if I don't like writing?</h2>
 <p>Skip the writing prompt and answer it with a picture, a list of three words or a single date. A junk journal is a scrapbook as much as a diary, and plenty of pages have no writing at all.</p>
-<p>What next? Read the <a href="@@JJ@@">beginner's guide to junk journaling</a> (with a free supply checklist), age papers with the <a href="@@TS@@">tea staining guide and shade tester</a>, and keep your journal and yarn projects in one place with the <a href="@@PJ@@">project tracker</a>.</p></div></section>'''
+<p>What next? Read the <a href="@@JJ@@">beginner's guide to junk journaling</a> (with a free supply checklist), age papers with the <a href="@@TS@@">tea staining guide and shade tester</a>, find things to glue in with our <a href="@@EP@@">ephemera ideas checklist</a>, and keep your journal and yarn projects in one place with the <a href="@@PJ@@">project tracker</a>.</p></div></section>'''
 jp_faq = [
     ("What do you put in a junk journal?", "Anything flat and paper-like that you'd normally throw away: receipts, tickets, envelopes, tea bags, packaging, book pages, plus photos, washi tape, fabric and your own writing."),
     ("How do I get ideas for junk journal pages?", "Pick one theme and one thing to glue in, then build around them. The shuffle above does this for you, and you can lock what you like."),
@@ -454,7 +456,7 @@ jp_setopts = "".join(f'<option value="{x["id"]}">{e(x["name"])}</option>' for x 
 jp_lists = "".join(f'<div class="sheet jp-list"><h3>{e(x["name"])} prompts</h3><p class="k">Themes</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["theme"]) +
                    '</ul><p class="k">Glue in</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["ephemera"]) + '</ul><p class="k">Write about</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["write"]) + "</ul></div>" for x in _sets)
 jp = jp.replace("@@SETOPTS@@", jp_setopts).replace("@@SETLISTS@@", jp_lists).replace("@@AD@@", AD.format("jp-mid"))
-jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html")).replace("@@PJ@@", href("projects.html"))
+jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html")).replace("@@PJ@@", href("projects.html")).replace("@@EP@@", href("junk-journal-ephemera-ideas.html"))
 page("journal-prompts.html", "Junk Journal Prompts: Generator + Winter, Christmas and Seasonal Ideas | Purl & Paper",
      "Free junk journal prompt generator with winter, Christmas, new year, spring, summer, autumn, memory and self-care prompts. Shuffle a theme, ephemera, technique, palette and question.",
      jp, jp_faq, "Journal prompts", app_name="Junk journal prompt generator")
@@ -505,7 +507,7 @@ hn = top("Hook and needle size chart", "Metric, US and old UK sizes side by side
 <ul><li><strong>Too many stitches per 4 in:</strong> your fabric is tight, so go up a needle or hook size.</li>
 <li><strong>Too few stitches:</strong> your fabric is loose, so go down a size.</li>
 <li>One size step usually changes gauge by about half a stitch per inch, so swatch again after you switch.</li></ul>
-<p>What next? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big your piece will turn out if you keep your gauge, and the <a href="{href("yarn-calculator.html")}">yarn calculator</a> tells you how much yarn to buy. Following a UK crochet pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> too. Starting a scarf or blanket? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> turns your gauge into a cast-on number.</p></div></section>'''
+<p>What next? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big your piece will turn out if you keep your gauge, and the <a href="{href("yarn-calculator.html")}">yarn calculator</a> tells you how much yarn to buy. Following a UK crochet pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> too, or decode a knitting pattern with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>. Starting a scarf or blanket? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> turns your gauge into a cast-on number.</p></div></section>'''
 hn_faq = [
     ("What size is an H crochet hook?", "An H-8 hook is 5 mm."),
     ("What is a US size 8 knitting needle in mm?", "A US 8 needle is 5 mm, the same as an old UK size 6."),
@@ -523,28 +525,42 @@ page("hook-needle-sizes.html", "Crochet Hook and Knitting Needle Size Chart (mm,
 trows = "".join(f'<tr><td><strong>{e(t[0])}</strong>{f" ({e(t[1])})" if t[1] else ""}</td><td><strong>{e(t[2])}</strong>{f" ({e(t[3])})" if t[3] else ""}</td><td class="muted">{e(t[4])}</td></tr>' for t in D["terms"])
 ct = top("US vs UK crochet terms", "The same stitch has a different name on each side of the Atlantic. Here's the full conversion, and how to tell which terms your pattern uses.", "US vs UK crochet terms") + f'''
 <section style="padding-top:10px"><div class="narrow">
-<div class="callout" style="margin-top:0"><strong>The short version:</strong> UK names are one step "taller" than US names. A UK double crochet is a US single crochet, a UK treble is a US double, and so on.</div>
+<div class="quick" style="margin-top:0"><strong>Quick answer:</strong> UK crochet names are one step "taller" than US names. A UK double crochet (dc) is a US single crochet (sc), a UK half treble (htr) is a US half double (hdc), a UK treble (tr) is a US double (dc), and a UK double treble (dtr) is a US treble (tr). Chain and slip stitch are the same in both. If a pattern has "single crochet" in it, it's written in US terms.</div>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">US term</th><th scope="col">UK term</th><th scope="col">Note</th></tr></thead><tbody>{trows}</tbody></table></div>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>How to tell if a pattern uses US or UK terms</h2>
+<section style="padding-top:0"><div class="narrow prose"><h2>How can I tell if a crochet pattern uses US or UK terms?</h2>
 <ul><li><strong>Look for "single crochet" or "sc".</strong> UK patterns don't have a single crochet, so if you see one, it's US.</li>
 <li><strong>Check the spelling and words.</strong> "Colour", "tension" and "miss" point to a UK pattern; "color", "gauge" and "skip" point to US.</li>
 <li><strong>Check the hook sizes.</strong> Letter sizes like H-8 suggest US; millimetres only don't tell you much.</li>
 <li><strong>Read the notes at the top.</strong> Most designers say which terms they use.</li></ul>
-<h2>Why are they different?</h2>
+<h2>Why are US and UK crochet terms different?</h2>
 <p>The two systems count differently. US names count the loops left on the hook after the first "yarn over and pull through"; UK names count the yarn wraps made at the start of the stitch. Same stitch, different counting.</p>
 <h2>Crochet abbreviations: US and UK</h2>
 <p>These short forms look the same in both kinds of pattern. Only the stitch names in the table above change.</p>
 </div><div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Abbreviation</th><th scope="col">Means</th><th scope="col">Note</th></tr></thead><tbody><tr><td><strong>ch</strong></td><td>chain</td><td class="muted">same in both</td></tr><tr><td><strong>sl st</strong></td><td>slip stitch</td><td class="muted">same in both (UK patterns sometimes say ss)</td></tr><tr><td><strong>st(s)</strong></td><td>stitch(es)</td><td class="muted"></td></tr><tr><td><strong>sp</strong></td><td>space</td><td class="muted">e.g. ch-2 sp, the gap under a chain of 2</td></tr><tr><td><strong>rnd</strong></td><td>round</td><td class="muted">worked in a circle or square</td></tr><tr><td><strong>RS / WS</strong></td><td>right side / wrong side</td><td class="muted"></td></tr><tr><td><strong>rep</strong></td><td>repeat</td><td class="muted"></td></tr><tr><td><strong>yo / yoh</strong></td><td>yarn over / yarn over hook</td><td class="muted">US says yo, UK often yoh or yrh</td></tr><tr><td><strong>sk / miss</strong></td><td>skip</td><td class="muted">US skip, UK miss</td></tr><tr><td><strong>inc</strong></td><td>increase</td><td class="muted">2 or more stitches in one stitch</td></tr><tr><td><strong>dec / tog</strong></td><td>decrease / together</td><td class="muted">e.g. sc2tog (US) is dc2tog (UK)</td></tr><tr><td><strong>BLO / FLO</strong></td><td>back loop only / front loop only</td><td class="muted"></td></tr><tr><td><strong>beg</strong></td><td>beginning</td><td class="muted"></td></tr><tr><td><strong>cont</strong></td><td>continue</td><td class="muted"></td></tr><tr><td><strong>FO</strong></td><td>fasten off</td><td class="muted">same in both</td></tr><tr><td><strong>*  *</strong></td><td>repeat the part between the asterisks</td><td class="muted"></td></tr></tbody></table></div></div>
-<div class="narrow prose"><h2>One granny square round, written both ways</h2>
+<div class="narrow prose"><h2>Crochet decreases in US and UK terms</h2>
+<p>Decreases follow the same one-step shift, because they're named after the stitch they're made from. "2tog" means work two stitches together into one.</p></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">US decrease</th><th scope="col">UK decrease</th><th scope="col">What you do</th></tr></thead><tbody>
+<tr><td><strong>sc2tog</strong></td><td><strong>dc2tog</strong></td><td class="muted">Start a stitch in each of the next 2 stitches, then finish them together. Loses 1 stitch.</td></tr>
+<tr><td><strong>hdc2tog</strong></td><td><strong>htr2tog</strong></td><td class="muted">The same with half double (half treble) stitches.</td></tr>
+<tr><td><strong>dc2tog</strong></td><td><strong>tr2tog</strong></td><td class="muted">The same with double (treble) stitches.</td></tr>
+<tr><td><strong>sc3tog</strong></td><td><strong>dc3tog</strong></td><td class="muted">Three stitches into one. Loses 2 stitches.</td></tr>
+<tr><td><strong>invisible decrease</strong></td><td><strong>invisible decrease</strong></td><td class="muted">For amigurumi: work through the front loops of 2 stitches only. Same name in both.</td></tr></tbody></table></div></div>
+<div class="narrow prose"><h2>Is it a mistake if my pattern is in UK terms?</h2>
+<p>No. Both systems describe exactly the same stitches, and neither is "right". The trouble only starts when you read a UK pattern with US names in your head: every stitch comes out one step too tall and the piece grows much bigger and looser than it should. Pick one system per pattern, and if it helps, write the conversions in pencil at the top.</p>
+<h2>One granny square round, written both ways</h2>
 <p>Here's the second round of a classic granny square. Same stitches, same square, two sets of names.</p>
 <p><strong>US terms:</strong> sl st into the ch-2 sp, ch 3 (counts as dc), 2 dc in same sp, ch 1, *(3 dc, ch 2, 3 dc) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 dc in the first sp, ch 2, sl st to top of ch 3.</p>
 <p><strong>UK terms:</strong> ss into the ch-2 sp, ch 3 (counts as tr), 2 tr in same sp, ch 1, *(3 tr, ch 2, 3 tr) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 tr in the first sp, ch 2, ss to top of ch 3.</p>
-<p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn. Crocheting in the round? The <a href="@@CI@@">crochet circle calculator</a> gives the stitch count for every round in sc, hdc or dc, and an amigurumi ball pattern.</p></div></section>'''.replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
+<p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn. Crocheting in the round? The <a href="@@CI@@">crochet circle calculator</a> gives the stitch count for every round in sc, hdc or dc, and an amigurumi ball pattern.</p>
+<p>What next? Knit as well? Our <a href="@@KA@@">knitting abbreviations list</a> explains k2tog, ssk, M1 and the rest, and translates a whole pattern line. Working out hook sizes from a UK pattern? See the <a href="@@HN@@">hook and needle size chart</a>, and keep count of rows with the <a href="@@RC@@">row counter</a>.</p></div></section>'''.replace("@@KA@@", href("knitting-abbreviations.html")).replace("@@HN@@", href("hook-needle-sizes.html")).replace("@@RC@@", href("row-counter.html")).replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
 ct_faq = [
     ("Is UK double crochet the same as US single crochet?", "Yes. A UK double crochet (dc) is worked exactly like a US single crochet (sc)."),
     ("What is a treble crochet in US terms?", "A UK treble (tr) is a US double crochet (dc). A US treble (tr) is a UK double treble (dtr)."),
     ("What does ch-2 sp mean in crochet?", "It means the space under a chain of 2 made on the round before. You work the new stitches into that gap, not into the chains themselves. It's written the same way in US and UK patterns."),
+    ("What is hdc in UK crochet terms?", "A US half double crochet (hdc) is a UK half treble crochet (htr). The stitch is worked the same way."),
+    ("What is sc2tog in UK terms?", "A US sc2tog (single crochet 2 together) is a UK dc2tog (double crochet 2 together). It's the same decrease."),
+    ("Are Japanese and European crochet patterns US or UK?", "Many use symbol charts instead of words, which read the same everywhere. Written patterns translated into English can use either set of terms, so check the notes or look for 'single crochet'."),
     ("Is a granny square made with double or treble crochet?", "Both, depending on the pattern's terms. A classic granny square uses clusters of US double crochet, which a UK pattern calls treble crochet. The stitch is the same."),
 ]
 page("crochet-terms.html", "US vs UK Crochet Terms and Abbreviations: Conversion Chart | Purl & Paper",
@@ -573,7 +589,7 @@ jj = top("Junk journaling for beginners", "A junk journal is a handmade book fil
 <tr><td>Pockets and tags</td><td>Cut-down envelopes, the corners of envelopes, luggage-style tags cut from card, paper bags folded in half</td></tr>
 <tr><td>Decoration</td><td>Ribbon and string from parcels, buttons, lace, pressed leaves and flowers, magazine cut-outs</td></tr>
 <tr><td>Binding</td><td>A darning needle, embroidery thread, dental floss or thin twine, a drawing pin to poke holes</td></tr></tbody></table></div>
-<p>The only things most people end up buying are a glue stick and, later, a few nice papers. If plain paper looks too new, give it an aged look with a cup of tea: our guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> has the recipe and a shade tester.</p>
+<p>For a long list of free things to save, see our <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> checklist. The only things most people end up buying are a glue stick and, later, a few nice papers. If plain paper looks too new, give it an aged look with a cup of tea: our guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> has the recipe and a shade tester.</p>
 <h2>Junk journal supply checklist</h2>
 <ul><li><strong>Must have:</strong> paper for pages, card for a cover, glue stick, scissors, needle and thread, something to poke holes.</li>
 <li><strong>Nice to have:</strong> a bone folder or the back of a spoon for crisp folds, a craft knife and ruler, PVA or matte gel medium, washi tape, a waterproof pen.</li>
@@ -1150,7 +1166,7 @@ ts = top("How to tea stain paper for junk journals", "Turn plain paper into warm
 <li><strong>Writing:</strong> write or stamp on the page before staining, with a waterproof pen, so the ink ages with the paper.</li></ul>
 <h2>Will tea stained paper fade?</h2>
 <p>It can. Tea isn't a lightfast dye, so a page left in a sunny window will fade over time. Inside a closed journal it keeps its colour well. Seal a page with matte gel medium if you want extra protection.</p>
-<p>What next? Use your stained paper in your first journal with our <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a> guide, then shuffle a theme for the page with the <a href="{href("journal-prompts.html")}">junk journal prompt generator</a>. Prefer ready-made aged papers? Our Tea Room kit below is printable tea-stained pages.</p></div></section>'''
+<p>What next? Use your stained paper in your first journal with our <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a> guide, then shuffle a theme for the page with the <a href="{href("journal-prompts.html")}">junk journal prompt generator</a>, and pick things to glue on top from our <a href="{href("junk-journal-ephemera-ideas.html")}">ephemera ideas checklist</a>. Prefer ready-made aged papers? Our Tea Room kit below is printable tea-stained pages.</p></div></section>'''
 ts_faq = [
     ("How do you tea stain paper?", "Steep about 3 black tea bags in half a cup of hot water for 5 minutes, let it cool a little, then brush, dip or dab it onto the paper. Let some tea puddle for a natural look and dry the sheet flat."),
     ("How long do you soak paper in tea?", "A few minutes is enough for most papers. Longer gives a darker colour, but thin paper can fall apart, so brush thin paper instead of soaking it."),
@@ -1325,6 +1341,293 @@ page("crochet-circle-calculator.html", "Crochet Circle Calculator: Increase Char
      "Free crochet circle calculator: stitches per round for sc, hdc and dc, how many rounds for your size, a flat circle increase chart and an amigurumi ball pattern written out round by round.",
      ci, ci_faq, "Crochet circle calculator", app_name="Crochet circle calculator")
 
+# ---------------- KNITTING ABBREVIATIONS ----------------
+# (shown, decoder keys, short meaning used in the translation, longer how-to, group, UK note)
+KA = [
+ ("k", ["k"], "knit", "Knit the stitch. A number after it means knit that many: k3 = knit 3.", "Basic stitches", ""),
+ ("p", ["p"], "purl", "Purl the stitch. p2 = purl 2.", "Basic stitches", ""),
+ ("st(s)", ["st", "sts"], "stitch(es)", "One loop on the needle is one stitch.", "Basic stitches", ""),
+ ("St st", ["st st"], "stockinette stitch", "Knit the right-side rows and purl the wrong-side rows. In the round, knit every round.", "Basic stitches", "UK: stocking stitch"),
+ ("rev St st", ["rev st st"], "reverse stockinette stitch", "Stockinette with the bumpy purl side used as the right side.", "Basic stitches", "UK: reverse stocking stitch"),
+ ("g st", ["g st"], "garter stitch", "Knit every row when working flat. In the round, knit one round and purl the next.", "Basic stitches", ""),
+ ("rib", ["rib"], "rib", "Columns of knits and purls, such as k1, p1 or k2, p2. Knit the knits and purl the purls as they face you.", "Basic stitches", ""),
+ ("seed st", ["seed st"], "seed stitch", "k1, p1 that shifts every row, so you knit the purls and purl the knits.", "Basic stitches", "UK: moss stitch"),
+ ("tbl", ["tbl"], "through the back loop", "Work into the back leg of the stitch, which twists it. k1 tbl = knit 1 through the back loop.", "Basic stitches", ""),
+ ("tfl", ["tfl"], "through the front loop", "Work into the front leg of the stitch, the usual way.", "Basic stitches", ""),
+ ("k1b", ["k1b", "kb"], "knit into the stitch below", "Knit into the stitch in the row below the next one on the needle.", "Basic stitches", ""),
+ ("kwise / pwise", ["kwise", "pwise"], "knitwise / purlwise", "Put the needle in as if to knit (or purl). Usually used with slipping.", "Basic stitches", ""),
+ ("CO", ["co"], "cast on", "Put the first stitches on the needle.", "Basic stitches", ""),
+ ("BO", ["bo"], "bind off", "Take the stitches off so they don't unravel.", "Basic stitches", "UK: cast off"),
+ ("pu", ["pu", "puk"], "pick up (and knit)", "Pull new stitches up through the edge of the piece, for a collar, border or gusset.", "Basic stitches", ""),
+ ("w&t", ["w&t"], "wrap and turn", "For short rows: slip the next stitch, move the yarn to the other side, slip the stitch back and turn the work.", "Basic stitches", ""),
+ ("MB", ["mb"], "make bobble", "Work several stitches into one stitch, then join them into a bump. The pattern says exactly how.", "Basic stitches", ""),
+ ("inc", ["inc", "incs"], "increase", "Make one or more extra stitches. The pattern or its notes say which method.", "Increases", ""),
+ ("kfb", ["kfb", "kf&b"], "knit into the front and back", "Knit the stitch but leave it on the needle, then knit into its back loop too. Turns 1 stitch into 2.", "Increases", ""),
+ ("pfb", ["pfb"], "purl into the front and back", "The purl version of kfb. Turns 1 stitch into 2.", "Increases", ""),
+ ("M1 / M1L", ["m1", "m1l", "m1k"], "make one (left-leaning)", "Lift the bar between two stitches from front to back with the left needle and knit it through the back loop.", "Increases", ""),
+ ("M1R", ["m1r"], "make one right", "Lift the bar between two stitches from back to front and knit it through the front loop. Leans right.", "Increases", ""),
+ ("M1p", ["m1p", "m1lp", "m1rp", "m1pl", "m1pr"], "make one purlwise", "Lift the bar between two stitches and purl it. L and R versions lean left or right.", "Increases", ""),
+ ("kll / krl", ["kll", "krl", "lli", "rli"], "lifted increase (left / right)", "Knit into the stitch below the one on the needle (or two below for the left one) to add a stitch.", "Increases", ""),
+ ("yo", ["yo"], "yarn over", "Wrap the yarn over the right needle to make a new stitch with a small hole under it. Used for lace and eyelets.", "Increases", "UK: yf, yfwd, yon or yrn"),
+ ("yo2", ["yo2"], "yarn over twice", "Wrap the yarn round the needle twice. The pattern says how to work the extra loop next row.", "Increases", ""),
+ ("dec", ["dec", "decs"], "decrease", "Lose one or more stitches. The pattern or its notes say which method.", "Decreases", ""),
+ ("k2tog", ["k2tog"], "knit 2 together", "Knit two stitches as if they were one. Leans right. Loses 1 stitch.", "Decreases", ""),
+ ("p2tog", ["p2tog"], "purl 2 together", "Purl two stitches as one. Loses 1 stitch.", "Decreases", ""),
+ ("k3tog", ["k3tog"], "knit 3 together", "Knit three stitches as one. Leans right. Loses 2 stitches.", "Decreases", ""),
+ ("ssk", ["ssk"], "slip, slip, knit", "Slip two stitches knitwise one at a time, put the left needle into their fronts and knit them together through the back loops. Leans left. Loses 1 stitch.", "Decreases", ""),
+ ("ssp", ["ssp"], "slip, slip, purl", "Slip two stitches knitwise one at a time, put them back and purl them together through the back loops. Loses 1 stitch.", "Decreases", ""),
+ ("sssk", ["sssk"], "slip, slip, slip, knit", "Like ssk but with three stitches. Leans left. Loses 2 stitches.", "Decreases", ""),
+ ("skp", ["skp", "skpo"], "slip 1, knit 1, pass the slipped stitch over", "Slip 1 knitwise, knit 1, then lift the slipped stitch over the knitted one. Leans left. Loses 1 stitch.", "Decreases", "UK patterns often write skpo"),
+ ("sk2p", ["sk2p", "sk2po"], "slip 1, knit 2 together, pass the slipped stitch over", "A left-leaning double decrease. Loses 2 stitches.", "Decreases", ""),
+ ("s2kp / cdd", ["s2kp", "s2kp2", "cdd"], "centred double decrease", "Slip 2 together knitwise, knit 1, pass both slipped stitches over. The middle stitch stays on top. Loses 2 stitches.", "Decreases", ""),
+ ("psso", ["psso"], "pass the slipped stitch over", "Lift a stitch you slipped earlier over the one you just worked and off the needle.", "Decreases", ""),
+ ("p2sso", ["p2sso"], "pass 2 slipped stitches over", "Lift the two slipped stitches over the one you just worked.", "Decreases", ""),
+ ("pnso", ["pnso"], "pass the next stitch over", "Lift the next stitch over and off the needle.", "Decreases", ""),
+ ("tog", ["tog"], "together", "Work the stitches as one, as in k2tog.", "Decreases", ""),
+ ("sl", ["sl"], "slip", "Move a stitch to the right needle without working it. Most patterns mean purlwise unless they say otherwise or it's part of a decrease.", "Slipping and yarn", ""),
+ ("sl1k / sl1p", ["sl1k", "sl1p", "sl1", "sl2", "sl1-k1-psso"], "slip 1 knitwise / purlwise", "Slip one stitch, putting the needle in as if to knit (k) or purl (p).", "Slipping and yarn", ""),
+ ("sl st", ["sl st"], "slip stitch", "A stitch moved without being worked.", "Slipping and yarn", "Canada: ss"),
+ ("wyib / wyif", ["wyib", "wyif"], "with yarn in back / in front", "Keep the yarn behind (or in front of) the work while you slip.", "Slipping and yarn", ""),
+ ("yb / yf", ["yb", "yf", "yfwd", "ybk"], "yarn to the back / yarn forward", "Move the yarn between the needles to the back or the front. In UK lace, yfwd between two knit stitches makes a yarn over.", "Slipping and yarn", ""),
+ ("yon / yrn", ["yon", "yrn", "yfon", "yfrn"], "yarn over (UK style)", "UK names for a yarn over, depending on whether the stitches either side are knits or purls.", "Slipping and yarn", "US: yo"),
+ ("cn", ["cn"], "cable needle", "A short needle that holds stitches out of the way while you cross a cable.", "Cables and twists", ""),
+ ("C4F / C4B", ["c4f", "c4b"], "cable 4 front / back", "Slip 2 stitches to a cable needle and hold it in front (or back), knit 2, then knit the 2 from the cable needle. Front leans left, back leans right. C6F, C8B and so on work the same way with more stitches.", "Cables and twists", ""),
+ ("LC / RC", ["lc", "rc"], "left cross / right cross", "A cable crossing to the left (cable needle held in front) or to the right (held in back). Numbers like 2/2 LC give how many stitches cross.", "Cables and twists", ""),
+ ("LT / RT", ["lt", "rt"], "left twist / right twist", "A tiny two-stitch cross, often worked without a cable needle.", "Cables and twists", "Some UK patterns: FT / BT"),
+ ("FC / BC", ["fc", "bc"], "front cross / back cross", "Older names for a cable held in front or behind.", "Cables and twists", ""),
+ ("pm", ["pm"], "place marker", "Put a stitch marker on the needle here.", "Markers and colours", ""),
+ ("sm", ["sm"], "slip marker", "Move the marker from the left needle to the right.", "Markers and colours", ""),
+ ("rm", ["rm"], "remove marker", "Take the marker off.", "Markers and colours", ""),
+ ("m", ["m"], "marker (or metres)", "A stitch marker. In measurements, m means metres.", "Markers and colours", ""),
+ ("BOR", ["bor"], "beginning of round", "Where each round starts, usually shown with a different marker.", "Markers and colours", ""),
+ ("MC / CC", ["mc", "cc"], "main colour / contrast colour", "The main yarn, and the second colour used for stripes or colourwork.", "Markers and colours", ""),
+ ("CA / CB", ["ca", "cb"], "colour A / colour B", "Names for the yarns in a pattern with several colours.", "Markers and colours", ""),
+ ("RS / WS", ["rs", "ws"], "right side / wrong side", "The side that shows when it's finished, and the side that faces inwards.", "Pattern words", ""),
+ ("rnd(s)", ["rnd", "rnds"], "round(s)", "One trip round the work when knitting in the round.", "Pattern words", ""),
+ ("rep", ["rep", "reps"], "repeat", "Work the instructions again.", "Pattern words", ""),
+ ("rem", ["rem"], "remaining", "The stitches left, often given after a decrease row: 64 sts rem.", "Pattern words", ""),
+ ("beg", ["beg"], "beginning", "The start of a row, round or pattern.", "Pattern words", ""),
+ ("cont", ["cont"], "continue", "Keep working as you have been.", "Pattern words", ""),
+ ("alt", ["alt"], "alternate", "Every other one: on alt rows means every second row.", "Pattern words", ""),
+ ("foll", ["foll"], "following", "The next one, as in the foll 4 rows.", "Pattern words", ""),
+ ("patt / pat", ["patt", "pat"], "pattern", "The stitch pattern, or the pattern as written.", "Pattern words", ""),
+ ("prev", ["prev"], "previous", "The one before.", "Pattern words", ""),
+ ("bet", ["bet"], "between", "", "Pattern words", ""),
+ ("approx", ["approx"], "approximately", "", "Pattern words", ""),
+ ("incl", ["incl"], "including", "", "Pattern words", ""),
+ ("LH / RH", ["lh", "rh"], "left-hand / right-hand", "Usually the left or right needle.", "Pattern words", ""),
+ ("lp(s)", ["lp", "lps"], "loop(s)", "", "Pattern words", ""),
+ ("dpn(s)", ["dpn", "dpns"], "double-pointed needle(s)", "Short needles with a point at each end, used for small rounds like socks and hat crowns.", "Pattern words", ""),
+ ("EOR", ["eor"], "every other row (or end of row)", "Check the pattern's notes: some use it for every other row, some for end of row.", "Pattern words", ""),
+ ("work even", ["work even"], "work without shaping", "Carry on in pattern with no increases or decreases.", "Pattern words", "UK: work straight"),
+ ("*", ["*"], "repeat from *", "Repeat the instructions after the asterisk as many times as the pattern says, or to the end.", "Symbols and sizes", ""),
+ ("[ ] or ( )", ["[ ]"], "repeat the part in brackets", "Work everything inside the brackets the number of times written after them: [k2, p2] 3 times.", "Symbols and sizes", ""),
+ ("\" / in", ["in"], "inches", "1 in = 2.54 cm.", "Symbols and sizes", ""),
+ ("cm / mm", ["cm", "mm"], "centimetres / millimetres", "Needle sizes are given in mm everywhere.", "Symbols and sizes", ""),
+ ("g / oz", ["g", "oz"], "grams / ounces", "Yarn weight on the ball band. 1 oz is about 28 g.", "Symbols and sizes", ""),
+ ("yd / m", ["yd", "yds"], "yards / metres", "Yarn length. 1 yd = 0.914 m.", "Symbols and sizes", ""),
+]
+KA_GROUPS = ["Basic stitches", "Increases", "Decreases", "Slipping and yarn", "Cables and twists", "Markers and colours", "Pattern words", "Symbols and sizes"]
+KA_UK = [("bind off", "cast off"), ("gauge", "tension"), ("stockinette stitch", "stocking stitch"), ("seed stitch", "moss stitch"), ("moss stitch (seed stitch stacked in pairs of rows)", "double moss stitch"),
+         ("yarn over (yo)", "yarn forward (yfwd / yf), yarn over needle (yon) or yarn round needle (yrn)"), ("skp", "skpo"), ("work even", "work straight"), ("color", "colour"), ("worsted yarn", "aran (close, not identical)")]
+ka_rows = "".join(f'<tr data-g="{e(g)}" data-s="{e((a + " " + s + " " + l + " " + uk).lower())}"><td><strong>{e(a)}</strong></td><td>{e(s)}{f"<br><span class=\"muted\">{e(l)}</span>" if l else ""}</td><td class="muted">{e(uk)}</td></tr>' for a, _, s, l, g, uk in KA)
+ka_js = json.dumps([[k, s, a, l] for a, keys, s, l, g, uk in KA for k in keys], ensure_ascii=False)
+KA_EX = [("Lace row", "K2, M1, *k2tog, yo; rep from * to last 2 sts, k2.", "Knit 2, make one, then knit 2 together and yarn over again and again until 2 stitches are left, then knit 2."),
+         ("Edge stitches", "Sl1 wyif, k1, p2, k2, ssk, pm, k to end.", "Slip 1 with the yarn in front, knit 1, purl 2, knit 2, slip-slip-knit, place a marker, knit to the end of the row."),
+         ("Cable round", "Rnd 1: *C4F, p2; rep from * to BOR.", "Round 1: cross 4 stitches to the left (2 on a cable needle held in front), purl 2, and repeat to the beginning-of-round marker."),
+         ("Decrease round", "Dec rnd: k1, k2tog, k to last 3 sts, ssk, k1. 2 sts dec'd.", "Knit 1, knit 2 together (leans right), knit to the last 3 stitches, slip-slip-knit (leans left), knit 1. You lose 2 stitches.")]
+ka = top("Knitting abbreviations", "Every common knitting abbreviation in plain English, with how to work it, the UK names, and a pattern decoder that translates a whole line for you.", "Knitting abbreviations") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> the ones you'll see most are <strong>k</strong> (knit), <strong>p</strong> (purl), <strong>st</strong> (stitch), <strong>k2tog</strong> (knit 2 together, a right-leaning decrease), <strong>ssk</strong> (slip, slip, knit, a left-leaning decrease), <strong>M1</strong> (make one, an increase), <strong>yo</strong> (yarn over, which makes a stitch and a hole), <strong>sl</strong> (slip), <strong>pm</strong> (place marker), <strong>rep</strong> (repeat) and <strong>RS / WS</strong> (right side / wrong side). A number after k or p tells you how many: k3 means knit 3.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Pattern decoder</h2>
+<div class="field"><label for="ka-in">Paste a line from your pattern</label><textarea id="ka-in" spellcheck="false">K2, M1, *k2tog, yo; rep from * to last 2 sts, k2.</textarea></div>
+<div class="field"><label>Try an example</label><div class="ka-ex">{"".join(f'<button type="button" class="lock" data-ex="{e(x)}">{e(n)}</button>' for n, x, _ in KA_EX)}</div></div>
+<p class="note" style="margin:0">It works on your device and knows the {len(KA)} abbreviations below, plus numbers like k12, p3 and cables like C6B. Anything it doesn't know is left as it is.</p>
+</div>
+<div class="result" id="ka-out" aria-live="polite"><h3>In plain English</h3><p class="ka-line" id="ka-plain"></p><hr><h3>Abbreviations in this line</h3><ul class="ka-found" id="ka-found"></ul></div>
+</div></section>
+{AD.format("ka-mid")}
+<section style="padding-top:0" id="list"><div class="narrow prose"><h2>Knitting abbreviations list</h2>
+<p>Search or pick a group. Each one has what it stands for and, where it helps, how to work it. Your pattern's own notes always win, because a few designers use their own short forms.</p></div>
+<div class="narrow"><div class="finder"><div class="field"><label for="ka-q">Search abbreviations</label><input type="search" id="ka-q" placeholder="e.g. ssk, yo, cable, decrease"></div></div>
+<div class="filters" id="ka-g" role="group" aria-label="Group"><button type="button" class="lock" data-g="" aria-pressed="true">All</button>{"".join(f'<button type="button" class="lock" data-g="{e(g)}" aria-pressed="false">{e(g)}</button>' for g in KA_GROUPS)}</div>
+<div class="tbl-wrap"><table class="ka-tbl"><thead><tr><th scope="col">Abbreviation</th><th scope="col">Means</th><th scope="col">UK or other name</th></tr></thead><tbody id="ka-body">{ka_rows}</tbody></table></div>
+<p class="note" id="ka-none" hidden>Nothing matches. Try fewer letters, or check the pattern's own abbreviation list.</p></div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>What's the difference between k2tog and ssk?</h2>
+<p>Both turn two stitches into one. <strong>k2tog</strong> leans to the right and <strong>ssk</strong> leans to the left. Patterns pair them so shaping looks tidy on both edges, such as the sides of a hat crown, a raglan line or a sock toe: ssk at the start of the shaping and k2tog at the end, or the other way round, as the pattern says. If you swap them nothing goes wrong with the count, the line just leans the other way.</p>
+<h2>What does * mean in a knitting pattern?</h2>
+<p>An asterisk marks the start of a repeat. "*k2, p2; rep from * to end" means knit 2, purl 2, and keep doing that until the row ends. Two asterisks (**) mark a second, longer repeat, and square brackets or round brackets mean "work this group the number of times written after it": [k1, p1] 4 times.</p>
+<h2>UK and US knitting terms</h2>
+<p>Most knitting abbreviations are the same in both, unlike crochet, where the stitch names really change (see our <a href="@@CT@@">US vs UK crochet terms</a>). A few words do differ:</p></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">US pattern</th><th scope="col">UK pattern</th></tr></thead><tbody>{"".join(f"<tr><td>{e(a)}</td><td>{e(b)}</td></tr>" for a, b in KA_UK)}</tbody></table></div></div>
+<div class="narrow prose"><p>Needle sizes can also be written differently: US numbers, metric mm and old UK numbers. The <a href="@@HN@@">hook and needle size chart</a> converts them, and the <a href="@@YW@@">yarn weight chart</a> gives the UK names for each yarn.</p>
+<h2>Four pattern lines, translated</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">The pattern says</th><th scope="col">In plain English</th></tr></thead><tbody>{"".join(f"<tr><td><code>{e(x)}</code></td><td>{e(y)}</td></tr>" for _, x, y in KA_EX)}</tbody></table></div>
+<h2>How do I read a knitting pattern for the first time?</h2>
+<ol><li><strong>Read the notes at the top first.</strong> They list the abbreviations, special stitches and whether the piece is worked flat or in the round.</li>
+<li><strong>Check the gauge</strong> and knit a swatch. Our <a href="@@GC@@">gauge converter</a> shows what happens if yours is different.</li>
+<li><strong>Read one row at a time</strong> and say it out loud in plain words, or paste it into the decoder above.</li>
+<li><strong>Check the stitch count</strong> at the end of each shaping row. Most patterns give it in brackets or after a dash.</li>
+<li><strong>Keep your place.</strong> The <a href="@@RC@@">row counter</a> keeps count and repeat numbers for you.</li></ol>
+<p>Shaping a row yourself? The <a href="@@ID@@">increase and decrease evenly calculator</a> writes the row out in these same abbreviations, and the <a href="@@CO@@">cast on calculator</a> tells you how many stitches to start with.</p>
+<p class="note">Abbreviations follow the Craft Yarn Council's knitting abbreviations list and LoveCrafts' guide; UK names from Little Red Window's UK vs US terms guide. Explanations are in our own words.</p></div></section>'''
+for k_, f_ in (("@@CT@@", "crochet-terms.html"), ("@@HN@@", "hook-needle-sizes.html"), ("@@YW@@", "yarn-weights.html"), ("@@GC@@", "gauge-converter.html"), ("@@RC@@", "row-counter.html"), ("@@ID@@", "increase-decrease-calculator.html"), ("@@CO@@", "cast-on-calculator.html")):
+    ka = ka.replace(k_, href(f_))
+ka_faq = [
+    ("What does k2tog mean in knitting?", "Knit 2 together: put the needle into the next two stitches as if to knit and knit them as one. It's a decrease that leans to the right and loses one stitch."),
+    ("What does ssk mean in knitting?", "Slip, slip, knit: slip two stitches knitwise one at a time, then knit them together through the back loops. It's a decrease that leans to the left."),
+    ("What does M1 mean in knitting?", "Make one: an increase made by lifting the bar of yarn between two stitches onto the left needle and knitting it through the back loop, so it doesn't leave a hole. M1L leans left and M1R leans right."),
+    ("What does yo mean in knitting?", "Yarn over: wrap the yarn over the right needle before the next stitch. It adds a stitch and leaves a small hole, which is how lace and eyelets are made. UK patterns may call it yfwd, yon or yrn."),
+    ("What does pm and sm mean in knitting?", "pm means place a stitch marker on your needle, and sm means slip the marker from the left needle to the right when you reach it."),
+    ("Are knitting abbreviations different in the UK?", "Mostly no. The big differences are words: cast off instead of bind off, tension instead of gauge, stocking stitch instead of stockinette, moss stitch instead of seed stitch, and yfwd, yon or yrn for a yarn over."),
+    ("What does RS and WS mean in knitting?", "RS is the right side, the side that shows on the finished piece. WS is the wrong side, which faces inwards."),
+]
+page("knitting-abbreviations.html", "Knitting Abbreviations: Full List, UK Terms and a Pattern Decoder | Purl & Paper",
+     "Every common knitting abbreviation in plain English (k2tog, ssk, M1, yo, psso, pm and more), how to work each one, UK vs US terms, and a free decoder that translates a pattern line for you.",
+     ka, ka_faq, "Knitting abbreviations", scripts=f"<script>window.KA={ka_js};</script>", app_name="Knitting pattern decoder")
+
+# ---------------- JUNK JOURNAL EPHEMERA IDEAS ----------------
+EP = [
+ ("Around the house", "house", [
+   ("Envelopes", "The patterned security linings make great backgrounds; the envelope itself becomes a pocket."),
+   ("Old book or dictionary pages", "Use as backgrounds or cut out single words for titles."),
+   ("Brown paper bags", "Fold in half for a page with a pocket at the open end."),
+   ("Sheet music", "Tear strips for borders or use a whole page behind a photo."),
+   ("Old maps", "Perfect behind travel memories; fold big ones as a fold-out page."),
+   ("Gift wrap scraps", "Cut into strips, frames or a cover wrap."),
+   ("Wallpaper scraps or samples", "Thick and patterned, good for covers and pockets."),
+   ("Greeting and Christmas cards", "Cut out the picture panel; keep the message inside a pocket."),
+   ("Postcards", "Glue in as a flip-up page so you can read the back."),
+   ("Photos and photo-booth strips", "Use copies of photos you want to keep safe."),
+   ("Old calendars", "The pictures make backgrounds and the date grids make tags."),
+   ("Notebook or graph paper", "Tear out pages for journaling spots."),
+   ("Cereal box card", "Covers, tags and stiff pockets."),
+   ("Tissue paper from parcels", "Glue thinly for a soft layered background."),
+ ]),
+ ("Kitchen and food", "kitchen", [
+   ("Tea bag tags and wrappers", "Small, printed and perfect for tucking under a photo corner."),
+   ("Used tea bags, dried and emptied", "Flatten the paper for a stained, see-through layer."),
+   ("Fruit and food stickers", "Little pops of colour and type. Peel and stick."),
+   ("Food labels and packaging", "Look for nice lettering on jars, tins and flour bags."),
+   ("Chocolate and sweet wrappers", "Smooth flat and glue down; foil adds shine."),
+   ("Paper napkins", "Separate the printed top layer and glue it on for a painted look."),
+   ("Paper doilies", "Layer behind photos or use half as a tuck spot."),
+   ("Cupcake liners", "Flatten into circles for frames and flowers."),
+   ("Sugar and coffee sachets", "Empty, flatten and tuck in a café page."),
+   ("Recipe cards", "Your own handwriting or a family recipe makes a page on its own."),
+   ("Receipts", "Save the story, but use a copy if it matters (see the receipt note below)."),
+ ]),
+ ("Post and print", "post", [
+   ("Stamps", "Soak or cut them off envelopes; use them as small focal points."),
+   ("Postmarks and airmail envelopes", "Cut out the corner with the stamp and postmark together."),
+   ("Junk mail with nice lettering", "Cut out big numbers and words for page titles."),
+   ("Catalogue and magazine pages", "Cut out pictures, colours and words."),
+   ("Newspaper headlines", "Date a page with the day's headline."),
+   ("Seed packets", "Open flat for a garden spread, or keep whole as a pocket."),
+   ("Business cards", "Turn them over: the blank back is a ready-made journaling card."),
+   ("Flyers and leaflets", "Use event leaflets on the page about that day."),
+ ]),
+ ("Out and about", "out", [
+   ("Tickets (train, bus, cinema, concert)", "The classic. Tuck under a belly band or glue with the date showing."),
+   ("Museum maps and leaflets", "Cut out the floor plan or the logo for a trip page."),
+   ("Takeaway menus", "The lettering and prices date a page nicely."),
+   ("Bookmarks from shops", "Slip into the spine as a page marker."),
+   ("Luggage tags and wristbands", "Tie on with string through a punched hole."),
+   ("Boarding passes", "Often thermal paper, so copy it before it fades."),
+   ("Coasters", "Thick card for a cover or a sturdy pocket."),
+   ("Pressed leaves and flowers", "Press for a week or two between book pages, then glue."),
+   ("Paint colour swatches", "Free palettes and tags, if the shop is happy for you to take a few."),
+ ]),
+ ("Sewing and craft box", "craft", [
+   ("Fabric scraps", "Glue or stitch on for texture."),
+   ("Ribbon, lace and string", "Ties, bookmarks and belly bands."),
+   ("Buttons", "Use as a closure with string wound round it."),
+   ("Clothing and swing tags", "Ready-made tags with a hole already punched."),
+   ("Yarn ball bands", "Keep the band from a favourite yarn on your project page."),
+   ("Sewing pattern tissue", "Thin and printed, lovely glued over a background."),
+   ("Washi tape ends", "The last bit of a roll is still enough to tape a corner."),
+   ("Fabric selvedges", "The printed edge strip makes a ready-made border."),
+ ]),
+ ("Vintage finds", "vintage", [
+   ("Old letters and postcards", "Ask family first, and use a copy of anything precious."),
+   ("Ledger or account book pages", "Columns and handwriting make beautiful backgrounds."),
+   ("Playing cards", "Odd cards from an old deck become tags and journaling cards."),
+   ("Old photographs", "Garage sales and antiques fairs sell boxes of them cheaply."),
+   ("Lottery and raffle tickets", "Small, numbered and colourful."),
+   ("Film strips and slides", "Tape over a window cut into a page."),
+ ]),
+ ("Make your own", "make", [
+   ("Tea-stained paper", "Plain paper plus a cup of tea gives aged pages."),
+   ("Tags cut from card", "Cut a rectangle, snip the top corners and punch a hole."),
+   ("Pockets from envelopes", "Cut an envelope in half and you have two pockets."),
+   ("Hand-lettered labels", "Write a word or date on a strip of paper and age the edges."),
+   ("Rubbings and stamps", "Rub a crayon over a leaf or coin, or print with a potato stamp."),
+   ("Printed ephemera", "Print tickets, labels and tags when you want a theme fast."),
+ ]),
+]
+EP_N = sum(len(x[2]) for x in EP)
+def _ep_id(t): return "".join(c if c.isalnum() else "-" for c in t.lower()).strip("-")[:40]
+ep_list = "".join(f'<fieldset class="ep-grp sheet" data-g="{gid}"><legend>{e(gn)} <span class="muted ep-gc" data-g="{gid}"></span></legend><ul>' +
+                  "".join(f'<li><label><input type="checkbox" data-id="{gid}-{_ep_id(n)}" data-n="{e(n)}"> <strong>{e(n)}</strong></label><span>{e(t)}</span></li>' for n, t in items) + "</ul></fieldset>"
+                  for gn, gid, items in EP)
+EP_USE = [("Tuck spot", "Glue a strip of paper, lace or a doily along three sides, or just the ends, and slide tickets and tags behind it."),
+          ("Pocket", "Half an envelope or a folded paper bag glued at the sides and bottom. Holds anything loose."),
+          ("Belly band", "A strip of paper or ribbon wrapped round the page. Tuck tickets and cards under it."),
+          ("Fold-out", "Glue one edge of a big map, menu or sheet of music and fold it to fit the page."),
+          ("Flip-up", "Glue only the top edge of a postcard or photo so you can lift it and read the back."),
+          ("Layer cluster", "Stack three or four pieces from biggest to smallest, slightly off-centre, with one focal piece on top.")]
+ep = top("Junk journal ephemera ideas", f"{EP_N} free ephemera ideas for your junk journal, where to find them, how to use them on a page, and a checklist that remembers what you've collected.", "Junk journal ephemera ideas") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> ephemera is everyday paper made to be used once and thrown away, like tickets, receipts, labels, tags, stamps, postcards and packaging. In a junk journal you glue it in, tuck it in pockets or tie it on to tell the story of a day. Most of it is free: start a box at home and drop in anything with nice colours, lettering or a memory attached.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div>
+<div class="toolbar"><strong id="ep-count" aria-live="polite">0 of {EP_N} collected</strong><span class="spacer"></span><button type="button" class="btn ghost" id="ep-print">Print my list</button><button type="button" class="linkbtn" id="ep-clear">Clear ticks</button></div>
+<div class="ep-list" id="ep-list">{ep_list}</div>
+</div>
+<div class="result" id="ep-out" aria-live="polite"><h3>Ephemera for your next page</h3><p class="sub" id="ep-hint">Tick what you've got (or leave it blank to pick from everything), then shuffle.</p>
+<div class="ep-pile" id="ep-pile"></div><p id="ep-how"></p>
+<div class="btns" style="margin-top:12px"><button type="button" class="btn gold" id="ep-go">Pick 3 for a page</button></div>
+<hr><p class="sub">Your ticks are saved on this device only. Nothing is uploaded.</p></div>
+</div></section>
+{AD.format("ep-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>What is ephemera in junk journaling?</h2>
+<p>Ephemera means paper things made for a short time or one occasion: a concert ticket, a sweet wrapper, a seed packet, a bus ticket, a gift tag. They're meant to be thrown away, which is exactly why they're special once they're kept. In a junk journal, ephemera is anything you add to the pages to decorate them or hold a memory, from a fruit sticker to a whole old letter.</p>
+<h2>Where can I find free ephemera?</h2>
+<ul><li><strong>Your own bin and recycling.</strong> Envelopes, packaging, labels, paper bags and junk mail.</li>
+<li><strong>Your wallet and pockets.</strong> Receipts, tickets, business cards and loyalty cards that have run out.</li>
+<li><strong>Boxes of old cards and photos.</strong> Ask before you cut anything that belongs to someone else.</li>
+<li><strong>Days out.</strong> Museum leaflets, maps, menus, wristbands and brochures are free to take.</li>
+<li><strong>Your craft box.</strong> Yarn ball bands, fabric scraps, ribbon, buttons and tags.</li>
+<li><strong>Garage sales and antiques fairs</strong> for vintage paper, which costs a little but is often cheap by the bag.</li></ul>
+<h2>How do I use ephemera on a junk journal page?</h2></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Technique</th><th scope="col">How</th></tr></thead><tbody>{"".join(f"<tr><td><strong>{e(a)}</strong></td><td>{e(b)}</td></tr>" for a, b in EP_USE)}</tbody></table></div></div>
+<div class="narrow prose"><p>Lay everything out before you glue, so you can move pieces around. Three to five pieces is plenty for one spread (our rule of thumb); more starts to look busy. Add a line of writing, a date or a doodle to pull it together. Stuck for a theme? The <a href="@@JP@@">journal prompt generator</a> picks a theme, a piece of ephemera and a technique for you.</p>
+<h2>Do receipts fade in a junk journal?</h2>
+<p>Most shop receipts, boarding passes and some tickets are printed on thermal paper, which isn't made to last. Archive guides from the National Archives of Australia and the University of Illinois say it can fade noticeably within about five years, faster with heat, light and humidity. If a receipt matters to you, photocopy or scan it and glue in the copy, or keep the original in a pocket away from light. Treat fading as part of the charm for everything else.</p>
+<h2>How should I store ephemera?</h2>
+<ul><li><strong>Sort by type or colour</strong> into envelopes or zip bags: tickets, tags, labels, papers, fabric.</li>
+<li><strong>Keep it flat</strong> in a shoe box, file folder or a spare journal, so it doesn't curl.</li>
+<li><strong>Keep it dry and out of the sun,</strong> especially photos and thermal paper.</li>
+<li><strong>Theme bags work well:</strong> fill one envelope per trip, season or month, then make a spread from it.</li></ul>
+<h2>Can I make my own ephemera?</h2>
+<p>Yes, and it's half the fun. Stain plain paper with tea (our <a href="@@TS@@">tea staining guide</a> has the recipe), cut tags from cereal box card, turn envelopes into pockets, and write labels by hand. If you'd like a themed set ready to cut out, our printable ephemera packs below do exactly that. New to all this? Start with <a href="@@JJ@@">junk journaling for beginners</a>.</p>
+<p class="note">Ideas and techniques gathered from LoveCrafts' ephemera guide, Upcycle My Stuff and My Modern Met's junk journal guides; thermal paper advice from the National Archives of Australia and the University of Illinois preservation guide. Descriptions are our own.</p></div></section>'''
+for k_, f_ in (("@@JP@@", "journal-prompts.html"), ("@@TS@@", "how-to-tea-stain-paper.html"), ("@@JJ@@", "junk-journal-beginners.html")):
+    ep = ep.replace(k_, href(f_))
+ep_faq = [
+    ("What is ephemera in a junk journal?", "Everyday paper made for one use or a short time, like tickets, receipts, labels, tags, stamps and packaging, that you glue or tuck into your journal to decorate it and keep a memory."),
+    ("Where can I get free ephemera for junk journaling?", "Start at home: envelopes, food labels, tea bag tags, junk mail, old cards and postcards. Add tickets, maps and leaflets from days out, and ball bands, ribbon and fabric from your craft box."),
+    ("Can you put receipts in a junk journal?", "Yes, but most receipts are thermal paper and can fade within a few years. Glue in a photocopy or scan if you want to keep it, and keep originals away from light and heat."),
+    ("How do you make your own ephemera?", "Tea stain plain paper, cut tags from cereal box card, turn envelopes into pockets, hand-letter labels, or print themed ephemera sheets and cut them out."),
+    ("How much ephemera do I need for a junk journal?", "Less than you think. Three to five pieces per spread is a good start. A shoe box of saved paper will fill a first journal with room to spare."),
+    ("How do I store junk journal ephemera?", "Flat and dry, sorted into envelopes or zip bags by type, colour or theme, in a box or file folder out of direct sun."),
+]
+page("junk-journal-ephemera-ideas.html", "Junk Journal Ephemera Ideas: 60+ Free Things to Use (Checklist) | Purl & Paper",
+     f"{EP_N} free junk journal ephemera ideas from around the house, the kitchen, the post and days out, where to find them, how to use them on a page, whether receipts fade, plus a checklist that saves your ticks.",
+     ep, ep_faq, "Junk journal ephemera ideas", app_name="Junk journal ephemera checklist")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -1346,8 +1649,8 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", 
-           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-22"}
+LASTMOD = {"knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", 
+           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")

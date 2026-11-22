@@ -1042,4 +1042,102 @@
     $("#ts-again").addEventListener("click", function () { tsSeed = 1 + Math.floor(Math.random() * 100000); tsDraw(); });
     tsDraw();
   }
+  /* ---------- KNITTING ABBREVIATIONS ---------- */
+  if (page === "knitting-abbreviations" && $("#ka-in") && window.KA) {
+    var KM = {}, KMULTI = [];
+    window.KA.forEach(function (r) { KM[r[0]] = r; if (r[0].indexOf(" ") > 0) KMULTI.push(r[0]); });
+    KMULTI.sort(function (a, b) { return b.length - a.length; });
+    var kaRe = new RegExp("\\b(" + KMULTI.map(function (m) { return m.replace(/ /g, "\\s+"); }).join("|") + ")\\b|\\*|[A-Za-z][A-Za-z0-9&]*(?:'d)?", "gi");
+    var UNIT = { "in": 1, "m": 1, "g": 1, "oz": 1, "cm": 1, "mm": 1, "yd": 1, "yds": 1 };
+    function kaDecode(txt) {
+      var found = [], seen = {};
+      var add = function (key, d, s, l) { if (seen[key]) return; seen[key] = 1; found.push([d, s, l]); };
+      var out = txt.replace(kaRe, function (m, multi, off) {
+        var w = m, past = "";
+        if (/'d$/.test(w)) { w = w.slice(0, -2); past = "d"; }
+        var lw = w.toLowerCase().replace(/\s+/g, " ");
+        if (m === "*") { add("*", "*", KM["*"][1], KM["*"][3]); return "*"; }
+        if (UNIT[lw] && !/\d\s*$/.test(txt.slice(0, off))) return m;
+        var r = KM[lw], x;
+        if (r) { add(r[2], r[2], r[1], r[3]); if (lw === "sts") return "stitches"; if (lw === "st") return "stitch"; return past && /^(dec|inc)$/.test(lw) ? r[1] + past : r[1]; }
+        if ((x = /^(k|p)(\d+)tog$/i.exec(w))) { add(lw, w, (x[1].toLowerCase() === "k" ? "knit " : "purl ") + x[2] + " together", "Work " + x[2] + " stitches as one. Loses " + (x[2] - 1) + " stitch" + (x[2] > 2 ? "es." : ".")); return (x[1].toLowerCase() === "k" ? "knit " : "purl ") + x[2] + " together"; }
+        if ((x = /^(k|p|sl)(\d+)$/i.exec(w))) {
+          var v = { k: "knit", p: "purl", sl: "slip" }[x[1].toLowerCase()];
+          var base = KM[x[1].toLowerCase()]; add(base[2] === "sl" ? "sl" : x[1].toLowerCase(), base[2], base[1], base[3]);
+          return v + " " + x[2];
+        }
+        if ((x = /^c(\d+)([fb])$/i.exec(w))) {
+          var n = +x[1], h = Math.floor(n / 2), fr = x[2].toLowerCase() === "f";
+          var s = "cable " + n + " " + (fr ? "front" : "back");
+          add(lw, w.toUpperCase(), s, "Slip " + h + " stitches to a cable needle and hold it in " + (fr ? "front" : "back") + ", knit " + (n - h) + ", then knit the " + h + " from the cable needle. Leans " + (fr ? "left." : "right."));
+          return s;
+        }
+        return m;
+      });
+      return { out: out, found: found };
+    }
+    var kaRun = function () {
+      var t = $("#ka-in").value.trim(), r = kaDecode(t);
+      var o = r.out.replace(/\s+/g, " ");
+      $("#ka-plain").textContent = t ? o.charAt(0).toUpperCase() + o.slice(1) : "Paste a pattern line to see it in plain words.";
+      $("#ka-found").innerHTML = r.found.length ? r.found.map(function (f) { return "<li><strong>" + esc(f[0]) + "</strong> = " + esc(f[1]) + (f[2] ? "<br><span>" + esc(f[2]) + "</span>" : "") + "</li>"; }).join("") : "<li>No abbreviations found yet.</li>";
+    };
+    $("#ka-in").addEventListener("input", kaRun);
+    $$(".ka-ex button").forEach(function (b) { b.addEventListener("click", function () { $("#ka-in").value = b.getAttribute("data-ex"); kaRun(); }); });
+    kaRun();
+    var kaG = "", kaFilter = function () {
+      var q = ($("#ka-q").value || "").trim().toLowerCase(), n = 0;
+      $$("#ka-body tr").forEach(function (tr) {
+        var ok = (!kaG || tr.getAttribute("data-g") === kaG) && (!q || tr.getAttribute("data-s").indexOf(q) >= 0);
+        tr.hidden = !ok; if (ok) n++;
+      });
+      $("#ka-none").hidden = n > 0;
+    };
+    $("#ka-q").addEventListener("input", kaFilter);
+    $("#ka-g").addEventListener("click", function (ev) {
+      var b = ev.target.closest("button"); if (!b) return;
+      $$("#ka-g button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+      kaG = b.getAttribute("data-g"); kaFilter();
+    });
+  }
+
+  /* ---------- EPHEMERA CHECKLIST ---------- */
+  if (page === "junk-journal-ephemera-ideas" && $("#ep-list")) {
+    var EK = "pp-ephemera", ES = store.get(EK, {}) || {};
+    var boxes = $$("#ep-list input[type=checkbox]");
+    var USE = ["Tuck them behind a strip of lace or paper glued along the edges.", "Make a pocket from half an envelope and slide them in.", "Wrap a belly band of ribbon round the page and tuck them under it.",
+      "Layer them biggest to smallest, slightly off-centre, with one on top as the focal point.", "Glue just the top edge of one so it flips up, and write underneath.", "Make a small cluster in one corner and leave space to write a few lines."];
+    var epCount = function () {
+      var n = 0;
+      boxes.forEach(function (b) { b.checked = !!ES[b.getAttribute("data-id")]; if (b.checked) n++; });
+      $("#ep-count").textContent = n + " of " + boxes.length + " collected";
+      $$(".ep-gc").forEach(function (sp) {
+        var g = sp.getAttribute("data-g"), all = $$('#ep-list fieldset[data-g="' + g + '"] input'), k = all.filter(function (b) { return b.checked; }).length;
+        sp.textContent = k + "/" + all.length;
+      });
+    };
+    $("#ep-list").addEventListener("change", function (ev) {
+      var b = ev.target; if (!b.matches("input[type=checkbox]")) return;
+      if (b.checked) ES[b.getAttribute("data-id")] = 1; else delete ES[b.getAttribute("data-id")];
+      store.set(EK, ES); epCount();
+    });
+    $("#ep-clear").addEventListener("click", function () { if (!confirm("Clear all your ticks?")) return; ES = {}; store.set(EK, ES); epCount(); toast("Ticks cleared"); });
+    $("#ep-print").addEventListener("click", function () { window.print(); });
+    var epPick = function () {
+      var pool = boxes.filter(function (b) { return b.checked; });
+      var own = pool.length >= 3;
+      if (!own) pool = boxes.slice();
+      var bag = pool.slice(), got = [], groups = {};
+      while (got.length < 3 && bag.length) {
+        var i = Math.floor(Math.random() * bag.length), b = bag.splice(i, 1)[0], g = b.closest("fieldset").getAttribute("data-g");
+        if (groups[g] && bag.some(function (o) { return !groups[o.closest("fieldset").getAttribute("data-g")]; })) continue;
+        groups[g] = 1; got.push(b.getAttribute("data-n"));
+      }
+      $("#ep-pile").innerHTML = got.map(function (n, i) { return '<span class="ep-tag t' + i + '">' + esc(n) + "</span>"; }).join("");
+      $("#ep-how").textContent = pick(USE);
+      $("#ep-hint").textContent = own ? "Picked from the " + pool.length + " things you've ticked." : "Picked from the whole list. Tick at least 3 things you have to pick only from those.";
+    };
+    $("#ep-go").addEventListener("click", epPick);
+    epCount(); epPick();
+  }
 })();
