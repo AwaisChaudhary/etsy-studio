@@ -480,3 +480,7 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .result .co-alt { list-style: none; padding: 0; margin: 6px 0 0; }
 .result .co-alt li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
 .result .co-alt li:last-child { border-bottom: 0; }
+.result .ci-list { list-style: none; padding: 0; margin: 6px 0 10px; max-height: 360px; overflow-y: auto; }
+.result .ci-list li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.12); overflow-wrap: anywhere; }
+.result .ci-list li b { color: var(--marigold); min-width: 2.6em; flex: none; }
+.result .ci-list .ci-c { margin-left: auto; flex: none; font-weight: 700; background: rgba(255,255,255,0.1); border-radius: 999px; padding: 1px 9px; }

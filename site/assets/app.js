@@ -662,6 +662,113 @@
     coKeys.forEach(function (k) { coEl[k].addEventListener("input", coCalc); coEl[k].addEventListener("change", coCalc); });
     coCalc();
   }
+  /* ---- Crochet circle + amigurumi ball calculator ---- */
+  if ($("#ci-shape") && $("#ci-out")) {
+    var ciEl = {}; ["shape", "flat", "st", "goal", "size-f", "d", "du", "n-f", "n", "n-l", "yarn", "g", "gu", "gnote", "svg", "cap", "key", "out"].forEach(function (k) { ciEl[k] = $("#ci-" + k); });
+    var CI_AMI = 1.25; /* amigurumi on a smaller hook: about a quarter more stitches per inch (estimate) */
+    var ciKeys = ["st", "d", "du", "n", "yarn", "g", "gu"], ciTouched = false;
+    var ciPref = store.get("pp-circle", null);
+    if (ciPref) {
+      ciKeys.forEach(function (k) { if (ciPref[k] != null && ciPref[k] !== "" && ciEl[k]) ciEl[k].value = ciPref[k]; });
+      ["shape", "goal"].forEach(function (k) { if (ciPref[k]) $$("button", ciEl[k]).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === ciPref[k]); }); });
+      ciTouched = true;
+    }
+    var ciLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    var c1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    function ciRep(m, st, inc, s) { return m <= 0 ? inc + " × " + s : "(" + m + " " + st + ", " + inc + ") × " + s; }
+    function ciStag(m, st, inc, s) { var a = m - Math.floor(m / 2), b = Math.floor(m / 2); return a + " " + st + ", " + inc + ", (" + m + " " + st + ", " + inc + ") × " + (s - 1) + (b ? ", " + b + " " + st : ""); }
+    function ciRound(r, st, s) {
+      if (r === 1) return { t: s + " " + st + " in a magic ring", c: s };
+      if (r === 2) return { t: "inc × " + s + " (2 " + st + " in every stitch)", c: 2 * s };
+      var m = r - 2; return { t: r % 2 === 0 ? ciStag(m, st, "inc", s) : ciRep(m, st, "inc", s), c: s * r };
+    }
+    function ciBall(n) {
+      var out = [], r, k;
+      for (r = 1; r <= n; r++) { var x = ciRound(r, "sc", 6); out.push({ k: "inc", r: r, t: x.t, c: x.c }); }
+      r = n;
+      for (k = 0; k < n; k++) { r++; out.push({ k: "even", r: r, t: "sc in each stitch", c: 6 * n }); }
+      for (k = n - 1; k >= 1; k--) { r++; var m = k - 1; out.push({ k: "dec", r: r, t: (m && k % 2 === 0) ? ciStag(m, "sc", "dec", 6) : ciRep(m, "sc", "dec", 6), c: 6 * k }); }
+      return out;
+    }
+    var CI_COL = { inc: "#b8326a", even: "#2f8f8a", dec: "#f4a823" };
+    function ciDrawFlat(n, s, spi) {
+      var R = 118, cx = 160, cy = 130, g = "", pal = ["#b8326a", "#f4a823", "#2f8f8a", "#1f2a44", "#e07a9f"], step = R / n;
+      for (var r = n; r >= 1; r--) {
+        g += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * step).toFixed(2) + '" fill="' + pal[(r - 1) % 5] + '" stroke="#fbfcfa" stroke-width="' + (n > 30 ? 0.4 : 1) + '"/>';
+      }
+      if (n <= 30) for (r = 2; r <= n; r++) {
+        var off = (r >= 4 && r % 2 === 0) ? Math.PI / s : 0;
+        for (var i = 0; i < s; i++) {
+          var a = off + i * 2 * Math.PI / s - Math.PI / 2, rr = (r - 0.5) * step;
+          g += '<circle cx="' + (cx + rr * Math.cos(a)).toFixed(1) + '" cy="' + (cy + rr * Math.sin(a)).toFixed(1) + '" r="' + Math.max(1, Math.min(3, step * 0.28)).toFixed(1) + '" fill="#fbfcfa"/>';
+        }
+      }
+      ciEl.svg.innerHTML = g;
+      ciEl.key.innerHTML = '<li><i style="background:#b8326a"></i>Rounds, one colour each</li>' + (n <= 30 ? '<li><i style="background:#fbfcfa;border:1px solid #1f2a44"></i>Where the increases sit</li>' : "");
+    }
+    function ciDrawBall(rows) {
+      var max = 0; rows.forEach(function (x) { if (x.c > max) max = x.c; });
+      var H = 230, rh = H / rows.length, g = "";
+      rows.forEach(function (x, i) {
+        var w = Math.max(10, 240 * Math.sin(Math.PI * (i + 0.5) / rows.length)), y = 15 + i * rh;
+        g += '<rect x="' + (160 - w / 2).toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + Math.max(1, rh - 1).toFixed(1) + '" rx="' + Math.min(6, rh / 2).toFixed(1) + '" fill="' + CI_COL[x.k] + '"/>';
+      });
+      ciEl.svg.innerHTML = g;
+      ciEl.key.innerHTML = '<li><i style="background:#b8326a"></i>Increase rounds</li><li><i style="background:#2f8f8a"></i>Even rounds</li><li><i style="background:#f4a823"></i>Decrease rounds</li>';
+    }
+    function ciList(rows, flatSt) {
+      return '<ol class="ci-list">' + rows.map(function (x) { return "<li><b>R" + x.r + "</b> " + esc(x.t) + ' <span class="ci-c">' + x.c + "</span></li>"; }).join("") + "</ol>";
+    }
+    function ciCalc() {
+      var shape = segVal(ciEl.shape) || "flat", goal = segVal(ciEl.goal) || "size", ball = shape === "ball";
+      ciEl.flat.hidden = ball; ciEl["size-f"].hidden = goal !== "size"; ciEl["n-f"].hidden = goal === "size";
+      ciEl["n-l"].textContent = ball ? "Increase rounds" : "Rounds";
+      var sp = ciEl.st.value.split("|"), st = ball ? "sc" : sp[0], s = ball ? 6 : parseInt(sp[1], 10) || 6;
+      var g = parseFloat(ciEl.g.value) || 0, spi = g / (ciEl.gu.value === "10" ? 10 / 2.54 : 4);
+      if (!(spi > 0)) { ciEl.out.innerHTML = "<h3>Your circle</h3><p class=\"sub\">Enter the stitches in your swatch to start.</p>"; ciEl.svg.innerHTML = ""; return; }
+      var D = (parseFloat(ciEl.d.value) || 0) / (ciEl.du.value === "cm" ? 2.54 : 1), n, maxN = ball ? 25 : 60;
+      if (goal === "size") n = Math.round(D * Math.PI * spi / s);
+      else n = parseInt(ciEl.n.value, 10) || 1;
+      n = Math.max(ball ? 2 : 1, Math.min(maxN, n));
+      var last = s * n, real = last / (Math.PI * spi), out, rows, txt;
+      var dims = '<div class="bk-dims">' + c1(real) + " in (" + Math.round(real * 2.54) + " cm)<small>across, our estimate" + (goal === "size" && D > 0 ? ", for a target of " + c1(D) + " in" : "") + "</small></div>";
+      if (!ball) {
+        rows = []; for (var r = 1; r <= n; r++) { var x = ciRound(r, st, s); rows.push({ r: r, t: x.t, c: x.c }); }
+        var tot = s * n * (n + 1) / 2;
+        out = "<h3>Flat circle in " + esc(st) + "</h3><div class=\"big\">" + n + " <small>rounds</small></div><p class=\"sub\">" + last + " stitches in the last round, " + fmt(tot) + " stitches in all.</p>" + dims;
+        txt = rows.map(function (x) { return "R" + x.r + ": " + x.t + " (" + x.c + ")"; }).join("\n");
+        out += "<hr><h3>Round by round</h3>" + ciList(rows) + '<p class="sub">inc = 2 ' + esc(st) + " in the same stitch. Numbers on the right are the stitches at the end of the round.</p>";
+      } else {
+        rows = ciBall(n);
+        out = "<h3>Amigurumi ball</h3><div class=\"big\">" + rows.length + " <small>rounds</small></div><p class=\"sub\">" + n + " increase, " + n + " even and " + (n - 1) + " decrease rounds in sc, up to " + last + " stitches.</p>" + dims;
+        var stuffAt = 0; rows.forEach(function (x) { if (x.k === "dec" && x.c === 18) stuffAt = x.r; });
+        txt = rows.map(function (x) { return "R" + x.r + ": " + x.t + " (" + x.c + ")"; }).join("\n");
+        out += "<hr><h3>Round by round</h3>" + ciList(rows) + '<p class="sub">inc = 2 sc in one stitch, dec = sc 2 together. ' + (stuffAt ? "Stuff firmly after round " + stuffAt + " (18 stitches), and top up before the last round. " : "Stuff before the last round. ") + "Fasten off and close the last 6 stitches by weaving the tail through the front loops.</p>";
+      }
+      out += '<p><button type="button" class="btn gold sm" id="ci-copy">Copy the pattern</button></p>';
+      out += '<p class="sub">Next: ' + ciLink("row-counter", "count your rounds") + ", " + ciLink("increase-decrease-calculator", "increase evenly") + ", " + ciLink("crochet-terms", "US and UK terms") + ".</p>";
+      ciEl.out.innerHTML = out;
+      if (ball) ciDrawBall(rows); else ciDrawFlat(n, s, spi);
+      ciEl.cap.textContent = ball ? "Side view of your ball, " + rows.length + " rounds, the first at the top, about " + c1(real) + " in across." : "Your circle from above: " + n + " rounds, about " + c1(real) + " in across.";
+      var cp = $("#ci-copy"); if (cp) cp.addEventListener("click", function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function () { toast("Copied"); }, function () { toast("Couldn't copy. Select the text instead."); });
+        else toast("Select the text to copy it");
+      });
+      var save = { shape: shape, goal: goal }; ciKeys.forEach(function (k) { save[k] = ciEl[k].value; }); store.set("pp-circle", save);
+    }
+    function ciDefG() {
+      if (ciTouched) return;
+      var gv = (parseFloat(ciEl.yarn.value.split("|")[1]) || 12) * (segVal(ciEl.shape) === "ball" ? CI_AMI : 1);
+      ciEl.g.value = Math.round((ciEl.gu.value === "10" ? gv * 2.5 / 2.54 : gv) * 2) / 2;
+    }
+    var ciDu = ciEl.du.value;
+    ciEl.du.addEventListener("change", function () { var v = parseFloat(ciEl.d.value); if (v && ciDu !== ciEl.du.value) ciEl.d.value = Math.round(v * (ciEl.du.value === "cm" ? 2.54 : 1 / 2.54) * 2) / 2; ciDu = ciEl.du.value; });
+    ciEl.g.addEventListener("input", function () { ciTouched = true; });
+    ciEl.yarn.addEventListener("change", ciDefG);
+    seg(ciEl.shape, function (v) { if (ciEl.du.value === "in") { if (v === "ball" && ciEl.d.value === "8") ciEl.d.value = 3; else if (v === "flat" && ciEl.d.value === "3") ciEl.d.value = 8; } ciDefG(); ciCalc(); }); seg(ciEl.goal, ciCalc);
+    ciKeys.forEach(function (k) { ciEl[k].addEventListener("input", ciCalc); ciEl[k].addEventListener("change", ciCalc); });
+    ciCalc();
+  }
   /* ---- Granny square blanket calculator ---- */
   if ($("#gs-size") && $("#gs-out")) {
     var gsEl = {}; ["size", "custom", "bw", "bl", "sq", "su", "join", "border", "weight", "ypsq", "skein", "unit", "cols", "out", "svg", "cap"].forEach(function (k) { gsEl[k] = $("#gs-" + k); });

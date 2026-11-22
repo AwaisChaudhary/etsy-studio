@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -75,6 +75,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "sock-size-chart.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "christmas-gift-tags", "crochet-knitting-pricing-calculator"],
             "how-to-price-crochet-items.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
             "yarn-substitution-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "crochet-circle-calculator.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "cast-on-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
@@ -233,7 +234,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -281,8 +282,14 @@ page("row-counter.html", "Free Online Row Counter for Knitting and Crochet | Pur
 # ---------------- YARN CALCULATOR ----------------
 wopts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"])
 popts = "".join(f'<option value="{p["id"]}">{e(p["name"])}</option>' for p in D["projects"])
+YC_M = {w["n"]: w["m"] for w in D["weights"]}
+def yc_yd(pid, wn, craft=1.0): pr = [x for x in D["projects"] if x["id"] == pid][0]; return int(pr["yd"] * YC_M[wn] * craft / 10 + 0.5) * 10
+YC_COLS = [(3, 1.0, "Knit, DK"), (4, 1.0, "Knit, worsted"), (5, 1.0, "Knit, bulky"), (4, 1.27, "Crochet, worsted")]
+yc_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong>{" <span class=\"muted\">(size M)</span>" if x["sizes"] else ""}</td>' + "".join(f"<td>{yc_yd(x['id'], wn, cf):,}</td>" for wn, cf, _ in YC_COLS) + "</tr>" for x in D["projects"])
 yc = top("How much yarn do I need?", "Choose what you're making, the size and your yarn weight. You get an estimate in yards and metres, and how many skeins to buy.", "Yarn calculator") + f'''
-<section style="padding-top:10px"><div class="wrap tool">
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> in worsted yarn, a knitted adult beanie takes about <strong>{yc_yd("hat", 4)} yards</strong>, a scarf about <strong>{yc_yd("scarf", 4)}</strong>, a baby blanket about <strong>{yc_yd("babyb", 4):,}</strong> and an adult sweater about <strong>{yc_yd("sweater", 4):,}</strong>. Thinner yarn needs more length, thicker yarn less, and crochet uses roughly a quarter more. These are estimates: your pattern's amount always wins.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <div class="field"><label for="yc-proj">What are you making?</label><select id="yc-proj">{popts}</select></div>
 <div class="field" id="yc-size-f" hidden><label for="yc-size">Size</label><select id="yc-size"></select></div>
@@ -302,12 +309,24 @@ yc = top("How much yarn do I need?", "Choose what you're making, the size and yo
 <h2>Making a blanket?</h2>
 <p>Blankets vary so much in size that a single number isn't much help. Our <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> lists the usual sizes from lovey to king, draws your blanket next to a bed, and works out the yarn from the exact width and length you want.</p>
 <h2>Using a different yarn from the pattern?</h2>
-<p>If your pattern already gives an amount but you're swapping brands, don't start from scratch: the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> turns the pattern's balls into balls of your yarn and checks the thickness.</p></div></section>'''
+<p>If your pattern already gives an amount but you're swapping brands, don't start from scratch: the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> turns the pattern's balls into balls of your yarn and checks the thickness.</p></div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How much yarn for a hat, scarf, blanket or sweater?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Project</th>{"".join(f'<th scope="col">{n}</th>' for _, _, n in YC_COLS)}</tr></thead><tbody>{yc_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Yards, rounded to the nearest 10, from the same estimate the calculator uses: a typical worsted amount for each project, scaled for yarn thickness, with crochet about 27% more. Plain stitch patterns; add 10 to 15% for cables or texture. Divide by the length on your yarn label to get skeins, and round up.</p></div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I work out yarn from a swatch?</h2>
+<ol><li><strong>Weigh your swatch</strong> on a kitchen scale after knitting or crocheting it in the real yarn and stitch. A 4 in (10 cm) square is easy to measure.</li>
+<li><strong>Work out the area</strong> of your piece and how many swatches fit into it. A 20 × 60 in scarf is 1,200 sq in, which is 75 squares of 4 × 4 in.</li>
+<li><strong>Multiply</strong> the swatch weight by that number to get the grams you need.</li>
+<li><strong>Turn grams into balls</strong> using the label: a 100 g ball needs grams ÷ 100, rounded up. Add about 10% for seams, edging and the swatch itself.</li></ol>
+<h2>How many skeins should I buy?</h2>
+<p>Divide the yards you need by the yards on one skein and round up, then add one if you can. Running short is worse than having a spare: a new skein from a different dye lot can show as a stripe. Many shops take back unused skeins, so ask before you buy. Keep track of what's left over in a stash list, and the <a href="{href("projects.html")}">project tracker</a> can hold the yarn details for each piece.</p></div></section>'''
 yc_faq = [
     ("How many skeins do I need for a blanket?", "A throw of about 125 by 150 cm (50 by 60 in) usually takes around 1,800 to 2,200 yards of worsted yarn when knitted, which is often 9 to 11 skeins of 200 yards. Crochet takes more. For other blanket sizes, use the blanket size calculator."),
     ("How do I work out yarn for a project that isn't listed?", "Pick a similar project in the list and adjust, or use a swatch: weigh a 10 cm (4 in) square, multiply by how many squares fit your piece to get the grams, then use the yards per gram on your yarn label. Add about 10 percent for seams and borders."),
     ("Does crochet use more yarn than knitting?", "Usually yes, often about 25 to 30 percent more for the same size piece, because crochet stitches are taller and denser."),
     ("Why does thinner yarn need more yards?", "Thin yarn makes small stitches, so you need many more of them, and much more length, to cover the same area."),
+    ("How much yarn do I need for a beanie?", f"About {yc_yd('hat', 4)} yards of worsted yarn for a knitted adult beanie, about {yc_yd('hat', 5)} in bulky and about {yc_yd('hat', 3)} in DK. Crochet takes roughly a quarter more. These are estimates, so check your pattern."),
+    ("How much yarn do I need for a scarf?", f"About {yc_yd('scarf', 4)} yards of worsted for a knitted scarf about 6 ft long, or about {yc_yd('scarf', 4, 1.27)} yards crocheted. Bulky yarn needs about {yc_yd('scarf', 5)} yards."),
 ]
 page("yarn-calculator.html", "Yarn Calculator: How Much Yarn Do I Need? | Purl & Paper",
      "Free yarn calculator for knitting and crochet. Pick your project, size and yarn weight to see how many yards, metres and skeins you need.",
@@ -521,7 +540,7 @@ ct = top("US vs UK crochet terms", "The same stitch has a different name on each
 <p>Here's the second round of a classic granny square. Same stitches, same square, two sets of names.</p>
 <p><strong>US terms:</strong> sl st into the ch-2 sp, ch 3 (counts as dc), 2 dc in same sp, ch 1, *(3 dc, ch 2, 3 dc) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 dc in the first sp, ch 2, sl st to top of ch 3.</p>
 <p><strong>UK terms:</strong> ss into the ch-2 sp, ch 3 (counts as tr), 2 tr in same sp, ch 1, *(3 tr, ch 2, 3 tr) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 tr in the first sp, ch 2, ss to top of ch 3.</p>
-<p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn.</p></div></section>'''.replace("@@GS@@", href("granny-square-blanket-calculator.html"))
+<p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn. Crocheting in the round? The <a href="@@CI@@">crochet circle calculator</a> gives the stitch count for every round in sc, hdc or dc, and an amigurumi ball pattern.</p></div></section>'''.replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
 ct_faq = [
     ("Is UK double crochet the same as US single crochet?", "Yes. A UK double crochet (dc) is worked exactly like a US single crochet (sc)."),
     ("What is a treble crochet in US terms?", "A UK treble (tr) is a US double crochet (dc). A US treble (tr) is a UK double treble (dtr)."),
@@ -856,7 +875,7 @@ idc = top("Increase and decrease evenly calculator", "Type how many stitches you
 <div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">You have</th><th scope="col">Change</th><th scope="col">Working</th><th scope="col">Instruction</th><th scope="col">You end with</th></tr></thead><tbody>{id_rows}</tbody></table></div>
 <p class="note" style="margin-top:12px">Square brackets mean repeat what's inside. The numbers come from the same maths as the calculator above.</p></div>
 <div class="narrow prose"><h2>What next?</h2>
-<p>Changing the stitch count because your swatch came out different? Check the new number with the <a href="{href("gauge-converter.html")}">gauge converter</a>. Shaping a hat crown? The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the cast-on and where to start decreasing. Keep track of increase rows with a second counter in the <a href="{href("row-counter.html")}">row counter</a>, and if a UK crochet pattern says "inc" in trebles, the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> chart translates it.</p></div></section>'''
+<p>Changing the stitch count because your swatch came out different? Check the new number with the <a href="{href("gauge-converter.html")}">gauge converter</a>. Shaping a hat crown? The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the cast-on and where to start decreasing. Working in the round? The <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> writes out every round of a flat circle or amigurumi ball. Keep track of increase rows with a second counter in the <a href="{href("row-counter.html")}">row counter</a>, and if a UK crochet pattern says "inc" in trebles, the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> chart translates it.</p></div></section>'''
 id_faq = [
     ("How do I increase evenly across a row in knitting?", "Divide your stitches by the number of increases to get the gap. Working flat, split one gap between the two ends: for 80 stitches and 10 increases, K4, M1, (K8, M1) nine times, K4. In the round, just repeat (K8, M1) ten times."),
     ("How do I decrease evenly across a row?", "Divide your stitches by the number of decreases, then knit two fewer than that before each k2tog, because a decrease uses two stitches. For 90 stitches and 10 decreases: (K7, k2tog) ten times gives 80."),
@@ -1217,6 +1236,95 @@ page("cast-on-calculator.html", "Cast On Calculator: How Many Stitches to Cast O
      "How many stitches to cast on for a scarf, blanket, dishcloth or cowl: free knitting cast-on calculator for your gauge, stitch pattern multiple, borders and long-tail length.",
      co, co_faq, "Cast on calculator", app_name="Knitting cast on calculator")
 
+# ---------------- CROCHET CIRCLE + AMIGURUMI BALL CALCULATOR ----------------
+CI_G = {1: 26, 2: 18, 3: 14, 4: 12, 5: 9, 6: 8, 7: 6}   # single crochet per 4 in: middle of each Craft Yarn Council crochet range
+CI_AMI = 1.25   # amigurumi is worked on a smaller hook, so about a quarter more stitches per inch. Our estimate.
+CI_ST = {"sc": ("single crochet", 6), "hdc": ("half double crochet", 8), "dc": ("double crochet", 12)}
+def ci_rep(m, st, inc, s):
+    if m <= 0: return f"{inc} × {s}"
+    return f"({m} {st}, {inc}) × {s}"
+def ci_stag(m, st, inc, s):
+    a, b = m - m // 2, m // 2
+    return f"{a} {st}, {inc}, ({m} {st}, {inc}) × {s - 1}" + (f", {b} {st}" if b else "")
+def ci_round(r, st, s):
+    if r == 1: return f"{s} {st} in a magic ring", s
+    if r == 2: return f"inc × {s} (2 {st} in every stitch)", 2 * s
+    m = r - 2
+    return (ci_stag(m, st, "inc", s) if r % 2 == 0 else ci_rep(m, st, "inc", s)), s * r
+def ci_ball(n):
+    out = [("Increase", r) + ci_round(r, "sc", 6) for r in range(1, n + 1)]
+    r = n
+    for _ in range(n):
+        r += 1; out.append(("Even", r, f"sc in each stitch", 6 * n))
+    for k in range(n - 1, 0, -1):
+        r += 1; m = k - 1
+        out.append(("Decrease", r, ci_stag(m, "sc", "dec", 6) if (m and k % 2 == 0) else ci_rep(m, "sc", "dec", 6), 6 * k))
+    return out
+def ci_d(n, g4): return n / (3.14159 * g4 / 4)
+ci_wopts = "".join(f'<option value="{w["n"]}|{CI_G[w["n"]]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"].split(",")[0])})</option>' for w in D["weights"] if w["n"] in CI_G)
+ci_rows = "".join(f'<tr><td><strong>{r}</strong></td>' + "".join(f'<td>{ci_round(r, k, s)[1]}<br><span class="muted">{ci_d(ci_round(r, k, s)[1], 12):.1f} in</span></td>' for k, (_, s) in CI_ST.items()) + f'<td>{e(ci_round(r, "sc", 6)[0])}</td></tr>' for r in range(1, 13))
+CI_BW = [(3, "DK"), (4, "Worsted"), (6, "Super bulky")]
+ci_brows = "".join(f'<tr><td><strong>{n}</strong></td><td>{6 * n}</td><td>{3 * n - 1}</td>' + "".join(f'<td>{ci_d(6 * n, CI_G[k] * CI_AMI):.1f} in ({ci_d(6 * n, CI_G[k] * CI_AMI) * 2.54:.0f} cm)</td>' for k, _ in CI_BW) + "</tr>" for n in range(3, 11))
+_ci10 = ci_d(60, 12); _ci_b5 = ci_d(30, 12 * CI_AMI)
+ci = top("Crochet circle calculator and amigurumi ball pattern", "How many stitches in each round of a flat circle in single, half double or double crochet, how many rounds for the size you want, and a full ball pattern for amigurumi, written out round by round.", "Crochet circle calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> a flat circle starts with a set number of stitches and adds that same number every round. Single crochet: <strong>6, then +6</strong> (6, 12, 18, 24…). Half double: <strong>8, then +8</strong>. Double: usually <strong>12, then +12</strong> (some patterns use 10). Round 2 increases in every stitch, then each round puts one more plain stitch between increases. In worsted yarn, 10 rounds of single crochet makes a circle about {_ci10:.0f} in across (our estimate).</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><span class="label" id="ci-shape-l">What are you making?</span><div class="seg" role="group" aria-labelledby="ci-shape-l" id="ci-shape"><button type="button" data-v="flat" aria-pressed="true">Flat circle</button><button type="button" data-v="ball" aria-pressed="false">Amigurumi ball</button></div></div>
+<div id="ci-flat"><div class="field"><label for="ci-st">Stitch</label><select id="ci-st"><option value="sc|6" selected>Single crochet (sc), 6 to start</option><option value="hdc|8">Half double crochet (hdc), 8 to start</option><option value="dc|12">Double crochet (dc), 12 to start</option><option value="dc|10">Double crochet (dc), 10 to start</option></select></div></div>
+<div class="field"><span class="label" id="ci-goal-l">Work out</span><div class="seg" role="group" aria-labelledby="ci-goal-l" id="ci-goal"><button type="button" data-v="size" aria-pressed="true">Rounds for my size</button><button type="button" data-v="rounds" aria-pressed="false">Size of my rounds</button></div></div>
+<div class="row2" id="ci-size-f"><div class="field"><label for="ci-d">Size across</label><input type="number" id="ci-d" value="8" min="0.5" max="80" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="ci-du">Unit</label><select id="ci-du"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field" id="ci-n-f" hidden><label for="ci-n" id="ci-n-l">Rounds</label><input type="number" id="ci-n" value="10" min="1" max="60" step="1" inputmode="numeric"></div>
+<div class="field"><label for="ci-yarn">Yarn weight</label><select id="ci-yarn">{ci_wopts}</select></div>
+<div class="row2"><div class="field"><label for="ci-g">Single crochet in your swatch</label><input type="number" id="ci-g" value="12" min="2" max="60" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="ci-gu">Measured over</label><select id="ci-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<p class="note" id="ci-gnote">Count the stitches across 4 in of single crochet. For half double or double, count across your swatch the same way: the width of each stitch is what sets the size.</p>
+<figure class="co-fig"><svg id="ci-svg" viewBox="0 0 320 260" role="img" aria-label="Drawing of the circle or ball, round by round"></svg><figcaption class="note" id="ci-cap">Your circle.</figcaption>
+<ul class="co-key" id="ci-key"></ul></figure>
+</div>
+<div class="result" aria-live="polite" id="ci-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>Crochet circle increase chart</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Round</th><th scope="col">Single crochet<br><span class="muted">6 + 6</span></th><th scope="col">Half double<br><span class="muted">8 + 8</span></th><th scope="col">Double<br><span class="muted">12 + 12</span></th><th scope="col">Single crochet round, written out</th></tr></thead><tbody>{ci_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Stitch counts follow the usual starting numbers (6 sc, 8 hdc, 12 dc). Sizes under each count are our estimate for worsted yarn at 12 stitches per 4 in, worked out from the distance around (stitches ÷ stitches per inch ÷ 3.14). Taller stitches make a bigger circle in fewer rounds. inc = 2 stitches in the same stitch. Even rounds start part-way into a repeat so the increases don't stack into a hexagon.</p>
+</div></section>
+{AD.format("ci-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do you crochet a flat circle?</h2>
+<ol><li><strong>Start with a magic ring</strong> (or chain 4 and join). Work 6 sc, 8 hdc or 12 dc into it and pull the ring tight.</li>
+<li><strong>Round 2:</strong> work 2 stitches into every stitch. You now have double the starting number.</li>
+<li><strong>Round 3:</strong> 1 stitch, then 2 in the next stitch, all the way round.</li>
+<li><strong>Each round after:</strong> add one more plain stitch between the increases. Round 4 has 2 plain stitches between, round 5 has 3, and so on. You add the starting number of stitches every round.</li>
+<li><strong>Mark the first stitch</strong> of each round with a stitch marker, and count at the end of every round.</li></ol>
+<p>Work in a spiral for amigurumi and small pieces, or join each round with a slip stitch and chain up for coasters, rugs and mandalas. Check whether your pattern's turning chain counts as a stitch: for double crochet many patterns say chain 3 counts as the first dc, others chain 2 or 1 and don't count it.</p>
+<h2>Why is my crochet circle wavy or cupping?</h2>
+<p><strong>Ruffles or waves</strong> mean too many stitches: you've added extra increases, or your tension is loose for the hook. <strong>Cupping or curling up</strong> means too few: an increase got missed, or you crochet tightly. Count the last round. If the number is right, try a hook one size up (for cupping) or down (for ruffles). If it's wrong, pull back to the last correct round and redo it.</p>
+<div class="callout"><strong>Why does my circle look like a hexagon?</strong> If every increase lands on top of the one below, they line up into six corners. Start every other round part-way through a repeat (the calculator and chart do this for you), or put each increase in the second stitch of the last round's increase.</div>
+<h2>How do I crochet an amigurumi ball?</h2>
+<p>A ball is a flat circle, then straight sides, then the circle again in reverse. Work single crochet in a spiral:</p>
+<ol><li><strong>Increase</strong> for as many rounds as you want the ball's size (5 rounds gives 30 stitches).</li>
+<li><strong>Work even</strong>, one sc in each stitch, for about the same number of rounds. Some designers add one more for a rounder look.</li>
+<li><strong>Decrease</strong> the same way you increased, 6 stitches per round, until 6 are left.</li>
+<li><strong>Stuff</strong> when the hole is still big enough (around 18 stitches), and top it up just before the last round.</li>
+<li>Fasten off, weave the tail through the front loops of the last 6 stitches, and pull it closed.</li></ol>
+<p>Use a hook a few sizes smaller than the yarn label asks for, so the stitches are tight and the stuffing doesn't show. An invisible decrease (through the front loops only) gives a smoother ball.</p>
+<h2>Amigurumi ball sizes</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Increase rounds</th><th scope="col">Most stitches</th><th scope="col">Total rounds</th>{"".join(f'<th scope="col">{n}</th>' for _, n in CI_BW)}</tr></thead><tbody>{ci_brows}</tbody></table></div>
+<p class="note">Our estimate, at a tight amigurumi tension (about a quarter more stitches per inch than the yarn's usual single crochet gauge, from working on a smaller hook). Your own hook and hands change it, so crochet the first few rounds and measure. A 5-round ball in worsted comes out about {_ci_b5:.1f} in across.</p>
+<p>What next? Shaping something that isn't round? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> spaces increases across any row. Making a crochet hat? The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the crown circle size for any head. Reading a UK pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a>, and keep count of your rounds with the <a href="{href("row-counter.html")}">row counter</a>.</p></div></section>'''
+ci_faq = [
+    ("How many stitches do you increase in a crochet circle?", "Add the same number you started with, every round: 6 for single crochet, 8 for half double crochet and usually 12 for double crochet (10 in some patterns)."),
+    ("How many single crochet stitches in a magic ring?", "Six is the usual number for a flat circle or amigurumi. Round 2 then has 12, round 3 has 18 and round 4 has 24."),
+    ("How many rounds for a 6 inch crochet circle?", f"In worsted yarn at 12 single crochet per 4 in, about {round(6 * 3.14159 * 3 / 6)} rounds of single crochet, or about {round(6 * 3.14159 * 3 / 12)} rounds of double crochet. Your gauge decides it, so measure as you go."),
+    ("Why is my crochet circle not flat?", "If it ruffles, there are too many stitches; if it cups, there are too few or you crochet tightly. Count the last round, and try a different hook size if the count is right."),
+    ("How do I stop my crochet circle looking like a hexagon?", "Move the increases each round. Start every other round part-way into a repeat, so the increases don't sit on top of each other."),
+    ("How many rounds to work even on an amigurumi ball?", "About as many as you increased. Five increase rounds, five even rounds and then decrease back down to 6 stitches makes a round ball."),
+]
+page("crochet-circle-calculator.html", "Crochet Circle Calculator: Increase Chart and Amigurumi Ball | Purl & Paper",
+     "Free crochet circle calculator: stitches per round for sc, hdc and dc, how many rounds for your size, a flat circle increase chart and an amigurumi ball pattern written out round by round.",
+     ci, ci_faq, "Crochet circle calculator", app_name="Crochet circle calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -1238,7 +1346,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", 
+LASTMOD = {"crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-22"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
