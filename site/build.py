@@ -22,9 +22,9 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -74,6 +74,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "increase-decrease-calculator.html": KNIT,
             "sock-size-chart.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "christmas-gift-tags", "crochet-knitting-pricing-calculator"],
             "how-to-price-crochet-items.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
+            "yarn-substitution-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -230,7 +232,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -297,7 +299,9 @@ yc = top("How much yarn do I need?", "Choose what you're making, the size and yo
 <div class="callout"><strong>Buy from the same dye lot.</strong> Skeins dyed in different batches can look slightly different side by side. The dye lot number is on the label, so buy everything you need at once, plus one spare if you can return it.</div>
 <p>Your pattern's yarn amount always wins. Use this when you're designing your own piece, swapping yarn, or the pattern doesn't say.</p>
 <h2>Making a blanket?</h2>
-<p>Blankets vary so much in size that a single number isn't much help. Our <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> lists the usual sizes from lovey to king, draws your blanket next to a bed, and works out the yarn from the exact width and length you want.</p></div></section>'''
+<p>Blankets vary so much in size that a single number isn't much help. Our <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> lists the usual sizes from lovey to king, draws your blanket next to a bed, and works out the yarn from the exact width and length you want.</p>
+<h2>Using a different yarn from the pattern?</h2>
+<p>If your pattern already gives an amount but you're swapping brands, don't start from scratch: the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> turns the pattern's balls into balls of your yarn and checks the thickness.</p></div></section>'''
 yc_faq = [
     ("How many skeins do I need for a blanket?", "A throw of about 125 by 150 cm (50 by 60 in) usually takes around 1,800 to 2,200 yards of worsted yarn when knitted, which is often 9 to 11 skeins of 200 yards. Crochet takes more. For other blanket sizes, use the blanket size calculator."),
     ("How do I work out yarn for a project that isn't listed?", "Pick a similar project in the list and adjust, or use a swatch: weigh a 10 cm (4 in) square, multiply by how many squares fit your piece to get the grams, then use the yards per gram on your yarn label. Add about 10 percent for seams and borders."),
@@ -401,12 +405,12 @@ jp = top("Junk journal prompts", "Shuffle a whole spread: a theme, something to 
 </div></section>
 <section style="padding-top:0"><div class="narrow prose"><h2>Using prompts without getting stuck</h2>
 <p>Treat a prompt as a starting point, not a rule. If "a ticket stub" isn't in your stash, use anything with printed numbers on it. If the palette doesn't suit the theme, keep just one colour from it.</p>
-<p>A good rhythm for a two-page spread: lay down a background paper, add one big focal piece, tuck in something interactive (a pocket, flap or tag), and finish with a few words. New to all this? Start with our <a href="@@JJ@@">junk journaling guide for beginners</a>.</p></div></section>'''
+<p>A good rhythm for a two-page spread: lay down a background paper, add one big focal piece, tuck in something interactive (a pocket, flap or tag), and finish with a few words. New to all this? Start with our <a href="@@JJ@@">junk journaling guide for beginners</a>, and age your own background papers with our guide to <a href="@@TS@@">tea staining paper</a>.</p></div></section>'''
 jp_faq = [
     ("What do you put in a junk journal?", "Anything flat and paper-like that you'd normally throw away: receipts, tickets, envelopes, tea bags, packaging, book pages, plus photos, washi tape, fabric and your own writing."),
     ("How do I get ideas for junk journal pages?", "Pick one theme and one thing to glue in, then build around them. The shuffle above does this for you, and you can lock what you like."),
 ]
-jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html"))
+jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html"))
 page("journal-prompts.html", "Junk Journal Prompts Generator: Ideas for Your Next Spread | Purl & Paper",
      "Free junk journal prompt generator. Shuffle a theme, ephemera to use, a technique, a colour palette and a writing prompt, then lock and save your favourites.",
      jp, jp_faq, "Journal prompts", app_name="Junk journal prompt generator")
@@ -424,7 +428,7 @@ yw = top("Yarn weight chart", "Yarn is grouped from 0 (thinnest) to 7 (thickest)
 <p>Wrap the yarn snugly (not stretched) around a ruler or pencil for one inch, strands touching but not overlapping, and count the wraps. That's the <strong>wraps per inch</strong>. Roughly: 18 or more is fingering or thinner, 12 to 14 is DK, 9 to 11 is worsted or aran, 7 to 8 is bulky, and 6 or fewer is super bulky.</p>
 <p>Planning a blanket? The <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> turns your yarn weight and blanket size into yards and skeins.</p>
 <h2>Swapping one yarn for another</h2>
-<p>Stay in the same weight number, then knit or crochet a swatch. Two yarns in the same category can still differ, so check the length per 100 g on both labels: if they're close, the swap usually works.</p></div></section>'''
+<p>Stay in the same weight number, then knit or crochet a swatch. Two yarns in the same category can still differ, so check the length per 100 g on both labels: if they're close, the swap usually works. The <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> does the maths and tells you how many balls to buy, including when you hold two strands together.</p></div></section>'''
 yw_faq = [
     ("Is DK the same as worsted?", "No. DK is weight 3 (light) and worsted is weight 4 (medium), so worsted is a bit thicker. In the UK, aran is close to worsted."),
     ("What weight is 4 ply yarn?", "In the UK and Australia, 4 ply is about the same as US fingering, weight 1 (super fine)."),
@@ -504,8 +508,9 @@ page("crochet-terms.html", "US vs UK Crochet Terms and Abbreviations: Conversion
      ct, ct_faq, "US vs UK crochet terms")
 
 # ---------------- JUNK JOURNAL BEGINNERS ----------------
-jj = top("Junk journaling for beginners", "A junk journal is a handmade book filled with paper you'd normally throw away. Here's what you need, how to make your first one, and how to fill it.", "Junk journaling for beginners") + f'''
+jj = top("Junk journaling for beginners", "A junk journal is a handmade book filled with paper you'd normally throw away. Here's how to start one for free, what you need, how to make your first one, and how to fill it.", "Junk journaling for beginners") + f'''
 <section style="padding-top:10px"><div class="narrow prose">
+<div class="quick"><strong>Quick answer:</strong> to start a junk journal, collect 5 to 8 sheets of mixed paper from around the house (envelopes, book pages, paper bags), fold them in half together, wrap them in a card cover from a cereal box, and sew along the fold with a needle and thread. Then glue in tickets, labels and photos, and write a little. You don't need to buy anything to begin.</div>
 <h2>What is a junk journal?</h2>
 <p>It's part scrapbook, part diary, part art project. The pages are made from mixed papers like envelopes, book pages, paper bags and packaging, and you decorate them with ephemera (small bits of everyday paper like tickets, receipts and labels). There are no rules about what it should look like, and "messy" is part of the charm.</p>
 <h2>What you need to start</h2>
@@ -515,6 +520,20 @@ jj = top("Junk journaling for beginners", "A junk journal is a handmade book fil
 <li><strong>Scissors and a ruler.</strong></li>
 <li><strong>Ephemera:</strong> start a box today and drop in anything interesting. Our <a href="{href("journal-prompts.html")}">prompt generator</a> suggests what to use.</li></ul>
 <div class="callout">You don't need to buy kits or special paper. Most beginners' first journal is made almost entirely from things already in the house.</div>
+<h2>How do I start a junk journal for free?</h2>
+<p>Spend a week saving paper instead of recycling it. By the weekend you'll have more than enough for a first journal. Places to look:</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Use it for</th><th scope="col">Free from around the house</th></tr></thead><tbody>
+<tr><td>Pages</td><td>Envelopes (the patterned insides too), brown paper bags, old book or dictionary pages, printer paper, sheet music, maps, gift wrap, kraft packing paper</td></tr>
+<tr><td>Covers</td><td>Cereal or shoe box card, an old hardback book cover, a folder, fabric scraps glued over card</td></tr>
+<tr><td>Ephemera</td><td>Tickets, receipts, tea bag tags, labels, stamps, postcards, seed packets, food packaging with nice type, leaflets</td></tr>
+<tr><td>Pockets and tags</td><td>Cut-down envelopes, the corners of envelopes, luggage-style tags cut from card, paper bags folded in half</td></tr>
+<tr><td>Decoration</td><td>Ribbon and string from parcels, buttons, lace, pressed leaves and flowers, magazine cut-outs</td></tr>
+<tr><td>Binding</td><td>A darning needle, embroidery thread, dental floss or thin twine, a drawing pin to poke holes</td></tr></tbody></table></div>
+<p>The only things most people end up buying are a glue stick and, later, a few nice papers. If plain paper looks too new, give it an aged look with a cup of tea: our guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> has the recipe and a shade tester.</p>
+<h2>Junk journal supply checklist</h2>
+<ul><li><strong>Must have:</strong> paper for pages, card for a cover, glue stick, scissors, needle and thread, something to poke holes.</li>
+<li><strong>Nice to have:</strong> a bone folder or the back of a spoon for crisp folds, a craft knife and ruler, PVA or matte gel medium, washi tape, a waterproof pen.</li>
+<li><strong>Later:</strong> an awl, waxed linen thread, ink pads and stamps, a corner rounder, printable kits for themed pages.</li></ul>
 <h2>Make your first signature (a small booklet)</h2>
 <p>A signature is a stack of folded pages sewn together at the fold. One signature makes a slim journal; several make a thick one.</p>
 <ol><li><strong>Gather 5 to 8 sheets</strong> of mixed paper, trimmed roughly to the same size.</li>
@@ -528,18 +547,25 @@ jj = top("Junk journaling for beginners", "A junk journal is a handmade book fil
 <li><strong>Add something to touch:</strong> a pocket from half an envelope, a tag tucked in, a flap that lifts.</li>
 <li><strong>Write a little:</strong> a date, a line about the day, a list.</li></ul>
 <h2>Easy techniques that look great</h2>
-<ul><li><strong>Tea staining:</strong> brush cooled black tea onto paper, or dip it, then dry flat. Coffee gives a darker brown.</li>
+<ul><li><strong>Tea staining:</strong> brush cooled black tea onto paper, or dip it, then dry flat. Coffee gives a darker brown. See <a href="{href("how-to-tea-stain-paper.html")}">how to tea stain paper</a> for the full method.</li>
 <li><strong>Torn edges:</strong> tear paper against a ruler for a soft, aged edge.</li>
 <li><strong>Layering:</strong> stack three papers from biggest to smallest, slightly off-centre.</li>
 <li><strong>Hand stitching:</strong> a running stitch around a photo frames it instantly.</li></ul>
+<h2>How do I make a thicker journal?</h2>
+<p>Make three to six signatures, then sew each one to a spine made from a strip of card or fabric. Leave room in the spine: a junk journal gets much fatter once the pages are filled. A good first size is half a sheet of letter or A4 paper, folded.</p>
+<h2>What should I put on the first page?</h2>
+<p>Something low-pressure: the date you started, a list of things you saw this week, or one ticket and a sentence about it. Stuck for ideas? The <a href="{href("journal-prompts.html")}">junk journal prompt generator</a> shuffles a theme, a piece of ephemera, a technique and a colour palette for you.</p>
 </div></section>'''
 jj_faq = [
     ("Do I need special supplies to make a junk journal?", "No. Paper from around the house, a glue stick, a needle and thread are enough for your first one."),
     ("What's the difference between a junk journal and a scrapbook?", "Scrapbooks usually use bought, acid-free supplies and focus on photos. Junk journals are made from recycled paper and everyday ephemera, and mix in writing and art."),
     ("How many pages should a junk journal have?", "There's no rule. A single signature of 5 to 8 folded sheets (20 to 32 pages) is a good first project."),
+    ("How do I start a junk journal for free?", "Save paper for a week: envelopes, paper bags, book pages, tickets and packaging. Fold 5 to 8 sheets into a booklet, add a cereal box cover and sew the fold with any needle and strong thread."),
+    ("What glue is best for junk journals?", "A glue stick is fine for paper. For heavier pieces like card, fabric or buttons, use PVA glue or matte gel medium, applied thinly so pages don't wrinkle."),
+    ("How do I make paper look old for a junk journal?", "Tea stain it: brush or dip the paper in strong cooled black tea, add a sprinkle of instant coffee for spots, and dry it flat. Crumpling first and tearing the edges adds to the aged look."),
 ]
-page("junk-journal-beginners.html", "Junk Journaling for Beginners: Supplies, Binding and Ideas | Purl & Paper",
-     "How to start a junk journal: what it is, the free supplies you need, how to sew your first signature, and easy techniques to fill the pages.",
+page("junk-journal-beginners.html", "Junk Journaling for Beginners: How to Start a Junk Journal for Free | Purl & Paper",
+     "How to start a junk journal for free: what it is, a supply checklist, where to find free paper and ephemera, how to sew your first signature, and easy techniques to fill the pages.",
      jj, jj_faq, "Junk journaling for beginners")
 
 # ---------------- BLANKET SIZE CALCULATOR ----------------
@@ -948,6 +974,151 @@ page("sock-size-chart.html", "Sock Size Chart for Knitting, with Cast-On Calcula
      "Free sock size chart from baby to men's 14 (foot around, length, leg height) plus a sock knitting calculator: cast-on stitches, heel flap, gusset, toe and yarn for your gauge.",
      sk, sk_faq, "Sock size chart", app_name="Sock knitting calculator")
 
+# ---------------- YARN SUBSTITUTION CALCULATOR ----------------
+W_OPTS = lambda sel: "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == sel else ""}>{w["n"]} {e(w["name"])} ({e(w["also"].split(",")[0])})</option>' for w in D["weights"])
+def ys_need(n, per, per2, strands=1): return n * per * strands / per2
+def ys_buy(n, per, per2, strands=1):
+    x = ys_need(n, per, per2, strands); return x, int(-(-round(x, 6) // 1))
+YS_EX = [("10 balls of 120 m", 10, 120, "75 m balls", 75, 1, "m"),
+         ("9 skeins of 200 yd", 9, 200, "109 yd skeins", 109, 1, "yd"),
+         ("5 skeins of 200 yd", 5, 200, "170 yd skeins", 170, 1, "yd"),
+         ("6 skeins of 220 yd (worsted)", 6, 220, "one-pound skeins of 364 yd", 364, 1, "yd"),
+         ("8 balls of 120 m (DK)", 8, 120, "200 m fingering balls, held double", 200, 2, "m")]
+def fmt_n(x): return f"{x:,.0f}"
+ys_rows = "".join(f'<tr><td>{e(a)}</td><td>{fmt_n(n * p * s)} {u}{" (×2 strands)" if s > 1 else ""}</td><td>{e(b)}</td><td>{ys_buy(n, p, q, s)[0]:.1f}</td><td><strong>{ys_buy(n, p, q, s)[1]}</strong></td></tr>'
+                  for a, n, p, b, q, s, u in YS_EX)
+ys = top("Yarn substitution calculator", "Swapping the yarn in a pattern? Find out how many balls of your yarn to buy, check it's a similar thickness, and see what happens if you hold two strands together.", "Yarn substitution calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> multiply the pattern's number of balls by the length of one ball to get the total length. Divide that by the length of one ball of your yarn, then round up. A pattern asking for 10 balls of 120 m needs 1,200 m, so with 75 m balls you buy <strong>16</strong>. Keep both lengths in the same unit, stay in the same yarn weight, and swatch before you start.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">The pattern's yarn</h2>
+<div class="row2"><div class="field"><label for="ys-n">Balls or skeins</label><input type="number" id="ys-n" value="10" min="0.5" max="200" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="ys-pw">Yarn weight</label><select id="ys-pw">{W_OPTS(4)}</select></div></div>
+<div class="row2"><div class="field"><label for="ys-pl">Length per ball</label><input type="number" id="ys-pl" value="120" min="1" max="3000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="ys-pu">Unit</label><select id="ys-pu"><option value="m">metres</option><option value="yd">yards</option></select></div></div>
+<div class="field"><label for="ys-pg">Grams per ball (optional, for the thickness check)</label><input type="number" id="ys-pg" value="50" min="0" max="1000" step="1" inputmode="decimal"></div>
+<hr class="stitch" style="margin:14px 0 18px">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Your yarn</h2>
+<div class="row2"><div class="field"><label for="ys-ml">Length per ball</label><input type="number" id="ys-ml" value="100" min="1" max="3000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="ys-mu">Unit</label><select id="ys-mu"><option value="m">metres</option><option value="yd">yards</option></select></div></div>
+<div class="row2"><div class="field"><label for="ys-mg">Grams per ball (optional)</label><input type="number" id="ys-mg" value="40" min="0" max="1000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="ys-mw">Yarn weight</label><select id="ys-mw">{W_OPTS(4)}</select></div></div>
+<div class="field"><label>Strands</label><div class="seg" id="ys-st" role="group" aria-label="Strands held together"><button type="button" data-v="1" aria-pressed="true">One strand</button><button type="button" data-v="2" aria-pressed="false">Held double</button></div></div>
+<div class="field"><label>Spare</label><div class="seg" id="ys-sp" role="group" aria-label="Spare yarn"><button type="button" data-v="0" aria-pressed="false">None</button><button type="button" data-v="10" aria-pressed="true">Add 10%</button><button type="button" data-v="ball" aria-pressed="false">One extra ball</button></div></div>
+</div>
+<div class="result" aria-live="polite" id="ys-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>Yarn substitution examples</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Pattern asks for</th><th scope="col">Total length</th><th scope="col">Your yarn</th><th scope="col">Exact balls</th><th scope="col">Buy</th></tr></thead><tbody>{ys_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Worked with the same formula as the calculator, before any spare. Our own examples.</p>
+</div></section>
+{AD.format("ys-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I work out how much substitute yarn I need?</h2>
+<ol><li><strong>Find the total length</strong> the pattern uses: number of balls × length of one ball. Nine skeins of 200 yards is 1,800 yards.</li>
+<li><strong>Divide by the length of one ball of your yarn.</strong> 1,800 ÷ 109 = 16.5.</li>
+<li><strong>Round up.</strong> You can't buy half a ball, so that's 17.</li></ol>
+<p>Always compare length, not grams. Two 50 g balls can hold very different lengths: a fluffy wool might give 150 m, while a dense cotton of the same thickness gives 100 m. One yard is 0.9144 m and one metre is 1.094 yards, so if one label is in yards and the other in metres, the calculator converts for you.</p>
+<h2>What should match when I swap a yarn?</h2>
+<ul><li><strong>Yarn weight.</strong> Start with the same weight number (DK for DK, worsted for worsted). See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> if a label uses a UK or Australian name.</li>
+<li><strong>Gauge.</strong> Knit or crochet a swatch with the pattern's needle or hook, wash and dry it, and measure. Being a stitch or two out over 10 cm is usually fixable with a different needle or hook size. The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how much a difference changes the finished size.</li>
+<li><strong>Length per 100 g.</strong> Within one weight there's a range. If your yarn has a similar length per gram to the pattern yarn, the thickness is probably close. The calculator compares them if you enter the grams.</li>
+<li><strong>Fibre.</strong> Wool is springy and holds ribbing; cotton and bamboo are heavier, drape more and stretch less. Swapping wool for cotton in a fitted sweater can make it grow and hang. Blankets, shawls and scarves are more forgiving.</li>
+<li><strong>Texture.</strong> A plied, smooth yarn shows stitches and cables clearly. Single-ply, fuzzy, chenille or boucle yarns blur them.</li></ul>
+<div class="callout"><strong>Buy one extra ball.</strong> Swatching uses yarn, and your tension may be looser than the designer's. Buying 10 to 15% more, or one extra ball, saves hunting for a matching dye lot later. Check all balls share the same dye lot number on the label.</div>
+<h2>Can I hold two strands together instead?</h2>
+<p>Yes, two thinner yarns held together can stand in for one thicker yarn, but you'll need twice the length, and you must swatch, because doubled yarn doesn't always behave like a single strand of the heavier weight. Common rules of thumb:</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Two strands of</th><th scope="col">Works roughly like</th></tr></thead><tbody>
+<tr><td>Fingering (1)</td><td>DK or sport (3 or 2)</td></tr><tr><td>Sport (2)</td><td>Worsted (4)</td></tr><tr><td>DK (3)</td><td>Worsted or aran (4)</td></tr><tr><td>Worsted or aran (4)</td><td>Chunky or bulky (5)</td></tr></tbody></table></div>
+<p class="note">Rules of thumb from LoveCrafts and Love Life Yarn. Treat them as starting points for a swatch, not a guarantee.</p>
+<h2>What if my yarn is a different weight?</h2>
+<p>It can work, but the pattern's numbers won't. A thicker yarn at the pattern's stitch count makes a bigger piece; a thinner one makes a smaller, denser piece. For a blanket or scarf, that may not matter, and the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> or <a href="{href("yarn-calculator.html")}">yarn calculator</a> can re-estimate the yarn. For anything that has to fit, match the weight or rework the stitch counts from your own gauge.</p>
+<p>What next? Note the yarn you chose in the <a href="{href("projects.html")}">project tracker</a>, and check the needle or hook to start with on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>.</p></div></section>'''
+ys_faq = [
+    ("How do I calculate how much yarn I need when substituting?", "Multiply the pattern's number of balls by the length per ball to get the total length, then divide by the length per ball of your yarn and round up. Use the same unit (yards or metres) for both."),
+    ("Can I substitute yarn by weight in grams?", "Not safely. Two yarns of the same weight in grams can have very different lengths. Always compare length (yards or metres), and use grams only to check the yarns are a similar thickness."),
+    ("What happens if I use a different yarn weight than the pattern?", "Your gauge changes, so the piece comes out bigger or smaller than the pattern says, and the yarn amount changes too. Match the weight, or work out new stitch counts from your swatch."),
+    ("Is two strands of DK the same as worsted?", "Roughly. Two strands of DK held together usually work like a worsted or aran yarn, but swatch first, and remember you'll need twice the length of DK."),
+    ("How much extra yarn should I buy when substituting?", "Round up to the next whole ball, then add about 10 to 15% or one extra ball for swatching and differences in tension. Buy it all from the same dye lot."),
+]
+page("yarn-substitution-calculator.html", "Yarn Substitution Calculator: How Many Balls of a Different Yarn? | Purl & Paper",
+     "Free yarn substitution calculator: turn the pattern's yarn into balls of your yarn (yards or metres), check the thickness by length per 100 g, and plan holding two strands together.",
+     ys, ys_faq, "Yarn substitution calculator", app_name="Yarn substitution calculator")
+
+# ---------------- HOW TO TEA STAIN PAPER (guide + shade tester) ----------------
+ts = top("How to tea stain paper for junk journals", "Turn plain paper into warm, aged pages with a cup of tea. Here's the recipe, four ways to apply it, how to dry it flat, and how to add spots, rings and torn edges.", "How to tea stain paper") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> steep about 3 black tea bags in half a cup of hot water for 5 minutes. Let it cool a little, then brush, sponge or dip the paper, letting some tea puddle for a natural look. Dry it flat, or speed it up on a baking sheet in a low oven (about 200°F / 95°C) for around 5 minutes while you watch it. Thick paper like watercolour or mixed-media paper works best.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Try a tea shade before you stain</h2>
+<div class="field"><label for="ts-tea">What's in the cup?</label><select id="ts-tea"><option value="black" selected>Black tea</option><option value="green">Green tea</option><option value="coffee">Instant coffee</option><option value="herbal">Herbal or fruit tea</option></select></div>
+<div class="field"><label>Strength</label><div class="seg" id="ts-str" role="group" aria-label="Strength"><button type="button" data-v="1" aria-pressed="false">Light</button><button type="button" data-v="2" aria-pressed="true">Medium</button><button type="button" data-v="3" aria-pressed="false">Strong</button></div></div>
+<div class="field"><label for="ts-how">How you apply it</label><select id="ts-how"><option value="brush" selected>Brush or sponge</option><option value="dip">Dip or soak</option><option value="dab">Dab with the wet tea bag</option><option value="pour">Pour on a tray and press</option></select></div>
+<div class="field"><label>Coats</label><div class="seg" id="ts-coats" role="group" aria-label="Coats"><button type="button" data-v="1" aria-pressed="true">1</button><button type="button" data-v="2" aria-pressed="false">2</button><button type="button" data-v="3" aria-pressed="false">3</button></div></div>
+<fieldset class="field ts-ex"><legend>Extras</legend>
+<label><input type="checkbox" id="ts-spots"> Age spots (sprinkled tea or coffee)</label>
+<label><input type="checkbox" id="ts-ring"> Mug ring</label>
+<label><input type="checkbox" id="ts-crumple"> Crumpled first</label>
+<label><input type="checkbox" id="ts-torn" checked> Torn edges</label></fieldset>
+<figure class="ts-fig"><svg id="ts-svg" viewBox="0 0 300 380" role="img" aria-label="Preview of a tea stained page"></svg><figcaption class="note">A rough preview. Real colours depend on your paper and tea.</figcaption></figure>
+<p><button type="button" class="btn ghost" id="ts-again">Stain another sheet</button></p>
+</div>
+<div class="result" aria-live="polite" id="ts-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>What you need</h2>
+<ul><li><strong>Tea:</strong> plain black tea bags (no milk). Used bags work for dabbing.</li>
+<li><strong>Paper:</strong> watercolour, mixed-media or heavy cardstock is the easiest. Printer paper works if you're gentle.</li>
+<li><strong>A shallow tray or baking sheet</strong>, a wide brush or sponge, paper towels and something flat and heavy, like a stack of books.</li>
+<li><strong>Optional:</strong> instant coffee or instant tea for spots, a mug for rings, a waterproof pen if you want to write first.</li></ul>
+<h2>How to tea stain paper, step by step</h2>
+<ol><li><strong>Brew it strong.</strong> About 3 black tea bags in half a cup of hot water, steeped for about 5 minutes. More bags, or a longer steep, gives a deeper colour.</li>
+<li><strong>Let it cool a little.</strong> Hot tea burns fingers and can turn black tea more orange.</li>
+<li><strong>Protect the table</strong> and lay the paper on the tray. Crumple it first if you want creases.</li>
+<li><strong>Apply the tea</strong> with one of the methods below. Let it pool in places; uneven is what makes it look old.</li>
+<li><strong>Add extras while it's damp:</strong> sprinkle a few grains of instant tea or coffee for spots, or stand a wet mug on it for a ring.</li>
+<li><strong>Dry it flat</strong> (see below). For a darker sheet, add another coat once it's dry.</li></ol>
+<h2>Four ways to apply the tea</h2>
+<ul><li><strong>Brush or sponge:</strong> the most control. Paint the whole sheet, just the edges, or let drops fall from the brush.</li>
+<li><strong>Dip or soak:</strong> lay the sheet in a shallow tray of tea for a few minutes. The longer it sits, the darker it gets, but thin paper can turn to mush, so lift it gently with both hands.</li>
+<li><strong>Dab with the tea bag:</strong> squeeze a wet bag and press it over the page for blotchy, patchy colour. Good for using up bags from your own cups.</li>
+<li><strong>Pour and press:</strong> pour a little tea onto a rimmed baking sheet, lay the paper in it, press, wait a couple of minutes and lift. This gives puddles and tide lines.</li></ul>
+<h2>Which paper is best for tea staining?</h2>
+<p>Thick paper holds up best when wet. Watercolour paper (especially smooth hot-press) and mixed-media paper barely buckle. Cardstock and heavy cotton or rag paper are good too. Thin copy paper tears and can fall apart in a soak, so brush it rather than dipping. You can stain pages that are already sewn into a journal: brush them and put waxed paper or foil between wet pages so they don't stick.</p>
+<h2>How to dry tea stained paper flat</h2>
+<ul><li><strong>Air dry:</strong> lay it flat on a towel, away from direct sun. It can take several hours, up to a day for a soaked sheet.</li>
+<li><strong>Press it:</strong> once it's only damp, put a paper towel on top and weigh it down with books, or a sheet of glass, so it dries flat. Don't move a wet sheet more than you have to; it tears easily.</li>
+<li><strong>Oven:</strong> on a baking sheet in a low oven, about 200°F (95°C) or your lowest setting, for about 5 minutes. Baking also deepens the colour. Stay right there: paper can scorch or go brittle quickly. Keep it on the tray, away from the heating elements, and use oven gloves.</li>
+<li><strong>Hair dryer:</strong> on a low setting, for one sheet when you're in a hurry.</li></ul>
+<div class="callout"><strong>Safety first:</strong> let the tea cool before children help, never leave paper in the oven unattended, and keep the oven at its lowest setting.</div>
+<h2>Tea stain colours: black, green, coffee and herbal</h2>
+<ul><li><strong>Black tea</strong> gives the classic warm, golden brown. It's the most reliable.</li>
+<li><strong>Green tea</strong> gives a paler, yellow-green tint and needs more bags for the same depth.</li>
+<li><strong>Instant coffee</strong> stains darker and browner, good for "very old" pages and spots.</li>
+<li><strong>Herbal and fruit teas</strong> are a gamble: a red tea can dry grey or green. Test a scrap first.</li></ul>
+<h2>Easy ways to make paper look older</h2>
+<ul><li><strong>Age spots:</strong> sprinkle a pinch of instant tea or coffee onto damp (not soaking) paper and brush the grains off when dry.</li>
+<li><strong>Rings:</strong> stand a wet mug or teapot on the sheet while it dries.</li>
+<li><strong>Creases:</strong> crumple the paper before staining; tea collects in the folds and darkens them.</li>
+<li><strong>Soft torn edges:</strong> rub or tear the edges while wet for a worn, fuzzy edge.</li>
+<li><strong>Speckles:</strong> flick clean water on first, then brush tea over.</li>
+<li><strong>Writing:</strong> write or stamp on the page before staining, with a waterproof pen, so the ink ages with the paper.</li></ul>
+<h2>Will tea stained paper fade?</h2>
+<p>It can. Tea isn't a lightfast dye, so a page left in a sunny window will fade over time. Inside a closed journal it keeps its colour well. Seal a page with matte gel medium if you want extra protection.</p>
+<p>What next? Use your stained paper in your first journal with our <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a> guide, then shuffle a theme for the page with the <a href="{href("journal-prompts.html")}">junk journal prompt generator</a>. Prefer ready-made aged papers? Our Tea Room kit below is printable tea-stained pages.</p></div></section>'''
+ts_faq = [
+    ("How do you tea stain paper?", "Steep about 3 black tea bags in half a cup of hot water for 5 minutes, let it cool a little, then brush, dip or dab it onto the paper. Let some tea puddle for a natural look and dry the sheet flat."),
+    ("How long do you soak paper in tea?", "A few minutes is enough for most papers. Longer gives a darker colour, but thin paper can fall apart, so brush thin paper instead of soaking it."),
+    ("Can you dry tea stained paper in the oven?", "Yes. Put it on a baking sheet in a low oven, about 200°F (95°C) or your lowest setting, for around 5 minutes. Watch it the whole time, because paper can scorch or turn brittle."),
+    ("What paper is best for tea staining?", "Watercolour, mixed-media and heavy cardstock hold up best when wet. Thin printer paper works if you brush it gently rather than soaking."),
+    ("Is coffee or tea better for staining paper?", "Black tea gives a warm golden brown. Coffee gives a darker, browner stain. Many journalers use tea for the page and a sprinkle of instant coffee for age spots."),
+    ("How do you stop tea stained paper from curling?", "Dry it flat. Once it's only damp, cover it with a paper towel and press it under heavy books or a sheet of glass until fully dry."),
+]
+page("how-to-tea-stain-paper.html", "How to Tea Stain Paper for Junk Journals (Oven or Air Dry) | Purl & Paper",
+     "How to tea stain paper for junk journals: the tea recipe, four ways to apply it, the best paper, drying flat or in the oven, and easy age spots, rings and torn edges. With a shade tester.",
+     ts, ts_faq, "How to tea stain paper")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -969,7 +1140,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", "yarn-weights.html": "2026-11-20",
+LASTMOD = {"yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-22"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

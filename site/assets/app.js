@@ -749,4 +749,102 @@
     prKeys.concat(["try"]).forEach(function (k) { prE[k].addEventListener("input", prCalc); prE[k].addEventListener("change", prCalc); });
     prCalc();
   }
+  /* ---- Yarn substitution calculator ---- */
+  if ($("#ys-n") && $("#ys-out")) {
+    var ysE = {}; ["n", "pw", "pl", "pu", "pg", "ml", "mu", "mg", "mw", "out"].forEach(function (k) { ysE[k] = $("#ys-" + k); });
+    var ysKeys = ["n", "pw", "pl", "pu", "pg", "ml", "mu", "mg", "mw"], ysPref = store.get("pp-subst", null);
+    if (ysPref) ysKeys.forEach(function (k) { if (ysPref[k] != null && ysPref[k] !== "") ysE[k].value = ysPref[k]; });
+    var WN = {}; (P.weights || []).forEach(function (w) { WN[w.n] = w.name + " (" + String(w.also || "").split(",")[0] + ")"; });
+    var DBL = { 1: [2, 3], 2: [4], 3: [4], 4: [5] };
+    function ysCalc() {
+      var n = Math.max(0, parseFloat(ysE.n.value) || 0), pl = Math.max(0, parseFloat(ysE.pl.value) || 0), ml = Math.max(0, parseFloat(ysE.ml.value) || 0);
+      var plm = ysE.pu.value === "yd" ? pl * 0.9144 : pl, mlm = ysE.mu.value === "yd" ? ml * 0.9144 : ml;
+      var st = parseInt(segVal($("#ys-st")), 10) || 1, sp = segVal($("#ys-sp"));
+      var pg = parseFloat(ysE.pg.value) || 0, mg = parseFloat(ysE.mg.value) || 0, pw = parseInt(ysE.pw.value, 10), mw = parseInt(ysE.mw.value, 10);
+      if (!n || !plm || !mlm) { ysE.out.innerHTML = "<h3>Balls of your yarn</h3><div class=\"big\">–</div><p class=\"sub\">Enter the number of balls and the length per ball from both labels.</p>"; return; }
+      var totM = n * plm, needM = totM * st, exact = needM / mlm, base = Math.ceil(exact - 1e-9), buy = base;
+      if (sp === "10") buy = Math.ceil(exact * 1.1 - 1e-9); else if (sp === "ball") buy = base + 1;
+      var icons = ""; for (var i = 0; i < Math.min(buy, 40); i++) icons += ball(i < base ? "#b8326a" : "#2f8f8a", i >= base, i);
+      var tips = [];
+      if (st === 2) {
+        var ok = DBL[mw] || [];
+        tips.push(ok.indexOf(pw) >= 0 ? "Two strands of " + esc(WN[mw]) + " usually work like " + esc(WN[pw]) + ". Swatch to be sure." :
+          "Two strands of " + esc(WN[mw]) + " aren't a usual match for " + esc(WN[pw]) + " yarn. Swatch carefully, or pick a different yarn.");
+      } else if (pw === mw) tips.push("Same yarn weight: " + pw + " " + esc(WN[pw]) + ". Good start: now swatch for gauge.");
+      else tips.push("Different yarn weights (" + pw + " vs " + mw + "). Your gauge and size will change unless you rework the pattern.");
+      if (pg > 0 && mg > 0) {
+        var pd = plm / pg * 100, md = mlm / mg * 100 / st, r = md / pd;
+        var txt = "Length per 100 g: pattern " + fmt(pd) + " m, yours " + fmt(md) + " m" + (st === 2 ? " (held double)" : "") + ". ";
+        if (Math.abs(r - 1) <= 0.1) txt += "Very close, so the thickness is likely a good match.";
+        else if (r > 1) txt += (r <= 1.25 ? "Yours is a little thinner. " : "Yours is much thinner. ") + "Expect more stitches per 10 cm.";
+        else txt += (r >= 0.8 ? "Yours is a little thicker. " : "Yours is much thicker. ") + "Expect fewer stitches per 10 cm.";
+        tips.push(txt + " (Dense fibres like cotton have less length per gram at the same thickness.)");
+      }
+      var grams = mg > 0 ? " Buying " + buy + " balls is about " + fmt(buy * mg) + " g." : "";
+      ysE.out.innerHTML = "<h3>Balls of your yarn to buy</h3><div class=\"big\">" + buy + "</div>" +
+        '<div class="balls" aria-hidden="true">' + icons + "</div>" +
+        "<p>The pattern uses about <strong>" + fmt(totM) + " m</strong> (" + fmt(totM / 0.9144) + " yd)" + (st === 2 ? ", so held double you need <strong>" + fmt(needM) + " m</strong>" : "") + ". That's " + (Math.abs(exact - base) < 0.05 ? "exactly " + base + " balls of yours" : (Math.round(exact * 10) / 10) + " balls of yours, rounded up to " + base) + (buy > base ? ", plus spare" : "") + "." + grams + "</p>" +
+        (buy > base ? '<p class="sub">The teal balls are your spare.</p>' : "") +
+        "<hr>" + tips.map(function (t) { return '<p class="sub">' + t + "</p>"; }).join("") +
+        '<p class="sub">Buy every ball from the same dye lot. These are estimates; your tension can change how much you use.</p>';
+      var sv = {}; ysKeys.forEach(function (k) { sv[k] = ysE[k].value; }); store.set("pp-subst", sv);
+    }
+    ysKeys.forEach(function (k) { ysE[k].addEventListener("input", ysCalc); ysE[k].addEventListener("change", ysCalc); });
+    seg($("#ys-st"), ysCalc); seg($("#ys-sp"), ysCalc);
+    ysCalc();
+  }
+  /* ---- Tea stain shade tester ---- */
+  if ($("#ts-svg") && $("#ts-out")) {
+    var tsSvg = $("#ts-svg"), tsOut = $("#ts-out"), tsSeed = 7;
+    var TEA = {
+      black: { name: "black tea", c: ["#ead6ae", "#d8b47e", "#bf8f56"], bags: ["1 bag", "3 bags", "5 bags"], note: "The classic warm, golden brown." },
+      green: { name: "green tea", c: ["#ece6bf", "#ddd398", "#c8bb72"], bags: ["2 bags", "4 bags", "6 bags"], note: "Paler and yellow-green. Needs more bags than black tea." },
+      coffee: { name: "instant coffee", c: ["#dfc6a2", "#c09a6b", "#906a44"], bags: ["½ tsp", "1 tsp", "2 tsp"], note: "Darker and browner than tea." },
+      herbal: { name: "herbal or fruit tea", c: ["#e8d2cb", "#d2b1ad", "#b49795"], bags: ["2 bags", "4 bags", "6 bags"], note: "Unpredictable: reds can dry grey or green. Test a scrap first." }
+    };
+    function rnd() { tsSeed = (tsSeed * 16807) % 2147483647; return (tsSeed - 1) / 2147483646; }
+    function mix(a, b, t) { var x = parseInt(a.slice(1), 16), y = parseInt(b.slice(1), 16), o = "#"; [16, 8, 0].forEach(function (s) { var v = Math.round(((x >> s) & 255) * (1 - t) + ((y >> s) & 255) * t); o += ("0" + v.toString(16)).slice(-2); }); return o; }
+    function tsDraw() {
+      var tea = TEA[$("#ts-tea").value] || TEA.black, s = (parseInt(segVal($("#ts-str")), 10) || 2) - 1, coats = parseInt(segVal($("#ts-coats")), 10) || 1, how = $("#ts-how").value;
+      var col = tea.c[s], dark = mix(col, "#5a3a1c", 0.18 + 0.08 * coats), main = coats > 1 ? mix(col, dark, (coats - 1) * 0.35) : col;
+      var start = tsSeed; var W = 260, H = 340, x0 = 20, y0 = 20, edge = "";
+      if ($("#ts-torn").checked) {
+        var pts = [], i;
+        for (i = 0; i <= 26; i++) pts.push([x0 + W * i / 26, y0 + rnd() * 5]);
+        for (i = 1; i <= 34; i++) pts.push([x0 + W - rnd() * 5, y0 + H * i / 34]);
+        for (i = 25; i >= 0; i--) pts.push([x0 + W * i / 26, y0 + H - rnd() * 5]);
+        for (i = 33; i >= 1; i--) pts.push([x0 + rnd() * 5, y0 + H * i / 34]);
+        edge = "M" + pts.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join("L") + "Z";
+      } else edge = "M" + x0 + " " + y0 + "h" + W + "v" + H + "h-" + W + "Z";
+      var g = '<defs><clipPath id="ts-clip"><path d="' + edge + '"/></clipPath><radialGradient id="ts-v" cx="50%" cy="50%" r="70%"><stop offset=".55" stop-color="' + dark + '" stop-opacity="0"/><stop offset="1" stop-color="' + dark + '" stop-opacity="' + (how === "dip" ? 0.85 : 0.5) + '"/></radialGradient></defs>';
+      g += '<rect x="0" y="0" width="300" height="380" fill="#f3efe6"/><path d="' + edge + '" fill="#000" opacity=".12" transform="translate(4 5)"/>';
+      g += '<g clip-path="url(#ts-clip)"><rect x="0" y="0" width="300" height="380" fill="' + main + '"/>';
+      var k, n;
+      if (how === "brush") for (k = 0; k < 7; k++) g += '<rect x="-20" y="' + (rnd() * 360) + '" width="340" height="' + (14 + rnd() * 30) + '" fill="' + dark + '" opacity="' + (0.08 + rnd() * 0.12) + '" transform="rotate(' + (-8 + rnd() * 16) + ' 150 190)"/>';
+      if (how === "dab") for (k = 0; k < 16; k++) g += '<ellipse cx="' + (x0 + rnd() * W) + '" cy="' + (y0 + rnd() * H) + '" rx="' + (16 + rnd() * 26) + '" ry="' + (12 + rnd() * 20) + '" fill="' + dark + '" opacity="' + (0.1 + rnd() * 0.18) + '"/>';
+      if (how === "pour") for (k = 0; k < 4; k++) { var cx = x0 + rnd() * W, cy = y0 + rnd() * H, r = 30 + rnd() * 50; g += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + r + '" ry="' + r * 0.7 + '" fill="' + dark + '" opacity=".14" stroke="' + dark + '" stroke-width="2.5" stroke-opacity=".5"/>'; }
+      if ($("#ts-crumple").checked) for (k = 0; k < 9; k++) { var ax = x0 + rnd() * W, ay = y0 + rnd() * H; g += '<path d="M' + ax + " " + ay + "l" + (rnd() * 120 - 60) + " " + (rnd() * 120 - 60) + "l" + (rnd() * 80 - 40) + " " + (rnd() * 80 - 40) + '" fill="none" stroke="' + dark + '" stroke-width="' + (1 + rnd() * 1.5) + '" opacity=".45"/>'; }
+      if ($("#ts-spots").checked) for (k = 0; k < 40; k++) g += '<circle cx="' + (x0 + rnd() * W) + '" cy="' + (y0 + rnd() * H) + '" r="' + (0.8 + rnd() * 2.6) + '" fill="' + mix(dark, "#3a220e", 0.5) + '" opacity="' + (0.4 + rnd() * 0.5) + '"/>';
+      if ($("#ts-ring").checked) { var rx = 70 + rnd() * 160, ry = 80 + rnd() * 200; g += '<circle cx="' + rx + '" cy="' + ry + '" r="38" fill="none" stroke="' + dark + '" stroke-width="4" opacity=".55" stroke-dasharray="70 6 40 4"/>'; }
+      g += '<rect x="0" y="0" width="300" height="380" fill="url(#ts-v)"/>';
+      for (n = 0; n < 7; n++) g += '<line x1="46" x2="254" y1="' + (210 + n * 20) + '" y2="' + (210 + n * 20) + '" stroke="#5b6f8a" stroke-opacity=".28" stroke-width="1"/>';
+      g += "</g>";
+      tsSvg.innerHTML = g; tsSeed = start;
+      var str = ["light", "medium", "strong"][s], water = tea === TEA.coffee ? "1 cup of hot water" : "½ cup of hot water";
+      var method = { brush: "Brush or sponge it on, letting some tea pool.", dip: "Lay the sheet in a shallow tray of tea for a few minutes; lift it with both hands.", dab: "Squeeze the wet tea bag and press it all over the page.", pour: "Pour a little onto a rimmed baking sheet, press the paper in, wait 2 minutes and lift." }[how];
+      tsOut.innerHTML = "<h3>Your recipe</h3><div class=\"big\" style=\"font-size:2.4rem\">" + esc(tea.bags[s]) + "</div>" +
+        "<p>of " + esc(tea.name) + " in " + water + " for a " + str + " shade. Steep about 5 minutes and let it cool a little.</p>" +
+        '<ol class="sk-steps"><li>' + method + "</li>" + (coats > 1 ? "<li>Let it dry, then add " + (coats - 1) + " more coat" + (coats > 2 ? "s" : "") + ".</li>" : "") +
+        ($("#ts-spots").checked ? "<li>While damp, sprinkle a pinch of instant tea or coffee; brush the grains off when dry.</li>" : "") +
+        ($("#ts-ring").checked ? "<li>Stand a wet mug on the page while it dries.</li>" : "") +
+        ($("#ts-crumple").checked ? "<li>Crumple the sheet before staining so tea gathers in the creases.</li>" : "") +
+        ($("#ts-torn").checked ? "<li>Rub or tear the edges while they're still wet.</li>" : "") +
+        "<li>Dry flat, pressed under books, or about 5 minutes in a 200°F (95°C) oven on a tray, watching it.</li></ol>" +
+        '<hr><p class="sub">' + esc(tea.note) + " Colours on screen are only a guide.</p>";
+    }
+    ["#ts-tea", "#ts-how", "#ts-spots", "#ts-ring", "#ts-crumple", "#ts-torn"].forEach(function (s) { $(s).addEventListener("change", tsDraw); });
+    seg($("#ts-str"), tsDraw); seg($("#ts-coats"), tsDraw);
+    $("#ts-again").addEventListener("click", function () { tsSeed = 1 + Math.floor(Math.random() * 100000); tsDraw(); });
+    tsDraw();
+  }
 })();
