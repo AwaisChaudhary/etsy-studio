@@ -101,3 +101,4 @@
 - Refreshed: /yarn-calculator (Quick answer box, new "How much yarn for a hat, scarf, blanket or sweater?" table generated from the calculator's own model for knit DK/worsted/bulky and crochet worsted, "How do I work out yarn from a swatch?" steps, "How many skeins should I buy?" section, 2 new FAQs).
 - Pin queued: pins/site/crochet-circle-calculator.jpg.
 - Shop boxes: batch5 built but not listed yet (no links) and not craft-related; all craft products already in SHOP.
+- IndexNow pending (not pinged: these changes go live only after the evening deploy, so pinging now would point Bing at a 404): https://purlandpaperco.com/crochet-circle-calculator, https://purlandpaperco.com/yarn-calculator
