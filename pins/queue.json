@@ -93,6 +93,36 @@
   "status": "published 20 Nov"
  },
  {
+  "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-a.jpg",
+  "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
+  "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
+  "link": null,
+  "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:etsy_url",
+  "board": "Planners & Trackers",
+  "topic": "Reading",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/new-years-eve-party-games-pin-a.jpg",
+  "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
+  "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
+  "link": null,
+  "link_from": "batch5/listings.json:new-years-eve-party-games:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "New Year's Eve",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/kids-routine-chore-chart-pack-pin-a.jpg",
+  "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
+  "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
+  "link": null,
+  "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:etsy_url",
+  "board": "Planners & Trackers",
+  "topic": "Parenting",
+  "status": "queued"
+ },
+ {
   "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
   "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
   "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
@@ -441,6 +471,36 @@
   "link": "https://purlandpaperco.com/cast-on-calculator",
   "board": "Crochet & Knitting Planners",
   "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-b.jpg",
+  "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
+  "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
+  "link": null,
+  "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:gumroad_url",
+  "board": "Planners & Trackers",
+  "topic": "Reading",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/new-years-eve-party-games-pin-b.jpg",
+  "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
+  "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
+  "link": null,
+  "link_from": "batch5/listings.json:new-years-eve-party-games:gumroad_url",
+  "board": "Christmas Printables",
+  "topic": "New Year's Eve",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/kids-routine-chore-chart-pack-pin-b.jpg",
+  "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
+  "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
+  "link": null,
+  "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:gumroad_url",
+  "board": "Planners & Trackers",
+  "topic": "Parenting",
   "status": "queued"
  }
 ]
