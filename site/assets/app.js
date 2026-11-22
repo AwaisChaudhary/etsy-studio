@@ -317,9 +317,14 @@
 
   /* ---------- PROMPTS ---------- */
   if (page === "journal-prompts" && P.prompts) {
-    var cur = {}, locks = {}, SP = "pp-spreads", saved = store.get(SP, []);
+    var cur = {}, locks = {}, SP = "pp-spreads", saved = store.get(SP, []), jpSets = P.prompts.sets || [], jpSea = $("#jp-season");
+    if (jpSea) { var jpS0 = store.get("pp-season", ""); if (jpS0 && jpSets.some(function (x) { return x.id === jpS0; })) jpSea.value = jpS0; }
+    function jpPool(k) {
+      var set = jpSea ? jpSets.filter(function (x) { return x.id === jpSea.value; })[0] : null;
+      return set && set[k] && set[k].length ? set[k] : P.prompts[k];
+    }
     function fill(k, anim) {
-      var el = $('[data-slot="' + k + '"]'), arr = P.prompts[k], v; do { v = pick(arr); } while (arr.length > 1 && v === cur[k]); cur[k] = v;
+      var el = $('[data-slot="' + k + '"]'), arr = jpPool(k), v; do { v = pick(arr); } while (arr.length > 1 && v === cur[k]); cur[k] = v;
       if (k === "palette") el.innerHTML = '<div class="palette">' + v.map(function (c) { return '<i style="background:' + c + '"><span>' + c + "</span></i>"; }).join("") + "</div>";
       else el.textContent = v;
       if (anim) { var cd = el.closest(".jp"); cd.classList.remove("drop"); void cd.offsetWidth; cd.style.animationDelay = (["theme", "ephemera", "technique", "palette", "write"].indexOf(k) * 70) + "ms"; cd.classList.add("drop"); }
@@ -332,6 +337,7 @@
     }
     $("#jp-saved").addEventListener("click", function (e) { var b = e.target.closest("[data-del]"); if (!b) return; saved.splice(+b.getAttribute("data-del"), 1); store.set(SP, saved); drawSaved(); });
     $("#jp-go").addEventListener("click", function () { shuffle(true); });
+    if (jpSea) jpSea.addEventListener("change", function () { store.set("pp-season", jpSea.value); shuffle(true); });
     $("#jp-save").addEventListener("click", function () { saved.unshift(JSON.parse(JSON.stringify(cur))); saved = saved.slice(0, 40); store.set(SP, saved); drawSaved(); toast("Spread saved"); });
     $("#jp-print").addEventListener("click", function () { window.print(); });
     shuffle(false); drawSaved();
@@ -573,6 +579,88 @@
     skEl.yarn.addEventListener("change", function () { if (!skTouchedG) skEl.g.value = skEl.yarn.value.split("|")[1]; });
     skKeys.forEach(function (k) { skEl[k].addEventListener("input", skCalc); skEl[k].addEventListener("change", skCalc); });
     skCalc();
+  }
+  /* ---------- Cast on calculator ---------- */
+  if ($("#co-what") && $("#co-out")) {
+    var coEl = {}; ["what", "custom", "w", "wu", "mode", "yarn", "g", "gu", "pat", "rep", "m", "x", "flat", "b", "s", "out", "svg", "cap"].forEach(function (k) { coEl[k] = $("#co-" + k); });
+    var coKeys = ["what", "w", "wu", "mode", "yarn", "g", "gu", "pat", "m", "x", "b", "s"], coTouchedG = false;
+    var CO_TAIL = 4.5; /* tail per stitch = 4.5 / stitches per inch (about 1 in per stitch at worsted), plus 6 in: estimate */
+    var coPref = store.get("pp-caston", null);
+    if (coPref) { coKeys.forEach(function (k) { if (coPref[k] != null && coPref[k] !== "" && coEl[k]) coEl[k].value = coPref[k]; }); coTouchedG = true; }
+    var c1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var cBoth = function (inch) { return c1(inch) + " in (" + Math.round(inch * 2.54) + " cm)"; };
+    var coLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function coCount(width, spi, mult, extra, border, selv) {
+      var b = border ? Math.round(border * spi) : 0, reps = Math.max(1, Math.round((width * spi - 2 * b - 2 * selv - extra) / mult));
+      return { reps: reps, b: b, total: reps * mult + extra + 2 * b + 2 * selv };
+    }
+    function coDraw(r, mult, extra, selv, round, real) {
+      var n = r.total, x0 = 14, W = 292, y = 56, h = 70, u = W / n, g = "";
+      var seg = function (x, w, col) { return '<rect x="' + x.toFixed(2) + '" y="' + y + '" width="' + Math.max(0.5, w).toFixed(2) + '" height="' + h + '" fill="' + col + '"/>'; };
+      var x = x0;
+      if (r.b) { g += seg(x, r.b * u, "#2f8f8a"); x += r.b * u; }
+      if (selv) { g += seg(x, selv * u, "#f4a823"); x += selv * u; }
+      for (var i = 0; i < r.reps; i++) { g += seg(x, mult * u, i % 2 ? "#d9668f" : "#b8326a"); x += mult * u; }
+      if (extra) { g += seg(x, extra * u, "#e9a3bd"); x += extra * u; }
+      if (selv) { g += seg(x, selv * u, "#f4a823"); x += selv * u; }
+      if (r.b) { g += seg(x, r.b * u, "#2f8f8a"); }
+      var vs = "", step = Math.max(u, 6), cx;
+      for (cx = x0 + step / 2; cx < x0 + W; cx += step) vs += '<path d="M' + (cx - 2.4).toFixed(1) + " " + (y + 10) + " l2.4 6 l2.4 -6" + '" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.3"/>';
+      coEl.svg.innerHTML = '<line x1="6" x2="314" y1="' + (y - 8) + '" y2="' + (y - 8) + '" stroke="#8a6e55" stroke-width="5" stroke-linecap="round"/><circle cx="312" cy="' + (y - 8) + '" r="6" fill="#1f2a44"/>' +
+        '<text x="160" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2a44">' + n + " stitches" + (round ? " joined in the round" : "") + "</text>" + g + vs +
+        '<rect x="' + x0 + '" y="' + y + '" width="' + W + '" height="' + h + '" fill="none" stroke="#1f2a44" stroke-width="2"/>' +
+        '<line x1="' + x0 + '" x2="' + (x0 + W) + '" y1="' + (y + h + 16) + '" y2="' + (y + h + 16) + '" stroke="#1f2a44" stroke-width="1.5"/>' +
+        '<line x1="' + x0 + '" x2="' + x0 + '" y1="' + (y + h + 10) + '" y2="' + (y + h + 22) + '" stroke="#1f2a44" stroke-width="1.5"/><line x1="' + (x0 + W) + '" x2="' + (x0 + W) + '" y1="' + (y + h + 10) + '" y2="' + (y + h + 22) + '" stroke="#1f2a44" stroke-width="1.5"/>' +
+        '<text x="160" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2a44">about ' + c1(real) + " in " + (round ? "around" : "wide") + "</text>";
+    }
+    function coCalc() {
+      var custom = coEl.what.value === "custom"; coEl.custom.hidden = !custom;
+      var width, round;
+      if (custom) { width = Math.min(240, Math.max(1, (parseFloat(coEl.w.value) || 0) / (coEl.wu.value === "cm" ? 2.54 : 1))); round = coEl.mode.value === "round"; }
+      else { var pv = coEl.what.value.split("|"); width = parseFloat(pv[0]) || 8; round = pv[1] === "round"; }
+      coEl.flat.hidden = round;
+      var pc = coEl.pat.value === "custom"; coEl.rep.hidden = !pc;
+      var mult, extra;
+      if (pc) { mult = Math.max(1, Math.min(80, parseInt(coEl.m.value, 10) || 1)); extra = Math.max(0, Math.min(40, parseInt(coEl.x.value, 10) || 0)); }
+      else { var pp = coEl.pat.value.split("|"); mult = parseInt(pp[0], 10) || 1; extra = parseInt(pp[round ? 2 : 1], 10) || 0; }
+      if (round && pc) extra = 0;
+      var border = round ? 0 : parseFloat(coEl.b.value) || 0, selv = round ? 0 : parseInt(coEl.s.value, 10) || 0;
+      var g = parseFloat(coEl.g.value) || 0, spi = g / (coEl.gu.value === "10" ? 10 / 2.54 : 4);
+      if (!(spi > 0)) { coEl.out.innerHTML = '<h3>Cast on</h3><p class="sub">Enter the stitches in your swatch to see the number.</p>'; coEl.svg.innerHTML = ""; return; }
+      var r = coCount(width, spi, mult, extra, border, selv), real = r.total / spi;
+      var parts = [];
+      if (r.b) parts.push(r.b + " border");
+      if (selv) parts.push(selv + " edge");
+      parts.push(r.reps * mult + extra + " pattern" + (mult > 1 ? " (" + r.reps + " × " + mult + (extra ? " + " + extra : "") + ")" : ""));
+      if (selv) parts.push(selv + " edge");
+      if (r.b) parts.push(r.b + " border");
+      var diff = real - width, tail = r.total * CO_TAIL / spi + 6;
+      var out = "<h3>Cast on</h3><div class=\"big\">" + r.total + "</div><p class=\"sub\">stitches at " + c1(spi) + " per inch" + (round ? ", joined in the round" : "") + ".</p>" +
+        '<p class="id-line">' + parts.join(" + ") + "</p>" +
+        '<div class="bk-dims">' + cBoth(real) + "<small>" + (round ? "around" : "wide") + ", for a target of " + cBoth(width) + (Math.abs(diff) >= 0.1 ? " (" + (diff > 0 ? "+" : "−") + c1(Math.abs(diff)) + " in)" : "") + "</small></div>";
+      if (mult > 1 || r.b) {
+        var lo = r.reps > 1 ? r.total - mult : 0, hi = r.total + mult;
+        out += "<hr><h3>Other numbers that fit</h3><ul class=\"co-alt\">" + (lo ? "<li><strong>" + lo + "</strong> stitches · " + cBoth(lo / spi) + "</li>" : "") + "<li><strong>" + hi + "</strong> stitches · " + cBoth(hi / spi) + "</li></ul>";
+      }
+      out += "<hr><h3>Long-tail cast on</h3><p>Leave a tail of about <strong>" + cBoth(tail) + "</strong>" + (tail > 72 ? ", that's about " + c1(tail / 36) + " yd" : "") + ". An estimate: wrap the yarn 10 times around the needle to check.</p>";
+      var needle;
+      if (round) {
+        var cables = [9, 12, 16, 24, 32, 40, 47, 60], fit = cables.filter(function (c) { return c <= width; }).pop();
+        needle = fit ? "Use a " + fit + " in circular needle (shorter than " + c1(width) + " in around), or magic loop on a longer one." : "This is small: use double-pointed needles or magic loop.";
+      } else needle = real > 14 ? "That's wide: use a 32 to 40 in circular needle (longer for big blankets) and knit back and forth." : "Straight needles or a 24 in circular will hold it.";
+      out += "<p>" + needle + "</p>";
+      out += '<p class="sub">Next: ' + coLink("yarn-calculator", "how much yarn") + ", " + coLink("row-counter", "row counter") + (width >= 30 && !round ? ", " + coLink("blanket-size-calculator", "blanket yarn") : "") + ", " + coLink("gauge-converter", "gauge converter") + ".</p>";
+      coEl.out.innerHTML = out;
+      coDraw(r, mult, extra, selv, round, real);
+      coEl.cap.textContent = "Your cast-on row: " + r.total + " stitches, about " + c1(real) + " in " + (round ? "around" : "wide") + ".";
+      var save = {}; coKeys.forEach(function (k) { save[k] = coEl[k].value; }); store.set("pp-caston", save);
+    }
+    var coWu = coEl.wu.value;
+    coEl.wu.addEventListener("change", function () { var v = parseFloat(coEl.w.value); if (v && coWu !== coEl.wu.value) coEl.w.value = Math.round(v * (coEl.wu.value === "cm" ? 2.54 : 1 / 2.54) * 2) / 2; coWu = coEl.wu.value; });
+    coEl.g.addEventListener("input", function () { coTouchedG = true; });
+    coEl.yarn.addEventListener("change", function () { if (!coTouchedG) { var gv = parseFloat(coEl.yarn.value.split("|")[1]) || 18; coEl.g.value = coEl.gu.value === "10" ? Math.round(gv * 2.5 / 2.54 * 2) / 2 : gv; } });
+    coKeys.forEach(function (k) { coEl[k].addEventListener("input", coCalc); coEl[k].addEventListener("change", coCalc); });
+    coCalc();
   }
   /* ---- Granny square blanket calculator ---- */
   if ($("#gs-size") && $("#gs-out")) {

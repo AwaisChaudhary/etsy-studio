@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -75,6 +75,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "sock-size-chart.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "christmas-gift-tags", "crochet-knitting-pricing-calculator"],
             "how-to-price-crochet-items.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
             "yarn-substitution-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "cast-on-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
@@ -232,7 +233,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -388,7 +389,8 @@ page("projects.html", "Knitting and Crochet Project Tracker (Free) | Purl & Pape
 # ---------------- PROMPTS ----------------
 jp = top("Junk journal prompts", "Shuffle a whole spread: a theme, something to glue in, a technique to try, a colour palette and a question to write about. Lock the parts you like and shuffle the rest.", "Journal prompts") + '''
 <section style="padding-top:10px"><div class="wrap">
-<div class="toolbar"><button type="button" class="btn gold" id="jp-go">Shuffle my spread</button><button type="button" class="btn ghost" id="jp-save">Save this spread</button><button type="button" class="btn ghost" id="jp-print">Print</button></div>
+<div class="quick"><strong>Quick answer:</strong> a good junk journal prompt gives you a theme, one thing to glue in and one question to write about. Try "The first frost of the year" with a Christmas card envelope, and write about the smell of winter where you live. Press shuffle for a whole spread, or pick a season below for winter, Christmas, new year, spring, summer, autumn, memory or self-care prompts.</div>
+<div class="toolbar"><label class="jp-sea-l" for="jp-season">Prompts for</label><select id="jp-season" class="jp-sea"><option value="">Any time of year</option>@@SETOPTS@@</select><button type="button" class="btn gold" id="jp-go">Shuffle my spread</button><button type="button" class="btn ghost" id="jp-save">Save this spread</button><button type="button" class="btn ghost" id="jp-print">Print</button></div>
 <div class="journal" id="jp-spread" aria-live="polite">
 <div class="jpage left">
 <div class="jp jp-torn"><div class="k">Theme <button type="button" class="lock" data-lock="theme" aria-pressed="false" aria-label="Lock this">Lock</button></div><div class="v" data-slot="theme"></div></div>
@@ -403,16 +405,39 @@ jp = top("Junk journal prompts", "Shuffle a whole spread: a theme, something to 
 <h2 style="margin-top:46px">Saved spreads</h2>
 <div class="saved" id="jp-saved"></div>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>Using prompts without getting stuck</h2>
+<section style="padding-top:0"><div class="wrap"><h2>Junk journal prompts by season</h2>
+<p class="muted">Every prompt the shuffle uses for each season, so you can pick one, print the page or plan a month of spreads.</p>
+<div class="jp-lists">@@SETLISTS@@</div></div></section>
+@@AD@@
+<section style="padding-top:0"><div class="narrow prose"><h2>How do you use a junk journal prompt?</h2>
+<ol><li><strong>Pick one prompt</strong> and read it twice. Don't wait for the perfect idea.</li>
+<li><strong>Choose a background:</strong> a book page, a tea-stained sheet or a scrap of packaging.</li>
+<li><strong>Add the focal piece</strong>: the ephemera the prompt suggests, or the closest thing in your stash.</li>
+<li><strong>Write a few lines</strong> on a tag, card or envelope. Short is fine.</li>
+<li><strong>Finish with one small detail</strong>: washi tape, a stamp, a stitched edge or a date.</li></ol>
+<h2>Using prompts without getting stuck</h2>
 <p>Treat a prompt as a starting point, not a rule. If "a ticket stub" isn't in your stash, use anything with printed numbers on it. If the palette doesn't suit the theme, keep just one colour from it.</p>
-<p>A good rhythm for a two-page spread: lay down a background paper, add one big focal piece, tuck in something interactive (a pocket, flap or tag), and finish with a few words. New to all this? Start with our <a href="@@JJ@@">junk journaling guide for beginners</a>, and age your own background papers with our guide to <a href="@@TS@@">tea staining paper</a>.</p></div></section>'''
+<p>A good rhythm for a two-page spread: lay down a background paper, add one big focal piece, tuck in something interactive (a pocket, flap or tag), and finish with a few words. New to all this? Start with our <a href="@@JJ@@">junk journaling guide for beginners</a>, and age your own background papers with our guide to <a href="@@TS@@">tea staining paper</a>.</p>
+<h2>How often should you journal?</h2>
+<p>As often as you enjoy it. Some people make one spread a week, others one page a day through December. A prompt a day works well for a month-long project like December Daily, because each page stays small and you don't have to decide what to make.</p>
+<h2>What if I don't like writing?</h2>
+<p>Skip the writing prompt and answer it with a picture, a list of three words or a single date. A junk journal is a scrapbook as much as a diary, and plenty of pages have no writing at all.</p>
+<p>What next? Read the <a href="@@JJ@@">beginner's guide to junk journaling</a> (with a free supply checklist), age papers with the <a href="@@TS@@">tea staining guide and shade tester</a>, and keep your journal and yarn projects in one place with the <a href="@@PJ@@">project tracker</a>.</p></div></section>'''
 jp_faq = [
     ("What do you put in a junk journal?", "Anything flat and paper-like that you'd normally throw away: receipts, tickets, envelopes, tea bags, packaging, book pages, plus photos, washi tape, fabric and your own writing."),
     ("How do I get ideas for junk journal pages?", "Pick one theme and one thing to glue in, then build around them. The shuffle above does this for you, and you can lock what you like."),
+    ("What are some winter or Christmas junk journal prompts?", "Try the first frost of the year, your favourite Christmas tradition, cards that came through the door, or a recipe that means Christmas to you. Glue in a card envelope, a gift tag or a strip of wrapping paper."),
+    ("What should I write in a junk journal?", "Short answers to simple questions work best: what made you smile today, a smell that takes you back, a story someone in your family always tells. A list or a few words on a tag is enough."),
+    ("How often should I use journal prompts?", "As often as you like. One spread a week is a relaxed pace; a prompt a day suits month-long projects like December Daily."),
 ]
-jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html"))
-page("journal-prompts.html", "Junk Journal Prompts Generator: Ideas for Your Next Spread | Purl & Paper",
-     "Free junk journal prompt generator. Shuffle a theme, ephemera to use, a technique, a colour palette and a writing prompt, then lock and save your favourites.",
+_sets = D["prompts"]["sets"]
+jp_setopts = "".join(f'<option value="{x["id"]}">{e(x["name"])}</option>' for x in _sets)
+jp_lists = "".join(f'<div class="sheet jp-list"><h3>{e(x["name"])} prompts</h3><p class="k">Themes</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["theme"]) +
+                   '</ul><p class="k">Glue in</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["ephemera"]) + '</ul><p class="k">Write about</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["write"]) + "</ul></div>" for x in _sets)
+jp = jp.replace("@@SETOPTS@@", jp_setopts).replace("@@SETLISTS@@", jp_lists).replace("@@AD@@", AD.format("jp-mid"))
+jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html")).replace("@@PJ@@", href("projects.html"))
+page("journal-prompts.html", "Junk Journal Prompts: Generator + Winter, Christmas and Seasonal Ideas | Purl & Paper",
+     "Free junk journal prompt generator with winter, Christmas, new year, spring, summer, autumn, memory and self-care prompts. Shuffle a theme, ephemera, technique, palette and question.",
      jp, jp_faq, "Journal prompts", app_name="Junk journal prompt generator")
 
 # ---------------- YARN WEIGHTS ----------------
@@ -461,7 +486,7 @@ hn = top("Hook and needle size chart", "Metric, US and old UK sizes side by side
 <ul><li><strong>Too many stitches per 4 in:</strong> your fabric is tight, so go up a needle or hook size.</li>
 <li><strong>Too few stitches:</strong> your fabric is loose, so go down a size.</li>
 <li>One size step usually changes gauge by about half a stitch per inch, so swatch again after you switch.</li></ul>
-<p>What next? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big your piece will turn out if you keep your gauge, and the <a href="{href("yarn-calculator.html")}">yarn calculator</a> tells you how much yarn to buy. Following a UK crochet pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> too.</p></div></section>'''
+<p>What next? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big your piece will turn out if you keep your gauge, and the <a href="{href("yarn-calculator.html")}">yarn calculator</a> tells you how much yarn to buy. Following a UK crochet pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> too. Starting a scarf or blanket? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> turns your gauge into a cast-on number.</p></div></section>'''
 hn_faq = [
     ("What size is an H crochet hook?", "An H-8 hook is 5 mm."),
     ("What is a US size 8 knitting needle in mm?", "A US 8 needle is 5 mm, the same as an old UK size 6."),
@@ -592,7 +617,7 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 </div></section>
 <section style="padding-top:0"><div class="narrow prose"><h2>How the yarn estimate works</h2>
 <p>We work out the blanket's area and multiply it by a typical amount of yarn per square inch for plain worsted knitting, then adjust for your yarn: thinner yarn needs more length, thicker yarn less. Crochet usually takes about a quarter more yarn than knitting, cables and bobbles take more again, and open lace stitches take a little less. Granny squares are a special case, because the joins and border add up: use the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> for those.</p>
-<p>The answer is a range, because tension, stitch and borders all change it. Buy enough for the high end, from one dye lot. For hats, scarves and other projects, use our <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and if your swatch doesn't match the pattern, the <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big the blanket will really be.</p>
+<p>The answer is a range, because tension, stitch and borders all change it. Buy enough for the high end, from one dye lot. For hats, scarves and other projects, use our <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and if your swatch doesn't match the pattern, the <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big the blanket will really be. Knitting it? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> tells you how many stitches to start with for your width and gauge.</p>
 <div class="callout"><strong>Allow for the border.</strong> A few rounds of border can add 5 to 10 percent more yarn on a big blanket. Fringe or tassels add more.</div>
 <h2>Choosing a size</h2>
 <p>For a gift, a throw (about 50 × 60 in) is the safest choice: it fits a sofa, the foot of a bed or a lap. For a baby, 30 to 36 inches square is easy to carry and wash. For a bed, measure the top of the mattress and add the drop you want on each side, usually 10 to 15 inches.</p>
@@ -1119,6 +1144,79 @@ page("how-to-tea-stain-paper.html", "How to Tea Stain Paper for Junk Journals (O
      "How to tea stain paper for junk journals: the tea recipe, four ways to apply it, the best paper, drying flat or in the oven, and easy age spots, rings and torn edges. With a shade tester.",
      ts, ts_faq, "How to tea stain paper")
 
+# ---------------- CAST ON CALCULATOR ----------------
+CO_G = {1: 28, 2: 24, 3: 22, 4: 18, 5: 14, 6: 9, 7: 6}   # typical stitches per 4 in: middle of each Craft Yarn Council knit range (jumbo: 6 and fewer)
+CO_TAIL = 4.5   # long-tail estimate: tail per stitch = 4.5 / stitches per inch (about 1 in per stitch at worsted), plus 6 in. Our estimate.
+def co_count(width, g4, mult=1, extra=0, border=0, selv=1):
+    spi = g4 / 4; b = int(border * spi + 0.5) if border else 0
+    reps = max(1, int((width * spi - 2 * b - 2 * selv - extra) / mult + 0.5))
+    return reps * mult + extra + 2 * b + 2 * selv
+CO_PRE = [("scarf-child", "Child's scarf", 6, "flat"), ("scarf", "Adult scarf", 8, "flat"), ("scarf-wide", "Wide scarf", 10, "flat"), ("wrap", "Wrap or stole", 20, "flat"),
+          ("dishcloth", "Dishcloth", 8, "flat"), ("cowl", "Cowl (in the round)", 24, "round"), ("infinity", "Infinity scarf (in the round)", 55, "round")]
+co_bl = [b for b in D["blankets"] if b["id"] in ("lovey", "stroller", "baby", "crib", "throw", "twin", "queen")]
+co_opts = "".join(f'<option value="{w}|{m}"{" selected" if k == "scarf" else ""}>{e(n)}, {w} in{" around" if m == "round" else " wide"}</option>' for k, n, w, m in CO_PRE) + \
+          "".join(f'<option value="{b["w"]}|flat">{e(b["name"])} blanket, {b["w"]} in wide</option>' for b in co_bl) + '<option value="custom">My own width</option>'
+co_wopts = "".join(f'<option value="{w["n"]}|{CO_G[w["n"]]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"].split(",")[0])})</option>' for w in D["weights"] if w["n"] in CO_G)
+CO_EX = [("Child's scarf", 6), ("Dishcloth", 8), ("Adult scarf", 8), ("Wide scarf", 10), ("Baby blanket", 36), ("Throw blanket", 50)]
+CO_EXW = [(1, "Fingering"), (3, "DK"), (4, "Worsted"), (5, "Bulky"), (6, "Super bulky")]
+co_rows = "".join(f'<tr><td><strong>{e(n)}</strong><br><span class="muted">{w} in ({round(w * 2.54)} cm) wide</span></td>' + "".join(f"<td>{co_count(w, CO_G[k])}</td>" for k, _ in CO_EXW) + "</tr>" for n, w in CO_EX)
+_co_sc = co_count(8, 18); _co_th = co_count(50, 18); _co_ch = co_count(8, 9)
+co = top("Cast on calculator: how many stitches to cast on", "Pick what you're making, your yarn and your gauge. Get the cast-on number that fits your stitch pattern, borders and edge stitches, how wide it will really be, and how long to leave the tail.", "Cast on calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> multiply the width you want by your stitches per inch, then round to fit your stitch pattern. An 8 in adult scarf in worsted yarn (about 18 stitches per 4 in, so 4.5 per inch) needs about <strong>{_co_sc} stitches</strong>. A 50 in throw blanket in worsted needs about <strong>{_co_th}</strong>. Super bulky yarn at 9 stitches per 4 in needs only about {_co_ch} stitches for a scarf. Swatch first, because your gauge decides the number.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="co-what">What are you making?</label><select id="co-what">{co_opts}</select></div>
+<div id="co-custom" hidden><div class="row2"><div class="field"><label for="co-w">Width (or around, for in the round)</label><input type="number" id="co-w" value="8" min="1" max="200" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="co-wu">Unit</label><select id="co-wu"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><label for="co-mode">Knitted</label><select id="co-mode"><option value="flat">Flat, back and forth</option><option value="round">In the round</option></select></div></div>
+<div class="field"><label for="co-yarn">Yarn weight</label><select id="co-yarn">{co_wopts}</select></div>
+<div class="row2"><div class="field"><label for="co-g">Stitches in your swatch</label><input type="number" id="co-g" value="18" min="2" max="60" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="co-gu">Measured over</label><select id="co-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<div class="field"><label for="co-pat">Stitch pattern</label><select id="co-pat"><option value="1|0|0" selected>Stockinette or garter (any number)</option><option value="2|1|0">1x1 rib (multiple of 2 + 1 flat)</option><option value="4|2|0">2x2 rib (multiple of 4 + 2 flat)</option><option value="2|1|0">Seed or moss stitch (multiple of 2 + 1 flat)</option><option value="custom">My pattern's repeat</option></select></div>
+<div class="row2" id="co-rep" hidden><div class="field"><label for="co-m">Multiple of</label><input type="number" id="co-m" value="6" min="1" max="80" step="1" inputmode="numeric"></div>
+<div class="field"><label for="co-x">Plus (extra stitches)</label><input type="number" id="co-x" value="0" min="0" max="40" step="1" inputmode="numeric"></div></div>
+<div id="co-flat"><div class="field"><label for="co-b">Border on each side</label><select id="co-b"><option value="0" selected>No border</option><option value="0.5">½ in garter or seed border</option><option value="1">1 in border</option><option value="1.5">1½ in border</option><option value="2">2 in border (blankets)</option></select></div>
+<div class="field"><label for="co-s">Edge stitches</label><select id="co-s"><option value="0">None</option><option value="1" selected>1 each side (slip it for a neat edge)</option><option value="2">2 each side</option></select></div></div>
+<figure class="co-fig"><svg id="co-svg" viewBox="0 0 320 170" role="img" aria-label="Cast-on row divided into border, edge and pattern stitches"></svg><figcaption class="note" id="co-cap">Your cast-on.</figcaption>
+<ul class="co-key"><li><i style="background:#2f8f8a"></i>Border</li><li><i style="background:#f4a823"></i>Edge stitch</li><li><i style="background:#b8326a"></i>Pattern repeats</li></ul></figure>
+</div>
+<div class="result" aria-live="polite" id="co-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How many stitches to cast on for a scarf or blanket?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Project</th>{"".join(f'<th scope="col">{n}<br><span class="muted">{CO_G[k]} sts / 4 in</span></th>' for k, n in CO_EXW)}</tr></thead><tbody>{co_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our own maths at a typical gauge for each yarn weight (the middle of the Craft Yarn Council's range on the label), stockinette or garter with one edge stitch each side and no border. Your swatch will differ, so use the calculator with your own gauge. Scarf widths follow common guidance of 8 to 10 in for adults and 5 to 7 in for children; blanket widths are the short edge from our <a href="{href("blanket-size-calculator.html")}">blanket size chart</a>; the dishcloth width is a typical size.</p>
+</div></section>
+{AD.format("co-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I work out how many stitches to cast on?</h2>
+<ol><li><strong>Knit a swatch</strong> in the yarn, needles and stitch you'll use, at least 4 in (10 cm) wide. Wash and dry it the way you'll treat the finished piece.</li>
+<li><strong>Count the stitches</strong> across 4 in and divide by 4 for stitches per inch (or by 10 for stitches per cm).</li>
+<li><strong>Multiply by the width</strong> you want. 4.5 stitches per inch × 8 in = 36 stitches.</li>
+<li><strong>Take off the border and edge stitches</strong>, round what's left to your pattern's repeat, then add them back.</li></ol>
+<p>A few stitches either way rarely matters for a scarf or blanket. It matters more for fitted things like hats and socks, which have their own calculators: <a href="{href("hat-size-chart.html")}">hat size</a> and <a href="{href("sock-size-chart.html")}">sock size</a>.</p>
+<h2>What does "multiple of 4 plus 2" mean?</h2>
+<p>It's how patterns tell you which numbers work. Cast on any number you can make from 4 × something, then add 2. So 22, 26, 30 and 34 all work for "multiple of 4 + 2", but 24 doesn't. A 12-stitch lace repeat worked 10 times is 120 stitches; add a 10-stitch seed border on each side and you cast on 140. Count the border twice, once for each edge.</p>
+<p>Knitting in the round usually needs only the multiple, because the round has no edges to balance. If you mix two stitch patterns (say a rib and a cable), the number has to suit both.</p>
+<div class="callout"><strong>Does a garter border change the count?</strong> Garter stitch works on any number, so a garter border just adds its stitches to each side. A rib border needs the count to suit the rib too, for example a multiple of 4 for 2x2 rib in the round.</div>
+<h2>How long a tail for a long-tail cast on?</h2>
+<p>A common rule is about 1 in of tail per stitch for worsted yarn, plus a few inches to weave in. Thinner yarn needs less, thick yarn more, so the calculator scales it by your gauge (our estimate). For a big cast-on, wrap the yarn around the needle 10 times, measure that length, and multiply by the number of stitches ÷ 10. Casting on a blanket? Use two ends of the ball (one from the middle, one from the outside) so you can't run out.</p>
+<h2>Which needle should I use for a wide cast-on?</h2>
+<p>Straight needles hold a scarf or dishcloth easily. For a wrap or blanket, use a long circular needle (32 to 40 in, or longer for big blankets) and knit back and forth: the weight sits on the cable instead of your wrists. In the round, pick a circular that is shorter than the piece is around, so the stitches reach without stretching. A 16 in circular suits hats, 24 in suits most cowls, and a long infinity scarf can go on a 32 to 47 in cable.</p>
+<h2>How many chains for crochet?</h2>
+<p>Work out the number of stitches the same way, from your crochet swatch. Then chain that number plus the turning chain your pattern's first row asks for (often 1 extra for single crochet, more for taller stitches). Your pattern says which chain to start in, and that decides the exact number.</p>
+<p>What next? Check your needle size on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see how much yarn it takes with the <a href="{href("yarn-calculator.html")}">yarn calculator</a> or <a href="{href("blanket-size-calculator.html")}">blanket calculator</a>, see the size your swatch will really give with the <a href="{href("gauge-converter.html")}">gauge converter</a>, and space out shaping with the <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a>.</p></div></section>'''
+co_faq = [
+    ("How many stitches do I cast on for a scarf?", f"For an 8 in adult scarf in worsted yarn at about 4.5 stitches per inch, cast on about {_co_sc} stitches. Use about {co_count(8, 28)} in fingering, {co_count(8, 14)} in bulky and {_co_ch} in super bulky yarn. Children's scarves are 5 to 7 in wide."),
+    ("How many stitches do I cast on for a blanket?", f"Multiply the blanket's width by your stitches per inch. A 36 in baby blanket in worsted needs about {co_count(36, 18)} stitches, and a 50 in throw about {_co_th}. Bulky yarn needs about {co_count(50, 14)} for a throw."),
+    ("How do I calculate stitches to cast on?", "Knit a swatch, count the stitches in 4 in and divide by 4 to get stitches per inch. Multiply by the width you want, then round to your stitch pattern's repeat and add any border and edge stitches."),
+    ("What does multiple of 4 plus 2 mean in knitting?", "Cast on a number that is 4 times something, plus 2: for example 22, 26, 30 or 34. It makes the stitch pattern line up at both edges."),
+    ("How much tail do I need for a long-tail cast on?", "About 1 in per stitch in worsted yarn, plus a few inches, less for thin yarn and more for thick yarn. For a large cast-on, wrap the yarn 10 times around the needle, measure it, and scale up."),
+    ("How many stitches for an infinity scarf?", f"Multiply the distance around (usually 50 to 60 in) by your stitches per inch. At 4.5 stitches per inch, 55 in around is about {co_count(55, 18, 1, 0, 0, 0)} stitches, worked on a circular needle a little shorter than the scarf."),
+]
+page("cast-on-calculator.html", "Cast On Calculator: How Many Stitches to Cast On? | Purl & Paper",
+     "How many stitches to cast on for a scarf, blanket, dishcloth or cowl: free knitting cast-on calculator for your gauge, stitch pattern multiple, borders and long-tail length.",
+     co, co_faq, "Cast on calculator", app_name="Knitting cast on calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -1140,7 +1238,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", 
+LASTMOD = {"cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-21", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", "yarn-calculator.html": "2026-11-20", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-22"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

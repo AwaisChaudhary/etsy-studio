@@ -589,6 +589,330 @@
     "#f1c6d7",
     "#fbf3e4"
    ]
+  ],
+  "sets": [
+   {
+    "id": "winter",
+    "name": "Winter and Christmas",
+    "theme": [
+     "The first frost of the year",
+     "Your favourite Christmas tradition",
+     "A winter walk, start to finish",
+     "The view from a frosty window",
+     "Christmas as a child",
+     "Hot drinks and cold hands",
+     "Cards that came through the door",
+     "A quiet evening by the lights"
+    ],
+    "ephemera": [
+     "A Christmas card envelope",
+     "A sweet wrapper from the tin",
+     "A strip of gift wrap",
+     "A gift tag you were given",
+     "A pressed sprig of pine or holly",
+     "A ticket from a winter show"
+    ],
+    "write": [
+     "What does a perfect snow day look like?",
+     "Which decoration has the best story behind it?",
+     "Write down a recipe that means Christmas to you.",
+     "Who would you most like to send a card to this year, and why?",
+     "Describe the smell of winter where you live.",
+     "What gift did you love giving most?",
+     "List five small things that made this December good.",
+     "How do you rest when the days are short?"
+    ],
+    "palette": [
+     [
+      "#7a1f2b",
+      "#2f5d50",
+      "#f3e9d7",
+      "#c9a14a"
+     ],
+     [
+      "#1f3a5f",
+      "#a9c3d6",
+      "#f7f4ee",
+      "#8c8c8c"
+     ]
+    ]
+   },
+   {
+    "id": "newyear",
+    "name": "New year",
+    "theme": [
+     "One word for the year ahead",
+     "The year in twelve small moments",
+     "Things to leave behind",
+     "A letter to yourself in December",
+     "Places you want to see",
+     "A habit worth starting",
+     "Your year in numbers",
+     "Best book, song and meal of the year"
+    ],
+    "ephemera": [
+     "A calendar page you've finished with",
+     "A ticket from the best day of the year",
+     "A to-do list you completed",
+     "A photo printed small",
+     "A fortune or a lucky note",
+     "A page from last year's diary"
+    ],
+    "write": [
+     "What surprised you most this year?",
+     "What do you want more of next year?",
+     "Name one thing you learned the hard way.",
+     "Who helped you this year?",
+     "What would make next January feel calm?",
+     "Write three promises you can actually keep.",
+     "What are you proud of that nobody saw?",
+     "Describe a day you'd like to have again."
+    ],
+    "palette": [
+     [
+      "#1f2a44",
+      "#c9a14a",
+      "#f2ede3",
+      "#8a93a8"
+     ],
+     [
+      "#2b2b2b",
+      "#d8b36a",
+      "#efe7da",
+      "#9a3b3b"
+     ]
+    ]
+   },
+   {
+    "id": "spring",
+    "name": "Spring",
+    "theme": [
+     "The first flowers you noticed",
+     "Spring cleaning finds",
+     "Birdsong and early mornings",
+     "Something new you're growing",
+     "Rainy afternoons",
+     "A garden, real or dreamed",
+     "Easter or spring holidays",
+     "Fresh starts"
+    ],
+    "ephemera": [
+     "A seed packet",
+     "A pressed petal or leaf",
+     "A garden centre label",
+     "A paper napkin with a floral print",
+     "A postcard of a park",
+     "A plant tag"
+    ],
+    "write": [
+     "What are you ready to start again?",
+     "Describe the first warm day this year.",
+     "Which flower reminds you of someone?",
+     "What would you plant if you had space?",
+     "Write about a walk after rain.",
+     "What feels lighter now than in winter?",
+     "List things that are just beginning.",
+     "What would you clear out to make room?"
+    ],
+    "palette": [
+     [
+      "#e9a6b3",
+      "#a8c69f",
+      "#fdf6e9",
+      "#6b8f71"
+     ],
+     [
+      "#f2d16b",
+      "#9ec1cf",
+      "#fbf8f0",
+      "#7c9a5c"
+     ]
+    ]
+   },
+   {
+    "id": "summer",
+    "name": "Summer and travel",
+    "theme": [
+     "A day at the seaside",
+     "Your best holiday so far",
+     "Ice cream and long evenings",
+     "A road trip map",
+     "Places you went this summer",
+     "A picnic to remember",
+     "Summer as a child",
+     "Somewhere you'd go back to"
+    ],
+    "ephemera": [
+     "A boarding pass or train ticket",
+     "A map of somewhere you visited",
+     "A beach shop receipt",
+     "A foreign coin rubbing or banknote copy",
+     "A museum or attraction ticket",
+     "A postcard you bought and never sent"
+    ],
+    "write": [
+     "What did the air smell like on holiday?",
+     "Describe the best meal you had away from home.",
+     "Who would you take on your dream trip?",
+     "What did you do on the longest day of the year?",
+     "Write about getting a little bit lost.",
+     "What do you always pack?",
+     "What's your favourite summer sound?",
+     "Describe a sunset you still remember."
+    ],
+    "palette": [
+     [
+      "#f28c38",
+      "#2a9d8f",
+      "#fdf3e1",
+      "#e9c46a"
+     ],
+     [
+      "#3d7ea6",
+      "#f6d6ad",
+      "#fffaf2",
+      "#e76f51"
+     ]
+    ]
+   },
+   {
+    "id": "autumn",
+    "name": "Autumn",
+    "theme": [
+     "Leaves on the path",
+     "Back to school memories",
+     "Harvest and apple picking",
+     "Cosy nights in",
+     "Halloween as a child",
+     "Wool, tea and blankets",
+     "A walk in the woods",
+     "Things that change colour"
+    ],
+    "ephemera": [
+     "A pressed autumn leaf",
+     "A coffee shop cup sleeve",
+     "A pumpkin patch or farm ticket",
+     "A brown paper bag, flattened",
+     "A recipe card for something baked",
+     "A library due-date slip"
+    ],
+    "write": [
+     "What is your favourite autumn ritual?",
+     "Describe the colours outside your window today.",
+     "What are you harvesting from this year?",
+     "Write about a cosy place you love.",
+     "What would you bake for a friend?",
+     "Which smell means autumn to you?",
+     "What are you ready to let fall away?",
+     "Describe your perfect rainy Sunday."
+    ],
+    "palette": [
+     [
+      "#a0522d",
+      "#d9a441",
+      "#f3e6cf",
+      "#5e6b3a"
+     ],
+     [
+      "#7b3f2a",
+      "#c6793a",
+      "#efe2cc",
+      "#3f4b3a"
+     ]
+    ]
+   },
+   {
+    "id": "memories",
+    "name": "Memories and family",
+    "theme": [
+     "The house you grew up in",
+     "A family recipe",
+     "Your grandparents' stories",
+     "Old photographs",
+     "A friend from school",
+     "Family sayings",
+     "Your first job",
+     "A piece of jewellery or a keepsake"
+    ],
+    "ephemera": [
+     "A copy of an old photo",
+     "A handwritten note or card",
+     "A recipe in someone's handwriting (copied)",
+     "A school report or certificate copy",
+     "A button from an old coat",
+     "A page from a vintage book"
+    ],
+    "write": [
+     "What did your childhood home sound like?",
+     "Write down a story someone always tells.",
+     "What did you learn from your grandparents?",
+     "Describe a family meal in detail.",
+     "Which object would you save first, and why?",
+     "What saying do you repeat without thinking?",
+     "Who taught you to make something by hand?",
+     "What do you want someone to remember about you?"
+    ],
+    "palette": [
+     [
+      "#8a6e55",
+      "#d8c3a5",
+      "#f4efe6",
+      "#5b5146"
+     ],
+     [
+      "#6f4e37",
+      "#b89f84",
+      "#f2ebdf",
+      "#7a8b7a"
+     ]
+    ]
+   },
+   {
+    "id": "selfcare",
+    "name": "Self-care and calm",
+    "theme": [
+     "A slow morning",
+     "Things that calm you down",
+     "Your comfort list",
+     "Small wins this week",
+     "A place you feel safe",
+     "Gratitude",
+     "Rest without guilt",
+     "What a good day looks like"
+    ],
+    "ephemera": [
+     "A tea bag label",
+     "A soft fabric scrap",
+     "A quote you copied out",
+     "A bookmark",
+     "A pressed flower",
+     "A label from a candle or soap"
+    ],
+    "write": [
+     "What helps when a day goes wrong?",
+     "List ten things you're grateful for right now.",
+     "What can you say no to this week?",
+     "Describe your ideal quiet hour.",
+     "What do you need more of?",
+     "Write a kind note to yourself.",
+     "What made today easier?",
+     "Which small habit makes you feel better?"
+    ],
+    "palette": [
+     [
+      "#9bb7a6",
+      "#e8d9c4",
+      "#fbf7f1",
+      "#c49a8f"
+     ],
+     [
+      "#b7a8c9",
+      "#eadfd2",
+      "#fbf9f5",
+      "#7d8b99"
+     ]
+    ]
+   }
   ]
  },
  "blankets": [
