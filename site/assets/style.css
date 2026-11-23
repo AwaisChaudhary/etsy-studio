@@ -543,3 +543,10 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 #cf-out .field label { color: #fff; }
 #cf-out input { width: 100%; }
 @media print { [data-page="craft-fair-checklist"] .result, [data-page="craft-fair-checklist"] .quick { display: none !important; } [data-page="craft-fair-checklist"] .tool { display: block; } }
+
+/* our paperback box */
+.book-strip{padding:8px 0 24px}
+.book-card{display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:center;background:#fff;border:1px solid rgba(30,41,74,.12);border-radius:16px;padding:20px}
+.book-card img{width:180px;height:180px;border-radius:10px;object-fit:cover}
+.book-card h2{margin:.2em 0 .4em}
+@media (max-width:560px){.book-card{grid-template-columns:1fr}.book-card img{width:150px;height:150px}}

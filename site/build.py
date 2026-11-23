@@ -99,6 +99,19 @@ def shop_box(file):
             f'<ul class="shop-grid">{cards}</ul><p><a class="btn ghost" href="{ETSY}" rel="noopener">See the whole shop on Etsy</a></p></div></section>')
 
 
+# ---- Our own KDP paperback (Amazon affiliate link via /go/knit-journal) ----
+def book_box(file):
+    keys = SHOP_FOR.get(file) or []
+    if file != "index.html" and "2027-crochet-knitting-planner" not in keys:
+        return ""
+    return (f'<section class="book-strip" aria-labelledby="book-h"><div class="wrap"><div class="book-card">'
+            f'<img src="{asset("shop/knit-crochet-project-journal.jpg")}" alt="Knit and Crochet Project Journal paperback cover" width="400" height="400" loading="lazy">'
+            f'<div><p class="muted" style="margin:0">Our paperback</p><h2 id="book-h">Knit &amp; Crochet Project Journal</h2>'
+            f'<p>Which hook was that? How many skeins did it take? 40 two-page project spreads with 100-row counters, yarn weight and hook size charts, a stash inventory, abbreviations and graph paper. 8.5 x 11 in, 110 pages.</p>'
+            f'<p><a class="btn" href="{go("knit-journal")}" {AFF_ATTR}>See it on Amazon ($9.99)</a></p>'
+            f'<p class="aff-note">This is our own book. The Amazon link is an affiliate link, so we may also earn a small commission, at no extra cost to you.</p></div></div></div></section>')
+
+
 # ---- Email signup (Kit form 10215409). Sign-ups go to Kit; Kit redirects to /thanks, then /welcome after confirming. ----
 NL_SKIP = ("thanks.html", "welcome.html", "404.html", "privacy.html")
 NOINDEX = ("thanks.html", "welcome.html", "404.html")
@@ -131,6 +144,7 @@ AFF = {
     "crochet-hooks": "https://www.lovecrafts.com/en-us/collections/crochet-hooks",
     "knitting-needles": "https://www.lovecrafts.com/en-us/collections/knitting-needles",
     "free-patterns": "https://www.lovecrafts.com/en-us/collections/all-free-patterns",
+    "knit-journal": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
 }
 # ---- Affiliate links. Pages link to /go/<slug>; _redirects sends it to the store.
 # Until a programme approves us these are plain store URLs; when approved, replace the URL with the tracked link and rebuild.
@@ -190,7 +204,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 {signup(file)}
 {AD.format(file)}
 </main>
-{shop_box(file)}
+{book_box(file)}{shop_box(file)}
 <footer><div class="wrap"><div class="fgrid">
 <div><a class="brand" href="{href("index.html")}">{LOGO}<span>Purl <i>&amp;</i> Paper</span></a><p style="margin-top:12px" class="muted">Free tools for knitters, crocheters and junk journalers. Count your rows, plan your yarn, and never run out of ideas for the next page.</p></div>
 <div><strong>Tools</strong><ul>{"".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n in NAV + TOOLS_MORE)}</ul></div>
