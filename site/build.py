@@ -2,6 +2,9 @@
 """Builds the crafts site. `python3 build.py` = live (clean URLs). `python3 build.py --preview` = local files.
 Change SITE / DOMAIN / GA_ID here once the domain is bought. Content data lives in assets/data.json."""
 import json, html, pathlib, sys, hashlib
+import pathlib as _pl, sys as _sy
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parent / "tools"))
+from og import og_image
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DOMAIN = "https://purlandpaperco.com"
@@ -160,6 +163,7 @@ def write_redirects(root):
 
 
 def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=None):
+    _og = og_image(file, title, DOMAIN)
     url = canon(file)
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": url, "dateModified": UPDATED,
            "isPartOf": {"@type": "WebSite", "name": SITE, "url": DOMAIN + "/"}}]
@@ -187,7 +191,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{"noindex, follow" if file in NOINDEX else "index, follow, max-image-preview:large"}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{e(SITE)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
-<meta name="twitter:card" content="summary"><meta name="theme-color" content="#1f2a44">
+<meta property="og:image" content="{_og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='15' cy='17' r='12' fill='%23b8326a'/%3E%3Crect x='19' y='2' width='11' height='8' rx='2' fill='%23f4a823'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
