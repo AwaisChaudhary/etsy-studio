@@ -550,3 +550,20 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .book-card img{width:180px;height:180px;border-radius:10px;object-fit:cover}
 .book-card h2{margin:.2em 0 .4em}
 @media (max-width:560px){.book-card{grid-template-columns:1fr}.book-card img{width:150px;height:150px}}
+/* how-to step drawings (magic ring, colour change) */
+.mr-steps, .cc-figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; margin: 18px 0 6px; }
+.mr-step { margin: 0; background: var(--sheet); border-radius: var(--r); box-shadow: var(--shadow); padding: 14px 16px 16px; border: 1px dashed var(--line); }
+.mr-step svg { display: block; width: 100%; height: auto; background: repeating-linear-gradient(0deg, transparent 0 13px, rgba(31,42,68,.04) 13px 14px); border-radius: 10px; }
+.mr-step figcaption { margin-top: 10px; font-size: .96rem; line-height: 1.45; }
+.mr-step figcaption strong { display: block; font-family: var(--display); font-size: 1.05rem; color: var(--berry); margin-bottom: 2px; }
+.result .mr-lines li { margin-bottom: 8px; }
+.result .mr-lines .muted { color: rgba(255,255,255,.7); }
+.cc-list { display: grid; gap: 8px; margin-bottom: 12px; }
+.cc-row { display: flex; align-items: center; gap: 8px; }
+.cc-row select { flex: 1 1 80px; min-width: 0; }
+.cc-row input { flex: none; }
+.cc-row input { width: 72px; }
+.cc-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(31,42,68,.25); flex: none; }
+.cc-del { border: 0; background: none; font-size: 1.4rem; line-height: 1; color: var(--ink-2); cursor: pointer; padding: 2px 8px; }
+.cc-del:hover { color: var(--berry); }
+.toolbar select#cc-rep { width: auto; flex: none; }

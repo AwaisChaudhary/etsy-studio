@@ -1535,4 +1535,168 @@
     jsKeys.forEach(function (k) { jsEl[k].addEventListener("input", jsCalc); jsEl[k].addEventListener("change", jsCalc); });
     jsCalc();
   }
+  /* ---------- MAGIC RING ROUND WRITER ---------- */
+  if ($("#mr-out") && $("#mr-svg")) {
+    var MRC = { sc: [1, "sc", 6, false], hdc: [2, "hdc", 8, false], dc: [3, "dc", 12, true] }, mrSt = "sc", mrNTouched = false;
+    var mrEl = { n: $("#mr-n"), r: $("#mr-r"), cnt: $("#mr-cnt"), join: $("#mr-join"), st: $("#mr-st"), out: $("#mr-out"), svg: $("#mr-svg"), cap: $("#mr-cap") };
+    function mrCalc() {
+      var c = MRC[mrSt], n = Math.max(3, Math.min(16, parseInt(mrEl.n.value, 10) || c[2])), R = parseInt(mrEl.r.value, 10) || 3;
+      var spiral = segVal(mrEl.join) === "spiral", counts = mrEl.cnt.checked && !spiral, st = c[1], ch = "ch " + c[0];
+      var lines = [], r, tot;
+      var r1 = "Magic ring, " + ch + (counts ? " (counts as the first " + st + "), " + (n - 1) + " " + st : " (doesn't count), " + n + " " + st) + " into the ring. Pull the tail to close" + (spiral ? ". Place a marker in the first stitch." : ", then sl st into the " + (counts ? "top of the " + ch : "first " + st) + " to join.");
+      lines.push(["Round 1", r1, n]);
+      for (r = 2; r <= R; r++) {
+        tot = n * r;
+        var body = r === 2 ? "2 " + st + " in each stitch around" : "(" + (r - 2) + " " + st + ", 2 " + st + " in next st) × " + n;
+        var start = spiral ? "" : ch + (counts ? " (counts as the first " + st + "; work the rest around it), " : " (doesn't count), ");
+        var end = spiral ? ". Move the marker up." : ", sl st to join.";
+        lines.push(["Round " + r, start + body + end, tot]);
+      }
+      var h = "<h3>Your first rounds</h3>" + '<ol class="sk-steps mr-lines">' + lines.map(function (l) { return "<li><strong>" + l[0] + ":</strong> " + esc(l[1]) + " <span class=\"muted\">(" + l[2] + " sts)</span></li>"; }).join("") + "</ol>";
+      if (n !== c[2]) h += '<p class="sub">Most ' + st + " rings start with " + c[2] + (st === "dc" ? " (or 10)" : "") + ". " + (n > c[2] ? "With more, the circle may ruffle." : "With fewer, the circle may cup.") + " Follow your pattern if it says otherwise.</p>";
+      if (st === "dc") h += '<p class="sub">Some patterns count the ch 3 as a stitch and some don\'t. Tick the box if yours does.</p>';
+      h += '<p><button type="button" class="btn gold sm" id="mr-copy">Copy the rounds</button></p><hr><p class="sub">Next: keep the circle flat to any size with the <a href="' + (location.protocol === "file:" ? "crochet-circle-calculator.html" : "/crochet-circle-calculator") + '">crochet circle calculator</a>, or stripe it with our <a href="' + (location.protocol === "file:" ? "how-to-change-colors-in-crochet.html" : "/how-to-change-colors-in-crochet") + '">colour change guide</a>.</p>';
+      mrEl.out.innerHTML = h;
+      $("#mr-copy").addEventListener("click", function () { var t = lines.map(function (l) { return l[0] + ": " + l[1] + " (" + l[2] + ")"; }).join("\n"); try { navigator.clipboard.writeText(t).then(function () { toast("Rounds copied"); }); } catch (x) { toast("Couldn't copy"); } });
+      var g = "", cols = ["#b8326a", "#2f8f8a", "#f4a823", "#1f2a44", "#c9a37a", "#d97aa0"];
+      for (r = R; r >= 1; r--) {
+        var k = n * r, rad = 14 + r * 15, i;
+        for (i = 0; i < k; i++) {
+          var a = -Math.PI / 2 + 2 * Math.PI * i / k, x = 110 + rad * Math.cos(a), y = 110 + rad * Math.sin(a), sz = Math.min(6, 2 * Math.PI * rad / k / 2.4);
+          g += '<ellipse cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" rx="' + (sz * 0.7).toFixed(1) + '" ry="' + sz.toFixed(1) + '" transform="rotate(' + (a * 180 / Math.PI + 90).toFixed(1) + " " + x.toFixed(1) + " " + y.toFixed(1) + ')" fill="#fbfcfa" stroke="' + cols[(r - 1) % cols.length] + '" stroke-width="2.4"/>';
+        }
+      }
+      g += '<circle cx="110" cy="110" r="4" fill="#d97aa0"/>';
+      if (spiral) g += '<path d="M110 ' + (110 - 14 - R * 15 - 9) + ' l-5 -9 l10 0 z" fill="#2f8f8a"/>';
+      mrEl.svg.innerHTML = g;
+      mrEl.cap.textContent = R + " round" + (R === 1 ? "" : "s") + " seen from above: " + lines.map(function (l) { return l[2]; }).join(", ") + " stitches.";
+      $("#mr-cnt-f").hidden = spiral;
+    }
+    seg(mrEl.st, function (v) { mrSt = v; if (!mrNTouched) mrEl.n.value = MRC[v][2]; mrEl.cnt.checked = MRC[v][3]; mrCalc(); });
+    seg(mrEl.join, mrCalc);
+    mrEl.n.addEventListener("input", function () { mrNTouched = true; mrCalc(); });
+    mrEl.r.addEventListener("change", mrCalc); mrEl.cnt.addEventListener("change", mrCalc);
+    mrCalc();
+  }
+
+  /* ---------- STRIPE PLANNER (colour changes) ---------- */
+  if ($("#cc-out") && $("#cc-list")) {
+    var CCP = ["#f2e6cf", "#b8326a", "#2f8f8a", "#f4a823", "#1f2a44", "#c9a37a", "#7a9e6e", "#9b6fb0"];
+    var CCN = ["Cream", "Berry", "Teal", "Gold", "Navy", "Oat", "Sage", "Plum"];
+    var ccS = store.get("pp-stripes", null);
+    if (!ccS || !ccS.list || !ccS.list.length) ccS = { list: [{ c: 0, r: 2 }, { c: 1, r: 2 }, { c: 0, r: 2 }, { c: 2, r: 2 }], rep: 3, mode: "rows" };
+    var ccList = $("#cc-list"), ccRep = $("#cc-rep"), ccMode = $("#cc-mode");
+    ccRep.value = ccS.rep || 3;
+    $$("button", ccMode).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === (ccS.mode || "rows")); });
+    var CARRY_MAX = 8;   // rows; our rule of thumb
+    function ccRender() {
+      ccList.innerHTML = ccS.list.map(function (s, i) {
+        return '<div class="cc-row" data-i="' + i + '"><span class="cc-dot" style="background:' + CCP[s.c] + '"></span><label class="sr-only" for="cc-c' + i + '">Colour</label><select id="cc-c' + i + '" data-k="c">' +
+          CCN.map(function (n, k) { return '<option value="' + k + '"' + (k === s.c ? " selected" : "") + ">" + n + "</option>"; }).join("") + '</select><label class="sr-only" for="cc-r' + i + '">Rows</label><input id="cc-r' + i + '" data-k="r" type="number" min="1" max="40" value="' + s.r + '" inputmode="numeric"><span class="muted">rows</span>' +
+          (ccS.list.length > 1 ? '<button type="button" class="cc-del" aria-label="Remove stripe ' + (i + 1) + '">×</button>' : "") + "</div>";
+      }).join("");
+      ccCalc();
+    }
+    function ccCalc() {
+      var rounds = segVal(ccMode) === "rounds", rep = parseInt(ccRep.value, 10) || 1, unit = rounds ? "round" : "row";
+      ccS.rep = rep; ccS.mode = rounds ? "rounds" : "rows"; store.set("pp-stripes", ccS);
+      var seq = [], i, k;
+      for (k = 0; k < rep; k++) ccS.list.forEach(function (s) { var r = Math.max(1, Math.min(40, parseInt(s.r, 10) || 1)); if (seq.length && seq[seq.length - 1].c === s.c) seq[seq.length - 1].r += r; else seq.push({ c: s.c, r: r }); });
+      // simulate: edge 0 = starting edge; a row ends at the other edge.
+      var row = 0, where = {}, steps = [], carries = [], joins = [], ends = 0, cuts = 0, carried = 0;
+      seq.forEach(function (s, idx) {
+        var edge = rounds ? 0 : row % 2, from = row, how;
+        if (idx === 0) { how = "join"; ends++; }
+        else {
+          var w = where[s.c];
+          if (w && w.edge === edge && (row - w.row) <= CARRY_MAX) { how = "carry"; carries.push({ c: s.c, from: w.row, to: row, edge: edge }); carried++; }
+          else { how = "join"; ends++; if (w) { cuts++; ends++; w.cut = true; } }
+          delete where[s.c];
+        }
+        joins.push({ row: row, how: how, c: s.c });
+        steps.push({ s: s, from: from, how: how, edge: edge, gap: how === "carry" ? row - carries[carries.length - 1].from : 0 });
+        row += s.r;
+        // drop this colour at the edge where its last row ends (rows) or at the join (rounds)
+        if (idx < seq.length - 1) where[s.c] = { edge: rounds ? 0 : row % 2, row: row };
+      });
+      var left = Object.keys(where).length; ends += 1 + left; cuts += left;
+      // plan text (first two repeats is plenty)
+      var maxShow = Math.min(steps.length, ccS.list.length * 2 + 1), h = "";
+      h += "<h3>Your stripes</h3><div class=\"tb-stats\"><div><strong>" + row + "</strong><span>" + unit + "s in all</span></div><div><strong>" + carried + "</strong><span>times you carry, no cutting</span></div><div><strong>" + (joins.length - 1 - carried) + "</strong><span>times you join a new end</span></div><div><strong>" + ends + "</strong><span>ends to weave in</span></div></div>";
+      h += '<ol class="sk-steps">';
+      for (i = 0; i < maxShow; i++) {
+        var st = steps[i], nm = CCN[st.s.c], a = st.from + 1, b = st.from + st.s.r;
+        var t = "<strong>" + (a === b ? unit.charAt(0).toUpperCase() + unit.slice(1) + " " + a : unit.charAt(0).toUpperCase() + unit.slice(1) + "s " + a + "–" + b) + ": " + nm + ".</strong> ";
+        if (i === 0) t += "Start with " + nm + ".";
+        else if (st.how === "carry") t += "Pick " + nm + " up from " + (rounds ? "behind the join" : "the edge") + ", where it has waited " + st.gap + " " + unit + (st.gap === 1 ? "" : "s") + ". No cutting.";
+        else t += "Change on the last yarn over of " + unit + " " + st.from + " and join " + nm + " with a 6 in tail.";
+        var nxt = steps.slice(i + 1).filter(function (x) { return x.s.c === st.s.c; })[0];
+        if (i < steps.length - 1) t += nxt ? (nxt.how === "carry" ? " Leave it hanging when you change: you'll carry it." : " Cut it when you change (it would be on the wrong edge, or waiting too long).") : " Cut it when you change: it isn't used again.";
+        h += "<li>" + t + "</li>";
+      }
+      if (steps.length > maxShow) h += "<li class=\"muted\">…the same again for the other repeats.</li>";
+      h += "</ol>";
+      var odd = !rounds && seq.some(function (s, i2) { return i2 < seq.length - 1 && s.r % 2; });
+      if (odd) h += '<p class="tb-warn">Some stripes have an odd number of rows, so a colour can end up at the wrong edge. Make every stripe 2, 4 or 6 rows to carry everything up the side.</p>';
+      h += '<p class="sub">We carry a colour only when it waits at the same edge for ' + CARRY_MAX + " " + unit + "s or fewer (our rule of thumb; longer carries pull and show). Tails of about 6 in (15 cm).</p>";
+      $("#cc-out").innerHTML = h;
+      // drawing: rows from the bottom, carried strands on the edge
+      var H = 270, rh = Math.min(18, H / row), y0 = 285, g = "", x0 = 50, W = 160;
+      steps.forEach(function (st) { g += '<rect x="' + x0 + '" y="' + (y0 - (st.from + st.s.r) * rh).toFixed(1) + '" width="' + W + '" height="' + (st.s.r * rh).toFixed(1) + '" fill="' + CCP[st.s.c] + '"/>'; });
+      if (!rounds && rh >= 6) for (i = 1; i < row; i++) g += '<line x1="' + x0 + '" x2="' + (x0 + W) + '" y1="' + (y0 - i * rh).toFixed(1) + '" y2="' + (y0 - i * rh).toFixed(1) + '" stroke="#1f2a44" stroke-opacity=".1"/>';
+      g += '<rect x="' + x0 + '" y="' + (y0 - row * rh).toFixed(1) + '" width="' + W + '" height="' + (row * rh).toFixed(1) + '" fill="none" stroke="rgba(31,42,68,.3)"/>';
+      carries.forEach(function (c, n) {
+        var x = rounds ? x0 + W / 2 : (c.edge === 0 ? x0 - 6 - (n % 3) * 4 : x0 + W + 6 + (n % 3) * 4);
+        g += '<line x1="' + x + '" x2="' + x + '" y1="' + (y0 - c.from * rh).toFixed(1) + '" y2="' + (y0 - c.to * rh).toFixed(1) + '" stroke="' + CCP[c.c] + '" stroke-width="3" stroke-linecap="round"' + (rounds ? ' stroke-dasharray="4 3"' : "") + "/>";
+      });
+      joins.forEach(function (j) { if (j.how === "join") { var x = rounds ? x0 + W / 2 : (j.row % 2 === 0 ? x0 : x0 + W); g += '<circle cx="' + x + '" cy="' + (y0 - j.row * rh).toFixed(1) + '" r="4" fill="#f4a823" stroke="#1f2a44" stroke-width="1"/>'; } });
+      $("#cc-svg").innerHTML = g;
+    }
+    ccList.addEventListener("input", function (e) { var r = e.target.closest(".cc-row"); if (!r) return; var s = ccS.list[+r.getAttribute("data-i")], k = e.target.getAttribute("data-k"); if (k === "c") { s.c = +e.target.value; $(".cc-dot", r).style.background = CCP[s.c]; } if (k === "r") s.r = parseInt(e.target.value, 10) || 1; ccCalc(); });
+    ccList.addEventListener("change", function (e) { if (e.target.getAttribute("data-k") === "c") { ccS.list[+e.target.closest(".cc-row").getAttribute("data-i")].c = +e.target.value; ccCalc(); } });
+    ccList.addEventListener("click", function (e) { var b = e.target.closest(".cc-del"); if (!b) return; ccS.list.splice(+b.closest(".cc-row").getAttribute("data-i"), 1); ccRender(); });
+    $("#cc-add").addEventListener("click", function () { if (ccS.list.length >= 8) { toast("Up to 8 stripes"); return; } var last = ccS.list[ccS.list.length - 1]; ccS.list.push({ c: (last.c + 1) % CCP.length, r: 2 }); ccRender(); });
+    ccRep.addEventListener("change", ccCalc); seg(ccMode, ccCalc);
+    ccRender();
+  }
+
+  /* ---------- YARN WEIGHT FINDER ---------- */
+  if ($("#yw-out") && window.YWID && P.weights) {
+    var ywMode = $("#yw-mode");
+    function ywCalc() {
+      var wpi = segVal(ywMode) === "wpi", hits = [], val, txt;
+      $("#yw-label").hidden = wpi; $("#yw-wpi").hidden = !wpi;
+      if (wpi) {
+        val = parseFloat($("#yw-w").value);
+        if (!(val > 0)) { $("#yw-out").innerHTML = "<p>Enter the number of wraps.</p>"; return; }
+        hits = window.YWID.filter(function (r) { return val >= r[2] && val <= r[3]; });
+        txt = val + " wraps per inch";
+      } else {
+        var len = parseFloat($("#yw-len").value), g = parseFloat($("#yw-g").value);
+        if (!(len > 0) || !(g > 0)) { $("#yw-out").innerHTML = "<p>Enter the length and weight from the label.</p>"; return; }
+        if ($("#yw-lu").value === "yd") len *= 0.9144;
+        if ($("#yw-gu").value === "oz") g *= 28.35;
+        val = len / g * 100;
+        hits = window.YWID.filter(function (r) { return val >= r[4] * 0.97 && val <= r[5] * 1.03; });
+        if (!hits.length) { var best = null, bd = 1e9; window.YWID.forEach(function (r) { var d = Math.min(Math.abs(val - r[4]), Math.abs(val - r[5])); if (d < bd) { bd = d; best = r; } }); hits = [best]; }
+        txt = fmt(val) + " m per 100 g (" + fmt(val * 1.0936) + " yd)";
+      }
+      var W = P.weights, h = "<h3>Your yarn is most likely</h3>";
+      h += '<div class="big" style="font-size:2rem">' + hits.map(function (r) { return esc(r[1]) + " (" + r[0] + ")"; }).join(" or ") + "</div><p class=\"sub\">" + esc(txt) + (hits.length > 1 ? ". That's on the line between two weights, so swatch with both needle sizes." : ".") + "</p>";
+      hits.forEach(function (r) { var w = W[r[0]]; if (!w) return; h += "<hr><p><strong>" + esc(w.name) + " (" + r[0] + ")</strong>, also called " + esc(w.also) + ". UK: " + esc(w.uk) + ".</p><p>Needles <strong>" + esc(w.needle) + "</strong>, hook <strong>" + esc(w.hook) + "</strong>. Good for " + esc(w.use.toLowerCase()) + '. <a href="#w' + r[0] + '">See it in the chart</a>.</p>'; });
+      h += '<hr><p class="sub">Typical ranges from Yarn.com\'s yarn weight chart. Fluffy or very dense yarns can sit outside them.</p>';
+      $("#yw-out").innerHTML = h;
+      var s = "", i, on = hits.map(function (r) { return r[0]; });
+      for (i = 0; i <= 7; i++) {
+        var x = 18 + i * 37, th = 3 + i * 3.2, hit = on.indexOf(i) >= 0;
+        s += '<rect x="' + (x - th / 2) + '" y="' + (58 - th * 1.6) + '" width="' + th + '" height="' + (th * 3.2 + 10) + '" rx="' + th / 2 + '" fill="' + (hit ? "#b8326a" : "#c9a37a") + '" opacity="' + (hit ? 1 : 0.55) + '"/>';
+        s += '<text x="' + x + '" y="104" text-anchor="middle" font-size="12" fill="#1f2a44" font-weight="' + (hit ? 700 : 400) + '">' + i + "</text>";
+      }
+      $("#yw-svg").innerHTML = s;
+    }
+    seg(ywMode, ywCalc);
+    ["#yw-len", "#yw-g", "#yw-w"].forEach(function (k) { $(k).addEventListener("input", ywCalc); });
+    ["#yw-lu", "#yw-gu"].forEach(function (k) { $(k).addEventListener("change", ywCalc); });
+    ywCalc();
+  }
 })();

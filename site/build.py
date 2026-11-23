@@ -27,7 +27,7 @@ NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calcu
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
 TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator"), ("foundation-chain-calculator.html", "Foundation chain calculator"), ("junk-journal-signature-calculator.html", "Junk journal signature calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -89,6 +89,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "foundation-chain-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-signature-calculator.html": ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit", "journaling-cards-3x4"],
+            "how-to-crochet-magic-ring.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-change-colors-in-crochet.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -260,7 +262,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -486,27 +488,62 @@ page("journal-prompts.html", "Junk Journal Prompts: Generator + Winter, Christma
      jp, jp_faq, "Journal prompts", app_name="Junk journal prompt generator")
 
 # ---------------- YARN WEIGHTS ----------------
+# (n, name, WPI text, wpi lo, wpi hi, m per 100 g text, yd per 100 g text, UK, AU/NZ, m lo, m hi). WPI and length: Yarn.com (WEBS) chart; names: Yarn.com, LoveCrafts, Wikipedia.
+YW_ID = [(0, "Lace", "18 or more", 19, 99, "700 or more", "770 or more", "1 or 2 ply, cobweb", "2 ply", 700, 9999),
+         (1, "Fingering", "14 to 18", 14, 18, "350 to 460", "380 to 500", "4 ply", "4 ply", 350, 460),
+         (2, "Sport", "12 to 14", 12, 14, "240 to 350", "260 to 380", "5 ply (rare in the UK)", "5 ply", 240, 350),
+         (3, "DK", "11 to 12", 11, 12, "180 to 240", "200 to 260", "DK (double knitting)", "8 ply", 180, 240),
+         (4, "Worsted", "9 to 11", 9, 11, "140 to 180", "150 to 200", "Aran (a little thicker)", "10 ply", 140, 180),
+         (5, "Bulky", "7 to 9", 7, 9, "90 to 140", "100 to 150", "Chunky", "12 ply", 90, 140),
+         (6, "Super bulky", "5 to 6", 5, 6, "50 to 90", "55 to 100", "Super chunky", "14 ply", 50, 90),
+         (7, "Jumbo", "4 or fewer", 0, 4, "under 50", "under 55", "Jumbo, giant", "16 ply and up", 0, 50)]
 rows = "".join(f'<tr id="w{w["n"]}"><td><span class="wnum">{w["n"]}</span></td><td><strong>{e(w["name"])}</strong><br><span class="muted">{e(w["also"])}</span></td><td>{e(w["uk"])}</td><td>{e(w["knit"])} sts</td><td>{e(w["needle"])}</td><td>{e(w["croc"])}</td><td>{e(w["hook"])}</td><td>{e(w["use"])}</td></tr>' for w in D["weights"])
 thick = "".join(f'<figure><i style="height:{14 + w["n"] * 6}px"></i>{w["n"]}</figure>' for w in D["weights"])
 yw = top("Yarn weight chart", "Yarn is grouped from 0 (thinnest) to 7 (thickest). Find the number on your label, or the name in your pattern, to see the needle and hook size to start with.", "Yarn weight chart") + f'''
 <section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> yarn weight means thickness, numbered from <strong>0 Lace</strong> to <strong>7 Jumbo</strong>. The three most used are <strong>DK (3)</strong>, knit on about 4 mm needles and called 8 ply in Australia; <strong>worsted or aran (4)</strong>, about 5 mm needles or a 5.5 to 6.5 mm hook, 10 ply; and <strong>bulky or chunky (5)</strong>, 12 ply. No label? Count wraps per inch: about 11 to 12 is DK and 9 to 11 is worsted. The finder below works it out from wraps or from the label.</div>
 <div class="thick" aria-hidden="true">{thick}</div><p class="note">Strand thickness, drawn to show the steps. Not to scale.</p>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">#</th><th scope="col">Weight</th><th scope="col">UK / AU name</th><th scope="col">Knit gauge (4 in / 10 cm)</th><th scope="col">Needles</th><th scope="col">Crochet gauge (4 in / 10 cm)</th><th scope="col">Hook</th><th scope="col">Good for</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="note" style="margin-top:12px">Based on the Craft Yarn Council's Standard Yarn Weight System. These are starting points: lace patterns often use bigger needles than the chart suggests, and your own tension changes things too.</p>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>How to tell a yarn's weight without a label</h2>
-<p>Wrap the yarn snugly (not stretched) around a ruler or pencil for one inch, strands touching but not overlapping, and count the wraps. That's the <strong>wraps per inch</strong>. Roughly: 18 or more is fingering or thinner, 12 to 14 is DK, 9 to 11 is worsted or aran, 7 to 8 is bulky, and 6 or fewer is super bulky.</p>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">What weight is my yarn?</h2>
+<div class="field"><label>I know the</label><div class="seg" id="yw-mode" role="group" aria-label="Find the weight from"><button type="button" data-v="label" aria-pressed="true">Label length and weight</button><button type="button" data-v="wpi" aria-pressed="false">Wraps per inch</button></div></div>
+<div id="yw-label"><div class="row2"><div class="field"><label for="yw-len">Length per ball</label><input id="yw-len" type="number" min="1" step="any" value="218" inputmode="decimal"></div><div class="field"><label for="yw-lu">Unit</label><select id="yw-lu"><option value="yd" selected>yards</option><option value="m">metres</option></select></div></div>
+<div class="row2"><div class="field"><label for="yw-g">Ball weight</label><input id="yw-g" type="number" min="1" step="any" value="100" inputmode="decimal"></div><div class="field"><label for="yw-gu">Unit</label><select id="yw-gu"><option value="g" selected>grams</option><option value="oz">ounces</option></select></div></div></div>
+<div id="yw-wpi" hidden><div class="field"><label for="yw-w">Wraps in one inch</label><input id="yw-w" type="number" min="1" max="60" step="1" value="10" inputmode="numeric"></div>
+<p class="note">Wrap the yarn round a pencil or ruler, snug but not stretched, strands touching but not overlapping, and count the wraps in 1 in (2.5 cm). Count over 2 in and halve it for a truer number.</p></div>
+<figure class="ts-fig"><svg id="yw-svg" viewBox="0 0 300 110" role="img" aria-label="Yarn weights 0 to 7 with your yarn marked"></svg></figure>
+</div>
+<div class="result" aria-live="polite" id="yw-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I tell a yarn's weight without a label?</h2>
+<p>Count the <strong>wraps per inch</strong> (WPI). Wrap the yarn snugly round a ruler or pencil for one inch, strands touching but not overlapping, and count. If you still have the label, divide the length by the weight instead: the more metres per 100 g, the thinner the yarn. Typical ranges:</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">#</th><th scope="col">Weight</th><th scope="col">Wraps per inch</th><th scope="col">Metres per 100 g</th><th scope="col">Yards per 100 g</th></tr></thead><tbody>
+{"".join(f'<tr><td><span class="wnum">{r[0]}</span></td><td>{r[1]}</td><td>{r[2]}</td><td>{r[5]}</td><td>{r[6]}</td></tr>' for r in YW_ID)}</tbody></table></div>
+<p class="note">Wraps per inch and metres per 100 g from Yarn.com's yarn weight chart (WEBS); yards rounded from those. Wikipedia's yarn weight table gives slightly different, overlapping ranges, so a yarn on the edge of two weights can be either. Fluffy, loosely spun and very dense yarns break the pattern: swatch to be sure.</p>
+<h2>What are the UK and Australian names for yarn weights?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">US name (#)</th><th scope="col">UK name</th><th scope="col">Australia / NZ</th></tr></thead><tbody>
+{"".join(f'<tr><td>{r[1]} ({r[0]})</td><td>{r[7]}</td><td>{r[8]}</td></tr>' for r in YW_ID)}</tbody></table></div>
+<p class="note">From Yarn.com, LoveCrafts and Wikipedia's yarn weight table. In Australia and New Zealand "ply" is a thickness name, not a count of strands.</p>
+<h2>Is DK the same as 8 ply? Is worsted the same as aran?</h2>
+<p>DK (double knitting) is called 8 ply in Australia and New Zealand, so yes. Worsted and aran are both weight 4, but aran is a touch thicker, so check your gauge if you swap one for the other in a fitted garment. Chunky is the UK name for bulky (5), and 12 ply in Australia.</p>
 <p>Planning a blanket? The <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> turns your yarn weight and blanket size into yards and skeins.</p>
-<h2>Swapping one yarn for another</h2>
-<p>Stay in the same weight number, then knit or crochet a swatch. Two yarns in the same category can still differ, so check the length per 100 g on both labels: if they're close, the swap usually works. The <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> does the maths and tells you how many balls to buy, including when you hold two strands together.</p></div></section>'''
+<h2>Can I swap one yarn for another?</h2>
+<p>Stay in the same weight number, then knit or crochet a swatch. Two yarns in the same category can still differ, so check the length per 100 g on both labels: if they're close, the swap usually works. The <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> does the maths and tells you how many balls to buy, including when you hold two strands together. Got a ball with no label? Weigh it in the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> to see how many yards are left.</p>
+<p>What next? Check the hook or needle to start with on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see how much you'll need with the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and fix a swatch that's off with the <a href="{href("gauge-converter.html")}">gauge converter</a>.</p></div></section>'''
 yw_faq = [
     ("Is DK the same as worsted?", "No. DK is weight 3 (light) and worsted is weight 4 (medium), so worsted is a bit thicker. In the UK, aran is close to worsted."),
     ("What weight is 4 ply yarn?", "In the UK and Australia, 4 ply is about the same as US fingering, weight 1 (super fine)."),
     ("What does 'weight' mean if it's not grams?", "Yarn weight means thickness, not how heavy the ball is. A 100 g ball can be lace or super bulky."),
+    ("How many wraps per inch is worsted yarn?", "About 9 to 11 wraps per inch. DK is about 11 to 12, and bulky about 7 to 9. Yarns on a boundary can be either weight, so swatch."),
+    ("What is 8 ply yarn in the US?", "8 ply is the Australian and New Zealand name for DK, US weight 3 (light). 10 ply is worsted or aran, and 12 ply is bulky or chunky."),
+    ("How can I tell the weight from the yarn label?", "Divide the length by the ball weight. About 180 to 240 metres per 100 g is DK, 140 to 180 is worsted, and 90 to 140 is bulky."),
 ]
 page("yarn-weights.html", "Yarn Weight Chart: Lace to Jumbo, Needle and Hook Sizes | Purl & Paper",
-     "Yarn weight chart from 0 lace to 7 jumbo: US and UK names, knit and crochet gauge, needle and hook sizes, and what each weight is good for.",
-     yw + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', yw_faq, "Yarn weight chart")
+     "Yarn weight chart from 0 lace to 7 jumbo: US, UK and Australian (ply) names, wraps per inch, metres per 100 g, gauge, needle and hook sizes. With a finder: what weight is my yarn?",
+     yw + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', yw_faq, "Yarn weight chart", app_name="Yarn weight finder", scripts=f"<script>window.YWID={json.dumps([[r[0], r[1], r[3], r[4], r[9], r[10]] for r in YW_ID])};</script>")
 
 # ---------------- HOOK / NEEDLE SIZES ----------------
 srows = "".join(f'<tr data-mm="{e(s[0][:-3])}"><td><strong>{e(s[0])}</strong></td><td>{e(s[1])}</td><td>{e(s[2])}</td><td>{e(s[3])}</td></tr>' for s in D["sizes"])
@@ -577,7 +614,8 @@ ct = top("US vs UK crochet terms", "The same stitch has a different name on each
 <p><strong>US terms:</strong> sl st into the ch-2 sp, ch 3 (counts as dc), 2 dc in same sp, ch 1, *(3 dc, ch 2, 3 dc) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 dc in the first sp, ch 2, sl st to top of ch 3.</p>
 <p><strong>UK terms:</strong> ss into the ch-2 sp, ch 3 (counts as tr), 2 tr in same sp, ch 1, *(3 tr, ch 2, 3 tr) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 tr in the first sp, ch 2, ss to top of ch 3.</p>
 <p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn. Crocheting in the round? The <a href="@@CI@@">crochet circle calculator</a> gives the stitch count for every round in sc, hdc or dc, and an amigurumi ball pattern.</p>
-<p>What next? Knit as well? Our <a href="@@KA@@">knitting abbreviations list</a> explains k2tog, ssk, M1 and the rest, and translates a whole pattern line. Working out hook sizes from a UK pattern? See the <a href="@@HN@@">hook and needle size chart</a>, and keep count of rows with the <a href="@@RC@@">row counter</a>.</p></div></section>'''.replace("@@KA@@", href("knitting-abbreviations.html")).replace("@@HN@@", href("hook-needle-sizes.html")).replace("@@RC@@", href("row-counter.html")).replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
+<p>Learning the basics? See our step-by-step guides to the <a href="@@MR@@">magic ring</a> and <a href="@@CC@@">changing colours in crochet</a>.</p>
+<p>What next? Knit as well? Our <a href="@@KA@@">knitting abbreviations list</a> explains k2tog, ssk, M1 and the rest, and translates a whole pattern line. Working out hook sizes from a UK pattern? See the <a href="@@HN@@">hook and needle size chart</a>, and keep count of rows with the <a href="@@RC@@">row counter</a>.</p></div></section>'''.replace("@@KA@@", href("knitting-abbreviations.html")).replace("@@MR@@", href("how-to-crochet-magic-ring.html")).replace("@@CC@@", href("how-to-change-colors-in-crochet.html")).replace("@@HN@@", href("hook-needle-sizes.html")).replace("@@RC@@", href("row-counter.html")).replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
 ct_faq = [
     ("Is UK double crochet the same as US single crochet?", "Yes. A UK double crochet (dc) is worked exactly like a US single crochet (sc)."),
     ("What is a treble crochet in US terms?", "A UK treble (tr) is a US double crochet (dc). A US treble (tr) is a UK double treble (dtr)."),
@@ -1404,6 +1442,7 @@ ci = top("Crochet circle calculator and amigurumi ball pattern", "How many stitc
 <h2>Amigurumi ball sizes</h2>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Increase rounds</th><th scope="col">Most stitches</th><th scope="col">Total rounds</th>{"".join(f'<th scope="col">{n}</th>' for _, n in CI_BW)}</tr></thead><tbody>{ci_brows}</tbody></table></div>
 <p class="note">Our estimate, at a tight amigurumi tension (about a quarter more stitches per inch than the yarn's usual single crochet gauge, from working on a smaller hook). Your own hook and hands change it, so crochet the first few rounds and measure. A 5-round ball in worsted comes out about {_ci_b5:.1f} in across.</p>
+<p>New to starting in the round? Our step-by-step <a href="{href("how-to-crochet-magic-ring.html")}">magic ring guide</a> shows how to start without a hole, and <a href="{href("how-to-change-colors-in-crochet.html")}">how to change colours in crochet</a> covers striped circles.</p>
 <p>What next? Shaping something that isn't round? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> spaces increases across any row. Making a crochet hat? The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the crown circle size for any head. Reading a UK pattern? Check the <a href="{href("crochet-terms.html")}">US and UK crochet terms</a>, and keep count of your rounds with the <a href="{href("row-counter.html")}">row counter</a>.</p></div></section>'''
 ci_faq = [
     ("How many stitches do you increase in a crochet circle?", "Add the same number you started with, every round: 6 for single crochet, 8 for half double crochet and usually 12 for double crochet (10 in some patterns)."),
@@ -1788,6 +1827,7 @@ tb = top("Temperature blanket planner: colours, ranges and yarn", "Set your cold
 <h2>How much yarn does a temperature blanket take?</h2>
 <p>A full-size year blanket usually takes 3,000 to 5,000 yards of worsted yarn, split across your colours. The planner gives the total and an even share per colour, or the exact share if you paste real temperatures. For your own yarn, crochet one row, weigh the ball before and after, and multiply by the number of days: 7 g a day for 365 days is 2,555 g, plus about 10 percent spare.</p>
 <p>Buying it all at once keeps dye lots matching, while buying a ball of each colour and adding more as the months go spreads the cost. If you buy as you go, choose a yarn that's widely stocked so you can still get it in October. Machine-washable acrylic or a cotton blend is easy to care for in a blanket this big.</p>
+<p>Crocheting it in rows? Change colour on the last stitch of the row and carry colours up the side when a stripe is 2 or 4 rows: our guide to <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> has a stripe planner that shows which colours to carry and which to cut.</p>
 <h2>How do I keep up with a temperature blanket?</h2>
 <ul><li><strong>Log temperatures daily</strong>, even when you don't crochet. Then you can catch up in batches at the weekend.</li>
 <li><strong>Add a month row</strong> in a neutral or border colour between months. It makes the blanket easy to read and gives you a checkpoint.</li>
@@ -2191,11 +2231,193 @@ page("privacy.html", "Privacy Policy | Purl & Paper", "How Purl & Paper handles 
 page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
      f'<section><div class="narrow" style="text-align:center"><h1>Dropped a stitch.</h1><p class="lead" style="margin-inline:auto">This page doesn\'t exist. It may have moved.</p><div class="btns" style="justify-content:center"><a class="btn gold" href="{href("index.html")}">Back to the home page</a><a class="btn ghost" href="{href("row-counter.html")}">Open the row counter</a></div></div></section>')
 
+# ---------------- HOW TO CROCHET A MAGIC RING (guide + round 1 writer) ----------------
+import math as _m
+_Y, _Y2, _HK, _MG, _TL = "#b8326a", "#d97aa0", "#1f2a44", "#f4a823", "#2f8f8a"
+def _sts(n, r, cx=110, cy=78, hi=None, col=_Y):
+    o = ""
+    for i in range(n):
+        a = -_m.pi / 2 + 2 * _m.pi * i / n
+        x, y = cx + r * _m.cos(a), cy + r * _m.sin(a)
+        c = _TL if hi == i else col
+        o += f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="5.5" ry="9" transform="rotate({_m.degrees(a) + 90:.1f} {x:.1f} {y:.1f})" fill="#fbfcfa" stroke="{c}" stroke-width="3.2"/>'
+    return o
+def _hook(x, y, ang=-40, ln=90):
+    a = _m.radians(ang); ex, ey = x + ln * _m.cos(a), y + ln * _m.sin(a)
+    return (f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{ex:.1f}" y2="{ey:.1f}" stroke="{_HK}" stroke-width="6" stroke-linecap="round"/>'
+            f'<path d="M{x:.1f} {y:.1f} q-7 3 -8 -5" fill="none" stroke="{_HK}" stroke-width="4" stroke-linecap="round"/>')
+_LOOP = f'<path d="M168 150 C86 118 52 42 110 34 C168 42 134 118 52 150" fill="none" stroke="{_Y}" stroke-width="7" stroke-linecap="round"/><circle cx="40" cy="146" r="13" fill="{_Y}"/><path d="M31 140q9 6 18 0M30 150q10 -5 20 0" stroke="#fbfcfa" stroke-width="1.6" fill="none" opacity=".6"/>'
+_LBL = lambda x, y, t, a="start": f'<text x="{x}" y="{y}" font-size="11" fill="#4a5470" text-anchor="{a}" font-family="Atkinson Hyperlegible, sans-serif">{t}</text>'
+def _ring(r, tail_len=40, arrow=False):
+    o = f'<circle cx="110" cy="78" r="{r}" fill="none" stroke="{_Y}" stroke-width="5"/><circle cx="110" cy="78" r="{r + 4}" fill="none" stroke="{_Y2}" stroke-width="3"/>'
+    o += f'<path d="M{110 + r * .5:.1f} {78 + r * .87:.1f} q10 {tail_len * .6:.0f} 22 {tail_len:.0f}" fill="none" stroke="{_Y2}" stroke-width="4" stroke-linecap="round"/>'
+    if arrow:
+        o += f'<path d="M{142 + r * .5:.1f} {92 + r * .87:.1f} l9 21 M{145 + r * .5:.1f} {115 + r * .87:.1f} l6 -2 l-1 -7" fill="none" stroke="{_MG}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>'
+    return o
+MR_STEPS = [
+    ("Make a loop", "Lay the yarn in a loop so the tail end crosses over the working yarn (the strand from the ball). Pinch the cross, or wrap it round two fingers.",
+     _LOOP + _LBL(176, 150, "tail") + _LBL(12, 122, "working yarn")),
+    ("Pull up a loop", "Put the hook through the middle of the ring, catch the working yarn (not the tail) and pull a loop back through.",
+     _LOOP + _hook(112, 86, -45, 95) + f'<ellipse cx="112" cy="80" rx="7" ry="11" fill="none" stroke="{_Y}" stroke-width="4"/>' + _LBL(176, 150, "tail")),
+    ("Chain 1", "Yarn over and pull through the loop on the hook. This chain holds the ring shut while you work. It doesn't count as a stitch (ch 2 for hdc, ch 3 for dc).",
+     _ring(34) + f'<ellipse cx="110" cy="36" rx="6" ry="10" fill="#fbfcfa" stroke="{_Y}" stroke-width="3.5"/>' + _hook(112, 22, -30, 85) + _LBL(16, 30, "ch 1")),
+    ("Work stitches into the ring", "Put the hook through the centre, under the ring and the tail together, and make your stitches. Six single crochet is the usual start.",
+     _ring(34) + _sts(6, 46) + _hook(152, 50, -40, 70) + _LBL(16, 150, "under the ring and the tail")),
+    ("Pull the tail to close", "Hold the stitches and pull the tail firmly. The ring shrinks until the hole closes. Pull again after round 2 if it opens a little.",
+     _ring(7, 52, True) + _sts(6, 22) + _LBL(16, 150, "pull the tail")),
+    ("Join, or keep going in a spiral", "Slip stitch into the first stitch to join, or skip the join and work round 2 straight into the first stitch, with a marker in it.",
+     _ring(7, 40) + _sts(6, 22, hi=0) + f'<path d="M110 30 l-5 -10 l10 0 z" fill="{_TL}"/>' + _LBL(120, 24, "marker in stitch 1")),
+]
+def mr_fig(i, s):
+    return (f'<figure class="mr-step"><svg viewBox="0 0 220 160" role="img" aria-label="Step {i}: {e(s[0])}">{s[2]}</svg>'
+            f'<figcaption><strong>{i}. {e(s[0])}</strong> {e(s[1])}</figcaption></figure>')
+mr_steps_html = "".join(mr_fig(i + 1, s) for i, s in enumerate(MR_STEPS))
+MR_TAB = [("Single crochet (sc)", "ch 1", "No", "6", "6, 12, 18, 24"), ("Half double crochet (hdc)", "ch 2", "Usually no", "8", "8, 16, 24, 32"),
+          ("Double crochet (dc)", "ch 3", "Varies: check the pattern", "10 or 12", "12, 24, 36, 48"), ("Amigurumi (sc, worked tight)", "ch 1", "No", "6", "6, 12, 18 (spiral, no joins)")]
+mr = top("How to crochet a magic ring", "The magic ring (or magic circle) starts a round without a hole in the middle. Here it is in six drawings, with a helper that writes your first rounds for you.", "How to crochet a magic ring") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> make a loop with the tail crossing over the working yarn, put the hook through, pull up a loop of the working yarn and <strong>chain 1</strong> (it doesn't count). Work <strong>6 single crochet</strong> into the ring, going under both the ring and the tail, then <strong>pull the tail</strong> to close the hole. Join with a slip stitch to the first stitch, or keep going in a spiral. For half double crochet start with ch 2 and 8 hdc; for double crochet, ch 3 and 10 to 12 dc.</div>
+<div class="mr-steps">{mr_steps_html}</div>
+<p class="note">Our own drawings, shown for right-handed crochet. Left-handed? It's the same steps mirrored: the tail sits on the other side.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Write my first rounds</h2>
+<div class="field"><label>First round stitch</label><div class="seg" id="mr-st" role="group" aria-label="Stitch"><button type="button" data-v="sc" aria-pressed="true">sc</button><button type="button" data-v="hdc" aria-pressed="false">hdc</button><button type="button" data-v="dc" aria-pressed="false">dc</button></div></div>
+<div class="field"><label for="mr-n">Stitches in the ring</label><input id="mr-n" type="number" min="3" max="16" value="6" inputmode="numeric"></div>
+<div class="field"><label>Rounds</label><div class="seg" id="mr-join" role="group" aria-label="Rounds"><button type="button" data-v="join" aria-pressed="true">Joined</button><button type="button" data-v="spiral" aria-pressed="false">Spiral (amigurumi)</button></div></div>
+<div class="field"><label for="mr-r">How many rounds to write</label><select id="mr-r"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+<div class="field" id="mr-cnt-f"><label><input type="checkbox" id="mr-cnt"> The starting chain counts as a stitch</label></div>
+<figure class="ts-fig"><svg id="mr-svg" viewBox="0 0 220 220" role="img" aria-label="Your rounds seen from above"></svg><figcaption class="note" id="mr-cap"></figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="mr-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>How many stitches go in a magic ring?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">First round</th><th scope="col">Start with</th><th scope="col">Chain counts as a stitch?</th><th scope="col">Stitches in the ring</th><th scope="col">Flat circle counts, rounds 1 to 4</th></tr></thead><tbody>
+{"".join(f"<tr><td>{a}</td><td>{b}</td><td>{c}</td><td>{d}</td><td>{x}</td></tr>" for a, b, c, d, x in MR_TAB)}</tbody></table></div>
+<p class="note">Common starting counts from Sarah Maker, Love Life Yarn and B.Hooked. Patterns vary from about 3 to 12 or more stitches, so follow yours. To keep a circle flat, add the first round's count again every round; the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> writes every round out to the size you want.</p>
+<h2>Which strand do I pull to close a magic ring?</h2>
+<p>The <strong>tail</strong>: the short end you started with. The working yarn runs to the ball. If you pull and nothing moves, you're pulling the working yarn, or your stitches went over the ring but not over the tail. Every stitch in round 1 has to go under both strands, or the tail can't slide.</p>
+<h2>Why won't my magic ring close?</h2>
+<ul><li><strong>The tail wasn't worked over.</strong> Look at the back: the tail should disappear inside the stitches all the way round.</li>
+<li><strong>The stitches are gripping the tail.</strong> Hold round 1 a little looser, or pull the tail a bit before you finish the round so it's already sliding.</li>
+<li><strong>Fuzzy or sticky yarn.</strong> Chenille, velvet and mohair can grab or snap. Make round 1 loose, or make the ring in a smooth cotton and change yarn after it.</li>
+<li><strong>Too many stitches.</strong> A ring of 12 or more tall stitches can't fully close. A small hole is normal for a dc ring.</li></ul>
+<h2>How do I stop a magic ring coming undone?</h2>
+<p>Leave a tail of at least 6 in (15 cm). When the piece is done, thread the tail on a yarn needle, pull the ring closed once more, and weave the tail in round the back of round 1, then back the other way through a few stitches so it can't slide out. Don't trim it short until the end. A knot isn't needed, and it can make a lump on the right side.</p>
+<h2>What's the difference between a magic ring and a magic circle?</h2>
+<p>None: magic ring, magic circle, magic loop and adjustable ring are all names for the same start. A <strong>double magic ring</strong> is the same idea with the yarn wrapped twice, so there are two strands to work over. It's even more secure, and closing it takes two pulls, one for each strand.</p>
+<h2>What can I use instead of a magic ring?</h2>
+<ul><li><strong>Chain 2,</strong> then work your first round into the 2nd chain from the hook. Easy, though it leaves a small hole and can't be tightened later.</li>
+<li><strong>Chain 4 and join</strong> with a slip stitch to make a ring, then work into the ring. This leaves a clear hole, which is fine for granny squares and mandalas.</li></ul>
+<h2>Joined rounds or a spiral?</h2>
+<p><strong>Joined</strong> rounds end with a slip stitch into the first stitch and start with a chain. They make a neat line of joins and stripes that stay straight: good for coasters, hats and granny circles. <strong>Spiral</strong> rounds just keep going, so there's no seam, which is why amigurumi patterns use them. Put a stitch marker in the first stitch of every round so you don't lose count, and keep count with our <a href="{href("row-counter.html")}">row counter</a>.</p>
+<p>What next? Plan a flat circle or amigurumi ball with the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a>, learn <a href="{href("how-to-change-colors-in-crochet.html")}">how to change colours in crochet</a> for a striped circle, and check a pattern's stitch names on the <a href="{href("crochet-terms.html")}">US vs UK crochet terms</a> chart.</p></div></section>'''
+mr_faq = [
+    ("How do you crochet a magic ring?", "Make a loop with the tail crossing over the working yarn, put the hook through, pull up a loop of the working yarn and chain 1. Work your stitches into the ring, under both the ring and the tail, then pull the tail to close the hole."),
+    ("How many stitches go in a magic ring?", "Usually 6 single crochet. Half double crochet rings often start with 8, and double crochet with 10 to 12. Your pattern may say otherwise, so follow it."),
+    ("Does the chain 1 count as a stitch in a magic ring?", "No. The ch 1 for single crochet just holds the ring. For taller stitches, some patterns count the ch 3 as the first double crochet and some don't, so check yours."),
+    ("Which end do you pull to close a magic ring?", "The tail, the short end you started with. If it won't move, your stitches didn't go over the tail, or you're pulling the working yarn."),
+    ("Why does my magic ring keep coming open?", "The tail wasn't woven in firmly. Pull the ring tight again, then weave the tail in round the back of round 1 and back the other way so it can't slide out."),
+    ("Is a magic circle the same as a magic ring?", "Yes. Magic ring, magic circle, magic loop and adjustable ring are different names for the same start."),
+]
+page("how-to-crochet-magic-ring.html", "How to Crochet a Magic Ring (Step by Step + Round 1 Writer) | Purl & Paper",
+     "How to crochet a magic ring (magic circle) in 6 simple drawings: which strand to pull, how many stitches go in, why it won't close and how to stop it undoing. With a helper that writes your first rounds.",
+     mr, mr_faq, "How to crochet a magic ring", app_name="Magic ring round writer")
+
+# ---------------- HOW TO CHANGE COLORS IN CROCHET (guide + stripe planner) ----------------
+def _cc_stitch(top_col, low_col, label):
+    return (f'<svg viewBox="0 0 220 150" role="img" aria-label="{e(label)}">'
+            f'<rect x="20" y="104" width="180" height="20" rx="6" fill="{low_col}" opacity=".9"/>'
+            f'<path d="M70 104 L70 58" stroke="{low_col}" stroke-width="7" stroke-linecap="round"/>'
+            f'<ellipse cx="96" cy="50" rx="9" ry="13" fill="none" stroke="{low_col}" stroke-width="5"/>'
+            f'<ellipse cx="122" cy="50" rx="9" ry="13" fill="none" stroke="{low_col}" stroke-width="5"/>'
+            f'<path d="M190 34 C160 30 150 48 132 50" fill="none" stroke="{top_col}" stroke-width="7" stroke-linecap="round"/>'
+            + _hook(86, 50, -15, 120) +
+            f'<path d="M70 58 C60 40 40 30 22 34" fill="none" stroke="{low_col}" stroke-width="5" stroke-dasharray="2 7" stroke-linecap="round"/>'
+            + _LBL(204, 72, "new colour", "end") + _LBL(18, 26, "old colour drops") + _LBL(110, 142, "2 loops left on the hook", "middle") + "</svg>")
+CC_COLS = ("#f2e6cf", "#b8326a", "#2f8f8a", "#f4a823", "#1f2a44", "#c9a37a")
+def _cc_side():
+    o = '<svg viewBox="0 0 220 150" role="img" aria-label="Stripes of two rows with the unused colour carried up the side">'
+    for i in range(6):
+        c = CC_COLS[0] if (i // 2) % 2 == 0 else CC_COLS[1]
+        o += f'<rect x="40" y="{124 - i * 18}" width="150" height="15" rx="4" fill="{c}" stroke="rgba(31,42,68,.18)"/>'
+    o += f'<path d="M36 128 C30 118 30 100 36 92" fill="none" stroke="{CC_COLS[1]}" stroke-width="3.5"/><path d="M36 92 C30 82 30 64 36 56" fill="none" stroke="#d8c7a4" stroke-width="3.5"/><path d="M36 56 C30 46 30 28 36 20" fill="none" stroke="{CC_COLS[1]}" stroke-width="3.5"/>'
+    return o + _LBL(200, 30, "2-row stripes", "end") + _LBL(14, 146, "unused colour carried up this edge") + "</svg>"
+def _cc_round():
+    o = '<svg viewBox="0 0 220 150" role="img" aria-label="Rounds joined with a slip stitch, new colour starting at the join">'
+    for r, c in ((60, CC_COLS[2]), (44, CC_COLS[0]), (28, CC_COLS[1])):
+        o += f'<circle cx="100" cy="75" r="{r}" fill="none" stroke="{c}" stroke-width="13"/>'
+    o += f'<line x1="100" y1="6" x2="100" y2="58" stroke="{_HK}" stroke-width="2" stroke-dasharray="3 4"/><circle cx="100" cy="15" r="5" fill="{_MG}"/>'
+    return o + _LBL(100, 148, "every join lines up at the top", "middle") + "</svg>"
+CC_HOW = [("Single crochet", "Insert, yarn over, pull up a loop (2 loops on the hook). Drop the old colour, then finish the stitch: yarn over with the new colour and pull through both loops."),
+          ("Half double crochet", "Yarn over, insert, yarn over, pull up a loop (3 loops on the hook). Drop the old colour and pull the new colour through all 3 loops."),
+          ("Double crochet", "Work the stitch until 2 loops are left on the hook. Drop the old colour and pull the new colour through those last 2."),
+          ("Treble crochet", "Work until the last 2 loops, then finish with the new colour, the same as double crochet."),
+          ("Slip stitch join (rounds)", "Insert into the first stitch of the round, then pull the new colour through the stitch and the loop on the hook.")]
+cc = top("How to change colours in crochet", "Change colour on the last yarn over of the stitch before, and the new colour starts clean. Here's how for every stitch, at the end of a row, mid-row and in rounds, plus a stripe planner that tells you when to carry the yarn and when to cut.", "How to change colours in crochet") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> work the last stitch in the old colour until <strong>2 loops are left on the hook</strong> (3 for half double). Drop the old colour, <strong>yarn over with the new colour and pull through</strong> to finish the stitch. At the end of a row, do this on the last stitch, then chain and turn. Leave both tails about <strong>6 in (15 cm)</strong> long and weave them in later. For stripes of an even number of rows, you don't need to cut: carry the unused colour up the side.</div>
+<div class="cc-figs">
+<figure class="mr-step">{_cc_stitch("#2f8f8a", "#b8326a", "Finishing a stitch with the new colour")}<figcaption><strong>Change on the last yarn over.</strong> The stitch before the new colour is finished with it, so the next stitch starts in the new colour, with no little loop of the old one on top.</figcaption></figure>
+<figure class="mr-step">{_cc_side()}<figcaption><strong>Carry it up the side.</strong> With stripes of 2, 4 or 6 rows, the colour you dropped is waiting at the same edge when you need it again. Just pick it up: no cutting.</figcaption></figure>
+<figure class="mr-step">{_cc_round()}<figcaption><strong>In rounds, change at the join.</strong> Join with a slip stitch in the new colour, so every colour change sits on the same line at the back.</figcaption></figure></div>
+<p class="note">Our own drawings.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Stripe planner: carry or cut?</h2>
+<div class="field"><label>Worked in</label><div class="seg" id="cc-mode" role="group" aria-label="Worked in"><button type="button" data-v="rows" aria-pressed="true">Rows (turning)</button><button type="button" data-v="rounds" aria-pressed="false">Joined rounds</button></div></div>
+<div id="cc-list" class="cc-list" aria-label="Stripes, bottom to top"></div>
+<div class="toolbar"><button type="button" class="btn ghost" id="cc-add">Add a stripe</button><span class="spacer"></span><label for="cc-rep" class="muted">Repeat</label><select id="cc-rep">{"".join(f'<option value="{i}"{" selected" if i == 3 else ""}>{i}×</option>' for i in range(1, 11))}</select></div>
+<figure class="ts-fig"><svg id="cc-svg" viewBox="0 0 260 300" role="img" aria-label="Your stripes, with carried yarn on the edges"></svg><figcaption class="note">Dots: a colour joined. Lines on the edges: yarn carried up, not cut.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="cc-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>How do I change colour for each stitch?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Stitch</th><th scope="col">When to bring in the new colour</th></tr></thead><tbody>
+{"".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td></tr>" for a, b in CC_HOW)}</tbody></table></div>
+<p class="note">The last-yarn-over method is the standard one in most patterns (Crochet Spot, ChristaCo Design, MJ's Off The Hook Designs). Stitch names are US terms; in UK terms sc is dc and dc is tr. See <a href="{href("crochet-terms.html")}">US vs UK crochet terms</a>.</p>
+<h2>How do I change colour at the end of a row?</h2>
+<ol><li>Work to the <strong>last stitch</strong> of the row in the old colour.</li>
+<li>Stop with the last 2 loops on the hook (3 for hdc).</li>
+<li>Drop the old colour to the back and finish the stitch with the new colour.</li>
+<li>Chain for your turning chain in the new colour, turn, and carry on.</li></ol>
+<p>Changing in the turning chain instead leaves a loop of the old colour on the edge, which shows. To stop the first stitches coming loose, give both tails a gentle tug, or work the first few stitches over the new tail.</p>
+<h2>How do I change colour in the middle of a row?</h2>
+<p>The same way: finish the stitch <em>before</em> the new colour with the new colour. If you'll need the old colour again a few stitches later, don't cut it. Lay it along the tops of the stitches you're working into and crochet over it, so it travels with you, hidden inside the stitches (this is tapestry crochet). Keep the carried strand just snug enough to lie flat: too tight and the fabric puckers, too loose and loops catch. For a big block of colour, use a separate small ball or bobbin for each area instead.</p>
+<h2>How do I change colour in rounds?</h2>
+<p>In <strong>joined</strong> rounds, finish the round in the old colour, then make the slip stitch join with the new colour: insert into the first stitch, pull the new colour through the stitch and the loop on the hook, and chain up. All your changes then line up at one spot, which you can keep at the back. In <strong>spiral</strong> rounds (amigurumi) there's no join, so the stripe always ends with a small step, called a jog. To soften it, change colour on the last yarn over, then work a slip stitch or a shorter stitch at the start of the new colour.</p>
+<h2>How do I change colours without cutting the yarn?</h2>
+<ul><li><strong>Carry up the side</strong> for stripes in rows. It works when each stripe is an <strong>even number of rows</strong>: 2, 4 or 6. Then the dropped colour is at the same edge when you need it again. With odd-row stripes, the colour ends up at the wrong edge.</li>
+<li><strong>Trap the strand.</strong> When you pick a colour up, work your turning chain or first stitch over the carried strand so it doesn't make a big loop at the edge. A border later covers it completely.</li>
+<li><strong>Carry along the row</strong> (tapestry crochet) for colour changes inside the row.</li>
+<li><strong>Carry behind the join</strong> in joined rounds.</li></ul>
+<p>Carry long gaps loosely. Over many rows a carried strand can pull the edge in or show through pale colours, so for a long gap between uses it's often neater to cut and rejoin. As a rule of thumb we cut once a colour would be carried more than about 8 rows (our estimate, about 3 in of edge); the planner above uses that.</p>
+<h2>Should I knot the yarn when changing colours?</h2>
+<p>You don't need to. A well woven-in tail holds better than a knot, and knots can work loose or poke through on the right side. Some crocheters tie the two tails together loosely to stop the first stitch slipping while they work, then untie it before weaving in. Or use a Russian join to join yarn of the same kind with no ends to weave.</p>
+<h2>How do I weave in the ends?</h2>
+<p>Leave about 6 in (15 cm). Thread the tail on a blunt yarn needle and weave it through the back of stitches of the <strong>same colour</strong>, so it doesn't show. Go one way for an inch or two, then turn and go back a short way through different stitches, and trim close. To save time, crochet over the tails as you go: hold them along the top of the row and work the next few stitches over them.</p>
+<p>What next? Plan a striped temperature blanket with the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a>, start the right number of chains with the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a>, or start a striped circle with a <a href="{href("how-to-crochet-magic-ring.html")}">magic ring</a>. Using up scraps? Weigh them in the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> first.</p></div></section>'''
+cc_faq = [
+    ("How do you change colours in crochet?", "Work the last stitch before the change in the old colour until 2 loops are left on the hook, drop the old colour, then yarn over with the new colour and pull through to finish the stitch."),
+    ("Do you change colour before or after the turning chain?", "Before. Change on the last yarn over of the last stitch of the row, then make the turning chain in the new colour."),
+    ("How do you change colours in crochet without cutting the yarn?", "For stripes with an even number of rows, carry the unused colour up the side of the work and pick it up when you need it. Inside a row, crochet over the unused colour so it travels inside the stitches."),
+    ("Should I tie a knot when changing yarn colours?", "It isn't needed. Weaving the ends in well holds better and doesn't make a lump. If you tie the tails to hold them while you work, untie them before weaving in."),
+    ("How long should the tail be when changing colours?", "About 6 in (15 cm) is plenty to weave in with a yarn needle."),
+    ("How do you change colour in a spiral round?", "Change on the last yarn over of the last stitch, as usual. Spirals always leave a small jog at the change; a slip stitch or shorter stitch at the start of the new colour softens it."),
+]
+page("how-to-change-colors-in-crochet.html", "How to Change Colors in Crochet (Without Cutting) + Stripe Planner | Purl & Paper",
+     "How to change colours in crochet: the last yarn over method for sc, hdc and dc, at the end of a row, mid-row and in rounds; carrying yarn up the side without cutting; knots and tails. With a stripe planner.",
+     cc, cc_faq, "How to change colours in crochet", app_name="Crochet stripe planner")
+
 # ---------------- SITEMAP / ROBOTS ----------------
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "cast-on-calculator.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
+LASTMOD = {"how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "cast-on-calculator.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
