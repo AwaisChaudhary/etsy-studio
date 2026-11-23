@@ -1140,6 +1140,127 @@
     $("#ep-go").addEventListener("click", epPick);
     epCount(); epPick();
   }
+
+  /* ---------- YARN YARDAGE (how much is left) ---------- */
+  if ($("#yy-list") && $("#yy-out")) {
+    var yyE = {}; ["ll", "lu", "lg", "lgu", "ml", "mu", "mg", "core", "need", "nu", "list", "out", "lab", "mea", "add"].forEach(function (k) { yyE[k] = $("#yy-" + k); });
+    var yyKeys = ["ll", "lu", "lg", "lgu", "ml", "mu", "mg", "core", "need", "nu"];
+    var yyS = store.get("pp-yardage", null) || {};
+    yyKeys.forEach(function (k) { if (yyS[k] != null && yyS[k] !== "") yyE[k].value = yyS[k]; });
+    var yyBalls = (yyS.balls && yyS.balls.length) ? yyS.balls : ["37"];
+    var setSeg = function (el, v) { $$("button", el).forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-v") === v); }); };
+    if (yyS.mode) setSeg($("#yy-mode"), yyS.mode);
+    if (yyS.wu) setSeg($("#yy-wu"), yyS.wu);
+    function yyRows() {
+      yyE.list.innerHTML = yyBalls.map(function (v, i) {
+        return '<li><label for="yy-b' + i + '">Ball ' + (i + 1) + '</label><input type="number" id="yy-b' + i + '" data-i="' + i + '" value="' + esc(v) + '" min="0" max="100000" step="0.1" inputmode="decimal" placeholder="Weight">' +
+          (yyBalls.length > 1 ? '<button type="button" class="linkbtn" data-del="' + i + '" aria-label="Remove ball ' + (i + 1) + '">Remove</button>' : "") + "</li>";
+      }).join("");
+    }
+    function yyCalc() {
+      var mode = segVal($("#yy-mode")), wu = segVal($("#yy-wu")), OZ = 28.3495;
+      yyE.lab.hidden = mode !== "label"; yyE.mea.hidden = mode === "label";
+      var ypg = 0, src = "";
+      if (mode === "label") {
+        var L = parseFloat(yyE.ll.value) || 0, G = parseFloat(yyE.lg.value) || 0;
+        if (yyE.lu.value === "m") L = L / 0.9144;
+        if (yyE.lgu.value === "oz") G = G * OZ;
+        if (L > 0 && G > 0) { ypg = L / G; src = "from your label"; }
+      } else {
+        var ML = parseFloat(yyE.ml.value) || 0, MG = parseFloat(yyE.mg.value) || 0;
+        if (yyE.mu.value === "m") ML = ML / 0.9144;
+        if (ML > 0 && MG > 0) { ypg = ML / MG; src = "from your measured piece"; }
+      }
+      var core = Math.max(0, parseFloat(yyE.core.value) || 0), per = [], tg = 0, any = false;
+      yyBalls.forEach(function (v) {
+        var w = parseFloat(v); if (!(w > 0)) { per.push(null); return; }
+        any = true; var g = (wu === "oz" ? w * OZ : w) - core; g = Math.max(0, g); per.push(g); tg += g;
+      });
+      var sv = { balls: yyBalls, mode: mode, wu: wu }; yyKeys.forEach(function (k) { sv[k] = yyE[k].value; }); store.set("pp-yardage", sv);
+      if (!ypg) { yyE.out.innerHTML = '<h3>Yarn left</h3><div class="big">–</div><p class="sub">' + (mode === "label" ? "Enter the length and weight of a full ball from the label." : "Enter the length you measured and what it weighs.") + "</p>"; return; }
+      if (!any) { yyE.out.innerHTML = '<h3>Yarn left</h3><div class="big">–</div><p class="sub">Weigh your leftover ball and type the weight in.</p>'; return; }
+      var yd = tg * ypg, m = yd * 0.9144, fullG = 0;
+      if (mode === "label") { fullG = parseFloat(yyE.lg.value) || 0; if (yyE.lgu.value === "oz") fullG *= OZ; }
+      var out = '<h3>Yarn left' + (yyBalls.length > 1 ? " in " + per.filter(function (x) { return x != null; }).length + " balls" : "") + '</h3><div class="big">' + fmt(yd) + ' <small>yd</small></div>' +
+        '<p>That\'s about <strong>' + fmt(m) + ' m</strong> in ' + (Math.round(tg * 10) / 10) + ' g of yarn' + (core > 0 ? " (cores taken off)" : "") + '. Your yarn is <strong>' + (Math.round(ypg * 100) / 100) + ' yd per gram</strong> (' + (Math.round(ypg * 0.9144 * 100) / 100) + ' m), ' + src + '.</p>';
+      if (fullG > 0) {
+        var balls = tg / fullG, icons = "", whole = Math.floor(balls + 1e-9), part = balls - whole;
+        for (var i = 0; i < Math.min(whole, 30); i++) icons += ball("#b8326a", false, i);
+        if (part > 0.02 && whole < 30) icons += ball("#2f8f8a", true, whole);
+        out += '<div class="balls" aria-hidden="true">' + icons + '</div><p class="sub">Equal to ' + (Math.round(balls * 100) / 100) + " full balls" + (part > 0.02 ? " (the teal one is a part ball)" : "") + ".</p>";
+      }
+      if (yyBalls.length > 1) {
+        out += '<ul class="co-alt">' + per.map(function (g, i) { return g == null ? "" : "<li>Ball " + (i + 1) + ": <strong>" + fmt(g * ypg) + " yd</strong> (" + fmt(g * ypg * 0.9144) + " m)</li>"; }).join("") + "</ul>";
+      }
+      var need = parseFloat(yyE.need.value) || 0;
+      if (need > 0) {
+        var nyd = yyE.nu.value === "m" ? need / 0.9144 : need, safe = nyd * 1.1, u = yyE.nu.value, cv = function (y) { return u === "m" ? fmt(y * 0.9144) + " m" : fmt(y) + " yd"; };
+        out += "<hr>";
+        if (yd >= safe) out += '<p class="gp-ok"><strong>Enough.</strong> You have ' + cv(yd) + " for a project needing " + cv(nyd) + ", with " + cv(yd - nyd) + " to spare.</p>";
+        else if (yd >= nyd) out += '<p class="gp-short"><strong>Only just.</strong> You have ' + cv(yd) + " and need " + cv(nyd) + ". That's less than 10% spare, so tension or a swatch could tip you over. Have a plan B colour for a border or stripe.</p>";
+        else out += '<p class="gp-short"><strong>Not enough.</strong> You\'re about ' + cv(nyd - yd) + " short (about " + fmt((nyd - yd) / ypg) + " g of this yarn)" + (fullG > 0 ? ", so get " + Math.max(1, Math.ceil((safe - yd) / (fullG * ypg) - 1e-9)) + " more ball" + (Math.ceil((safe - yd) / (fullG * ypg) - 1e-9) > 1 ? "s" : "") + " to be safe" : "") + ".</p>";
+        out += '<p class="sub">To wind off exactly ' + cv(nyd) + ", take " + fmt(nyd / ypg) + " g off the ball.</p>";
+      }
+      var err = 0.5 * ypg * per.filter(function (x) { return x != null; }).length;
+      out += '<p class="sub">Estimate. A whole-gram scale can be off by half a gram, about ' + fmt(Math.max(1, err)) + " yd here, and label lengths are rounded.</p>";
+      yyE.out.innerHTML = out;
+    }
+    yyRows();
+    yyE.list.addEventListener("input", function (ev) { var i = ev.target.getAttribute("data-i"); if (i == null) return; yyBalls[+i] = ev.target.value; yyCalc(); });
+    yyE.list.addEventListener("click", function (ev) { var d = ev.target.getAttribute("data-del"); if (d == null) return; yyBalls.splice(+d, 1); yyRows(); yyCalc(); });
+    yyE.add.addEventListener("click", function () { if (yyBalls.length >= 30) return; yyBalls.push(""); yyRows(); var l = $("#yy-b" + (yyBalls.length - 1)); if (l) l.focus(); yyCalc(); });
+    yyKeys.forEach(function (k) { yyE[k].addEventListener("input", yyCalc); yyE[k].addEventListener("change", yyCalc); });
+    seg($("#yy-mode"), yyCalc); seg($("#yy-wu"), yyCalc);
+    yyCalc();
+  }
+  /* ---------- CRAFT FAIR CHECKLIST + STOCK PLANNER ---------- */
+  if ($("#cf-list") && $("#cf-out")) {
+    var CK = "pp-craftfair", CS = store.get(CK, {}) || {}; CS.t = CS.t || {};
+    var cfBoxes = $$("#cf-list input[type=checkbox]");
+    ["goal", "avg", "date"].forEach(function (k) { if (CS[k] != null && CS[k] !== "") $("#cf-" + k).value = CS[k]; });
+    var cfCount = function () {
+      var n = 0;
+      cfBoxes.forEach(function (b) { b.checked = !!CS.t[b.getAttribute("data-id")]; if (b.checked) n++; });
+      $("#cf-count").textContent = n + " of " + cfBoxes.length + " packed";
+      $$("#cf-list .ep-gc").forEach(function (sp) {
+        var g = sp.getAttribute("data-g"), all = $$('#cf-list fieldset[data-g="' + g + '"] input'), k = all.filter(function (b) { return b.checked; }).length;
+        sp.textContent = k + "/" + all.length;
+      });
+    };
+    $("#cf-list").addEventListener("change", function (ev) {
+      var b = ev.target; if (!b.matches("input[type=checkbox]")) return;
+      if (b.checked) CS.t[b.getAttribute("data-id")] = 1; else delete CS.t[b.getAttribute("data-id")];
+      store.set(CK, CS); cfCount();
+    });
+    $("#cf-clear").addEventListener("click", function () { if (!confirm("Clear all your ticks?")) return; CS.t = {}; store.set(CK, CS); cfCount(); toast("Ticks cleared"); });
+    $("#cf-print").addEventListener("click", function () { window.print(); });
+    function cfPlan() {
+      var goal = Math.max(0, parseFloat($("#cf-goal").value) || 0), avg = Math.max(0, parseFloat($("#cf-avg").value) || 0), dv = $("#cf-date").value;
+      CS.goal = $("#cf-goal").value; CS.avg = $("#cf-avg").value; CS.date = dv; store.set(CK, CS);
+      var h = "";
+      if (goal > 0 && avg > 0) {
+        var sales = Math.max(1, Math.round(goal / avg)), lo = sales * 2, hi = sales * 3, mid = Math.round((lo + hi) / 2);
+        var s1 = Math.round(mid * 0.5), s2 = Math.round(mid / 3), s3 = Math.max(1, mid - s1 - s2);
+        var lowP = Math.max(1, Math.round(avg * 0.5)), hiP = Math.round(avg * 2);
+        h += '<div class="big">' + lo + "–" + hi + ' <small>items</small></div><p>About <strong>' + sales + " sales</strong> gets you $" + fmt(goal) + " at $" + fmt(avg) + " each, so bring two to three times that.</p>" +
+          '<div class="tb-stats"><div><strong>' + s1 + '</strong><span>small makes, around $' + lowP + '</span></div><div><strong>' + s2 + '</strong><span>mid-price, around $' + fmt(avg) + '</span></div><div><strong>' + s3 + '</strong><span>showpieces, $' + hiP + ' and up</span></div><div><strong>$' + (goal >= 600 ? "100" : goal >= 250 ? "75" : "50") + '</strong><span>cash float in small notes</span></div></div>' +
+          '<p class="sub">Split for a typical ' + mid + ' pieces. The split and float are our rule of thumb; adjust after your first fair.' + (Math.round(avg) !== avg ? " Round prices to whole dollars to make change easy." : "") + "</p>";
+      } else h += '<p class="sub">Enter your sales goal and typical price to see how much stock to bring.</p>';
+      if (dv) {
+        var d = new Date(dv + "T12:00:00"), now = new Date(); now.setHours(12, 0, 0, 0);
+        var days = Math.round((d - now) / 864e5), todo;
+        if (days < 0) todo = "That date has passed. Count what sold against your stock list and note what to make more of.";
+        else if (days === 0) todo = "It's today! Arrive early, set up from your photo, and keep the float on you.";
+        else if (days <= 2) todo = "Charge the card reader and phone, get your float, and pack the car the night before.";
+        else if (days <= 14) todo = "Finish making, price and tag everything, practise your set-up, and order cards, bags or a sign if you need them.";
+        else todo = "Plenty of time: confirm the booth details, plan your stock list and price bands, and make the bigger pieces first.";
+        h += "<hr><p><strong>" + (days > 0 ? days + " day" + (days === 1 ? "" : "s") + " to go." : days === 0 ? "Fair day." : "") + "</strong> " + todo + "</p>";
+      }
+      $("#cf-res").innerHTML = h;
+    }
+    ["goal", "avg", "date"].forEach(function (k) { $("#cf-" + k).addEventListener("input", cfPlan); $("#cf-" + k).addEventListener("change", cfPlan); });
+    cfCount(); cfPlan();
+  }
   /* ---------- TEMPERATURE BLANKET PLANNER ---------- */
   if ($("#tb-out") && P.tblanket) {
     var TBD = P.tblanket, tbW = P.weights || [], TB_YD = 0.667, tbSvg = $("#tb-svg");

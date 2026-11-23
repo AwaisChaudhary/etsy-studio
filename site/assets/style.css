@@ -533,3 +533,13 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .result .tb-stats span { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
 .result .tb-warn { color: #ffd38a; }
 .tb-key td:last-child { white-space: nowrap; }
+
+/* yarn yardage calculator */
+.yy-list { list-style: none; padding: 0; margin: 0 0 6px; display: grid; gap: 8px; }
+.yy-list li { display: grid; grid-template-columns: 5.5em minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.yy-list label { margin: 0; font-weight: 700; }
+.yy-list input { width: 100%; }
+/* craft fair checklist */
+#cf-out .field label { color: #fff; }
+#cf-out input { width: 100%; }
+@media print { [data-page="craft-fair-checklist"] .result, [data-page="craft-fair-checklist"] .quick { display: none !important; } [data-page="craft-fair-checklist"] .tool { display: block; } }

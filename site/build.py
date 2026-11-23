@@ -22,9 +22,9 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -80,6 +80,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
             "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
+            "yarn-yardage-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "craft-fair-checklist.html": ["crochet-knitting-pricing-calculator", "christmas-gift-tags", "yarn-stash-tracker", "2027-crochet-knitting-planner"],
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
@@ -237,7 +239,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -795,8 +797,13 @@ gs_rows = "".join(f'<tr><td><strong>{n}</strong><br><span class="muted">{w} × {
     f'<td>{gs_count(w, s) * gs_count(l, s)}<br><span class="muted">{gs_count(w, s)} × {gs_count(l, s)}</span></td>' for s in (4, 5, 6, 8, 12)) + "</tr>" for _, n, w, l in GS_SIZES)
 gs_opts = "".join(f'<option value="{b["id"]}"{" selected" if b["id"] == "throw" else ""}>{e(b["name"])} ({b["w"]} × {b["l"]} in)</option>' for b in D["blankets"]) + '<option value="custom">My own size</option>'
 gs_w = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"] if 1 <= w["n"] <= 6)
+GS_SK = [(4, "4 in"), (5, "5 in"), (6, "6 in"), (8, "8 in"), (12, "12 in")]
+def gs_per_sq(s): return s * s * 0.9   # yd of worsted per square: same 0.9 yd per sq in estimate as the calculator
+gs_sk_rows = "".join(f'<tr><td><strong>{n}</strong></td><td>about {gs_per_sq(s):,.0f} yd</td><td>{int(200 // gs_per_sq(s))}</td><td>{int(364 // gs_per_sq(s))}</td></tr>' for s, n in GS_SK)
 gs = top("Granny square blanket calculator", "How many granny squares you need for any blanket, how to lay them out, and roughly how much yarn the squares, joins and border will take.", "Granny square calculator") + f'''
-<section style="padding-top:10px"><div class="wrap tool">
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> divide the blanket width by the size of one square, then the length, and multiply. A 50 × 60 in throw of 6 in squares is about 8 across × 10 down = <strong>80 squares</strong> before a border. In worsted yarn, allow roughly a yard of yarn per square inch of blanket, joins and border included, so about 3,000 yards for that throw.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <div class="field"><label for="gs-size">Blanket size</label><select id="gs-size">{gs_opts}</select></div>
 <div class="row2" id="gs-custom" hidden><div class="field"><label for="gs-bw">Width (in)</label><input type="number" id="gs-bw" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="gs-bl">Length (in)</label><input type="number" id="gs-bl" value="60" min="6" max="140" inputmode="decimal"></div></div>
@@ -829,13 +836,21 @@ gs = top("Granny square blanket calculator", "How many granny squares you need f
 <ul><li><strong>Joining</strong> takes about 5 to 12 percent of the yarn in the squares, depending on the method.</li>
 <li><strong>The border</strong> is worked in solid rounds, so even a narrow one adds up on a big blanket.</li>
 <li><strong>Several colours?</strong> Each colour only needs to cover its own squares, but buy at least one spare skein of the colour you'll join and border with.</li></ul>
+<h2>How many granny squares can I make from one skein?</h2></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Square size</th><th scope="col">Yarn per square (worsted)</th><th scope="col">From a 200 yd skein</th><th scope="col">From a 364 yd skein</th></tr></thead><tbody>@@GSSK@@</tbody></table></div></div>
+<div class="narrow prose"><p class="note">Our estimate, from the same 0.9 yards per square inch the calculator uses for classic granny squares in worsted. Solid squares use more. Weigh one finished square to check: if a 6 in square weighs 16 g and your yarn is 2 yd per gram, it used about 32 yd.</p>
+<h2>Using up leftover yarn in granny squares</h2>
+<p>Granny squares are the classic stash buster, since each round can be a different colour. Stick to one yarn weight across the blanket so the squares come out the same size, and keep the joining and border colour the same throughout. To see how far your odds and ends will go, weigh each ball and add them up in the <a href="@@YY@@">yarn yardage calculator</a>, then divide by the yarn per square above.</p>
 <h2>Squares versus a one-piece granny blanket</h2>
 <p>Separate squares are portable and easy to fit in, and you can stop the moment the blanket is big enough. A giant granny square worked as one piece has no seams to sew, but it gets heavy and you can't change its shape later. Either way, check the size against a bed or sofa with the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>, keep count of finished squares with the <a href="{href("row-counter.html")}">row counter</a>, and see how long it will take in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Following a UK pattern? Our <a href="{href("crochet-terms.html")}">US and UK crochet terms</a> page explains why a UK treble is a US double.</p></div></section>'''
+gs = gs.replace("@@GSSK@@", gs_sk_rows).replace("@@YY@@", href("yarn-yardage-calculator.html"))
 gs_faq = [
     ("How many granny squares do I need for a throw blanket?", "With 6 inch squares, a 50 × 60 inch throw takes about 8 across by 10 down, or 80 squares, before a border. With 4 inch squares it's about 195."),
     ("How many 6 inch granny squares for a queen blanket?", "About 15 across by 17 down, or 255 squares, for a 90 × 100 inch queen blanket with no border. A 3 inch border on each side brings it down to about 14 × 16, or 224."),
     ("How much yarn is in one granny square?", "A 5 inch worsted granny square of five rounds uses roughly 25 to 30 yards. For a whole blanket, allow roughly a yard of worsted yarn per square inch of blanket, so about 3,000 yards for a 50 × 60 inch throw. This is an estimate; measure one of yours to be sure."),
     ("How many granny squares for a baby blanket?", "A 36 inch square baby blanket takes 36 squares of 6 inches (6 × 6), or 81 squares of 4 inches (9 × 9), before a border."),
+    ("How many granny squares can you make with one skein of yarn?", "Roughly 6 squares of 6 inches, or 8 of 5 inches, from a 200 yard skein of worsted, by our estimate. A big 364 yard acrylic skein makes about 11 of 6 inches. Solid squares use more yarn."),
+    ("Can I mix yarn brands in a granny square blanket?", "Yes, as long as they're the same yarn weight and give similar gauge, so the squares come out the same size. Make one square in each yarn and measure before you commit."),
     ("Does joining granny squares make the blanket bigger?", "Sewn seams and join as you go add almost nothing. A slip stitch or single crochet seam adds roughly a quarter inch per seam, and decorative joins can add half an inch or more."),
 ]
 page("granny-square-blanket-calculator.html", "Granny Square Blanket Calculator: How Many Squares and How Much Yarn | Purl & Paper",
@@ -972,6 +987,7 @@ prc = top("How to price crochet and knitting items", "A fair price covers your m
 <ul><li><strong>Spread the table fee</strong> over the items you realistically expect to sell, not the number you're bringing.</li>
 <li><strong>Bring a range</strong>: a few small makes under $15 (scrunchies, coasters, keychains) so people can buy something, and bigger pieces that show what you can do.</li>
 <li><strong>Use round prices</strong> like $15, $25, $40. They're quicker to take and to make change for.</li></ul>
+<p>Packing for the day? Our <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> covers the booth, payments, packaging and a cash float, and works out how much stock to bring.</p>
 <h2>What next?</h2>
 <p>Not sure how long an item takes? The <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a> has typical hours for 14 projects. Work out the yarn first with the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, then log each make with its hours and yarn in the <a href="{href("projects.html")}">project tracker</a> so the next price is easier. Want this as a spreadsheet you can keep? Our pricing calculator in the shop below does it for every item you make.</p></div></section>'''
 pr_faq = [
@@ -1113,6 +1129,7 @@ ys = top("Yarn substitution calculator", "Swapping the yarn in a pattern? Find o
 <p class="note">Rules of thumb from LoveCrafts and Love Life Yarn. Treat them as starting points for a swatch, not a guarantee.</p>
 <h2>What if my yarn is a different weight?</h2>
 <p>It can work, but the pattern's numbers won't. A thicker yarn at the pattern's stitch count makes a bigger piece; a thinner one makes a smaller, denser piece. For a blanket or scarf, that may not matter, and the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> or <a href="{href("yarn-calculator.html")}">yarn calculator</a> can re-estimate the yarn. For anything that has to fit, match the weight or rework the stitch counts from your own gauge.</p>
+<p>Using up a leftover ball with no label? Weigh it in the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> to see how many yards are left before you start.</p>
 <p>What next? Note the yarn you chose in the <a href="{href("projects.html")}">project tracker</a>, and check the needle or hook to start with on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>.</p></div></section>'''
 ys_faq = [
     ("How do I calculate how much yarn I need when substituting?", "Multiply the pattern's number of balls by the length per ball to get the total length, then divide by the length per ball of your yarn and round up. Use the same unit (yards or metres) for both."),
@@ -1751,6 +1768,222 @@ page("temperature-blanket-planner.html", "Temperature Blanket Planner 2027: Colo
      "Free temperature blanket planner: pick your temperature ranges and colours, see how long a 365-row crochet or knit blanket will be, the foundation chain and how much yarn per colour. Paste real temperatures to preview it.",
      tb, tb_faq, "Temperature blanket planner", app_name="Temperature blanket planner")
 
+# ---------------- YARN YARDAGE CALCULATOR (how much yarn is left) ----------------
+YY_EX = [("Fingering, 100 g / 400 m", 400 * 1.0936, 100), ("DK, 100 g / 230 m", 230 * 1.0936, 100), ("Worsted, 100 g / 200 yd", 200, 100), ("Worsted, 198 g / 364 yd (big acrylic skein)", 364, 198), ("Bulky, 100 g / 120 yd", 120, 100)]
+YY_G = [5, 10, 20, 25, 50]
+def yy_left(yd, g, w): return yd / g * w
+yy_rows = "".join(f'<tr><td><strong>{e(n)}</strong><br><span class="muted">{yd / g:.2f} yd per gram</span></td>' + "".join(f'<td>{yy_left(yd, g, w):,.0f} yd</td>' for w in YY_G) + "</tr>" for n, yd, g in YY_EX)
+yy = top("Yarn yardage calculator", "Weigh a leftover ball and find out how many yards or metres are left, even with no label. Add several scraps at once and check if you have enough for your next project.", "Yarn yardage calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> divide the length on the label by the grams on the label to get the length per gram, then multiply by what your leftover weighs. A worsted ball of 200 yd in 100 g gives 2 yd per gram, so a 37 g leftover has about <strong>74 yards</strong> left. No label? Measure off 10 yards, weigh it, and use that instead.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label>How do you know the yarn's length?</label><div class="seg" id="yy-mode" role="group" aria-label="Where the length comes from"><button type="button" data-v="label" aria-pressed="true">From the label</button><button type="button" data-v="measure" aria-pressed="false">I'll weigh a measured piece</button></div></div>
+<div id="yy-lab">
+<div class="row2"><div class="field"><label for="yy-ll">Length of a full ball</label><input type="number" id="yy-ll" value="200" min="1" max="5000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="yy-lu">Unit</label><select id="yy-lu"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
+<div class="row2"><div class="field"><label for="yy-lg">Weight of a full ball</label><input type="number" id="yy-lg" value="100" min="1" max="2000" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="yy-lgu">Unit</label><select id="yy-lgu"><option value="g">grams</option><option value="oz">ounces</option></select></div></div>
+</div>
+<div id="yy-mea" hidden>
+<div class="row2"><div class="field"><label for="yy-ml">Length you measured</label><input type="number" id="yy-ml" value="10" min="0.5" max="500" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="yy-mu">Unit</label><select id="yy-mu"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
+<div class="field"><label for="yy-mg">What that piece weighs (grams)</label><input type="number" id="yy-mg" value="5" min="0.1" max="1000" step="0.1" inputmode="decimal"><span class="note">Measure enough to weigh at least 10 g if your scale only shows whole grams.</span></div>
+</div>
+<hr class="stitch" style="margin:14px 0 18px">
+<div class="field"><label>Your leftovers</label><div class="seg" id="yy-wu" role="group" aria-label="Scale unit"><button type="button" data-v="g" aria-pressed="true">grams</button><button type="button" data-v="oz" aria-pressed="false">ounces</button></div></div>
+<ol class="yy-list" id="yy-list"></ol>
+<p><button type="button" class="btn ghost sm" id="yy-add">Add another ball</button></p>
+<div class="field"><label for="yy-core">Card core, cone or tube to take off each ball (grams)</label><input type="number" id="yy-core" value="0" min="0" max="500" step="0.5" inputmode="decimal"><span class="note">Weigh an empty core of the same kind, or leave 0 for a centre-pull ball or cake.</span></div>
+<div class="row2"><div class="field"><label for="yy-need">Your project needs (optional)</label><input type="number" id="yy-need" placeholder="e.g. 150" min="0" max="100000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="yy-nu">Unit</label><select id="yy-nu"><option value="yd">yards</option><option value="m">metres</option></select></div></div>
+</div>
+<div class="result" aria-live="polite" id="yy-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How many yards are in 10, 25 or 50 grams of yarn?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">If the label says</th>{"".join(f'<th scope="col">{w} g left</th>' for w in YY_G)}</tr></thead><tbody>{yy_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Worked out with the same formula as the calculator, from example labels. Yarns of the same weight vary a lot, so use your own label for a real answer. 1 yard = 0.9144 m.</p>
+</div></section>
+{AD.format("yy-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I work out how much yarn is left in a ball?</h2>
+<ol><li><strong>Find the label numbers.</strong> You need the length and the weight of a full ball, for example 200 yd and 100 g.</li>
+<li><strong>Work out the length per gram.</strong> 200 ÷ 100 = 2 yards per gram.</li>
+<li><strong>Weigh the leftover</strong> on a kitchen scale in grams. Put it in a small bowl if it rolls, and zero the scale with the bowl on first.</li>
+<li><strong>Multiply.</strong> 37 g × 2 = 74 yards left.</li></ol>
+<p>The same sum works backwards. Need 120 yards? 120 ÷ 2 = 60 g, so wind off yarn until the ball has dropped by 60 g. Knitting designers and yarn shops such as Elizabeth Smith Knits and Pacific Knit Co. use exactly this method for partial skeins.</p>
+<h2>What if I lost the label?</h2>
+<p>If you know the brand and colour, look the yarn up on the maker's site or a yarn database. If not, make your own label:</p>
+<ol><li>Measure off a length you can count easily, like 10 yards or 10 metres. A tape measure or a table of known length helps.</li>
+<li>Weigh that piece. If your scale shows whole grams only, measure a longer piece (20 or 30 yards) so the weight is at least 10 g. A 1 g error on 5 g is 20 percent; on 20 g it is 5 percent.</li>
+<li>Choose "I'll weigh a measured piece" in the calculator and type both numbers in. Wind the piece back on: you haven't lost it.</li></ol>
+<h2>How accurate is weighing yarn?</h2>
+<ul><li><strong>Labels are rounded.</strong> A "100 g" ball can weigh a few grams more or less, and the length on the label is the maker's estimate, so treat your answer as close, not exact.</li>
+<li><strong>Your scale matters.</strong> A kitchen scale that reads in whole grams is fine for most leftovers. A small jewellery or postage scale that shows 0.1 g is better for tiny scraps and mini skeins.</li>
+<li><strong>Take off the core.</strong> Big acrylic skeins, cones and some cotton balls are wound on card or plastic. Weigh an empty one and type it in so it isn't counted as yarn.</li>
+<li><strong>Weigh dry yarn.</strong> Damp or freshly washed yarn weighs more.</li></ul>
+<div class="callout"><strong>Leave some spare.</strong> If the leftover only just covers what a project needs, it's a gamble. Our rule of thumb is to have about 10 percent more than the pattern asks for, more for anything you can't easily finish in a different colour.</div>
+<h2>How many skeins did my finished project use?</h2>
+<p>Weigh the finished piece and divide by the weight of one ball. A hat that weighs 140 g used 1.4 balls of 100 g yarn, which tells you to buy two next time. It's the quickest way to write your own pattern notes, and handy for the <a href="{href("projects.html")}">project tracker</a> or pricing an item with our <a href="{href("how-to-price-crochet-items.html")}">pricing guide</a>.</p>
+<h2>What can I make with my leftovers?</h2>
+<p>Once you know the yards, check the amount against the <a href="{href("yarn-calculator.html")}">yarn calculator</a> for hats, scarves and more. Small amounts in one weight make good granny squares (see the <a href="{href("granny-square-blanket-calculator.html")}">granny square calculator</a>), and lots of different colours are perfect for stripes. Swapping a leftover into a pattern that names another yarn? The <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> turns the pattern's balls into yours.</p>
+<p class="note">Method from Elizabeth Smith Knits, Pacific Knit Co. and Andrea Rangel's yarn weighing tutorials (formula, whole-gram scales, label weights being approximate). The measured-piece method, table and spare-yarn rule of thumb are our own.</p></div></section>'''
+yy_faq = [
+    ("How do I calculate yards of yarn from grams?", "Divide the yards on the label by the grams on the label to get yards per gram, then multiply by the grams you have. For a 200 yd, 100 g ball that's 2 yards per gram, so 50 g is about 100 yards."),
+    ("How much yarn is left in my skein?", "Weigh it in grams and multiply by the label's length per gram. If the skein is wound on a card core or cone, weigh an empty one and subtract it first."),
+    ("How do I find the yardage of yarn with no label?", "Measure off 10 or 20 yards, weigh that piece, and divide the length by its weight to get yards per gram. Then weigh the whole ball and multiply."),
+    ("How many yards are in 50 grams of yarn?", "It depends on the thickness. 50 g is about 220 yd of fingering, 125 yd of DK, 100 yd of a typical worsted and 60 yd of bulky, but check your own label because yarns vary."),
+    ("Is weighing yarn accurate?", "Close enough for planning. Labels are rounded and kitchen scales read to the nearest gram, so add about 10 percent spare when a leftover only just covers a project."),
+    ("How do I know how many skeins I used?", "Weigh the finished project and divide by the weight of one full skein. A 140 g hat used about 1.4 skeins of 100 g yarn."),
+]
+page("yarn-yardage-calculator.html", "Yarn Yardage Calculator: How Much Yarn Is Left? (Weigh It) | Purl & Paper",
+     "Free yarn yardage calculator: weigh a leftover ball or scrap to see how many yards or metres are left, work without a label, take off a cone or core, and check if it's enough for your project.",
+     yy, yy_faq, "Yarn yardage calculator", app_name="Yarn yardage calculator")
+
+# ---------------- CRAFT FAIR CHECKLIST (crochet, knit and paper sellers) ----------------
+CF = [
+ ("Before the day", "before", [
+   ("Confirm the details", "Date, set-up time, booth size, whether a table or power is included, and where to park."),
+   ("Make a stock list", "Every item and how many, so you can count what sold afterwards."),
+   ("Price everything", "A tag on every item, plus a few signs for groups at the same price."),
+   ("Practise your set-up at home", "Lay it out on a table the same size and take a photo to copy on the day."),
+   ("Charge and test the card reader", "Do a test sale at home so you know it connects."),
+   ("Get your cash float", "Small notes and coins from the bank a few days before."),
+   ("Check the weather", "Pack layers, and rain covers for outdoor fairs."),
+   ("Pack the car the night before", "Heavy boxes first, the table and display on top so they come out first."),
+ ]),
+ ("Booth and display", "booth", [
+   ("Table, if the fair doesn't give one", "Check the size you're allowed before you buy."),
+   ("Tablecloth that reaches the floor", "Hides boxes and spare stock under the table."),
+   ("Risers, crates or baskets", "Height makes a table look full and lets people see from the aisle."),
+   ("Hat stands, heads or hooks", "Beanies, scarves and shawls sell better when people can see the shape."),
+   ("Stands or easels for prints and cards", "Paper goods disappear when they lie flat."),
+   ("Sign with your shop name", "At eye level or higher, so people remember you."),
+   ("Mirror", "For anyone trying on a hat, scarf or shawl."),
+   ("Clip lights and an extension lead", "Only if the fair has power for you. Indoor halls can be dim."),
+   ("Clips, hooks and S-hooks", "For hanging items from a grid wall or rail."),
+   ("A chair or stool", "Something you can perch on and still be at eye level."),
+ ]),
+ ("Money and payments", "money", [
+   ("Card reader and phone", "Fully charged, with the app logged in."),
+   ("Power bank and cable", "Card payments and photos drain a phone fast."),
+   ("Cash float in small notes and coins", "Enough to give change for your first few sales."),
+   ("Cash box, pouch or apron", "An apron keeps money on you, not on the table."),
+   ("Sales notebook or app", "Write down what sold and the price as you go."),
+   ("Calculator", "For bundle deals and quick totals."),
+   ("QR code for payment or your shop", "Printed on a small sign."),
+   ("A way to send receipts", "Most card apps can email or text one."),
+ ]),
+ ("Price tags and signs", "price", [
+   ("Price on every item", "Many shoppers won't ask, they just walk on."),
+   ("Group price signs", "\"All hats $25\" is quicker to read than 20 tags."),
+   ("Bundle or deal sign", "\"Any 3 cards for $10\" moves small items."),
+   ("Sizes on wearables", "Baby, child, adult on hats, mittens and socks."),
+   ("Care labels for knits and crochet", "Fibre and how to wash it. Buyers often ask."),
+   ("\"Custom orders welcome\" sign", "With how to contact you after the fair."),
+   ("Spare blank tags and a pen", "For anything that loses its tag."),
+ ]),
+ ("Packaging", "pack", [
+   ("Bags, more than you think", "Paper bags in two or three sizes."),
+   ("Tissue paper", "Wrap gifts and delicate pieces."),
+   ("Clear sleeves or cello bags", "Keep cards, prints and journals clean and dry."),
+   ("Stickers or tape to close bags", "A shop-name sticker is cheap branding."),
+   ("Thank-you or care cards", "Drop one in each bag with your shop link."),
+   ("Gift tags", "Offer to tag gifts at Christmas fairs."),
+   ("A sturdy box for spare stock", "Restock the table as things sell."),
+ ]),
+ ("Marketing", "market", [
+   ("Business cards", "With your Etsy shop, social handle and email."),
+   ("Email sign-up sheet or QR code", "People who don't buy today often buy later."),
+   ("Social media sign", "Your handle, big enough to photograph."),
+   ("A few photos of past custom orders", "In a small album or on a tablet."),
+ ]),
+ ("Tools and fix-it kit", "tools", [
+   ("Scissors", ""),
+   ("Clear tape and masking tape", "For signs, tablecloths and quick fixes."),
+   ("Safety pins", "For attaching tags to soft items without damage."),
+   ("Zip ties and clips", "For banners and grid walls."),
+   ("Pens and a marker", "Signs, receipts and sold notes."),
+   ("Crochet hook and darning needle", "Fix a pulled stitch or loose end on the spot."),
+   ("Tape measure", "For people asking \"will this fit?\""),
+   ("Lint roller", "Dark yarn and tablecloths pick up fluff."),
+   ("Bin bag", "Leave your space tidy."),
+ ]),
+ ("Yarn and paper extras", "extras", [
+   ("A swatch people can touch", "Shoppers want to feel yarn. A labelled swatch saves your stock from handling."),
+   ("Hat or sock size card", "A small chart helps gift buyers pick the right size."),
+   ("Work in progress", "Crocheting or knitting at the booth starts conversations."),
+   ("A sample journal to flip through", "Let people handle one copy instead of every journal."),
+   ("Weights or clips for paper", "Stops cards and prints lifting in a draught or wind."),
+   ("Rain-proof tubs for paper stock", "Paper and damp don't mix."),
+ ]),
+ ("Comfort", "comfort", [
+   ("Water and snacks", "You may not get a break for hours."),
+   ("Warm layers and comfortable shoes", "Halls and car parks get cold. You'll stand for most of the day."),
+   ("Hand warmers", "Winter fairs especially."),
+   ("Hand sanitiser and tissues", ""),
+   ("Small first aid kit and painkillers", ""),
+   ("A friend for breaks", "Or ask a neighbouring stall to watch your table."),
+ ]),
+ ("Outdoor fair extras", "outdoor", [
+   ("Pop-up canopy (often 10 × 10 ft)", "Check the size the fair allows."),
+   ("Tent weights on every leg", "Wind can lift a tent fast; see the weight tip below."),
+   ("Side walls", "Shelter from wind, rain and low sun."),
+   ("Plastic covers or a tarp", "Throw over the table if it rains."),
+   ("Sunscreen, hat and lip balm", ""),
+   ("Cool box", "For drinks and lunch on a warm day."),
+ ]),
+]
+CF_N = sum(len(x[2]) for x in CF)
+def _cf_id(t): return "".join(c if c.isalnum() else "-" for c in t.lower()).strip("-")[:40]
+cf_list = "".join(f'<fieldset class="ep-grp sheet" data-g="{gid}"><legend>{e(gn)} <span class="muted ep-gc" data-g="{gid}"></span></legend><ul>' +
+                  "".join(f'<li><label><input type="checkbox" data-id="{gid}-{_cf_id(n)}"> <strong>{e(n)}</strong></label>' + (f'<span>{e(t)}</span>' if t else "") + '</li>' for n, t in items) + "</ul></fieldset>"
+                  for gn, gid, items in CF)
+cf = top("Craft fair checklist", f"Everything to pack for a craft fair or Christmas market: {CF_N} things for your booth, payments, packaging and comfort, with extras for crochet, knitting and paper goods. Tick as you pack; it remembers.", "Craft fair checklist") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> the essentials are a table and floor-length cloth, a sign with your shop name, a price on every item, a charged card reader plus a cash float in small notes and coins, bags, business cards, and water and warm layers for you. Bring more stock than you expect to sell (two to three times is a common rule of thumb), with something at a low price point, and set it all up once at home first.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div>
+<div class="toolbar"><strong id="cf-count" aria-live="polite">0 of {CF_N} packed</strong><span class="spacer"></span><button type="button" class="btn ghost" id="cf-print">Print my list</button><button type="button" class="linkbtn" id="cf-clear">Clear ticks</button></div>
+<div class="ep-list" id="cf-list">{cf_list}</div>
+</div>
+<div class="result" id="cf-out" aria-live="polite"><h3>Stock and cash planner</h3>
+<div class="field"><label for="cf-goal">What you hope to take ($)</label><input type="number" id="cf-goal" value="400" min="0" max="100000" step="10" inputmode="decimal"></div>
+<div class="field"><label for="cf-avg">Your typical price ($)</label><input type="number" id="cf-avg" value="20" min="1" max="5000" step="1" inputmode="decimal"></div>
+<div class="field"><label for="cf-date">Fair date (optional)</label><input type="date" id="cf-date"></div>
+<div id="cf-res"></div>
+<hr><p class="sub">Your ticks and numbers are saved on this device only. Nothing is uploaded.</p></div>
+</div></section>
+{AD.format("cf-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How much stock should I bring to a craft fair?</h2>
+<p>A common rule of thumb, from craft business guides such as Craftybase, is to bring two to three times what you expect to sell. A full table sells better than a sparse one, and you can't sell what you left at home. To guess what you'll sell, divide the amount you hope to take by your typical price: $400 at $20 an item is about 20 sales, so bring 40 to 60 pieces. The planner above does this sum for you.</p>
+<p>Bring a range of prices, too. Small things like coasters, bookmarks, cards and ornaments are easy yes-purchases, while blankets and big shawls draw people in even when they don't sell. Our own rule of thumb is about half your pieces at the lowest price band, a third in the middle and the rest as bigger showpieces. It's a starting point; after one or two fairs, your sales notebook will tell you what your buyers like.</p>
+<h2>How much cash float do I need?</h2>
+<p>Most sellers start with around $50 to $100 in small notes and coins, which is the range Craftybase suggests. Round prices make change easy: $20 instead of $19.50 means you rarely need coins. Keep the float on you in an apron or pouch, and take card payments too, since many shoppers carry little cash.</p>
+<h2>How should I price items for a craft fair?</h2>
+<p>Price them the same way you would online: materials, your time at an hourly rate, a little for overheads, and the booth fee shared across what you expect to sell. Our guide on <a href="{href("how-to-price-crochet-items.html")}">how to price crochet and knitted items</a> has a calculator with a craft fair option. Fairs have no Etsy fees, but card readers take a small cut of each sale, so leave room for that.</p>
+<h2>How do I set up a craft fair booth?</h2>
+<ul><li><strong>Use height.</strong> Crates, shelves and stands lift items to eye level and make a table look full.</li>
+<li><strong>Group by type and price.</strong> All hats together under one price sign is easier to shop than a mix.</li>
+<li><strong>Leave the front edge open</strong> for people to pick things up, and keep spare stock under the table.</li>
+<li><strong>Show how things look in use.</strong> A beanie on a stand, a shawl draped, a junk journal open on a page.</li>
+<li><strong>Practise at home</strong> and take a photo, so set-up on the day takes minutes, not an hour.</li></ul>
+<h2>What do I need for an outdoor craft fair?</h2>
+<p>A pop-up canopy, side walls, rain covers and, above all, weights on every leg. Annie Andre's craft fair guide suggests at least 15 lb per leg in windy spots, with 20 lb better; buckets of sand or bags of gravel work. Paper goods need extra care outdoors: keep stock in plastic tubs, display cards in clear sleeves and use clips or small weights so a gust doesn't take them.</p>
+<h2>Selling crochet, knitting or junk journals at a fair</h2>
+<p>Handmade yarn goods sell on touch, so let people handle a swatch or a sample rather than every piece. Put sizes on wearables and keep a small size card handy for gift buyers (our <a href="{href("hat-size-chart.html")}">hat size chart</a> has the numbers). Working on a project at the booth gives people a reason to stop and chat, and a "custom orders welcome" sign turns that chat into orders later. For junk journals, keep one sample to flip through and the rest wrapped. Planning what to make before the fair? The <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a> shows how many pieces you can finish in time.</p>
+<p class="note">Checklist and tips drawn from Craftybase's craft show checklist (stock of two to three times expected sales, a $50 to $100 float, a price on every item, test the card reader), Made Urban's craft show preparation timeline, and Annie Andre's craft fair checklist (round prices for easy change, floor-length table covers, 15 to 20 lb tent weights). The yarn and paper extras, the price-band split and all wording are our own.</p></div></section>'''
+cf_faq = [
+    ("What should I bring to my first craft fair?", "A table and floor-length cloth, display risers, a sign with your shop name, prices on every item, a charged card reader and phone, a cash float in small notes, bags, business cards, a fix-it kit (tape, scissors, safety pins), and water, snacks and warm layers for yourself."),
+    ("How much inventory should I bring to a craft fair?", "A common rule of thumb is two to three times what you expect to sell. Divide your sales goal by your typical price to estimate sales: $400 at $20 an item is about 20 sales, so bring 40 to 60 pieces across a range of prices."),
+    ("How much change should I bring to a craft fair?", "Around $50 to $100 in small notes and coins is a common starting float. Round prices to whole dollars so you rarely need coins, and take card payments too."),
+    ("Do I need a card reader for a craft fair?", "It's strongly recommended, as many shoppers carry little cash. A phone card reader is cheap; charge it, bring a power bank, and test a sale at home before the day."),
+    ("How heavy should tent weights be at a craft fair?", "At least 15 lb per leg is a common minimum in windy places, with 20 lb or more better. Many fairs require weights on every leg, so check the rules."),
+    ("What sells well at craft fairs for crocheters?", "Small, giftable items at lower prices tend to move quickly, like ornaments, coasters, hats and small toys, with a few larger showpieces to draw people in. Keep notes on what sells and adjust for the next fair."),
+]
+page("craft-fair-checklist.html", "Craft Fair Checklist: What to Bring (Printable, for Crochet & Paper Sellers) | Purl & Paper",
+     f"Free craft fair checklist: {CF_N} things to pack for your booth, payments, packaging and comfort, extras for crochet, knitting and junk journal sellers, how much stock and cash float to bring, and a planner that remembers your ticks.",
+     cf, cf_faq, "Craft fair checklist", app_name="Craft fair checklist and stock planner")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -1772,7 +2005,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
+LASTMOD = {"yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
