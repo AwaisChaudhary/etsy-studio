@@ -556,5 +556,29 @@
   "board": "Crochet & Knitting Planners",
   "topic": "Craft fair",
   "status": "queued"
+ },
+ {
+  "id": "book-knit-a",
+  "image": "pins/books/knit-journal-pin-a.jpg",
+  "title": "Knit & Crochet Project Journal | Knitting Log Book with Row Counters",
+  "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
+  "board": "Crochet & Knitting Planners",
+  "status": "scheduled 2026-11-24 12:00 PM"
+ },
+ {
+  "id": "book-race",
+  "image": "pins/books/race-ready-pin.jpg",
+  "title": "Race Ready: 12-Week Training Log for Fitness Racing",
+  "link": "https://www.amazon.com/dp/B0HSM899WR?tag=purlandpaper-20",
+  "board": "Fitness Race Training (new)",
+  "status": "scheduled 2026-11-24 5:00 PM"
+ },
+ {
+  "id": "book-knit-b",
+  "image": "pins/books/knit-journal-pin-b.jpg",
+  "title": "Crochet Project Planner Book | Yarn, Hook and Row Tracker Journal",
+  "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
+  "board": "Crochet & Knitting Planners",
+  "status": "scheduled 2026-11-25 2:00 PM"
  }
 ]

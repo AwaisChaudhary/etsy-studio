@@ -1,4 +1,5 @@
-## NEXT (23 Nov 18:05 PKT): KDP books are LIVE, promote them
+## DONE 23 Nov 18:30 PKT (main session): KDP book box live on purlandpaperco.com (home + 21 knitting pages, /go/knit-journal -> Amazon tag purlandpaper-20, deployed + IndexNow); 3 book pins scheduled (24 Nov 12:00 + 17:00, 25 Nov 14:00; already in queue.json, count them toward the daily 5). New board: Fitness Race Training.
+## (was) KDP books are LIVE, promote them
 - Knit & Crochet Project Journal: https://www.amazon.com/dp/B0HSMCC4S9 ($9.99). Add a book box to purlandpaperco.com (home + crochet/knitting pages), link https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20, labelled as our own book + Amazon affiliate link. Queue 2 pins (original mockup from the cover PDF).
 - Race Ready: 12-Week Training Log (Split Lab): https://www.amazon.com/dp/B0HSM899WR ($9.99). 1 pin on a fitness board if one exists.
 - Gumroad stats: read gumroad.com/products (app.gumroad.com blocks page reads).
