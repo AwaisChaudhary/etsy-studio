@@ -3,7 +3,7 @@ Why: 30 days = 8 Etsy visits, 0 from Etsy Search, 0 from Pinterest; 0 orders. Ne
 1. New batches: mostly specific MAKER-BUSINESS tools (cost/pricing/inventory/order trackers for one trade each: resin, sticker shop, cake decorator/home bakery orders, cleaning business, nail tech, lash tech, embroidery, sublimation/tumbler, laser engraving, jewelry, florist, dog groomer, photographer...). Max 1 generic printable per batch. Price $9.99-14.99.
 2. Re-tag all live Etsy listings with long-tail buyer phrases (e.g. "soap cost calculator", "candle pricing template"); drop broad tags like "small business", "digital download", "christmas printable". Started 24 Nov.
 3. Purl site: add pages for people who sell what they make (pricing guides per trade, craft fair/market tips), each linking the matching spreadsheet.
-Pending Awais's answer: Etsy Ads ($1-2/day on the business sheets) and a 20-30% launch sale. Do NOT start either without his OK + budget.
+Awais approved 23 Nov 21:02: Etsy Ads up to $2/day on the business spreadsheets + a launch sale. Sale: a 25% shop-wide sale already runs 23 Nov - 2 Dec (keep). Etsy Ads LOCKED for new shops: '11 days left' on 23 Nov -> available ~4 Dec; set up then ($2/day cap, business sheets only). Don't accept any Etsy Ads terms for him; ask.
 
 ## DONE 23 Nov 18:30 PKT (main session): KDP book box live on purlandpaperco.com (home + 21 knitting pages, /go/knit-journal -> Amazon tag purlandpaper-20, deployed + IndexNow); 3 book pins scheduled (24 Nov 12:00 + 17:00, 25 Nov 14:00; already in queue.json, count them toward the daily 5). New board: Fitness Race Training.
 ## (was) KDP books are LIVE, promote them
