@@ -123,6 +123,36 @@
   "status": "published 2026-11-23"
  },
  {
+  "image": "pins/batch6/soap-making-business-spreadsheet-pin-a.jpg",
+  "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
+  "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Soap Making",
+  "link": null,
+  "link_from": "batch6/listings.json:soap-making-business-spreadsheet:etsy_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch6/family-advent-activity-calendar-pin-a.jpg",
+  "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
+  "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
+  "board": "Christmas Printables",
+  "topic": "Advent",
+  "link": null,
+  "link_from": "batch6/listings.json:family-advent-activity-calendar:etsy_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-a.jpg",
+  "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
+  "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
+  "board": "Printable Wall Art (create board; until then Christmas Printables)",
+  "topic": "Wall Art",
+  "link": null,
+  "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:etsy_url",
+  "status": "queued"
+ },
+ {
   "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
   "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
   "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
@@ -580,5 +610,35 @@
   "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
   "board": "Crochet & Knitting Planners",
   "status": "scheduled 2026-11-25 2:00 PM"
+ },
+ {
+  "image": "pins/batch6/soap-making-business-spreadsheet-pin-b.jpg",
+  "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
+  "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Soap Making",
+  "link": null,
+  "link_from": "batch6/listings.json:soap-making-business-spreadsheet:gumroad_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch6/family-advent-activity-calendar-pin-b.jpg",
+  "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
+  "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
+  "board": "Christmas Printables",
+  "topic": "Advent",
+  "link": null,
+  "link_from": "batch6/listings.json:family-advent-activity-calendar:gumroad_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-b.jpg",
+  "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
+  "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
+  "board": "Printable Wall Art (create board; until then Christmas Printables)",
+  "topic": "Wall Art",
+  "link": null,
+  "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:gumroad_url",
+  "status": "queued"
  }
 ]
