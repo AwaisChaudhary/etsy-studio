@@ -44,3 +44,11 @@ Listing notes
   (create "Wall Art" section + Pinterest board "Printable Wall Art" once lane e has 3 products).
 - Gumroad slugs planned: soap-business-spreadsheet, family-advent-calendar, mid-century-wall-art-set.
 - Etsy photos = `upload_images` (1 = scenes etsy-hero); Gumroad = `gumroad_cover` + `gumroad_thumb`. After listing set listed / etsy_url / gumroad_url.
+
+## Listed 23 Nov 2026 19:50-20:20 PKT (main chat, Chrome)
+- Etsy (copied from similar listings, then photos/files/title/description/tags replaced): soap 4623878110 (from candle sheet: Bookkeeping, section Business Spreadsheets), advent 4623873061 (category changed Colouring Books -> Advent Calendars, section Christmas Printables), wall art 4623882770 (section Wall Art).
+- Gumroad: soap-business-spreadsheet, family-advent-calendar, mid-century-wall-art-set; batch 5 too: 2027-reading-tracker, new-years-eve-party-games, kids-routine-chore-charts. All published.
+- Pinterest: new board "Printable Wall Art"; batch-6 pin-a scheduled 24 Nov 10:30 / 14:30 / 20:00 PKT (+ 2 book pins = 5 that day).
+- Site: soap sheet added to SHOP boxes on craft-fair-checklist + how-to-price-crochet-items; deployed; IndexNow 200.
+- Fast listing recipe: Etsy listing-editor/copy/<similar id> -> Delete all photos -> upload 5 -> Remove files -> upload -> set title/description/price via JS native setter -> Tags: "Delete all" then type each tag + Enter with 0.5 s pauses (synthetic Enter is ignored) -> check category -> Publish copy -> confirm $0.20.
+- Gumroad recipe: products/new -> name + price -> Next -> paste description as HTML via ClipboardEvent on .ProseMirror -> URL field triple-click + type slug -> Summary -> Cover "Upload images or videos" -> Computer files input (6 images) -> Thumbnail input -> Save and continue -> Content file input -> name folder -> Publish and continue.
