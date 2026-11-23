@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator"), ("foundation-chain-calculator.html", "Foundation chain calculator"), ("junk-journal-signature-calculator.html", "Junk journal signature calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -84,6 +84,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "yarn-yardage-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "craft-fair-checklist.html": ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "yarn-stash-tracker", "2027-crochet-knitting-planner"],
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "foundation-chain-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "junk-journal-signature-calculator.html": ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit", "journaling-cards-3x4"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -254,7 +256,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -630,7 +632,7 @@ jj = top("Junk journaling for beginners", "A junk journal is a handmade book fil
 <li><strong>Layering:</strong> stack three papers from biggest to smallest, slightly off-centre.</li>
 <li><strong>Hand stitching:</strong> a running stitch around a photo frames it instantly.</li></ul>
 <h2>How do I make a thicker journal?</h2>
-<p>Make three to six signatures, then sew each one to a spine made from a strip of card or fabric. Leave room in the spine: a junk journal gets much fatter once the pages are filled. A good first size is half a sheet of letter or A4 paper, folded.</p>
+<p>Make three to six signatures, then sew each one to a spine made from a strip of card or fabric. Leave room in the spine: a junk journal gets much fatter once the pages are filled. A good first size is half a sheet of letter or A4 paper, folded. Not sure how many sheets or how much thread? The <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out pages, spine thickness, hole spacing and thread.</p>
 <h2>What should I put on the first page?</h2>
 <p>Something low-pressure: the date you started, a list of things you saw this week, or one ticket and a sentence about it. Stuck for ideas? The <a href="{href("journal-prompts.html")}">junk journal prompt generator</a> shuffles a theme, a piece of ephemera, a technique and a colour palette for you.</p>
 </div></section>'''
@@ -691,7 +693,7 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 <h2>How big is a temperature blanket?</h2>
 <p>A temperature blanket's length comes from the number of days, not a size chart: 365 rows of single crochet in worsted yarn is roughly 100 in long, longer than a queen bed. Pick the width from the chart above, then check the length, the colours and the yarn for each colour with our <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a>.</p>
 <h2>How do I make a blanket bigger or smaller?</h2>
-<p>For a blanket worked in rows, change the width with the foundation chain or cast-on (the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> does the maths), and the length by working more or fewer rows. Going up one size, say from throw to twin, roughly doubles the yarn, so check the new amount above before you start.</p></div></section>'''
+<p>For a blanket worked in rows, change the width with the foundation chain or cast-on (the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> or, for crochet, the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> does the maths), and the length by working more or fewer rows. Going up one size, say from throw to twin, roughly doubles the yarn, so check the new amount above before you start.</p></div></section>'''
 bk_faq = [
     ("How many yards of yarn for a baby blanket?", f"A crocheted 36 × 36 in baby blanket takes roughly {bk_rng(_bk_by, 3, 1.27)} yards of DK yarn or {bk_rng(_bk_by, 4, 1.27)} yards of worsted. A knitted one takes a little less. These are estimates for plain stitches."),
     ("How long is a temperature blanket?", "One row a day for a year is 365 rows, which is roughly 100 in in worsted single crochet at a typical gauge. Thinner yarn, garter stitch or a square per day keeps it shorter. Our temperature blanket planner works it out for your stitch and gauge."),
@@ -761,8 +763,16 @@ H = D["hats"]
 h_opts = "".join(f'<option value="{x["id"]}"{" selected" if x["id"] == "adult" else ""}>{e(x["name"])} ({e(x["age"])})</option>' for x in H) + '<option value="custom">I measured a head</option>'
 h_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong><br><span class="muted">{e(x["age"])}</span></td><td>{x["head"]:g} in<br><span class="muted">{round(x["head"] * 2.54)} cm</span></td><td>{e(x["cyc"])}</td>'
                  f'<td>{round(x["head"] * 0.88 * 2) / 2:g} in<br><span class="muted">{round(x["head"] * 0.88 * 2.54)} cm</span></td><td>{e(x["h"])} in<br><span class="muted">{round(x["hn"] * 2.54)} cm</span></td></tr>' for x in H)
+def ht_co(head, g4, rep=8): return max(rep, int(head * 0.88 * g4 / 4 / rep + 0.5) * rep)
+HT_G = {1: 28, 2: 24, 3: 22, 4: 18, 5: 14, 6: 9, 7: 6}   # same typical knit gauges as the cast on calculator
+HT_W = [(1, "Fingering"), (3, "DK"), (4, "Worsted"), (5, "Bulky"), (6, "Super bulky")]
+ht_co_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong><br><span class="muted">{x["head"]:g} in head</span></td>' + "".join(f"<td>{ht_co(x['head'], HT_G[k])}</td>" for k, _ in HT_W) + "</tr>" for x in H if x["id"] != "preemie")
+ht_cr_rows = "".join(f'<tr><td><strong>{e(x["name"])}</strong></td><td>{x["head"] * 0.92:.1f} in</td><td>{x["head"] * 0.92 / 3.14159:.1f} in ({x["head"] * 0.92 / 3.14159 * 2.54:.0f} cm)</td><td>{e(x["h"])} in</td></tr>' for x in H)
+_ht_ad = [x for x in H if x["id"] == "adult"][0]
 ht = top("Hat size chart and calculator", "Head sizes from preemie to large adult, how much smaller to make the hat, and the exact number of stitches to cast on (or how wide to crochet the crown) for your yarn.", "Hat size chart") + f'''
-<section style="padding-top:10px"><div class="wrap tool">
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> an average adult head is <strong>22 in (56 cm)</strong> around, so a fitted beanie is made about <strong>19.5 in around and 11 in tall</strong>. A newborn hat is about 12 to 13 in around and 6 in tall. In worsted yarn (about 4.5 stitches per inch) cast on about <strong>{ht_co(22, 18)} stitches</strong> for an adult hat. Make the hat 10 to 15 percent smaller than the head so it stays on.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <div class="field"><label for="ht-size">Who is it for?</label><select id="ht-size">{h_opts}</select></div>
 <div class="row2" id="ht-custom" hidden><div class="field"><label for="ht-head">Head measurement</label><input type="number" id="ht-head" value="22" min="8" max="70" step="0.25" inputmode="decimal"></div>
@@ -776,29 +786,39 @@ ht = top("Hat size chart and calculator", "Head sizes from preemie to large adul
 </div>
 <div class="result" aria-live="polite" id="ht-out"></div>
 </div></section>
-<section style="padding-top:0"><div class="wrap"><h2>Hat size chart</h2>
+<section style="padding-top:0"><div class="wrap"><h2>What size should a hat be? Hat size chart</h2>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Typical head</th><th scope="col">Craft Yarn Council range</th><th scope="col">Hat width around (12% smaller)</th><th scope="col">Hat height</th></tr></thead><tbody>{h_rows}</tbody></table></div>
 <p class="note" style="margin-top:12px">Head ranges are from the Craft Yarn Council's head circumference chart. The typical head is the middle size that yarn companies and hat designers most often quote. Hat height runs from the bottom of an unfolded brim to the top of the crown on a fitted beanie, as listed by Knit Picks. Add 2 to 3 inches for a slouchy hat or a brim you fold up (our rule of thumb). Heads vary, so measure when you can.</p>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>How to measure a head for a hat</h2>
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I measure a head for a hat?</h2>
 <p>Wrap a soft tape measure around the head just above the eyebrows and ears, across the widest part at the back. Keep it level and comfortably snug, not tight. Making a surprise gift? Lay a hat the person already wears flat, without stretching it, measure across and double it.</p>
-<h2>Why a hat is smaller than the head</h2>
+<h2>Why is a hat smaller than the head?</h2>
 <p>Knitted and crocheted fabric stretches, so a hat made the exact size of the head slides down over the eyes. Designers make the hat a little smaller, which is called negative ease. Most patterns use around 2 to 3 inches less than the head on an adult, or roughly 10 to 15 percent.</p>
 <ul><li><strong>Ribbing</strong> pulls in and springs back, so ribbed hats can be made smaller.</li>
 <li><strong>Thick yarn</strong> and firm stitches stretch less, so they need less ease.</li>
 <li><strong>Crochet</strong> usually stretches less than knitting, so many crocheters make the band only a little smaller than the head. That's why the calculator suggests less ease for crochet.</li>
 <li><strong>Babies and children</strong> grow fast. When in doubt, go a little bigger.</li></ul>
 <div class="callout"><strong>Swatch in the round if you can.</strong> Measure your stitches over 4 inches (10 cm) after washing the swatch. Half a stitch per inch can change an adult hat by 2 inches.</div>
-<h2>Knitting a hat: the cast-on maths</h2>
+<h2>How many stitches do I cast on for a hat?</h2>
 <p>Multiply the hat width by your stitches per inch, then round to a number that suits your rib and crown. For example, a 22 inch head with 12 percent ease gives a 19.4 inch hat. At 4.5 stitches per inch that's 87 stitches, so cast on 88. Knit until the hat is about 2.5 to 3 inches short of the full height, then start the crown decreases. Adding stitches after a ribbed brim? The <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a> spaces them for you.</p>
-<h2>Crocheting a hat from the top down</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th>{"".join(f'<th scope="col">{n}<br><span class="muted">{HT_G[w]} sts / 4 in</span></th>' for w, n in HT_W)}</tr></thead><tbody>{ht_co_rows}</tbody></table></div>
+<p class="note">Cast-on for a knitted beanie made 12 percent smaller than the head, rounded to a multiple of 8, at a typical gauge for each yarn weight (the middle of the Craft Yarn Council knit range). Our own maths: use the calculator with your swatch.</p>
+<h2>How big should a crochet hat crown be?</h2>
 <p>Work a flat circle, increasing each round, until it measures the hat width divided by 3.14 across. Then stop increasing and work even rounds until the hat reaches the full height, measured from the centre of the crown. For a 19 inch hat that's a circle about 6 inches across.</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Hat around (8% smaller)</th><th scope="col">Crown circle across</th><th scope="col">Full height</th></tr></thead><tbody>{ht_cr_rows}</tbody></table></div>
+<p class="note">Crown size = hat width ÷ 3.14, with about 8 percent ease for firmer crochet fabric (the calculator's crochet setting). Work the flat circle with the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a>, which writes out every round.</p>
+<h2>How much yarn do I need for a hat?</h2>
+<p>A simple adult beanie takes roughly {yc_yd("hat", 4)} yards of worsted yarn, about {yc_yd("hat", 3)} of DK or {yc_yd("hat", 5)} of bulky (our estimates, the same model as the <a href="{href("yarn-calculator.html")}">yarn calculator</a>). A child's hat takes about {yc_yd("kidhat", 4)} yards of worsted. A folded brim, pompom, cables or a slouchy shape all add more, so buy one extra ball.</p>
+<h2>How tall should a hat be?</h2>
+<p>For a fitted adult beanie, about {_ht_ad["h"]} in from the bottom edge to the top of the crown. Add 2 to 3 in for a brim you fold up or a slouchy fit. Start the crown decreases about 2.5 to 3 in before the full height on a knitted hat. Measure from the centre of the crown on a top-down crochet hat.</p>
 <p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Matching socks? The <a href="{href("sock-size-chart.html")}">sock size chart</a> works out the cast-on the same way.</p></div></section>'''
 ht_faq = [
     ("What size should an adult knit hat be?", "Most adult heads are 21 to 24 inches around. A fitted beanie is usually made 2 to 3 inches smaller, so about 19 to 21 inches around, and about 11 inches tall before any fold-up brim."),
     ("How many stitches do I cast on for a hat?", "Multiply the hat width (head size minus about 12 percent) by your stitches per inch, then round to suit your rib. In worsted yarn at 4.5 stitches per inch, an average adult hat is about 88 stitches."),
     ("How big should a crochet hat crown circle be?", "Divide the hat width by 3.14. For an adult hat about 20 inches around, increase until the flat circle is about 6.4 inches across, then work even."),
     ("What size is a newborn hat?", "A newborn head is about 14 inches around, so a newborn hat is usually about 12 to 13 inches around and 6 inches tall."),
+    ("How many stitches do I cast on for a hat in bulky yarn?", f"At about 3.5 stitches per inch, an average adult hat needs about {ht_co(22, 14)} stitches and a child's hat about {ht_co(20, 14)}. Swatch and use the calculator for your own gauge."),
+    ("How much yarn do I need for a beanie?", f"Roughly {yc_yd('hat', 4)} yards of worsted yarn for a simple adult beanie, or about {yc_yd('kidhat', 4)} yards for a child's hat. Add more for a folded brim, cables or a pompom."),
     ("What is negative ease in a hat?", "It means the hat is smaller than the head, so the stretchy fabric holds it in place. Hats usually have about 10 to 15 percent negative ease, more for ribbing and less for thick or firm fabric."),
 ]
 page("hat-size-chart.html", "Hat Size Chart for Knitting and Crochet, with Stitch Calculator | Purl & Paper",
@@ -1290,7 +1310,7 @@ co = top("Cast on calculator: how many stitches to cast on", "Pick what you're m
 <h2>Which needle should I use for a wide cast-on?</h2>
 <p>Straight needles hold a scarf or dishcloth easily. For a wrap or blanket, use a long circular needle (32 to 40 in, or longer for big blankets) and knit back and forth: the weight sits on the cable instead of your wrists. In the round, pick a circular that is shorter than the piece is around, so the stitches reach without stretching. A 16 in circular suits hats, 24 in suits most cowls, and a long infinity scarf can go on a 32 to 47 in cable.</p>
 <h2>How many chains for crochet?</h2>
-<p>Work out the number of stitches the same way, from your crochet swatch. Then chain that number plus the turning chain your pattern's first row asks for (often 1 extra for single crochet, more for taller stitches). Your pattern says which chain to start in, and that decides the exact number.</p>
+<p>Work out the number of stitches the same way, from your crochet swatch. Then chain that number plus the turning chain your pattern's first row asks for (often 1 extra for single crochet, more for taller stitches). Your pattern says which chain to start in, and that decides the exact number. The <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> works it out for sc, hdc, dc and treble.</p>
 <p>What next? Check your needle size on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see how much yarn it takes with the <a href="{href("yarn-calculator.html")}">yarn calculator</a> or <a href="{href("blanket-size-calculator.html")}">blanket calculator</a>, see the size your swatch will really give with the <a href="{href("gauge-converter.html")}">gauge converter</a>, and space out shaping with the <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a>.</p></div></section>'''
 co_faq = [
     ("How many stitches do I cast on for a scarf?", f"For an 8 in adult scarf in worsted yarn at about 4.5 stitches per inch, cast on about {_co_sc} stitches. Use about {co_count(8, 28)} in fingering, {co_count(8, 14)} in bulky and {_co_ch} in super bulky yarn. Children's scarves are 5 to 7 in wide."),
@@ -1999,6 +2019,157 @@ page("craft-fair-checklist.html", "Craft Fair Checklist: What to Bring (Printabl
      f"Free craft fair checklist: {CF_N} things to pack for your booth, payments, packaging and comfort, extras for crochet, knitting and junk journal sellers, how much stock and cash float to bring, and a planner that remembers your ticks.",
      cf, cf_faq, "Craft fair checklist", app_name="Craft fair checklist and stock planner")
 
+# ---------------- FOUNDATION CHAIN CALCULATOR (crochet) ----------------
+FC_ST = {"sc": ("Single crochet (UK dc)", 2, 0, 1.0, 1.15), "hdc": ("Half double crochet (UK htr)", 3, 0, 0.95, 0.8),
+         "dc": ("Double crochet (UK tr)", 4, 1, 0.9, 0.6), "tr": ("Treble crochet (UK dtr)", 5, 1, 0.85, 0.45)}
+# id: (name, start in Nth chain from hook, skipped chains count as a stitch, stitch width vs sc, rows per 4 in vs sc stitches per 4 in). Width and row factors are our estimates.
+def fc_chain(n, k, counts): return n + (k - 1) - (1 if counts else 0)
+def fc_g(wn, st): return round(CI_G[wn] * FC_ST[st][3] * 2) / 2   # typical gauge, rounded to ½ stitch like the calculator
+def fc_sts(width, wn, st): return max(2, int(width * fc_g(wn, st) / 4 + 0.5))
+def fc_ch(width, wn, st): s = FC_ST[st]; return fc_chain(fc_sts(width, wn, st), s[1], s[2])
+FC_PRE = [("scarf-child", "Child's scarf", 6, 45), ("scarf", "Adult scarf", 8, 65), ("scarf-wide", "Wide scarf", 10, 70), ("dishcloth", "Dishcloth", 8, 8), ("wrap", "Wrap or stole", 20, 70)]
+fc_bl = [b for b in D["blankets"] if b["id"] in ("lovey", "stroller", "baby", "crib", "throw", "twin", "queen", "king")]
+fc_opts = "".join(f'<option value="{w}|{l}"{" selected" if k == "baby" else ""}>{e(n)}, {w} in wide</option>' for k, n, w, l in FC_PRE) + \
+          "".join(f'<option value="{b["w"]}|{b["l"]}"{" selected" if b["id"] == "baby" else ""}>{e(b["name"])} blanket, {b["w"]} × {b["l"]} in</option>' for b in fc_bl) + '<option value="custom">My own size</option>'
+fc_wopts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"].split(",")[0])}), about {CI_G[w["n"]]} sc per 4 in</option>' for w in D["weights"] if w["n"] in CI_G)
+fc_sopts = "".join(f'<option value="{k}"{" selected" if k == "dc" else ""}>{e(v[0])}</option>' for k, v in FC_ST.items())
+FC_EX = [("Adult scarf", 8)] + [(b["name"] + " blanket", b["w"]) for b in fc_bl if b["id"] in ("baby", "crib", "throw", "twin", "queen")]
+FC_EXC = [("sc", 3, "DK sc"), ("sc", 4, "Worsted sc"), ("hdc", 4, "Worsted hdc"), ("dc", 4, "Worsted dc"), ("sc", 5, "Bulky sc"), ("dc", 5, "Bulky dc"), ("dc", 6, "Super bulky dc")]
+fc_rows = "".join(f'<tr><td><strong>{e(n)}</strong><br><span class="muted">{w} in ({round(w * 2.54)} cm) wide</span></td>' + "".join(f"<td>{fc_ch(w, wn, st)}</td>" for st, wn, _ in FC_EXC) + "</tr>" for n, w in FC_EX)
+_fc_bb = fc_ch(36, 4, "dc"); _fc_bbs = fc_sts(36, 4, "dc"); _fc_sc = fc_ch(8, 4, "sc"); _fc_th = fc_ch(50, 4, "dc"); _fc_thsc = fc_ch(50, 4, "sc")
+fc = top("Foundation chain calculator: how many chains to start?", "Pick what you're making, your yarn and your stitch. Get the number of chains, the first row written out, how wide it will really be, and about how many rows to reach the length.", "Foundation chain calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> chain the number of stitches you need across, plus the turning chain your first stitch skips: <strong>+1 for single crochet</strong>, about <strong>+2 for half double</strong>, <strong>+2 for double crochet</strong> (when the skipped chains count as the first stitch) and +3 for treble. A 36 in baby blanket in worsted double crochet needs about <strong>{_fc_bb} chains</strong> ({_fc_bbs} stitches). An 8 in scarf in worsted single crochet needs about <strong>{_fc_sc}</strong>. Swatch first, because your gauge decides the number.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="fc-what">What are you making?</label><select id="fc-what">{fc_opts}</select></div>
+<div id="fc-custom" hidden><div class="row2"><div class="field"><label for="fc-w">Width</label><input type="number" id="fc-w" value="40" min="1" max="200" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="fc-l">Length</label><input type="number" id="fc-l" value="50" min="1" max="200" step="0.5" inputmode="decimal"></div></div>
+<div class="field"><label for="fc-u">Unit</label><select id="fc-u"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><label for="fc-st">Stitch for the first row</label><select id="fc-st">{fc_sopts}</select></div>
+<div class="field"><label for="fc-yarn">Yarn weight</label><select id="fc-yarn">{fc_wopts}</select></div>
+<div class="row2"><div class="field"><label for="fc-g">Stitches in your swatch</label><input type="number" id="fc-g" value="11" min="2" max="60" step="0.5" inputmode="decimal"></div>
+<div class="field"><label for="fc-gu">Measured over</label><select id="fc-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<p class="note" id="fc-gnote" style="margin:-4px 0 12px">Count stitches in the stitch you'll use. Filled in with a typical number until you change it.</p>
+<div class="row2"><div class="field"><label for="fc-k">First stitch goes in the</label><select id="fc-k"><option value="2">2nd chain from hook</option><option value="3">3rd chain from hook</option><option value="4" selected>4th chain from hook</option><option value="5">5th chain from hook</option><option value="6">6th chain from hook</option></select></div>
+<div class="field"><label for="fc-cnt">Skipped chains count as a stitch?</label><select id="fc-cnt"><option value="1" selected>Yes, as the first stitch</option><option value="0">No</option></select></div></div>
+<div class="field"><label for="fc-pat">Stitch pattern</label><select id="fc-pat"><option value="plain" selected>Plain rows (any number)</option><option value="custom">My pattern says "chain a multiple of … plus …"</option></select></div>
+<div class="row2" id="fc-rep" hidden><div class="field"><label for="fc-m">Multiple of</label><input type="number" id="fc-m" value="4" min="1" max="60" step="1" inputmode="numeric"></div>
+<div class="field"><label for="fc-x">Plus</label><input type="number" id="fc-x" value="3" min="0" max="40" step="1" inputmode="numeric"></div></div>
+<div class="field"><label for="fc-b">Border you'll add later, each side</label><select id="fc-b"><option value="0" selected>No border</option><option value="1">1 in</option><option value="2">2 in</option><option value="3">3 in</option></select></div>
+<figure class="co-fig"><svg id="fc-svg" viewBox="0 0 320 190" role="img" aria-label="Foundation chain with the turning chain and first row"></svg><figcaption class="note" id="fc-cap">Your foundation chain.</figcaption>
+<ul class="co-key"><li><i style="background:#b8326a"></i>Chains you work into</li><li><i style="background:#f4a823"></i>Skipped (turning) chains</li><li><i style="background:#2f8f8a"></i>First row</li></ul></figure>
+</div>
+<div class="result" aria-live="polite" id="fc-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How many chains for a crochet blanket?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Project</th>{"".join(f'<th scope="col">{e(n)}<br><span class="muted">{fc_g(wn, st):g} sts / 4 in</span></th>' for st, wn, n in FC_EXC)}</tr></thead><tbody>{fc_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Foundation chains worked out with the same maths as the calculator: typical single crochet gauge for each yarn weight (the middle of the Craft Yarn Council's crochet range), with half doubles a little and doubles about a tenth wider per stitch (our estimate). Single crochet starts in the 2nd chain from the hook, half double in the 3rd (chains not counted), double in the 4th (chains count as the first stitch). Your swatch will differ, so use the calculator with your own gauge. Blanket widths are from our <a href="{href("blanket-size-calculator.html")}">blanket size chart</a>.</p>
+</div></section>
+{AD.format("fc-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How do I work out my foundation chain?</h2>
+<ol><li><strong>Crochet a swatch</strong> in the yarn, hook and stitch you'll use, at least 4 in (10 cm) wide, or about 6 in for a blanket.</li>
+<li><strong>Count the stitches</strong> across 4 in and divide by 4 to get stitches per inch.</li>
+<li><strong>Multiply by the width</strong> you want. 3 double crochets per inch × 36 in = 108 stitches.</li>
+<li><strong>Add the turning chain</strong> for your stitch (see below), then round to your pattern's multiple if it has one.</li></ol>
+<p>B.Hooked's method skips the maths: chain 10, measure them, and divide the width you want by that length. If 10 chains measure 2.5 in, a 40 in blanket needs 16 sets of 10, so 160 chains. Use the same yarn and hook as the project.</p>
+<h2>How many extra chains for single, half double and double crochet?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Stitch (US, UK)</th><th scope="col">Turning chain</th><th scope="col">Common first row</th><th scope="col">Chain</th></tr></thead><tbody>
+<tr><td><strong>Single crochet</strong> (UK double)</td><td>1</td><td>Sc in 2nd ch from hook</td><td>Stitches + 1</td></tr>
+<tr><td><strong>Half double</strong> (UK half treble)</td><td>2</td><td>Hdc in 3rd ch from hook, chains not counted</td><td>Stitches + 2</td></tr>
+<tr><td><strong>Double crochet</strong> (UK treble)</td><td>3</td><td>Dc in 4th ch from hook, chains count as 1st dc</td><td>Stitches + 2</td></tr>
+<tr><td><strong>Double crochet</strong>, other style</td><td>2 or 3</td><td>Dc in 3rd ch from hook, chains not counted</td><td>Stitches + 2</td></tr>
+<tr><td><strong>Treble</strong> (UK double treble)</td><td>4</td><td>Tr in 5th ch from hook, chains count as 1st tr</td><td>Stitches + 3</td></tr></tbody></table></div>
+<p>The rule behind the table: chains = stitches + (the chain you start in − 1), minus 1 if the skipped chains count as a stitch. Your pattern's first row tells you which chain to start in, so set that in the calculator and it does the rest. The turning-chain heights (1 for sc up to 4 for treble) follow the usual standard; for taller stitches the turning chain almost always counts as a stitch, for single crochet it doesn't.</p>
+<h2>What does "chain a multiple of 4 plus 3" mean?</h2>
+<p>Chain any number you can make from 4 × something, then add 3. So 43, 47 and 51 all work, but 45 doesn't. The plus part already covers the turning chain and the edges, so don't add a turning chain on top. Pick "My pattern says chain a multiple of…" in the calculator and it rounds to the nearest number that fits.</p>
+<h2>Why is my foundation chain too tight?</h2>
+<p>Chains are narrower than the stitches worked into them, so a tight chain makes the bottom edge pull in and the piece flare as it grows. Loosen your tension on the chain, or make the chain with a hook one size larger than the pattern asks for and switch back for row 1. A slightly loose chain looks messy at first, but the first row takes up the slack.</p>
+<div class="callout"><strong>Long chain? Chain a few extra.</strong> Counting 200 chains is where mistakes happen. Chain 5 to 10 more than you need and put a stitch marker every 20 or 25 chains. Unpick the spare chains from the tail once row 1 is done. Some crocheters skip the chain and use a foundation single crochet row, which makes the chain and the first row together and stays stretchy.</div>
+<h2>How many rows will my blanket be?</h2>
+<p>Divide the length you want by the height of one row. Measure it on your swatch: count the rows in 4 in and divide by 4. Taller stitches need fewer rows. In worsted yarn, single crochet is roughly 3 to 4 rows per inch, double crochet about 2 (our estimates, used by the calculator until you change the stitch). Count rows with the <a href="{href("row-counter.html")}">row counter</a>.</p>
+<p>What next? See how much yarn it takes with the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a> or the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, check the hook for your yarn on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, convert pattern terms with the <a href="{href("crochet-terms.html")}">US vs UK crochet terms</a> chart, and knitting the same piece? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> does the knit version.</p></div></section>'''
+fc_faq = [
+    ("How many chains do I need for a baby blanket?", f"For a 36 in baby blanket in worsted yarn, chain about {_fc_bb} for double crochet or about {fc_ch(36, 4, 'sc')} for single crochet. Bulky yarn needs about {fc_ch(36, 5, 'dc')} for double crochet. Swatch and check your own gauge."),
+    ("How many chains do I need for a throw blanket?", f"A 50 in throw in worsted yarn needs about {_fc_th} chains for double crochet or {_fc_thsc} for single crochet. Multiply the width by your stitches per inch and add the turning chain."),
+    ("How many chains for a crochet scarf?", f"An 8 in adult scarf in worsted single crochet needs about {_fc_sc} chains, or {fc_ch(8, 4, 'dc')} for double crochet. Children's scarves are about 6 in wide."),
+    ("Do you add a turning chain to the foundation chain?", "Yes. Add 1 for single crochet, 2 for half double and 2 or 3 for double crochet, depending on whether the skipped chains count as the first stitch. If your pattern says chain a multiple plus a number, that number already includes it."),
+    ("How do I calculate a foundation chain?", "Divide the stitches in a 4 in swatch by 4 to get stitches per inch, multiply by the width you want, then add the turning chain for your stitch and round to any multiple your pattern gives."),
+    ("Why does my crochet get wider at the top?", "Usually the foundation chain is too tight, so the bottom edge pulls in. Chain more loosely or use a hook one size larger just for the chain."),
+]
+page("foundation-chain-calculator.html", "Foundation Chain Calculator: How Many Chains for a Crochet Blanket or Scarf? | Purl & Paper",
+     "How many chains to start a crochet blanket, scarf or dishcloth: free foundation chain calculator for your gauge and stitch (sc, hdc, dc, tr), turning chains, pattern multiples, borders and rows to length.",
+     fc, fc_faq, "Foundation chain calculator", app_name="Crochet foundation chain calculator")
+
+# ---------------- JUNK JOURNAL SIGNATURE CALCULATOR ----------------
+JS_PAPER = [("letter", "US Letter, 8.5 × 11 in", 11, 8.5), ("a4", "A4, 210 × 297 mm", 297 / 25.4, 210 / 25.4), ("legal", "US Legal, 8.5 × 14 in", 14, 8.5),
+            ("tabloid", "Tabloid, 11 × 17 in", 17, 11), ("scrap12", "12 × 12 in scrapbook paper", 12, 12), ("halfletter", "Half letter, 5.5 × 8.5 in", 8.5, 5.5),
+            ("a5", "A5, 148 × 210 mm", 210 / 25.4, 148 / 25.4)]   # (id, name, edge you fold across (becomes 2 page widths), other edge = page height)
+JS_T = [("copy", "Printer or copy paper (80 gsm, 20 lb)", 0.1), ("heavy", "Heavier printer paper (100 to 120 gsm)", 0.13), ("mixed", "Mixed junk papers (old book pages, envelopes)", 0.16),
+        ("card", "Light cardstock (65 lb, about 176 gsm)", 0.23), ("mm", "Mixed media or watercolour paper", 0.33)]   # sheet thickness in mm: our estimates
+def js_holes(h): return 3 if h <= 6 else (5 if h <= 10 else 7)
+def js_spine_mm(sheets, sigs, t, puff=1.0): return sheets * 2 * sigs * t * 1.15 * puff
+js_popts = "".join(f'<option value="{i}|{a:.3f}|{b:.3f}"{" selected" if i == "letter" else ""}>{e(n)}, folds to {a / 2:.3g} × {b:.3g} in</option>' for i, n, a, b in JS_PAPER) + '<option value="custom">My own sheet size</option>'
+js_topts = "".join(f'<option value="{t}"{" selected" if i == "copy" else ""}>{e(n)}</option>' for i, n, t in JS_T)
+js_rows = "".join(f'<tr><td><strong>{s} sheets</strong><br><span class="muted">{s * 2} leaves</span></td><td>{s * 4}</td>' + "".join(f"<td>{s * 4 * g}</td>" for g in (3, 4, 5, 6)) + "</tr>" for s in (3, 4, 5, 6, 8, 10))
+js_prow = "".join(f'<tr><td><strong>{e(n)}</strong></td><td>{a / 2:.3g} × {b:.3g} in<br><span class="muted">{a / 2 * 2.54:.1f} × {b * 2.54:.1f} cm</span></td><td>{js_holes(b)}</td><td>{b * 3 / 36:.2g} yd ({b * 3 * 2.54 / 100:.2g} m)</td></tr>' for i, n, a, b in JS_PAPER)
+js = top("Junk journal signature calculator", "Pick your paper, how many sheets go in each signature and how many signatures you want. Get the page count, finished page size, how thick the spine will be, where to punch the sewing holes and how much thread to cut.", "Signature calculator") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> every sheet you fold in half makes <strong>2 leaves and 4 pages</strong>. A signature of 5 sheets has 20 pages, and a journal of 4 such signatures has 80 pages. US Letter paper folded in half gives 5.5 × 8.5 in pages; A4 gives A5 pages. Most junk journalers use 4 to 8 sheets per signature, sewn with 3 or 5 holes and about 3 times the spine height of thread.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><label for="js-paper">Paper you're folding</label><select id="js-paper">{js_popts}</select></div>
+<div id="js-custom" hidden><div class="row2"><div class="field"><label for="js-a">Sheet width (the edge you fold across)</label><input type="number" id="js-a" value="11" min="2" max="40" step="0.25" inputmode="decimal"></div>
+<div class="field"><label for="js-bb">Sheet height (stays the same)</label><input type="number" id="js-bb" value="8.5" min="2" max="40" step="0.25" inputmode="decimal"></div></div>
+<div class="field"><label for="js-u">Unit</label><select id="js-u"><option value="in">inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><span class="label" id="js-mode-l">Plan by</span><div class="seg" role="group" aria-labelledby="js-mode-l" id="js-mode"><button type="button" data-v="sigs" aria-pressed="true">Number of signatures</button><button type="button" data-v="pages" aria-pressed="false">Pages I want</button></div></div>
+<div class="row2"><div class="field"><label for="js-s">Sheets per signature</label><input type="number" id="js-s" value="5" min="1" max="20" step="1" inputmode="numeric"></div>
+<div class="field" id="js-n-f"><label for="js-n">Signatures</label><input type="number" id="js-n" value="4" min="1" max="20" step="1" inputmode="numeric"></div>
+<div class="field" id="js-p-f" hidden><label for="js-p">Pages I want</label><input type="number" id="js-p" value="80" min="4" max="800" step="4" inputmode="numeric"></div></div>
+<div class="field"><label for="js-t">Paper type</label><select id="js-t">{js_topts}</select></div>
+<div class="field"><label for="js-puff">Tuck-ins, pockets and ephemera added later</label><select id="js-puff"><option value="1">None, flat pages</option><option value="1.4" selected>Some (a few pockets and tucks)</option><option value="1.8">Lots (a chunky, stuffed journal)</option></select></div>
+<figure class="co-fig"><svg id="js-svg" viewBox="0 0 320 210" role="img" aria-label="Open signature with sewing holes, and the signatures stacked at the spine"></svg><figcaption class="note" id="js-cap">Your journal.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="js-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How many pages in a junk journal signature?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Sheets per signature</th><th scope="col">Pages in one signature</th><th scope="col">3 signatures</th><th scope="col">4 signatures</th><th scope="col">5 signatures</th><th scope="col">6 signatures</th></tr></thead><tbody>{js_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Pages count both sides of every leaf: one folded sheet = 2 leaves = 4 pages. Add a cover and any tip-ins on top.</p>
+<h2 style="margin-top:34px">What size will my pages be?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Sheet, folded in half</th><th scope="col">Page size</th><th scope="col">Sewing holes</th><th scope="col">Thread per signature</th></tr></thead><tbody>{js_prow}</tbody></table></div>
+<p class="note" style="margin-top:12px">Page size is plain maths. Hole counts follow our rule of thumb (3 holes up to a 6 in spine, 5 up to 10 in, 7 above; bookbinding guides use an odd number, usually 3, 5 or 7). Thread is about 3 times the page height for a pamphlet stitch, as The Creative Folk suggests; cut a little more if you're new to it.</p>
+</div></section>
+{AD.format("js-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>What is a signature in a junk journal?</h2>
+<p>A signature is a small stack of sheets folded in half together, so they nest inside each other and share one fold. You sew through the fold to hold them together. One signature makes a slim booklet; sew several into one cover and you have a thicker journal. Printers use the same word for the folded sections of a book.</p>
+<h2>How many sheets should go in a signature?</h2>
+<p>Most junk journals use 4 to 8 sheets per signature. A Coptic-bound travel journal tutorial we read uses 4 folded sheets per signature (16 pages); our <a href="{href("junk-journal-beginners.html")}">beginner's guide</a> suggests 5 to 8 sheets for a first project. Thin paper can take more; cardstock or thick found papers fewer. Too many sheets and the fold won't close flat, and the inner sheets stick out at the edge (trim them, or keep the uneven look).</p>
+<h2>How many signatures does a junk journal need?</h2>
+<p>There's no fixed number. A slim travel journal might have 1 or 2, a chunky "stuffed" journal 4 to 6. Remember that a junk journal grows: every pocket, tag and tuck-in adds thickness, so leave room in the spine. The calculator's ephemera setting adds that bulk to the spine estimate.</p>
+<h2>How do I sew a signature with a pamphlet stitch?</h2>
+<ol><li><strong>Mark the holes</strong> on a strip of scrap card folded like your signature: one in the centre of the fold and the rest evenly spaced, with the end holes about ½ to ¾ in from the top and bottom.</li>
+<li><strong>Pierce the fold</strong> from the inside using the strip as a guide, with an awl or a thick needle. An old phone book or folded towel underneath helps.</li>
+<li><strong>Cut the thread</strong> about 3 times the height of the spine.</li>
+<li><strong>For 3 holes:</strong> go out through the centre from inside (leave a tail), in at the top hole, out at the bottom hole, then back in through the centre. Tie the two ends around the long stitch and trim.</li>
+<li><strong>For 5 holes:</strong> work the same way, filling in the extra holes in a figure-of-eight and finishing back in the centre.</li></ol>
+<div class="callout"><strong>Sewing into a cover?</strong> Punch matching holes in the cover's spine, one set for each signature, spaced a little apart so the signatures can sit side by side. Each signature then gets its own pamphlet stitch through the cover.</div>
+<h2>How thick will my junk journal be?</h2>
+<p>Each folded sheet adds two layers of paper at the spine. Printer paper is about 0.1 mm thick, so 4 signatures of 5 sheets come to roughly 4 to 5 mm before anything is added. Pockets, tags and ephemera can double that. The calculator gives an estimate with a range; measure a stack of your own paper for a closer number, and make the cover spine a little wider than you think.</p>
+<h2>Which paper should I use for signatures?</h2>
+<p>Printer paper folds cleanly and is easy to sew. Mix in old book pages, envelopes, kraft paper, graph paper and <a href="{href("how-to-tea-stain-paper.html")}">tea-stained pages</a> for the layered look. If a fold cracks or fights you, try folding the sheet the other way: paper folds more easily along its grain.</p>
+<p>What next? Fill your pages with <a href="{href("junk-journal-ephemera-ideas.html")}">ephemera ideas</a>, get a prompt for each spread from the <a href="{href("journal-prompts.html")}">journal prompt generator</a>, age your paper with the <a href="{href("how-to-tea-stain-paper.html")}">tea staining guide</a>, or start from the beginning with <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a>.</p></div></section>'''
+js_faq = [
+    ("How many pages are in a signature?", "Each folded sheet makes 4 pages (2 leaves). A signature of 4 sheets has 16 pages, 5 sheets 20 pages and 8 sheets 32 pages."),
+    ("How many sheets of paper should be in a junk journal signature?", "Most junk journals use 4 to 8 folded sheets per signature. Use fewer with thick paper or cardstock so the fold still closes flat."),
+    ("How many signatures should a junk journal have?", "There is no set number: 1 or 2 for a slim travel journal, 4 to 6 for a chunky one. Leave room in the spine for the pockets and ephemera you'll add."),
+    ("What size is a junk journal made from letter paper?", "US Letter (8.5 × 11 in) folded in half gives 5.5 × 8.5 in pages, the most common junk journal size. A4 folded in half gives A5 pages (about 5.8 × 8.3 in)."),
+    ("How much thread do I need to sew a signature?", "For a pamphlet stitch, cut about 3 times the height of the spine. For an 8.5 in tall journal that's about 26 in (0.7 yd) per signature."),
+    ("How many holes do I need to sew a signature?", "Use an odd number so you start and finish in the centre: 3 holes for small journals and 5 for most letter-size journals. Very tall journals can use 7."),
+]
+page("junk-journal-signature-calculator.html", "Junk Journal Signature Calculator: Pages, Sheets, Spine and Sewing Holes | Purl & Paper",
+     "How many pages in a junk journal signature, how many sheets and signatures to use, page sizes for letter, A4 and 12x12 paper, spine thickness, sewing hole spacing and thread length: free junk journal signature calculator.",
+     js, js_faq, "Signature calculator", app_name="Junk journal signature calculator")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -2020,7 +2191,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
+LASTMOD = {"foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "cast-on-calculator.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

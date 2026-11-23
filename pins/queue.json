@@ -640,5 +640,23 @@
     "link": "https://karamat4.gumroad.com/l/mid-century-wall-art-set",
     "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:gumroad_url",
     "status": "queued"
+  },
+  {
+    "image": "pins/site/foundation-chain-calculator.jpg",
+    "title": "Foundation Chain Calculator: How Many Chains to Start a Crochet Blanket or Scarf",
+    "description": "How many chains do you need to start a crochet blanket? This free foundation chain calculator works it out for your yarn, gauge and stitch (sc, hdc, dc or treble), adds the right turning chain, rounds to your pattern's multiple and tells you how many rows to reach the length. Includes a chain chart for baby to queen blankets. #crochetblanket #crochetforbeginners #crochettips #crochetcalculator #crochetpattern",
+    "link": "https://purlandpaperco.com/foundation-chain-calculator",
+    "board": "Crochet & Knitting Planners",
+    "topic": "Foundation chain",
+    "status": "queued"
+  },
+  {
+    "image": "pins/site/junk-journal-signature-calculator.jpg",
+    "title": "Junk Journal Signature Calculator: How Many Pages, Sheets and Sewing Holes",
+    "description": "Planning a junk journal? This free signature calculator tells you how many pages you'll get from your sheets and signatures, the page size for letter, A4 or 12x12 paper, how thick the spine will be, where to punch the sewing holes and how much thread to cut. #junkjournal #junkjournalideas #junkjournaling #bookbinding #junkjournalforbeginners",
+    "link": "https://purlandpaperco.com/junk-journal-signature-calculator",
+    "board": "Junk Journal Printables",
+    "topic": "Junk journal signatures",
+    "status": "queued"
   }
 ]

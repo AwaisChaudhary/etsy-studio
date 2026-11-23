@@ -1379,4 +1379,160 @@
     });
     tbCalc();
   }
+
+  /* ---------- FOUNDATION CHAIN CALCULATOR ---------- */
+  if ($("#fc-what") && $("#fc-out")) {
+    var fcEl = {}; ["what", "custom", "w", "l", "u", "st", "yarn", "g", "gu", "gnote", "k", "cnt", "pat", "rep", "m", "x", "b", "out", "svg", "cap"].forEach(function (k) { fcEl[k] = $("#fc-" + k); });
+    var FC_G = { 1: 26, 2: 18, 3: 14, 4: 12, 5: 9, 6: 8, 7: 6 }; /* typical sc per 4 in: middle of the Craft Yarn Council crochet ranges */
+    var FC_ST = { sc: { n: "sc", long: "single crochet", k: 2, c: "0", w: 1, r: 1.15 }, hdc: { n: "hdc", long: "half double crochet", k: 3, c: "0", w: 0.95, r: 0.8 },
+      dc: { n: "dc", long: "double crochet", k: 4, c: "1", w: 0.9, r: 0.6 }, tr: { n: "tr", long: "treble crochet", k: 5, c: "1", w: 0.85, r: 0.45 } }; /* width and row factors: our estimates */
+    var fcKeys = ["what", "w", "l", "u", "st", "yarn", "g", "gu", "k", "cnt", "pat", "m", "x", "b"], fcTouched = { g: false, k: false };
+    var fcPref = store.get("pp-fchain", null);
+    if (fcPref) { fcKeys.forEach(function (k) { if (fcPref[k] != null && fcPref[k] !== "" && fcEl[k]) fcEl[k].value = fcPref[k]; }); fcTouched = { g: !!fcPref.tg, k: !!fcPref.tk }; }
+    var f1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var fBoth = function (inch) { return f1(inch) + " in (" + Math.round(inch * 2.54) + " cm)"; };
+    var fLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function fcDefaults() {
+      var st = FC_ST[fcEl.st.value] || FC_ST.dc, wn = parseInt(fcEl.yarn.value, 10) || 4, g4 = FC_G[wn] * st.w;
+      if (!fcTouched.g) { fcEl.g.value = fcEl.gu.value === "10" ? Math.round(g4 * 10 / 4 / 2.54 * 2) / 2 : Math.round(g4 * 2) / 2; }
+      if (!fcTouched.k) { fcEl.k.value = String(st.k); fcEl.cnt.value = st.c; }
+      fcEl.gnote.textContent = fcTouched.g ? "Your swatch, in " + st.long + "." : "Filled in with a typical " + st.long + " gauge for this yarn until you type your own.";
+    }
+    function fcDraw(ch, skip, sts, counts, real, rows) {
+      var x0 = 14, W = 292, show = Math.min(ch, 40), u = W / show, g = "", y = 150, i;
+      for (i = 0; i < show; i++) {
+        var fromHook = show - i; /* chain nearest the hook is on the right */
+        var col = fromHook < skip ? "#f4a823" : "#b8326a";
+        g += '<ellipse cx="' + (x0 + i * u + u / 2).toFixed(1) + '" cy="' + y + '" rx="' + Math.max(1.6, u / 2 - 0.6).toFixed(1) + '" ry="5" fill="none" stroke="' + col + '" stroke-width="2.4"/>';
+      }
+      var rh = Math.min(104, 60 + Math.min(rows, 44)), top = y - 10 - rh;
+      g += '<rect x="' + x0 + '" y="' + top + '" width="' + W + '" height="' + rh + '" rx="4" fill="#2f8f8a" opacity=".9"/>';
+      var colsN = Math.min(sts, 40), cw = W / colsN;
+      for (i = 0; i < colsN; i++) g += '<path d="M' + (x0 + i * cw + cw / 2).toFixed(1) + " " + (top + 6) + " v" + (rh - 12) + '" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/>';
+      g += '<text x="160" y="' + (top + rh / 2 + 5) + '" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">' + sts + " stitches · about " + f1(real) + " in</text>";
+      g += '<text x="160" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2a44">Chain ' + ch + (ch > show ? " (first 40 shown)" : "") + "</text>";
+      g += '<path d="M' + (x0 + W + 2) + " " + y + ' l4 0" stroke="#1f2a44" stroke-width="2"/><circle cx="' + (x0 + W + 2) + '" cy="' + y + '" r="3.5" fill="#1f2a44"/>';
+      g += '<text x="' + (x0 + W) + '" y="' + (y + 24) + '" text-anchor="end" font-size="11" fill="#1f2a44">hook end</text><text x="' + x0 + '" y="' + (y + 24) + '" font-size="11" fill="#1f2a44">tail</text>';
+      fcEl.svg.innerHTML = g;
+    }
+    function fcCalc() {
+      fcDefaults();
+      var custom = fcEl.what.value === "custom"; fcEl.custom.hidden = !custom;
+      var width, len, cm = fcEl.u.value === "cm";
+      if (custom) { width = Math.min(240, Math.max(1, (parseFloat(fcEl.w.value) || 0) / (cm ? 2.54 : 1))); len = Math.min(300, Math.max(0, (parseFloat(fcEl.l.value) || 0) / (cm ? 2.54 : 1))); }
+      else { var pv = fcEl.what.value.split("|"); width = parseFloat(pv[0]) || 36; len = parseFloat(pv[1]) || 0; }
+      var st = FC_ST[fcEl.st.value] || FC_ST.dc, wn = parseInt(fcEl.yarn.value, 10) || 4;
+      var border = parseFloat(fcEl.b.value) || 0, target = Math.max(1, width - 2 * border);
+      var g = parseFloat(fcEl.g.value) || 0, spi = g / (fcEl.gu.value === "10" ? 10 / 2.54 : 4);
+      if (!(spi > 0)) { fcEl.out.innerHTML = '<h3>Foundation chain</h3><p class="sub">Enter the stitches in your swatch to see the number.</p>'; fcEl.svg.innerHTML = ""; return; }
+      var k = parseInt(fcEl.k.value, 10) || 2, counts = fcEl.cnt.value === "1", extra = (k - 1) - (counts ? 1 : 0);
+      var sts = Math.max(2, Math.round(target * spi)), ch = sts + extra, pc = fcEl.pat.value === "custom"; fcEl.rep.hidden = !pc;
+      var mult = 1, plus = 0, alt = "";
+      if (pc) {
+        mult = Math.max(1, Math.min(60, parseInt(fcEl.m.value, 10) || 1)); plus = Math.max(0, Math.min(40, parseInt(fcEl.x.value, 10) || 0));
+        var reps = Math.max(1, Math.round((ch - plus) / mult)); ch = reps * mult + plus; sts = Math.max(1, ch - extra);
+        var lo = reps > 1 ? ch - mult : 0, hi = ch + mult;
+        alt = "<hr><h3>Other numbers that fit</h3><ul class=\"co-alt\">" + (lo ? "<li><strong>" + lo + "</strong> chains · about " + fBoth((lo - extra) / spi) + "</li>" : "") + "<li><strong>" + hi + "</strong> chains · about " + fBoth((hi - extra) / spi) + "</li></ul>";
+      }
+      var real = sts / spi, diff = real - target;
+      var ord = function (n) { return n + (n === 2 ? "nd" : n === 3 ? "rd" : "th"); };
+      var row1 = "Ch " + ch + ". " + st.n.charAt(0).toUpperCase() + st.n.slice(1) + " in " + ord(k) + " ch from hook and in each ch across" + (pc ? " (or follow your pattern's row 1)" : "") + ": " + sts + " stitches" + (counts && k > 2 ? ", counting the skipped chains as the first " + st.n : "") + ".";
+      var rows4 = spi * 4 / st.w * st.r; /* rows per 4 in from the stitch gauge: estimate */
+      var rowH = 4 / rows4, rows = len > 0 ? Math.max(1, Math.round((len - 2 * border) / rowH)) : 0;
+      var out = "<h3>Foundation chain</h3><div class=\"big\">" + ch + "</div><p class=\"sub\">chains: " + sts + " " + st.long + " stitches + " + extra + " for the turning chain" + (pc ? " (rounded to a multiple of " + mult + (plus ? " + " + plus : "") + ")" : "") + ".</p>" +
+        '<p class="id-line">' + esc(row1) + "</p>" +
+        '<div class="bk-dims">' + fBoth(real) + "<small>wide, for a target of " + fBoth(target) + (Math.abs(diff) >= 0.1 ? " (" + (diff > 0 ? "+" : "−") + f1(Math.abs(diff)) + " in)" : "") + (border ? ", before a " + border + " in border each side" : "") + "</small></div>";
+      if (rows) out += '<div class="tb-stats"><div><strong>about ' + rows + '</strong><span>rows to reach ' + fBoth(len - 2 * border) + "</span></div><div><strong>" + f1(rowH) + ' in</strong><span>per row (estimate, check your swatch)</span></div></div>';
+      out += alt;
+      out += "<hr><p>Chain loosely, or use a hook one size larger just for the chain. " + (ch > 60 ? "Chain about " + Math.min(10, Math.max(5, Math.round(ch / 30))) + " extra and place a marker every 25, then unpick the spare chains after row 1." : "") + "</p>";
+      out += '<p class="sub">Next: ' + fLink("blanket-size-calculator", "how much yarn") + ", " + fLink("row-counter", "row counter") + ", " + fLink("crochet-terms", "US vs UK terms") + ".</p>";
+      fcEl.out.innerHTML = out;
+      fcDraw(ch, k, sts, counts, real, rows);
+      fcEl.cap.textContent = "Chain " + ch + ": the " + (k - 1) + " chain" + (k - 1 === 1 ? "" : "s") + " nearest the hook are skipped, then row 1 has " + sts + " stitches.";
+      var save = { tg: fcTouched.g, tk: fcTouched.k }; fcKeys.forEach(function (kk) { save[kk] = fcEl[kk].value; }); store.set("pp-fchain", save);
+    }
+    var fcU = fcEl.u.value;
+    fcEl.u.addEventListener("change", function () { if (fcU !== fcEl.u.value) { var f = fcEl.u.value === "cm" ? 2.54 : 1 / 2.54; ["w", "l"].forEach(function (k) { var v = parseFloat(fcEl[k].value); if (v) fcEl[k].value = Math.round(v * f * 2) / 2; }); } fcU = fcEl.u.value; });
+    var fcGu = fcEl.gu.value;
+    fcEl.gu.addEventListener("change", function () { var v = parseFloat(fcEl.g.value); if (v && fcGu !== fcEl.gu.value && fcTouched.g) fcEl.g.value = Math.round(v * (fcEl.gu.value === "10" ? 10 / 2.54 / 4 : 4 / (10 / 2.54)) * 2) / 2; fcGu = fcEl.gu.value; });
+    fcEl.g.addEventListener("input", function () { fcTouched.g = true; });
+    fcEl.k.addEventListener("change", function () { fcTouched.k = true; });
+    fcEl.cnt.addEventListener("change", function () { fcTouched.k = true; });
+    fcEl.st.addEventListener("change", function () { fcTouched.k = false; fcTouched.g = false; });
+    fcEl.yarn.addEventListener("change", function () { fcTouched.g = false; });
+    fcKeys.forEach(function (k) { fcEl[k].addEventListener("input", fcCalc); fcEl[k].addEventListener("change", fcCalc); });
+    fcCalc();
+  }
+
+  /* ---------- JUNK JOURNAL SIGNATURE CALCULATOR ---------- */
+  if ($("#js-paper") && $("#js-out")) {
+    var jsEl = {}; ["paper", "custom", "a", "bb", "u", "mode", "s", "n", "n-f", "p", "p-f", "t", "puff", "out", "svg", "cap"].forEach(function (k) { jsEl[k] = $("#js-" + k); });
+    var jsKeys = ["paper", "a", "bb", "u", "s", "n", "p", "t", "puff"];
+    var jsPref = store.get("pp-signature", null);
+    if (jsPref) { jsKeys.forEach(function (k) { if (jsPref[k] != null && jsPref[k] !== "") jsEl[k].value = jsPref[k]; }); if (jsPref.mode === "pages") $$("#js-mode button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "pages"); }); }
+    var j1 = function (n, d) { var m = Math.pow(10, d == null ? 1 : d); return (Math.round(n * m) / m).toLocaleString("en-US"); };
+    var jBoth = function (inch) { return j1(inch, 2) + " in (" + j1(inch * 2.54) + " cm)"; };
+    var jLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function jsHoles(h) {
+      var n = h <= 6 ? 3 : h <= 10 ? 5 : 7, end = h <= 6 ? 0.5 : 0.75, pos = [], i; /* our rule of thumb */
+      for (i = 0; i < n; i++) pos.push(end + (h - 2 * end) * i / (n - 1));
+      return { n: n, end: end, pos: pos };
+    }
+    function jsDraw(pw, ph, sheets, sigs, holes) {
+      var g = "", sc = Math.min(150 / ph, 140 / (pw * 2)), H = ph * sc, Wp = pw * sc, x0 = 14, y0 = 30 + (150 - H) / 2;
+      g += '<text x="' + (x0 + Wp) + '" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2a44">Open signature</text>';
+      g += '<rect x="' + x0 + '" y="' + y0 + '" width="' + (Wp * 2) + '" height="' + H + '" rx="3" fill="#fbf6ea" stroke="#1f2a44" stroke-width="2"/>';
+      g += '<line x1="' + (x0 + Wp) + '" x2="' + (x0 + Wp) + '" y1="' + y0 + '" y2="' + (y0 + H) + '" stroke="#8a6e55" stroke-width="1.5" stroke-dasharray="4 3"/>';
+      holes.pos.forEach(function (p, i) {
+        var yy = y0 + p * sc; g += '<circle cx="' + (x0 + Wp) + '" cy="' + yy.toFixed(1) + '" r="3.6" fill="' + (i === (holes.n - 1) / 2 ? "#b8326a" : "#1f2a44") + '"/>';
+      });
+      for (var i = 0; i < holes.n - 1; i++) g += '<line x1="' + (x0 + Wp) + '" x2="' + (x0 + Wp) + '" y1="' + (y0 + holes.pos[i] * sc + 4).toFixed(1) + '" y2="' + (y0 + holes.pos[i + 1] * sc - 4).toFixed(1) + '" stroke="#b8326a" stroke-width="2.2"/>';
+      g += '<text x="' + (x0 + Wp) + '" y="' + (y0 + H + 18) + '" text-anchor="middle" font-size="11" fill="#1f2a44">' + j1(pw, 2) + " × " + j1(ph, 2) + " in pages, " + holes.n + " holes</text>";
+      /* stack of signatures seen from the head */
+      var sx = 196, cols = ["#b8326a", "#2f8f8a", "#f4a823", "#1f2a44"], show = Math.min(sigs, 8), gap = Math.min(14, 100 / show), sh = Math.min(sheets, 10);
+      g += '<text x="255" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2a44">From the top</text>';
+      g += '<rect x="' + (sx - 4) + '" y="40" width="' + (show * gap + 8) + '" height="8" rx="2" fill="#8a6e55"/>';
+      for (var sg = 0; sg < show; sg++) {
+        var cx = sx + sg * gap + gap / 2;
+        for (var k = 0; k < sh; k++) {
+          var d = 1 + k * Math.min(1.1, (gap / 2 - 1) / sh), len = 110 - k * 1.5;
+          g += '<path d="M' + (cx - d).toFixed(1) + " " + (48 + len) + " L" + (cx - d).toFixed(1) + " 52 Q" + cx.toFixed(1) + " 46 " + (cx + d).toFixed(1) + " 52 L" + (cx + d).toFixed(1) + " " + (48 + len) + '" fill="none" stroke="' + cols[sg % 4] + '" stroke-width="1.1"/>';
+        }
+      }
+      g += '<text x="255" y="182" text-anchor="middle" font-size="11" fill="#1f2a44">' + sigs + " signature" + (sigs === 1 ? "" : "s") + (sigs > show ? " (8 shown)" : "") + " × " + sheets + " sheets</text>";
+      jsEl.svg.innerHTML = g;
+    }
+    function jsCalc() {
+      var custom = jsEl.paper.value === "custom"; jsEl.custom.hidden = !custom;
+      var a, b;
+      if (custom) { var f = jsEl.u.value === "cm" ? 2.54 : 1; a = Math.min(40, Math.max(1, (parseFloat(jsEl.a.value) || 0) / f)); b = Math.min(40, Math.max(1, (parseFloat(jsEl.bb.value) || 0) / f)); }
+      else { var pv = jsEl.paper.value.split("|"); a = parseFloat(pv[1]); b = parseFloat(pv[2]); }
+      var pw = a / 2, ph = b, byPages = segVal($("#js-mode")) === "pages";
+      jsEl["n-f"].hidden = byPages; jsEl["p-f"].hidden = !byPages;
+      var sheets = Math.max(1, Math.min(20, parseInt(jsEl.s.value, 10) || 1)), sigs, want = 0;
+      if (byPages) { want = Math.max(4, Math.min(800, parseInt(jsEl.p.value, 10) || 4)); sigs = Math.ceil(want / (sheets * 4)); }
+      else sigs = Math.max(1, Math.min(20, parseInt(jsEl.n.value, 10) || 1));
+      var t = parseFloat(jsEl.t.value) || 0.1, puff = parseFloat(jsEl.puff.value) || 1;
+      var pages = sheets * 4 * sigs, flat = sheets * 2 * sigs * t * 1.15, spine = flat * puff; /* mm; 1.15 for air in the folds: estimate */
+      var holes = jsHoles(ph), thread = ph * 3, totalSheets = sheets * sigs;
+      var cw = pw + 0.25, chh = ph + 0.25, spineIn = spine / 25.4 + 0.125;
+      var out = "<h3>Your journal</h3><div class=\"big\">" + pages + " <small>pages</small></div><p class=\"sub\">" + sigs + " signature" + (sigs === 1 ? "" : "s") + " × " + sheets + " sheets × 4 pages" + (byPages && pages > want ? " (" + (pages - want) + " more than you asked, so every signature is the same)" : "") + ".</p>" +
+        '<div class="tb-stats"><div><strong>' + totalSheets + '</strong><span>sheets to fold</span></div><div><strong>' + (totalSheets * 2) + '</strong><span>leaves</span></div>' +
+        '<div><strong>' + j1(pw, 2) + " × " + j1(ph, 2) + ' in</strong><span>page size (' + j1(pw * 2.54) + " × " + j1(ph * 2.54) + ' cm)</span></div>' +
+        '<div><strong>' + j1(spine * 0.85, 0) + "–" + j1(spine * 1.2, 0) + ' mm</strong><span>spine thickness' + (puff > 1 ? ", filled (about " + j1(flat, 0) + " mm flat)" : "") + "</span></div></div>" +
+        "<hr><h3>Sewing</h3><p><strong>" + holes.n + " holes</strong> per signature at " + holes.pos.map(function (p) { return j1(p, 2); }).join(", ") + " in from the top. Cut about <strong>" + jBoth(thread) + "</strong> of thread per signature, " + j1(thread * sigs / 36, 1) + " yd (" + j1(thread * sigs * 2.54 / 100, 1) + " m) in all.</p>" +
+        (sheets > 8 && t >= 0.13 ? '<p class="tb-warn">That\'s a lot of sheets of thicker paper for one fold. Try 4 to 6 per signature so it closes flat.</p>' : sheets > 10 ? '<p class="tb-warn">More than 10 sheets is a thick fold: the middle pages will stick out at the edge. Trim them, or use more signatures with fewer sheets.</p>' : "") +
+        "<hr><h3>Cover</h3><p>Cut the cover about <strong>" + jBoth(cw * 2 + spineIn) + "</strong> wide by <strong>" + jBoth(chh) + "</strong> tall: two pages plus a little overhang, and a spine of about " + jBoth(spineIn) + ". An estimate: wrap your stack before you cut.</p>" +
+        '<p class="sub">Next: ' + jLink("junk-journal-ephemera-ideas", "ephemera ideas") + ", " + jLink("journal-prompts", "journal prompts") + ", " + jLink("how-to-tea-stain-paper", "tea staining") + ".</p>";
+      jsEl.out.innerHTML = out;
+      jsDraw(pw, ph, sheets, sigs, holes);
+      jsEl.cap.textContent = sigs + " signature" + (sigs === 1 ? "" : "s") + " of " + sheets + " sheets: " + pages + " pages of " + j1(pw, 2) + " × " + j1(ph, 2) + " in, sewn through " + holes.n + " holes.";
+      var save = { mode: byPages ? "pages" : "sigs" }; jsKeys.forEach(function (k) { save[k] = jsEl[k].value; }); store.set("pp-signature", save);
+    }
+    var jsU = jsEl.u.value;
+    jsEl.u.addEventListener("change", function () { if (jsU !== jsEl.u.value) { var f = jsEl.u.value === "cm" ? 2.54 : 1 / 2.54; ["a", "bb"].forEach(function (k) { var v = parseFloat(jsEl[k].value); if (v) jsEl[k].value = Math.round(v * f * 4) / 4; }); } jsU = jsEl.u.value; });
+    seg(jsEl.mode, jsCalc);
+    jsKeys.forEach(function (k) { jsEl[k].addEventListener("input", jsCalc); jsEl[k].addEventListener("change", jsCalc); });
+    jsCalc();
+  }
 })();
