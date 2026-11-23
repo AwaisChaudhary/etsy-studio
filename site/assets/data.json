@@ -1298,5 +1298,154 @@
    "lmin": 11.25,
    "lmax": 12
   }
- ]
+ ],
+ "tblanket": {
+  "cg": {
+   "1": 26,
+   "2": 18,
+   "3": 14.5,
+   "4": 12.5,
+   "5": 9.5,
+   "6": 8,
+   "7": 6
+  },
+  "kg": {
+   "1": 28,
+   "2": 24,
+   "3": 22,
+   "4": 18,
+   "5": 14,
+   "6": 9,
+   "7": 6
+  },
+  "stitches": [
+   {
+    "id": "sc",
+    "name": "Single crochet (UK dc)",
+    "craft": "crochet",
+    "w": 1.0,
+    "r": 1.15,
+    "d": 1.0,
+    "turn": 1
+   },
+   {
+    "id": "moss",
+    "name": "Moss or linen stitch (crochet)",
+    "craft": "crochet",
+    "w": 1.4,
+    "r": 1.25,
+    "d": 0.9,
+    "turn": 0,
+    "even": 1
+   },
+   {
+    "id": "hdc",
+    "name": "Half double crochet (UK htr)",
+    "craft": "crochet",
+    "w": 0.95,
+    "r": 0.8,
+    "d": 1.05,
+    "turn": 2
+   },
+   {
+    "id": "dc",
+    "name": "Double crochet (UK tr)",
+    "craft": "crochet",
+    "w": 0.9,
+    "r": 0.6,
+    "d": 1.0,
+    "turn": 3
+   },
+   {
+    "id": "garter",
+    "name": "Garter stitch (knit every row)",
+    "craft": "knit",
+    "w": 1.0,
+    "r": 2.0,
+    "d": 1.05
+   },
+   {
+    "id": "st",
+    "name": "Stockinette with garter edges (knit)",
+    "craft": "knit",
+    "w": 1.0,
+    "r": 1.33,
+    "d": 1.0
+   }
+  ],
+  "palettes": [
+   {
+    "id": "classic",
+    "name": "Classic cold to hot",
+    "c": [
+     "#3b2a7a",
+     "#2c5fa8",
+     "#3fa3c9",
+     "#6fc2a5",
+     "#a7cf5a",
+     "#f2d33b",
+     "#f4a823",
+     "#e2632b",
+     "#b8262f",
+     "#6b1a2a"
+    ]
+   },
+   {
+    "id": "sunset",
+    "name": "Sunset",
+    "c": [
+     "#2b2d5c",
+     "#5a3f8a",
+     "#9a4f9a",
+     "#d1627f",
+     "#f08a5d",
+     "#f7c26b",
+     "#fae3a0"
+    ]
+   },
+   {
+    "id": "seaglass",
+    "name": "Sea glass",
+    "c": [
+     "#1f3d4d",
+     "#2f6f7a",
+     "#4fa3a0",
+     "#8ccab8",
+     "#c9e4d4",
+     "#f1ead0",
+     "#e8c6a6",
+     "#d8957c"
+    ]
+   },
+   {
+    "id": "berry",
+    "name": "Purl & Paper berry and gold",
+    "c": [
+     "#1f2a44",
+     "#2f5f8a",
+     "#2f8f8a",
+     "#8fbf9f",
+     "#f4e3c3",
+     "#f4a823",
+     "#d9772b",
+     "#b8326a",
+     "#6d1e45"
+    ]
+   },
+   {
+    "id": "neutral",
+    "name": "Soft neutrals",
+    "c": [
+     "#4a4e5c",
+     "#7d8291",
+     "#a9a59b",
+     "#cfc6b4",
+     "#e9e0cc",
+     "#d9b99b",
+     "#b88b6a",
+     "#8a5a44"
+    ]
+   }
+  ]
+ }
 }

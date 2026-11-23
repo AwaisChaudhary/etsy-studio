@@ -22,7 +22,7 @@ def asset(n): return ("" if PREVIEW else "/") + "assets/" + n + "?v=" + v(n)
 
 NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calculator"), ("gauge-converter.html", "Gauge"),
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
-TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator")]
+TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
           ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
@@ -68,7 +68,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "row-counter.html": KNIT, "yarn-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
             "journal-prompts.html": ["december-days-journal-kit", "journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
-            "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
+            "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "increase-decrease-calculator.html": KNIT,
@@ -80,6 +80,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "how-to-tea-stain-paper.html": ["tea-room-junk-journal-kit", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"],
             "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
+            "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -197,7 +198,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <p class="legal">{e(SITE)} is an independent site. Your counters, projects and saved prompts stay on your own device; nothing is uploaded. Yarn amounts are estimates, so always check your pattern. Last checked {e(UPDATED)}.</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts", "hats", "socks")}, ensure_ascii=False)};</script>
+<script>window.PP={json.dumps({k: D[k] for k in ("prompts", "projects", "weights", "blankets", "gifts", "hats", "socks", "tblanket")}, ensure_ascii=False)};</script>
 {scripts}<script src="{asset("app.js")}"></script>
 </body>
 </html>
@@ -236,7 +237,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -632,8 +633,17 @@ page("junk-journal-beginners.html", "Junk Journaling for Beginners: How to Start
 bopts = "".join(f'<option value="{b["id"]}"{" selected" if b["id"] == "throw" else ""}>{e(b["name"])} ({b["w"]} × {b["l"]} in)</option>' for b in D["blankets"]) + '<option value="custom">My own size</option>'
 bw_opts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"] if w["n"] >= 1)
 brows = "".join(f'<tr><td><strong>{e(b["name"])}</strong></td><td>{b["w"]} × {b["l"]} in</td><td>{round(b["w"] * 2.54)} × {round(b["l"] * 2.54)} cm</td><td>{e(b["range"])}</td><td>{e(b["use"])}</td></tr>' for b in D["blankets"])
+BK_M = {w["n"]: w["m"] for w in D["weights"]}
+def bk_yd(b, wn, craft=1.0): return b["w"] * b["l"] * 0.667 * BK_M[wn] * craft
+def bk_rng(b, wn, craft=1.0): y = bk_yd(b, wn, craft); return f"{round(y * 0.88, -2):,.0f}–{round(y * 1.12, -2):,.0f}"
+BK_TW = [(3, "DK"), (4, "Worsted"), (5, "Bulky"), (6, "Super bulky")]
+bk_ids = ("baby", "crib", "throw", "twin", "queen", "king")
+bk_yrows = "".join(f'<tr><th scope="row">{e(b["name"])}<br><span class="muted">{b["w"]} × {b["l"]} in</span></th>' + "".join(f"<td>{bk_rng(b, k, 1.27)} yd</td>" for k, _ in BK_TW) + f"<td>{bk_rng(b, 4)} yd</td></tr>" for b in D["blankets"] if b["id"] in bk_ids)
+_bk_th = [b for b in D["blankets"] if b["id"] == "throw"][0]; _bk_by = [b for b in D["blankets"] if b["id"] == "baby"][0]
 bk = top("Blanket size calculator", "Pick a blanket size or type your own, choose your yarn, and see the finished size next to a bed, plus how many yards and skeins to buy.", "Blanket size calculator") + f'''
-<section style="padding-top:10px"><div class="wrap tool">
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> a throw blanket is usually about <strong>50 × 60 in</strong> (127 × 152 cm), a baby blanket 30 to 40 in square, and a queen bed blanket about 90 × 100 in. A crocheted throw in worsted yarn takes roughly <strong>{bk_rng(_bk_th, 4, 1.27)} yards</strong>, and a knitted one about {bk_rng(_bk_th, 4)} yards. A crocheted baby blanket in DK takes about {bk_rng(_bk_by, 3, 1.27)} yards. These are estimates for plain stitches; use the calculator for your own size and yarn.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <div class="field"><label for="bk-size">Blanket size</label><select id="bk-size">{bopts}</select></div>
 <div class="row2" id="bk-custom" hidden><div class="field"><label for="bk-w">Width (in)</label><input type="number" id="bk-w" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="bk-l">Length (in)</label><input type="number" id="bk-l" value="60" min="6" max="140" inputmode="decimal"></div></div>
@@ -650,14 +660,24 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Blanket</th><th scope="col">Size we use</th><th scope="col">In cm</th><th scope="col">Common range</th><th scope="col">Good for</th></tr></thead><tbody>{brows}</tbody></table></div>
 <p class="note" style="margin-top:12px">There is no single official blanket standard. These are the sizes most often quoted by crochet and knitting designers, so patterns can differ by a few inches. Bed sizes include some drop over the sides.</p>
 </div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How much yarn do I need for a blanket?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Blanket</th>{"".join(f'<th scope="col">Crochet, {n}</th>' for _, n in BK_TW)}<th scope="col">Knit, worsted</th></tr></thead><tbody>{bk_yrows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our estimates from the calculator's own model for plain stitches, before any border or fringe, as a low to high range. Divide by the yards on your yarn label for skeins, and buy enough for the high end.</p>
+</div></section>
 <section style="padding-top:0"><div class="narrow prose"><h2>How the yarn estimate works</h2>
 <p>We work out the blanket's area and multiply it by a typical amount of yarn per square inch for plain worsted knitting, then adjust for your yarn: thinner yarn needs more length, thicker yarn less. Crochet usually takes about a quarter more yarn than knitting, cables and bobbles take more again, and open lace stitches take a little less. Granny squares are a special case, because the joins and border add up: use the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> for those.</p>
 <p>The answer is a range, because tension, stitch and borders all change it. Buy enough for the high end, from one dye lot. For hats, scarves and other projects, use our <a href="{href("yarn-calculator.html")}">yarn calculator</a>, and if your swatch doesn't match the pattern, the <a href="{href("gauge-converter.html")}">gauge converter</a> shows how big the blanket will really be. Knitting it? The <a href="{href("cast-on-calculator.html")}">cast on calculator</a> tells you how many stitches to start with for your width and gauge.</p>
 <div class="callout"><strong>Allow for the border.</strong> A few rounds of border can add 5 to 10 percent more yarn on a big blanket. Fringe or tassels add more.</div>
-<h2>Choosing a size</h2>
+<h2>What size blanket should I make?</h2>
 <p>For a gift, a throw (about 50 × 60 in) is the safest choice: it fits a sofa, the foot of a bed or a lap. For a baby, 30 to 36 inches square is easy to carry and wash. For a bed, measure the top of the mattress and add the drop you want on each side, usually 10 to 15 inches.</p>
-<p>Making a long blanket? Keep count of rows or rounds with our <a href="{href("row-counter.html")}">row counter</a>, and log yarn and hours in the <a href="{href("projects.html")}">project tracker</a>. Not sure which yarn is which? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a>. Making it from squares? The <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> tells you how many to make.</p></div></section>'''
+<p>Making a long blanket? Keep count of rows or rounds with our <a href="{href("row-counter.html")}">row counter</a>, and log yarn and hours in the <a href="{href("projects.html")}">project tracker</a>. Not sure which yarn is which? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a>. Making it from squares? The <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> tells you how many to make.</p>
+<h2>How big is a temperature blanket?</h2>
+<p>A temperature blanket's length comes from the number of days, not a size chart: 365 rows of single crochet in worsted yarn is roughly 100 in long, longer than a queen bed. Pick the width from the chart above, then check the length, the colours and the yarn for each colour with our <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a>.</p>
+<h2>How do I make a blanket bigger or smaller?</h2>
+<p>For a blanket worked in rows, change the width with the foundation chain or cast-on (the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> does the maths), and the length by working more or fewer rows. Going up one size, say from throw to twin, roughly doubles the yarn, so check the new amount above before you start.</p></div></section>'''
 bk_faq = [
+    ("How many yards of yarn for a baby blanket?", f"A crocheted 36 × 36 in baby blanket takes roughly {bk_rng(_bk_by, 3, 1.27)} yards of DK yarn or {bk_rng(_bk_by, 4, 1.27)} yards of worsted. A knitted one takes a little less. These are estimates for plain stitches."),
+    ("How long is a temperature blanket?", "One row a day for a year is 365 rows, which is roughly 100 in in worsted single crochet at a typical gauge. Thinner yarn, garter stitch or a square per day keeps it shorter. Our temperature blanket planner works it out for your stitch and gauge."),
     ("What size is a crochet throw blanket?", "Most throws are about 50 × 60 inches (127 × 152 cm). Some patterns go up to 54 × 72 inches for a longer sofa blanket."),
     ("What size is a baby blanket?", "A baby or receiving blanket is usually 30 to 40 inches square. A stroller blanket is a little smaller, about 30 × 36 inches, and a crib blanket can be as big as 45 × 60 inches."),
     ("How much yarn for a queen size crochet blanket?", "Very roughly 6,700 to 8,500 yards of worsted weight yarn for plain crochet, which is often 34 to 43 skeins of 200 yards. Chunky yarn needs far fewer yards. Use the calculator for your own yarn, and treat it as an estimate."),
@@ -1628,6 +1648,109 @@ page("junk-journal-ephemera-ideas.html", "Junk Journal Ephemera Ideas: 60+ Free 
      f"{EP_N} free junk journal ephemera ideas from around the house, the kitchen, the post and days out, where to find them, how to use them on a page, whether receipts fade, plus a checklist that saves your ticks.",
      ep, ep_faq, "Junk journal ephemera ideas", app_name="Junk journal ephemera checklist")
 
+# ---------------- TEMPERATURE BLANKET PLANNER ----------------
+TB = D["tblanket"]; TB_YD = 0.667   # yd per sq in of plain worsted knitting, the same model as the blanket size calculator
+TB_M = {w["n"]: w["m"] for w in D["weights"]}
+def tb_st(i): return [s for s in TB["stitches"] if s["id"] == i][0]
+def tb_len(st, wn, rows):
+    base = (TB["cg"] if st["craft"] == "crochet" else TB["kg"])[str(wn)]
+    return rows / (base * st["r"] / 4)
+def tb_yd(st, wn, width, rows): return width * tb_len(st, wn, rows) * TB_YD * TB_M[wn] * (1.27 if st["craft"] == "crochet" else 1) * st["d"]
+def tb_sts(st, wn, width):
+    base = (TB["cg"] if st["craft"] == "crochet" else TB["kg"])[str(wn)]
+    n = int(width * base * st["w"] / 4 + 0.5)
+    return n + (n % 2 if st.get("even") else 0)
+def tb_fmt_len(x): return f"{x:.0f} in ({x * 2.54:.0f} cm)"
+TB_ROWS = [("sc", 1), ("moss", 1), ("hdc", 1), ("dc", 1), ("garter", 2), ("st", 1)]
+TB_SHORT = {"sc": "Single crochet (UK dc)", "moss": "Moss / linen stitch", "hdc": "Half double crochet (UK htr)", "dc": "Double crochet (UK tr)", "garter": "Garter stitch, 2 rows a day", "st": "Stockinette, 1 row a day"}
+tb_rows = "".join(f'<tr><th scope="row">{e(TB_SHORT[i])}</th>' + "".join(f"<td>{tb_fmt_len(tb_len(tb_st(i), w, 365 * r))}</td>" for w in (3, 4, 5)) +
+                  f"<td>{fmt_n(round(tb_yd(tb_st(i), 4, 50, 365 * r), -1))} yd</td></tr>" for i, r in TB_ROWS)
+_tb_sc = tb_len(tb_st("sc"), 4, 365); _tb_scy = round(tb_yd(tb_st("sc"), 4, 50, 365), -2); _tb_g = tb_len(tb_st("garter"), 4, 730)
+_tb_mo = tb_len(tb_st("moss"), 4, 365); _tb_dk = tb_len(tb_st("sc"), 3, 365)
+tb_st_opts = "".join(f'<option value="{s["id"]}"{" selected" if s["id"] == "sc" else ""}>{e(s["name"])}</option>' for s in TB["stitches"])
+tb_w_opts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"].split(",")[0])})</option>' for w in D["weights"] if 1 <= w["n"] <= 6)
+tb_p_opts = "".join(f'<option value="{p["id"]}">{e(p["name"])}</option>' for p in TB["palettes"])
+tb = top("Temperature blanket planner: colours, ranges and yarn", "Set your coldest and hottest temperatures, how many degrees each colour covers, your stitch and yarn. Get a colour key you can edit, how long the blanket will be, the foundation chain or cast-on, and how much yarn to buy for each colour. Paste last year's temperatures to see the real blanket.", "Temperature blanket planner") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> a temperature blanket has one row (or two) for every day of the year, coloured by that day's temperature. Most makers use <strong>8 to 10 colours</strong>, each covering about <strong>5 to 10°F</strong> (or 3 to 5°C), from their area's usual coldest day to its hottest. 365 rows of single crochet in worsted yarn come out about <strong>{_tb_sc:.0f} in long</strong>, and a 50 in wide blanket needs roughly <strong>{fmt_n(_tb_scy)} yards</strong>. Garter stitch at two rows a day is shorter, about {_tb_g:.0f} in. These are estimates at a typical gauge: put your own swatch in below.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<div class="field"><span class="label" id="tb-unit-l">Temperatures in</span><div class="seg" role="group" aria-labelledby="tb-unit-l" id="tb-unit"><button type="button" data-v="F" aria-pressed="true">°F</button><button type="button" data-v="C" aria-pressed="false">°C</button></div></div>
+<div class="row3"><div class="field"><label for="tb-lo">Coldest: below</label><input type="number" id="tb-lo" value="20" min="-80" max="120" step="1" inputmode="numeric"></div>
+<div class="field"><label for="tb-hi">Hottest: from</label><input type="number" id="tb-hi" value="100" min="-60" max="140" step="1" inputmode="numeric"></div>
+<div class="field"><label for="tb-step">Degrees per colour</label><input type="number" id="tb-step" value="10" min="1" max="30" step="1" inputmode="numeric"></div></div>
+<div class="row2"><div class="field"><label for="tb-pal">Colour set</label><select id="tb-pal">{tb_p_opts}</select></div>
+<div class="field"><label for="tb-mode">Rows per day</label><select id="tb-mode"><option value="1">1 row a day</option><option value="2">2 rows a day</option><option value="hl">2 rows: high, then low</option></select></div></div>
+<div class="row2"><div class="field"><label for="tb-st">Stitch</label><select id="tb-st">{tb_st_opts}</select></div>
+<div class="field"><label for="tb-y">Yarn weight</label><select id="tb-y">{tb_w_opts}</select></div></div>
+<div class="row3"><div class="field"><label for="tb-w">Blanket width</label><input type="number" id="tb-w" value="50" min="6" max="140" step="1" inputmode="decimal"></div>
+<div class="field"><label for="tb-wu">Unit</label><select id="tb-wu"><option value="in">inches</option><option value="cm">cm</option></select></div>
+<div class="field"><label for="tb-days">Days</label><select id="tb-days"><option value="365">A year, 365</option><option value="366">Leap year, 366</option><option value="183">Half a year</option><option value="92">A season (3 months)</option><option value="31">One month (a scarf)</option></select></div></div>
+<div class="row2"><div class="field"><label for="tb-sep">Rows between months</label><select id="tb-sep"><option value="0">None</option><option value="1">1 row in a border colour</option><option value="2">2 rows in a border colour</option></select></div>
+<div class="field"><label for="tb-sk">Yarn per skein (yd)</label><input type="number" id="tb-sk" value="200" min="10" max="2000" step="1" inputmode="numeric"></div></div>
+<details class="tb-more"><summary>Use my own swatch</summary>
+<div class="row3"><div class="field"><label for="tb-gs">Stitches</label><input type="number" id="tb-gs" min="2" max="60" step="0.5" inputmode="decimal" placeholder="typical"></div>
+<div class="field"><label for="tb-gr">Rows</label><input type="number" id="tb-gr" min="2" max="80" step="0.5" inputmode="decimal" placeholder="typical"></div>
+<div class="field"><label for="tb-gu">Measured over</label><select id="tb-gu"><option value="4">4 in</option><option value="10">10 cm</option></select></div></div>
+<p class="note">Leave blank to use a typical gauge for the yarn and stitch (our estimate).</p></details>
+<details class="tb-more" id="tb-data-d"><summary>Paste real temperatures (optional)</summary>
+<div class="field"><label for="tb-data">One day per line, in order from the first day. For "high, then low", put both on the line: 41, 28</label>
+<textarea id="tb-data" rows="6" placeholder="34&#10;29&#10;41, 28"></textarea></div>
+<p class="note">Copy last year's daily highs from a weather history site (see below) to see your blanket and the real yarn for each colour. Nothing is uploaded.</p></details>
+<h3 class="tb-h">Your colour key</h3>
+<p class="note">Tap a swatch to change its colour.</p>
+<div class="tbl-wrap tb-key-wrap"><table class="tb-key"><thead><tr><th scope="col">Colour</th><th scope="col">Temperature</th><th scope="col" id="tb-kd">Days</th><th scope="col">Yarn</th></tr></thead><tbody id="tb-key"></tbody></table></div>
+<p class="btns" style="margin-top:12px"><button type="button" class="btn gold sm" id="tb-copy">Copy colour key</button><button type="button" class="btn ghost sm" id="tb-reset">Reset colours</button></p>
+</div>
+<div class="result" aria-live="polite"><div id="tb-out"></div>
+<figure class="tb-fig"><svg id="tb-svg" viewBox="0 0 220 300" role="img" aria-label="Your temperature blanket drawn in your colours"></svg><figcaption class="note" id="tb-cap">Sample year.</figcaption></figure></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How long will a 365-row temperature blanket be?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Stitch</th><th scope="col">DK</th><th scope="col">Worsted</th><th scope="col">Bulky</th><th scope="col">Yarn, worsted, 50 in wide</th></tr></thead><tbody>{tb_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our estimates for one year (365 days), worked by the same maths as the planner. Gauges are typical values: the middle of the Craft Yarn Council range for each yarn weight, with our own row-height factors for each stitch. Real blankets vary a lot with hook size and tension, so swatch and use the planner with your own numbers. Yarn is a middle estimate; buy 10 percent more.</p>
+</div></section>
+{AD.format("tb-mid")}
+<section style="padding-top:0"><div class="narrow prose"><h2>How many colours do you need for a temperature blanket?</h2>
+<p>Most temperature blankets use between 6 and 12 colours, and 8 to 10 is the most common. Fewer colours give bold, wide stripes; more colours show small changes from day to day but cost more yarn and more ends to weave in. Work it out from your weather: take the range from your usual coldest day to your usual hottest, and divide it by how many degrees you want each colour to cover.</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Climate</th><th scope="col">Coldest colour</th><th scope="col">Each colour</th><th scope="col">Colours</th></tr></thead><tbody>
+<tr><td>Hot summers, cold winters (much of the US), °F</td><td>Below 10°F</td><td>10°F</td><td>11</td></tr>
+<tr><td>Same climate, fewer colours, °F</td><td>Below 20°F</td><td>15°F</td><td>7</td></tr>
+<tr><td>Mild all year (UK, coastal), °C</td><td>Below 0°C</td><td>3°C</td><td>10</td></tr>
+<tr><td>Hot all year, °F</td><td>Below 60°F</td><td>5°F</td><td>9</td></tr>
+</tbody></table></div>
+<p>Each row counts the end colours too: one for anything colder than your lowest number and one for anything hotter than your highest. Many makers keep those two for rare days and pick a bold contrast for them, so a record heatwave or a deep freeze stands out.</p>
+<h2>How do I choose my temperature ranges?</h2>
+<ol><li><strong>Look up last year</strong> (or the last few years) for your town. Weather Underground's history pages, NOAA's Climate Data Online (US), the Met Office (UK) and your own national weather service all list daily highs and lows.</li>
+<li><strong>Note the usual lowest and highest</strong> daily values for the temperature you'll track. Ignore one freak day: it can go in an end colour.</li>
+<li><strong>Pick a step</strong>. A spread of about 100°F suits 10°F per colour; a narrower spread of 60 to 70°F suits 5 to 7°F, and in Celsius 2 to 5° per colour is usual.</li>
+<li><strong>Check the middle</strong>. Most days fall in the middle bands, so give those colours you love, and buy more of them.</li></ol>
+<div class="callout"><strong>Tip:</strong> paste last year's daily highs into the planner. It counts the days for each colour, so you can see if one colour would take over half the blanket and change the step before you buy yarn.</div>
+<h2>Should I use the high, the low or the average?</h2>
+<p>Any of them works; just pick one and stick with it all year. The daily high is the most common choice because it's the number in every forecast. The average gives gentler stripes. For more detail, work two rows a day: the high, then the low. That doubles the rows, so use a thinner yarn or a narrower blanket, or the blanket gets very long.</p>
+<h2>Why is my temperature blanket so long?</h2>
+<p>Because 365 rows is a lot of rows. Even short single crochet stitches in worsted yarn add up to well over 2 metres, which is longer than a queen bed. To keep it a usable size, choose a shorter stitch or thinner yarn (DK single crochet comes out about {_tb_dk:.0f} in), or knit garter stitch, where two rows make one ridge. Moss stitch, a mix of single crochet and chains, is popular because it lies flat and shows colour stripes neatly (about {_tb_mo:.0f} in in worsted). Some makers work each day as a granny square or hexagon instead, then join them in a grid, which gives a square blanket with no length problem.</p>
+<h2>How much yarn does a temperature blanket take?</h2>
+<p>A full-size year blanket usually takes 3,000 to 5,000 yards of worsted yarn, split across your colours. The planner gives the total and an even share per colour, or the exact share if you paste real temperatures. For your own yarn, crochet one row, weigh the ball before and after, and multiply by the number of days: 7 g a day for 365 days is 2,555 g, plus about 10 percent spare.</p>
+<p>Buying it all at once keeps dye lots matching, while buying a ball of each colour and adding more as the months go spreads the cost. If you buy as you go, choose a yarn that's widely stocked so you can still get it in October. Machine-washable acrylic or a cotton blend is easy to care for in a blanket this big.</p>
+<h2>How do I keep up with a temperature blanket?</h2>
+<ul><li><strong>Log temperatures daily</strong>, even when you don't crochet. Then you can catch up in batches at the weekend.</li>
+<li><strong>Add a month row</strong> in a neutral or border colour between months. It makes the blanket easy to read and gives you a checkpoint.</li>
+<li><strong>Count rows</strong> with our <a href="{href("row-counter.html")}">row counter</a>, one tap per day.</li>
+<li><strong>Weave ends in as you go</strong>, or leave 5 in tails at the edges and knot them into a fringe at the end.</li>
+<li><strong>Started late?</strong> Use the past months' temperatures to catch up, or make it a "last year" blanket from a full year of history.</li></ul>
+<p>What next? Check the finished size against a bed with the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>, work out the foundation for a different stitch with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, plan a granny square version with the <a href="{href("granny-square-blanket-calculator.html")}">granny square calculator</a>, and keep notes on your yarn and colours in the <a href="{href("projects.html")}">project tracker</a>.</p></div></section>'''
+tb_faq = [
+    ("How many colours do you need for a temperature blanket?", "Most use 8 to 10 colours, each covering about 5 to 10°F (3 to 5°C), plus one colour for anything colder than your range and one for anything hotter. Fewer colours give bolder stripes."),
+    ("What temperature ranges should I use?", "Look up last year's daily highs (or lows) for your town, find the usual coldest and hottest, and split that spread into equal steps. About 10°F per colour suits a 100°F spread; 5 to 7°F suits a narrower one."),
+    ("How big is a temperature blanket?", f"One row a day for a year is 365 rows. In worsted single crochet that's roughly {_tb_sc:.0f} in long at a typical gauge, and in moss stitch about {_tb_mo:.0f} in, so many makers use DK yarn, garter stitch or a granny square per day to keep it a usable size."),
+    ("How much yarn do I need for a temperature blanket?", f"A 50 in wide worsted blanket in single crochet takes about {fmt_n(_tb_scy)} yards (our estimate). Weigh one row of your own yarn and multiply by 365, then add 10 percent."),
+    ("Should I use the high or the average temperature?", "Either works. The daily high is the most common because it's easy to find. You can also work two rows a day, the high and then the low, but that doubles the length."),
+    ("What if I miss a day or fall behind?", "Keep writing the temperatures down every day, then catch up when you have time. Weather history sites keep the daily records, so you can always look up a missed day."),
+]
+page("temperature-blanket-planner.html", "Temperature Blanket Planner 2027: Colors, Ranges and Yarn Calculator | Purl & Paper",
+     "Free temperature blanket planner: pick your temperature ranges and colours, see how long a 365-row crochet or knit blanket will be, the foundation chain and how much yarn per colour. Paste real temperatures to preview it.",
+     tb, tb_faq, "Temperature blanket planner", app_name="Temperature blanket planner")
+
 # ---------------- ABOUT / PRIVACY / 404 ----------------
 page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
@@ -1649,7 +1772,7 @@ page("404.html", "Page not found | Purl & Paper", "This page doesn't exist.",
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-20", 
+LASTMOD = {"temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "cast-on-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-22", "how-to-tea-stain-paper.html": "2026-11-22", "junk-journal-beginners.html": "2026-11-23", "yarn-weights.html": "2026-11-22", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "hat-size-chart.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-21", "row-counter.html": "2026-11-21", "granny-square-blanket-calculator.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

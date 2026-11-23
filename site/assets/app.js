@@ -1140,4 +1140,122 @@
     $("#ep-go").addEventListener("click", epPick);
     epCount(); epPick();
   }
+  /* ---------- TEMPERATURE BLANKET PLANNER ---------- */
+  if ($("#tb-out") && P.tblanket) {
+    var TBD = P.tblanket, tbW = P.weights || [], TB_YD = 0.667, tbSvg = $("#tb-svg");
+    var tbF = ["lo", "hi", "step", "pal", "mode", "st", "y", "w", "wu", "days", "sep", "sk", "gs", "gr", "gu", "data"];
+    var tbP = store.get("pp-tblanket", null) || {}, tbUnit = tbP.unit || "F", tbCol = tbP.cols || {}, tbSepCol = "#fbf6ea";
+    tbF.forEach(function (k) { var el = $("#tb-" + k); if (el && tbP[k] != null) el.value = tbP[k]; });
+    $$("#tb-unit button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === tbUnit); });
+    var num = function (id, d) { var x = parseFloat($("#tb-" + id).value); return isFinite(x) ? x : d; };
+    function hex2(c) { return [parseInt(c.substr(1, 2), 16), parseInt(c.substr(3, 2), 16), parseInt(c.substr(5, 2), 16)]; }
+    function mix(stops, t) {
+      var p = t * (stops.length - 1), i = Math.min(stops.length - 2, Math.floor(p)), f = p - i, a = hex2(stops[i]), b = hex2(stops[i + 1]);
+      return "#" + [0, 1, 2].map(function (k) { var v = Math.round(a[k] + (b[k] - a[k]) * f); return (v < 16 ? "0" : "") + v.toString(16); }).join("");
+    }
+    function bands() {
+      var lo = Math.round(num("lo", 20)), hi = Math.round(num("hi", 100)), step = Math.max(1, Math.round(num("step", 10)));
+      if (hi <= lo) hi = lo + step;
+      var mid = Math.min(18, Math.ceil((hi - lo) / step)), out = [], u = "°" + tbUnit;
+      out.push({ lo: -1e9, hi: lo - 1, label: "Below " + lo + u });
+      for (var i = 0; i < mid; i++) { var a = lo + i * step, b = Math.min(hi - 1, a + step - 1); out.push({ lo: a, hi: b, label: (a === b ? a : a + " to " + b) + u }); }
+      out.push({ lo: lo + mid * step, hi: 1e9, label: (lo + mid * step) + u + " and above" });
+      var pal = (TBD.palettes.filter(function (p) { return p.id === $("#tb-pal").value; })[0] || TBD.palettes[0]).c;
+      out.forEach(function (b, i) { var key = $("#tb-pal").value + ":" + out.length + ":" + i; b.key = key; b.c = tbCol[key] || mix(pal, out.length > 1 ? i / (out.length - 1) : 0); });
+      return out;
+    }
+    function bandOf(bs, v) { v = Math.round(v); for (var i = 0; i < bs.length; i++) if (v >= bs[i].lo && v <= bs[i].hi) return i; return v < bs[0].hi ? 0 : bs.length - 1; }
+    function parseData() {
+      var lines = ($("#tb-data").value || "").split(/\n/), days = [];
+      lines.forEach(function (l) { var m = l.match(/-?\d+(?:\.\d+)?/g); if (m) days.push(m.map(parseFloat)); });
+      return days.length >= 2 ? days : null;
+    }
+    function sampleDays(n, lo, hi) {
+      var mid = (lo + hi) / 2, amp = (hi - lo) * 0.42, d = [];
+      for (var i = 0; i < n; i++) {
+        var base = mid - amp * Math.cos(2 * Math.PI * (i - 18) / 365), noise = (Math.sin(i * 12.9898) * 43758.5453 % 1) * (hi - lo) * 0.16;
+        d.push([base + noise, base + noise - (hi - lo) * 0.18]);
+      }
+      return d;
+    }
+    function tbCalc() {
+      var bs = bands(), mode = $("#tb-mode").value, rpd = mode === "1" ? 1 : 2, data = parseData(), nd = data ? data.length : parseInt($("#tb-days").value, 10) || 365;
+      var lo = num("lo", 20), hi = num("hi", 100), days = data || sampleDays(nd, lo, hi);
+      var sepN = parseInt($("#tb-sep").value, 10) || 0, months = Math.max(0, Math.round(nd / 30.4) - 1), sepRows = sepN * months;
+      var rows = [], monthLen = nd / (months + 1);
+      days.forEach(function (d, i) {
+        if (sepN && i > 0 && Math.floor(i / monthLen) !== Math.floor((i - 1) / monthLen)) for (var s = 0; s < sepN; s++) rows.push(-1);
+        if (mode === "hl") { rows.push(bandOf(bs, d[0])); rows.push(bandOf(bs, d.length > 1 ? d[1] : d[0])); }
+        else { var b = bandOf(bs, d[0]); rows.push(b); if (rpd === 2) rows.push(b); }
+      });
+      var st = TBD.stitches.filter(function (s) { return s.id === $("#tb-st").value; })[0] || TBD.stitches[0];
+      var wn = $("#tb-y").value, wt = tbW.filter(function (x) { return String(x.n) === wn; })[0] || { m: 1, name: "" };
+      var crochet = st.craft === "crochet", base = (crochet ? TBD.cg : TBD.kg)[wn] || 12.5;
+      var gu = parseFloat($("#tb-gu").value) || 4, gs = num("gs", 0), gr = num("gr", 0);
+      var spi = gs > 0 ? gs / (gu === 10 ? 3.937 : 4) : base * st.w / 4, rpi = gr > 0 ? gr / (gu === 10 ? 3.937 : 4) : base * st.r / 4;
+      var cm = $("#tb-wu").value === "cm", wIn = Math.min(140, Math.max(6, num("w", 50) / (cm ? 2.54 : 1)));
+      var sts = Math.max(4, Math.round(wIn * spi)); if (st.even && sts % 2) sts++;
+      var nRows = rows.length, lenIn = nRows / rpi;
+      var dens = gs > 0 ? (base * st.w / 4) / spi : 1; /* looser than typical uses a little less yarn per area */
+      var yd = wIn * lenIn * TB_YD * (wt.m || 1) * (crochet ? 1.27 : 1) * st.d * Math.max(0.75, Math.min(1.3, dens)), perRow = yd / nRows;
+      var sk = Math.max(10, num("sk", 200)), cnt = bs.map(function () { return 0; }), sepCnt = 0;
+      rows.forEach(function (r) { if (r < 0) sepCnt++; else cnt[r]++; });
+      var used = bs.filter(function (b, i) { return cnt[i] > 0; }).length;
+      /* colour key */
+      var body = "", txt = [];
+      bs.forEach(function (b, i) {
+        var y = data ? cnt[i] * perRow * 1.1 : yd * (nRows - sepCnt) / nRows / bs.length * 1.25, k = Math.ceil(y / sk);
+        var dayTxt = data ? (rpd === 2 && mode === "hl" ? cnt[i] + " rows" : Math.round(cnt[i] / rpd) + " days") : "";
+        body += '<tr><td><input type="color" value="' + b.c + '" data-k="' + esc(b.key) + '" aria-label="Colour for ' + esc(b.label) + '"></td><td>' + esc(b.label) + "</td><td>" + (data ? dayTxt : '<span class="muted">–</span>') + "</td><td>" + (y > 0 ? fmt(y) + " yd<br><span class=\"muted\">" + k + " skein" + (k === 1 ? "" : "s") + "</span>" : "–") + "</td></tr>";
+        txt.push("Colour " + (i + 1) + " (" + b.c + "): " + b.label + (data ? ", " + dayTxt : "") + (y > 0 ? ", about " + fmt(y) + " yd" : ""));
+      });
+      if (sepN) { var sy = sepCnt * perRow * 1.15, sk2 = Math.ceil(sy / sk); body += '<tr><td><span class="tb-sw" style="display:inline-block;width:40px;height:28px;border-radius:8px;border:2px solid #d8d4c8;background:' + tbSepCol + '"></span></td><td>Month rows (and border)</td><td>' + sepCnt + " rows</td><td>" + fmt(sy) + ' yd<br><span class="muted">' + sk2 + " skein" + (sk2 === 1 ? "" : "s") + " + border</span></td></tr>"; txt.push("Month rows: " + sepCnt + " rows, about " + fmt(sy) + " yd plus the border"); }
+      $("#tb-key").innerHTML = body;
+      $$("#tb-key input[type=color]").forEach(function (inp) { inp.addEventListener("input", function () { tbCol[inp.getAttribute("data-k")] = inp.value; tbSave(); tbDraw(rows, bs, wIn, lenIn, !!data); }); });
+      tbCalc.txt = txt;
+      /* result */
+      var found = crochet ? "Chain " + (sts + (st.turn || 0)) + (st.even ? " (an even number)" : "") : "Cast on " + sts;
+      var lenCm = lenIn * 2.54, long = lenIn > 90, short = lenIn < wIn * 0.9;
+      var out = "<h3>Your blanket</h3>" + '<div class="bk-dims">' + Math.round(wIn) + " × " + Math.round(lenIn) + " in<small>" + Math.round(wIn * 2.54) + " × " + Math.round(lenCm) + " cm, " + nRows + " rows" + (sepRows ? " (incl. " + sepCnt + " month rows)" : "") + "</small></div>" +
+        '<div class="tb-stats"><div><strong>' + esc(found) + "</strong><span>" + (crochet ? sts + " stitches a row, plus the turning chain" : "stitches, on a long circular needle") + "</span></div>" +
+        "<div><strong>" + bs.length + " colours</strong><span>" + (data ? used + " used by your data" : "including the two end colours") + "</span></div>" +
+        "<div><strong>" + fmt(Math.round(yd * 0.088) * 10) + "–" + fmt(Math.round(yd * 0.112) * 10) + " yd</strong><span>" + fmt(Math.round(yd * 0.088 * 0.9144) * 10) + "–" + fmt(Math.round(yd * 0.112 * 0.9144) * 10) + " m in all</span></div>" +
+        "<div><strong>" + (perRow < 10 ? perRow.toFixed(1) : fmt(perRow)) + " yd a row</strong><span>about " + fmt(perRow * rpd) + " yd a day</span></div></div>" +
+        (long ? '<p class="sub tb-warn">That\'s longer than a queen bed (80 in). For a shorter blanket try a thinner yarn, garter stitch, or fewer rows a day.</p>' : "") +
+        (short && nd >= 300 ? '<p class="sub">Wider than it is long. That\'s fine for a throw; or make it narrower to save yarn.</p>' : "") +
+        '<p class="sub">' + (data ? "Yarn per colour is from your temperatures, plus 10% spare." : "Yarn per colour is an even share plus 25%; middle colours usually get the most days. Paste real temperatures for exact amounts.") + " Gauge: " + (spi * 4).toFixed(1) + " sts and " + (rpi * 4).toFixed(1) + " rows per 4 in" + (gs > 0 || gr > 0 ? " (yours)" : " (typical, our estimate)") + ".</p>";
+      $("#tb-out").innerHTML = out;
+      tbDraw(rows, bs, wIn, lenIn, !!data);
+      tbSave();
+    }
+    function tbDraw(rows, bs, wIn, lenIn, real) {
+      var H = 280, W = Math.max(60, Math.min(200, H * wIn / lenIn)), h = Math.min(H, W * lenIn / wIn), x0 = (220 - W) / 2, y0 = 10 + (H - h) / 2, rh = h / rows.length, svg = "";
+      var cols = bs.map(function (b) { return b.c; });
+      $$("#tb-key input[type=color]").forEach(function (inp, i) { cols[i] = inp.value; });
+      for (var i = 0; i < rows.length; i++) svg += '<rect x="' + x0.toFixed(1) + '" y="' + (y0 + i * rh).toFixed(2) + '" width="' + W.toFixed(1) + '" height="' + (rh + 0.4).toFixed(2) + '" fill="' + (rows[i] < 0 ? tbSepCol : cols[rows[i]]) + '"/>';
+      svg += '<rect x="' + (x0 - 3) + '" y="' + (y0 - 3) + '" width="' + (W + 6) + '" height="' + (h + 6) + '" rx="4" fill="none" stroke="' + tbSepCol + '" stroke-width="4"/>';
+      tbSvg.innerHTML = svg;
+      $("#tb-cap").textContent = real ? "Your temperatures, first day at the top. Drawn to scale." : "A made-up sample year (cold January at the top) to show your colours. Paste real temperatures to see your own.";
+    }
+    function tbSave() { var o = { unit: tbUnit, cols: tbCol }; tbF.forEach(function (k) { var el = $("#tb-" + k); if (el) o[k] = el.value; }); store.set("pp-tblanket", o); }
+    var tbLast = null;
+    seg($("#tb-unit"), function (v) {
+      if (v === tbUnit) return;
+      var c = v === "C", conv = function (x) { return c ? Math.round((x - 32) * 5 / 9) : Math.round(x * 9 / 5 + 32); };
+      var cur = [num("lo", 20), num("hi", 100), num("step", 10)], nx;
+      if (tbLast && tbLast.u === v && tbLast.conv.join() === cur.join()) nx = tbLast.orig;
+      else nx = [conv(cur[0]), conv(cur[1]), Math.max(1, Math.round(cur[2] * (c ? 5 / 9 : 9 / 5)))];
+      tbLast = { u: tbUnit, orig: cur, conv: nx };
+      $("#tb-lo").value = nx[0]; $("#tb-hi").value = nx[1]; $("#tb-step").value = nx[2];
+      tbUnit = v; tbCalc();
+    });
+    tbF.forEach(function (k) { var el = $("#tb-" + k); if (el) { el.addEventListener("change", tbCalc); if (el.tagName !== "SELECT") el.addEventListener("input", tbCalc); } });
+    $("#tb-reset").addEventListener("click", function () { tbCol = {}; tbCalc(); toast("Colours reset"); });
+    $("#tb-copy").addEventListener("click", function () {
+      var t = "Temperature blanket colour key\n" + (tbCalc.txt || []).join("\n");
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function () { toast("Copied"); }, function () { toast("Couldn't copy"); });
+      else toast("Couldn't copy");
+    });
+    tbCalc();
+  }
 })();

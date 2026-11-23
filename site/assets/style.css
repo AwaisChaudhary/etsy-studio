@@ -512,3 +512,24 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .ep-tag.t1 { transform: rotate(1.5deg); background: #fbe1a6; }
 .ep-tag.t2 { transform: rotate(-0.8deg); background: #f0b9cf; }
 @media print { [data-page="junk-journal-ephemera-ideas"] .result, [data-page="junk-journal-ephemera-ideas"] .quick { display: none !important; } .ep-grp { box-shadow: none; break-inside: avoid; } [data-page="junk-journal-ephemera-ideas"] .tool { display: block; } }
+/* temperature blanket planner */
+.row3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 520px) { .row3 { grid-template-columns: 1fr 1fr; } .row3 > .field:first-child { grid-column: 1 / -1; } }
+.tb-more { margin: 4px 0 16px; background: #fff; border: 2px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+.tb-more summary { font-weight: 700; cursor: pointer; }
+.tb-more[open] summary { margin-bottom: 10px; }
+.tb-h { margin-top: 8px; }
+.tb-key-wrap { box-shadow: none; border: 2px solid var(--line); }
+.tb-key { width: 100%; font-size: 0.95rem; }
+.tb-key td, .tb-key th { padding: 6px 10px; }
+.tb-key input[type=color] { width: 44px; height: 32px; padding: 0; border: 2px solid var(--line); border-radius: 8px; background: none; cursor: pointer; }
+.tb-key .muted { font-size: 0.85rem; }
+.tb-fig { margin: 18px 0 0; text-align: center; }
+.tb-fig svg { width: 100%; max-width: 240px; height: auto; }
+.result .tb-fig .note { color: rgba(255,255,255,0.75); }
+.result .tb-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin: 10px 0; }
+.result .tb-stats div { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; }
+.result .tb-stats strong { display: block; font: 800 1.35rem/1.1 var(--display); color: #fff; }
+.result .tb-stats span { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+.result .tb-warn { color: #ffd38a; }
+.tb-key td:last-child { white-space: nowrap; }
