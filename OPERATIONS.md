@@ -1,3 +1,8 @@
+## NEXT (23 Nov 18:05 PKT): KDP books are LIVE, promote them
+- Knit & Crochet Project Journal: https://www.amazon.com/dp/B0HSMCC4S9 ($9.99). Add a book box to purlandpaperco.com (home + crochet/knitting pages), link https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20, labelled as our own book + Amazon affiliate link. Queue 2 pins (original mockup from the cover PDF).
+- Race Ready: 12-Week Training Log (Split Lab): https://www.amazon.com/dp/B0HSM899WR ($9.99). 1 pin on a fitness board if one exists.
+- Gumroad stats: read gumroad.com/products (app.gumroad.com blocks page reads).
+
 # Awais — business operations log (source of truth)
 
 Read this first in every session. Update it whenever a decision, list, rule or result changes.
