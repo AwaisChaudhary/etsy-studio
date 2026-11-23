@@ -1,3 +1,10 @@
+## STRATEGY CHANGE 23 Nov 21:00 PKT (Awais: "Sure") - READ BEFORE BUILDING ANY BATCH
+Why: 30 days = 8 Etsy visits, 0 from Etsy Search, 0 from Pinterest; 0 orders. New shop + the most crowded categories (Christmas printables, tags, wall art, party games, generic planners) + broad tags.
+1. New batches: mostly specific MAKER-BUSINESS tools (cost/pricing/inventory/order trackers for one trade each: resin, sticker shop, cake decorator/home bakery orders, cleaning business, nail tech, lash tech, embroidery, sublimation/tumbler, laser engraving, jewelry, florist, dog groomer, photographer...). Max 1 generic printable per batch. Price $9.99-14.99.
+2. Re-tag all live Etsy listings with long-tail buyer phrases (e.g. "soap cost calculator", "candle pricing template"); drop broad tags like "small business", "digital download", "christmas printable". Started 24 Nov.
+3. Purl site: add pages for people who sell what they make (pricing guides per trade, craft fair/market tips), each linking the matching spreadsheet.
+Pending Awais's answer: Etsy Ads ($1-2/day on the business sheets) and a 20-30% launch sale. Do NOT start either without his OK + budget.
+
 ## DONE 23 Nov 18:30 PKT (main session): KDP book box live on purlandpaperco.com (home + 21 knitting pages, /go/knit-journal -> Amazon tag purlandpaper-20, deployed + IndexNow); 3 book pins scheduled (24 Nov 12:00 + 17:00, 25 Nov 14:00; already in queue.json, count them toward the daily 5). New board: Fitness Race Training.
 ## (was) KDP books are LIVE, promote them
 - Knit & Crochet Project Journal: https://www.amazon.com/dp/B0HSMCC4S9 ($9.99). Add a book box to purlandpaperco.com (home + crochet/knitting pages), link https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20, labelled as our own book + Amazon affiliate link. Queue 2 pins (original mockup from the cover PDF).
