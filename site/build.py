@@ -2271,7 +2271,7 @@ page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for kni
 <p>Purl &amp; Paper started from a simple wish: a row counter that doesn't let the phone go to sleep, and a quick answer to "how much yarn do I need?". It grew into a small set of tools and charts for knitters, crocheters and junk journalers.</p>
 <p>Everything is free to use and works in your browser. Your counters, projects and saved prompts stay on your own device. The site is supported by ads.</p>
 <p>Yarn amounts and size conversions come from widely used industry standards and typical pattern amounts. They're estimates, so always check your pattern and your own swatch.</p>
-<h2>Contact</h2><p>Spotted a mistake or have an idea for a tool? We'd love to hear it. A contact address will be added here soon.</p></div></section>''', crumb="About")
+<h2>Contact</h2><p>Spotted a mistake or have an idea for a tool? Email <a href="mailto:awaiskaramat@hotmail.com">awaiskaramat@hotmail.com</a>.</p></div></section>''', crumb="About")
 page("privacy.html", "Privacy Policy | Purl & Paper", "How Purl & Paper handles your data.",
      top("Privacy policy", "Short version: your counters, projects and saved prompts never leave your device.", "Privacy") + f'''<section style="padding-top:10px"><div class="narrow prose">
 <h2>Email list</h2><p>If you join our email list, we keep your email address with our email provider, Kit (kit.com), to send you the free printables and our updates. Every email has an unsubscribe link, and you can ask us to delete your address at any time.</p>
