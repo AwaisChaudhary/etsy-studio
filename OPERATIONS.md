@@ -128,3 +128,10 @@ Every week research 2-3 new niches before building anything. Gate: Amazon result
 - Good Copy: blocked by KDP's weekly limit on new paperback titles (resets Sunday 00:00 UTC). Scheduled for 29 Nov 00:40 UTC (trig_01BJjPD4cpkfRhNzBh76i1nS).
 - AI disclosure answered honestly on all three: text = entire work (Claude), images = a few (Claude).
 - Lesson: KDP caps new paperback titles per week. Plan the catalogue at about 2–3 books/week, built early in the week.
+
+### Amazon Ads live (24 Nov 2026, 19:00 PKT)
+- Awais accepted the ads agreement and added a billing profile (Lahore) and a MasterCard ending 3450 (US profile, set as default).
+- Campaigns launched: "Knit Journal - Auto - $1" (B0HSMCC4S9) and "Race Ready - Auto - $1" (B0HSM899WR). Both are auto targeting, standard ad, $0.40 default bid, dynamic bids down only, $1/day.
+- Amazon added a "Black Friday Week" scheduled bid rule automatically. The daily budget still caps spend.
+- Next: when Back to Daylight and Dose by Dose go live, add $1/day auto campaigns for them, plus Good Copy after 29 Nov. Total stays ≤ $5/day.
+- Review at 14 days: pause keywords/targets with >$3 spend and no sale; harvest converting search terms into manual exact campaigns.
