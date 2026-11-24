@@ -2045,4 +2045,119 @@
   }
 
 
+
+  /* ---------- KNIT IN THE ROUND: circular needle length finder ---------- */
+  if ($("#kr-out") && $("#kr-c")) {
+    var krMode = $("#kr-mode"), krUnit = $("#kr-unit");
+    var KRL = [[9, 23], [12, 30], [16, 40], [24, 60], [32, 80], [40, 100], [47, 120], [60, 150]];
+    var krLast = "in";
+    function krCalc() {
+      var u = segVal(krUnit) || "in", mode = segVal(krMode) || "size", f = u === "cm" ? 2.54 : 1;
+      if (u !== krLast) { // convert the typed values when the unit changes
+        var k = u === "cm" ? 2.54 : 1 / 2.54;
+        $("#kr-c").value = Math.round(parseFloat($("#kr-c").value || 0) * k * 2) / 2;
+        $("#kr-g").value = Math.round(parseFloat($("#kr-g").value || 0) * 2) / 2;
+        krLast = u;
+      }
+      $("#kr-c-l").textContent = "Size around (" + u + ")";
+      $("#kr-g-l").textContent = u === "cm" ? "Stitches per 10 cm" : "Stitches per 4 in";
+      $("#kr-size-f").hidden = mode !== "size"; $("#kr-sts-f").hidden = mode !== "sts";
+      var c; // circumference in inches
+      if (mode === "sts") {
+        var n = Math.max(1, parseInt($("#kr-n").value, 10) || 1), g = Math.max(1, parseFloat($("#kr-g").value) || 20);
+        c = u === "cm" ? n / g * 10 / 2.54 : n / g * 4;
+      } else c = Math.max(1, parseFloat($("#kr-c").value) || 1) / f;
+      var lim = c < 12 ? c * 1.1 : c, ok = KRL.filter(function (l) { return l[0] <= lim; }), best = ok.length ? ok[ok.length - 1] : null;
+      var nxt = best ? KRL.filter(function (l) { return l[0] > best[0]; })[0] : KRL[0];
+      var len = function (l) { return u === "cm" ? l[1] + " cm" : l[0] + " in"; };
+      var cs = u === "cm" ? (c * 2.54).toFixed(0) + " cm" : c.toFixed(1).replace(/\.0$/, "") + " in";
+      var h = "<h3>Your needle</h3>";
+      if (best) {
+        var ratio = c / best[0];
+        h += '<div class="big" style="font-size:1.9rem;line-height:1.15">' + len(best) + " circular</div>";
+        h += '<div class="tb-stats"><div><strong>' + cs + "</strong><span>around your project</span></div><div><strong>" + (ratio < 1 ? "Slight stretch" : ratio <= 1.6 ? "Comfortable" : "Crowded") + "</strong><span>stitches on the needle</span></div><div><strong>" + (c < 30 ? (u === "cm" ? "80 cm+" : "32 in+") : (u === "cm" ? "100 cm+" : "40 in+")) + "</strong><span>for magic loop instead</span></div></div>";
+        var tips = [];
+        if (ratio < 1) tips.push("The needle is a little longer than the project, so the stitches stretch slightly to meet. That's usually fine for socks and sleeves; if it feels tight, use magic loop.");
+        if (ratio > 1.6) tips.push("That's a lot of stitches for this length. " + (nxt ? "If you have a " + len(nxt) + " that's no longer than the project, it'll be roomier." : "") + " Longer cables are easier to knit with on big projects.");
+        if (nxt) tips.push("Don't go longer than " + len(best) + ": a " + len(nxt) + " needle won't let the stitches reach round.");
+        if (c < 22) tips.push("At the crown or toe, the stitches get too few for any circular. Change to magic loop or DPNs then.");
+        h += "<h3>Good to know</h3><ul class=\"sk-steps\">" + tips.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>";
+      } else {
+        h += '<div class="big tb-warn" style="font-size:1.6rem;line-height:1.15">Too small for a circular</div>';
+        h += '<div class="tb-stats"><div><strong>' + cs + "</strong><span>around your project</span></div><div><strong>" + (u === "cm" ? "80 cm+" : "32 in+") + "</strong><span>circular for magic loop</span></div><div><strong>4 or 5</strong><span>DPNs, or 2 circulars</span></div></div>";
+        h += "<p class=\"sub\">Even a 9 in (23 cm) circular is too long, so the stitches won't reach round. Use magic loop on a 32 in (80 cm) or 40 in (100 cm) circular, double-pointed needles, or two circulars.</p>";
+      }
+      var st = (mode === "sts" ? parseInt($("#kr-n").value, 10) || 0 : 0);
+      var join = ["Cast on" + (st ? " " + st + " stitches" : "") + ", spread them round the cable and check the cast-on edge sits on the inside, with no twist.", "Slip a marker onto the right tip, the one with the working yarn.", "Knit the first stitch on the left tip with the working yarn, pull it snug, and knit to the marker."];
+      if (st > 150) join.splice(1, 0, "With this many stitches, a twist is easy to miss. Cocoknits' trick: knit one row flat first, then join, and sew the tiny gap with the tail later.");
+      h += "<h3>Join without twisting</h3><ol class=\"sk-steps\">" + join.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ol>";
+      var hr = location.protocol === "file:" ? function (x) { return x + ".html"; } : function (x) { return "/" + x; };
+      h += '<hr><p class="sub">Our rule: the longest common circular no longer than the project (up to about 10% longer for socks and sleeves, which stretch) (Knit Picks and Elizabeth Smith Knits say shorter than the circumference). Next: <a href="' + hr("cast-on-calculator") + '" style="color:#ffd38a">how many stitches to cast on</a> or the <a href="' + hr("hat-size-chart") + '" style="color:#ffd38a">hat size calculator</a>.</p>';
+      $("#kr-out").innerHTML = h;
+      // drawing: project circle vs needle circle, same scale
+      var maxIn = Math.max(c, best ? best[0] : 9), sc = 80 / (maxIn / Math.PI / 2), rp = c / Math.PI / 2 * sc, rn = (best ? best[0] : 9) / Math.PI / 2 * sc, g2 = "";
+      g2 += '<circle cx="150" cy="105" r="' + rp.toFixed(1) + '" fill="#f6dbe6" stroke="#b8326a" stroke-width="5" stroke-dasharray="2 5" stroke-linecap="round"/>';
+      g2 += '<circle cx="150" cy="105" r="' + rn.toFixed(1) + '" fill="none" stroke="' + (best ? "#f4a823" : "#4a5470") + '" stroke-width="3"' + (best ? "" : ' stroke-dasharray="6 4"') + "/>";
+      g2 += '<text x="150" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">' + cs + '</text><text x="150" y="121" text-anchor="middle" font-size="11" fill="#4a5470">needle ' + (best ? len(best) : "9 in: too long") + "</text>";
+      $("#kr-svg").innerHTML = g2;
+      $("#kr-cap").textContent = best ? "Your project (pink) and the " + len(best) + " needle (gold), to scale. The needle should be the same size or a little smaller." : "Your project (pink) is smaller than the shortest circular (grey).";
+    }
+    $("#kr-proj").addEventListener("change", function () {
+      var v = $("#kr-proj").value; if (v !== "own") $("#kr-c").value = segVal(krUnit) === "cm" ? Math.round(parseFloat(v) * 2.54) : v; krCalc();
+    });
+    $("#kr-c").addEventListener("input", function () { $("#kr-proj").value = "own"; krCalc(); });
+    ["#kr-n", "#kr-g"].forEach(function (s) { $(s).addEventListener("input", krCalc); });
+    seg(krMode, krCalc); seg(krUnit, krCalc);
+    krCalc();
+  }
+
+  /* ---------- JUNK JOURNAL SUPPLY CHECKLIST ---------- */
+  if ($("#js-list") && $("#js-out")) {
+    var JK = "pp-jj-supplies", JSS = store.get(JK, {}) || {};
+    if (!JSS.t) JSS = { t: {}, plan: "basic" };
+    var jsBoxes = $$("#js-list input[type=checkbox]"), jsPlan = $("#js-plan");
+    if (JSS.plan) $$("button", jsPlan).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === JSS.plan); });
+    var LV = { free: 0, basic: 1, extra: 2 }, TN = { free: "free from home", basic: "worth buying first", extra: "nice to have" };
+    function jsCalc() {
+      var n = 0;
+      jsBoxes.forEach(function (b) { b.checked = !!JSS.t[b.getAttribute("data-id")]; if (b.checked) n++; });
+      $("#js-count").textContent = n + " of " + jsBoxes.length + " ticked";
+      $$("#js-list .ep-gc").forEach(function (sp) {
+        var g = sp.getAttribute("data-g"), all = $$('#js-list fieldset[data-g="' + g + '"] input'), k = all.filter(function (b) { return b.checked; }).length;
+        sp.textContent = k + "/" + all.length;
+      });
+      var plan = segVal(jsPlan) || "basic", lim = LV[plan];
+      var miss = jsBoxes.filter(function (b) { return !b.checked && LV[b.getAttribute("data-t")] <= lim; });
+      var core = ["base-paper-for-the-pages", "base-a-cover", "base-thread-or-string", "tools-scissors", "glue-glue-stick"];
+      var coreMiss = core.filter(function (id) { return !JSS.t[id]; }).length;
+      var h = '<div class="big" style="font-size:1.6rem;line-height:1.15">' + (coreMiss === 0 ? "You're ready to start" : coreMiss + " must-have" + (coreMiss > 1 ? "s" : "") + " to find") + "</div>";
+      h += '<p class="sub">Must-haves: paper, a cover, thread, scissors and a glue stick (or any glue).</p>';
+      var gath = miss.filter(function (b) { return b.getAttribute("data-t") === "free"; }), buy = miss.filter(function (b) { return b.getAttribute("data-t") !== "free"; });
+      var li = function (b) { var sw = b.getAttribute("data-s"); return "<li><strong>" + esc(b.getAttribute("data-n")) + "</strong>" + (sw ? " <span class=\"sub\">(or free: " + esc(sw.toLowerCase()) + ")</span>" : "") + "</li>"; };
+      if (gath.length) h += "<h3>Gather from home (" + gath.length + ")</h3><ul class=\"sk-steps\">" + gath.map(li).join("") + "</ul>";
+      if (buy.length) h += "<h3>Shopping list (" + buy.length + ")</h3><ul class=\"sk-steps\">" + buy.map(li).join("") + "</ul>";
+      if (!miss.length) h += "<p>You've got everything on this plan. " + (plan !== "extra" ? "Switch to the next plan to see what to add later." : "Time to make a page!") + "</p>";
+      var hr = location.protocol === "file:" ? function (x) { return x + ".html"; } : function (x) { return "/" + x; };
+      h += '<hr><p class="sub">Next: <a href="' + hr("junk-journal-signature-calculator") + '" style="color:#ffd38a">plan your signatures</a>, gather <a href="' + hr("junk-journal-ephemera-ideas") + '" style="color:#ffd38a">free ephemera</a> or get a <a href="' + hr("journal-prompts") + '" style="color:#ffd38a">journal prompt</a>.</p>';
+      $("#js-out").innerHTML = h;
+    }
+    $("#js-list").addEventListener("change", function (ev) {
+      var b = ev.target; if (!b.matches("input[type=checkbox]")) return;
+      if (b.checked) JSS.t[b.getAttribute("data-id")] = 1; else delete JSS.t[b.getAttribute("data-id")];
+      store.set(JK, JSS); jsCalc();
+    });
+    seg(jsPlan, function (v) { JSS.plan = v; store.set(JK, JSS); jsCalc(); });
+    $("#js-clear").addEventListener("click", function () { if (!confirm("Clear all your ticks?")) return; JSS.t = {}; store.set(JK, JSS); jsCalc(); toast("Ticks cleared"); });
+    $("#js-print").addEventListener("click", function () { window.print(); });
+    var tp = $("#js-tpl-print");
+    if (tp) tp.addEventListener("click", function () {
+      document.documentElement.classList.add("print-tpl");
+      var off = function () { document.documentElement.classList.remove("print-tpl"); window.removeEventListener("afterprint", off); };
+      window.addEventListener("afterprint", off);
+      window.print();
+      setTimeout(off, 1500);
+    });
+    jsCalc();
+  }
+
 })();

@@ -27,7 +27,7 @@ NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calcu
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
 TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator"), ("foundation-chain-calculator.html", "Foundation chain calculator"), ("junk-journal-signature-calculator.html", "Junk journal signature calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet"), ("how-to-bind-off-knitting.html", "How to bind off knitting"), ("how-to-weave-in-ends.html", "How to weave in ends"), ("how-to-cast-on-knitting.html", "How to cast on knitting"), ("how-to-crochet-decrease.html", "How to decrease in crochet"), ("how-to-fix-a-dropped-stitch.html", "How to fix a dropped stitch"), ("how-to-price-a-crochet-blanket.html", "How to price a crochet blanket"), ("etsy-fee-calculator.html", "Etsy fee calculator")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet"), ("how-to-bind-off-knitting.html", "How to bind off knitting"), ("how-to-weave-in-ends.html", "How to weave in ends"), ("how-to-cast-on-knitting.html", "How to cast on knitting"), ("how-to-crochet-decrease.html", "How to decrease in crochet"), ("how-to-fix-a-dropped-stitch.html", "How to fix a dropped stitch"), ("how-to-price-a-crochet-blanket.html", "How to price a crochet blanket"), ("etsy-fee-calculator.html", "Etsy fee calculator"), ("how-to-knit-in-the-round.html", "How to knit in the round"), ("junk-journal-supply-checklist.html", "Junk journal supply checklist")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -100,6 +100,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "how-to-weave-in-ends.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-fix-a-dropped-stitch.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-price-a-crochet-blanket.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
+            "how-to-knit-in-the-round.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "christmas-gift-tags", "crochet-knitting-pricing-calculator"],
+            "junk-journal-supply-checklist.html": ["junk-journal-mega-bundle", "vintage-ephemera-pack", "journaling-cards-3x4", "tea-room-junk-journal-kit"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -271,7 +273,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a> (even several rows down, with a helper for garter and rib), <a href="{href("how-to-price-a-crochet-blanket.html")}">how to price a crochet blanket</a> (a calculator for yarn, hours and a fair price by size), <a href="{href("how-to-cast-on-knitting.html")}">how to cast on knitting</a> (with a long-tail tail calculator and a cast on chooser), <a href="{href("how-to-crochet-decrease.html")}">how to decrease in crochet</a> (sc2tog, the invisible decrease, and a helper that writes your amigurumi closing rounds), <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a> (with a chooser for stretchy bind offs and how much yarn to keep), <a href="{href("how-to-weave-in-ends.html")}">how to weave in ends</a> in crochet and knitting (with a helper for your yarn), step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: <a href="{href("how-to-knit-in-the-round.html")}">how to knit in the round</a> (join without twisting, with a circular needle length finder), a <a href="{href("junk-journal-supply-checklist.html")}">junk journal supply checklist</a> (what you need, what's free at home, and a free pocket and tag template), <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a> (even several rows down, with a helper for garter and rib), <a href="{href("how-to-price-a-crochet-blanket.html")}">how to price a crochet blanket</a> (a calculator for yarn, hours and a fair price by size), <a href="{href("how-to-cast-on-knitting.html")}">how to cast on knitting</a> (with a long-tail tail calculator and a cast on chooser), <a href="{href("how-to-crochet-decrease.html")}">how to decrease in crochet</a> (sc2tog, the invisible decrease, and a helper that writes your amigurumi closing rounds), <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a> (with a chooser for stretchy bind offs and how much yarn to keep), <a href="{href("how-to-weave-in-ends.html")}">how to weave in ends</a> in crochet and knitting (with a helper for your yarn), step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -677,6 +679,7 @@ jj = top("Junk journaling for beginners", "A junk journal is a handmade book fil
 <tr><td>Binding</td><td>A darning needle, embroidery thread, dental floss or thin twine, a drawing pin to poke holes</td></tr></tbody></table></div>
 <p>For a long list of free things to save, see our <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> checklist. The only things most people end up buying are a glue stick and, later, a few nice papers. If plain paper looks too new, give it an aged look with a cup of tea: our guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> has the recipe and a shade tester.</p>
 <h2>Junk journal supply checklist</h2>
+<p>Tick these off, pick a budget and print a shopping list with our full <a href="{href("junk-journal-supply-checklist.html")}">junk journal supply checklist</a>.</p>
 <ul><li><strong>Must have:</strong> paper for pages, card for a cover, glue stick, scissors, needle and thread, something to poke holes.</li>
 <li><strong>Nice to have:</strong> a bone folder or the back of a spoon for crisp folds, a craft knife and ruler, PVA or matte gel medium, washi tape, a waterproof pen.</li>
 <li><strong>Later:</strong> an awl, waxed linen thread, ink pads and stamps, a corner rounder, printable kits for themed pages.</li></ul>
@@ -775,11 +778,33 @@ page("blanket-size-calculator.html", "Blanket Size Chart and Yarn Calculator for
      bk, bk_faq, "Blanket size calculator", app_name="Blanket size calculator")
 
 # ---------------- HANDMADE GIFT PLANNER ----------------
+import datetime as _dt
+_today = _dt.date.today()
+_xmas = _dt.date(_today.year if _today <= _dt.date(_today.year, 12, 25) else _today.year + 1, 12, 25)
+GP_DAYS = (_xmas - _today).days
+GP_WK = GP_DAYS / 7
+_GI = {g["id"]: g for g in D["gifts"]}
+GP_HW = [3, 5, 7, 10, 14]
+def gp_fit(h, gid, craft): return int(h // _GI[gid][craft])
+def gp_n(h, gid, craft, one, many): n = gp_fit(h, gid, craft); return f"{n} {one if n == 1 else many}"
+gp_fit_rows = "".join(f'<tr><td><strong>{hw} h a week</strong></td><td>{hw * GP_WK:.0f} h</td><td>{gp_n(hw * GP_WK, "hat", "knit", "hat", "hats")} or {gp_n(hw * GP_WK, "scarf", "knit", "scarf", "scarves")}</td><td>{gp_n(hw * GP_WK, "hat", "crochet", "hat", "hats")} or {gp_n(hw * GP_WK, "throw", "crochet", "throw", "throws")}</td><td>{gp_fit(hw * GP_WK, "ornament", "crochet")}</td></tr>' for hw in GP_HW)
+GP_QUICK = [g for g in D["gifts"] if g["crochet"] <= 6 or g["knit"] <= 6]
+gp_quick_txt = ", ".join(f'{g["name"] if g["name"].startswith("Christmas") else g["name"][0].lower() + g["name"][1:]} (about {g["knit"]:g} h knit, {g["crochet"]:g} h crochet)' for g in GP_QUICK)
+GP_TOP = f'''<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> there are <strong>{GP_DAYS} days ({GP_WK:.1f} weeks) until Christmas</strong> on {_xmas.strftime("%d %B %Y").lstrip("0")}. At 7 hours of crafting a week that's about <strong>{7 * GP_WK:.0f} hours</strong>: enough for roughly {gp_fit(7 * GP_WK, "hat", "knit")} knitted hats, or {gp_fit(7 * GP_WK, "hat", "crochet")} crocheted hats, by our typical times. A crochet throw takes about {_GI["throw"]["crochet"]:g} hours and a knitted one about {_GI["throw"]["knit"]:g}, so start the big gifts first. Add your own list below to check every gift.</div></div></section>
+'''
+GP_FIT = f'''<section style="padding-top:0"><div class="wrap"><h2>What can I still make before Christmas?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">If you craft</th><th scope="col">Time left ({GP_DAYS} days)</th><th scope="col">Knitting</th><th scope="col">Crochet</th><th scope="col">Crochet ornaments</th></tr></thead><tbody>{gp_fit_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Counted from {_today.strftime("%d %B %Y").lstrip("0")} to Christmas Day, using the typical hours in the table below (worsted yarn, a comfortable maker). Each column is one kind of gift on its own; mix and match in the planner. Leave a few days for blocking, wrapping and post.</p>
+<h3 style="margin-top:22px">Quick gifts for the last weeks</h3>
+<p>Each of these takes an evening or a weekend for most makers: {e(gp_quick_txt)}. Chunky yarn cuts the time again: the planner allows about a third less.</p>
+</div></section>
+'''
 SRC = {"lc": "LoveCrafts", "lc-k": "LoveCrafts (knit); our estimate (crochet)", "lc-c": "LoveCrafts (crochet); our estimate (knit)", "est": "Our estimate"}
 gp_opts = "".join(f'<option value="{g["id"]}"{" selected" if g["id"] == "hat" else ""}>{e(g["name"])}</option>' for g in D["gifts"])
 gp_rows = "".join(f'<tr><td><strong>{e(g["name"])}</strong></td><td>{g["knit"]:g} h</td><td>{g["crochet"]:g} h</td><td class="muted">{e(SRC[g["src"]])}</td></tr>' for g in D["gifts"])
-gp = top("Handmade gift planner", "List the hats, scarves and blankets you want to give, tell us how many hours a week you can craft, and see if they'll all be ready by Christmas, or which ones to swap for something quicker.", "Handmade gift planner") + f'''
-<section style="padding-top:10px"><div class="wrap tool">
+gp = top("Handmade gift planner", "List the hats, scarves and blankets you want to give, tell us how many hours a week you can craft, and see if they'll all be ready by Christmas, or which ones to swap for something quicker.", "Handmade gift planner") + GP_TOP + f'''
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <h3 style="margin-top:0">Your time</h3>
 <div class="row2"><div class="field"><label for="gp-due">Finish by</label><input type="date" id="gp-due"></div>
@@ -801,7 +826,7 @@ gp = top("Handmade gift planner", "List the hats, scarves and blankets you want 
 </div>
 <div class="result" aria-live="polite" id="gp-out"></div>
 </div></section>
-<section style="padding-top:0"><div class="wrap"><h2>How long does it take to knit or crochet a gift?</h2>
+{GP_FIT}<section style="padding-top:0"><div class="wrap"><h2>How long does it take to knit or crochet a gift?</h2>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Gift</th><th scope="col">Knitting</th><th scope="col">Crochet</th><th scope="col">Where the number comes from</th></tr></thead><tbody>{gp_rows}</tbody></table></div>
 <p class="note" style="margin-top:12px">Hours for a comfortable, not brand-new, maker in medium (worsted) yarn. Hat, scarf, socks, blanket and sweater times follow the middle skill level in LoveCrafts' knitting and crochet time guides; the rest are our own rough estimates for simple patterns. Everyone's pace is different, so treat every number as a starting point and change the hours to suit you.</p>
 </div></section>
@@ -809,6 +834,8 @@ gp = top("Handmade gift planner", "List the hats, scarves and blankets you want 
 <p>It takes your hours per week and the days left until your finish date to work out how much crafting time you really have. Then it lines your gifts up in the order you listed them, like beads on a strand, and shows roughly when each one will be done. Anything that runs past the deadline turns red.</p>
 <p>Fine yarn makes small stitches, so it takes longer to cover the same area; chunky yarn works up much faster. The planner allows about 30 percent more time for fine yarn and about a third less for chunky. If you've timed yourself on a similar project, type your own hours instead.</p>
 <div class="callout"><strong>Time yourself once.</strong> Work for 30 minutes on your swatch or the first rows of the gift and count how much you finished. Multiply out to the whole piece and you'll have a far better number than any chart.</div>
+<h2>When should I start knitting Christmas gifts?</h2>
+<p>Count back from the hours. A throw or sweater is 25 to 65 hours, so at 5 hours a week it needs to start 5 to 13 weeks before Christmas. Hats, cowls and mittens fit into the last month. Our tip: add a week at the end for blocking, weaving in ends and posting, and plan nothing new for the final few days.</p>
 <h2>Making it all fit</h2>
 <ul><li><strong>Start the biggest gift first.</strong> Put blankets and sweaters at the top of the list so the small things fill the last weeks.</li>
 <li><strong>Swap the yarn, not the gift.</strong> A hat in chunky yarn can take half the time of one in DK.</li>
@@ -820,6 +847,8 @@ gp_faq = [
     ("How long does it take to crochet a blanket?", "A throw often takes 20 to 30 hours of crochet, and a knitted one about twice as long. Bigger blankets, fine yarn and fancy stitches take longer."),
     ("What can I knit or crochet in one evening?", "A dishcloth, an ornament, a headband or a chunky cowl are all realistic in one to three hours for most makers."),
     ("Is it too late to make Christmas gifts?", "Usually not. Even one hour a day gives you over 30 hours in five weeks, enough for a couple of hats and a scarf. Put your numbers into the planner to see what fits."),
+    ("How many days are left to make Christmas gifts?", f"On {_today.strftime('%d %B %Y').lstrip('0')} there are {GP_DAYS} days until Christmas. At 7 hours of crafting a week that's about {7 * GP_WK:.0f} hours, roughly {gp_fit(7 * GP_WK, 'hat', 'knit')} knitted hats by our typical times."),
+    ("When should I start knitting Christmas gifts?", "Big gifts like throws and sweaters take 25 to 65 hours, so start them two to three months ahead if you knit a few hours a week. Hats, cowls and mittens can be made in the last month. Leave a week for blocking, wrapping and post."),
     ("Where is my gift list saved?", "On this device, in your browser. Nothing is uploaded. Use 'Print my list' to keep a paper copy."),
 ]
 page("crochet-knitting-gift-planner.html", "Christmas Knitting and Crochet Gift Planner: Will It Be Ready in Time? | Purl & Paper",
@@ -879,7 +908,7 @@ ht = top("Hat size chart and calculator", "Head sizes from preemie to large adul
 <p>A simple adult beanie takes roughly {yc_yd("hat", 4)} yards of worsted yarn, about {yc_yd("hat", 3)} of DK or {yc_yd("hat", 5)} of bulky (our estimates, the same model as the <a href="{href("yarn-calculator.html")}">yarn calculator</a>). A child's hat takes about {yc_yd("kidhat", 4)} yards of worsted. A folded brim, pompom, cables or a slouchy shape all add more, so buy one extra ball.</p>
 <h2>How tall should a hat be?</h2>
 <p>For a fitted adult beanie, about {_ht_ad["h"]} in from the bottom edge to the top of the crown. Add 2 to 3 in for a brim you fold up or a slouchy fit. Start the crown decreases about 2.5 to 3 in before the full height on a knitted hat. Measure from the centre of the crown on a top-down crochet hat.</p>
-<p>Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Matching socks? The <a href="{href("sock-size-chart.html")}">sock size chart</a> works out the cast-on the same way.</p></div></section>'''
+<p>New to hats? Our guide to <a href="{href("how-to-knit-in-the-round.html")}">knitting in the round</a> shows the join and which circular needle to use (16 in for most hats). Not sure which yarn to use? See the <a href="{href("yarn-weights.html")}">yarn weight chart</a> and the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>. Swatch doesn't match the pattern? The <a href="{href("gauge-converter.html")}">gauge converter</a> shows the size you'll really get. A simple adult beanie takes roughly 200 yards of worsted yarn; the <a href="{href("yarn-calculator.html")}">yarn calculator</a> covers other weights. Making hats for Christmas? Check the timing in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Matching socks? The <a href="{href("sock-size-chart.html")}">sock size chart</a> works out the cast-on the same way.</p></div></section>'''
 ht_faq = [
     ("What size should an adult knit hat be?", "Most adult heads are 21 to 24 inches around. A fitted beanie is usually made 2 to 3 inches smaller, so about 19 to 21 inches around, and about 11 inches tall before any fold-up brim."),
     ("How many stitches do I cast on for a hat?", "Multiply the hat width (head size minus about 12 percent) by your stitches per inch, then round to suit your rib. In worsted yarn at 4.5 stitches per inch, an average adult hat is about 88 stitches."),
@@ -1827,9 +1856,9 @@ ep = top("Junk journal ephemera ideas", f"{EP_N} free ephemera ideas for your ju
 <li><strong>Keep it dry and out of the sun,</strong> especially photos and thermal paper.</li>
 <li><strong>Theme bags work well:</strong> fill one envelope per trip, season or month, then make a spread from it.</li></ul>
 <h2>Can I make my own ephemera?</h2>
-<p>Yes, and it's half the fun. Stain plain paper with tea (our <a href="@@TS@@">tea staining guide</a> has the recipe), cut tags from cereal box card, turn envelopes into pockets, and write labels by hand. If you'd like a themed set ready to cut out, our printable ephemera packs below do exactly that. New to all this? Start with <a href="@@JJ@@">junk journaling for beginners</a>.</p>
+<p>Yes, and it's half the fun. Stain plain paper with tea (our <a href="@@TS@@">tea staining guide</a> has the recipe), cut tags from cereal box card, turn envelopes into pockets, and write labels by hand. If you'd like a themed set ready to cut out, our printable ephemera packs below do exactly that. New to all this? Start with <a href="@@JJ@@">junk journaling for beginners</a>, and see what else you need in our <a href="@@JS@@">junk journal supply checklist</a>.</p>
 <p class="note">Ideas and techniques gathered from LoveCrafts' ephemera guide, Upcycle My Stuff and My Modern Met's junk journal guides; thermal paper advice from the National Archives of Australia and the University of Illinois preservation guide. Descriptions are our own.</p></div></section>'''
-for k_, f_ in (("@@JP@@", "journal-prompts.html"), ("@@TS@@", "how-to-tea-stain-paper.html"), ("@@JJ@@", "junk-journal-beginners.html")):
+for k_, f_ in (("@@JP@@", "journal-prompts.html"), ("@@TS@@", "how-to-tea-stain-paper.html"), ("@@JJ@@", "junk-journal-beginners.html"), ("@@JS@@", "junk-journal-supply-checklist.html")):
     ep = ep.replace(k_, href(f_))
 ep_faq = [
     ("What is ephemera in a junk journal?", "Everyday paper made for one use or a short time, like tickets, receipts, labels, tags, stamps and packaging, that you glue or tuck into your journal to decorate it and keep a memory."),
@@ -2822,7 +2851,7 @@ cn = top("How to cast on knitting", "Casting on puts the first stitches on your 
 <ol><li>Cast on all the stitches onto a circular needle shorter than the piece is around (a 16 in circular for a hat).</li>
 <li>Spread them round the needle and check the bottom edge runs along the inside of the circle all the way round, with no twist. A twist can't be fixed later.</li>
 <li>Put a marker on the right needle, then knit the first stitch on the left needle with the working yarn, pulling it snug. That joins the round.</li></ol>
-<p>What next? Work out how many stitches to cast on with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, decode the first pattern row with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>, and when you get to the end, our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a> finishes it neatly. Dropped a stitch on the way? See <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a>.</p></div></section>'''
+<p>What next? Knitting a hat or socks? See <a href="{href("how-to-knit-in-the-round.html")}">how to knit in the round</a> to join without twisting. Work out how many stitches to cast on with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, decode the first pattern row with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>, and when you get to the end, our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a> finishes it neatly. Dropped a stitch on the way? See <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a>.</p></div></section>'''
 cn_faq = [
     ("How do you cast on in knitting?", "The long-tail cast on is the most used: leave a tail of about 1 in per stitch, make a slip knot on the needle, hold the tail over your thumb and the ball yarn over your index finger, go up through the thumb loop, catch the finger strand, come back down and snug the stitch. Repeat."),
     ("How long should the tail be for a long-tail cast on?", f"About 1 in (2.5 cm) per stitch in worsted yarn, plus about 6 in to weave in. That's roughly {_lt_fmt(_cn40)} for 40 stitches and {_lt_fmt(_cn100)} for 100. Thin yarn needs less and thick yarn more. Wrapping the yarn round the needle once per stitch gives an exact measure."),
@@ -3144,11 +3173,250 @@ page("how-to-price-a-crochet-blanket.html", "How to Price a Crochet Blanket (Fre
      "How much to charge for a crochet blanket: a free calculator for yarn, hours and a fair price by size, a price chart from baby to king, how long blankets take, and pricing custom orders.",
      bpp, bp_faq, "How to price a crochet blanket", app_name="Crochet blanket price calculator")
 
+# ---------------- HOW TO KNIT IN THE ROUND (guide + needle length finder) ----------------
+KR_LEN = [(9, 23), (12, 30), (16, 40), (24, 60), (32, 80), (40, 100), (47, 120), (60, 150)]
+def kr_pick(c):   # our rule: longest common circular <= circumference (+10% for small stretchy tubes)
+    ok = [l for l, _ in KR_LEN if l <= (c * 1.1 if c < 12 else c)]
+    return ok[-1] if ok else None
+def _kr_pt(t, r=58, cx=110, cy=96):
+    a = _m.radians(t - 90); return cx + r * _m.cos(a), cy + r * _m.sin(a)
+def _kr_ring(step):
+    g = ""
+    # cable: arc from 28 deg round the bottom to 332 deg
+    x1, y1 = _kr_pt(28); x2, y2 = _kr_pt(332)
+    g += f'<path d="M{x1:.1f} {y1:.1f} A58 58 0 1 1 {x2:.1f} {y2:.1f}" fill="none" stroke="{_HK}" stroke-width="2.5"/>'
+    # tips
+    for t, dx in ((28, 1), (332, -1)):
+        x, y = _kr_pt(t)
+        g += _needle(x, y, x + dx * 22, y - 34)
+    # stitches round the cable
+    for t in range(40, 330, 18):
+        x, y = _kr_pt(t)
+        g += f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="4.5" ry="7.5" transform="rotate({t} {x:.1f} {y:.1f})" fill="none" stroke="{_Y}" stroke-width="2.6"/>'
+    if step >= 2:   # cast-on edge on the inside, all the way round
+        xa, ya = _kr_pt(40, 47); xb, yb = _kr_pt(320, 47)
+        g += f'<path d="M{xa:.1f} {ya:.1f} A47 47 0 1 1 {xb:.1f} {yb:.1f}" fill="none" stroke="{_TL}" stroke-width="3" stroke-dasharray="{"0" if step == 2 else "5 4"}"/>'
+    if step == 2:
+        g += f'<text x="110" y="100" text-anchor="middle" font-size="11" fill="{_TL}" font-weight="700">edge on the</text><text x="110" y="113" text-anchor="middle" font-size="11" fill="{_TL}" font-weight="700">inside all round</text>'
+    if step >= 3:   # marker on the right tip
+        x, y = _kr_pt(28)
+        g += f'<circle cx="{x + 9:.1f}" cy="{y - 14:.1f}" r="6" fill="none" stroke="{_MG}" stroke-width="4"/>'
+        if step == 3: g += f'<text x="{x + 20:.1f}" y="{y - 22:.1f}" font-size="11" fill="{_HK}">marker</text>'
+    if step == 4:   # working yarn from the right tip to the first stitch on the left
+        xr, yr = _kr_pt(28); xl, yl = _kr_pt(332)
+        g += f'<path d="M{xr + 4:.1f} {yr - 4:.1f} C{xr + 30:.1f} {yr - 30:.1f} {xr + 40:.1f} {yr + 40:.1f} {xr + 70:.1f} {yr + 30:.1f}" fill="none" stroke="{_Y2}" stroke-width="3" stroke-linecap="round"/>'
+        g += f'<path d="M{xr - 6:.1f} {yr - 18:.1f} Q110 {yr - 52:.1f} {xl + 8:.1f} {yl - 18:.1f}" fill="none" stroke="{_HK}" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#kr-ar)"/>'
+        g += f'<text x="{xr + 18:.1f}" y="{yr + 58:.1f}" text-anchor="middle" font-size="11" fill="{_HK}">working yarn</text>'
+    return '<defs><marker id="kr-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f2a44"/></marker></defs>' + g
+KR_STEPS = [
+    ("Cast on and spread out.", "Cast on all your stitches, then slide them round onto the cable so they reach both tips without stretching."),
+    ("Check for a twist.", "Lay it flat. The cast-on edge should sit on the inside of the ring the whole way round, never looping over the cable."),
+    ("Place a marker.", "Hold the tip with the working yarn in your right hand and slip a stitch marker onto it. That's the start of every round."),
+    ("Knit the first stitch.", "With the working yarn (not the tail), knit the first stitch on the left tip and pull it snug. Knit round to the marker: one round done."),
+]
+def kr_fig(i, s):
+    return (f'<figure class="mr-step"><svg viewBox="0 0 220 172" role="img" aria-label="Knitting in the round step {i}: {e(s[0])}">{_kr_ring(i)}</svg>'
+            f'<figcaption><strong>{i}. {e(s[0])}</strong> {e(s[1])}</figcaption></figure>')
+KR_USE = [(9, "Socks, mittens, sleeves, baby hats"), (12, "Socks and sleeves for some knitters; not every brand makes it"),
+          (16, "Adult hats, neck-warmer cowls, armhole and neck trims"), (24, "Kids' sweaters, the start of a top-down sweater, shawl starts, medium cowls"),
+          (32, "Adult sweater bodies, shawls, infinity cowls, baby blankets, magic loop"), (40, "Bigger sweaters, blankets, magic loop"),
+          (47, "Big blankets and wide shawls"), (60, "Very large blankets and borders")]
+kr_rows = "".join(f'<tr><td><strong>{l} in ({cm} cm)</strong></td><td>About {l} in ({cm} cm) or more</td><td>{e(u)}</td></tr>' for (l, cm), (_, u) in zip(KR_LEN, KR_USE))
+KR_PROJ = [("Sock (adult)", 8.5), ("Mitten or sleeve cuff", 8), ("Baby hat", 15), ("Child hat", 18), ("Adult hat", 21), ("Cowl", 24), ("Child sweater", 28), ("Adult sweater body", 40), ("Big sweater body", 50)]
+kr_prows = "".join(f'<tr><td><strong>{e(n)}</strong></td><td>{c:g} in ({c * 2.54:.0f} cm)</td><td>{kr_pick(c) or "None"}{" in" if kr_pick(c) else ""}</td><td>{"Magic loop (32 in or longer), DPNs or two circulars" if c < 12 else "Magic loop or DPNs when the crown or cuff gets small" if c < 30 else "Magic loop for the sleeves"}</td></tr>' for n, c in KR_PROJ)
+KR_JOIN = [("Plain join", "Knit the first cast-on stitch with the working yarn and pull it snug.", "Most projects; it's what patterns mean by \"join\""),
+           ("Swap the end stitches", "Slip the first stitch from the left tip to the right, lift the stitch next to it over and onto the left tip, then start knitting.", "A tighter, neater join"),
+           ("Extra stitch", "Cast on one more stitch than you need, slip it to the left tip, then knit it together with the first stitch.", "A firm join with no gap"),
+           ("Knit one row first", "Knit one row flat, then join and knit in the round. Sew the tiny gap with the cast-on tail when you weave in.", "Lots of stitches, or if twists keep catching you out")]
+krp = top("How to knit in the round", "Hats, cowls, socks and sweater bodies are knitted in a tube with no seam. Here's how to join without twisting in four drawings, which circular needle length you need, and a finder that picks the needle for your project.", "How to knit in the round") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> cast on onto a <strong>circular needle shorter than your project's circumference</strong> (a 16 in / 40 cm circular for an adult hat), spread the stitches round the cable and check the cast-on edge sits on the <strong>inside of the ring with no twist</strong>. Put a marker on the right tip, then knit the first stitch on the left tip with the working yarn and pull it snug. Knitting every round makes stockinette. For socks, sleeves and hat crowns too small for any circular, use magic loop on a 32 in (80 cm) or longer needle, or double-pointed needles.</div>
+<div class="mr-steps">{"".join(kr_fig(i + 1, s) for i, s in enumerate(KR_STEPS))}</div>
+<p class="note">Our own drawings of a circular needle seen from above.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Circular needle length finder</h2>
+<div class="field"><span class="label" id="kr-mode-l">I know</span><div class="seg" role="group" aria-labelledby="kr-mode-l" id="kr-mode"><button type="button" data-v="size" aria-pressed="true">The size around</button><button type="button" data-v="sts" aria-pressed="false">My stitch count</button></div></div>
+<div class="field"><span class="label" id="kr-unit-l">Units</span><div class="seg" role="group" aria-labelledby="kr-unit-l" id="kr-unit"><button type="button" data-v="in" aria-pressed="true">Inches</button><button type="button" data-v="cm" aria-pressed="false">cm</button></div></div>
+<div id="kr-size-f"><div class="field"><label for="kr-proj">What are you making?</label><select id="kr-proj">{"".join(f'<option value="{c}"{" selected" if n == "Adult hat" else ""}>{e(n)}</option>' for n, c in KR_PROJ)}<option value="own">My own measurement</option></select></div>
+<div class="field"><label for="kr-c" id="kr-c-l">Size around (in)</label><input id="kr-c" type="number" min="3" max="200" step="0.5" value="21" inputmode="decimal"><span class="note">The finished circumference, before any shaping.</span></div></div>
+<div id="kr-sts-f" hidden><div class="row2"><div class="field"><label for="kr-n">Stitches cast on</label><input id="kr-n" type="number" min="8" max="2000" step="1" value="96" inputmode="numeric"></div>
+<div class="field"><label for="kr-g" id="kr-g-l">Stitches per 4 in</label><input id="kr-g" type="number" min="4" max="60" step="0.5" value="20" inputmode="decimal"><span class="note">Your gauge, from the ball band or swatch.</span></div></div></div>
+<figure class="ts-fig"><svg id="kr-svg" viewBox="0 0 300 220" role="img" aria-label="Your project's size around compared with the needle"></svg><figcaption class="note" id="kr-cap">Your project (pink) and the needle (gold), to scale.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="kr-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>What length circular needle do I need?</h2>
+<p>Pick a circular that is <strong>shorter than the circumference</strong> of what you're knitting, so the stitches reach from tip to tip without stretching (Knit Picks). Length is measured from tip to tip, not just the cable (Elizabeth Smith Knits). A needle that's a bit short is fine: the stitches bunch up on the cable. One that's too long stretches them and they won't meet.</p></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Circular needle</th><th scope="col">For a circumference of</th><th scope="col">Good for</th></tr></thead><tbody>{kr_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Uses from Elizabeth Smith Knits' guide to circular lengths; the 12, 47 and 60 in rows and the cm sizes are our own summary of common sizes sold. Some brands sell 29 in instead of 32 in, which works the same.</p>
+<h2 style="margin-top:28px">Which needle for a hat, sock or sweater?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Project</th><th scope="col">Typical size around</th><th scope="col">Circular to start</th><th scope="col">Also need</th></tr></thead><tbody>{kr_prows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Sizes are typical adult and child measurements, rounded (see our <a href="{href("hat-size-chart.html")}">hat size chart</a> and <a href="{href("sock-size-chart.html")}">sock size chart</a>). Needle picked by our rule: the longest common length no longer than the circumference (up to about 10% longer for socks and sleeves, which stretch).</p></div>
+<div class="narrow prose">
+<h2>How do you join in the round without twisting?</h2>
+<p>Before the first stitch, lay the needle flat and run your finger along the cast-on edge. It should sit on the <strong>inside of the ring</strong> (or all along the bottom of the needle) the whole way round, never spiralling over the cable (Knit Picks). Then join with the working yarn. If counting a long cast-on gets confusing, Cocoknits knits one row flat first: a flat row makes the edge easy to see, and the small gap is sewn shut with the tail later.</p>
+<h2>What are the ways to join?</h2></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Join</th><th scope="col">How</th><th scope="col">Best for</th></tr></thead><tbody>
+{"".join(f"<tr><td><strong>{e(a)}</strong></td><td>{e(b)}</td><td>{e(c)}</td></tr>" for a, b, c in KR_JOIN)}</tbody></table></div>
+<p class="note" style="margin-top:12px">Plain join from Knit Picks and Berroco; knit-a-row-first from Cocoknits; swap and extra-stitch joins are common methods also mentioned by Berroco readers.</p></div>
+<div class="narrow prose">
+<h2>I twisted my join. Can I fix it?</h2>
+<p>If you haven't knitted a full round yet, spin the stitches round the needle until the edge lies flat on the inside, then join (Berroco). Once you've knitted a round or more, the twist is locked in: Knit Picks says it can't be corrected later, so rip back and cast on again. (A twisted tube becomes a Möbius loop, which some knitters make on purpose for cowls, but not for a hat.)</p>
+<h2>How do I close the gap at the join?</h2>
+<p>A little ladder at the join is normal. Our tips: pull the first two or three stitches snug, or use the swap or extra-stitch join above. Any gap left over is closed when you weave in the cast-on tail: take it across the gap to the stitch on the other side, then weave it in as in our <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a> guide.</p>
+<h2>What if my project is smaller than any circular?</h2>
+<p>Socks, mittens, sleeves and the top of a hat get too small for even a 16 in needle. You have three choices:</p>
+<ul><li><strong>Magic loop:</strong> one long circular, 32 in (80 cm) or 40 in (100 cm), with the extra cable pulled out as a loop at two points so half the stitches sit on each tip.</li>
+<li><strong>Double-pointed needles (DPNs):</strong> the stitches are shared over 3 or 4 short needles and you knit with a spare one.</li>
+<li><strong>Two circulars:</strong> half the stitches on each needle, each knitted with its own tips.</li></ul>
+<p>For a hat, start on a 16 in circular and change to magic loop or DPNs when the crown decreases make the stitches stretch.</p>
+<h2>Is knitting in the round the same as knitting flat?</h2>
+<p>The stitches are the same, but you never turn the work, so the right side always faces you. That changes some stitch patterns:</p>
+<ul><li><strong>Stockinette:</strong> knit every round (flat, you knit one row and purl the next).</li>
+<li><strong>Garter stitch:</strong> knit one round, purl one round.</li>
+<li><strong>Rib:</strong> knit the knits and purl the purls, every round. The stitch count must be a multiple of the rib (4 for k2, p2).</li></ul>
+<p>Rounds spiral, so stripes show a small step at the start of the round. Our tip for a neater stripe: on the second round of a new colour, slip the first stitch purlwise, then knit on. Keep count of rounds with the <a href="{href("row-counter.html")}">row counter</a>.</p>
+<p>What next? Work out the stitches with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> or the <a href="{href("hat-size-chart.html")}">hat size calculator</a>, learn the <a href="{href("how-to-cast-on-knitting.html")}">long-tail cast on</a>, and finish the brim with a stretchy edge from our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a>.</p></div></section>'''
+kr_faq = [
+    ("How do you join knitting in the round?", "Cast on onto a circular needle shorter than the project, spread the stitches round the cable and check the cast-on edge sits on the inside with no twist. Place a marker on the right tip, then knit the first stitch on the left tip with the working yarn and pull it snug."),
+    ("What size circular needle do I need for a hat?", "A 16 inch (40 cm) circular for an adult or child hat. Change to magic loop or double-pointed needles when the crown gets too small. A 24 inch needle is too long for most hats."),
+    ("Can I knit a hat on a 24 inch circular needle?", "Usually not. Most adult hats are about 20 to 22 inches around, shorter than the needle, so the stitches won't stretch round it. Use a 16 inch circular, or magic loop on a 32 inch or longer needle."),
+    ("How do I fix a twisted join in the round?", "If you haven't knitted a full round, spin the stitches until the edge lies flat on the inside and then join. After a full round the twist can't be undone, so rip back and cast on again."),
+    ("How do you knit stockinette in the round?", "Knit every round. Because you never turn the work, the right side always faces you, so there are no purl rows."),
+    ("What is magic loop?", "A way to knit a small tube on one long circular needle (32 in / 80 cm or longer): the extra cable is pulled out as a loop at two points so half the stitches sit on each tip."),
+]
+page("how-to-knit-in-the-round.html", "How to Knit in the Round: Join Without Twisting + Needle Length Finder | Purl & Paper",
+     "How to knit in the round on circular needles: join without twisting in 4 drawings, which circular needle length for hats, socks and sweaters, magic loop and DPNs, fixing a twisted join. Free needle length finder.",
+     krp, kr_faq, "How to knit in the round", app_name="Circular needle length finder")
+
+# ---------------- JUNK JOURNAL SUPPLY CHECKLIST ----------------
+# (name, tier: free/basic/extra, what it's for, free swap)
+JS = [
+ ("The journal itself", "base", [
+   ("Paper for the pages", "free", "Printer paper, old book pages, envelopes, brown paper bags, wrapping paper, maps or sheet music.", "Anything paper you'd recycle"),
+   ("A cover", "free", "An old hardback book cover, a cereal box covered in paper, or a folded piece of card.", "Cereal box or old book"),
+   ("Thread or string", "free", "To sew the folded pages in. Embroidery floss, waxed thread, twine or strong string.", "String or dental floss"),
+   ("A big-eye needle", "basic", "A tapestry or bookbinding needle to sew the pages. Pricker for holes optional.", "A stapler for small booklets"),
+   ("Something to poke holes", "free", "An awl, a push pin or a thick needle for the sewing holes.", "A push pin"),
+ ]),
+ ("Cutting and folding", "tools", [
+   ("Scissors", "free", "Everyday scissors do almost everything.", ""),
+   ("Ruler and pencil", "free", "Measure pages and mark folds and hole positions.", ""),
+   ("Bone folder", "extra", "Makes crisp, flat folds.", "The back of a spoon"),
+   ("Paper trimmer", "extra", "Fast, straight cuts on lots of paper.", "Ruler and scissors"),
+   ("Craft knife and mat", "extra", "Windows, slots and tiny cuts.", "Small scissors"),
+   ("Hole punch", "extra", "Holes for tags and ribbon.", "A push pin and a pencil"),
+ ]),
+ ("Sticking things down", "glue", [
+   ("Glue stick", "basic", "The everyday adhesive for paper on paper. Least likely to wrinkle thin pages.", "School glue spread thin"),
+   ("Liquid or tacky glue", "basic", "Heavier things: fabric, lace, buttons, card.", ""),
+   ("Double-sided tape", "extra", "Clean, flat and instant. Tape runners are the easy version.", "Glue stick"),
+   ("Washi tape", "basic", "Sticks and decorates at once, and lifts off again.", "Strips of paper and glue"),
+   ("Paper clips and bulldog clips", "free", "Hold layers while glue dries, or clip on extras.", ""),
+ ]),
+ ("Ephemera and pretty things", "deco", [
+   ("Tickets, receipts and labels", "free", "The everyday paper that tells the story of a day.", ""),
+   ("Postcards, cards and envelopes", "free", "Envelopes become pockets; cards become tuck-ins.", ""),
+   ("Tags", "free", "Cut from card with the top corners snipped.", "Cut your own from a cereal box"),
+   ("Ribbon, lace, string and trims", "free", "From gift wrap, clothes and packaging.", ""),
+   ("Buttons and fabric scraps", "free", "Texture on covers and pages.", ""),
+   ("Pressed flowers and leaves", "free", "Press them in a heavy book for a week or two.", ""),
+   ("Stickers", "extra", "Quick focal points and labels.", "Cut motifs from magazines"),
+   ("Printables", "extra", "Journaling cards, ephemera sheets and full kits to print at home.", "Free printables"),
+ ]),
+ ("Colour, ageing and writing", "colour", [
+   ("Pens", "free", "Any pen for journaling; a fine black pen for labels.", ""),
+   ("Tea or coffee", "free", "For staining paper an antique brown.", ""),
+   ("Coloured pencils or crayons", "free", "Colour, edges and rubbings.", ""),
+   ("Ink pad", "extra", "Ink the edges of paper to age them, and use with stamps.", "Rub a tea bag or brown crayon on the edges"),
+   ("Stamps", "extra", "Repeat patterns, dates and words.", "Cut a stamp from a potato or eraser"),
+   ("Watercolours or paint", "extra", "Washes of colour behind journaling.", "Tea, coffee or watered-down crayon"),
+ ]),
+]
+JS_N = sum(len(x[2]) for x in JS)
+JS_TIER = {"free": "Free from home", "basic": "Worth buying first", "extra": "Nice to have"}
+def _js_id(t): return "".join(c if c.isalnum() else "-" for c in t.lower()).strip("-")[:40]
+js_list = "".join(f'<fieldset class="ep-grp sheet" data-g="{gid}"><legend>{e(gn)} <span class="muted ep-gc" data-g="{gid}"></span></legend><ul>' +
+                  "".join(f'<li data-t="{t}"><label><input type="checkbox" data-id="{gid}-{_js_id(n)}" data-n="{e(n)}" data-t="{t}" data-s="{e(sw) if t != "free" else ""}"> <strong>{e(n)}</strong> <span class="js-tier js-{t}">{JS_TIER[t]}</span></label><span>{e(d)}{(" Free swap: " + e(sw[0].lower() + sw[1:]) + ".") if sw and t != "free" else ""}</span></li>' for n, t, d, sw in items) + "</ul></fieldset>"
+                  for gn, gid, items in JS)
+js_counts = {k: sum(1 for g in JS for it in g[2] if it[1] == k) for k in JS_TIER}
+# own printable: a pocket and 3 tags with cut lines
+def _js_tag(x, y, w, h, word):
+    c = 14
+    return (f'<path d="M{x + c} {y} H{x + w - c} L{x + w} {y + c} V{y + h} H{x} V{y + c} Z" fill="#f6efe2" stroke="#1f2a44" stroke-width="1.4" stroke-dasharray="6 4"/>'
+            f'<circle cx="{x + w / 2}" cy="{y + 22}" r="6" fill="#fff" stroke="#1f2a44" stroke-width="1.2"/>'
+            + "".join(f'<line x1="{x + 14}" y1="{yy}" x2="{x + w - 14}" y2="{yy}" stroke="#b8326a" stroke-width=".8" opacity=".5"/>' for yy in range(y + 70, y + h - 10, 22))
+            + f'<text x="{x + w / 2}" y="{y + 52}" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="17" fill="#1f2a44">{word}</text>')
+JS_TPL = ('<svg id="js-tpl" viewBox="0 0 612 792" role="img" aria-label="Printable template: a pocket and three tags with dashed cut lines" style="background:#fff">'
+          '<text x="306" y="44" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="24" fill="#1f2a44">Pocket and tags</text>'
+          '<text x="306" y="66" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4a5470">Cut on the dashed lines, fold on the dotted ones. Print on card or tea-stain it first. Free from purlandpaperco.com</text>'
+          + _js_tag(46, 96, 150, 300, "Today") + _js_tag(231, 96, 150, 300, "Found") + _js_tag(416, 96, 150, 300, "Keep")
+          + '<rect x="96" y="440" width="420" height="300" fill="#fbe1a6" stroke="#1f2a44" stroke-width="1.4" stroke-dasharray="6 4"/>'
+          '<path d="M96 440 h-34 v300 h34 M516 440 h34 v300 h-34 M96 740 v30 h420 v-30" fill="#f6efe2" stroke="#1f2a44" stroke-width="1.4" stroke-dasharray="6 4"/>'
+          '<path d="M96 440 V740 M516 440 V740 M96 740 H516" stroke="#1f2a44" stroke-width="1" stroke-dasharray="1 4"/>'
+          '<path d="M96 440 Q306 500 516 440" fill="none" stroke="#b8326a" stroke-width="1.4" stroke-dasharray="6 4"/>'
+          '<text x="306" y="620" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="26" fill="#1f2a44">Little things</text>'
+          '<text x="79" y="600" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4a5470" transform="rotate(-90 79 600)">glue flap</text>'
+          '<text x="533" y="600" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4a5470" transform="rotate(90 533 600)">glue flap</text>'
+          '<text x="306" y="760" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4a5470">glue flap</text></svg>')
+jsp = top("Junk journal supply checklist", f"Everything you need to start a junk journal, and the {js_counts['free']} things you probably already have at home. Tick what you've got, pick a budget and get a short shopping list, plus a free pocket and tag template to print.", "Junk journal supply checklist") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> to start a junk journal you need <strong>paper, a cover, something to stick with, scissors and thread (or a stapler)</strong> to bind it. That's it: Stampin' Up's starter list is paper, scissors or a trimmer, adhesive, pens and ephemera. Most of it is free from home: old envelopes, book pages, cereal boxes, receipts and tickets. If you buy anything first, make it a good <strong>glue stick, washi tape and a big-eye needle</strong>. Ink pads, stamps, stickers and printables are extras you can add later.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div>
+<div class="toolbar"><strong id="js-count" aria-live="polite">0 of {JS_N} ticked</strong><span class="spacer"></span><button type="button" class="btn ghost" id="js-print">Print my list</button><button type="button" class="linkbtn" id="js-clear">Clear ticks</button></div>
+<p class="note" style="margin:0 0 12px">Tick what you already have. Your ticks stay on this device.</p>
+<div class="ep-list" id="js-list">{js_list}</div>
+</div>
+<div class="result" aria-live="polite">
+<h3>Your plan</h3>
+<div class="field"><span class="label" id="js-plan-l" style="color:inherit">I want to</span><div class="seg" role="group" aria-labelledby="js-plan-l" id="js-plan"><button type="button" data-v="free" aria-pressed="false">Start free</button><button type="button" data-v="basic" aria-pressed="true">Buy the basics</button><button type="button" data-v="extra" aria-pressed="false">Get everything</button></div></div>
+<div id="js-out"></div>
+</div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>What supplies do I need to start a junk journal?</h2>
+<p>Only five things are must-haves: <strong>paper, a cover, an adhesive, scissors and a way to bind it</strong> (thread and a needle, or a stapler for a thin booklet). Stampin' Up's list of basics is paper, a trimmer or scissors, adhesive, pens or markers, and ephemera, with stamps, ink, ribbon and embellishments as add-ons. 101 Planners groups supplies the same way: paper, ephemera, decorations, writing tools and adhesives.</p>
+<h2>What can I use for free?</h2>
+<ul><li><strong>Pages:</strong> printer paper, old book and magazine pages, envelopes, wrapping paper, brown bags, maps and sheet music.</li>
+<li><strong>Cover:</strong> the cover of a worn-out hardback, or a cereal box covered with paper or fabric.</li>
+<li><strong>Ephemera:</strong> receipts, tickets, tags, labels, postcards, packaging, napkins and stamps from your post (101 Planners). Our <a href="{href("junk-journal-ephemera-ideas.html")}">62 ephemera ideas</a> has a list to tick off.</li>
+<li><strong>Decoration:</strong> ribbon and lace from gift wrap, buttons, fabric scraps, and pressed leaves and flowers.</li>
+<li><strong>Ageing:</strong> a cup of tea. Our <a href="{href("how-to-tea-stain-paper.html")}">tea staining guide</a> shows how.</li></ul>
+<h2>What's worth buying first?</h2>
+<p>Our picks for a small first shop: a <strong>glue stick</strong> (dries flat on thin paper), a <strong>tacky glue</strong> for lace and buttons, a roll or two of <strong>washi tape</strong>, and a <strong>big-eye needle</strong> for sewing signatures. A <strong>bone folder</strong> and an <strong>ink pad</strong> are the next most useful. 101 Planners suggests paper of about 100 gsm or more if you'll write or paint on the pages, so ink doesn't show through.</p>
+<h2>What glue is best for a junk journal?</h2>
+<ul><li><strong>Glue stick:</strong> paper on paper. Thin, flat and quick.</li>
+<li><strong>Tacky or liquid glue:</strong> fabric, lace, buttons and heavy card. Use a thin layer so pages don't buckle.</li>
+<li><strong>Double-sided tape or a tape runner:</strong> instant and flat, good for photos and pockets.</li>
+<li><strong>Glue dots:</strong> small heavy things like buttons and charms.</li></ul>
+<p>Our tip: put heavy pages under a book while they dry so they stay flat.</p>
+<h2>How do I bind the pages?</h2>
+<p>Fold a few sheets in half, nest them together into a "signature", poke 3 or 5 holes along the fold and sew through them into the cover. Our <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets, where the holes go and how much thread you need. For a first try, a thin booklet stapled down the middle works too.</p>
+<h2>Free pocket and tag template</h2>
+<p>Our own design: one pocket and three tags with cut and fold lines. Print it on card, or on plain paper and tea-stain it, then tuck the tags into the pocket.</p></div>
+<div class="narrow"><div class="sheet js-tpl-wrap">{JS_TPL}<div class="toolbar" style="margin-top:12px"><button type="button" class="btn gold" id="js-tpl-print">Print the template</button></div></div></div>
+<div class="narrow prose"><p>Want more free printables? Sign up below for our free sampler with journaling cards and a vintage ephemera sheet. New to all of this? Start with <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a>, then grab an idea from the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</p></div></section>'''
+js_faq = [
+    ("What supplies do I need to start a junk journal?", "Paper, a cover, an adhesive such as a glue stick, scissors, and thread and a needle (or a stapler) to bind it. Ephemera like tickets and receipts, washi tape and pens are the next things to gather."),
+    ("Can I make a junk journal for free?", "Yes. Use printer paper, envelopes and old book pages for the pages, a cereal box or old book cover, string to sew it, and receipts, tickets and packaging as ephemera."),
+    ("What is the best glue for junk journals?", "A glue stick for paper on paper, tacky glue for fabric, lace and buttons, and double-sided tape or glue dots for instant, flat hold."),
+    ("What paper is best for junk journal pages?", "Any paper works, and mixing types is part of the look. For pages you'll write or paint on, paper of about 100 gsm or heavier stops ink showing through."),
+    ("Do I need a sewing needle to make a junk journal?", "A big-eye tapestry or bookbinding needle is easiest for sewing signatures. For a thin first journal you can staple the fold instead."),
+    ("Where are my ticks saved?", "On this device, in your browser. Nothing is uploaded. Use 'Print my list' to keep a paper copy."),
+]
+page("junk-journal-supply-checklist.html", "Junk Journal Supply Checklist: What You Need (Mostly Free) | Purl & Paper",
+     f"Junk journal supplies for beginners: a {JS_N}-item checklist of what you need, what's free at home and what to buy first, best glue and paper, how to bind, plus a free printable pocket and tag template.",
+     jsp, js_faq, "Junk journal supply checklist", app_name="Junk journal supply checklist")
+
 # ---------------- SITEMAP / ROBOTS ----------------
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"etsy-fee-calculator.html": "2026-11-25", "hook-needle-sizes.html": "2026-11-25", "how-to-fix-a-dropped-stitch.html": "2026-11-24", "how-to-price-a-crochet-blanket.html": "2026-11-24", "how-to-price-crochet-items.html": "2026-11-24", "blanket-size-calculator.html": "2026-11-24", "knitting-abbreviations.html": "2026-11-24", "how-to-cast-on-knitting.html": "2026-11-24", "how-to-crochet-decrease.html": "2026-11-24", "increase-decrease-calculator.html": "2026-11-24", "cast-on-calculator.html": "2026-11-24", "how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
+LASTMOD = {"how-to-knit-in-the-round.html": "2026-11-25", "junk-journal-supply-checklist.html": "2026-11-25", "crochet-knitting-gift-planner.html": "2026-11-25", "etsy-fee-calculator.html": "2026-11-25", "hook-needle-sizes.html": "2026-11-25", "how-to-fix-a-dropped-stitch.html": "2026-11-24", "how-to-price-a-crochet-blanket.html": "2026-11-24", "how-to-price-crochet-items.html": "2026-11-24", "blanket-size-calculator.html": "2026-11-24", "knitting-abbreviations.html": "2026-11-24", "how-to-cast-on-knitting.html": "2026-11-25", "how-to-crochet-decrease.html": "2026-11-24", "increase-decrease-calculator.html": "2026-11-24", "cast-on-calculator.html": "2026-11-24", "how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-25", "junk-journal-beginners.html": "2026-11-25", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-25", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")

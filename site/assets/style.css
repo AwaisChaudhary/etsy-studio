@@ -570,3 +570,19 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .cn-more { margin: 4px 0 14px; background: var(--paper, #fbf7ef); border: 1px dashed var(--line); border-radius: 10px; padding: 10px 12px; }
 .cn-more summary { cursor: pointer; font-weight: 700; color: var(--ink); }
 .dc-list code, .result code { white-space: normal; overflow-wrap: anywhere; }
+
+/* junk journal supply checklist */
+.js-tier { font: 600 .74rem var(--body); padding: 2px 8px; border-radius: 999px; margin-left: auto; white-space: nowrap; }
+.js-free { background: #d8efe9; color: #1d5f5b; }
+.js-basic { background: #fbe1a6; color: #5a4108; }
+.js-extra { background: #f3dbe6; color: #7a1f48; }
+.js-tpl-wrap svg { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+#js-plan button[aria-pressed="false"] { color: var(--ink); }
+@media print {
+  [data-page="junk-journal-supply-checklist"] .quick, [data-page="junk-journal-supply-checklist"] .js-tpl-wrap { display: none !important; }
+  [data-page="junk-journal-supply-checklist"] .tool { display: block; }
+  html.print-tpl body * { visibility: hidden !important; }
+  html.print-tpl .js-tpl-wrap, html.print-tpl .js-tpl-wrap * { visibility: visible !important; }
+  html.print-tpl .js-tpl-wrap { display: block !important; position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: 0; }
+  html.print-tpl .js-tpl-wrap .toolbar { display: none !important; }
+}
