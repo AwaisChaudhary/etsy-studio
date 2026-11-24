@@ -567,3 +567,6 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .cc-del { border: 0; background: none; font-size: 1.4rem; line-height: 1; color: var(--ink-2); cursor: pointer; padding: 2px 8px; }
 .cc-del:hover { color: var(--berry); }
 .toolbar select#cc-rep { width: auto; flex: none; }
+.cn-more { margin: 4px 0 14px; background: var(--paper, #fbf7ef); border: 1px dashed var(--line); border-radius: 10px; padding: 10px 12px; }
+.cn-more summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.dc-list code, .result code { white-space: normal; overflow-wrap: anywhere; }

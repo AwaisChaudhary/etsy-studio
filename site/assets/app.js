@@ -1797,4 +1797,128 @@
     weCalc();
   }
 
+  /* ---------- CAST ON CHOOSER + LONG-TAIL TAIL CALCULATOR ---------- */
+  if ($("#cn-out") && $("#cn-what")) {
+    // method, stretch 1-3, uses a tail?, why, steps, alternative
+    var CNM = {
+      first: ["Long-tail cast on", 2, true, "It's the one you'll use most, and it gives a neat edge that's ready to knit.", ["Pull out the tail below and make a slip knot on the needle.", "Tail over your thumb, ball yarn over your index finger, both ends in your palm.", "Up through the thumb loop, over and behind the finger strand to catch it.", "Back down through the thumb loop, drop it and snug the stitch. Repeat."], "Rather not guess a tail? Use the knitted cast on: knit into the slip knot, and put the new loop back on the left needle. Repeat."],
+      scarf: ["Long-tail cast on", 2, true, "Neat, fairly stretchy and quick for a lot of stitches.", ["Pull out the tail below and make a slip knot.", "Slingshot: tail over thumb, ball yarn over finger.", "Up through the thumb loop, catch the finger strand, back down.", "Drop the loop, snug, repeat. Place a marker every 20 or 25 stitches so you can count."], "Garter scarf? The German twisted cast on gives a bit more stretch and a pretty edge."],
+      big: ["Long-tail cast on with two strands", 2, false, "With a lot of stitches, guessing the tail is risky. Two strands mean you can't run out.", ["Take one end from the outside of the ball and one from the middle (or use two balls).", "Tie them together in a slip knot and put it on the needle.", "Cast on as normal: one strand over your thumb, the other over your finger.", "At the end, cut the thumb strand with a 6 in tail. Drop the slip knot off the needle on the first row: it doesn't count here.", "Place a marker every 20 or 25 stitches so you can count."], "Use a long circular needle and knit back and forth, so the blanket's weight sits on the cable."],
+      rib: ["Long-tail or German twisted cast on", 3, true, "A brim or cuff has to stretch over a head or hand, so it needs a stretchy edge.", ["Pull out the tail below; add a little extra for the German twisted.", "For extra stretch, cast on with a needle 1 size larger or over two needles held together.", "Long-tail as normal, or German twisted: go under both thumb strands, down into the thumb loop from above, then catch the finger strand.", "Switch to your rib needle for the first row."], "For a 1×1 rib that must look invisible, try the tubular cast on."],
+      rib11: ["Tubular cast on", 3, true, "It rolls the rib round the edge, so it's very elastic and almost invisible.", ["Work it with a long tail or over waste yarn, as your tutorial or pattern shows.", "Cast on half the stitches (plus one), then work the set-up rows the method asks for.", "Work the first rows of 1×1 rib with a needle 1 or 2 sizes smaller if the edge looks loose.", "Take out any waste yarn once the rib is set."], "In a hurry? A long-tail cast on with a needle 1 size up is the next best for rib."],
+      sock: ["German twisted cast on", 3, true, "Sock knitters love it: the cuff must stretch over the heel.", ["Pull out the tail below; this one uses a bit more than a plain long-tail.", "Slingshot as for the long-tail.", "Bring the needle under both thumb strands, down into the thumb loop from above, then over the finger strand and back out.", "Drop the thumb loop and snug gently. Test: the cuff must pull over your heel."], "The long-tail over two needles held together also works."],
+      firm: ["Cable cast on", 1, false, "It makes a firm, corded edge that holds its shape and is great to pick up stitches from.", ["Make a slip knot and knit into it; put the new loop on the left needle.", "Put the right needle between the first two stitches on the left needle.", "Wrap and pull a loop through, then put it on the left needle.", "Repeat between the first two stitches each time."], "Not for hats, socks or cuffs: it doesn't stretch much."],
+      later: ["Provisional cast on", 2, false, "You'll pull out waste yarn later and have live stitches to knit from or graft.", ["With smooth waste yarn in a contrast colour, crochet a chain a few stitches longer than you need.", "With your real yarn, pick up and knit one stitch into the back bump of each chain.", "Knit your piece.", "Later, undo the chain from the end with the knot, putting each freed stitch onto a needle."], "No crochet hook? Some provisional cast ons are worked round a spare needle or cable instead."],
+      add: ["Backward loop cast on", 3, false, "It's the quickest way to add a few stitches in the middle or at the end of a row.", ["Hold the working yarn in your left hand.", "Make a loop round your thumb so the yarn crosses over itself.", "Slip the loop onto the right needle and tighten gently.", "Repeat for each stitch. Knit into them carefully on the next row: they can loosen."], "Adding stitches at the start of a row? The knitted or cable cast on is neater."]
+    };
+    function cnCalc() {
+      var k = $("#cn-what").value, m = CNM[k], n = parseInt($("#cn-n").value, 10) || 0, g4 = parseFloat($("#cn-y").value) || 18;
+      var wr = parseFloat($("#cn-wrap").value), cm = $("#cn-u").value === "cm";
+      var per = wr > 0 ? (cm ? wr / 2.54 : wr) / 10 : 4.5 / (g4 / 4), extra = k === "sock" ? 1.1 : 1;
+      if (!(n > 0)) { $("#cn-out").innerHTML = "<p>Enter how many stitches you'll cast on.</p>"; return; }
+      var tail = n * per * extra + 6, safe = tail * 1.15;
+      var u = function (inch) { return inch < 36 ? Math.round(inch) + " in" : (inch / 36).toFixed(1) + " yd"; };
+      var c = function (inch) { return inch < 100 / 2.54 ? Math.round(inch * 2.54) + " cm" : (inch * 0.0254).toFixed(2) + " m"; };
+      var h = "<h3>Use</h3><div class=\"big\" style=\"font-size:1.9rem;line-height:1.1\">" + esc(m[0]) + "</div>";
+      h += "<p class=\"sub\">Stretch: " + "●●●".slice(0, m[1]) + "○○○".slice(0, 3 - m[1]) + ". " + esc(m[3]) + "</p>";
+      if (m[2]) h += '<div class="tb-stats"><div><strong>' + u(tail) + "</strong><span>tail to pull out (" + c(tail) + ")</span></div><div><strong>" + u(safe) + "</strong><span>safe length, if you'd hate to run short</span></div><div><strong>" + (per * extra).toFixed(2) + " in</strong><span>per stitch" + (wr > 0 ? " (from your wraps)" : " (our estimate)") + "</span></div><div><strong>" + n + "</strong><span>stitches, slip knot included</span></div></div>";
+      else h += '<div class="tb-stats"><div><strong>No tail to guess</strong><span>leave about 6 in (15 cm) to weave in</span></div><div><strong>' + n + "</strong><span>stitches to cast on</span></div></div>";
+      h += "<h3>How</h3><ol class=\"sk-steps\">" + m[4].map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>";
+      h += "<p class=\"sub\"><strong>Also good:</strong> " + esc(m[5]) + "</p>";
+      h += '<hr><p class="sub">Tail = stitches × about 1 in per stitch at worsted gauge (Marly Bird\'s rule), scaled by gauge, plus 6 in. Our estimate; your own 10 wraps are more accurate. Next: <a href="' + (location.protocol === "file:" ? "cast-on-calculator.html" : "/cast-on-calculator") + '" style="color:#ffd38a">how many stitches to cast on</a>.</p>';
+      $("#cn-out").innerHTML = h;
+      // drawing: tail against a 1-yard ruler (wraps onto more lines past a yard)
+      var len = m[2] ? tail : 6, g = "", x0 = 20, W = 260, yd = 36, lines = Math.ceil(len / yd), i, y;
+      g += '<rect x="' + x0 + '" y="12" width="' + W + '" height="18" rx="3" fill="#f2e6cf" stroke="#c9a37a"/>';
+      for (i = 0; i <= 36; i++) g += '<line x1="' + (x0 + W * i / 36).toFixed(1) + '" x2="' + (x0 + W * i / 36).toFixed(1) + '" y1="12" y2="' + (i % 12 === 0 ? 28 : (i % 6 === 0 ? 24 : 18)) + '" stroke="#1f2a44" stroke-width="' + (i % 12 === 0 ? 1.6 : 0.8) + '"/>';
+      g += '<text x="' + (x0 + W) + '" y="44" text-anchor="end" font-size="10" fill="#4a5470">1 yd (91 cm)</text>';
+      var gap = Math.min(16, 66 / Math.max(1, lines));
+      for (i = 0; i < Math.min(lines, 8); i++) {
+        var part = Math.min(1, (len - i * yd) / yd); y = 54 + i * gap;
+        g += '<line x1="' + x0 + '" x2="' + (x0 + W * part).toFixed(1) + '" y1="' + y + '" y2="' + y + '" stroke="' + (i % 2 ? "#d97aa0" : "#b8326a") + '" stroke-width="4" stroke-linecap="round"/>';
+      }
+      if (lines > 8) g += '<text x="150" y="' + (54 + 8 * gap) + '" text-anchor="middle" font-size="10" fill="#4a5470">and ' + (lines - 8) + " more yards</text>";
+      $("#cn-svg").innerHTML = g;
+      $("#cn-cap").textContent = m[2] ? "The tail to pull out, about " + u(tail) + ", drawn against a 1 yard ruler." : "Only a short end to weave in: this cast on needs no long tail.";
+    }
+    ["#cn-what", "#cn-y", "#cn-u"].forEach(function (s) { $(s).addEventListener("change", cnCalc); });
+    ["#cn-n", "#cn-wrap"].forEach(function (s) { $(s).addEventListener("input", cnCalc); });
+    cnCalc();
+  }
+
+  /* ---------- CROCHET DECREASE ROUND WRITER ---------- */
+  if ($("#dc-out") && $("#dc-s")) {
+    var DCN = { sc: ["sc", "sc2tog"], hdc: ["hdc", "hdc2tog"], dc: ["dc", "dc2tog"] };
+    // same maths as build.py dc_round: returns {txt, pairs} or null
+    function dcRound(S, T, st, inv, stagger) {
+      var D = S - T; if (D < 1 || 2 * D > S) return null;
+      var a = Math.floor((S - 2 * D) / D), ex = (S - 2 * D) % D, s = DCN[st][0], dec = inv && st === "sc" ? "invdec" : DCN[st][1];
+      var w = function (n) { return n ? s + " " + n : ""; }, j = function () { return Array.prototype.filter.call(arguments, Boolean).join(", "); };
+      var seq = [], i, k; // seq: 0 plain stitch, 1 = first of a decrease pair
+      var txt;
+      if (a === 0 && ex === 0) { txt = dec + " around (" + T + ")"; for (i = 0; i < D; i++) seq.push(1); }
+      else if (ex === 0) {
+        if (stagger && a >= 2) {
+          var h = Math.floor(a / 2);
+          txt = j(w(h), (D > 1 ? "[" + dec + ", " + w(a) + "] × " + (D - 1) + ", " : "") + dec, w(a - h)) + " (" + T + ")";
+          for (i = 0; i < h; i++) seq.push(0);
+          for (k = 0; k < D; k++) { seq.push(1); if (k < D - 1) for (i = 0; i < a; i++) seq.push(0); }
+          for (i = 0; i < a - h; i++) seq.push(0);
+        } else { txt = "[" + j(w(a), dec) + "] × " + D + " (" + T + ")"; for (k = 0; k < D; k++) { for (i = 0; i < a; i++) seq.push(0); seq.push(1); } }
+      } else {
+        txt = "[" + j(w(a + 1), dec) + "] × " + ex + ", [" + j(w(a), dec) + "] × " + (D - ex) + " (" + T + ")";
+        for (k = 0; k < D; k++) { for (i = 0; i < (k < ex ? a + 1 : a); i++) seq.push(0); seq.push(1); }
+      }
+      return { txt: txt, seq: seq };
+    }
+    var dcMode = $("#dc-mode"), dcWay = $("#dc-way");
+    function dcCalc() {
+      var close = segVal(dcMode) !== "one", S = parseInt($("#dc-s").value, 10) || 0, st = $("#dc-st").value, inv = $("#dc-type").value === "inv";
+      $("#dc-t-f").hidden = close; $("#dc-per-f").hidden = !close; $("#dc-way-f").hidden = close;
+      var out = $("#dc-out"), rounds = [], first = null, h = "";
+      if (S < 2) { out.innerHTML = "<p>Enter how many stitches you have.</p>"; return; }
+      if (close) {
+        var per = parseInt($("#dc-per").value, 10), n = S, k = 0, end = Math.min(6, S - 1);
+        if (S <= 6) { out.innerHTML = "<p>With " + S + " stitches or fewer you're ready to close: sew through the front loops and pull tight (steps below the helper).</p>"; $("#dc-svg").innerHTML = ""; return; }
+        while (n > end && k < 60) {
+          var t = Math.max(end, n - per); if (2 * (n - t) > n) t = Math.ceil(n / 2);
+          var r = dcRound(n, t, st, inv, k % 2 === 1); rounds.push(r); if (!first) first = { S: n, r: r }; n = t; k++;
+        }
+        h = "<h3>Decrease rounds</h3><div class=\"big\" style=\"font-size:2.2rem\">" + rounds.length + " round" + (rounds.length > 1 ? "s" : "") + " <small>" + S + " → " + n + " stitches</small></div>";
+        h += "<ol class=\"sk-steps\">" + rounds.map(function (r) { return "<li><code>" + esc(r.txt) + "</code></li>"; }).join("") + "</ol>";
+        h += "<p class=\"sub\">Number these after your pattern's last round. Alternate rounds start halfway into the repeat so the decreases don't stack into corners.</p>";
+        h += "<h3>Then close it</h3><ol class=\"sk-steps\"><li>Stuff firmly before the hole gets too small, and top up as you go.</li><li>Fasten off with a 6 in (15 cm) tail.</li><li>Sew through the front loop only of each of the last " + n + " stitches, all in the same direction, and pull tight.</li><li>Push the needle through the middle and out elsewhere, pull, and snip close.</li></ol>";
+      } else {
+        var T = parseInt($("#dc-t").value, 10) || 0, flat = segVal(dcWay) === "flat";
+        if (T >= S) { out.innerHTML = "<p>The stitches you want must be fewer than the stitches you have. Adding stitches? Use the <a href=\"" + (location.protocol === "file:" ? "increase-decrease-calculator.html" : "/increase-decrease-calculator") + "\" style=\"color:#ffd38a\">increase evenly calculator</a>.</p>"; $("#dc-svg").innerHTML = ""; return; }
+        var r1 = dcRound(S, T, st, inv, flat);
+        if (!r1) { out.innerHTML = "<p class=\"tb-warn\">You can't go from " + S + " to " + T + " in one " + (flat ? "row" : "round") + " with 2-together decreases: each one only takes away 1 stitch. Do it over two rounds (first to " + Math.ceil(S / 2) + "), or use 3-together decreases.</p>"; $("#dc-svg").innerHTML = ""; return; }
+        first = { S: S, r: r1 };
+        h = "<h3>Work this " + (flat ? "row" : "round") + "</h3><div class=\"big\" style=\"font-size:1.5rem;line-height:1.3\"><code style=\"color:#fff;background:none\">" + esc(r1.txt) + "</code></div>";
+        h += '<div class="tb-stats"><div><strong>' + (S - T) + "</strong><span>decreases</span></div><div><strong>" + (S - 2 * (S - T)) + "</strong><span>plain stitches</span></div><div><strong>" + T + "</strong><span>stitches at the end</span></div><div><strong>" + (2 * (S - T)) + "</strong><span>stitches used by the decreases</span></div></div>";
+        if (flat) h += "<p class=\"sub\">Working in rows, the first and last decreases sit away from the edges, which keeps a seam or border neat. Your turning chain doesn't count here.</p>";
+      }
+      h += '<hr><p class="sub">Our own maths: each 2-together decrease uses 2 stitches and makes 1. ' + (inv && st !== "sc" ? "The invisible decrease is mostly used with single crochet, so taller stitches show the standard 2-together. " : "") + 'Next: <a href="' + (location.protocol === "file:" ? "how-to-weave-in-ends.html" : "/how-to-weave-in-ends") + '" style="color:#ffd38a">hide the tail</a>.</p>';
+      out.innerHTML = h;
+      // drawing: the first round's stitches on a circle, decrease pairs in berry
+      var seq = first.r.seq, tot = first.S, g = "", cx = 150, cy = 100, R = Math.min(84, 30 + tot * 1.2), idx = 0, q, ang, x, y;
+      var dot = function (i, col, big) { ang = -Math.PI / 2 + 2 * Math.PI * i / tot; x = cx + R * Math.cos(ang); y = cy + R * Math.sin(ang); return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (big ? Math.max(2.5, Math.min(6, 200 / tot)) : Math.max(2, Math.min(5, 160 / tot))) + '" fill="' + col + '"/>'; };
+      g += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#e5d6bd" stroke-width="2"/>';
+      for (q = 0; q < seq.length; q++) {
+        if (seq[q]) {
+          var a1 = -Math.PI / 2 + 2 * Math.PI * idx / tot, a2 = -Math.PI / 2 + 2 * Math.PI * (idx + 1) / tot;
+          g += '<path d="M' + (cx + R * Math.cos(a1)).toFixed(1) + " " + (cy + R * Math.sin(a1)).toFixed(1) + " A" + R + " " + R + " 0 0 1 " + (cx + R * Math.cos(a2)).toFixed(1) + " " + (cy + R * Math.sin(a2)).toFixed(1) + '" fill="none" stroke="#b8326a" stroke-width="6" stroke-linecap="round"/>';
+          g += dot(idx, "#b8326a", true) + dot(idx + 1, "#b8326a", true); idx += 2;
+        } else { g += dot(idx, "#2f8f8a"); idx++; }
+      }
+      g += '<text x="' + cx + '" y="' + (cy - 4) + '" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2a44">' + tot + " → " + (tot - (seq.filter(Boolean).length)) + '</text><text x="' + cx + '" y="' + (cy + 12) + '" text-anchor="middle" font-size="10" fill="#4a5470">' + (close ? "first round" : "stitches") + "</text>";
+      $("#dc-svg").innerHTML = g;
+    }
+    ["#dc-st", "#dc-type", "#dc-per"].forEach(function (s) { $(s).addEventListener("change", dcCalc); });
+    ["#dc-s", "#dc-t"].forEach(function (s) { $(s).addEventListener("input", dcCalc); });
+    seg(dcMode, dcCalc); seg(dcWay, dcCalc);
+    dcCalc();
+  }
+
+
 })();
