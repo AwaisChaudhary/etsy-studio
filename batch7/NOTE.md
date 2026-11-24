@@ -43,3 +43,9 @@ python3 listing_b7.py $B ../batch7 ../pins/batch7
 ```
 Etsy photos = `upload_images` (1 = scenes etsy-hero); Gumroad = `gumroad_cover` + `gumroad_thumb`. Planned Gumroad slugs: resin-business-spreadsheet,
 tumbler-pricing-spreadsheet, lash-tech-spreadsheet.
+
+## Listed 24 Nov 2026 20:00-20:40 PKT (main chat, Chrome)
+- Etsy (copied from soap 4623878110 → Bookkeeping Templates, section Business Spreadsheets): resin 4624644331, tumbler 4624645405, lash 4624651798.
+- Gumroad: resin-business-spreadsheet, tumbler-pricing-spreadsheet, lash-tech-spreadsheet (all published, 6 covers + thumb + xlsx).
+- Pinterest: pin-a for all 3 scheduled 25 Nov (12:00 / 17:00 / 20:30) + gift planner 10:30 (+ book pin 14:00 = 5).
+- Site: resin + tumbler added to SHOP; craft-fair-checklist shop box now pricing calc, soap, resin, tumbler. Deployed (106 files); IndexNow 200.

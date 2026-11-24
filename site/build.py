@@ -65,6 +65,8 @@ SHOP = {
  "december-days-journal-kit": ("December Days journal kit", "6.99", "4622484083/december-daily-journal-kit-printable-25", "december-days-journal-kit"),
  "christmas-gift-tags": ("Printable Christmas gift tags", "3.99", "4621715645/printable-christmas-gift-tags-holiday", "christmas-gift-tags"),
  "soap-making-business-spreadsheet": ("Soap making business spreadsheet", "11.99", "4623878110", "soap-business-spreadsheet"),
+ "resin-art-business-spreadsheet": ("Resin calculator and pricing spreadsheet", "11.99", "4624644331", "resin-business-spreadsheet"),
+ "sublimation-tumbler-business-spreadsheet": ("Tumbler and sublimation pricing spreadsheet", "11.99", "4624645405", "tumbler-pricing-spreadsheet"),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
 JJ = ["december-days-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
@@ -85,7 +87,7 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
             "yarn-yardage-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
-            "craft-fair-checklist.html": ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "yarn-stash-tracker", "2027-crochet-knitting-planner"],
+            "craft-fair-checklist.html": ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet", "sublimation-tumbler-business-spreadsheet"],
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "foundation-chain-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-signature-calculator.html": ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit", "journaling-cards-3x4"],

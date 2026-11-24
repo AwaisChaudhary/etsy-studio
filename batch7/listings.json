@@ -42,9 +42,9 @@
    "resin-art-business-spreadsheet-5.jpg"
   ],
   "gumroad_thumb": "resin-art-business-spreadsheet-gumroad-thumb.jpg",
-  "listed": false,
-  "etsy_url": null,
-  "gumroad_url": null
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4624644331",
+  "gumroad_url": "https://karamat4.gumroad.com/l/resin-business-spreadsheet"
  },
  {
   "slug": "sublimation-tumbler-business-spreadsheet",
@@ -89,9 +89,9 @@
    "sublimation-tumbler-business-spreadsheet-5.jpg"
   ],
   "gumroad_thumb": "sublimation-tumbler-business-spreadsheet-gumroad-thumb.jpg",
-  "listed": false,
-  "etsy_url": null,
-  "gumroad_url": null
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4624645405",
+  "gumroad_url": "https://karamat4.gumroad.com/l/tumbler-pricing-spreadsheet"
  },
  {
   "slug": "lash-tech-business-spreadsheet",
@@ -136,8 +136,8 @@
    "lash-tech-business-spreadsheet-5.jpg"
   ],
   "gumroad_thumb": "lash-tech-business-spreadsheet-gumroad-thumb.jpg",
-  "listed": false,
-  "etsy_url": null,
-  "gumroad_url": null
+  "listed": true,
+  "etsy_url": "https://www.etsy.com/listing/4624651798",
+  "gumroad_url": "https://karamat4.gumroad.com/l/lash-tech-spreadsheet"
  }
 ]
