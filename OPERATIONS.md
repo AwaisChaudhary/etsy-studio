@@ -121,3 +121,10 @@ Ads plan once live: Amazon Sponsored Products, $1/day per book, auto + exact key
 
 ## Weekly KDP niche pipeline (standing)
 Every week research 2-3 new niches before building anything. Gate: Amazon results count < ~2,000; at least 2 of the top 3 under BSR ~250k (each sells ~1+/day); top books with < ~50 reviews (beatable); 1-3 star reviews that name a fixable gap. Log each candidate here with the numbers; build only those that pass. Also expand winners: once a book sells, make variants (large print, women's/men's, undated, gift edition).
+
+### KDP upload log (24 Nov 2026, Awais said "Upload")
+- Back to Daylight: submitted 24 Nov. ISBN 9798145579079. $11.99, royalty $4.47. In review (up to 72h).
+- Dose by Dose: submitted 24 Nov. ISBN 9798145580754. $9.99 US / £7.99 UK, royalty $3.69. EUR stores left at 9,16 € (50% tier); raise to 9,99 € later.
+- Good Copy: blocked by KDP's weekly limit on new paperback titles (resets Sunday 00:00 UTC). Scheduled for 29 Nov 00:40 UTC (trig_01BJjPD4cpkfRhNzBh76i1nS).
+- AI disclosure answered honestly on all three: text = entire work (Claude), images = a few (Claude).
+- Lesson: KDP caps new paperback titles per week. Plan the catalogue at about 2–3 books/week, built early in the week.
