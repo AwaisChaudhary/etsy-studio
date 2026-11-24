@@ -110,3 +110,14 @@ Next levers: more DayOneDrop game pages as facts appear (Kingdom Hearts IV, Poke
 - Every listing verified: 13 tags present after save (persistence spot-checked by reload). Titles already lead with the main buyer phrase, so unchanged. No fees (edits).
 - Method that works now: JS removes "Delete tag" buttons one at a time (re-query each time), sets the input value with the native setter + input event, clicks "Add", then clicks "Publish changes".
 - Compare Etsy Search visits on 1 Dec (baseline: 0 Etsy Search visits in the 30 days to 23 Nov).
+
+## KDP: 3 books ready for upload (24 Nov 2026), waiting on Awais's OK
+| Book | Niche data | Trim/pages | Price | Royalty/sale |
+|---|---|---|---|---|
+| Back to Daylight (sobriety 90-day) | 584 results; top BSR 96k/189k/233k; 3-42 reviews | 6x9, 144 | $11.99 | ~$4.47 |
+| Dose by Dose (GLP-1 6-month) | ~1,000 results; top BSR 242k/327k; 1-14 reviews | 6x9, 104 | $9.99 | ~$3.75 |
+| Good Copy (ham radio log) | ARRL 40k; indie 135k/226k; reviews complain small rows | 8.5x11, 100 | $8.99 | ~$3.19 |
+Ads plan once live: Amazon Sponsored Products, $1/day per book, auto + exact keyword campaigns; review at 14 days, cut keywords with spend > $3 and no sale.
+
+## Weekly KDP niche pipeline (standing)
+Every week research 2-3 new niches before building anything. Gate: Amazon results count < ~2,000; at least 2 of the top 3 under BSR ~250k (each sells ~1+/day); top books with < ~50 reviews (beatable); 1-3 star reviews that name a fixable gap. Log each candidate here with the numbers; build only those that pass. Also expand winners: once a book sells, make variants (large print, women's/men's, undated, gift edition).
