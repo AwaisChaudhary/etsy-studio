@@ -136,3 +136,9 @@ Every week research 2-3 new niches before building anything. Gate: Amazon result
 - Next: when Back to Daylight and Dose by Dose go live, add $1/day auto campaigns for them, plus Good Copy after 29 Nov. Total stays ≤ $5/day.
 - Review at 14 days: pause keywords/targets with >$3 spend and no sale; harvest converting search terms into manual exact campaigns.
 - 25 Nov 01:30: Back to Daylight LIVE (ASIN B0HSSNY49R). Campaign "Back to Daylight - Auto - $1" launched (auto, $0.40, down-only). Ads now $3/day across 3 campaigns. Dose by Dose still in review. Account total so far: 2 impressions, 0 clicks.
+
+## 25 Nov 2026 03:30 PKT — Purl & Paper senior SEO pass
+- GSC 28d: 24 impressions, avg pos 42, 0 clicks; sitemap read 24 Nov (fine).
+- Keyword Planner (US+UK+CA+AU): "crochet hook size chart" and "crochet needle sizes" 10k–100k (medium/high comp) → hook page retitled "Crochet Hook Size Chart and Knitting Needle Sizes".
+- New /etsy-fee-calculator (US + UK, profit + price finder, fees checked against 2026 guides) with shop box → pricing/business spreadsheets.
+- Non-blocking fonts. Deployed by zip; IndexNow 200.
