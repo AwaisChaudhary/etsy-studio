@@ -135,3 +135,4 @@ Every week research 2-3 new niches before building anything. Gate: Amazon result
 - Amazon added a "Black Friday Week" scheduled bid rule automatically. The daily budget still caps spend.
 - Next: when Back to Daylight and Dose by Dose go live, add $1/day auto campaigns for them, plus Good Copy after 29 Nov. Total stays ≤ $5/day.
 - Review at 14 days: pause keywords/targets with >$3 spend and no sale; harvest converting search terms into manual exact campaigns.
+- 25 Nov 01:30: Back to Daylight LIVE (ASIN B0HSSNY49R). Campaign "Back to Daylight - Auto - $1" launched (auto, $0.40, down-only). Ads now $3/day across 3 campaigns. Dose by Dose still in review. Account total so far: 2 impressions, 0 clicks.
