@@ -27,7 +27,7 @@ NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calcu
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
 TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator"), ("foundation-chain-calculator.html", "Foundation chain calculator"), ("junk-journal-signature-calculator.html", "Junk journal signature calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet"), ("how-to-bind-off-knitting.html", "How to bind off knitting"), ("how-to-weave-in-ends.html", "How to weave in ends"), ("how-to-cast-on-knitting.html", "How to cast on knitting"), ("how-to-crochet-decrease.html", "How to decrease in crochet")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet"), ("how-to-bind-off-knitting.html", "How to bind off knitting"), ("how-to-weave-in-ends.html", "How to weave in ends"), ("how-to-cast-on-knitting.html", "How to cast on knitting"), ("how-to-crochet-decrease.html", "How to decrease in crochet"), ("how-to-fix-a-dropped-stitch.html", "How to fix a dropped stitch"), ("how-to-price-a-crochet-blanket.html", "How to price a crochet blanket")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -97,6 +97,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "how-to-cast-on-knitting.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-crochet-decrease.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-weave-in-ends.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-fix-a-dropped-stitch.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-price-a-crochet-blanket.html": ["crochet-knitting-pricing-calculator", "yarn-stash-tracker", "2027-crochet-knitting-planner", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -268,7 +270,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: <a href="{href("how-to-cast-on-knitting.html")}">how to cast on knitting</a> (with a long-tail tail calculator and a cast on chooser), <a href="{href("how-to-crochet-decrease.html")}">how to decrease in crochet</a> (sc2tog, the invisible decrease, and a helper that writes your amigurumi closing rounds), <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a> (with a chooser for stretchy bind offs and how much yarn to keep), <a href="{href("how-to-weave-in-ends.html")}">how to weave in ends</a> in crochet and knitting (with a helper for your yarn), step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a> (even several rows down, with a helper for garter and rib), <a href="{href("how-to-price-a-crochet-blanket.html")}">how to price a crochet blanket</a> (a calculator for yarn, hours and a fair price by size), <a href="{href("how-to-cast-on-knitting.html")}">how to cast on knitting</a> (with a long-tail tail calculator and a cast on chooser), <a href="{href("how-to-crochet-decrease.html")}">how to decrease in crochet</a> (sc2tog, the invisible decrease, and a helper that writes your amigurumi closing rounds), <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a> (with a chooser for stretchy bind offs and how much yarn to keep), <a href="{href("how-to-weave-in-ends.html")}">how to weave in ends</a> in crochet and knitting (with a helper for your yarn), step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -756,7 +758,9 @@ bk = top("Blanket size calculator", "Pick a blanket size or type your own, choos
 <h2>How big is a temperature blanket?</h2>
 <p>A temperature blanket's length comes from the number of days, not a size chart: 365 rows of single crochet in worsted yarn is roughly 100 in long, longer than a queen bed. Pick the width from the chart above, then check the length, the colours and the yarn for each colour with our <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a>.</p>
 <h2>How do I make a blanket bigger or smaller?</h2>
-<p>For a blanket worked in rows, change the width with the foundation chain or cast-on (the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> or, for crochet, the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> does the maths), and the length by working more or fewer rows. Going up one size, say from throw to twin, roughly doubles the yarn, so check the new amount above before you start.</p></div></section>'''
+<p>For a blanket worked in rows, change the width with the foundation chain or cast-on (the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> or, for crochet, the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> does the maths), and the length by working more or fewer rows. Going up one size, say from throw to twin, roughly doubles the yarn, so check the new amount above before you start.</p>
+<h2>How much should I sell a blanket for?</h2>
+<p>Count the skeins from this calculator, add your hours at a fair hourly rate and a little for overheads and fees. Our <a href="{href("how-to-price-a-crochet-blanket.html")}">crochet blanket price calculator</a> estimates the hours too, and has a price chart from lovey to king size.</p></div></section>'''
 bk_faq = [
     ("How many yards of yarn for a baby blanket?", f"A crocheted 36 × 36 in baby blanket takes roughly {bk_rng(_bk_by, 3, 1.27)} yards of DK yarn or {bk_rng(_bk_by, 4, 1.27)} yards of worsted. A knitted one takes a little less. These are estimates for plain stitches."),
     ("How long is a temperature blanket?", "One row a day for a year is 365 rows, which is roughly 100 in in worsted single crochet at a typical gauge. Thinner yarn, garter stitch or a square per day keeps it shorter. Our temperature blanket planner works it out for your stitch and gauge."),
@@ -1095,6 +1099,15 @@ prc = top("How to price crochet and knitting items", "A fair price covers your m
 <p class="note" style="margin-top:12px">Our own examples, at $15 an hour plus 10% overheads; the Etsy column adds US fees (9.5% + $0.45). Materials and hours are typical guesses; use your own. Prices are rounded.</p></div>
 <div class="narrow prose"><h2>What if the price feels too high?</h2>
 <p>That's normal, and it's a sign the item takes real skill and time. You have three honest choices: sell it anyway to buyers who value handmade (craft fairs and gift buyers often do), make it faster (thicker yarn, a simpler stitch, fewer colour changes), or make something smaller that sells at a price you're happy with. Lowering your hourly rate until it hurts is the one that burns people out.</p>
+<h2>How do I price a crochet blanket?</h2>
+<p>With the same formula, but time matters even more: a throw can take 20 hours or more, so a fair price often lands in the hundreds. Count whole skeins, time yourself on a few rows and multiply out. Our <a href="{href("how-to-price-a-crochet-blanket.html")}">crochet blanket price calculator</a> estimates the yarn and hours for any size from lovey to king, and shows ways to bring the price down without working for free.</p>
+<h2>How do I price amigurumi?</h2>
+<p>Amigurumi is small but slow: tight single crochet on a small hook, plus the time to stuff, sew on limbs and embroider a face. Our tips:</p>
+<ul><li><strong>Time the whole toy</strong>, sewing and finishing included. The parts often take as long as the body.</li>
+<li><strong>Count every extra:</strong> stuffing, safety eyes, a ribbon or a gift tag, as well as the share of each skein you used.</li>
+<li><strong>Offer sizes.</strong> A palm-sized toy or keyring at a lower price sells next to bigger pieces that show off your work.</li>
+<li><strong>Check toy safety rules</strong> where you sell, especially for babies and young children (in the US, toys for children fall under the CPSIA). Embroidered eyes instead of safety eyes are a common choice for baby toys.</li></ul>
+<p>Put your materials and hours into the calculator above, just like any other item.</p>
 <h2>Pricing for a craft fair</h2>
 <ul><li><strong>Spread the table fee</strong> over the items you realistically expect to sell, not the number you're bringing.</li>
 <li><strong>Bring a range</strong>: a few small makes under $15 (scrunchies, coasters, keychains) so people can buy something, and bigger pieces that show what you can do.</li>
@@ -1108,6 +1121,8 @@ pr_faq = [
     ("How much should I charge for a crochet hat?", "With about $5 of yarn and 2.5 hours at $15 an hour, around $45 to $50, or about $52 on Etsy once fees are covered. Quick chunky hats can be less; colourwork or fine yarn more."),
     ("How much does Etsy take from a sale?", "In the US, 6.5% of the order including shipping, plus 3% + $0.25 for payment processing and $0.20 to list. That's roughly 9.5% + $0.45, more if the sale came from an Offsite Ad."),
     ("Is materials times 3 a good way to price crochet?", "Only for quick items. It ignores time, so anything that takes more than an hour or two ends up paying you very little."),
+    ("How much should I charge for a crochet blanket?", "Add the whole skeins you used, your hours at a fair hourly rate, about 10% for overheads, then the fees. A worsted throw can take 20 to 25 hours, so a fair price is often a few hundred dollars. Chunky yarn and simple stitches make blankets quicker and cheaper to sell."),
+    ("How much should I charge for amigurumi?", "Price the whole toy's time, including stuffing, sewing on parts and the face, plus yarn, stuffing and eyes, then fees. A 15 cm toy that takes 5 hours with $6 of materials is around $89 at $15 an hour with 10% overheads."),
 ]
 page("how-to-price-crochet-items.html", "How to Price Crochet and Knitting Items (Free Calculator) | Purl & Paper",
      "The formula for pricing crochet and knitted items to sell: materials, an hourly rate, overheads and Etsy or craft fair fees, with a free calculator and example prices.",
@@ -1620,10 +1635,11 @@ ka = top("Knitting abbreviations", "Every common knitting abbreviation in plain 
 <li><strong>Check the gauge</strong> and knit a swatch. Our <a href="@@GC@@">gauge converter</a> shows what happens if yours is different.</li>
 <li><strong>Read one row at a time</strong> and say it out loud in plain words, or paste it into the decoder above.</li>
 <li><strong>Check the stitch count</strong> at the end of each shaping row. Most patterns give it in brackets or after a dash.</li>
-<li><strong>Keep your place.</strong> The <a href="@@RC@@">row counter</a> keeps count and repeat numbers for you.</li></ol>
+<li><strong>Keep your place.</strong> The <a href="@@RC@@">row counter</a> keeps count and repeat numbers for you.</li>
+<li><strong>Dropped one?</strong> Don't panic or rip back yet: our guide to <a href="@@DS@@">fixing a dropped stitch</a> shows how to ladder it back up with a crochet hook.</li></ol>
 <p>Shaping a row yourself? The <a href="@@ID@@">increase and decrease evenly calculator</a> writes the row out in these same abbreviations, and the <a href="@@CO@@">cast on calculator</a> tells you how many stitches to start with. Pattern says "BO" or "cast off"? Our <a href="@@BO@@">bind off guide</a> shows how, and which stretchy bind off to use.</p>
 <p class="note">Abbreviations follow the Craft Yarn Council's knitting abbreviations list and LoveCrafts' guide; UK names from Little Red Window's UK vs US terms guide. Explanations are in our own words.</p></div></section>'''
-for k_, f_ in (("@@BO@@", "how-to-bind-off-knitting.html"), ("@@CT@@", "crochet-terms.html"), ("@@HN@@", "hook-needle-sizes.html"), ("@@YW@@", "yarn-weights.html"), ("@@GC@@", "gauge-converter.html"), ("@@RC@@", "row-counter.html"), ("@@ID@@", "increase-decrease-calculator.html"), ("@@CO@@", "cast-on-calculator.html")):
+for k_, f_ in (("@@DS@@", "how-to-fix-a-dropped-stitch.html"), ("@@BO@@", "how-to-bind-off-knitting.html"), ("@@CT@@", "crochet-terms.html"), ("@@HN@@", "hook-needle-sizes.html"), ("@@YW@@", "yarn-weights.html"), ("@@GC@@", "gauge-converter.html"), ("@@RC@@", "row-counter.html"), ("@@ID@@", "increase-decrease-calculator.html"), ("@@CO@@", "cast-on-calculator.html")):
     ka = ka.replace(k_, href(f_))
 ka_faq = [
     ("What does k2tog mean in knitting?", "Knit 2 together: put the needle into the next two stitches as if to knit and knit them as one. It's a decrease that leans to the right and loses one stitch."),
@@ -2544,7 +2560,7 @@ bo = top("How to bind off knitting", "Binding off (casting off in the UK) closes
 <p>For shoulders, armholes or buttonholes, patterns say "bind off 6 stitches" and then carry on. Bind off the 6 as normal. The stitch left on the right needle after the last lift-over is the <strong>first stitch</strong> of the rest of the row, so count it.</p>
 <h2>Bind off knitwise or purlwise?</h2>
 <p>Bind off on a right-side row knitwise unless the pattern says otherwise. Binding off purlwise on a wrong-side row works the same way, with purl stitches. In ribbing, bind off in pattern. If the pattern just says "bind off in pattern", do the stitch the fabric shows.</p>
-<p>What next? Weave the tail in neatly with our guide to <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a>, start the next piece with our <a href="{href("how-to-cast-on-knitting.html")}">cast on guide</a> and the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, or decode a pattern line with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>.</p></div></section>'''
+<p>What next? Weave the tail in neatly with our guide to <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a>, start the next piece with our <a href="{href("how-to-cast-on-knitting.html")}">cast on guide</a> and the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, or decode a pattern line with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>. Spotted a ladder before you bound off? Here's <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a>.</p></div></section>'''
 bo_faq = [
     ("How do you bind off in knitting?", "Knit 2 stitches, lift the first over the second and off the needle. Knit 1 more and lift over again; repeat until 1 stitch is left. Cut the yarn and pull it through the last loop."),
     ("Is casting off the same as binding off?", "Yes. Cast off is the UK name and bind off is the US name for the same thing: closing the last row so it can't unravel."),
@@ -2757,7 +2773,7 @@ cn = top("How to cast on knitting", "Casting on puts the first stitches on your 
 <ol><li>Cast on all the stitches onto a circular needle shorter than the piece is around (a 16 in circular for a hat).</li>
 <li>Spread them round the needle and check the bottom edge runs along the inside of the circle all the way round, with no twist. A twist can't be fixed later.</li>
 <li>Put a marker on the right needle, then knit the first stitch on the left needle with the working yarn, pulling it snug. That joins the round.</li></ol>
-<p>What next? Work out how many stitches to cast on with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, decode the first pattern row with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>, and when you get to the end, our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a> finishes it neatly.</p></div></section>'''
+<p>What next? Work out how many stitches to cast on with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, decode the first pattern row with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>, and when you get to the end, our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a> finishes it neatly. Dropped a stitch on the way? See <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a>.</p></div></section>'''
 cn_faq = [
     ("How do you cast on in knitting?", "The long-tail cast on is the most used: leave a tail of about 1 in per stitch, make a slip knot on the needle, hold the tail over your thumb and the ball yarn over your index finger, go up through the thumb loop, catch the finger strand, come back down and snug the stitch. Repeat."),
     ("How long should the tail be for a long-tail cast on?", f"About 1 in (2.5 cm) per stitch in worsted yarn, plus about 6 in to weave in. That's roughly {_lt_fmt(_cn40)} for 40 stitches and {_lt_fmt(_cn100)} for 100. Thin yarn needs less and thick yarn more. Wrapping the yarn round the needle once per stitch gives an exact measure."),
@@ -2892,12 +2908,198 @@ page("how-to-crochet-decrease.html", "How to Decrease in Crochet (sc2tog, Invisi
      "How to decrease in crochet: sc2tog and the invisible decrease in 4 drawings, hdc2tog and dc2tog, fixing holes and bumps, closing amigurumi, and a helper that writes your decrease rounds.",
      dcp, dc_faq, "How to decrease in crochet", app_name="Crochet decrease round writer")
 
+
+# ---------------- HOW TO FIX A DROPPED STITCH (guide + fix helper) ----------------
+def _ds_fab(loop_row, hook=False, hi_rung=False, marker=False, on_needle=False, rung_lbl=False):
+    """Knit fabric, 7 columns x 6 rows. Column 3 has a ladder above loop_row (live loop at loop_row)."""
+    o = '<rect x="18" y="34" width="184" height="124" rx="8" fill="#f2e6cf"/>' + _needle(8, 26, 212, 26)
+    ys = [146 - k * 20 for k in range(6)]
+    for c in range(7):
+        x = 40 + c * 23
+        for k in range(6):
+            if c == 3 and k >= loop_row and not on_needle:
+                continue
+            o += _kst(x, ys[k], _Y2 if c != 3 else _Y, 2.4 if c != 3 else 3)
+        if c != 3 or on_needle:
+            o += f'<ellipse cx="{x}" cy="26" rx="6" ry="10" fill="none" stroke="{_Y2 if c != 3 else _Y}" stroke-width="2.6"/>'
+    if not on_needle:
+        x = 40 + 3 * 23
+        for k in range(loop_row, 6):
+            col = _TL if (hi_rung and k == loop_row) else _Y2
+            y = ys[k] - 10
+            o += f'<path d="M{x - 13} {y} Q{x} {y + 5} {x + 13} {y}" fill="none" stroke="{col}" stroke-width="{3.6 if col == _TL else 2.6}" stroke-linecap="round"/>'
+        ly = ys[loop_row] + 4
+        o += f'<ellipse cx="{x}" cy="{ly}" rx="7" ry="11" fill="#fbfcfa" stroke="{_Y}" stroke-width="3.4"/>'
+        if marker:
+            o += (f'<path d="M{x + 6} {ly + 6} q14 10 28 2" fill="none" stroke="{_MG}" stroke-width="3.2" stroke-linecap="round"/>'
+                  f'<circle cx="{x + 36}" cy="{ly + 6}" r="6" fill="none" stroke="{_MG}" stroke-width="3.2"/>')
+        if hook:
+            o += _hook(x + 2, ly - 2, -55, 95)
+        if rung_lbl:
+            o += _LBL(20, 167, "teal = the bottom rung")
+    return o
+DS_STEPS = [
+    ("Catch it", "Slide a locking stitch marker, safety pin or spare needle through the loose loop so it can't run any further.", _ds_fab(2, marker=True)),
+    ("Hook in from the front", "With the knit side facing you, put a crochet hook into the loop from front to back, hook pointing up.", _ds_fab(2, hook=True, hi_rung=True, rung_lbl=True)),
+    ("Pull the bottom rung through", "Catch the lowest loose strand of the ladder and pull it through the loop. That's one row fixed. Repeat, one rung at a time, in order.", _ds_fab(3, hook=True, hi_rung=True)),
+    ("Put it back on the needle", "When no rungs are left, put the loop on the left needle without twisting it: the leg nearest the needle tip sits in front. Knit on.", _ds_fab(6, on_needle=True)),
+]
+def ds_fig(i, s):
+    return (f'<figure class="mr-step"><svg viewBox="0 0 220 172" role="img" aria-label="Dropped stitch step {i}: {e(s[0])}">{s[2]}</svg>'
+            f'<figcaption><strong>{i}. {e(s[0])}</strong> {e(s[1])}</figcaption></figure>')
+DS_TAB = [
+    ("Stockinette, knit side facing", "Every rung is a knit pickup", "Hook in from the front, pull each rung through toward you."),
+    ("Stockinette, purl side facing", "Every rung is a purl pickup", "Easiest: turn the work so the knit side faces you, then it's all knit pickups."),
+    ("Garter stitch", "Knit and purl rungs take turns", "Check the bottom strand: a V is knit, a bump is purl. Then switch sides each rung (or turn the work)."),
+    ("Rib (k2, p2 or k1, p1)", "The whole column is the same", "A knit column is fixed from the right side. A purl column: turn the work and fix it as knit from the back."),
+    ("Seed or moss stitch", "Knit and purl rungs take turns", "Like garter: work out the bottom one, then alternate."),
+]
+dsp = top("How to fix a dropped stitch in knitting", "A dropped stitch runs down your knitting like a ladder, but it's nearly always fixable without ripping back. Here's how in four drawings, for stockinette, garter and rib, plus a helper that tells you exactly how to pick up each rung.", "How to fix a dropped stitch") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> first <strong>catch the loose loop</strong> with a stitch marker or safety pin so it can't run further. Then, with the <strong>knit side facing you</strong>, put a crochet hook (about your needle size or a little smaller) into the loop from the front, catch the <strong>lowest loose strand</strong> of the ladder and pull it through. Repeat up the ladder, one strand per row, then put the stitch back on the left needle with its front leg toward the tip so it isn't twisted. In garter stitch, switch between knit and purl pickups on each row.</div>
+<div class="mr-steps">{"".join(ds_fig(i + 1, s) for i, s in enumerate(DS_STEPS))}</div>
+<p class="note">Our own drawings. The loose strands across the gap are the "ladder"; each one is one row of the dropped stitch.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Dropped stitch helper</h2>
+<div class="field"><label for="ds-fab">What's the fabric?</label><select id="ds-fab"><option value="stk" selected>Stockinette, knit side facing me</option><option value="stp">Stockinette, purl side facing me</option><option value="gar">Garter stitch</option><option value="ribk">Rib, it fell from a knit column</option><option value="ribp">Rib, it fell from a purl column</option><option value="seed">Seed or moss stitch</option></select></div>
+<div class="field" id="ds-first-f" hidden><span class="label" id="ds-first-l">The bottom loose strand makes a</span><div class="seg" role="group" aria-labelledby="ds-first-l" id="ds-first"><button type="button" data-v="k" aria-pressed="true">V (knit)</button><button type="button" data-v="p" aria-pressed="false">Bump (purl)</button></div><span class="note" style="display:block;margin-top:6px">Follow the lowest strand to the stitch beside the gap: a V means knit, a bump means purl.</span></div>
+<div class="row2"><div class="field"><label for="ds-rows">Rows it has run down</label><input id="ds-rows" type="number" min="1" max="200" step="1" value="5" inputmode="numeric"><span class="note">Count the loose strands.</span></div>
+<div class="field"><label for="ds-n">Stitches dropped</label><input id="ds-n" type="number" min="1" max="20" step="1" value="1" inputmode="numeric"></div></div>
+<div class="row2"><div class="field"><label for="ds-mm">Needle size (mm)</label><input id="ds-mm" type="number" min="1.5" max="25" step="0.25" value="4" inputmode="decimal"></div>
+<div class="field"><label for="ds-above">In that column above the drop</label><select id="ds-above"><option value="plain" selected>Plain knitting</option><option value="shape">An increase or decrease</option><option value="fancy">Cables, lace or colourwork</option></select></div></div>
+<div class="field"><span class="label" id="ds-when-l">Are you still knitting?</span><div class="seg" role="group" aria-labelledby="ds-when-l" id="ds-when"><button type="button" data-v="live" aria-pressed="true">Yes, stitches on the needle</button><button type="button" data-v="done" aria-pressed="false">No, already bound off</button></div></div>
+<figure class="ts-fig"><svg id="ds-svg" viewBox="0 0 300 230" role="img" aria-label="Your ladder with each rung marked knit or purl"></svg><figcaption class="note" id="ds-cap">Your ladder: work from the bottom rung up.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="ds-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>How do you pick up a dropped stitch in different stitches?</h2>
+<p>The only thing that changes between fabrics is whether each rung is pulled through as a knit or a purl. Pulling from the front (rung coming toward you) makes a knit stitch; pulling from the back makes a purl.</p></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Fabric</th><th scope="col">The rungs are</th><th scope="col">How to fix it</th></tr></thead><tbody>
+{"".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td></tr>" for a, b, c in DS_TAB)}</tbody></table></div>
+<p class="note" style="margin-top:12px">Knit and purl pickups from Dummies and LoveCrafts; the crochet hook method from Yarnspirations and Garnstudio (DROPS). Rib and seed rows are our own summary of the same rule.</p></div>
+<div class="narrow prose">
+<h2>How do I fix a dropped stitch several rows down?</h2>
+<p>Exactly the same way, just with more rungs. The key is to take them <strong>in order from the bottom</strong>: Dummies warns that pulling a strand from the wrong row leaves an obvious glitch. Check each new stitch looks like the ones beside it as you go. When you reach the top, the last stitch goes on the left needle and you knit it as normal.</p>
+<p>If the stitch has run a long way, the fixed column can look tight or loose. Give the fabric a gentle tug sideways and lengthways to share the yarn out (Dummies), and washing or blocking evens it out further, because damp yarn relaxes (LoveCrafts).</p>
+<h2>Which crochet hook should I use?</h2>
+<p>About the same size as your knitting needles or a little smaller (LoveCrafts). A hook much bigger than the needle stretches the stitch; much smaller and it slips off the rung. No hook? You can work the rungs with your knitting needles by lifting the loop over each strand, it's just fiddlier.</p>
+<h2>How do I put the stitch back on the needle without twisting it?</h2>
+<p>Look at the stitches next to it: each one has two legs, one in front of the needle and one behind. For most knitters the leg in front sits nearer the tip of the left needle. Put your rescued stitch on the same way. If it's twisted, the legs cross at the bottom; knit it through the back loop, or slip it off and put it back the other way round.</p>
+<h2>What if I've dropped more than one stitch?</h2>
+<p>Catch every loose loop with its own marker or safety pin first (Yarnspirations), then fix them one at a time. For several stitches, a stiff yarn or a deep drop, LoveCrafts suggests working the rungs with a spare pair of needles about the same size as yours.</p>
+<h2>When should I rip back instead?</h2>
+<ul><li><strong>Something happens in that column above the drop.</strong> A decrease, increase, cable cross or lace yarn over can't be rebuilt with a hook unless you know exactly how to work it. Rip back to below the drop, or ladder up only as far as the shaping.</li>
+<li><strong>It ran a very long way.</strong> Yarnspirations says a drop caught within a few rows is easy, but once several inches have been worked it's often easier to unravel back to it.</li>
+<li><strong>You can't tell which rung is which.</strong> If the ladder is tangled or the yarn is fuzzy, ripping back can be quicker than untangling.</li></ul>
+<p>Our tip for next time: before a tricky section, thread a smooth waste yarn through every stitch of one row with a tapestry needle. That "lifeline" stops you ripping back further than that row.</p>
+<h2>What if I find it after binding off?</h2>
+<p>It can still be fixed. Catch the loop, ladder it up to the top, then sew it down to the bound off edge with a length of matching yarn, going through the loop at least once (LoveCrafts). Weave the ends in, as in our guide to <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a>.</p>
+<h2>How do I stop dropping stitches?</h2>
+<p>Our tips: finish the row before you put your knitting down, push the stitches back from the needle tips (or use point protectors) when you stop, and try grippier wooden or bamboo needles if your yarn is slippery. Keep a locking stitch marker on your project bag for emergencies. Losing track of rows when you fix one? The <a href="{href("row-counter.html")}">row counter</a> keeps count for you.</p>
+<p>What next? New to the basics? See <a href="{href("how-to-cast-on-knitting.html")}">how to cast on</a>, <a href="{href("how-to-bind-off-knitting.html")}">how to bind off</a> and what all those letters mean in our <a href="{href("knitting-abbreviations.html")}">knitting abbreviations</a> list.</p></div></section>'''
+ds_faq = [
+    ("How do you fix a dropped stitch in knitting?", "Catch the loose loop with a stitch marker. With the knit side facing you, put a crochet hook into the loop from the front, catch the lowest loose strand of the ladder and pull it through. Repeat for each strand, then put the stitch back on the left needle without twisting it."),
+    ("Can you fix a dropped stitch several rows down?", "Yes. Work up the ladder one strand per row, starting with the lowest, and check each new stitch matches its neighbours. If there's a cable, lace or decrease in that column above the drop, it's usually easier to rip back."),
+    ("How do you fix a dropped stitch in garter stitch?", "Garter stitch alternates knit and purl rows in each column, so switch for every strand: pull one through from the front (knit), the next from the back (purl), or turn the work over between strands."),
+    ("How do you fix a dropped purl stitch?", "Turn the work so the knit side faces you; a purl stitch is a knit stitch from the other side. Fix it with a crochet hook as a knit, then turn back."),
+    ("What size crochet hook do I need to pick up a dropped stitch?", "About the same size as your knitting needle or a little smaller."),
+    ("Can I fix a dropped stitch after binding off?", "Yes. Ladder it up to the top with a crochet hook, then sew the top loop to the bound off edge with matching yarn and weave in the ends."),
+]
+page("how-to-fix-a-dropped-stitch.html", "How to Fix a Dropped Stitch in Knitting (Even Rows Down) | Purl & Paper",
+     "How to fix a dropped stitch in knitting: catch it, ladder it up with a crochet hook in 4 drawings, garter, rib and purl stitches, twisted stitches, after binding off, and when to rip back. Free helper.",
+     dsp, ds_faq, "How to fix a dropped stitch", app_name="Dropped stitch helper")
+
+# ---------------- HOW TO PRICE A CROCHET BLANKET (guide + calculator) ----------------
+BP_TF = {1: 1.45, 2: 1.35, 3: 1.2, 4: 1, 5: 0.75, 6: 0.6, 7: 0.45}   # our estimate: time vs worsted (gift planner uses 1.3 fine / 0.65 chunky)
+BP_TH = 25 / 3000   # crochet hours per sq in in worsted: LoveCrafts' ~25 h for a 50 x 60 in throw (same as the gift planner)
+def bp_hours(b, wn, knit=False): return b["w"] * b["l"] * BP_TH * BP_TF[wn] * (2 if knit else 1)
+def bp_sk(b, wn, sk=200, knit=False): return _m.ceil(bk_yd(b, wn, 1 if knit else 1.27) / sk)
+def bp_mat(b, wn, sk=200, cost=6, extra=3, knit=False): return bp_sk(b, wn, sk, knit) * cost + extra
+def bp_price(b, wn, rate=15, oh=0.10, knit=False): return pr_base(bp_mat(b, wn, knit=knit), bp_hours(b, wn, knit), rate, oh)
+def _bp_r(x): return f"${round(x / 5) * 5:,.0f}"
+BP_IDS = ("lovey", "baby", "lap", "throw", "twin", "queen", "king")
+_BPB = {b["id"]: b for b in D["blankets"]}
+bp_rows = "".join(f'<tr><th scope="row">{e(_BPB[i]["name"])}<br><span class="muted">{_BPB[i]["w"]} × {_BPB[i]["l"]} in</span></th><td>{bp_hours(_BPB[i], 4):.0f} h</td><td>{bp_sk(_BPB[i], 4)} (${bp_mat(_BPB[i], 4):,.0f})</td>'
+                  + "".join(f"<td>{_bp_r(bp_price(_BPB[i], 4, r))}</td>" for r in (12, 15, 20)) + f'<td>{_bp_r(pr_etsy(bp_price(_BPB[i], 4)))}</td><td class="muted">{_bp_r(bp_mat(_BPB[i], 4) * 3)}</td></tr>' for i in BP_IDS)
+_bpt = _BPB["throw"]; _bpb = _BPB["baby"]
+bp_wrows = "".join(f'<tr><th scope="row">{n}</th><td>{bp_hours(_bpt, k):.0f} h</td><td>{round(bk_yd(_bpt, k, 1.27), -2):,.0f} yd</td><td>{_bp_r(bp_price(_bpt, k))}</td></tr>' for k, n in ((3, "DK"), (4, "Worsted"), (5, "Bulky"), (6, "Super bulky")))
+bp_sopts = "".join(f'<option value="{b["id"]}"{" selected" if b["id"] == "throw" else ""}>{e(b["name"])} ({b["w"]} × {b["l"]} in)</option>' for b in D["blankets"]) + '<option value="custom">My own size</option>'
+bp_wopts = "".join(f'<option value="{w["n"]}"{" selected" if w["n"] == 4 else ""}>{w["n"]} {e(w["name"])} ({e(w["also"])})</option>' for w in D["weights"] if w["n"] >= 1)
+bpp = top("How to price a crochet blanket", "Blankets are the hardest thing to price: lots of yarn and a lot of hours. Pick a size and yarn and this calculator estimates the yarn, the hours and a fair price, and shows why the shortcut formulas leave you working for pennies.", "How to price a crochet blanket") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> price a blanket the same way as anything handmade: <strong>yarn and extras + (hours × your hourly rate)</strong>, plus about 10% for overheads, plus selling fees. A crocheted throw (50 × 60 in) in worsted yarn takes about {bp_sk(_bpt, 4)} skeins of 200 yd and roughly {bp_hours(_bpt, 4):.0f} hours, so at $15 an hour it comes to about <strong>{_bp_r(bp_price(_bpt, 4))}</strong>. A baby blanket is about {_bp_r(bp_price(_bpb, 4))}. Those are fair prices for your time, and higher than many shoppers expect, so chunky yarn and quick stitches are how most blanket sellers bring the price down. Hours and yarn are estimates; time yourself for your own number.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Blanket price calculator</h2>
+<div class="field"><label for="bp-size">Blanket size</label><select id="bp-size">{bp_sopts}</select></div>
+<div class="row2" id="bp-custom" hidden><div class="field"><label for="bp-w">Width (in)</label><input type="number" id="bp-w" value="50" min="6" max="140" inputmode="decimal"></div><div class="field"><label for="bp-l">Length (in)</label><input type="number" id="bp-l" value="60" min="6" max="140" inputmode="decimal"></div></div>
+<div class="row2"><div class="field"><span class="label" id="bp-craft-l">Made with</span><div class="seg" role="group" aria-labelledby="bp-craft-l" id="bp-craft"><button type="button" data-v="crochet" aria-pressed="true">Crochet</button><button type="button" data-v="knit" aria-pressed="false">Knitting</button></div></div>
+<div class="field"><label for="bp-weight">Yarn weight</label><select id="bp-weight">{bp_wopts}</select></div></div>
+<div class="row2"><div class="field"><label for="bp-sk">Yards per skein</label><input type="number" id="bp-sk" value="200" min="10" step="1" inputmode="numeric"></div>
+<div class="field"><label for="bp-cost">Price per skein ($)</label><input type="number" id="bp-cost" value="6" min="0" step="0.01" inputmode="decimal"></div></div>
+<div class="row2"><div class="field"><label for="bp-extra">Extras ($)</label><input type="number" id="bp-extra" value="3" min="0" step="0.5" inputmode="decimal"><span class="note">Label, tag, bag or box.</span></div>
+<div class="field"><label for="bp-speed">How fast are you?</label><select id="bp-speed"><option value="1.25">Still learning</option><option value="1" selected>Comfortable</option><option value="0.8">Speedy</option></select></div></div>
+<div class="row2"><div class="field"><label for="bp-h">Hours to make it</label><input type="number" id="bp-h" min="0.5" max="500" step="0.5" inputmode="decimal" placeholder="we'll estimate"><span class="note" id="bp-h-note">Leave empty to use our estimate.</span></div>
+<div class="field"><label for="bp-rate">Your hourly rate ($)</label><input type="number" id="bp-rate" value="15" min="0" step="0.5" inputmode="decimal"></div></div>
+<div class="row2"><div class="field"><label for="bp-oh">Overheads (%)</label><input type="number" id="bp-oh" value="10" min="0" max="100" step="1" inputmode="decimal"></div>
+<div class="field"><label for="bp-ch">Selling on</label><select id="bp-ch"><option value="etsy">Etsy (US fees)</option><option value="fair">Craft fair (card reader 3%)</option><option value="direct">Direct, no fees</option></select></div></div>
+<div class="field"><label for="bp-try">A price you had in mind (optional, $)</label><input type="number" id="bp-try" placeholder="e.g. 120" min="0" step="1" inputmode="decimal"></div>
+<figure class="ts-fig"><svg id="bp-svg" viewBox="0 0 300 150" role="img" aria-label="What the price is made of: yarn, your time, overheads and fees"></svg><figcaption class="note" id="bp-cap">Where the money goes.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="bp-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2>How much should I charge for a crochet blanket?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Blanket</th><th scope="col">Hours</th><th scope="col">Skeins (yarn + extras)</th><th scope="col">At $12/h</th><th scope="col">At $15/h</th><th scope="col">At $20/h</th><th scope="col">On Etsy at $15/h</th><th scope="col">Materials × 3</th></tr></thead><tbody>{bp_rows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our estimates for plain crochet in worsted yarn, 200 yd skeins at $6, $3 of extras and 10% overheads, rounded to $5. Hours scale from LoveCrafts' typical 25 hours for a crocheted throw; yarn from our <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>. The Etsy column adds US fees (about 9.5% + $0.45). Time yourself and change the numbers in the calculator.</p>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>What's the formula for pricing a blanket?</h2>
+<ol><li><strong>Yarn.</strong> Count whole skeins, not just the yards you used. The Crochet Crowd suggests charging the full ball even if some is left over, since leftovers rarely get used up.</li>
+<li><strong>Extras.</strong> Labels, a care tag, a bag or box. Shipping is separate: charge what it costs to post.</li>
+<li><strong>Time.</strong> Hours × an hourly rate. B.Hooked suggests starting from your local minimum wage and says many sellers land between $12 and $20 an hour; EyeLoveKnots says never go below your area's minimum wage.</li>
+<li><strong>Overheads and fees.</strong> A percentage for tools, photos and trips to the post office, then the shop's or card reader's cut on top.</li></ol>
+<p>The full method, with craft fair and consignment fees, is in our guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet and knitting items</a>.</p>
+<h2>Why does "materials × 3" undercharge for blankets?</h2>
+<p>Because a blanket's cost is mostly time. EyeLoveKnots gives the example of $40 of yarn: times 3 is $120, for a blanket that took around 20 hours. That's well under minimum wage before any fees. The last column of the table shows the same thing: the bigger the blanket, the further "materials × 3" falls behind a fair price. Daisy Cottage Designs uses materials × 2 plus labour plus expenses: doubling the yarn covers waste and overheads, and the hours are still paid. She found it gave a far more sellable price than Etsy's suggested method of doubling a wholesale price.</p>
+<h2>How long does it take to crochet a blanket?</h2>
+<p>It depends on size, yarn and stitch far more than on skill. Sellers' own examples: B.Hooked times a blanket at 15 hours, EyeLoveKnots says about 18 hours each for 60 × 70 in ripple afghans, and The Crochet Crowd uses about 20 hours for an afghan. LoveCrafts' time guide puts a crocheted throw at around 25 hours for an average maker. Knitting usually takes about twice as long. Thicker yarn makes the biggest difference:</p></div>
+<div class="narrow"><div class="tbl-wrap"><table><thead><tr><th scope="col">Throw, 50 × 60 in, in</th><th scope="col">About</th><th scope="col">Yarn</th><th scope="col">Price at $15/h</th></tr></thead><tbody>{bp_wrows}</tbody></table></div>
+<p class="note" style="margin-top:12px">Our estimates, same model as the calculator. Thinner yarn makes smaller stitches, so it takes longer to cover the same area.</p></div>
+<div class="narrow prose">
+<h2>What do crochet blankets actually sell for?</h2>
+<p>Real examples from sellers who've shared their maths: B.Hooked works a 15-hour blanket out at about $237; EyeLoveKnots priced 60 × 70 in afghans at about $215 each plus shipping; The Crochet Crowd's 20-hour afghan example comes to about $300 Canadian. All three say a price like that needs the right buyer, which is why the venue matters: The Crochet Crowd points out the same item sells for far more at a juried craft show than at a church sale.</p>
+<h2>What if my price feels too high?</h2>
+<ul><li><strong>Make it faster, not cheaper.</strong> Bulky or super bulky yarn and a simple stitch can cut the hours by a third or more (see the table above).</li>
+<li><strong>Make it smaller.</strong> Loveys, baby and lap blankets reach a price more shoppers will pay.</li>
+<li><strong>Sell to buyers who value handmade.</strong> Gift buyers, baby showers and custom orders, rather than competing with shop-bought throws.</li>
+<li><strong>Don't drop your hourly rate to nothing.</strong> A blanket that sells for the cost of the yarn has cost you 20 hours.</li></ul>
+<h2>How do I price a custom or commission blanket?</h2>
+<ul><li><strong>Time a sample first.</strong> EyeLoveKnots works up a sample of the stitch and times it before giving a quote.</li>
+<li><strong>Get paid before you buy yarn.</strong> B.Hooked and EyeLoveKnots both take payment up front for custom orders.</li>
+<li><strong>Give a finish date</strong> and stick to it; Daisy Cottage Designs suggests promising a little less than you can do.</li>
+<li><strong>Never charge more than the quote.</strong> If you underestimated, that's the lesson for the next one (EyeLoveKnots).</li>
+<li><strong>Charge for changes.</strong> Our tip: a different size or colour change after you start is new work, so quote it.</li></ul>
+<p>What next? Work out the size and yarn with the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>, see how long it'll take alongside your other makes in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>, and if you're selling at a market, pack with our <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a>. Making it from squares? Use the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> for the yarn.</p></div></section>'''
+bp_faq = [
+    ("How much should I charge for a crochet blanket?", f"Add the yarn and extras, your hours times an hourly rate, about 10% for overheads, then the selling fees. For a worsted throw (about {bp_hours(_bpt, 4):.0f} hours and {bp_sk(_bpt, 4)} skeins) at $15 an hour that's roughly {_bp_r(bp_price(_bpt, 4))}. Faster makers and chunky yarn bring it down."),
+    ("How much should I charge for a crochet baby blanket?", f"Roughly {_bp_r(bp_price(_bpb, 4, 12))} to {_bp_r(bp_price(_bpb, 4, 20))} for a 36 in square blanket in worsted yarn at $12 to $20 an hour, by our estimate of about {bp_hours(_bpb, 4):.0f} hours. Chunky yarn or a smaller size gets it lower."),
+    ("How many hours does it take to crochet a blanket?", "Sellers report about 15 to 20 hours for an afghan, and LoveCrafts puts a throw at around 25 hours. Bulky yarn is faster, fine yarn slower, and knitting takes about twice as long."),
+    ("Is materials times 3 a good way to price a blanket?", "No. A blanket's cost is mostly time, so materials times 3 can pay you only a few dollars an hour. Add your hours times an hourly rate instead."),
+    ("Should I charge for the whole skein?", "Most sellers do. The Crochet Crowd suggests charging the full ball price even if some is left, since small leftovers are hard to use."),
+    ("How do I price a custom blanket order?", "Time a sample of the stitch, quote yarn plus hours at your rate, take payment before you buy the yarn, give a finish date and don't charge more than you quoted."),
+]
+page("how-to-price-a-crochet-blanket.html", "How to Price a Crochet Blanket (Free Blanket Price Calculator) | Purl & Paper",
+     "How much to charge for a crochet blanket: a free calculator for yarn, hours and a fair price by size, a price chart from baby to king, how long blankets take, and pricing custom orders.",
+     bpp, bp_faq, "How to price a crochet blanket", app_name="Crochet blanket price calculator")
+
 # ---------------- SITEMAP / ROBOTS ----------------
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"how-to-cast-on-knitting.html": "2026-11-24", "how-to-crochet-decrease.html": "2026-11-24", "increase-decrease-calculator.html": "2026-11-24", "cast-on-calculator.html": "2026-11-24", "how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "blanket-size-calculator.html": "2026-11-23", 
-           "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
+LASTMOD = {"how-to-fix-a-dropped-stitch.html": "2026-11-24", "how-to-price-a-crochet-blanket.html": "2026-11-24", "how-to-price-crochet-items.html": "2026-11-24", "blanket-size-calculator.html": "2026-11-24", "knitting-abbreviations.html": "2026-11-24", "how-to-cast-on-knitting.html": "2026-11-24", "how-to-crochet-decrease.html": "2026-11-24", "increase-decrease-calculator.html": "2026-11-24", "cast-on-calculator.html": "2026-11-24", "how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{canon(p)}</loc><lastmod>{LASTMOD.get(p, '2026-11-19')}</lastmod></url>\n" for p in pages) + "</urlset>\n")

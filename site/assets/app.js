@@ -1921,4 +1921,128 @@
   }
 
 
+  /* ---------- DROPPED STITCH HELPER ---------- */
+  if ($("#ds-out") && $("#ds-fab")) {
+    var dsFirst = $("#ds-first"), dsWhen = $("#ds-when");
+    var DSF = {
+      stk: ["Stockinette, knit side facing", "all"], stp: ["Stockinette, purl side facing", "turn"], gar: ["Garter stitch", "alt"],
+      ribk: ["Rib, knit column", "all"], ribp: ["Rib, purl column", "turn"], seed: ["Seed or moss stitch", "alt"]
+    };
+    function dsCalc() {
+      var f = $("#ds-fab").value, kind = DSF[f][1], rows = Math.max(1, Math.min(200, parseInt($("#ds-rows").value, 10) || 1));
+      var n = Math.max(1, parseInt($("#ds-n").value, 10) || 1), mm = parseFloat($("#ds-mm").value) || 4, above = $("#ds-above").value, done = segVal(dsWhen) === "done";
+      $("#ds-first-f").hidden = kind !== "alt";
+      var first = segVal(dsFirst) || "k", rungs = [], i;
+      for (i = 0; i < rows; i++) rungs.push(kind === "alt" ? ((i % 2 === 0) === (first === "k") ? "k" : "p") : "k");
+      var lo = Math.max(1.5, Math.round((mm - 0.5) * 4) / 4), hook = (lo === mm ? mm : lo + "–" + mm) + " mm";
+      var verdict, vc = "", h = "";
+      if (above === "fancy") { verdict = "Rip back, or fix it with care"; vc = " tb-warn"; }
+      else if (above === "shape") { verdict = "Fix it up to the shaping"; vc = " tb-warn"; }
+      else if (rows <= 10) verdict = "Easy fix: ladder it up";
+      else if (rows <= 30) verdict = "Fixable: ladder it up slowly";
+      else { verdict = "Fixable, but think about ripping back"; vc = " tb-warn"; }
+      h += "<h3>What to do</h3><div class=\"big" + vc + "\" style=\"font-size:1.7rem;line-height:1.15\">" + esc(verdict) + "</div>";
+      h += '<div class="tb-stats"><div><strong>' + rows + "</strong><span>rung" + (rows > 1 ? "s" : "") + " to pick up" + (n > 1 ? ", per stitch" : "") + "</span></div><div><strong>" + hook + "</strong><span>crochet hook</span></div>";
+      if (kind === "alt") { var nk = rungs.filter(function (r) { return r === "k"; }).length; h += "<div><strong>" + nk + " + " + (rows - nk) + "</strong><span>knit + purl pickups</span></div>"; }
+      else h += "<div><strong>All knit</strong><span>" + (kind === "turn" ? "after you turn the work" : "pull every rung toward you") + "</span></div>";
+      h += "<div><strong>" + n + "</strong><span>stitch" + (n > 1 ? "es" : "") + " to fix" + (n > 1 ? ", one at a time" : "") + "</span></div></div>";
+      var st = ["Catch the loose loop" + (n > 1 ? "s, each with its own" : " with a") + " locking stitch marker or safety pin."];
+      if (kind === "turn") st.push(f === "ribp" ? "Turn the work over. From the back, a purl column is a knit column." : "Turn the work so the knit side faces you. Purl stitches are knit stitches from the other side.");
+      st.push("Put the hook into the loop from the front, hook pointing up.");
+      if (kind === "alt") st.push("Follow the rung list below from the bottom up: for a knit rung, pull it through from the front; for a purl rung, take the hook out and put it in from the back first (or turn the work over between rungs).");
+      else st.push("Catch the lowest rung and pull it through the loop. Repeat for each rung, in order, checking each new stitch matches the ones beside it.");
+      if (above === "shape") st.push("Stop when you reach the row with the increase or decrease. Rip back the rows above it to that point, or work the shaping by hand with a spare needle if you know how.");
+      if (above === "fancy") st.push("Ladders can't rebuild a cable cross, yarn over or colour change by themselves. Rip back to just below the drop (put a lifeline in first), or ladder up only if you know exactly how that column is worked.");
+      if (n > 2) st.push("With several stitches, a spare pair of needles about the size of yours can be easier than a hook (LoveCrafts).");
+      if (rows > 30 && above === "plain") st.push("A long ladder can come out tight or loose. Tug the fabric gently both ways, and wash or block it to even it out. Yarnspirations suggests ripping back once a drop is several inches down, so choose whichever feels easier.");
+      st.push(done ? "At the top, sew the last loop to the bound off edge with a length of matching yarn, through the loop at least once, and weave in the ends." : "At the top, put the loop on the left needle with its front leg toward the tip, so it isn't twisted, then knit on.");
+      h += "<h3>Steps</h3><ol class=\"sk-steps\">" + st.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>";
+      if (kind === "alt") h += "<h3>Rung list, bottom first</h3><p class=\"sub\">" + rungs.slice(0, 40).map(function (r, k) { return (k + 1) + ": " + (r === "k" ? "knit (from the front)" : "purl (from the back)"); }).join(" · ") + (rows > 40 ? " · and so on, alternating" : "") + "</p>";
+      h += '<hr><p class="sub">Our own advice, from the methods in Yarnspirations, Dummies and LoveCrafts. Row limits are rough guides. Next: <a href="' + (location.protocol === "file:" ? "row-counter.html" : "/row-counter") + '" style="color:#ffd38a">count your rows</a> so you know where you are.</p>';
+      $("#ds-out").innerHTML = h;
+      // drawing: ladder (max 12 rungs drawn), knit columns either side
+      var show = Math.min(rows, 12), g = "", x = 150, top = 26, step = Math.min(16, 150 / (show + 1)), base = top + step * (show + 1) + 8, c, k;
+      g += '<rect x="40" y="14" width="220" height="' + (base + 12 - 14) + '" rx="10" fill="#f2e6cf"/>';
+      for (c = -3; c <= 3; c++) {
+        if (c === 0) continue;
+        for (k = 0; k <= show + 1; k++) {
+          var yy = top + k * step, xx = x + c * 26;
+          g += '<path d="M' + (xx - 7) + " " + (yy - 6) + " Q" + xx + " " + (yy + 2) + " " + xx + " " + (yy + 6) + " M" + (xx + 7) + " " + (yy - 6) + " Q" + xx + " " + (yy + 2) + " " + xx + " " + (yy + 6) + '" fill="none" stroke="#d97aa0" stroke-width="2" stroke-linecap="round"/>';
+        }
+      }
+      for (k = 0; k < show; k++) {
+        var r = rungs[k], y = base - 14 - (k + 1) * step + 4, col = r === "k" ? "#2f8f8a" : "#f4a823";
+        g += '<path d="M' + (x - 15) + " " + y + " Q" + x + " " + (y + 4) + " " + (x + 15) + " " + y + '" fill="none" stroke="' + col + '" stroke-width="3" stroke-linecap="round"/>';
+        if (kind === "alt" || k === 0) g += '<text x="' + (x + 116) + '" y="' + (y + 4) + '" font-size="10" fill="#1f2a44">' + (k + 1) + " " + (r === "k" ? "K" : "P") + "</text>";
+      }
+      g += '<ellipse cx="' + x + '" cy="' + (base - 8) + '" rx="7" ry="10" fill="#fbfcfa" stroke="#b8326a" stroke-width="3"/>';
+      g += '<text x="' + (x + 14) + '" y="' + (base + 4) + '" font-size="10" fill="#4a5470">loose loop</text>';
+      if (rows > show) g += '<text x="' + x + '" y="10" text-anchor="middle" font-size="10" fill="#4a5470">+ ' + (rows - show) + " more rungs above</text>";
+      $("#ds-svg").setAttribute("viewBox", "0 0 300 " + Math.round(base + 14));
+      $("#ds-svg").innerHTML = g;
+      $("#ds-cap").textContent = kind === "alt" ? "Teal rungs are knit pickups, gold are purl. Work from the bottom up." : "Every rung is a knit pickup" + (kind === "turn" ? " once the work is turned" : "") + ". Work from the bottom up.";
+    }
+    ["#ds-fab", "#ds-above"].forEach(function (s) { $(s).addEventListener("change", dsCalc); });
+    ["#ds-rows", "#ds-n", "#ds-mm"].forEach(function (s) { $(s).addEventListener("input", dsCalc); });
+    seg(dsFirst, dsCalc); seg(dsWhen, dsCalc);
+    dsCalc();
+  }
+
+  /* ---------- CROCHET BLANKET PRICE CALCULATOR ---------- */
+  if ($("#bp-out") && $("#bp-size")) {
+    var BPTF = { 1: 1.45, 2: 1.35, 3: 1.2, 4: 1, 5: 0.75, 6: 0.6, 7: 0.45 }, bpCraft = $("#bp-craft");
+    var bpWM = {}; (P.weights || []).forEach(function (w) { bpWM[w.n] = w.m; });
+    var money = function (x) { return "$" + (x >= 100 ? Math.round(x).toLocaleString("en-US") : x.toFixed(2)); };
+    function bpCalc() {
+      var id = $("#bp-size").value, b, custom = id === "custom";
+      $("#bp-custom").hidden = !custom;
+      if (custom) b = { name: "Your blanket", w: parseFloat($("#bp-w").value) || 0, l: parseFloat($("#bp-l").value) || 0 };
+      else b = (P.blankets || []).filter(function (x) { return x.id === id; })[0];
+      var out = $("#bp-out");
+      if (!b || !(b.w > 0 && b.l > 0)) { out.innerHTML = "<p>Enter the blanket's width and length.</p>"; return; }
+      var knit = segVal(bpCraft) === "knit", wn = parseInt($("#bp-weight").value, 10), sk = parseFloat($("#bp-sk").value) || 200, cost = parseFloat($("#bp-cost").value) || 0;
+      var extra = parseFloat($("#bp-extra").value) || 0, speed = parseFloat($("#bp-speed").value) || 1, rate = parseFloat($("#bp-rate").value) || 0, oh = (parseFloat($("#bp-oh").value) || 0) / 100;
+      var yd = b.w * b.l * 0.667 * (bpWM[wn] || 1) * (knit ? 1 : 1.27), skeins = Math.ceil(yd / sk), mat = skeins * cost + extra;
+      var est = b.w * b.l * 25 / 3000 * BPTF[wn] * (knit ? 2 : 1) * speed, hIn = parseFloat($("#bp-h").value), hrs = hIn > 0 ? hIn : est;
+      $("#bp-h-note").textContent = hIn > 0 ? "Our estimate was about " + Math.round(est) + " h." : "Leave empty to use our estimate (about " + Math.round(est) + " h).";
+      var labour = hrs * rate, base = (mat + labour) * (1 + oh), ch = $("#bp-ch").value, price, fees;
+      if (ch === "etsy") price = (base + 0.45) / (1 - 0.095); else if (ch === "fair") price = base / 0.97; else price = base;
+      fees = price - base;
+      var r5 = function (x) { return "$" + (Math.round(x / 5) * 5).toLocaleString("en-US"); };
+      var x3 = mat * 3, x3h = Math.max(0, (x3 * (ch === "etsy" ? 0.905 : ch === "fair" ? 0.97 : 1) - (ch === "etsy" ? 0.45 : 0) - mat) / hrs);
+      var dc = mat * 2 + labour;
+      var h = "<h3>Fair price</h3><div class=\"big\">" + r5(price) + " <small>" + (ch === "etsy" ? "on Etsy" : ch === "fair" ? "at a craft fair" : "direct") + "</small></div>";
+      h += "<p class=\"sub\">" + esc(b.name) + ", " + b.w + " × " + b.l + " in, " + (knit ? "knitted" : "crocheted") + ". Plus shipping, charged separately.</p>";
+      h += '<div class="tb-stats"><div><strong>' + fmt(yd) + " yd</strong><span>yarn, about " + skeins + " skein" + (skeins > 1 ? "s" : "") + " (" + money(skeins * cost) + ")</span></div><div><strong>" + (Math.round(hrs * 2) / 2) + " h</strong><span>" + (hIn > 0 ? "your hours" : "our estimate of the hours") + "</span></div>";
+      h += "<div><strong>" + money(labour) + "</strong><span>your pay at $" + rate + "/h</span></div><div><strong>" + money(fees) + "</strong><span>" + (ch === "direct" ? "no fees" : "fees covered") + "</span></div></div>";
+      h += "<h3>Other ways to work it out</h3><ul class=\"sk-steps\"><li><strong>Materials × 2 + labour</strong> (Daisy Cottage Designs' method): about " + r5(dc) + " before fees, with doubled yarn standing in for overheads.</li><li><strong>Materials × 3:</strong> " + r5(x3) + ", which would pay you about <strong>$" + x3h.toFixed(2) + " an hour</strong>.</li></ul>";
+      var tr = parseFloat($("#bp-try").value);
+      if (tr > 0) {
+        var net = ch === "etsy" ? tr * 0.905 - 0.45 : ch === "fair" ? tr * 0.97 : tr, ph = (net / (1 + oh) - mat) / hrs;
+        h += "<p class=\"sub" + (ph < rate ? " tb-warn" : "") + "\">At " + money(tr) + " you'd earn about <strong>$" + ph.toFixed(2) + " an hour</strong>" + (ph < rate ? ", less than the $" + rate + " you set." : ". Nice.") + "</p>";
+      }
+      if (price > 300 && !knit && wn < 6) h += "<p class=\"sub\">Price feels high? The same size in super bulky yarn would take about " + Math.round(b.w * b.l * 25 / 3000 * BPTF[6] * speed) + " h instead of " + Math.round(est) + ".</p>";
+      h += '<hr><p class="sub">Hours and yarn are our estimates for plain stitches (LoveCrafts\' 25 h for a crocheted throw, scaled by size and yarn). Etsy: 6.5% + 3% + $0.25 + $0.20 listing (US). Next: <a href="' + (location.protocol === "file:" ? "how-to-price-crochet-items.html" : "/how-to-price-crochet-items") + '" style="color:#ffd38a">pricing other crochet items</a>.</p>';
+      out.innerHTML = h;
+      // stacked bar: yarn, time, overheads, fees
+      var parts = [["Yarn and extras", mat, "#f4a823"], ["Your time", labour, "#b8326a"], ["Overheads", (mat + labour) * oh, "#2f8f8a"], ["Fees", fees, "#4a5470"]];
+      var tot = parts.reduce(function (a, p) { return a + p[1]; }, 0) || 1, X = 20, W = 260, g = "", k;
+      parts.forEach(function (p, i) {
+        var w = W * p[1] / tot; if (w > 0) g += '<rect x="' + X.toFixed(1) + '" y="24" width="' + w.toFixed(1) + '" height="34" fill="' + p[2] + '"' + (i === 0 ? ' rx="4"' : "") + "/>"; X += w;
+      });
+      for (k = 0; k < 4; k++) {
+        var p = parts[k], yy = 84 + k * 16;
+        g += '<rect x="20" y="' + (yy - 9) + '" width="10" height="10" rx="2" fill="' + p[2] + '"/><text x="36" y="' + yy + '" font-size="11" fill="#1f2a44">' + p[0] + '</text><text x="280" y="' + yy + '" font-size="11" text-anchor="end" fill="#1f2a44">' + money(p[1]) + " (" + Math.round(p[1] / tot * 100) + "%)</text>";
+      }
+      g += '<text x="20" y="16" font-size="11" fill="#4a5470">What the price is made of</text>';
+      $("#bp-svg").innerHTML = g;
+      $("#bp-cap").textContent = "Your time is " + Math.round(labour / tot * 100) + "% of this blanket's price.";
+    }
+    ["#bp-size", "#bp-weight", "#bp-speed", "#bp-ch"].forEach(function (s) { $(s).addEventListener("change", bpCalc); });
+    ["#bp-w", "#bp-l", "#bp-sk", "#bp-cost", "#bp-extra", "#bp-h", "#bp-rate", "#bp-oh", "#bp-try"].forEach(function (s) { $(s).addEventListener("input", bpCalc); });
+    seg(bpCraft, bpCalc);
+    bpCalc();
+  }
+
+
 })();
