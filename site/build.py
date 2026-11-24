@@ -27,7 +27,7 @@ NAV = [("row-counter.html", "Row counter"), ("yarn-calculator.html", "Yarn calcu
        ("projects.html", "Projects"), ("journal-prompts.html", "Journal prompts")]
 TOOLS_MORE = [("blanket-size-calculator.html", "Blanket size calculator"), ("crochet-knitting-gift-planner.html", "Handmade gift planner"), ("hat-size-chart.html", "Hat size calculator"), ("granny-square-blanket-calculator.html", "Granny square calculator"), ("increase-decrease-calculator.html", "Increase evenly calculator"), ("sock-size-chart.html", "Sock size calculator"), ("yarn-substitution-calculator.html", "Yarn substitution calculator"), ("cast-on-calculator.html", "Cast on calculator"), ("crochet-circle-calculator.html", "Crochet circle calculator"), ("temperature-blanket-planner.html", "Temperature blanket planner"), ("yarn-yardage-calculator.html", "Yarn yardage calculator"), ("foundation-chain-calculator.html", "Foundation chain calculator"), ("junk-journal-signature-calculator.html", "Junk journal signature calculator")]
 GUIDES = [("yarn-weights.html", "Yarn weight chart"), ("hook-needle-sizes.html", "Hook and needle sizes"),
-          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet")]
+          ("crochet-terms.html", "US vs UK crochet terms"), ("junk-journal-beginners.html", "Junk journaling for beginners"), ("how-to-price-crochet-items.html", "How to price crochet items"), ("how-to-tea-stain-paper.html", "How to tea stain paper"), ("knitting-abbreviations.html", "Knitting abbreviations"), ("junk-journal-ephemera-ideas.html", "Junk journal ephemera ideas"), ("craft-fair-checklist.html", "Craft fair checklist"), ("how-to-crochet-magic-ring.html", "How to crochet a magic ring"), ("how-to-change-colors-in-crochet.html", "How to change colours in crochet"), ("how-to-bind-off-knitting.html", "How to bind off knitting"), ("how-to-weave-in-ends.html", "How to weave in ends")]
 LOGO = ('<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="20" r="13" fill="#b8326a"/>'
         '<path d="M6 15c7 3 15 3 22-2M5 22c8 4 17 4 24-3M9 29c6 2 13 1 18-4M12 8c-1 8 0 17 5 25M20 7c3 7 4 16 1 26" fill="none" stroke="#fbfcfa" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>'
         '<path d="M29 28c4 1 7 4 8 8" fill="none" stroke="#b8326a" stroke-width="2" stroke-linecap="round"/>'
@@ -91,6 +91,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "junk-journal-signature-calculator.html": ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit", "journaling-cards-3x4"],
             "how-to-crochet-magic-ring.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "how-to-change-colors-in-crochet.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-bind-off-knitting.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
+            "how-to-weave-in-ends.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
 
 
@@ -262,7 +264,7 @@ home = f'''<section class="hero" aria-label="Introduction">
 <a class="guide" href="{href("hook-needle-sizes.html")}"><div class="gi">mm ↔ US</div><h3>Hook and needle sizes</h3><p>Metric, US and old UK sizes side by side, with a quick finder.</p></a>
 <a class="guide" href="{href("crochet-terms.html")}"><div class="gi">sc = dc?</div><h3>US vs UK crochet terms</h3><p>Why a UK double crochet is a US single, and a full conversion table.</p></a>
 <a class="guide" href="{href("junk-journal-beginners.html")}"><div class="gi">Page 1</div><h3>Junk journaling for beginners</h3><p>What it is, what you need (mostly free), and how to bind your first signature.</p></a>
-</div><p class="guides-more">New on the work table: step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
+</div><p class="guides-more">New on the work table: <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a> (with a chooser for stretchy bind offs and how much yarn to keep), <a href="{href("how-to-weave-in-ends.html")}">how to weave in ends</a> in crochet and knitting (with a helper for your yarn), step-by-step guides to <a href="{href("how-to-crochet-magic-ring.html")}">the crochet magic ring</a> (with a helper that writes your first rounds) and <a href="{href("how-to-change-colors-in-crochet.html")}">changing colours in crochet</a> (with a stripe planner that says when to carry and when to cut), the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> (how many chains to start a crochet blanket or scarf), a <a href="{href("junk-journal-signature-calculator.html")}">junk journal signature calculator</a> (pages, spine, sewing holes and thread), the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> (weigh a leftover ball to see how many yards are left), a printable <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> with a stock and cash float planner, the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a> (colour key, ranges and yarn per colour for 2027), a <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list with a pattern decoder</a> (paste a line, get plain English), 62 <a href="{href("junk-journal-ephemera-ideas.html")}">junk journal ephemera ideas</a> with a checklist, the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a> (stitches per round and an amigurumi ball pattern), the <a href="{href("cast-on-calculator.html")}">cast on calculator</a> (how many stitches for a scarf, blanket or cowl), seasonal <a href="{href("journal-prompts.html")}">winter and Christmas journal prompts</a>, the <a href="{href("yarn-substitution-calculator.html")}">yarn substitution calculator</a> (how many balls of a different yarn), a guide to <a href="{href("how-to-tea-stain-paper.html")}">tea staining paper</a> for junk journals with a shade tester, the <a href="{href("sock-size-chart.html")}">sock size chart and cast-on calculator</a> (heel, gusset and toe numbers for your gauge), the <a href="{href("increase-decrease-calculator.html")}">increase and decrease evenly calculator</a> (it writes the row out for you), a guide to <a href="{href("how-to-price-crochet-items.html")}">pricing crochet items to sell</a> with a fee calculator, the <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> (how many squares and how much yarn), the <a href="{href("hat-size-chart.html")}">hat size chart and cast-on calculator</a> (preemie to adult, knit or crochet), the <a href="{href("crochet-knitting-gift-planner.html")}">handmade Christmas gift planner</a> (will your knitted and crocheted gifts be ready in time?) and the <a href="{href("blanket-size-calculator.html")}">blanket size chart and yarn calculator</a>, from lovey to king size.</p></div></section>'''
 home_faq = [
     ("Are these tools really free?", "Yes. Every tool is free and works in your browser without an account. The site is supported by ads."),
     ("Will my row count be saved if I close the page?", "Yes. Counters, projects and saved prompts are stored on your own device, so they're still there when you come back on the same phone or computer and browser."),
@@ -361,8 +363,12 @@ page("yarn-calculator.html", "Yarn Calculator: How Much Yarn Do I Need? | Purl &
      yc, yc_faq, "Yarn calculator", app_name="Yarn calculator")
 
 # ---------------- GAUGE ----------------
+def _gc_w(sts, pg, yg): return sts / (yg / 4)
+GC_ROWS = [(g, int(20 * g / 4)) for g in (12, 16, 18, 20, 22, 24, 28)]
+gc_tbl = "".join(f"<tr><td><strong>{g} sts</strong> ({g / 4:g} per in)</td><td>{n}</td>" + "".join(f"<td>{_gc_w(n, g, g + d):.1f} in</td>" for d in (-2, -1, 1, 2)) + "</tr>" for g, n in GC_ROWS)
 gc = top("Gauge converter", "Your swatch came out different from the pattern? See how big your piece will turn out, and how many stitches and rows to use instead.", "Gauge converter") + '''
-<section style="padding-top:10px"><div class="wrap tool">
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> finished width = <strong>stitches ÷ your stitches per inch</strong>. A pattern with 100 stitches at 20 sts per 4 in (5 per inch) comes out 20 in wide. If your swatch has 18 sts per 4 in (4.5 per inch), the same 100 stitches make <strong>22.2 in</strong>. More stitches than the pattern: go <strong>up</strong> a needle or hook size. Fewer: go <strong>down</strong> a size. Or keep your gauge and change the numbers below.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool">
 <div class="sheet">
 <div class="field"><span class="label" id="gc-u-l">Gauge measured over</span><div class="seg" role="group" aria-labelledby="gc-u-l" id="gc-unit"><button type="button" data-v="in" aria-pressed="true">4 inches</button><button type="button" data-v="cm" aria-pressed="false">10 cm</button></div></div>
 <h3 style="margin-top:8px">The pattern's gauge</h3>
@@ -374,24 +380,35 @@ gc = top("Gauge converter", "Your swatch came out different from the pattern? Se
 </div>
 <div class="result" aria-live="polite" id="gc-out"></div>
 </div></section>
-<section style="padding-top:0"><div class="narrow prose"><h2>Should you change needles or the numbers?</h2>
+<section style="padding-top:0"><div class="narrow prose"><h2>Should I change needles or the numbers?</h2>
 <p>If you have <strong>more</strong> stitches than the pattern, your fabric is tighter: go up a needle or hook size. If you have <strong>fewer</strong>, it's looser: go down a size. Changing tool size is usually the best first fix, because it keeps the fabric feel the designer intended.</p>
 <p>If you love your fabric as it is, use the new stitch and row numbers above instead. Round to suit your stitch pattern: if it repeats over 4 stitches, pick the nearest multiple of 4.</p>
 <div class="callout">Measure your swatch after washing and drying it the way you'll treat the finished piece. Many yarns grow or shrink a little.</div>
-<h2>How to measure a swatch</h2>
+<h2>How much does one stitch off change the size?</h2>
+<p>Each row of the table is a piece that should be 20 in (51 cm) wide at the pattern's gauge. The columns show how wide it really comes out if your swatch has 1 or 2 stitches more or fewer over 4 in.</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Pattern gauge (per 4 in)</th><th scope="col">Stitches for 20 in</th><th scope="col">You get 2 fewer</th><th scope="col">1 fewer</th><th scope="col">1 more</th><th scope="col">2 more</th></tr></thead><tbody>''' + gc_tbl + '''</tbody></table></div>
+<p class="note">Plain maths: stitches ÷ (your stitches over 4 in ÷ 4). The thicker the yarn, the more one stitch matters.</p>
+<h2>What does "20 sts and 28 rows = 4 in" mean?</h2>
+<p>It's the pattern's gauge (tension in the UK): in a square of the fabric 4 in (10 cm) across, there are 20 stitches side to side and 28 rows top to bottom, with the needle or hook size given and usually after blocking. It tells you the size the designer's numbers will make.</p>
+<h2>Does row gauge matter?</h2>
+<p>Less than stitch gauge, for most patterns, because they usually say "work until the piece measures 10 in" rather than give a row count. It does matter when the pattern counts rows (raglan sleeves, top-down yokes, colourwork charts, crochet worked to a set number of rows) and for how much yarn you use. If only your rows are off, keep your needle and work to the length instead of the row count.</p>
+<h2>How do I measure a swatch?</h2>
 <ol><li>Make a swatch at least 6 inches (15 cm) wide in the stitch the pattern uses for its gauge, with the same needles or hook.</li>
 <li>Wash and dry it, then lay it flat without stretching.</li>
 <li>Count the stitches across 4 inches (10 cm) in the middle, away from the edges. Count half stitches too.</li>
 <li>Do the same for rows, measuring up and down.</li></ol>
 <p>For hats, socks and anything else worked in the round, knit the swatch in the round too if you can. Many knitters purl a little looser than they knit, so a flat swatch can give a slightly different number.</p>
 <h2>Gauge for a hat or a sweater</h2>
-<p>Small differences add up on fitted pieces. On a 20 inch hat, being half a stitch per inch off changes the size by about 2 inches. Got your stitches per inch? The <a href="@@HAT@@">hat size calculator</a> turns them into a cast-on count for any head size, and the <a href="@@YW@@">yarn weight chart</a> shows the usual gauge for each yarn.</p></div></section>'''
+<p>Small differences add up on fitted pieces. On a 20 inch hat, being half a stitch per inch off changes the size by about 2 inches. Got your stitches per inch? The <a href="@@HAT@@">hat size calculator</a> turns them into a cast-on count for any head size, and the <a href="@@YW@@">yarn weight chart</a> shows the usual gauge for each yarn.</p>
+<p>What next? Turn your gauge into a starting number with the <a href="''' + href("cast-on-calculator.html") + '''">cast on calculator</a> or, for crochet, the <a href="''' + href("foundation-chain-calculator.html") + '''">foundation chain calculator</a>, and see how much yarn the new size takes with the <a href="''' + href("yarn-calculator.html") + '''">yarn calculator</a>.</p></div></section>'''
 gc = gc.replace("@@HAT@@", href("hat-size-chart.html")).replace("@@YW@@", href("yarn-weights.html"))
 gc_faq = [
     ("How do I measure gauge in crochet?", "Crochet a swatch at least 6 inches wide in the pattern's stitch, block it, then count the stitches and rows over 4 inches (10 cm) in the middle. Include half stitches."),
     ("What is gauge in knitting and crochet?", "Gauge (called tension in the UK) is how many stitches and rows fit in a set width, usually 4 inches or 10 cm. Matching it is what makes a garment come out the size the pattern says."),
     ("Does gauge matter for scarves and blankets?", "Less. A scarf a little wider is usually fine, but it changes how much yarn you need. For fitted garments, hats and socks it matters a lot."),
-    ("Why is my gauge different from the pattern?", "Everyone holds yarn with a different tension, and needle materials and yarn brands vary. That's normal, which is why patterns ask you to swatch."),
+    ("Why is my gauge different from the pattern?", "Everyone holds yarn with a different tension, and needle materials and yarn brands vary. That's normal, which is why patterns ask you to swatch."),    ("How do I work out the finished size from my gauge?", "Divide the number of stitches by your stitches per inch. 100 stitches at 4.5 stitches per inch make a piece about 22.2 in wide."),
+    ("If I have too many stitches, do I go up or down a needle size?", "Up. More stitches per 4 in means your fabric is tighter than the pattern's, so a bigger needle or hook makes bigger stitches. Too few stitches: go down a size."),
+    ("Does row gauge matter?", "Less than stitch gauge for most patterns, which say to work to a length. It matters when a pattern counts rows, such as raglans, yokes, charts and crochet worked to a set number of rows."),
 ]
 page("gauge-converter.html", "Gauge Converter for Knitting and Crochet | Purl & Paper",
      "Free knitting and crochet gauge converter. Compare your swatch to the pattern, see the finished size, and get new stitch and row counts.",
@@ -615,7 +632,7 @@ ct = top("US vs UK crochet terms", "The same stitch has a different name on each
 <p><strong>UK terms:</strong> ss into the ch-2 sp, ch 3 (counts as tr), 2 tr in same sp, ch 1, *(3 tr, ch 2, 3 tr) in next ch-2 corner sp, ch 1; rep from * around, ending with 3 tr in the first sp, ch 2, ss to top of ch 3.</p>
 <p>Planning a whole blanket of squares? The <a href="@@GS@@">granny square blanket calculator</a> works out how many squares, the layout and roughly how much yarn. Crocheting in the round? The <a href="@@CI@@">crochet circle calculator</a> gives the stitch count for every round in sc, hdc or dc, and an amigurumi ball pattern.</p>
 <p>Learning the basics? See our step-by-step guides to the <a href="@@MR@@">magic ring</a> and <a href="@@CC@@">changing colours in crochet</a>.</p>
-<p>What next? Knit as well? Our <a href="@@KA@@">knitting abbreviations list</a> explains k2tog, ssk, M1 and the rest, and translates a whole pattern line. Working out hook sizes from a UK pattern? See the <a href="@@HN@@">hook and needle size chart</a>, and keep count of rows with the <a href="@@RC@@">row counter</a>.</p></div></section>'''.replace("@@KA@@", href("knitting-abbreviations.html")).replace("@@MR@@", href("how-to-crochet-magic-ring.html")).replace("@@CC@@", href("how-to-change-colors-in-crochet.html")).replace("@@HN@@", href("hook-needle-sizes.html")).replace("@@RC@@", href("row-counter.html")).replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
+<p>What next? Finished? <a href="@@WE@@">Fasten off and weave in your ends</a> so they never poke out. Knit as well? Our <a href="@@KA@@">knitting abbreviations list</a> explains k2tog, ssk, M1 and the rest, and translates a whole pattern line. Working out hook sizes from a UK pattern? See the <a href="@@HN@@">hook and needle size chart</a>, and keep count of rows with the <a href="@@RC@@">row counter</a>.</p></div></section>'''.replace("@@KA@@", href("knitting-abbreviations.html")).replace("@@WE@@", href("how-to-weave-in-ends.html")).replace("@@MR@@", href("how-to-crochet-magic-ring.html")).replace("@@CC@@", href("how-to-change-colors-in-crochet.html")).replace("@@HN@@", href("hook-needle-sizes.html")).replace("@@RC@@", href("row-counter.html")).replace("@@GS@@", href("granny-square-blanket-calculator.html")).replace("@@CI@@", href("crochet-circle-calculator.html"))
 ct_faq = [
     ("Is UK double crochet the same as US single crochet?", "Yes. A UK double crochet (dc) is worked exactly like a US single crochet (sc)."),
     ("What is a treble crochet in US terms?", "A UK treble (tr) is a US double crochet (dc). A US treble (tr) is a UK double treble (dtr)."),
@@ -1353,7 +1370,7 @@ co = top("Cast on calculator: how many stitches to cast on", "Pick what you're m
 <p>Straight needles hold a scarf or dishcloth easily. For a wrap or blanket, use a long circular needle (32 to 40 in, or longer for big blankets) and knit back and forth: the weight sits on the cable instead of your wrists. In the round, pick a circular that is shorter than the piece is around, so the stitches reach without stretching. A 16 in circular suits hats, 24 in suits most cowls, and a long infinity scarf can go on a 32 to 47 in cable.</p>
 <h2>How many chains for crochet?</h2>
 <p>Work out the number of stitches the same way, from your crochet swatch. Then chain that number plus the turning chain your pattern's first row asks for (often 1 extra for single crochet, more for taller stitches). Your pattern says which chain to start in, and that decides the exact number. The <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a> works it out for sc, hdc, dc and treble.</p>
-<p>What next? Check your needle size on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see how much yarn it takes with the <a href="{href("yarn-calculator.html")}">yarn calculator</a> or <a href="{href("blanket-size-calculator.html")}">blanket calculator</a>, see the size your swatch will really give with the <a href="{href("gauge-converter.html")}">gauge converter</a>, and space out shaping with the <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a>.</p></div></section>'''
+<p>What next? Check your needle size on the <a href="{href("hook-needle-sizes.html")}">hook and needle size chart</a>, see how much yarn it takes with the <a href="{href("yarn-calculator.html")}">yarn calculator</a> or <a href="{href("blanket-size-calculator.html")}">blanket calculator</a>, see the size your swatch will really give with the <a href="{href("gauge-converter.html")}">gauge converter</a>, and space out shaping with the <a href="{href("increase-decrease-calculator.html")}">increase evenly calculator</a>. At the other end, our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a> shows which bind off to use and how much yarn to keep for it.</p></div></section>'''
 co_faq = [
     ("How many stitches do I cast on for a scarf?", f"For an 8 in adult scarf in worsted yarn at about 4.5 stitches per inch, cast on about {_co_sc} stitches. Use about {co_count(8, 28)} in fingering, {co_count(8, 14)} in bulky and {_co_ch} in super bulky yarn. Children's scarves are 5 to 7 in wide."),
     ("How many stitches do I cast on for a blanket?", f"Multiply the blanket's width by your stitches per inch. A 36 in baby blanket in worsted needs about {co_count(36, 18)} stitches, and a 50 in throw about {_co_th}. Bulky yarn needs about {co_count(50, 14)} for a throw."),
@@ -1586,9 +1603,9 @@ ka = top("Knitting abbreviations", "Every common knitting abbreviation in plain 
 <li><strong>Read one row at a time</strong> and say it out loud in plain words, or paste it into the decoder above.</li>
 <li><strong>Check the stitch count</strong> at the end of each shaping row. Most patterns give it in brackets or after a dash.</li>
 <li><strong>Keep your place.</strong> The <a href="@@RC@@">row counter</a> keeps count and repeat numbers for you.</li></ol>
-<p>Shaping a row yourself? The <a href="@@ID@@">increase and decrease evenly calculator</a> writes the row out in these same abbreviations, and the <a href="@@CO@@">cast on calculator</a> tells you how many stitches to start with.</p>
+<p>Shaping a row yourself? The <a href="@@ID@@">increase and decrease evenly calculator</a> writes the row out in these same abbreviations, and the <a href="@@CO@@">cast on calculator</a> tells you how many stitches to start with. Pattern says "BO" or "cast off"? Our <a href="@@BO@@">bind off guide</a> shows how, and which stretchy bind off to use.</p>
 <p class="note">Abbreviations follow the Craft Yarn Council's knitting abbreviations list and LoveCrafts' guide; UK names from Little Red Window's UK vs US terms guide. Explanations are in our own words.</p></div></section>'''
-for k_, f_ in (("@@CT@@", "crochet-terms.html"), ("@@HN@@", "hook-needle-sizes.html"), ("@@YW@@", "yarn-weights.html"), ("@@GC@@", "gauge-converter.html"), ("@@RC@@", "row-counter.html"), ("@@ID@@", "increase-decrease-calculator.html"), ("@@CO@@", "cast-on-calculator.html")):
+for k_, f_ in (("@@BO@@", "how-to-bind-off-knitting.html"), ("@@CT@@", "crochet-terms.html"), ("@@HN@@", "hook-needle-sizes.html"), ("@@YW@@", "yarn-weights.html"), ("@@GC@@", "gauge-converter.html"), ("@@RC@@", "row-counter.html"), ("@@ID@@", "increase-decrease-calculator.html"), ("@@CO@@", "cast-on-calculator.html")):
     ka = ka.replace(k_, href(f_))
 ka_faq = [
     ("What does k2tog mean in knitting?", "Knit 2 together: put the needle into the next two stitches as if to knit and knit them as one. It's a decrease that leans to the right and loses one stitch."),
@@ -2313,7 +2330,7 @@ mr = top("How to crochet a magic ring", "The magic ring (or magic circle) starts
 <li><strong>Chain 4 and join</strong> with a slip stitch to make a ring, then work into the ring. This leaves a clear hole, which is fine for granny squares and mandalas.</li></ul>
 <h2>Joined rounds or a spiral?</h2>
 <p><strong>Joined</strong> rounds end with a slip stitch into the first stitch and start with a chain. They make a neat line of joins and stripes that stay straight: good for coasters, hats and granny circles. <strong>Spiral</strong> rounds just keep going, so there's no seam, which is why amigurumi patterns use them. Put a stitch marker in the first stitch of every round so you don't lose count, and keep count with our <a href="{href("row-counter.html")}">row counter</a>.</p>
-<p>What next? Plan a flat circle or amigurumi ball with the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a>, learn <a href="{href("how-to-change-colors-in-crochet.html")}">how to change colours in crochet</a> for a striped circle, and check a pattern's stitch names on the <a href="{href("crochet-terms.html")}">US vs UK crochet terms</a> chart.</p></div></section>'''
+<p>What next? Plan a flat circle or amigurumi ball with the <a href="{href("crochet-circle-calculator.html")}">crochet circle calculator</a>, learn <a href="{href("how-to-change-colors-in-crochet.html")}">how to change colours in crochet</a> for a striped circle, and check a pattern's stitch names on the <a href="{href("crochet-terms.html")}">US vs UK crochet terms</a> chart. Done? Hide the tails with our guide to <a href="{href("how-to-weave-in-ends.html")}">fastening off and weaving in ends</a>.</p></div></section>'''
 mr_faq = [
     ("How do you crochet a magic ring?", "Make a loop with the tail crossing over the working yarn, put the hook through, pull up a loop of the working yarn and chain 1. Work your stitches into the ring, under both the ring and the tail, then pull the tail to close the hole."),
     ("How many stitches go in a magic ring?", "Usually 6 single crochet. Half double crochet rings often start with 8, and double crochet with 10 to 12. Your pattern may say otherwise, so follow it."),
@@ -2399,7 +2416,7 @@ cc = top("How to change colours in crochet", "Change colour on the last yarn ove
 <h2>Should I knot the yarn when changing colours?</h2>
 <p>You don't need to. A well woven-in tail holds better than a knot, and knots can work loose or poke through on the right side. Some crocheters tie the two tails together loosely to stop the first stitch slipping while they work, then untie it before weaving in. Or use a Russian join to join yarn of the same kind with no ends to weave.</p>
 <h2>How do I weave in the ends?</h2>
-<p>Leave about 6 in (15 cm). Thread the tail on a blunt yarn needle and weave it through the back of stitches of the <strong>same colour</strong>, so it doesn't show. Go one way for an inch or two, then turn and go back a short way through different stitches, and trim close. To save time, crochet over the tails as you go: hold them along the top of the row and work the next few stitches over them.</p>
+<p>Our full guide to <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a> covers slippery and chunky yarn, amigurumi and the invisible fasten off. In short: leave about 6 in (15 cm). Thread the tail on a blunt yarn needle and weave it through the back of stitches of the <strong>same colour</strong>, so it doesn't show. Go one way for an inch or two, then turn and go back a short way through different stitches, and trim close. To save time, crochet over the tails as you go: hold them along the top of the row and work the next few stitches over them.</p>
 <p>What next? Plan a striped temperature blanket with the <a href="{href("temperature-blanket-planner.html")}">temperature blanket planner</a>, start the right number of chains with the <a href="{href("foundation-chain-calculator.html")}">foundation chain calculator</a>, or start a striped circle with a <a href="{href("how-to-crochet-magic-ring.html")}">magic ring</a>. Using up scraps? Weigh them in the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a> first.</p></div></section>'''
 cc_faq = [
     ("How do you change colours in crochet?", "Work the last stitch before the change in the old colour until 2 loops are left on the hook, drop the old colour, then yarn over with the new colour and pull through to finish the stitch."),
@@ -2413,11 +2430,220 @@ page("how-to-change-colors-in-crochet.html", "How to Change Colors in Crochet (W
      "How to change colours in crochet: the last yarn over method for sc, hdc and dc, at the end of a row, mid-row and in rounds; carrying yarn up the side without cutting; knots and tails. With a stripe planner.",
      cc, cc_faq, "How to change colours in crochet", app_name="Crochet stripe planner")
 
+# ---------------- HOW TO BIND OFF KNITTING (guide + bind off chooser) ----------------
+_ND = "#c9a37a"
+def _needle(x1, y1, x2, y2):
+    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{_ND}" stroke-width="7" stroke-linecap="round"/>'
+            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>')
+def _kst(x, y, col=_Y, w=3.2):
+    return f'<path d="M{x - 8} {y - 12} Q{x} {y + 2} {x} {y + 12} M{x + 8} {y - 12} Q{x} {y + 2} {x} {y + 12}" fill="none" stroke="{col}" stroke-width="{w}" stroke-linecap="round"/>'
+def _bo_fabric(n_done):
+    o = '<rect x="20" y="98" width="180" height="40" rx="6" fill="#f2e6cf"/>'
+    for r in range(2):
+        for i in range(9):
+            o += _kst(32 + i * 20, 108 + r * 18, "#d97aa0", 2.4)
+    for i in range(n_done):   # finished bound-off chain along the top
+        cx = 32 + i * 20
+        o += f'<ellipse cx="{cx + 10}" cy="92" rx="11" ry="5" fill="none" stroke="{_Y}" stroke-width="3"/>'
+    return o
+def bo_fig(i):
+    if i == 1:
+        body = (_bo_fabric(0) + _needle(10, 74, 120, 74) + _needle(120, 70, 210, 40)
+                + f'<ellipse cx="120" cy="74" rx="7" ry="12" fill="none" stroke="{_Y}" stroke-width="3.2"/><ellipse cx="98" cy="74" rx="7" ry="12" fill="none" stroke="{_TL}" stroke-width="3.2"/>'
+                + _LBL(22, 22, "2 stitches on the right needle") + _LBL(22, 64, "right needle"))
+        cap = ("<strong>Knit 2 stitches.</strong>", "Knit the first two stitches as normal. They sit on the right needle. If your bind offs come out tight, hold a needle 1 or 2 sizes larger in your right hand.")
+    elif i == 2:
+        body = (_bo_fabric(0) + _needle(20, 74, 140, 74) + _needle(130, 66, 210, 30)
+                + f'<ellipse cx="118" cy="74" rx="7" ry="12" fill="none" stroke="{_Y}" stroke-width="3.2"/>'
+                + f'<path d="M96 76 C96 46 120 40 122 60" fill="none" stroke="{_TL}" stroke-width="3.2"/><path d="M114 52 l9 9 l3 -12" fill="none" stroke="{_HK}" stroke-width="2.4" stroke-linecap="round"/>'
+                + _LBL(22, 22, "lift the first stitch over the second") + _LBL(110, 148, "and off the needle", "middle"))
+        cap = ("<strong>Lift the first over.</strong>", "Put the left needle into the first (right-hand) stitch, lift it over the second stitch and off. One stitch bound off, one left on the right needle.")
+    elif i == 3:
+        body = (_bo_fabric(4) + _needle(20, 74, 130, 74) + _needle(130, 70, 210, 40)
+                + f'<ellipse cx="114" cy="74" rx="7" ry="12" fill="none" stroke="{_TL}" stroke-width="3.2"/>'
+                + _LBL(22, 22, "knit 1, lift over, again and again") + _LBL(110, 148, "a neat chain grows along the top", "middle"))
+        cap = ("<strong>Knit 1, lift over. Repeat.</strong>", "Knit one more stitch so there are two on the right needle again, and lift the first over. Keep going until one stitch is left. Bind off loosely: the edge should stretch as much as the fabric.")
+    else:
+        body = (_bo_fabric(9) + f'<ellipse cx="196" cy="74" rx="9" ry="16" fill="none" stroke="{_Y}" stroke-width="3.2"/>'
+                + f'<path d="M196 90 C206 110 214 130 214 146" fill="none" stroke="{_Y}" stroke-width="3.2"/><path d="M188 58 C160 40 120 40 60 50" fill="none" stroke="{_Y}" stroke-width="3.2" stroke-dasharray="2 6" stroke-linecap="round"/>'
+                + f'<path d="M182 46 l-4 8 M190 44 l-2 8" stroke="{_HK}" stroke-width="2"/>'
+                + _LBL(22, 22, "cut, leave 8 in (20 cm), pull through") + _LBL(110, 148, "tug the tail to close the loop", "middle"))
+        cap = ("<strong>Pull the tail through.</strong>", "Cut the yarn, leaving about 8 in (20 cm). Pull the last loop big, take it off the needle and pull the tail right through it. Tug to close, then weave the tail in.")
+    return (f'<figure class="mr-step"><svg viewBox="0 0 220 160" role="img" aria-label="Bind off step {i}">{body}</svg>'
+            f'<figcaption>{cap[0]}{cap[1]}</figcaption></figure>')
+
+BO_METHODS = [  # name, stretch 1-3, best for, how it works
+    ("Basic (standard) bind off", 1, "Scarves, blankets, dishcloths, buttonbands and edges you'll sew into a seam", "Knit 2, lift the first over the second; knit 1, lift over; repeat. Firm, with little stretch."),
+    ("Bind off in pattern", 2, "Ribbing: hat brims, cuffs and collars worked last", "The same lift-over, but knit the knit stitches and purl the purl stitches, so the edge follows the rib."),
+    ("Jeny's surprisingly stretchy bind off", 3, "Toe-up sock cuffs, top-down sleeve cuffs, hems and necklines", "Wrap a yarn over before each stitch (the other way round before a purl), work the stitch, then lift the yarn over and the old stitch over it."),
+    ("Long-tail bind off", 2, "Garter and stockinette edges you want to match a long-tail cast on", "Worked with a long tail, about 4 times the edge, so it mirrors the long-tail cast on."),
+    ("Sewn bind off (Elizabeth Zimmermann)", 2, "Garter stitch edges and anything that needs a soft, neat edge", "Worked with a tapestry needle and a tail 3 to 4 times the edge: through two stitches purlwise, back through the first knitwise, drop it."),
+    ("Tubular bind off", 3, "1×1 rib on sock cuffs, necklines and brims", "A sewn bind off that runs the yarn round the knit and purl stitches like a tube. Very stretchy and almost invisible."),
+    ("Three-needle bind off", 1, "Shoulder seams and joining two sets of live stitches", "Hold both needles together, knit one stitch from each, then bind off as normal. Joins and binds off in one go."),
+]
+BO_NEEDLE = [("A little tight", "Use a right needle 1 size larger"), ("Very tight, won't stretch to the fabric's width", "Use a right needle 2 sizes larger, or a stretchy bind off"), ("Ribbed edge", "Bind off in pattern with the working needle or 1 size larger"), ("Lace to be blocked hard", "Needle at least 2 sizes larger, or Jeny's stretchy")]
+def _bo_dots(n): return "".join("●" if k < n else "○" for k in range(3))
+bo = top("How to bind off knitting", "Binding off (casting off in the UK) closes the last row so it can't unravel. Here's the basic bind off in four drawings, how to keep it loose, which stretchy bind off to use for cuffs, socks and necklines, and a chooser that tells you how much yarn to keep.", "How to bind off knitting") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> <strong>knit 2 stitches, lift the first over the second</strong> and off the needle. Then <strong>knit 1 more and lift over again</strong>; repeat until 1 stitch is left. Cut the yarn leaving about <strong>8 in (20 cm)</strong>, pull it through the last loop and tug. For ribbing, knit the knits and purl the purls as you bind off. If the edge is tight, use a needle <strong>1 or 2 sizes larger</strong> in your right hand.</div>
+<div class="mr-steps">{"".join(bo_fig(i) for i in range(1, 5))}</div>
+<p class="note">Our own drawings. "Bind off" (US) and "cast off" (UK) are the same thing.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Bind off chooser</h2>
+<div class="field"><label for="bo-edge">What are you binding off?</label><select id="bo-edge">
+<option value="scarf" selected>Scarf, blanket or dishcloth end</option><option value="rib">Ribbed hat brim, cuff or collar</option><option value="neck">Sweater neckline, sleeve cuff or hem (top down)</option><option value="sock">Toe-up sock cuff</option><option value="rib11">1×1 rib that must stretch and look invisible</option><option value="shawl">Lace shawl that will be blocked</option><option value="garter">Garter edge to match a long-tail cast on</option><option value="seam">Shoulder seam (two pieces of live stitches)</option></select></div>
+<div class="field"><label>Worked</label><div class="seg" id="bo-way" role="group" aria-label="Worked"><button type="button" data-v="flat" aria-pressed="true">Flat (rows)</button><button type="button" data-v="round" aria-pressed="false">In the round</button></div></div>
+<div class="row2"><div class="field"><label for="bo-w">Edge width (or round all the way)</label><input id="bo-w" type="number" min="1" max="400" step="any" value="8" inputmode="decimal"></div><div class="field"><label for="bo-u">Unit</label><select id="bo-u"><option value="in" selected>inches</option><option value="cm">cm</option></select></div></div>
+<div class="field"><label for="bo-n">Stitches on the needle</label><input id="bo-n" type="number" min="2" max="2000" step="1" value="36" inputmode="numeric"></div>
+<figure class="ts-fig"><svg id="bo-svg" viewBox="0 0 300 140" role="img" aria-label="The edge and the yarn the bind off needs, to scale"></svg><figcaption class="note">Top bar: your edge. Below: the yarn to keep, folded to the edge's width.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="bo-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>Which bind off should I use?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Bind off</th><th scope="col">Stretch</th><th scope="col">Best for</th><th scope="col">How it works</th></tr></thead><tbody>
+{"".join(f'<tr><td><strong>{a}</strong></td><td aria-label="{s} of 3">{_bo_dots(s)}</td><td>{b}</td><td>{c}</td></tr>' for a, s, b, c in BO_METHODS)}</tbody></table></div>
+<p class="note">Uses from Wikipedia's binding off article, Purl Soho's long-tail and Elizabeth Zimmermann bind off tutorials and Cocoknits' guide to Jeny's stretchy bind off. Stretch dots are our rough comparison.</p>
+<h2>How do I bind off in rib (bind off in pattern)?</h2>
+<p>Work each stitch the way it looks: knit the knit stitches, purl the purl stitches, and lift the first stitch over the second after each one, just as in the basic bind off. Before a purl stitch the yarn goes to the front; bring it to the back for the next knit. The edge then follows the slope of the rib instead of pulling it in. Use your working needle or one size larger.</p>
+<h2>Why is my bind off so tight, and how do I fix it?</h2>
+<ul><li><strong>Go up a needle size</strong> for the bind-off row only: hold a needle 1 or 2 sizes larger in your right hand (Wikipedia suggests at least 2 sizes larger for a loose edge).</li>
+<li><strong>Don't tug</strong> each stitch after lifting it over. Let the loop sit at the needle's full width.</li>
+<li><strong>Check it stretches</strong> as far as the fabric below. If it doesn't, rip back the bind-off row (just one row) and try again.</li>
+<li><strong>Switch to a stretchy bind off</strong> for cuffs, sock tops and necklines: Jeny's surprisingly stretchy or a tubular bind off.</li></ul>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">If your edge is…</th><th scope="col">Try</th></tr></thead><tbody>{"".join(f"<tr><td>{a}</td><td>{b}</td></tr>" for a, b in BO_NEEDLE)}</tbody></table></div>
+<h2>How long a tail should I leave after binding off?</h2>
+<p>About <strong>6 to 8 in (15 to 20 cm)</strong> to weave in (Purl Soho says at least 8 in). Leave more if you'll sew a seam with it: roughly the length of the seam plus 8 in is a handy guide (our estimate). Sewn and long-tail bind offs use the tail itself, so cut it <strong>3 to 4 times the edge width</strong> before you start.</p>
+<h2>How much yarn does a bind off use?</h2>
+<p>A basic bind off uses a little more than a row of knitting. Purl Soho's tip is to measure a row you've already worked. We plan on about <strong>3 times the edge width</strong> for a basic bind off (our estimate). Stretchy bind offs use more: one knitter quoted by Cocoknits found Jeny's uses about 6¼ times the width. If you're close to the end of the ball, join new yarn at the start of the bind-off row, not halfway along.</p>
+<h2>How do I fix the loose last stitch at the end?</h2>
+<p>The last bound-off stitch often makes a big loop, or a little "ear" on the corner. An easy fix: when 2 stitches are left on the left needle, knit them together, then lift the last stitch over it, so the final loop is smaller. Then pull the tail firmly through the last loop and give the corner a tug before weaving in.</p>
+<h2>How do I bind off in the round?</h2>
+<p>Bind off all the way round as normal. When one stitch is left, cut the yarn and pull it through. To hide the step where the round started, thread the tail on a tapestry needle, take it under both legs of the <strong>first</strong> bound-off stitch, then back down into the centre of the <strong>last</strong> one. It makes a fake stitch that closes the gap.</p>
+<h2>How do I bind off in the middle of a row?</h2>
+<p>For shoulders, armholes or buttonholes, patterns say "bind off 6 stitches" and then carry on. Bind off the 6 as normal. The stitch left on the right needle after the last lift-over is the <strong>first stitch</strong> of the rest of the row, so count it.</p>
+<h2>Bind off knitwise or purlwise?</h2>
+<p>Bind off on a right-side row knitwise unless the pattern says otherwise. Binding off purlwise on a wrong-side row works the same way, with purl stitches. In ribbing, bind off in pattern. If the pattern just says "bind off in pattern", do the stitch the fabric shows.</p>
+<p>What next? Weave the tail in neatly with our guide to <a href="{href("how-to-weave-in-ends.html")}">weaving in ends</a>, plan your next piece with the <a href="{href("cast-on-calculator.html")}">cast on calculator</a>, or decode a pattern line with the <a href="{href("knitting-abbreviations.html")}">knitting abbreviations list</a>.</p></div></section>'''
+bo_faq = [
+    ("How do you bind off in knitting?", "Knit 2 stitches, lift the first over the second and off the needle. Knit 1 more and lift over again; repeat until 1 stitch is left. Cut the yarn and pull it through the last loop."),
+    ("Is casting off the same as binding off?", "Yes. Cast off is the UK name and bind off is the US name for the same thing: closing the last row so it can't unravel."),
+    ("Why is my bind off too tight?", "Most knitters bind off tighter than they knit. Use a needle 1 or 2 sizes larger in your right hand for the bind-off row, don't tug each stitch, or use a stretchy bind off for cuffs and necklines."),
+    ("How long should the tail be after binding off?", "About 6 to 8 in (15 to 20 cm) to weave in. Leave the seam length plus about 8 in if you'll sew a seam with it."),
+    ("What is the stretchiest bind off?", "Jeny's surprisingly stretchy bind off and the tubular bind off are the usual choices for toe-up sock cuffs, sleeve cuffs, necklines and 1×1 rib."),
+    ("How do you bind off in rib?", "Bind off in pattern: knit the knit stitches and purl the purl stitches, lifting the first over the second after each one."),
+]
+page("how-to-bind-off-knitting.html", "How to Bind Off Knitting (Cast Off) + Stretchy Bind Off Chooser | Purl & Paper",
+     "How to bind off knitting step by step: the basic bind off in 4 drawings, binding off in rib, stretchy bind offs for cuffs, socks and necklines, fixing a tight edge and the last stitch, and how long a tail to leave.",
+     bo, bo_faq, "How to bind off knitting", app_name="Bind off chooser")
+
+# ---------------- HOW TO WEAVE IN ENDS (crochet + knitting, fasten off) ----------------
+def _we_grid(knit):
+    o = '<rect x="14" y="14" width="192" height="120" rx="8" fill="#f2e6cf"/>'
+    for r in range(5):
+        for i in range(8):
+            x, y = 30 + i * 23, 32 + r * 22
+            if knit: o += f'<path d="M{x - 7} {y - 6} q7 6 0 12 M{x + 7} {y - 6} q-7 6 0 12" fill="none" stroke="#d97aa0" stroke-width="2.4" stroke-linecap="round"/>'
+            else: o += f'<rect x="{x - 4}" y="{y - 8}" width="8" height="17" rx="3" fill="none" stroke="#d97aa0" stroke-width="2.4"/>'
+    return o
+def we_fig(i):
+    if i == 1:
+        body = (f'<path d="M30 126 L190 126" stroke="#d97aa0" stroke-width="12" stroke-linecap="round"/>' + _hook(118, 70, -35, 90)
+                + f'<ellipse cx="112" cy="84" rx="10" ry="16" fill="none" stroke="{_Y}" stroke-width="3.6"/><path d="M112 100 C110 112 108 118 104 126" stroke="{_Y}" stroke-width="3.6" fill="none"/>'
+                + f'<path d="M60 40 C80 60 96 70 106 78" fill="none" stroke="{_Y}" stroke-width="3.6" stroke-dasharray="2 6" stroke-linecap="round"/>'
+                + _LBL(20, 24, "cut, leave 6 in (15 cm)") + _LBL(204, 112, "pull the tail through", "end") + _LBL(110, 150, "tug gently to lock it", "middle"))
+        cap = ("<strong>Fasten off (crochet).</strong>", "After the last stitch, cut the yarn leaving about 6 in (15 cm). Yarn over and pull the cut end all the way through the loop on the hook, then tug gently.")
+    elif i == 2:
+        body = (_we_grid(False) + f'<path d="M190 120 L60 120 Q44 120 44 104 L44 76 Q44 66 56 66 L150 66" fill="none" stroke="{_TL}" stroke-width="3.4" stroke-linecap="round"/><circle cx="150" cy="66" r="4" fill="{_MG}"/>'
+                + _LBL(20, 150, "through the stitch posts, then turn back"))
+        cap = ("<strong>Weave in crochet.</strong>", "On the wrong side, run the tail through the posts of a few stitches, about 1 to 2 in (3 to 5 cm). Turn and go back the other way through different strands. Add a third turn for blankets.")
+    elif i == 3:
+        body = (_we_grid(True) + f'<path d="M190 118 Q168 108 168 98 Q168 88 146 88 Q124 88 124 76 Q124 66 102 66 Q80 66 80 54 L60 44" fill="none" stroke="{_TL}" stroke-width="3.4" stroke-linecap="round"/><circle cx="60" cy="44" r="4" fill="{_MG}"/>'
+                + _LBL(20, 150, "follow the purl bumps on the wrong side"))
+        cap = ("<strong>Weave in knitting.</strong>", "On the purl side, follow the path of the yarn through the stitches (duplicate stitch), over 3 to 5 stitches for wool, 5 to 7 for slippery yarn. Split the plies as you go back for extra grip.")
+    else:
+        body = (_we_grid(False) + f'<path d="M30 70 L120 70" stroke="{_TL}" stroke-width="3.4"/><path d="M120 70 l14 -8" stroke="{_TL}" stroke-width="3.4" stroke-linecap="round"/>'
+                + f'<path d="M150 40 l20 20 M170 40 l-20 20" stroke="{_HK}" stroke-width="3"/><circle cx="146" cy="36" r="6" fill="none" stroke="{_HK}" stroke-width="3"/><circle cx="174" cy="36" r="6" fill="none" stroke="{_HK}" stroke-width="3"/>'
+                + f'<path d="M24 108 L60 108 M24 108 l8 -6 M24 108 l8 6 M196 108 L160 108 M196 108 l-8 -6 M196 108 l-8 6" stroke="{_HK}" stroke-width="2.4" fill="none"/>'
+                + _LBL(110, 150, "stretch the fabric, then trim close", "middle"))
+        cap = ("<strong>Stretch, then trim.</strong>", "Give the fabric a gentle stretch so the tail settles, then snip it close. Don't pull so hard the stitches pucker. Weave ends in before you block.")
+    return (f'<figure class="mr-step"><svg viewBox="0 0 220 160" role="img" aria-label="Weaving in ends step {i}">{body}</svg>'
+            f'<figcaption>{cap[0]}{cap[1]}</figcaption></figure>')
+WE_YARN = [("Wool and other grippy yarn", "6 in (15 cm)", "3-5 stitches each way, 2 directions"),
+           ("Cotton, acrylic and smooth yarn", "6 in (15 cm)", "5-7 stitches each way, split the plies"),
+           ("Slippery yarn: superwash, silk, bamboo", "6-8 in (15-20 cm)", "5-7 stitches, 3 directions; sewing thread for extra hold"),
+           ("Bulky and super bulky", "8 in (20 cm)", "Split the plies and weave each one separately"),
+           ("Chenille, velvet and T-shirt yarn", "8 in (20 cm)", "Can't be split: pull through with a small crochet hook")]
+we = top("How to weave in ends", "Every project finishes with tails to hide. Here's how to fasten off in crochet, weave in ends in crochet and knitting so they never poke out, what to do with slippery and chunky yarn, and a helper that tells you how long to leave, how far to weave and how long it'll take.", "How to weave in ends") + f'''
+<section style="padding-top:10px"><div class="wrap">
+<div class="quick"><strong>Quick answer:</strong> leave a tail of about <strong>6 in (15 cm)</strong> (8 in for chunky yarn). Thread it on a blunt tapestry needle and, on the <strong>wrong side</strong>, run it through about 1 to 2 in (3 to 5 cm) of stitches of the same colour. Then <strong>change direction</strong> and go back through different strands; turn a third time for blankets and things that get washed a lot. Gently stretch the fabric and trim close. Weave ends in <strong>before blocking</strong>, and skip the knots.</div>
+<div class="mr-steps">{"".join(we_fig(i) for i in range(1, 5))}</div>
+<p class="note">Our own drawings.</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap tool">
+<div class="sheet">
+<h2 style="font-size:1.25rem;margin-bottom:10px">Weaving in ends helper</h2>
+<div class="field"><label>I'm working in</label><div class="seg" id="we-craft" role="group" aria-label="Craft"><button type="button" data-v="crochet" aria-pressed="true">Crochet</button><button type="button" data-v="knit" aria-pressed="false">Knitting</button></div></div>
+<div class="field"><label for="we-fab">The fabric</label><select id="we-fab"><option value="rows" selected>Rows, flat (scarf, blanket, dishcloth)</option><option value="rounds">Rounds (hat, cowl, circle)</option><option value="granny">Granny squares or motifs</option><option value="ami">Amigurumi or stuffed toy</option><option value="stripes">Stripes or colourwork</option><option value="lace">Lace or open stitches</option><option value="rib">Ribbing</option></select></div>
+<div class="field"><label for="we-yarn">The yarn</label><select id="we-yarn"><option value="wool" selected>Wool or other grippy yarn</option><option value="smooth">Cotton, acrylic or smooth yarn</option><option value="slip">Slippery: superwash, silk, bamboo</option><option value="bulky">Bulky or super bulky</option><option value="chenille">Chenille, velvet or T-shirt yarn</option><option value="fuzzy">Fuzzy: mohair, alpaca, brushed yarn</option></select></div>
+<div class="row2"><div class="field"><label for="we-use">It will be</label><select id="we-use"><option value="wear" selected>Worn (hat, sweater, socks)</option><option value="heavy">Washed a lot (blanket, baby item, dishcloth)</option><option value="deco">Decorative (wall hanging, ornament)</option></select></div><div class="field"><label for="we-n">Ends to weave in</label><input id="we-n" type="number" min="1" max="2000" step="1" value="12" inputmode="numeric"></div></div>
+<figure class="ts-fig"><svg id="we-svg" viewBox="0 0 260 150" role="img" aria-label="The path to weave the tail, on the wrong side"></svg><figcaption class="note">The path your tail takes, on the wrong side. The dot is where you trim.</figcaption></figure>
+</div>
+<div class="result" aria-live="polite" id="we-out"></div>
+</div></section>
+<section style="padding-top:0"><div class="narrow prose">
+<h2>How long should the tail be to weave in?</h2>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Yarn</th><th scope="col">Tail to leave</th><th scope="col">How far to weave</th></tr></thead><tbody>
+{"".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td></tr>" for a, b, c in WE_YARN)}</tbody></table></div>
+<p class="note">Tail lengths from Make and Do Crew, MJ's Off The Hook Designs and Yarnspirations (6 in is the common minimum; thicker yarn needs more). Stitch counts from Cocoknits' duplicate stitch guide. The 8 in for bulky yarn is our rounding.</p>
+<h2>How do I fasten off in crochet?</h2>
+<ol><li>Finish the last stitch. Chain 1 if your pattern says so.</li>
+<li>Cut the yarn, leaving about 6 in (15 cm).</li>
+<li>Yarn over and pull the cut end all the way through the loop on the hook.</li>
+<li>Tug the tail gently to close the loop. Not so hard that the last stitch puckers.</li></ol>
+<h2>What is an invisible fasten off?</h2>
+<p>On joined rounds, a normal fasten off leaves a little bump at the join. For a smoother finish, skip the slip stitch join: cut the yarn after the last stitch and pull the tail straight up through the last stitch. Thread it on a tapestry needle, pass it under <strong>both top loops</strong> of the first stitch of the round (skip the turning chain), then go back down into the centre of the last stitch. It makes a stitch that looks like all the others. Weave in on the wrong side.</p>
+<h2>How do I weave in ends in crochet?</h2>
+<p>Turn the work to the wrong side. Run the tail through the posts or along the tops of 4 to 6 stitches, about 1 to 2 in. Turn and go back the other way, skipping one strand, so the tail zigzags. MJ's Off The Hook Designs weaves in at least two directions and adds a third for things that get heavy use. On granny squares, Make and Do Crew weave under the thick clusters and change direction once. For a magic ring, weave round the first-round stitches, then reverse and tug: it pulls the centre closed too.</p>
+<h2>How do I weave in ends in knitting?</h2>
+<ul><li><strong>Duplicate stitch</strong> (Swiss darning): on the purl side, follow the path of the yarn through the stitches. It holds better than a straight line and doesn't show on the front (Cocoknits).</li>
+<li><strong>Along a seam or edge:</strong> if there's a seam or a selvedge, weave up through it, then back.</li>
+<li><strong>In ribbing:</strong> weave up and down inside one column of stitches so the rib can still stretch.</li>
+<li><strong>Cast-on and bind-off tails:</strong> weave along the edge for a few stitches, then turn into the fabric. At the top of a hat, thread the tail through the live stitches, pull them closed and weave in on the inside.</li></ul>
+<h2>Should I tie a knot before weaving in?</h2>
+<p>No. Knots can work loose and poke through to the front, and you can feel them in a garment. A well woven-in tail holds better. Make and Do Crew also say not to use glue or a lighter; a fabric-safe glue is fine only as an extra layer on something decorative.</p>
+<h2>How do I weave in slippery or chunky yarn?</h2>
+<p>For <strong>slippery yarn</strong> (superwash, silk, bamboo, some cottons), weave further, 5 to 7 stitches each way, split the plies on the way back, and make three turns. Cocoknits' extra trick: whipstitch the tails together with sewing thread, then knot and clip the thread, not the yarn. For <strong>chunky yarn</strong>, split the plies and weave each one on its own so there's no lump. <strong>Chenille, velvet and T-shirt yarn</strong> can't be split, so pull them through with a small crochet hook (Make and Do Crew). <strong>Fuzzy yarn</strong> like mohair grabs on to itself, so a short weave holds well, but it's hard to undo, so weave in carefully the first time.</p>
+<h2>How do I hide ends in amigurumi?</h2>
+<p>After fastening off, close any opening by sewing through the front loops of the last round and pulling tight. Then push the needle into the toy, through the stuffing and out the other side. Pull the tail a little so the toy squashes, snip it close and let go: the end disappears inside.</p>
+<h2>Should I weave in ends before or after blocking?</h2>
+<p>Before. Yarnspirations and Make and Do Crew both weave in ends before blocking or seaming, so blocking sets the tails in place with the stitches. Some knitters leave the last bit untrimmed until after blocking, then snip it, so the tail can't pull back through when the fabric relaxes.</p>
+<h2>How do I weave in fewer ends?</h2>
+<ul><li><strong>Crochet over the tails:</strong> lay them along the top of the row and work the next few stitches over them.</li>
+<li><strong>Weave in as you go</strong> on big or many-colour projects, so you don't face a pile at the end (Make and Do Crew).</li>
+<li><strong>Carry yarn up the side</strong> for even-row stripes instead of cutting. Our <a href="{href("how-to-change-colors-in-crochet.html")}">stripe planner</a> counts the ends for you.</li>
+<li><strong>Join same-colour yarn with a Russian join or spit splice</strong> (for wool that felts), which leaves no ends at all.</li></ul>
+<p>What next? Learn the neatest way to finish knitting with our <a href="{href("how-to-bind-off-knitting.html")}">bind off guide</a>, plan stripes with fewer ends in the <a href="{href("how-to-change-colors-in-crochet.html")}">colour change guide</a>, or start your next round neatly with a <a href="{href("how-to-crochet-magic-ring.html")}">magic ring</a>.</p></div></section>'''
+we_faq = [
+    ("How long should a tail be to weave in?", "About 6 in (15 cm) for most yarn. Leave about 8 in (20 cm) for chunky, slippery or chenille yarn."),
+    ("How do you weave in ends in crochet?", "On the wrong side, run the tail through the posts of a few stitches for about 1 to 2 in, then turn and go back the other way through different strands. Add a third direction for blankets. Stretch gently and trim."),
+    ("How do you weave in ends in knitting?", "On the purl side, follow the path of the yarn through 3 to 5 stitches (duplicate stitch), then come back the other way, splitting the plies. Use 5 to 7 stitches for slippery yarn."),
+    ("Should I tie a knot before weaving in ends?", "No. Knots can work loose and poke through. Weaving in two or three directions holds better."),
+    ("Do you weave in ends before or after blocking?", "Before. Blocking then sets the tails in place. Some knitters trim the last bit after blocking."),
+    ("How do you fasten off in crochet?", "Cut the yarn leaving about 6 in (15 cm), yarn over and pull the cut end all the way through the loop on the hook, then tug gently."),
+    ("How do you stop ends coming out of slippery yarn?", "Weave further (5 to 7 stitches each way), split the plies, change direction three times, and for extra hold whipstitch the tails together with sewing thread."),
+]
+page("how-to-weave-in-ends.html", "How to Weave in Ends (Crochet and Knitting) + Fasten Off | Purl & Paper",
+     "How to fasten off and weave in ends in crochet and knitting so they never come undone: tail length, duplicate stitch, invisible fasten off, slippery and chunky yarn, amigurumi, and a helper for your yarn.",
+     we, we_faq, "How to weave in ends", app_name="Weaving in ends helper")
+
 # ---------------- SITEMAP / ROBOTS ----------------
 page("thanks.html", "Check your inbox | Purl & Paper", "Confirm your email to get your free printables.", NL_THANKS)
 page("welcome.html", "Your free printables | Purl & Paper", "Download your free printable sampler.", NL_WELCOME)
 
-LASTMOD = {"how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "cast-on-calculator.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-21", "blanket-size-calculator.html": "2026-11-23", 
+LASTMOD = {"how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-23", "cast-on-calculator.html": "2026-11-23", "junk-journal-beginners.html": "2026-11-23", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "knitting-abbreviations.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-23", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "increase-decrease-calculator.html": "2026-11-21", "how-to-price-crochet-items.html": "2026-11-23", "row-counter.html": "2026-11-21", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "blanket-size-calculator.html": "2026-11-23", 
            "crochet-knitting-gift-planner.html": "2026-11-20", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = ["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + ["about.html", "privacy.html"]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

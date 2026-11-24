@@ -1699,4 +1699,102 @@
     ["#yw-lu", "#yw-gu"].forEach(function (k) { $(k).addEventListener("change", ywCalc); });
     ywCalc();
   }
+  /* ---------- BIND OFF CHOOSER ---------- */
+  if ($("#bo-out") && $("#bo-edge")) {
+    // method, stretch 1-3, yarn multiple of edge width (+ tail), needle advice, steps
+    var BOM = {
+      scarf: ["Basic bind off", 1, 3, "Use your working needle, or 1 size larger if your bind offs usually come out tight.", ["Knit 2.", "Lift the first stitch over the second and off.", "Knit 1, lift over. Repeat to the last stitch.", "Cut the yarn and pull it through the last loop."], "An edge that doesn't stretch suits scarves, blankets and dishcloths."],
+      rib: ["Bind off in pattern", 2, 3, "Use the working needle or 1 size larger.", ["Work 2 stitches as they look: knit the knits, purl the purls.", "Lift the first over the second.", "Work the next stitch as it looks, lift over. Repeat.", "Cut and pull through. If it must stretch over a head or hand, use Jeny's stretchy instead."], "The edge follows the rib, so it doesn't pull in or flare."],
+      neck: ["Jeny's surprisingly stretchy bind off", 3, 6.25, "Use the working needle; go up a size if it still feels firm.", ["Before a knit stitch: yarn over backwards (back to front over the needle), then knit 1.", "Lift the yarn over over the knit stitch.", "Before a purl: a normal yarn over, purl 1, lift the yarn over over it.", "With 2 stitches on the right needle, lift the first over the second. Repeat to the end."], "It adds a yarn over to every stitch, so the edge stretches as far as the rib below."],
+      sock: ["Jeny's surprisingly stretchy bind off", 3, 6.25, "Use the working needle.", ["Yarn over (backwards before a knit, normal before a purl), work the stitch, lift the yarn over over it.", "Lift the first stitch on the right needle over the second.", "Repeat all the way round.", "Test: the cuff must pull over your heel. If not, go up a needle size."], "A toe-up cuff has to stretch over the heel, so the basic bind off is too tight."],
+      rib11: ["Tubular bind off", 3, 4, "Work it with a tapestry needle. Some knitters do 2 set-up rows of slipped stitches first, as the pattern says.", ["Cut a tail about 4 times the edge.", "Separate or work the knit and purl stitches in pairs with the needle, the way your pattern shows.", "Sew through each stitch twice, taking it off the needle after the second pass.", "Keep the yarn snug, not tight."], "It runs the yarn round the knits and purls like a tube, so the edge is stretchy and almost invisible."],
+      shawl: ["Loose basic bind off", 2, 3.5, "Use a needle at least 2 sizes larger, or switch to Jeny's stretchy if you'll block it hard.", ["Knit 2 with the larger needle.", "Lift the first over the second, without tugging.", "Knit 1, lift over. Repeat.", "Check the edge stretches as far as the lace before you cut."], "Blocking stretches lace a lot. A tight edge stops the points opening out."],
+      garter: ["Long-tail bind off (or the sewn bind off)", 2, 4, "Use the working needle.", ["Cut a tail about 4 times the edge (Purl Soho).", "Work the bind off with the tail as the pattern or tutorial shows, so the edge mirrors the long-tail cast on.", "Or use Elizabeth Zimmermann's sewn bind off with a tapestry needle and a tail 3 to 4 times the edge.", "Finish the last stitch knitwise and pull the yarn through."], "Both edges then match, which looks neat on scarves and blankets."],
+      seam: ["Three-needle bind off", 1, 3, "Use a third needle the same size or 1 size larger.", ["Put the two pieces right sides together, needles parallel.", "Knit 1 stitch from the front and back needle together.", "Do it again, then lift the first over the second.", "Repeat to the end; cut and pull through."], "It joins and binds off in one go, so there's no seam to sew."]
+    };
+    var boWay = $("#bo-way");
+    function boCalc() {
+      var k = $("#bo-edge").value, m = BOM[k], round = segVal(boWay) === "round";
+      var w = parseFloat($("#bo-w").value), cm = $("#bo-u").value === "cm", n = parseInt($("#bo-n").value, 10) || 0;
+      if (!(w > 0)) { $("#bo-out").innerHTML = "<p>Enter the width of the edge.</p>"; return; }
+      var win = cm ? w / 2.54 : w, tail = 8, yarnIn = win * m[2] + tail;
+      var u = function (inch) { return cm ? fmt(inch * 2.54) + " cm" : (inch < 36 ? fmt(inch) + " in" : (inch / 36).toFixed(1) + " yd"); };
+      var alt = function (inch) { return cm ? Math.round(inch) + " in" : fmt(inch * 2.54) + " cm"; };
+      var h = "<h3>Use</h3><div class=\"big\" style=\"font-size:1.9rem;line-height:1.1\">" + esc(m[0]) + "</div>";
+      h += "<p class=\"sub\">Stretch: " + "●●●".slice(0, m[1]) + "○○○".slice(0, 3 - m[1]) + ". " + esc(m[5]) + "</p>";
+      h += '<div class="tb-stats"><div><strong>' + u(yarnIn) + "</strong><span>yarn to keep (" + alt(yarnIn) + ")</span></div><div><strong>" + (cm ? "20 cm" : "8 in") + "</strong><span>tail left to weave in</span></div>" +
+        (n > 1 ? "<div><strong>" + n + "</strong><span>stitches to bind off" + (k === "seam" ? " (" + Math.round(n / 2) + " on each needle)" : "") + "</span></div>" : "") + "<div><strong>" + m[2] + "×</strong><span>the edge width, plus the tail</span></div></div>";
+      h += "<h3>How</h3><ol class=\"sk-steps\">" + m[4].map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") +
+        (round ? "<li>In the round: when 1 stitch is left, cut and pull through, then take the tail under both legs of the first bound-off stitch and back into the last one to close the gap.</li>" : "") + "</ol>";
+      h += "<p class=\"sub\"><strong>Needle:</strong> " + esc(m[3]) + "</p>";
+      h += '<hr><p class="sub">Yarn amounts are our estimates: about 3× the width for a lift-over bind off, 3-4× for sewn and long-tail ones (Purl Soho), about 6¼× for Jeny\'s (one knitter\'s measure, via Cocoknits). Add 8 in (20 cm) to weave in. Next: <a href="' + (location.protocol === "file:" ? "how-to-weave-in-ends.html" : "/how-to-weave-in-ends") + '" style="color:#ffd38a">weave in the tail</a>.</p>';
+      $("#bo-out").innerHTML = h;
+      // drawing: edge bar + the yarn folded into lines of the edge width
+      var lines = m[2] + tail / win, full = Math.floor(lines), part = lines - full, g = "", x0 = 30, W = 240, y = 20, i;
+      g += '<rect x="' + x0 + '" y="' + y + '" width="' + W + '" height="16" rx="5" fill="#1f2a44"/>';
+      g += '<text x="150" y="' + (y + 12) + '" text-anchor="middle" font-size="11" fill="#fff">your edge: ' + esc(u(win)) + "</text>";
+      var gap = Math.min(12, 90 / Math.max(1, full + 1));
+      for (i = 0; i < full; i++) g += '<line x1="' + x0 + '" x2="' + (x0 + W) + '" y1="' + (y + 32 + i * gap) + '" y2="' + (y + 32 + i * gap) + '" stroke="#b8326a" stroke-width="3" stroke-linecap="round"/>';
+      if (part > 0.02) g += '<line x1="' + x0 + '" x2="' + (x0 + W * part).toFixed(1) + '" y1="' + (y + 32 + full * gap) + '" y2="' + (y + 32 + full * gap) + '" stroke="#f4a823" stroke-width="3" stroke-linecap="round"/>';
+      $("#bo-svg").innerHTML = g;
+    }
+    ["#bo-edge", "#bo-u"].forEach(function (s) { $(s).addEventListener("change", boCalc); });
+    ["#bo-w", "#bo-n"].forEach(function (s) { $(s).addEventListener("input", boCalc); });
+    seg(boWay, boCalc);
+    boCalc();
+  }
+
+  /* ---------- WEAVING IN ENDS HELPER ---------- */
+  if ($("#we-out") && $("#we-fab")) {
+    var WEY = { // tail in, stitches each way, extra
+      wool: [6, "3-5", "Wool grips itself, so a short weave holds."],
+      smooth: [6, "5-7", "Smooth yarn slides, so go a little further and split the plies on the way back."],
+      slip: [8, "5-7", "Split the plies, and for extra hold whipstitch the tails together with sewing thread, then knot and clip the thread (Cocoknits)."],
+      bulky: [8, "3-5", "Split the plies and weave each one separately so there's no lump."],
+      chenille: [8, "5-7", "Chenille and T-shirt yarn can't be split. Pull the tail through with a small crochet hook instead of a needle (Make and Do Crew)."],
+      fuzzy: [6, "3-4", "Fuzzy yarn grabs on to itself, so a short weave holds, but it's hard to undo. Weave carefully the first time."]
+    };
+    var weCraft = $("#we-craft");
+    function weCalc() {
+      var knit = segVal(weCraft) === "knit", fab = $("#we-fab").value, y = WEY[$("#we-yarn").value], use = $("#we-use").value;
+      var n = Math.max(1, parseInt($("#we-n").value, 10) || 1), dirs = use === "heavy" || $("#we-yarn").value === "slip" ? 3 : 2;
+      var tool = $("#we-yarn").value === "chenille" ? "a small crochet hook" : ($("#we-yarn").value === "bulky" ? "a big-eye tapestry needle" : "a blunt tapestry needle");
+      var how = [];
+      if (fab === "ami") how = ["Close the opening: sew through the front loops of the last round and pull tight.", "Push the needle into the toy, through the stuffing and out the other side.", "Squash the toy a little, snip the tail close and let go: it disappears inside."];
+      else if (fab === "granny") how = ["On the back, weave under the thick clusters of the last round, not the chain spaces.", "Change direction and go back through the round below.", "If you'll join the squares, you can sew with one tail and weave the other."];
+      else if (fab === "stripes") how = ["Weave each tail into stitches of its own colour, so it can't show through.", knit ? "On the purl side, follow the purl bumps of the same colour (duplicate stitch)." : "On the wrong side, run it through the posts of the same colour.", "Tails at the edge can go up the edge stitches; a border will cover them."];
+      else if (fab === "lace") how = ["Find a solid line: an edge, a seam, or a column of stitches with no holes.", knit ? "Follow the yarn's path with duplicate stitch, staying out of the eyelets." : "Weave through the posts of solid stitches, never across a chain space.", "Keep the tension loose so the lace still opens out when you block it."];
+      else if (fab === "rib") how = [knit ? "On the wrong side, weave up and down inside one column of stitches." : "Weave along the rib's columns, not across them.", "That way the rib can still stretch without the tail pulling.", "Change direction inside the same column."];
+      else if (fab === "rounds") how = [knit ? "At the top of a hat, run the tail through the live stitches, pull them closed and take it to the inside." : "Finish with an invisible fasten off: under both loops of the first stitch, then back into the last one.", "On the wrong side, weave along the round for about 1 to 2 in.", "Turn and come back through a different round."];
+      else how = [knit ? "On the purl side, follow the path of the yarn through the stitches (duplicate stitch), or weave up the edge stitches." : "On the wrong side, run the tail through the posts of a few stitches.", "Go about 1 to 2 in (3 to 5 cm), then turn and come back through different strands.", "At the edges, weave into the edge stitches first, then turn into the fabric."];
+      if (fab !== "ami") how.push("Make " + dirs + " passes in different directions" + (dirs === 3 ? " (it'll get stretched or washed a lot)" : "") + ". Stretch the fabric gently, then trim close.");
+      var mins = n * (fab === "ami" ? 1 : 1.5) * (y[0] === 8 ? 1.2 : 1);
+      var h = "<h3>Leave a tail of</h3><div class=\"big\" style=\"font-size:2.6rem\">" + y[0] + " in <small>(" + Math.round(y[0] * 2.54) + " cm)</small></div>";
+      h += '<div class="tb-stats"><div><strong>' + y[1] + "</strong><span>stitches each way</span></div><div><strong>" + (fab === "ami" ? "1" : dirs) + "</strong><span>direction" + (fab === "ami" ? " (through the toy)" : "s") + "</span></div><div><strong>" + n + "</strong><span>ends</span></div><div><strong>about " + (mins < 60 ? Math.round(mins) + " min" : (mins / 60).toFixed(1) + " hours") + "</strong><span>to weave them in</span></div></div>";
+      h += "<p class=\"sub\"><strong>Tool:</strong> " + tool + ". " + esc(y[2]) + "</p>";
+      h += "<h3>How</h3><ol class=\"sk-steps\">" + how.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>";
+      if (n >= 30) h += '<p class="tb-warn">That\'s a lot of ends. Weave them in as you go, crochet over tails, or carry colours up the side to cut the pile next time.</p>';
+      h += '<hr><p class="sub">Time is our rough estimate (about 1½ minutes an end). Don\'t knot the tails, and weave in before blocking.</p>';
+      $("#we-out").innerHTML = h;
+      // drawing: stitch grid + path with the right number of passes
+      var g = '<rect x="10" y="10" width="240" height="130" rx="10" fill="#f2e6cf"/>', r, c;
+      for (r = 0; r < 5; r++) for (c = 0; c < 9; c++) {
+        var x = 30 + c * 25, yy = 30 + r * 23;
+        g += knit ? '<path d="M' + (x - 7) + " " + (yy - 6) + " q7 6 0 12 M" + (x + 7) + " " + (yy - 6) + ' q-7 6 0 12" fill="none" stroke="#d97aa0" stroke-width="2.2"/>'
+                  : '<rect x="' + (x - 4) + '" y="' + (yy - 8) + '" width="8" height="17" rx="3" fill="none" stroke="#d97aa0" stroke-width="2.2"/>';
+      }
+      var span = { "3-4": 3.5, "3-5": 4, "5-7": 6 }[y[1]] || 4, len = span * 25, sx = 235, sy = 122, d = "M" + sx + " " + sy, cx = sx, cy = sy, k;
+      var nd = fab === "ami" ? 1 : dirs;
+      for (k = 0; k < nd; k++) {
+        if (k % 2 === 0) { cx -= len; d += " L" + cx + " " + cy; } else { cx += len * 0.8; d += " L" + cx + " " + cy; }
+        if (k < nd - 1) { cy -= 23; d += " Q" + (k % 2 === 0 ? cx - 12 : cx + 12) + " " + (cy + 11) + " " + cx + " " + cy; }
+      }
+      g += '<path d="' + d + '" fill="none" stroke="#2f8f8a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="' + cx + '" cy="' + cy + '" r="5" fill="#f4a823" stroke="#1f2a44"/>';
+      $("#we-svg").innerHTML = g;
+    }
+    ["#we-fab", "#we-yarn", "#we-use"].forEach(function (s) { $(s).addEventListener("change", weCalc); });
+    $("#we-n").addEventListener("input", weCalc); seg(weCraft, weCalc);
+    weCalc();
+  }
+
 })();
