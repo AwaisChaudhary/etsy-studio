@@ -153,6 +153,36 @@
   "status": "scheduled 2026-11-24 8:00 PM"
  },
  {
+  "image": "pins/batch7/resin-art-business-spreadsheet-pin-a.jpg",
+  "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
+  "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Resin Art",
+  "link": null,
+  "link_from": "batch7/listings.json:resin-art-business-spreadsheet:etsy_url",
+  "status": "queued (needs Etsy listing first)"
+ },
+ {
+  "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-a.jpg",
+  "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
+  "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Sublimation",
+  "link": null,
+  "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:etsy_url",
+  "status": "queued (needs Etsy listing first)"
+ },
+ {
+  "image": "pins/batch7/lash-tech-business-spreadsheet-pin-a.jpg",
+  "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
+  "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Eyelash Extensions",
+  "link": null,
+  "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:etsy_url",
+  "status": "queued (needs Etsy listing first)"
+ },
+ {
   "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
   "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
   "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
@@ -712,5 +742,35 @@
   "board": "Crochet & Knitting Planners",
   "topic": "Crochet decrease",
   "status": "queued"
+ },
+ {
+  "image": "pins/batch7/resin-art-business-spreadsheet-pin-b.jpg",
+  "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
+  "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Resin Art",
+  "link": null,
+  "link_from": "batch7/listings.json:resin-art-business-spreadsheet:gumroad_url",
+  "status": "queued (needs Gumroad listing first)"
+ },
+ {
+  "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-b.jpg",
+  "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
+  "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Sublimation",
+  "link": null,
+  "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:gumroad_url",
+  "status": "queued (needs Gumroad listing first)"
+ },
+ {
+  "image": "pins/batch7/lash-tech-business-spreadsheet-pin-b.jpg",
+  "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
+  "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Eyelash Extensions",
+  "link": null,
+  "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:gumroad_url",
+  "status": "queued (needs Gumroad listing first)"
  }
 ]

@@ -75,6 +75,8 @@ def xl_html(path, sheet, rng, tabs, active):
             f'<div class="sheet"><table><tr><th class="rn"></th>{cols}</tr>{rows}</table></div><div class="tabs">{tabbar}</div></div>')
 
 # ---------- page images ----------
+from xlview import xl_html  # shared renderer (supports hidden columns: 'A1:AD12;B-X')
+
 def page_png(pdf, n, dpi=110):
     out = TMP / f"{pdf.stem}-{n}"
     subprocess.run(["pdftoppm", "-r", str(dpi), "-png", "-f", str(n), "-l", str(n), "-singlefile", str(pdf), str(out)], check=True)

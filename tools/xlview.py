@@ -18,6 +18,7 @@ def fmt(v, nf):
             dec = 4 if ".0000" in nf else 2 if ".00" in nf else 0
             return ("-$" if v < 0 else "$") + f"{abs(v):,.{dec}f}"
         if nf.endswith("x"): return f"{v:.1f}x"
+        if "0.00" in nf: return f"{v:,.2f}"
         if "0.0" in nf: return f"{v:,.1f}"
         if nf == "0": return f"{v:.0f}"
         if nf == "#,##0": return f"{v:,.0f}"
@@ -28,23 +29,29 @@ def fmt(v, nf):
 def xl_html(path, sheet, rng, tabs, active):
     wf = load_workbook(path); wv = load_workbook(path, data_only=True)
     ws, vs = wf[sheet], wv[sheet]
+    hide = set()
+    if ";" in rng:  # "A1:AD12;B-X,Z" hides columns B..X and Z (for wide sheets)
+        rng, spec = rng.split(";")
+        from openpyxl.utils import column_index_from_string as ci
+        for part in spec.split(","):
+            a, _, b = part.partition("-"); hide.update(range(ci(a), ci(b or a) + 1))
     c1, r1, c2, r2 = range_boundaries(rng)
     merged = {}
     skip = set()
     for m in ws.merged_cells.ranges:
         a, b, c, d = m.min_col, m.min_row, m.max_col, m.max_row
         if b >= r1 and b <= r2:
-            merged[(b, a)] = (min(d, r2) - b + 1, min(c, c2) - a + 1)
+            merged[(b, a)] = (min(d, r2) - b + 1, sum(1 for k in range(a, min(c, c2) + 1) if k not in hide) or 1)
             for rr in range(b, d + 1):
                 for cc in range(a, c + 1):
                     if (rr, cc) != (b, a): skip.add((rr, cc))
-    cols = "".join(f'<th style="width:{int((ws.column_dimensions[get_column_letter(c)].width or 9) * 7.2)}px">{get_column_letter(c)}</th>' for c in range(c1, c2 + 1))
+    cols = "".join(f'<th style="width:{int((ws.column_dimensions[get_column_letter(c)].width or 9) * 7.2)}px">{get_column_letter(c)}</th>' for c in range(c1, c2 + 1) if c not in hide)
     rows = ""
     for r in range(r1, r2 + 1):
         h = ws.row_dimensions[r].height or 18
         tds = ""
         for c in range(c1, c2 + 1):
-            if (r, c) in skip: continue
+            if (r, c) in skip or (c in hide and (r, c) not in merged): continue
             cell, val = ws.cell(r, c), vs.cell(r, c).value
             st = []
             if cell.fill and cell.fill.fgColor and cell.fill.fill_type == "solid" and cell.fill.fgColor.rgb not in (None, "00000000"):
