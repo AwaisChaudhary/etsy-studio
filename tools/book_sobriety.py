@@ -144,7 +144,7 @@ h1 { font-family: Inter, sans-serif; font-weight: 800; font-size: 22pt; margin: 
 h2 { font-family: Inter, sans-serif; font-weight: 700; font-size: 13pt; margin: 0 0 6pt; }
 h3 { font-family: Inter, sans-serif; font-weight: 700; font-size: 8.4pt; margin: 8pt 0 3pt; text-transform:none; }
 p { font-size: 9.6pt; line-height: 1.42; margin: 0 0 6pt; }
-.line { border-bottom: .6pt solid #777; height: 19pt; }
+.line { border-bottom: .6pt solid #777; height: 18pt; }
 .line.s { height: 17pt; }
 .row { display:flex; gap: 10pt; align-items:flex-end; }
 .row > div { flex:1; }
@@ -167,6 +167,16 @@ th { font-weight:700; background:#eee; }
 .mile { flex:1; display:flex; flex-direction:column; }
 .mile .big { font-family: Inter, sans-serif; font-weight:800; font-size: 30pt; margin: 18pt 0 4pt; }
 .blank {}
+.sec { border: .7pt solid #222; border-radius: 7pt; padding: 5pt 8pt 6pt; margin-bottom: 6pt; }
+.sec.last { flex: 1; }
+.sh { display:flex; align-items:center; gap:5pt; font-family: Inter, sans-serif; font-weight: 800; font-size: 7.6pt; letter-spacing: .08em; margin-bottom: 4pt; }
+.face { display:inline-block; margin-left: 7pt; vertical-align: middle; }
+.intro { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.intro .it { font-family: 'GFS Baskerville', 'Bitstream Charter', serif; font-size: 27pt; line-height: 1.1; margin: 6pt 0 10pt; }
+.intro .rule { width: 1.2in; border-top: 2pt solid #111; margin-bottom: 12pt; }
+.intro .ip { font-size: 11pt; line-height: 1.55; }
+.ideas { display:grid; grid-template-columns: 1fr 1fr; gap: 11pt 12pt; font-size: 9.2pt; line-height:1.3; }
+.ideas .box { margin-left: 0; }
 """
 
 
@@ -218,6 +228,13 @@ pages.append('<h2>When a craving hits</h2>'
              '<p><b>5. Reach out.</b> Call or message someone from your support page before deciding anything.</p>'
              '<h3>My personal craving plan: what works for me</h3>' + lines(7) +
              '<h3>Things I keep within reach (drinks, snacks, music, phone numbers)</h3>' + lines(3))
+IDEAS = ["Drink a tall glass of cold water", "Eat something with protein", "Walk around the block", "Take a hot shower", "Call or text someone on your list",
+ "Go to a meeting, in person or online", "Make a cup of tea or a fancy alcohol-free drink", "Write the craving down here and rate it", "Breathe in for 4, hold 4, out for 6, five times",
+ "Put on one song and really listen", "Leave the room or the place", "Do ten minutes of cleaning", "Read your reasons page", "Play the tape forward to tomorrow morning",
+ "Lie down for twenty minutes", "Cook something simple", "Watch something funny", "Do a puzzle or a game on paper", "Stretch for five minutes", "Step outside and name five things you see",
+ "Brush your teeth", "Go to a café or a library", "Write a letter you will not send", "Plan something for next weekend", "Look at your money-saved total",
+ "Pet an animal or water a plant", "Tidy one drawer", "Go to bed early", "Message someone just to say hello", "Wait 20 minutes, then decide again"]
+pages.append('<h2>Thirty things to do instead</h2><p>Pick one when a craving hits. Tick the ones that work for you.</p><div class="ideas">' + "".join(f'<div><span class="box"></span>{esc(x)}</div>' for x in IDEAS) + '</div>')
 # 8 relapse prevention
 pages.append('<h2>My relapse-prevention plan</h2>' +
              "".join(f'<h3>{t}</h3>' + lines(n, "s") for t, n in [("Early warning signs I am slipping (thoughts, moods, habits)", 4), ("What I will do as soon as I notice them", 4), ("High-risk situations coming up", 3), ("My plan for each of them", 4), ("If I slip, the first three things I will do", 3)]))
@@ -234,19 +251,53 @@ pages.append('<h2>Money and time saved</h2><p>What I used to spend in a typical 
              '<h3>What I will do with the money</h3>' + lines(3))
 
 
+SUN_I = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>'
+MOON_I = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#111" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>'
+WAVE_I = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round"><path d="M2 9c3-3 5 3 8 0s5 3 8 0 3-1 4 0M2 15c3-3 5 3 8 0s5 3 8 0 3-1 4 0"/></svg>'
+def face(m):
+    mouth = {0: "M8 17c2-2.5 6-2.5 8 0", 1: "M8 16.5c2-1 6-1 8 0", 2: "M8 16h8", 3: "M8 15.5c2 1 6 1 8 0", 4: "M8 15c2 2.5 6 2.5 8 0"}[m]
+    return f'<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r=".9" fill="#111"/><circle cx="15" cy="10" r=".9" fill="#111"/><path d="{mouth}"/></svg>'
+FACES = "".join(f'<span class="face">{face(i)}</span>' for i in range(5))
+
+
 def day_page(n, week_name):
     halt = "".join(f'<span class="box"></span>{w}' for w in ["Hungry", "Angry", "Lonely", "Tired"])
     crav = "".join(f'<span class="box"></span>{w}' for w in ["None", "1-2", "3-5", "6+"])
     return (f'<div class="head"><span class="d">Day {n}</span><span class="wk">{esc(week_name)}</span><span class="lab">Date ____________</span></div>'
-            f'<div class="row"><div><span class="lab">THIS MORNING I FEEL</span>&nbsp; <span class="dots">' + "".join('<span></span>' for _ in range(5)) +
-            '</span><span class="lab"> low to great</span></div></div>'
-            '<div class="lab" style="margin-top:5pt">ONE THING I WILL DO TODAY TO PROTECT MY SOBRIETY</div>' + lines(1) +
-            f'<div class="lab" style="margin-top:7pt">CRAVINGS TODAY {crav}&nbsp;&nbsp; STRONGEST (1-10) ____</div>'
+            f'<div class="sec"><div class="sh">{SUN_I}<span>MORNING</span></div>'
+            f'<div class="row" style="align-items:center"><span class="lab">I FEEL</span>{FACES}</div>'
+            '<div class="lab" style="margin-top:4pt">ONE THING I WILL DO TODAY TO PROTECT MY SOBRIETY</div>' + lines(1, "s") + '</div>'
+            f'<div class="sec"><div class="sh">{WAVE_I}<span>CRAVINGS</span></div>'
+            f'<div class="lab">HOW MANY {crav}&nbsp;&nbsp; STRONGEST (1-10) ____</div>'
             f'<div class="lab" style="margin-top:4pt">HALT CHECK {halt}</div>'
-            '<div class="lab" style="margin-top:6pt">WHAT SET IT OFF</div>' + lines(1, "s") + '<div class="lab" style="margin-top:4pt">WHAT I DID INSTEAD</div>' + lines(1, "s") +
-            f'<div class="lab" style="margin-top:8pt">TONIGHT\'S PROMPT</div><div class="prompt">{esc(PROMPTS[n - 1])}</div>' + lines(10) +
-            '<div class="lab" style="margin-top:6pt">THREE THINGS I AM GRATEFUL FOR</div>' + "".join(f'<div class="row"><span class="lab" style="flex:0 0 8pt">{i}</span><div class="line s"></div></div>' for i in (1, 2, 3)) +
-            '<div class="lab" style="margin-top:6pt">TODAY\'S WIN, HOWEVER SMALL</div>' + lines(1, "s"))
+            '<div class="lab" style="margin-top:5pt">WHAT SET IT OFF</div>' + lines(1, "s") + '<div class="lab" style="margin-top:3pt">WHAT I DID INSTEAD</div>' + lines(1, "s") + '</div>'
+            f'<div class="sec last"><div class="sh">{MOON_I}<span>EVENING</span></div><div class="prompt">{esc(PROMPTS[n - 1])}</div>' + lines(8) +
+            '<div class="lab" style="margin-top:5pt">GRATEFUL FOR</div>' + "".join(f'<div class="row"><span class="lab" style="flex:0 0 8pt">{i}</span><div class="line s"></div></div>' for i in (1, 2, 3)) +
+            '<div class="lab" style="margin-top:5pt">TODAY\'S WIN, HOWEVER SMALL</div>' + lines(1, "s") + '</div>')
+
+
+INTROS = [
+ "The first days are about getting through, not getting it perfect. Eat, drink water, sleep when you can and keep your plan close. Every evening you write, you add proof that you can do this.",
+ "Cravings rarely come from nowhere. This week you will start noticing the people, places, times and feelings that set them off, so you can plan for them instead of being surprised.",
+ "Your body is already repairing itself. Sleep, appetite and energy can swing up and down at first. This week pays attention to the physical side of recovery and the small habits that help.",
+ "Drinking or using often numbs feelings that then come back loudly. This week is about naming them, riding them out and building a short list of things that genuinely calm you.",
+ "Recovery happens around other people. This week looks at who supports you, who pulls you back, and how to ask for help without feeling like a burden.",
+ "Saying no gets easier with practice. This week you will plan your words, your exits and your alcohol-free options before you need them.",
+ "Count what drinking or using really cost you in money and time. This week turns those savings into something you can see and look forward to.",
+ "Hard days will come. This week is about spotting them early and having a plan written down for the worst nights, so you do not have to think clearly when it is hardest to.",
+ "You are starting to change. This week looks at who you are becoming, the values you want to live by and the new things you could try.",
+ "Guilt and shame are heavy to carry. This week is about being honest without punishing yourself, and about which amends are fair and safe to make.",
+ "Sobriety is not only about what you give up. This week is about rest, fun and the small pleasures you can enjoy with a clear head.",
+ "You have built something real. This week checks your routines and your plan for the months ahead, so complacency does not creep in.",
+ "The last stretch. This week you look back at Day 1, notice how far you have come and set your goals for the next ninety days.",
+]
+assert len(INTROS) == 13
+
+
+def intro_page(w, name, text):
+    t = name.split(": ", 1)[1]
+    return (f'<div class="intro"><div class="lab">WEEK {w} OF 13</div><div class="it">{esc(t)}</div><div class="rule"></div><p class="ip">{esc(text)}</p>'
+            '<div class="lab" style="margin-top:22pt">MY FOCUS THIS WEEK</div>' + lines(3) + '</div>')
 
 
 def review_page(w, name):
@@ -264,6 +315,7 @@ def milestone_page(n, name):
 
 day = 0
 for w, (name, ps) in enumerate(WEEKS, 1):
+    pages.append(intro_page(w, name, INTROS[w - 1]))
     for _ in ps:
         day += 1
         pages.append(day_page(day, name))
