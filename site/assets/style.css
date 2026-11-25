@@ -586,3 +586,13 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
   html.print-tpl .js-tpl-wrap { display: block !important; position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: 0; }
   html.print-tpl .js-tpl-wrap .toolbar { display: none !important; }
 }
+/* stripe generator */
+.sg-cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.sg-col { display: flex; gap: 6px; align-items: center; }
+.sg-col input[type=color] { width: 44px; height: 40px; padding: 2px; border: 2px solid var(--line); border-radius: 10px; background: #fff; flex: none; cursor: pointer; }
+.sg-col input[type=text] { min-width: 0; flex: 1; }
+.result .sg-list { list-style: none; padding: 0; margin: 6px 0 10px; }
+.result .sg-list li { margin: 3px 0; }
+.result .sg-list i { display: inline-block; vertical-align: -2px; margin-right: 8px; width: 16px; height: 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,.6); flex: none; }
+.result .sg-rows { max-height: 420px; overflow: auto; }
+@media print { [data-page="stripe-generator"] .sheet, [data-page="stripe-generator"] .quick, [data-page="stripe-generator"] .page-top .lead { display: none; } [data-page="stripe-generator"] .tool { display: block; } [data-page="stripe-generator"] .result { position: static; } [data-page="stripe-generator"] .result .sg-rows { max-height: none; overflow: visible; } }

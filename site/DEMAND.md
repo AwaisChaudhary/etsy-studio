@@ -11,10 +11,16 @@ Navigation: DONE 25 Nov /crafts hub (linked from Home + footer). Add every new c
 
 ## COMPETITOR WATCH 25 Nov 2026 (vs easycrochet.com calculators, theloopylamb.com tools, brianakdesigns.com app)
 We have 47 site pages (~22 calculators/charts/trackers, 12 how-tos, junk journal set). NOTE: site deploy is a manual zip upload (needs Chrome on Awais's computer), so new pages go live only at the next deploy.
-1. GAP: tools all three competitors have that we lack: random stripe generator (easycrochet), C2C blanket calculator, scarf calculator, 'how much yarn is left in my skein' (weigh it), yarn stash calculator, multiples generator, colour palette generator (loopylamb), crochet time estimator (briana k), WIP tracker. Plan, one per run: yarn-left-by-weight calc (tiny, high search), stripe generator (also feeds temperature blanket), C2C calc, scarf calc, time estimator.
+1. GAP: tools all three competitors have that we lack: random stripe generator (easycrochet) [DONE 25 Nov /stripe-generator; crochet time estimator DONE /crochet-time-estimator], C2C blanket calculator, scarf calculator, 'how much yarn is left in my skein' (weigh it), yarn stash calculator, multiples generator, colour palette generator (loopylamb), crochet time estimator (briana k), WIP tracker. Plan, one per run: yarn-left-by-weight calc (tiny, high search), stripe generator (also feeds temperature blanket), C2C calc, scarf calc, time estimator.
 2. GAP: stitch library still missing (24 Nov item 1): sc/hdc/dc/tr/slip/chain + knit/purl with own SVG diagrams and US/UK toggle. Biggest search volume of all.
 3. GAP: Briana K's calculator passes a result between tools ('send to skeins', 'send to resize') and gives yardage as a range with a units dropdown on every field. Plan: add in/cm + yd/m toggles to every calculator that lacks them, and a 'use this in yarn calculator' button that carries numbers across our tools.
 4. BETTER-THAN-THEM: none of them save, print or work offline. Ours: every calculator remembers last inputs, prints a clean one-page 'project card' (size, stitches, yardage, skeins, colours), and the tool hub installs as an offline app (DEMAND item 5 PWA). Then pixel/C2C pattern maker (24 Nov item 5).
+
+## RADAR 25 Nov 20:30 PKT (run 4: web search + competitor tools)
+V1. DONE 25 Nov (/crochet-time-estimator) 'how long does it take to crochet a blanket' (results full of single-answer articles: AllFreeCrochet, LoveCrochet, Storables, CraftTribe; Briana K Designs ships a 'crochet time estimator') -> time calculator with own pace timer + deadline.
+V2. DONE 25 Nov (/stripe-generator) 'random stripe generator crochet knitting' (easycrochet.com and lbas.lboro.ac.uk generators rank; Ravelry full of random-stripe patterns) -> stripe generator with random/Fibonacci/even, yarn per colour, print.
+V3. OPEN 'basic crochet stitches for beginners' / 'sc hdc dc chart' (crowded SERP: Sarah Maker, Purl Soho, EasyCrochet 30-stitch library) -> stitch library with own SVGs + US/UK toggle (same as COMPETITOR item 2). Biggest remaining gap.
+V4. OPEN 'basic embroidery stitches for beginners' (EGA, DMC, LoveCrafts, Gathered rank) -> embroidery stitch guide with own SVGs (C3 next step).
 
 ## RADAR 25 Nov 06:45 PKT (Google autocomplete, US)
 U1. DONE 25 Nov (/how-to-price-amigurumi + commission H2) 'how to price crochet amigurumi' / 'commissions' -> new /how-to-price-amigurumi (calculator preset) + commission pricing H2 on /how-to-price-crochet-items.

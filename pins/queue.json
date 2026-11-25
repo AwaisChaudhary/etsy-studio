@@ -904,5 +904,23 @@
   "link": "https://karamat4.gumroad.com/l/sticker-business-spreadsheet",
   "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:gumroad_url",
   "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/site/crochet-time-estimator.jpg",
+  "title": "How Long Does It Take to Crochet a Blanket? Free Crochet & Knitting Time Calculator",
+  "description": "Find out how many hours your blanket, scarf or hat will take. Pick the size, yarn and stitch, time yourself for one minute, and get the stitch count, hours and your finish date, plus whether a handmade Christmas gift will be ready in time. #crochetblanket #knittingtips #crochettips #handmadegifts #crochetcalculator",
+  "link": "https://purlandpaperco.com/crochet-time-estimator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet time calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/stripe-generator.jpg",
+  "title": "Random Stripe Generator for Crochet & Knitting Blankets (Free Tool)",
+  "description": "Pick your yarn colours and rows, press shuffle and get a random stripe pattern for a crochet or knit blanket, scarf or hat. Fibonacci and even stripes too, with a printable row-by-row list and yarn per colour. #stripedblanket #crochetblanket #knittingpattern #scrapyarn #crochetideas",
+  "link": "https://purlandpaperco.com/stripe-generator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Stripe generator",
+  "status": "queued"
  }
 ]

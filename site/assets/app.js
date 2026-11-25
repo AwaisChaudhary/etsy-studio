@@ -2447,4 +2447,124 @@
   }
 
 
+
+  /* ---------- CROCHET & KNITTING TIME ESTIMATOR ---------- */
+  if ($("#te-what") && $("#te-out")) {
+    var te = {}; ["craft", "what", "custom", "w", "l", "u", "cnt", "n", "size", "yarn", "st", "spm", "own", "my", "go", "tnote", "hd", "dw", "by", "out"].forEach(function (k) { te[k] = $("#te-" + k); });
+    var TEK = { 1: 28, 2: 24, 3: 22, 4: 18, 5: 14, 6: 9, 7: 6 }, TEC = { 1: 26, 2: 18, 3: 14, 4: 12, 5: 9, 6: 8, 7: 6 }; /* CYC typical gauge midpoints per 4 in */
+    var TES = { sc: [1, 1.2, 1, 1.05], hdc: [0.95, 0.85, 1.25, 1.05], dc: [0.9, 0.6, 1.5, 1.05], granny: [0.9, 0.6, 1.6, 1.15], moss: [1, 1.2, 0.85, 1.05], textured: [0.9, 0.8, 1.8, 1.05],
+      st: [1, 1.33, 1, 1.05], garter: [1, 1.8, 1, 1.05], rib: [1.2, 1.33, 1.15, 1.05], seed: [1, 1.5, 1.25, 1.05], cable: [1.15, 1.33, 1.5, 1.05], colour: [1.05, 1.1, 1.6, 1.1] }; /* our estimates */
+    var teKeys = ["what", "w", "l", "u", "n", "yarn", "st", "spm", "my", "hd", "dw", "by"], teP = store.get("pp-time", null);
+    if (teP) { if (teP.craft) $$("button", te.craft).forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-v") === teP.craft); }); teKeys.forEach(function (k) { if (teP[k] != null && teP[k] !== "" && te[k]) te[k].value = teP[k]; }); }
+    var teLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    var teH = function (h) { if (h < 1) return Math.max(5, Math.round(h * 60 / 5) * 5) + " min"; var hh = Math.floor(h), mm = Math.round((h - hh) * 60 / 5) * 5; if (mm === 60) { hh++; mm = 0; } return h >= 20 ? Math.round(h) + " h" : hh + " h" + (mm ? " " + mm + " min" : ""); };
+    function teStitches() {
+      $$("option", te.st).forEach(function (o) { o.hidden = o.getAttribute("data-c") !== segVal(te.craft); o.disabled = o.hidden; });
+      var cur = te.st.options[te.st.selectedIndex]; if (!cur || cur.hidden) { var f = $$("option", te.st).filter(function (o) { return !o.hidden; })[0]; if (f) te.st.value = f.value; }
+    }
+    function teCalc() {
+      teStitches();
+      var craft = segVal(te.craft), wv = te.what.value, cnt = wv === "count", custom = wv === "custom", cm = te.u.value === "cm";
+      te.custom.hidden = !custom; te.cnt.hidden = !cnt; te.own.hidden = te.spm.value !== "own";
+      var s = TES[te.st.value] || TES.sc, wn = parseInt(te.yarn.value, 10) || 4, W, L, sts, name;
+      if (cnt) { sts = Math.max(0, parseFloat(te.n.value) || 0); name = "your project"; }
+      else {
+        if (custom) { W = (parseFloat(te.w.value) || 0) / (cm ? 2.54 : 1); L = (parseFloat(te.l.value) || 0) / (cm ? 2.54 : 1); name = "your " + Math.round(W * 10) / 10 + " × " + Math.round(L * 10) / 10 + " in piece"; }
+        else { var pv = wv.split("|"); W = parseFloat(pv[1]) || 50; L = parseFloat(pv[2]) || 60; name = "a " + te.what.options[te.what.selectedIndex].text.split(",")[0].toLowerCase(); }
+        var base = (craft === "k" ? TEK : TEC)[wn] * s[0];
+        sts = (W * base / 4) * (L * base * s[1] / 4);
+      }
+      var spm = te.spm.value === "own" ? (parseFloat(te.my.value) || 0) : parseFloat(te.spm.value);
+      if (!(sts > 0) || !(spm > 0)) { te.out.innerHTML = "<h3>Your time</h3><p class=\"sub\">Enter a size and your pace.</p>"; return; }
+      var mult = cnt ? s[3] : s[2] * s[3], hrs = sts * mult / spm / 60, hd = Math.max(0.1, parseFloat(te.hd.value) || 1), dw = parseInt(te.dw.value, 10) || 5;
+      var sessions = hrs / hd, days = Math.ceil(sessions / dw * 7), fin = new Date(); fin.setDate(fin.getDate() + days);
+      var fd = function (d) { return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" }); };
+      var o = "<h3>How long " + esc(name) + " will take</h3><div class=\"bk-dims\">" + teH(hrs * 0.8) + " – " + teH(hrs * 1.2) + "<small>about " + teH(hrs) + " of " + (craft === "k" ? "knitting" : "crochet") + " at " + Math.round(spm) + " stitches a minute, edging and ends included</small></div>" +
+        '<div class="tb-stats"><div><strong>' + fmt(Math.round(sts / 100) * 100) + "</strong><span>stitches" + (cnt ? "" : ", our estimate") + "</span></div><div><strong>" + Math.ceil(sessions) + " sessions</strong><span>of " + teH(hd) + "</span></div>" +
+        "<div><strong>" + (days < 14 ? days + " days" : Math.round(days / 7 * 10) / 10 + " weeks") + "</strong><span>at " + dw + " day" + (dw === 1 ? "" : "s") + " a week</span></div><div><strong>" + fin.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + "</strong><span>finish date if you start today</span></div></div>";
+      if (te.by.value) {
+        var by = new Date(te.by.value + "T12:00:00"), left = Math.floor((by - new Date()) / 864e5);
+        if (left <= 0) o += '<p class="sub">That date has passed. Pick a later one.</p>';
+        else {
+          var craftDays = Math.max(1, Math.floor(left * dw / 7)), need = hrs / craftDays * 60;
+          o += "<hr><h3>Needed by " + fd(by) + "</h3>" + (fin <= by ? "<p><strong>You're on track.</strong> At " + teH(hd) + " a day you'd finish about " + Math.max(0, left - days) + " days early.</p>" :
+            "<p><strong>It's tight.</strong> You'd need about " + teH(need / 60) + " a day on " + craftDays + " crafting days. Try a thicker yarn, a taller stitch or a smaller size.</p>");
+        }
+      }
+      if (!cnt) { var spr = Math.round(W * (craft === "k" ? TEK : TEC)[wn] * s[0] / 4); o += '<p class="sub">About ' + spr + " stitches a row, so a row takes about " + teH(spr * s[2] / spm / 60) + ".</p>"; }
+      o += '<p class="sub">Next: ' + teLink("how-to-price-a-crochet-blanket", "price it") + ", " + teLink("crochet-knitting-gift-planner", "plan all your gifts") + ", " + teLink("row-counter", "count rows") + ".</p>";
+      te.out.innerHTML = o;
+      var sv = { craft: craft }; teKeys.forEach(function (k) { sv[k] = te[k].value; }); store.set("pp-time", sv);
+    }
+    var teTm = null;
+    te.go.addEventListener("click", function () {
+      if (teTm) return; var t = 60; te.go.textContent = "Go! 60"; te.tnote.textContent = "Crochet or knit at your normal speed and count your stitches.";
+      teTm = setInterval(function () { t--; te.go.textContent = t > 0 ? "Go! " + t : "Time me for 1 minute"; if (t <= 0) { clearInterval(teTm); teTm = null; toast("Stop! Type how many stitches you made."); te.tnote.textContent = "Time's up. Type how many stitches you made."; te.my.focus(); te.my.select(); } }, 1000);
+    });
+    seg(te.craft, function () { teCalc(); });
+    var teU = te.u.value;
+    te.u.addEventListener("change", function () { if (teU !== te.u.value) { var f = te.u.value === "cm" ? 2.54 : 1 / 2.54; ["w", "l"].forEach(function (k) { var v = parseFloat(te[k].value); if (v) te[k].value = Math.round(v * f * 2) / 2; }); } teU = te.u.value; });
+    teKeys.forEach(function (k) { te[k].addEventListener("input", teCalc); te[k].addEventListener("change", teCalc); });
+    teCalc();
+  }
+
+  /* ---------- RANDOM STRIPE GENERATOR ---------- */
+  if ($("#sg-cols") && $("#sg-out")) {
+    var sg = {}; ["n", "cols", "mode", "rows", "mult", "rng", "min", "max", "yd", "go", "print", "svg", "out"].forEach(function (k) { sg[k] = $("#sg-" + k); });
+    var SGD = ["#b8326a", "#f4a823", "#2f8f8a", "#e9dfcf", "#5b6b9a", "#8a5a9e", "#d9643a", "#7fb069"];
+    var sgKeys = ["n", "mode", "rows", "mult", "min", "max", "yd"], sgP = store.get("pp-stripes", null) || {};
+    sgKeys.forEach(function (k) { if (sgP[k] != null && sgP[k] !== "" && sg[k]) sg[k].value = sgP[k]; });
+    var sgC = (sgP.cols || []).slice(0, 8), sgSeed = sgP.seed || Math.floor(Math.random() * 1e9);
+    while (sgC.length < 8) sgC.push({ c: SGD[sgC.length], t: "" });
+    function sgRand(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+    function sgName(i) { return sgC[i].t ? sgC[i].t : "Colour " + String.fromCharCode(65 + i); }
+    function sgSwatches() {
+      var n = parseInt(sg.n.value, 10) || 4, h = "";
+      for (var i = 0; i < n; i++) h += '<div class="sg-col"><input type="color" value="' + esc(sgC[i].c) + '" data-i="' + i + '" aria-label="Colour ' + String.fromCharCode(65 + i) + '"><input type="text" value="' + esc(sgC[i].t) + '" data-i="' + i + '" maxlength="24" placeholder="Colour ' + String.fromCharCode(65 + i) + '" aria-label="Name for colour ' + String.fromCharCode(65 + i) + '"></div>';
+      sg.cols.innerHTML = h;
+    }
+    function sgMake() {
+      var n = parseInt(sg.n.value, 10) || 4, R = Math.min(1000, Math.max(4, parseInt(sg.rows.value, 10) || 120)), m = parseInt(sg.mult.value, 10) || 1, mode = sg.mode.value;
+      var lo = Math.max(1, parseInt(sg.min.value, 10) || 1), hi = Math.max(lo, parseInt(sg.max.value, 10) || lo), rnd = sgRand(sgSeed), out = [], used = 0, prev = -1, k = 0;
+      var loM = Math.max(1, Math.ceil(lo / m)), hiM = Math.max(loM, Math.floor(hi / m));
+      var FIB = [1, 1, 2, 3, 5, 8, 5, 3, 2, 1], order = [];
+      for (var i = 0; i < n; i++) order.push(i);
+      for (i = n - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)), x = order[i]; order[i] = order[j]; order[j] = x; }
+      while (used < R && out.length < 2000) {
+        var w, c;
+        if (mode === "random") { w = (loM + Math.floor(rnd() * (hiM - loM + 1))) * m; do { c = Math.floor(rnd() * n); } while (c === prev && n > 1); }
+        else if (mode === "fib") { w = FIB[k % FIB.length] * m; c = order[k % n]; if (c === prev && n > 1) c = order[(k + 1) % n]; }
+        else { w = loM * m; c = order[k % n]; }
+        w = Math.min(w, R - used); out.push([c, w]); used += w; prev = c; k++;
+      }
+      return { s: out, R: R, n: n };
+    }
+    function sgCalc() {
+      sg.rng.hidden = sg.mode.value === "fib";
+      var p = sgMake(), s = p.s, R = p.R, n = p.n, g = "", y = 196, scale = 188 / R, row = 1, tot = [];
+      for (var i = 0; i < n; i++) tot.push(0);
+      g += '<rect x="40" y="6" width="220" height="190" fill="#fff"/>';
+      var list = "";
+      s.forEach(function (st) {
+        var h = st[1] * scale; y -= h;
+        g += '<rect x="40" y="' + y.toFixed(2) + '" width="220" height="' + (h + 0.3).toFixed(2) + '" fill="' + esc(sgC[st[0]].c) + '"/>';
+        tot[st[0]] += st[1];
+        list += "<li><i style=\"background:" + esc(sgC[st[0]].c) + '"></i>Rows ' + row + (st[1] > 1 ? "–" + (row + st[1] - 1) : "") + ": <strong>" + esc(sgName(st[0])) + "</strong> (" + st[1] + " row" + (st[1] === 1 ? "" : "s") + ")</li>";
+        row += st[1];
+      });
+      g += '<rect x="40" y="8" width="220" height="188" fill="none" stroke="#1f2a44" stroke-width="2"/><text x="34" y="196" font-size="10" text-anchor="end" fill="#1f2a44">row 1</text><text x="34" y="16" font-size="10" text-anchor="end" fill="#1f2a44">' + R + "</text>";
+      sg.svg.innerHTML = g;
+      var yd = parseFloat(sg.yd.value) || 0, sum = "";
+      for (i = 0; i < n; i++) sum += "<li><i style=\"background:" + esc(sgC[i].c) + '"></i><strong>' + esc(sgName(i)) + "</strong>: " + tot[i] + " rows (" + Math.round(tot[i] / R * 100) + "%)" + (yd ? ", about " + fmt(Math.ceil(yd * tot[i] / R * 1.1 / 5) * 5) + " yd" : "") + "</li>";
+      sg.out.innerHTML = "<h3>Your stripe pattern</h3><div class=\"bk-dims\">" + s.length + " stripes<small>" + R + " rows in " + n + " colours" + (yd ? ", yarn per colour with 10% spare" : "") + "</small></div><ul class=\"sg-list\">" + sum + "</ul><hr><h3>Row by row</h3><ol class=\"sg-list sg-rows\">" + list + "</ol>";
+      var sv = { seed: sgSeed, cols: sgC }; sgKeys.forEach(function (k) { sv[k] = sg[k].value; }); store.set("pp-stripes", sv);
+    }
+    sg.cols.addEventListener("input", function (ev) { var t = ev.target, i = parseInt(t.getAttribute("data-i"), 10); if (isNaN(i)) return; if (t.type === "color") sgC[i].c = t.value; else sgC[i].t = t.value.slice(0, 24); sgCalc(); });
+    sg.n.addEventListener("change", function () { sgSwatches(); sgCalc(); });
+    sg.go.addEventListener("click", function () { sgSeed = Math.floor(Math.random() * 1e9); sgCalc(); toast("New stripes"); });
+    sg.print.addEventListener("click", function () { window.print(); });
+    ["mode", "rows", "mult", "min", "max", "yd"].forEach(function (k) { sg[k].addEventListener("input", sgCalc); sg[k].addEventListener("change", sgCalc); });
+    sgSwatches(); sgCalc();
+  }
+
 })();
