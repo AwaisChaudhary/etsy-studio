@@ -7,6 +7,7 @@ SELLER = [
  ("seller-tools.html", "Free tools for Etsy and KDP sellers", "Every free calculator and checker for people selling on Etsy and Amazon KDP."),
  ("etsy-fee-calculator.html", "Etsy fee calculator", "What Etsy takes from each sale and what to charge."),
  ("etsy-title-tag-checker.html", "Etsy title and tag checker", "Check your title and 13 tags against Etsy's limits and common mistakes."),
+ ("eu-rules-checker-etsy-sellers.html", "EU rules checker for Etsy sellers", "Which EU rules apply to your shop: GPSR, packaging (PPWR) and the 2026 guarantee notice."),
  ("kdp-royalty-calculator.html", "KDP royalty calculator", "Printing cost and royalty for any paperback, and the price you need."),
  ("kdp-cover-size-calculator.html", "KDP cover size and spine calculator", "Full-wrap cover size, spine width and pixels for any trim and page count."),
 ]
@@ -17,7 +18,8 @@ hub = top("Free tools for Etsy and KDP sellers", "We sell digital products on Et
 <section style="padding-top:10px"><div class="wrap"><div class="narrow prose">
 <h2>Etsy</h2><ul>
 <li><a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>: listing, transaction, payment processing and Offsite Ads fees, and the price you need for the profit you want.</li>
-<li><a href="{href("etsy-title-tag-checker.html")}">Etsy title and tag checker</a>: length limits, repeated words, tags over 20 characters, tags that waste a slot.</li></ul>
+<li><a href="{href("etsy-title-tag-checker.html")}">Etsy title and tag checker</a>: length limits, repeated words, tags over 20 characters, tags that waste a slot.</li>
+<li><a href="{href("eu-rules-checker-etsy-sellers.html")}">EU rules checker</a>: five questions to see which EU rules apply to your shop, with a to-do list.</li></ul>
 <h2>Amazon KDP</h2><ul>
 <li><a href="{href("kdp-royalty-calculator.html")}">KDP royalty calculator</a>: printing cost and royalty per paperback, and why $9.99 matters.</li>
 <li><a href="{href("kdp-cover-size-calculator.html")}">KDP cover size and spine calculator</a>: full-wrap size in inches, millimetres and pixels.</li></ul>
@@ -144,3 +146,5 @@ kc_faq = [("How do I calculate KDP spine width?", "Multiply the page count by 0.
 page("kdp-cover-size-calculator.html", "KDP Cover Size Calculator + Spine Width (6x9, 8.5x11, Pixels at 300 DPI) | Purl & Paper",
      "Free KDP cover size calculator: spine width for white, cream and colour paper, full-wrap cover size with bleed in inches, mm and pixels, for 6x9, 8.5x11 and more.",
      kc, kc_faq, "KDP cover size calculator", app_name="KDP cover size and spine width calculator")
+
+exec((ROOT / "eu_rules.py").read_text())
