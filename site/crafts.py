@@ -14,6 +14,7 @@ CRAFTS = [
  ("candle-making-calculator.html", "Candle wax calculator", "Wax and fragrance oil for any jar and batch, with cost per candle."),
  ("resin-calculator.html", "Resin calculator", "How much epoxy resin and hardener to mix for a mould, tray or table."),
  ("macrame-cord-calculator.html", "Macrame cord calculator", "How many cords to cut, how long, and how much cord to buy."),
+ ("polymer-clay-baking-calculator.html", "Polymer clay baking calculator", "Oven temperature and bake time for your clay brand and thickness."),
 ]
 CRAFT_LINKS = '<ul class="craft-links">' + "".join(f'<li><a href="{href(f)}">{n}</a> <span class="muted">{d}</span></li>' for f, n, d in CRAFTS[1:]) + "</ul>"
 def more_crafts(file):
@@ -30,6 +31,8 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
 <li><a href="{href("quilt-size-calculator.html")}">Quilt size calculator</a>: finished size for any bed, backing and binding yardage.</li>
 <li><a href="{href("diamond-painting-calculator.html")}">Diamond painting calculator</a>: drills per canvas and time to finish.</li></ul>
+<h2>Clay</h2>
+<ul><li><a href="{href("polymer-clay-baking-calculator.html")}">Polymer clay baking calculator</a>: oven temperature and time for Sculpey, Premo, Fimo, Kato and Cernit by thickness.</li></ul>
 <h2>Fibre and cord</h2>
 <ul><li><a href="{href("macrame-cord-calculator.html")}">Macrame cord calculator</a>: how many cords and how long to cut them.</li>
 <li>Knitting and crochet: the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, <a href="{href("row-counter.html")}">row counter</a> and <a href="{href("gauge-converter.html")}">gauge converter</a>.</li></ul>
@@ -392,3 +395,43 @@ mc_faq = [
 page("macrame-cord-calculator.html", "Macrame Cord Calculator: How Much Cord Do I Need? (Wall Hangings, Plant Hangers) | Purl & Paper",
      "Free macrame cord calculator: how many cords to cut, how long (the 4x and 8x rules) and how much cord to buy for wall hangings, plant hangers and keychains.",
      mc, mc_faq, "Macrame cord calculator", app_name="Macrame cord calculator")
+
+# ---- Polymer clay (Sources: sculpey.com baking chart + FAQ; Cool Tools curing guide (Fimo 110 C 30 min); Wikipedia Kato Polyclay; Earth Guild (Cernit); Blue Bottle Tree (350 F breakdown, bake longer)) ----
+PC = [("s3", "Sculpey III, Original Sculpey, Super Sculpey", 275, 130, 15, True), ("premo", "Sculpey Premo", 275, 130, 30, True), ("souffle", "Sculpey Souffle", 275, 130, 30, True),
+      ("bendy", "Sculpey Bake Shop Bendy", 285, 140, 20, True), ("fimo", "Fimo Soft, Fimo Professional, Fimo Effect", 230, 110, 30, False), ("kato", "Kato Polyclay", 300, 150, 30, True), ("cernit", "Cernit", 250, 120, 30, False)]
+pc_js = "{" + ",".join(f'"{k}":[{f},{c},{m},{1 if per else 0}]' for k, n, f, c, m, per in PC) + "}"
+pcb = top("Polymer clay baking calculator", "Pick your clay and how thick your piece is. Get the oven temperature and how long to bake it, plus how to stop it burning or breaking.", "Polymer clay baking calculator") + f"""
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> most <strong>Sculpey</strong> clays bake at <strong>275 °F (130 °C) for 15 to 30 minutes per ¼ inch (6 mm)</strong> of thickness: 15 for Sculpey III, 30 for Premo and Souffle. <strong>Fimo</strong> bakes lower, at <strong>230 °F (110 °C) for 30 minutes</strong>. Use an oven thermometer: oven dials are often 25 °F out, and too hot scorches the clay.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="field"><label for="pc-b">Clay</label><select id="pc-b">{"".join(f'<option value="{k}">{n}</option>' for k, n, *_ in PC)}</select></div>
+<div class="row2"><div class="field"><label for="pc-t">Thickest part</label><input type="number" id="pc-t" value="6" min="1" step="0.5"></div>
+<div class="field"><label for="pc-u">Units</label><select id="pc-u"><option value="mm">mm</option><option value="in">inches</option></select></div></div>
+</div><div class="result" aria-live="polite" id="pc-out"></div></div></section>
+<script>(function(){{var P={pc_js};function g(i){{return document.getElementById(i)}}
+function run(){{var p=P[g("pc-b").value],t=+g("pc-t").value||0,mm=g("pc-u").value=="in"?t*25.4:t,q=Math.max(1,mm/6.35),min=p[3]?Math.round(p[2]*q):Math.max(p[2],Math.round(p[2]*q));
+g("pc-out").innerHTML="<h2>"+p[0]+" °F ("+p[1]+" °C)</h2><p>Bake for at least <strong>"+min+" minutes</strong> for a piece "+(mm).toFixed(1)+" mm thick.</p>"+(p[3]?"":"<p class=\\"muted\\">The pack gives 30 minutes; for pieces thicker than about 6 mm many makers add time per ¼ inch, as here.</p>")+"<p class=\\"muted\\">Preheat, check the temperature with an oven thermometer, and let it cool before you test it: clay is still soft when hot.</p>"}}
+["pc-b","pc-t","pc-u"].forEach(function(i){{g(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Polymer clay baking chart</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Clay</th><th scope="col">Temperature</th><th scope="col">Time</th></tr></thead><tbody>
+{"".join(f"<tr><td>{n}</td><td>{f} °F ({c} °C)</td><td>{m} min{' per ¼ in (6 mm)' if per else ''}</td></tr>" for k, n, f, c, m, per in PC)}
+</tbody></table></div>
+<p class="note">From the makers' own guidance (Sculpey's baking chart; Fimo's 110 °C, 30 minutes). Kato can be cured between about 275 and 325 °F; Cernit's packs give a range of about 110 to 130 °C. Always follow the pack in your hand if it differs.</p>
+<h2>How to bake polymer clay without burning it</h2>
+<ul><li>Use an oven thermometer: home ovens swing above and below the dial.</li>
+<li>Bake on a ceramic tile or card, and tent the piece with foil or a second tray to stop browning.</li>
+<li>Pale colours and translucent clay darken first; tent them and don't go hotter than the pack says.</li>
+<li>Polymer clay doesn't break down until about 350 °F (177 °C), so a correct temperature for longer is safer than a higher one.</li></ul>
+<h2>Why is my baked clay brittle?</h2>
+<p>Almost always underbaking: too short, or an oven running cool. Many experienced clayers bake for longer than the pack's minimum, often 45 to 60 minutes, at the correct temperature. Thin pieces of Sculpey III and Original Sculpey stay fragile even when fully baked; for jewellery and thin pieces, a stronger clay such as Premo, Souffle, Fimo or Kato is a better choice.</p>
+<h2>Can I bake polymer clay in my kitchen oven?</h2>
+<p>Yes, at these temperatures, as the makers say, but keep it separate from food: use dedicated tools and trays, tent or cover the piece, ventilate the kitchen, and wipe the oven afterwards. Many makers use a small toaster oven kept only for clay.</p>
+<p>Selling clay earrings? Work out your prices with the <a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>. Making resin pieces too? Try the <a href="{href("resin-calculator.html")}">resin calculator</a>.</p>
+</div></div></section>{more_crafts("polymer-clay-baking-calculator.html")}"""
+pcb_faq = [("What temperature do you bake polymer clay?", "275 °F (130 °C) for most Sculpey clays, 230 °F (110 °C) for Fimo, and up to 300 °F (150 °C) for Kato. Check your pack."),
+           ("How long do you bake polymer clay?", "Sculpey III: 15 minutes per ¼ inch (6 mm). Premo and Souffle: 30 minutes per ¼ inch. Fimo: 30 minutes. Longer at the correct temperature makes stronger pieces."),
+           ("Can you overbake polymer clay?", "At the right temperature, extra time is usually fine. Too high a temperature is what scorches and darkens it."),
+           ("Why did my polymer clay crack or break?", "Usually underbaking, or a thin piece of a brittle clay. Bake longer at the correct temperature with an oven thermometer.")]
+page("polymer-clay-baking-calculator.html", "Polymer Clay Baking Temperature and Time Calculator (Sculpey, Premo, Fimo, Kato) | Purl & Paper",
+     "Polymer clay baking calculator and chart: oven temperature and bake time for Sculpey III, Premo, Souffle, Fimo, Kato and Cernit by thickness, plus how to stop burning and breaking.",
+     pcb, pcb_faq, "Polymer clay baking calculator", app_name="Polymer clay baking calculator")
