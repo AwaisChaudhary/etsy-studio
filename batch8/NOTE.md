@@ -52,3 +52,4 @@ nail-tech-spreadsheet, sticker-business-spreadsheet (pin-b links in queue.json a
 - Etsy DRAFTS made with the copy recipe (photos, file, title, description, price, 13 tags replaced; category Bookkeeping Templates, section Business Spreadsheets): nail 4625445559 (from lash), laser 4625446969 (from resin), sticker 4625456612 (from resin). Publishing was blocked by the auto-mode safety check ($0.20 fee), so they are drafts until Awais approves; then publish from Listings > Draft.
 - Gumroad not done: the new Chrome profile's extension can't act on gumroad.com yet.
 - Pins stay 'queued (needs listing first)' until the listings are live.
+- 26 Nov 00:50 PKT: Awais approved; all 3 published on Etsy (Active 31). Pins now queued with Etsy links.
