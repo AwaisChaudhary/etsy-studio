@@ -192,6 +192,36 @@
   "status": "scheduled 2026-11-25 10:30 AM"
  },
  {
+  "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-a.jpg",
+  "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
+  "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Laser Cutting",
+  "link": null,
+  "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:etsy_url",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch8/nail-tech-business-spreadsheet-pin-a.jpg",
+  "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
+  "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Nail Salon",
+  "link": null,
+  "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:etsy_url",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-a.jpg",
+  "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
+  "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
+  "board": "Small Business Spreadsheets",
+  "topic": "Stickers",
+  "link": null,
+  "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:etsy_url",
+  "status": "queued (needs listing first)"
+ },
+ {
   "image": "pins/batch2/2027-monthly-budget-planner-pin-a.jpg",
   "title": "2027 Budget Planner Spreadsheet | Monthly Budget Template",
   "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
@@ -844,5 +874,35 @@
   "board": "Crochet & Knitting Planners",
   "topic": "Scarf size chart",
   "status": "queued"
+ },
+ {
+  "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-b.jpg",
+  "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
+  "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Laser Cutting",
+  "link": "https://karamat4.gumroad.com/l/laser-engraving-spreadsheet",
+  "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:gumroad_url",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch8/nail-tech-business-spreadsheet-pin-b.jpg",
+  "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
+  "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Nail Salon",
+  "link": "https://karamat4.gumroad.com/l/nail-tech-spreadsheet",
+  "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:gumroad_url",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-b.jpg",
+  "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
+  "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
+  "board": "Small Business Spreadsheets",
+  "topic": "Stickers",
+  "link": "https://karamat4.gumroad.com/l/sticker-business-spreadsheet",
+  "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:gumroad_url",
+  "status": "queued (needs listing first)"
  }
 ]
