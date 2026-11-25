@@ -1,3 +1,14 @@
+## NEW CATEGORIES (Awais 25 Nov: add new topic areas where data shows demand) — Keyword Planner, US, 25 Nov 2026
+Purl & Paper covers yarn and paper crafts; these adjacent crafts have big search demand and fit the brand and the shop (build each as a hub + tools/how-tos, 2-3 per run, data-first):
+C1. OPEN Calligraphy & hand lettering — "calligraphy" 100k-1M, LOW comp. Hub + free printable practice sheets generator (own fonts-free guides), pen/nib guide, alphabet drills.
+C2. OPEN Diamond painting — "diamond painting" 100k-1M, rising +900%. Canvas size + drill count calculator, beginner how-to, storage/organising checklist.
+C3. OPEN Cross stitch & embroidery & needlepoint — "needlepoint" 100k-1M, "cross stitch patterns" 10k-100k, "embroidery for beginners" 1k-10k. Fabric/aida count + finished size calculator, floss amount estimator, stitch how-tos with own SVG diagrams.
+C4. OPEN Quilting & sewing — "quilt size chart" 1k-10k LOW comp, "quilting for beginners" 1k-10k, "sewing patterns" 10k-100k. Quilt size chart + fabric yardage calculator, binding calculator, seam allowance guide.
+C5. OPEN Maker business crafts (ties to shop spreadsheets: candle, soap, resin, tumbler) — "candle making" 10k-100k, "resin art" 10k-100k, "soap making" 1k-10k. Candle wax/fragrance load calculator, soap lye-ratio explainer (link to proper lye calculators, safety first; never give unsafe chemistry), resin mixing ratio calculator; each with the matching business spreadsheet shop box.
+C6. OPEN Punch needle, macrame, latch hook, polymer clay — each 10k-100k. Beginner hubs with cord/yarn amount calculators.
+C7. OPEN Bullet journal & scrapbooking — "bullet journal" 10k-100k, "scrapbooking ideas" 10k-100k. Fits the junk-journal section: spread/layout generator, prompts, supply lists.
+Navigation: add a "Crafts" hub page listing every category as it goes live; keep the top nav at 5 links (link the hub from Home and the footer).
+
 ## COMPETITOR WATCH 25 Nov 2026 (vs easycrochet.com calculators, theloopylamb.com tools, brianakdesigns.com app)
 We have 47 site pages (~22 calculators/charts/trackers, 12 how-tos, junk journal set). NOTE: site deploy is a manual zip upload (needs Chrome on Awais's computer), so new pages go live only at the next deploy.
 1. GAP: tools all three competitors have that we lack: random stripe generator (easycrochet), C2C blanket calculator, scarf calculator, 'how much yarn is left in my skein' (weigh it), yarn stash calculator, multiples generator, colour palette generator (loopylamb), crochet time estimator (briana k), WIP tracker. Plan, one per run: yarn-left-by-weight calc (tiny, high search), stripe generator (also feeds temperature blanket), C2C calc, scarf calc, time estimator.
