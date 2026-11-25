@@ -4238,3 +4238,7 @@ from PIL import Image as _Im
 for _f in (ROOT / "assets" / "og").glob("*.jpg"):
     _i = _Im.open(_f)
     if _i.width > 800: _i.convert("RGB").resize((800, 420), _Im.LANCZOS).save(_f, quality=45, optimize=True, progressive=True)
+
+# --- honest sitemap: every indexable page, lastmod only when content changes (seo_post.py, 26 Nov) ---
+import subprocess as _sp, sys as _sys, pathlib as _pl
+_sp.run([_sys.executable, str(_pl.Path(__file__).resolve().parent / "seo_post.py"), str(_pl.Path(__file__).resolve().parent), DOMAIN])
