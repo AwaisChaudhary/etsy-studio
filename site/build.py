@@ -208,7 +208,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{"noindex, follow" if file in NOINDEX else "index, follow, max-image-preview:large"}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{e(SITE)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{_og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
+<meta property="og:image" content="{_og}"><meta property="og:image:width" content="960"><meta property="og:image:height" content="504"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='15' cy='17' r='12' fill='%23b8326a'/%3E%3Crect x='19' y='2' width='11' height='8' rx='2' fill='%23f4a823'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet"></noscript>
@@ -3828,3 +3828,8 @@ for _f, _, _ in CRAFTS: LASTMOD.setdefault(_f, "2026-11-25")
 (ROOT / "ads.txt").write_text("google.com, pub-1558743317014653, DIRECT, f08c47fec0942fa0\n")
 print("built", len(pages) + 1, "pages", "(preview)" if PREVIEW else "")
 write_redirects(ROOT)
+# Keep the Direct Upload zip under the 3.8 MB browser upload limit: OG images at 960x504, JPEG q50.
+from PIL import Image as _Im
+for _f in (ROOT / "assets" / "og").glob("*.jpg"):
+    _i = _Im.open(_f)
+    if _i.width > 960: _i.convert("RGB").resize((960, 504), _Im.LANCZOS).save(_f, quality=50, optimize=True, progressive=True)
