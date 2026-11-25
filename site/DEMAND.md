@@ -1,3 +1,10 @@
+## COMPETITOR WATCH 25 Nov 2026 (vs easycrochet.com calculators, theloopylamb.com tools, brianakdesigns.com app)
+We have 47 site pages (~22 calculators/charts/trackers, 12 how-tos, junk journal set). NOTE: site deploy is a manual zip upload (needs Chrome on Awais's computer), so new pages go live only at the next deploy.
+1. GAP: tools all three competitors have that we lack: random stripe generator (easycrochet), C2C blanket calculator, scarf calculator, 'how much yarn is left in my skein' (weigh it), yarn stash calculator, multiples generator, colour palette generator (loopylamb), crochet time estimator (briana k), WIP tracker. Plan, one per run: yarn-left-by-weight calc (tiny, high search), stripe generator (also feeds temperature blanket), C2C calc, scarf calc, time estimator.
+2. GAP: stitch library still missing (24 Nov item 1): sc/hdc/dc/tr/slip/chain + knit/purl with own SVG diagrams and US/UK toggle. Biggest search volume of all.
+3. GAP: Briana K's calculator passes a result between tools ('send to skeins', 'send to resize') and gives yardage as a range with a units dropdown on every field. Plan: add in/cm + yd/m toggles to every calculator that lacks them, and a 'use this in yarn calculator' button that carries numbers across our tools.
+4. BETTER-THAN-THEM: none of them save, print or work offline. Ours: every calculator remembers last inputs, prints a clean one-page 'project card' (size, stitches, yardage, skeins, colours), and the tool hub installs as an offline app (DEMAND item 5 PWA). Then pixel/C2C pattern maker (24 Nov item 5).
+
 ## RADAR 25 Nov 06:45 PKT (Google autocomplete, US)
 U1. DONE 25 Nov (/how-to-price-amigurumi + commission H2) 'how to price crochet amigurumi' / 'commissions' -> new /how-to-price-amigurumi (calculator preset) + commission pricing H2 on /how-to-price-crochet-items.
 U2. OPEN 'knitting how to join in the round' / 'pick up stitches' -> two new how-to pages (same format as cast on/bind off).
