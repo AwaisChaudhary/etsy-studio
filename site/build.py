@@ -212,7 +212,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{"noindex, follow" if file in NOINDEX else "index, follow, max-image-preview:large"}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{e(SITE)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{_og}"><meta property="og:image:width" content="960"><meta property="og:image:height" content="504"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
+<meta property="og:image" content="{_og}"><meta property="og:image:width" content="800"><meta property="og:image:height" content="420"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='15' cy='17' r='12' fill='%23b8326a'/%3E%3Crect x='19' y='2' width='11' height='8' rx='2' fill='%23f4a823'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet"></noscript>
@@ -4223,6 +4223,8 @@ page("welcome.html", "Your free printables | Purl & Paper", "Download your free 
 LASTMOD = {"basic-crochet-stitches.html": "2026-11-26", "sweater-size-calculator.html": "2026-11-26", "crochet-time-estimator.html": "2026-11-25", "stripe-generator.html": "2026-11-25", "c2c-blanket-calculator.html": "2026-11-25", "scarf-size-chart.html": "2026-11-25", "how-to-pick-up-stitches-knitting.html": "2026-11-25", "how-to-price-amigurumi.html": "2026-11-25", "how-to-knit-in-the-round.html": "2026-11-25", "junk-journal-supply-checklist.html": "2026-11-25", "crochet-knitting-gift-planner.html": "2026-11-25", "etsy-fee-calculator.html": "2026-11-25", "hook-needle-sizes.html": "2026-11-25", "how-to-fix-a-dropped-stitch.html": "2026-11-24", "how-to-price-a-crochet-blanket.html": "2026-11-24", "how-to-price-crochet-items.html": "2026-11-25", "blanket-size-calculator.html": "2026-11-24", "knitting-abbreviations.html": "2026-11-24", "how-to-cast-on-knitting.html": "2026-11-25", "how-to-crochet-decrease.html": "2026-11-24", "increase-decrease-calculator.html": "2026-11-24", "cast-on-calculator.html": "2026-11-24", "how-to-bind-off-knitting.html": "2026-11-24", "how-to-weave-in-ends.html": "2026-11-24", "how-to-crochet-magic-ring.html": "2026-11-24", "how-to-change-colors-in-crochet.html": "2026-11-24", "foundation-chain-calculator.html": "2026-11-23", "junk-journal-signature-calculator.html": "2026-11-23", "hat-size-chart.html": "2026-11-25", "junk-journal-beginners.html": "2026-11-25", "yarn-yardage-calculator.html": "2026-11-23", "craft-fair-checklist.html": "2026-11-23", "granny-square-blanket-calculator.html": "2026-11-23", "temperature-blanket-planner.html": "2026-11-23", "junk-journal-ephemera-ideas.html": "2026-11-25", "crochet-circle-calculator.html": "2026-11-22", "yarn-calculator.html": "2026-11-22", "journal-prompts.html": "2026-11-22", "yarn-substitution-calculator.html": "2026-11-23", "how-to-tea-stain-paper.html": "2026-11-22", "yarn-weights.html": "2026-11-24", "sock-size-chart.html": "2026-11-22", "hook-needle-sizes.html": "2026-11-22", "row-counter.html": "2026-11-25", "crochet-terms.html": "2026-11-23", "gauge-converter.html": "2026-11-24", "projects.html": "2026-11-20", "index.html": "2026-11-23"}
 pages = list(dict.fromkeys(["index.html"] + [f for f, _ in NAV + TOOLS_MORE] + [f for f, _ in GUIDES] + [f for f, _, _ in CRAFTS] + [f for f, _, _ in SELLER] + ["about.html", "privacy.html"]))
 LASTMOD["2027-calendar-printable.html"] = "2026-11-26"
+for _f, _, _ in NEW_CRAFTS: LASTMOD[_f] = "2026-11-26"
+LASTMOD["crafts.html"] = "2026-11-26"
 for _f, _, _ in CRAFTS: LASTMOD.setdefault(_f, "2026-11-25")
 for _f, _, _ in SELLER: LASTMOD.setdefault(_f, "2026-11-26")
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
@@ -4231,8 +4233,8 @@ for _f, _, _ in SELLER: LASTMOD.setdefault(_f, "2026-11-26")
 (ROOT / "ads.txt").write_text("google.com, pub-1558743317014653, DIRECT, f08c47fec0942fa0\n")
 print("built", len(pages) + 1, "pages", "(preview)" if PREVIEW else "")
 write_redirects(ROOT)
-# Keep the Direct Upload zip under the 3.8 MB browser upload limit: OG images at 960x504, JPEG q50.
+# Keep the Direct Upload zip under the 3.8 MB browser upload limit: OG images at 800x420, JPEG q45 (26 Nov: was 960x504 q50).
 from PIL import Image as _Im
 for _f in (ROOT / "assets" / "og").glob("*.jpg"):
     _i = _Im.open(_f)
-    if _i.width > 960: _i.convert("RGB").resize((960, 504), _Im.LANCZOS).save(_f, quality=50, optimize=True, progressive=True)
+    if _i.width > 800: _i.convert("RGB").resize((800, 420), _Im.LANCZOS).save(_f, quality=45, optimize=True, progressive=True)

@@ -18,6 +18,7 @@ CRAFTS = [
  ("half-square-triangle-calculator.html", "Half square triangle calculator", "What size squares to cut for HSTs, 2, 4 or 8 at a time, and how much fabric."),
  ("polymer-clay-baking-calculator.html", "Polymer clay baking calculator", "Oven temperature and bake time for your clay brand and thickness."),
 ]
+exec((ROOT / "newcrafts_list.py").read_text())
 CRAFT_LINKS = '<ul class="craft-links">' + "".join(f'<li><a href="{href(f)}">{n}</a> <span class="muted">{d}</span></li>' for f, n, d in CRAFTS[1:]) + "</ul>"
 def more_crafts(file):
     return '<section><div class="wrap"><div class="narrow prose"><h2>More free craft tools</h2><ul>' + "".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n, _ in CRAFTS if f != file) + "</ul></div></div></section>"
@@ -46,6 +47,7 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <li><a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>: what Etsy takes and what to charge.</li></ul>
 <p class="muted">Every tool runs in your browser. Nothing you type is uploaded.</p>
 </div></div></section>'''
+hub = hub.replace("<h2>Clay</h2>", L(NEW_HUB) + "<h2>Clay</h2>", 1)
 page("crafts.html", "Free Craft Calculators and Printables: Calligraphy, Cross Stitch, Quilting, Candles, Resin | Purl & Paper",
      "Free craft tools: calligraphy practice sheets, dot grid paper, cross stitch, quilt size, diamond painting, candle wax, resin and macrame cord calculators.",
      hub, None, "All crafts")
@@ -482,3 +484,4 @@ page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: H
      hst, hst_faq, "Half square triangle calculator", app_name="Half square triangle calculator")
 
 exec((ROOT / "calendar.py").read_text())
+exec((ROOT / "newcrafts.py").read_text())
