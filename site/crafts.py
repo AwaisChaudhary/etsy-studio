@@ -8,6 +8,7 @@ CRAFTS = [
  ("crafts.html", "All crafts", "Every craft we cover, with its free tools."),
  ("calligraphy-practice-sheets.html", "Calligraphy practice sheets", "Make printable guideline sheets for any pen: x-height, slant and spacing."),
  ("dot-grid-paper.html", "Dot grid paper (bullet journal)", "Printable dot grid, graph and lined paper in any spacing, A4 or Letter."),
+ ("2027-calendar-printable.html", "2027 calendar printable", "A free 2027 calendar: one-page year or 12 monthly pages, US or UK holidays."),
  ("diamond-painting-calculator.html", "Diamond painting calculator", "How many drills fit your canvas, round or square, and how long it will take."),
  ("cross-stitch-calculator.html", "Cross stitch calculator", "Finished size on any fabric count, how much fabric to cut and how many skeins."),
  ("quilt-size-calculator.html", "Quilt size calculator", "Quilt size for any bed, plus backing and binding yardage."),
@@ -27,6 +28,7 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <h2>Paper and lettering</h2>
 <ul><li><a href="{href("calligraphy-practice-sheets.html")}">Calligraphy practice sheets</a>: guideline sheets for brush pens and pointed pens, set to your x-height and slant.</li>
 <li><a href="{href("dot-grid-paper.html")}">Dot grid paper</a>: the bullet journal standard, plus graph and lined paper, ready to print.</li>
+<li><a href="{href("2027-calendar-printable.html")}">2027 calendar printable</a>: a one-page year or twelve monthly pages, with US or UK holidays.</li>
 <li><a href="{href("junk-journal-beginners.html")}">Junk journaling for beginners</a> and the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</li></ul>
 <h2>Needlework</h2>
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
@@ -82,7 +84,7 @@ cal = top("Calligraphy practice sheets (printable, free)", "Set your pen's x-hei
 <div class="field"><label for="ps-des">Descender (× x-height)</label><input type="number" id="ps-des" value="3" min="1" max="4" step="0.5"></div></div>
 <div class="row2"><div class="field"><label for="ps-gap">Slant line spacing (× x-height)</label><input type="number" id="ps-gap" value="3" min="1" max="8" step="0.5"></div>
 <div class="field"><label for="ps-paper">Paper</label><select id="ps-paper"><option value="letter">US Letter</option><option value="a4">A4</option></select></div></div>
-<div class="btns"><button type="button" class="go" onclick="PPprint()">Print sheet</button> <button type="button" class="go" onclick="PPdl('calligraphy-practice-sheet')">Save as image (SVG)</button></div>
+<div class="btns"><button type="button" class="btn" onclick="PPprint()">Print sheet</button> <button type="button" class="btn" onclick="PPdl('calligraphy-practice-sheet')">Save as image (SVG)</button></div>
 </div><div class="result"><h2>Preview</h2><div id="ps-prev"></div><p class="note">Shaded band = x-height. Dark line = baseline. Light lines = ascender and descender limits. Diagonals = your slant.</p></div></div></section>
 {SHEET_JS}<script>(function(){{var ids=["ps-x","ps-ang","ps-asc","ps-des","ps-gap","ps-paper"];function r(){{PPsheet("cal")}}ids.forEach(function(i){{document.getElementById(i).addEventListener("input",r)}});
 document.getElementById("ps-pen").addEventListener("change",function(){{var v=this.value.split(",");document.getElementById("ps-x").value=v[0];document.getElementById("ps-asc").value=v[1];document.getElementById("ps-des").value=v[2];document.getElementById("ps-ang").value=v[0]=="7"?"85":"55";r()}});r()}})();</script>
@@ -115,7 +117,7 @@ dot = top("Printable dot grid paper (and graph and lined)", "The bullet journal 
 <div class="field"><label for="ps-type">Paper type</label><select id="ps-type"><option value="dot">Dot grid</option><option value="grid">Square grid (graph)</option><option value="lined">Lined</option></select></div>
 <div class="row2"><div class="field"><label for="ps-sp">Spacing (mm)</label><input type="number" id="ps-sp" value="5" min="3" max="15" step="0.5"></div>
 <div class="field"><label for="ps-paper">Paper</label><select id="ps-paper"><option value="letter">US Letter</option><option value="a4">A4</option></select></div></div>
-<div class="btns"><button type="button" class="go" onclick="PPprint()">Print sheet</button> <button type="button" class="go" onclick="PPdl('dot-grid-paper')">Save as image (SVG)</button></div>
+<div class="btns"><button type="button" class="btn" onclick="PPprint()">Print sheet</button> <button type="button" class="btn" onclick="PPdl('dot-grid-paper')">Save as image (SVG)</button></div>
 <p class="note">Printing tip: choose "Actual size" (not "Fit to page") so the spacing prints exactly.</p>
 </div><div class="result"><h2>Preview</h2><div id="ps-prev"></div></div></div></section>
 {SHEET_JS}<script>(function(){{["ps-type","ps-sp","ps-paper"].forEach(function(i){{document.getElementById(i).addEventListener("input",function(){{PPsheet("dot")}})}});PPsheet("dot")}})();</script>
@@ -478,3 +480,5 @@ hst_faq = [("What size do I cut squares for half square triangles?", "For 2 at a
 page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: HST Cut Sizes (2, 4 and 8 at a Time) + Chart | Purl & Paper",
      "Free half square triangle calculator: what size squares to cut for HSTs made 2, 4 or 8 at a time, how many squares and strips you need, and a cut size chart.",
      hst, hst_faq, "Half square triangle calculator", app_name="Half square triangle calculator")
+
+exec((ROOT / "calendar.py").read_text())
