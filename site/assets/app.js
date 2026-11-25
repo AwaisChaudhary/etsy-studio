@@ -104,6 +104,16 @@
       else if (e.target.getAttribute("data-f")) { c[e.target.getAttribute("data-f")] = e.target.value; refresh(c); }
       save();
     });
+    if ($("#rc-nl") && $("#rc-need")) {
+      var rcRows = function () {
+        var cm = $("#rc-nu").value === "cm", len = (parseFloat($("#rc-nl").value) || 0) / (cm ? 2.54 : 1), over = $("#rc-no").value === "10" ? 10 / 2.54 : 4, rg = parseFloat($("#rc-nr").value) || 0;
+        return len > 0 && rg > 0 ? Math.ceil(len * rg / over) : 0;
+      };
+      var rcShow = function () { var r = rcRows(); $("#rc-need").innerHTML = r ? "<strong>" + r + " rows</strong> to work " + esc($("#rc-nl").value) + " " + $("#rc-nu").value + "." : "Type a length and your row gauge."; $("#rc-nset").disabled = !r; };
+      ["#rc-nl", "#rc-nu", "#rc-nr", "#rc-no"].forEach(function (q) { $(q).addEventListener("input", rcShow); $(q).addEventListener("change", rcShow); });
+      $("#rc-nset").addEventListener("click", function () { var r = rcRows(); if (!r) return; S.list[0].target = String(r); save(); render(); toast("Target set: " + r + " rows"); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      rcShow();
+    }
     $("#rc-add").addEventListener("click", function () {
       var names = ["Repeats", "Sleeve", "Decreases", "Rounds", "Pattern row"];
       S.list.push({ id: S.next++, name: names[(S.list.length - 1) % names.length], n: 0, target: "", rep: "" }); save(); render();
@@ -2313,5 +2323,128 @@
     ["#am-hgt", "#am-parts", "#am-y", "#am-o", "#am-h", "#am-rate", "#am-oh", "#am-try"].forEach(function (s) { $(s).addEventListener("input", amCalc); });
     amCalc();
   }
+
+  /* ---------- C2C BLANKET CALCULATOR ---------- */
+  if ($("#c2-what") && $("#c2-out")) {
+    var c2 = {}; ["what", "custom", "w", "l", "u", "yarn", "g", "gu", "gnote", "sk", "col", "out", "svg", "cap"].forEach(function (k) { c2[k] = $("#c2-" + k); });
+    var C2T = { 2: 0.5, 3: 0.65, 4: 0.8, 5: 1.25, 6: 1.65 }; /* in per tile: worsted/bulky/super bulky from published patterns, fine/DK our estimates */
+    var C2M = { 2: 1.35, 3: 1.18, 4: 1.0, 5: 0.72, 6: 0.52 }, C2Y = 0.667 * 1.27; /* yd per sq in: same model as the blanket calculator (estimate) */
+    var c2Keys = ["what", "w", "l", "u", "yarn", "g", "gu", "sk", "col"], c2T = false, c2P = store.get("pp-c2c", null);
+    if (c2P) { c2Keys.forEach(function (k) { if (c2P[k] != null && c2P[k] !== "" && c2[k]) c2[k].value = c2P[k]; }); c2T = !!c2P.t; }
+    var c2f1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var c2Both = function (i) { return c2f1(i) + " in (" + Math.round(i * 2.54) + " cm)"; };
+    var c2Link = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function c2Draw(a, b) {
+      var W = 300, H = 200, s = Math.min(W / a, H / b), w = a * s, h = b * s, x0 = (320 - w) / 2, y0 = 20 + (H - h) / 2, m = Math.min(a, b), g = "";
+      var P = function (i, j) { return (x0 + i * s).toFixed(1) + "," + (y0 + h - j * s).toFixed(1); }; /* i across from the left, j up from the bottom */
+      g += '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="#f4a823"/>';
+      g += '<polygon points="' + P(0, 0) + " " + P(m, 0) + " " + P(0, m) + '" fill="#b8326a"/>';
+      g += '<polygon points="' + P(a, b) + " " + P(a - m, b) + " " + P(a, b - m) + '" fill="#2f8f8a"/>';
+      var n = a + b - 1, step = n > 80 ? 5 : (n > 40 ? 2 : 1), d = "";
+      for (var r = step; r < n; r += step) {
+        var i1 = Math.max(0, r - b), j1 = r - i1, i2 = Math.min(a, r), j2 = r - i2;
+        d += "M" + P(i1, j1) + "L" + P(i2, j2);
+      }
+      g += '<path d="' + d + '" stroke="rgba(255,255,255,.55)" stroke-width="1"/>';
+      if (a <= 60 && b <= 60) { var gd = ""; for (var i = 1; i < a; i++) gd += "M" + P(i, 0) + "L" + P(i, b); for (var j = 1; j < b; j++) gd += "M" + P(0, j) + "L" + P(a, j); g += '<path d="' + gd + '" stroke="rgba(31,42,68,.12)" stroke-width=".6"/>'; }
+      g += '<rect x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="none" stroke="#1f2a44" stroke-width="2"/>';
+      g += '<circle cx="' + x0.toFixed(1) + '" cy="' + (y0 + h).toFixed(1) + '" r="5" fill="#1f2a44"/><text x="' + (x0 + 8).toFixed(1) + '" y="' + Math.min(236, y0 + h + 14).toFixed(1) + '" font-size="11" fill="#1f2a44">start</text>';
+      g += '<text x="160" y="13" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2a44">' + a + " tiles wide × " + b + " tiles tall</text>";
+      c2.svg.innerHTML = g;
+    }
+    function c2Calc() {
+      var wn = parseInt(c2.yarn.value, 10) || 4;
+      if (!c2T) c2.g.value = c2.gu.value === "10" ? Math.round(10 / 2.54 / C2T[wn] * 2) / 2 : Math.round(4 / C2T[wn] * 2) / 2;
+      c2.gnote.textContent = c2T ? "Your swatch." : "Filled in with a typical tile size for this yarn until you type your own.";
+      var custom = c2.what.value === "custom", cm = c2.u.value === "cm", W, L; c2.custom.hidden = !custom;
+      if (custom) { W = Math.min(240, Math.max(2, (parseFloat(c2.w.value) || 0) / (cm ? 2.54 : 1))); L = Math.min(240, Math.max(2, (parseFloat(c2.l.value) || 0) / (cm ? 2.54 : 1))); }
+      else { var pv = c2.what.value.split("|"); W = parseFloat(pv[0]) || 50; L = parseFloat(pv[1]) || 60; }
+      var gv = parseFloat(c2.g.value) || 0, t = gv > 0 ? (c2.gu.value === "10" ? 10 / 2.54 : 4) / gv : 0;
+      if (!(t > 0)) { c2.out.innerHTML = '<h3>Your C2C blanket</h3><p class="sub">Enter the tiles in your swatch.</p>'; c2.svg.innerHTML = ""; return; }
+      var a = Math.max(1, Math.round(W / t)), b = Math.max(1, Math.round(L / t)), m = Math.min(a, b), M = Math.max(a, b), rows = a + b - 1, tiles = a * b;
+      var yd = a * t * b * t * C2Y * (C2M[wn] || 1), sk = Math.max(10, parseFloat(c2.sk.value) || 200), buy = yd * 1.1, nc = parseInt(c2.col.value, 10) || 1;
+      var shortSide = a < b ? "width" : "length";
+      var plan = "<ul><li><strong>Rows 1 to " + m + ":</strong> increase at both edges (row " + m + " has " + m + " tiles).</li>" +
+        (M > m ? "<li><strong>Rows " + (m + 1) + " to " + M + ":</strong> increase on the long edge, decrease on the short edge (" + (M - m) + " rows of " + m + " tiles).</li>" : "") +
+        (rows > M ? "<li><strong>Rows " + (M + 1) + " to " + rows + ":</strong> decrease at both edges, down to 1 tile.</li>" : "") + "</ul>";
+      var out = "<h3>Your C2C blanket</h3><div class=\"bk-dims\">" + a + " × " + b + " tiles<small>" + tiles.toLocaleString("en-US") + " tiles · " + rows + " diagonal rows · finished about " + c2Both(a * t) + " × " + c2Both(b * t) + "</small></div>" +
+        '<div class="tb-stats"><div><strong>' + fmt(Math.round(yd / 50) * 50) + ' yd</strong><span>yarn, our estimate (' + fmt(yd * 0.9144) + " m)</span></div><div><strong>" + Math.ceil(buy / sk) + " skeins</strong><span>of " + fmt(sk) + " yd, with 10% spare</span></div></div>" +
+        "<hr><h3>Row plan</h3>" + plan +
+        (a === b ? "" : '<p class="sub">The short side is the ' + shortSide + ". Put a marker on the long edge so you keep increasing there.</p>") +
+        (nc > 1 ? '<p class="sub">With ' + nc + " colours in equal stripes, buy about " + Math.ceil(buy / nc / sk) + " skein" + (Math.ceil(buy / nc / sk) === 1 ? "" : "s") + " of each. For a graph, count the squares of each colour: each tile takes about " + c2f1(yd / tiles * 36) + " in of yarn.</p>" : '<p class="sub">Each tile takes about ' + c2f1(yd / tiles * 36) + " in of yarn. For a picture blanket, draw a " + a + " × " + b + " grid.</p>") +
+        '<p class="sub">Next: ' + c2Link("blanket-size-calculator", "blanket sizes") + ", " + c2Link("row-counter", "row counter") + ", " + c2Link("how-to-price-a-crochet-blanket", "pricing a blanket") + ".</p>";
+      c2.out.innerHTML = out; c2Draw(a, b);
+      c2.cap.textContent = "Start in the bottom left corner. Pink rows grow at both edges" + (M > m ? ", yellow rows keep the same length" : "") + ", teal rows shrink to the last tile.";
+      var sv = { t: c2T }; c2Keys.forEach(function (k) { sv[k] = c2[k].value; }); store.set("pp-c2c", sv);
+    }
+    var c2U = c2.u.value;
+    c2.u.addEventListener("change", function () { if (c2U !== c2.u.value) { var f = c2.u.value === "cm" ? 2.54 : 1 / 2.54; ["w", "l"].forEach(function (k) { var v = parseFloat(c2[k].value); if (v) c2[k].value = Math.round(v * f * 2) / 2; }); } c2U = c2.u.value; });
+    var c2Gu = c2.gu.value;
+    c2.gu.addEventListener("change", function () { var v = parseFloat(c2.g.value); if (v && c2T && c2Gu !== c2.gu.value) c2.g.value = Math.round(v * (c2.gu.value === "10" ? 10 / 2.54 / 4 : 4 / (10 / 2.54)) * 2) / 2; c2Gu = c2.gu.value; });
+    c2.g.addEventListener("input", function () { c2T = true; });
+    c2.yarn.addEventListener("change", function () { c2T = false; });
+    c2Keys.forEach(function (k) { c2[k].addEventListener("input", c2Calc); c2[k].addEventListener("change", c2Calc); });
+    c2Calc();
+  }
+
+  /* ---------- SCARF SIZE CHART + YARN CALCULATOR ---------- */
+  if ($("#sf-what") && $("#sf-out")) {
+    var sf = {}; ["what", "hgt", "h", "hw", "custom", "l", "w", "t", "u", "craft", "yarn", "tex", "sk", "fr", "out", "svg", "cap"].forEach(function (k) { sf[k] = $("#sf-" + k); });
+    var SFS = { child4: [37.5, 4, "flat", "child's scarf (4 to 5 years)"], child6: [55, 5, "flat", "child's scarf (6 to 10 years)"], teen: [60, 6, "flat", "teen scarf"], women: [65, 7, "flat", "women's scarf"], men: [70, 7, "flat", "men's scarf"],
+      skinny: [65, 3.5, "flat", "skinny scarf"], long: [82.5, 8, "flat", "long scarf"], "super": [100, 8, "flat", "super long scarf"], wrap: [71, 20, "flat", "wrap"], infinity: [58, 9, "loop", "infinity scarf"], cowl: [27, 9, "loop", "cowl"], kidcowl: [20, 7, "loop", "child's cowl"] };
+    var SFK = { 1: 28, 2: 24, 3: 22, 4: 18, 5: 14, 6: 9, 7: 6 }, SFC = { 1: 26, 2: 18, 3: 14, 4: 12, 5: 9, 6: 8, 7: 6 }, SFM = { 1: 1.6, 2: 1.35, 3: 1.18, 4: 1.0, 5: 0.72, 6: 0.52, 7: 0.38 };
+    var sfKeys = ["what", "h", "hw", "l", "w", "t", "u", "yarn", "tex", "sk", "fr"], sfP = store.get("pp-scarf", null);
+    if (sfP) { sfKeys.forEach(function (k) { if (sfP[k] != null && sfP[k] !== "" && sf[k]) sf[k].value = sfP[k]; }); if (sfP.craft) $$("button", sf.craft).forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-v") === sfP.craft); }); }
+    var sf1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var sfBoth = function (i) { return sf1(i) + " in (" + Math.round(i * 2.54) + " cm)"; };
+    var sfLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function sfDraw(L, W, loop) {
+      var x0 = 14, span = 292, sc = span / Math.max(72, L), g = "", y = 70;
+      g += '<path d="M' + x0 + ' 150h' + (72 * sc).toFixed(1) + '" stroke="#1f2a44" stroke-width="2"/>';
+      for (var f = 0; f <= 6; f++) { var xx = x0 + f * 12 * sc; g += '<path d="M' + xx.toFixed(1) + ' 145v10" stroke="#1f2a44" stroke-width="1.6"/><text x="' + xx.toFixed(1) + '" y="166" text-anchor="middle" font-size="10" fill="#1f2a44">' + f + " ft</text>"; }
+      if (loop) {
+        var r = L * sc / (2 * Math.PI) * 2.2, cx = 160, cy = 72, ry = Math.min(52, r * 0.55), rx = Math.min(140, r), bw = Math.max(5, Math.min(30, W * sc));
+        g += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) + '" fill="none" stroke="#b8326a" stroke-width="' + bw.toFixed(1) + '"/>';
+        g += '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) + '" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4" stroke-dasharray="5 5"/>';
+        g += '<path d="M' + x0 + ' 134h' + (L * sc).toFixed(1) + '" stroke="#2f8f8a" stroke-width="5" stroke-linecap="round"/><text x="' + x0 + '" y="126" font-size="10" fill="#1f2a44">opened out: ' + sf1(L) + " in around</text>";
+      } else {
+        var len = L * sc, hh = Math.max(6, Math.min(80, W * sc)), d = "";
+        g += '<rect x="' + x0 + '" y="' + (y - hh / 2).toFixed(1) + '" width="' + len.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="3" fill="#b8326a"/>';
+        for (var i = 8; i < len - 4; i += 9) d += "M" + (x0 + i - 3).toFixed(1) + " " + (y - hh / 2 + 3).toFixed(1) + "v" + (hh - 6).toFixed(1);
+        g += '<path d="' + d + '" stroke="rgba(255,255,255,.35)" stroke-width="1.2"/>';
+        g += '<text x="' + x0 + '" y="' + (y - hh / 2 - 8).toFixed(1) + '" font-size="11" font-weight="700" fill="#1f2a44">' + sf1(L) + " × " + sf1(W) + " in</text>";
+      }
+      sf.svg.innerHTML = g;
+    }
+    function sfCalc() {
+      var v = sf.what.value, cm = sf.u.value === "cm", k = cm ? 2.54 : 1, L, W, loop, name;
+      sf.hgt.hidden = v !== "height"; sf.custom.hidden = v !== "custom";
+      if (v === "height") { L = Math.max(8, Math.min(100, (parseFloat(sf.h.value) || 0) / k)); W = Math.max(1, Math.min(16, (parseFloat(sf.hw.value) || 0) / k)); loop = false; name = "scarf as long as the wearer is tall"; }
+      else if (v === "custom") { L = Math.max(4, Math.min(120, (parseFloat(sf.l.value) || 0) / k)); W = Math.max(1, Math.min(40, (parseFloat(sf.w.value) || 0) / k)); loop = sf.t.value === "loop"; name = loop ? "loop" : "scarf"; }
+      else { var p = SFS[v] || SFS.women; L = p[0]; W = p[1]; loop = p[2] === "loop"; name = p[3]; }
+      var craft = segVal(sf.craft) || "knit", wn = parseInt(sf.yarn.value, 10) || 4, tex = parseFloat(sf.tex.value) || 1, sk = Math.max(10, parseFloat(sf.sk.value) || 200), fr = parseFloat(sf.fr.value) || 0;
+      var yd = L * W * 0.667 * (SFM[wn] || 1) * (craft === "crochet" ? 1.27 : 1) * tex;
+      var frYd = 0, tass = 0; if (fr && !loop) { tass = Math.max(3, Math.round(W)); frYd = 2 * tass * 4 * (2 * fr + 1) / 36; }
+      var tot = yd + frYd, skN = Math.ceil(tot * 1.1 / sk);
+      var start;
+      if (craft === "knit") { var sts = Math.max(4, Math.round(W * SFK[wn] / 4 * (tex >= 1.25 ? 1.15 : 1))); start = "<strong>Cast on about " + sts + " stitches</strong> (" + (SFK[wn]) + " sts per 4 in typical for this yarn" + (tex >= 1.25 ? ", plus 15% because rib and cables pull in" : "") + ")."; }
+      else { var cs = Math.max(3, Math.round(W * SFC[wn] * 0.9 / 4)); start = "<strong>Chain about " + (cs + 2) + "</strong> for " + cs + " double crochet (dc in the 4th ch from the hook), or " + (Math.round(W * SFC[wn] / 4) + 1) + " for single crochet."; }
+      if (loop) start += " Work it flat and sew the short ends together, or " + (craft === "knit" ? "cast on " + Math.max(8, Math.round(L * SFK[wn] / 4)) + " stitches and knit " + sf1(W) + " in in the round" : "chain " + Math.round(L * SFC[wn] * 0.9 / 4) + ", join and work rounds to " + sf1(W) + " in") + ".";
+      var out = "<h3>Your " + esc(name) + "</h3><div class=\"bk-dims\">" + sf1(L) + " × " + sf1(W) + " in<small>" + (loop ? "around × wide: " : "long × wide: ") + Math.round(L * 2.54) + " × " + Math.round(W * 2.54) + " cm</small></div>" +
+        '<div class="tb-stats"><div><strong>' + fmt(Math.round(tot / 10) * 10) + ' yd</strong><span>yarn, our estimate (' + fmt(tot * 0.9144) + " m)" + (frYd ? ", incl. " + fmt(frYd) + " yd fringe" : "") + "</span></div><div><strong>" + skN + " skein" + (skN === 1 ? "" : "s") + "</strong><span>of " + fmt(sk) + " yd, with 10% spare</span></div></div>" +
+        "<p>" + start + "</p>" + (frYd ? '<p class="sub">Fringe: ' + tass + " tassels at each end, 4 strands of " + sf1(2 * fr + 1) + " in each.</p>" : "") +
+        (v === "child4" || v === "kidcowl" ? '<p class="sub">For toddlers and young children, skip loose fringe and pom-poms; a cowl is safer than a long scarf.</p>' : "") +
+        '<p class="sub">Typical gauge for the yarn, so swatch and use your own in the ' + sfLink(craft === "knit" ? "cast-on-calculator" : "foundation-chain-calculator", craft === "knit" ? "cast on calculator" : "foundation chain calculator") + ". Next: " + sfLink("crochet-knitting-gift-planner", "will it be ready by Christmas?") + "</p>";
+      sf.out.innerHTML = out; sfDraw(L, W, loop);
+      sf.cap.textContent = loop ? "Your " + name + " as a loop, and opened out against a 6 ft ruler." : "Your " + name + " against a 6 ft ruler.";
+      var s = { craft: craft }; sfKeys.forEach(function (kk) { s[kk] = sf[kk].value; }); store.set("pp-scarf", s);
+    }
+    var sfU = sf.u.value;
+    sf.u.addEventListener("change", function () { if (sfU !== sf.u.value) { var f = sf.u.value === "cm" ? 2.54 : 1 / 2.54; ["h", "hw", "l", "w"].forEach(function (k) { var x = parseFloat(sf[k].value); if (x) sf[k].value = Math.round(x * f * 2) / 2; }); } sfU = sf.u.value; });
+    seg(sf.craft, sfCalc);
+    sfKeys.forEach(function (k) { sf[k].addEventListener("input", sfCalc); sf[k].addEventListener("change", sfCalc); });
+    sfCalc();
+  }
+
 
 })();
