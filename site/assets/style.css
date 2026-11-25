@@ -596,3 +596,6 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .result .sg-list i { display: inline-block; vertical-align: -2px; margin-right: 8px; width: 16px; height: 16px; border-radius: 4px; border: 1px solid rgba(255,255,255,.6); flex: none; }
 .result .sg-rows { max-height: 420px; overflow: auto; }
 @media print { [data-page="stripe-generator"] .sheet, [data-page="stripe-generator"] .quick, [data-page="stripe-generator"] .page-top .lead { display: none; } [data-page="stripe-generator"] .tool { display: block; } [data-page="stripe-generator"] .result { position: static; } [data-page="stripe-generator"] .result .sg-rows { max-height: none; overflow: visible; } }
+
+.bs-terms { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; font-weight: 700; }
+#bs-st button { padding: 8px 12px; }

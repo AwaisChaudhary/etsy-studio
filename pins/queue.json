@@ -922,5 +922,23 @@
   "board": "Crochet & Knitting Planners",
   "topic": "Stripe generator",
   "status": "queued"
+ },
+ {
+  "image": "pins/site/basic-crochet-stitches.jpg",
+  "title": "Basic Crochet Stitches for Beginners: Step by Step (US & UK Terms)",
+  "description": "Learn the 6 basic crochet stitches: chain, slip stitch, single, half double, double and treble crochet. Step through each one with drawings and a loops-on-hook counter, switch US/UK names, and see turning chains and stitch heights in one chart. #crochetforbeginners #learntocrochet #crochetstitches #crochettutorial #ukcrochet",
+  "link": "https://purlandpaperco.com/basic-crochet-stitches",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Basic crochet stitches",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/sweater-size-calculator.jpg",
+  "title": "What Size Sweater Should I Knit or Crochet? Free Ease & Yarn Calculator",
+  "description": "Enter your chest and the fit you like (close, classic, loose or oversized) to find which pattern size to make, the ease in every size, and roughly how much yarn and how many skeins a pullover takes in DK, worsted or bulky. #knitsweater #crochetsweater #knittingtips #sweaterknitting #yarncalculator",
+  "link": "https://purlandpaperco.com/sweater-size-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Sweater size calculator",
+  "status": "queued"
  }
 ]

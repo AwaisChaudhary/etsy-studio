@@ -2567,4 +2567,68 @@
     sgSwatches(); sgCalc();
   }
 
+
+  /* ---------- BASIC CROCHET STITCHES: US/UK toggle + step-through ---------- */
+  if ($("#bs-terms")) {
+    var bsT = store.get("pp-terms", "us");
+    var bsSet = function (t) { $$(".tm").forEach(function (x) { x.textContent = x.getAttribute("data-" + t); }); $$("button", $("#bs-terms")).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === t); }); bsT = t; store.set("pp-terms", t); };
+    seg($("#bs-terms"), bsSet); if (bsT === "uk") bsSet("uk");
+  }
+  if ($("#bs-st") && $("#bs-svg") && window.PP_BS) {
+    var bsD = window.PP_BS, bsK = "sc", bsI = 0;
+    function bsShow() {
+      var s = bsD[bsK], st = s[bsI];
+      $("#bs-svg").innerHTML = st.s.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
+      $("#bs-svg").setAttribute("aria-label", st.t);
+      var nm = $('button[data-v="' + bsK + '"] .tm', $("#bs-st")), name = nm ? nm.textContent : bsK;
+      $("#bs-out").innerHTML = '<h3>Step ' + (bsI + 1) + " of " + s.length + ": " + esc(st.t) + '</h3><p>' + esc(st.x) + '</p><p class="sub">Stitch: ' + esc(name) + "</p>";
+      $("#bs-prev").disabled = bsI === 0;
+      $("#bs-next").textContent = bsI === s.length - 1 ? "Start again" : "Next step";
+    }
+    seg($("#bs-st"), function (v) { bsK = v; bsI = 0; bsShow(); });
+    $("#bs-next").addEventListener("click", function () { bsI = bsI >= bsD[bsK].length - 1 ? 0 : bsI + 1; bsShow(); });
+    $("#bs-prev").addEventListener("click", function () { if (bsI > 0) { bsI--; bsShow(); } });
+    document.addEventListener("keydown", function (ev) { var t = ev.target.tagName; if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return; if (ev.key === "ArrowRight") $("#bs-next").click(); else if (ev.key === "ArrowLeft") $("#bs-prev").click(); });
+    $("#bs-terms") && $("#bs-terms").addEventListener("click", bsShow);
+    bsShow();
+  }
+
+  /* ---------- SWEATER SIZE CALCULATOR ---------- */
+  if ($("#sw-chest") && $("#sw-out")) {
+    var sw = {}; ["craft", "chest", "u", "fit", "sizes", "len", "sl", "sll", "yarn", "tex", "sk", "out"].forEach(function (k) { sw[k] = $("#sw-" + k); });
+    var SWF = { vclose: [-4, -2, "very close fitting"], close: [0, 0, "close fitting"], classic: [2, 4, "classic fit"], loose: [4, 6, "loose fit"], over: [6, 10, "oversized"] };
+    var SWM = { 1: 1.6, 2: 1.35, 3: 1.18, 4: 1.0, 5: 0.72, 6: 0.52 }, SWSL = { long: 18, three: 11, "short": 4, none: 0 };
+    var swKeys = ["chest", "u", "fit", "sizes", "len", "sl", "sll", "yarn", "tex", "sk"], swP = store.get("pp-sweater", null);
+    if (swP) { swKeys.forEach(function (k) { if (swP[k] != null && sw[k]) sw[k].value = swP[k]; }); if (swP.craft) $$("button", sw.craft).forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-v") === swP.craft); }); }
+    var sw1 = function (n) { return (Math.round(n * 10) / 10).toLocaleString("en-US"); };
+    var swLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    function swCalc() {
+      var cm = sw.u.value === "cm", k = cm ? 2.54 : 1, u = cm ? " cm" : " in";
+      var body = Math.max(14, Math.min(80, (parseFloat(sw.chest.value) || 38) / k)), f = SWF[sw.fit.value] || SWF.classic;
+      var lo = body + f[0], hi = body + f[1], mid = (lo + hi) / 2;
+      var L = Math.max(6, Math.min(45, (parseFloat(sw.len.value) || 24) / k)), sl = sw.sl.value === "none" ? 0 : Math.max(0, Math.min(30, (parseFloat(sw.sll.value) || 0) / k));
+      var craft = segVal(sw.craft) || "knit", wn = parseInt(sw.yarn.value, 10) || 4, tex = parseFloat(sw.tex.value) || 1, sk = Math.max(10, parseFloat(sw.sk.value) || 200);
+      var arm = Math.max(10, mid * 0.33), cuff = sl > 6 ? 8 : arm;
+      var area = mid * L + 2 * sl * (arm + cuff) / 2 + mid * 1.5;
+      var yd = area * 0.667 * 1.25 * (SWM[wn] || 1) * (craft === "crochet" ? 1.27 : 1) * tex, skN = Math.ceil(yd * 1.12 / sk) + 1;
+      var r100 = function (x) { return fmt(Math.round(x / 50) * 50); };
+      var out = "<h3>Make a sweater about this size</h3><div class=\"bk-dims\">" + (f[0] === f[1] ? sw1(lo * k) : sw1(lo * k) + "–" + sw1(hi * k)) + u + "<small>finished chest for a " + f[2] + " on a " + sw1(body * k) + u + " body</small></div>";
+      var sizes = (sw.sizes.value || "").split(/[^0-9.]+/).map(parseFloat).filter(function (x) { return x > 10 && x < 200; });
+      if (sizes.length) {
+        var best = sizes[0]; sizes.forEach(function (x) { if (Math.abs(x / k - mid) < Math.abs(best / k - mid)) best = x; });
+        out += "<p><strong>Make the " + sw1(best) + u + " size.</strong> Ease in each size:</p><ul class=\"sg-list\">" + sizes.map(function (x) { var ez = x / k - body; return "<li" + (x === best ? ' style="font-weight:700"' : "") + ">" + sw1(x) + u + ": " + (Math.abs(ez) < 0.05 ? "0" : (ez > 0 ? "+" : "−") + sw1(Math.abs(ez) * k)) + u + " ease" + (ez < f[0] - 0.01 ? " (tighter than you want)" : ez > f[1] + 0.01 ? " (looser than you want)" : " (in your range)") + "</li>"; }).join("") + "</ul>";
+      } else out += '<p class="sub">Add your pattern\'s finished chest sizes to see which one to make and the ease in each.</p>';
+      out += '<div class="tb-stats"><div><strong>' + r100(yd * 0.88) + "–" + r100(yd * 1.12) + ' yd</strong><span>yarn, our estimate (' + r100(yd * 0.88 * 0.9144) + "–" + r100(yd * 1.12 * 0.9144) + " m)</span></div><div><strong>" + skN + " skeins</strong><span>of " + fmt(sk) + " yd, with one spare</span></div></div>";
+      out += '<p class="sub">Yarn is a rough estimate from the sweater\'s area at a typical gauge; your pattern\'s yardage is more reliable. Next: ' + swLink(craft === "knit" ? "cast-on-calculator" : "foundation-chain-calculator", craft === "knit" ? "cast on calculator" : "foundation chain calculator") + ", " + swLink("crochet-time-estimator", "how long it will take") + ".</p>";
+      sw.out.innerHTML = out;
+      var s = { craft: craft }; swKeys.forEach(function (kk) { s[kk] = sw[kk].value; }); store.set("pp-sweater", s);
+    }
+    var swU = sw.u.value;
+    sw.u.addEventListener("change", function () { if (swU !== sw.u.value) { var f = sw.u.value === "cm" ? 2.54 : 1 / 2.54; ["chest", "len", "sll"].forEach(function (k) { var x = parseFloat(sw[k].value); if (x) sw[k].value = Math.round(x * f * 2) / 2; }); } swU = sw.u.value; swCalc(); });
+    sw.sl.addEventListener("change", function () { var c = sw.u.value === "cm" ? 2.54 : 1; sw.sll.value = Math.round(SWSL[sw.sl.value] * c * 2) / 2; swCalc(); });
+    seg(sw.craft, swCalc);
+    swKeys.forEach(function (k) { if (k !== "u" && k !== "sl") { sw[k].addEventListener("input", swCalc); sw[k].addEventListener("change", swCalc); } });
+    swCalc();
+  }
+
 })();

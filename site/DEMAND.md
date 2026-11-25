@@ -12,14 +12,22 @@ Navigation: DONE 25 Nov /crafts hub (linked from Home + footer). Add every new c
 ## COMPETITOR WATCH 25 Nov 2026 (vs easycrochet.com calculators, theloopylamb.com tools, brianakdesigns.com app)
 We have 47 site pages (~22 calculators/charts/trackers, 12 how-tos, junk journal set). NOTE: site deploy is a manual zip upload (needs Chrome on Awais's computer), so new pages go live only at the next deploy.
 1. GAP: tools all three competitors have that we lack: random stripe generator (easycrochet) [DONE 25 Nov /stripe-generator; crochet time estimator DONE /crochet-time-estimator], C2C blanket calculator, scarf calculator, 'how much yarn is left in my skein' (weigh it), yarn stash calculator, multiples generator, colour palette generator (loopylamb), crochet time estimator (briana k), WIP tracker. Plan, one per run: yarn-left-by-weight calc (tiny, high search), stripe generator (also feeds temperature blanket), C2C calc, scarf calc, time estimator.
-2. GAP: stitch library still missing (24 Nov item 1): sc/hdc/dc/tr/slip/chain + knit/purl with own SVG diagrams and US/UK toggle. Biggest search volume of all.
+2. PART-DONE 26 Nov (crochet: /basic-crochet-stitches; knit/purl still open). GAP: stitch library still missing (24 Nov item 1): sc/hdc/dc/tr/slip/chain + knit/purl with own SVG diagrams and US/UK toggle. Biggest search volume of all.
 3. GAP: Briana K's calculator passes a result between tools ('send to skeins', 'send to resize') and gives yardage as a range with a units dropdown on every field. Plan: add in/cm + yd/m toggles to every calculator that lacks them, and a 'use this in yarn calculator' button that carries numbers across our tools.
 4. BETTER-THAN-THEM: none of them save, print or work offline. Ours: every calculator remembers last inputs, prints a clean one-page 'project card' (size, stitches, yardage, skeins, colours), and the tool hub installs as an offline app (DEMAND item 5 PWA). Then pixel/C2C pattern maker (24 Nov item 5).
+
+## RADAR 26 Nov 06:00 PKT (run 1: web search)
+W1. DONE 26 Nov (/sweater-size-calculator) 'what size sweater should I knit/crochet' / 'sweater ease' / 'how much yarn for a sweater' (SERP: Craft Yarn Council body sizing + ease chart, Brooklyn Tweed "Selecting a sweater size", Lion Brand "What size sweater should I knit or crochet", Purl Soho ease guide; yarn calculators at Jimmy Beans, easycrochet, B.Hooked, Sarah Maker) -> ease + pattern size picker + pullover yarn estimate.
+W2. DONE 26 Nov (/basic-crochet-stitches) 'basic crochet stitches for beginners chart' (Vogue Knitting, Lion Brand, Purl Soho, Sarah Maker, Mama in a Stitch rank; competitors have stitch libraries) -> stepper with own drawings + US/UK toggle + turning chain/height chart.
+W3. OPEN 'how to knit and purl for beginners' -> knit stitch + purl stitch page with own drawings (completes the stitch library).
+W4. OPEN 'embroidery stitches for beginners' (EGA top 10, Gathered 23-stitch library, Lia Griffith, Needle'nThread rank) -> embroidery stitch guide with own SVGs (= V4, C3).
+W5. OPEN seasonal: 'crochet christmas stocking' (Ravelry full of stocking patterns, A Crocheted Simplicity, AllFreeCrochet) -> stocking size + yarn helper, or H2 on the gift planner. Valentine makes (heart, amigurumi) from early Jan.
+W6. OPEN 'sweater size chart women men child' (CYC size charts: couldn't fetch the tables this run) -> add verified CYC body tables to /sweater-size-calculator.
 
 ## RADAR 25 Nov 20:30 PKT (run 4: web search + competitor tools)
 V1. DONE 25 Nov (/crochet-time-estimator) 'how long does it take to crochet a blanket' (results full of single-answer articles: AllFreeCrochet, LoveCrochet, Storables, CraftTribe; Briana K Designs ships a 'crochet time estimator') -> time calculator with own pace timer + deadline.
 V2. DONE 25 Nov (/stripe-generator) 'random stripe generator crochet knitting' (easycrochet.com and lbas.lboro.ac.uk generators rank; Ravelry full of random-stripe patterns) -> stripe generator with random/Fibonacci/even, yarn per colour, print.
-V3. OPEN 'basic crochet stitches for beginners' / 'sc hdc dc chart' (crowded SERP: Sarah Maker, Purl Soho, EasyCrochet 30-stitch library) -> stitch library with own SVGs + US/UK toggle (same as COMPETITOR item 2). Biggest remaining gap.
+V3. DONE 26 Nov (/basic-crochet-stitches) 'basic crochet stitches for beginners' / 'sc hdc dc chart' (crowded SERP: Sarah Maker, Purl Soho, EasyCrochet 30-stitch library) -> stitch library with own SVGs + US/UK toggle (same as COMPETITOR item 2). Biggest remaining gap.
 V4. OPEN 'basic embroidery stitches for beginners' (EGA, DMC, LoveCrafts, Gathered rank) -> embroidery stitch guide with own SVGs (C3 next step).
 
 ## RADAR 25 Nov 06:45 PKT (Google autocomplete, US)
