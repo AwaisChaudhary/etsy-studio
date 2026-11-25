@@ -1,0 +1,394 @@
+# ---------------- NEW CRAFT CATEGORIES (Awais 25 Nov 2026: "add new categories, based on data and demand") ----------------
+# Executed from build.py (shares page(), top(), href(), shop_box(), e()). Keyword Planner US volumes in DEMAND.md C1-C7.
+# JS lives in plain strings; "{H:file}" placeholders are swapped for real links by L().
+import re as _re
+def L(s): return _re.sub(r"\{H:([a-z0-9-]+\.html)\}", lambda m: href(m.group(1)), s)
+
+CRAFTS = [
+ ("crafts.html", "All crafts", "Every craft we cover, with its free tools."),
+ ("calligraphy-practice-sheets.html", "Calligraphy practice sheets", "Make printable guideline sheets for any pen: x-height, slant and spacing."),
+ ("dot-grid-paper.html", "Dot grid paper (bullet journal)", "Printable dot grid, graph and lined paper in any spacing, A4 or Letter."),
+ ("diamond-painting-calculator.html", "Diamond painting calculator", "How many drills fit your canvas, round or square, and how long it will take."),
+ ("cross-stitch-calculator.html", "Cross stitch calculator", "Finished size on any fabric count, how much fabric to cut and how many skeins."),
+ ("quilt-size-calculator.html", "Quilt size calculator", "Quilt size for any bed, plus backing and binding yardage."),
+ ("candle-making-calculator.html", "Candle wax calculator", "Wax and fragrance oil for any jar and batch, with cost per candle."),
+ ("resin-calculator.html", "Resin calculator", "How much epoxy resin and hardener to mix for a mould, tray or table."),
+ ("macrame-cord-calculator.html", "Macrame cord calculator", "How many cords to cut, how long, and how much cord to buy."),
+]
+CRAFT_LINKS = '<ul class="craft-links">' + "".join(f'<li><a href="{href(f)}">{n}</a> <span class="muted">{d}</span></li>' for f, n, d in CRAFTS[1:]) + "</ul>"
+def more_crafts(file):
+    return '<section><div class="wrap"><div class="narrow prose"><h2>More free craft tools</h2><ul>' + "".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n, _ in CRAFTS if f != file) + "</ul></div></div></section>"
+
+# ---- Crafts hub ----
+hub = top("Free craft tools and calculators", "Knitting, crochet and junk journals are where we started. These are the other crafts our readers asked about, each with a free tool that does the maths for you.", "All crafts") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="narrow prose">
+<h2>Paper and lettering</h2>
+<ul><li><a href="{href("calligraphy-practice-sheets.html")}">Calligraphy practice sheets</a>: guideline sheets for brush pens and pointed pens, set to your x-height and slant.</li>
+<li><a href="{href("dot-grid-paper.html")}">Dot grid paper</a>: the bullet journal standard, plus graph and lined paper, ready to print.</li>
+<li><a href="{href("junk-journal-beginners.html")}">Junk journaling for beginners</a> and the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</li></ul>
+<h2>Needlework</h2>
+<ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
+<li><a href="{href("quilt-size-calculator.html")}">Quilt size calculator</a>: finished size for any bed, backing and binding yardage.</li>
+<li><a href="{href("diamond-painting-calculator.html")}">Diamond painting calculator</a>: drills per canvas and time to finish.</li></ul>
+<h2>Fibre and cord</h2>
+<ul><li><a href="{href("macrame-cord-calculator.html")}">Macrame cord calculator</a>: how many cords and how long to cut them.</li>
+<li>Knitting and crochet: the <a href="{href("yarn-calculator.html")}">yarn calculator</a>, <a href="{href("row-counter.html")}">row counter</a> and <a href="{href("gauge-converter.html")}">gauge converter</a>.</li></ul>
+<h2>Making to sell: candles and resin</h2>
+<ul><li><a href="{href("candle-making-calculator.html")}">Candle wax and fragrance calculator</a>: wax for any jar, fragrance load and cost per candle.</li>
+<li><a href="{href("resin-calculator.html")}">Resin calculator</a>: resin and hardener for moulds, trays and river tables.</li>
+<li><a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>: what Etsy takes and what to charge.</li></ul>
+<p class="muted">Every tool runs in your browser. Nothing you type is uploaded.</p>
+</div></div></section>'''
+page("crafts.html", "Free Craft Calculators and Printables: Calligraphy, Cross Stitch, Quilting, Candles, Resin | Purl & Paper",
+     "Free craft tools: calligraphy practice sheets, dot grid paper, cross stitch, quilt size, diamond painting, candle wax, resin and macrame cord calculators.",
+     hub, None, "All crafts")
+
+# ---- Shared printable sheet generator (calligraphy + dot grid) ----
+SHEET_JS = r'''<script>(function(){var P={a4:[210,297],letter:[215.9,279.4]};
+function g(i){return document.getElementById(i)}
+window.PPsheet=function(kind){var p=P[g("ps-paper").value],W=p[0],Hh=p[1],m=12,s="";
+if(kind=="cal"){var x=+g("ps-x").value||5,asc=+g("ps-asc").value||3,des=+g("ps-des").value||3,ang=+g("ps-ang").value||55,gap=+g("ps-gap").value||3,line=x*(1+asc/2+des/2),y=m+x*asc/2;
+ while(y+x+x*des/2<=Hh-m){var base=y+x,top=y,a=y-x*asc/2,d=base+x*des/2;
+  s+='<line x1="'+m+'" x2="'+(W-m)+'" y1="'+a+'" y2="'+a+'" stroke="#bbb" stroke-width=".2"/>';
+  s+='<rect x="'+m+'" y="'+top+'" width="'+(W-2*m)+'" height="'+x+'" fill="#f3eef8"/>';
+  s+='<line x1="'+m+'" x2="'+(W-m)+'" y1="'+top+'" y2="'+top+'" stroke="#8a7aa8" stroke-width=".3"/>';
+  s+='<line x1="'+m+'" x2="'+(W-m)+'" y1="'+base+'" y2="'+base+'" stroke="#333" stroke-width=".45"/>';
+  s+='<line x1="'+m+'" x2="'+(W-m)+'" y1="'+d+'" y2="'+d+'" stroke="#bbb" stroke-width=".2"/>';
+  if(ang<90){var dx=(d-a)/Math.tan(ang*Math.PI/180),st=gap*x;for(var X=m;X+dx<=W-m;X+=st){s+='<line x1="'+(X)+'" y1="'+d+'" x2="'+(X+dx)+'" y2="'+a+'" stroke="#ccc" stroke-width=".15"/>'}}
+  y=d+x*0.8+x*asc/2}}
+else{var sp=+g("ps-sp").value||5,t=g("ps-type").value,cols=Math.floor((W-2*m)/sp),rows=Math.floor((Hh-2*m)/sp),ox=(W-cols*sp)/2,oy=(Hh-rows*sp)/2;
+ if(t=="dot"){for(var i=0;i<=rows;i++)for(var j=0;j<=cols;j++)s+='<circle cx="'+(ox+j*sp)+'" cy="'+(oy+i*sp)+'" r=".28" fill="#777"/>'}
+ else if(t=="grid"){for(var i=0;i<=rows;i++)s+='<line x1="'+ox+'" x2="'+(ox+cols*sp)+'" y1="'+(oy+i*sp)+'" y2="'+(oy+i*sp)+'" stroke="#bbb" stroke-width=".18"/>';for(var j=0;j<=cols;j++)s+='<line y1="'+oy+'" y2="'+(oy+rows*sp)+'" x1="'+(ox+j*sp)+'" x2="'+(ox+j*sp)+'" stroke="#bbb" stroke-width=".18"/>'}
+ else{for(var i=0;i<=rows;i++)s+='<line x1="'+ox+'" x2="'+(ox+cols*sp)+'" y1="'+(oy+i*sp)+'" y2="'+(oy+i*sp)+'" stroke="#bbb" stroke-width=".2"/>'}}
+var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+Hh+'" width="'+W+'mm" height="'+Hh+'mm"><rect width="'+W+'" height="'+Hh+'" fill="#fff"/>'+s+'</svg>';
+g("ps-prev").innerHTML=svg;window.PPsvg=svg;window.PPsize=[W,Hh]};
+window.PPprint=function(){var w=window.open("","_blank");if(!w)return;w.document.write('<!DOCTYPE html><html><head><title>Printable sheet</title><style>@page{size:'+window.PPsize[0]+'mm '+window.PPsize[1]+'mm;margin:0}body{margin:0}svg{display:block}</style></head><body>'+window.PPsvg+'<scr'+'ipt>setTimeout(function(){print()},300)</scr'+'ipt></body></html>');w.document.close()};
+window.PPdl=function(name){var b=new Blob([window.PPsvg],{type:"image/svg+xml"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name+".svg";a.click()};
+})();</script>'''
+PREV_CSS = '<style>#ps-prev{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px;max-width:420px}#ps-prev svg{width:100%;height:auto;display:block}.craft-links li{margin-bottom:6px}</style>'
+
+cal = top("Calligraphy practice sheets (printable, free)", "Set your pen's x-height, ascenders, descenders and slant. Print as many guideline sheets as you like, or save them as an image for your iPad.", "Calligraphy practice sheets") + PREV_CSS + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> for a <strong>small brush pen</strong> (Tombow Fudenosuke size) start with a <strong>5 mm x-height</strong>; for a <strong>large brush pen</strong> use <strong>7 to 9 mm</strong>; for a <strong>pointed pen</strong> 4 to 6 mm. Modern brush calligraphy uses a <strong>slant of about 55°</strong>; leave it at 90° for upright lettering.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="field"><label for="ps-pen">Your pen (sets the sizes)</label><select id="ps-pen"><option value="5,3,3">Small brush pen (5 mm)</option><option value="8,3,3">Large brush pen (8 mm)</option><option value="5,3,3,1">Pointed pen, copperplate style (5 mm)</option><option value="7,2,2">Broad edge / italic (7 mm)</option></select></div>
+<div class="row2"><div class="field"><label for="ps-x">x-height (mm)</label><input type="number" id="ps-x" value="5" min="2" max="30" step="0.5"></div>
+<div class="field"><label for="ps-ang">Slant angle (°)</label><input type="number" id="ps-ang" value="55" min="45" max="90" step="1"></div></div>
+<div class="row2"><div class="field"><label for="ps-asc">Ascender (× x-height)</label><input type="number" id="ps-asc" value="3" min="1" max="4" step="0.5"></div>
+<div class="field"><label for="ps-des">Descender (× x-height)</label><input type="number" id="ps-des" value="3" min="1" max="4" step="0.5"></div></div>
+<div class="row2"><div class="field"><label for="ps-gap">Slant line spacing (× x-height)</label><input type="number" id="ps-gap" value="3" min="1" max="8" step="0.5"></div>
+<div class="field"><label for="ps-paper">Paper</label><select id="ps-paper"><option value="letter">US Letter</option><option value="a4">A4</option></select></div></div>
+<div class="btns"><button type="button" class="go" onclick="PPprint()">Print sheet</button> <button type="button" class="go" onclick="PPdl('calligraphy-practice-sheet')">Save as image (SVG)</button></div>
+</div><div class="result"><h2>Preview</h2><div id="ps-prev"></div><p class="note">Shaded band = x-height. Dark line = baseline. Light lines = ascender and descender limits. Diagonals = your slant.</p></div></div></section>
+{SHEET_JS}<script>(function(){{var ids=["ps-x","ps-ang","ps-asc","ps-des","ps-gap","ps-paper"];function r(){{PPsheet("cal")}}ids.forEach(function(i){{document.getElementById(i).addEventListener("input",r)}});
+document.getElementById("ps-pen").addEventListener("change",function(){{var v=this.value.split(",");document.getElementById("ps-x").value=v[0];document.getElementById("ps-asc").value=v[1];document.getElementById("ps-des").value=v[2];document.getElementById("ps-ang").value=v[0]=="7"?"85":"55";r()}});r()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>How to use calligraphy guidelines</h2>
+<p>Every letter sits on the <strong>baseline</strong>. Small letters (a, c, e, o) fill the shaded <strong>x-height</strong> band. Tall strokes (b, d, h, k, l) reach up to the ascender line, and tails (g, j, p, y) drop to the descender line. The diagonal lines keep every downstroke at the same angle, which is most of what makes lettering look neat.</p>
+<h2>The basic rule: thin up, thick down</h2>
+<p>In brush and pointed-pen calligraphy you press on every <strong>downstroke</strong> to get a thick line and ease off on every <strong>upstroke</strong> to get a hairline. Practise the basic strokes before whole letters: the upstroke, downstroke, overturn, underturn, compound curve, oval, ascending loop and descending loop. Fill a sheet with each one, slowly. Speed comes later.</p>
+<h2>Which pen should a beginner use?</h2>
+<p>A <strong>small, firm-tip brush pen</strong> is the easiest start: it's forgiving, needs no ink pot and works on smooth printer paper. Move to a large brush pen for bigger, bolder letters, and to a pointed pen (nib, holder and ink) for copperplate and modern pointed-pen scripts. Broad-edge pens are a different family: the thick and thin come from the angle of the nib, not pressure, and the letters are usually more upright.</p>
+<h2>Which paper won't fray brush pens?</h2>
+<p>Very smooth paper. Ordinary copy paper is rough enough to fray felt brush tips over time, so many letterers use smooth laser paper or marker paper (around 90 to 120 gsm). Print the sheet, or slip it under a sheet of tracing or marker paper and letter on top so one printout lasts for weeks.</p>
+<h2>Practising on an iPad</h2>
+<p>Choose "Save as image", open the file in Procreate or GoodNotes and put it on its own layer underneath your writing. Set the x-height to match the brush size you use there.</p>
+<p>Planning a journal spread? Print <a href="{href("dot-grid-paper.html")}">dot grid paper</a> for your bullet journal, or try a <a href="{href("junk-journal-beginners.html")}">junk journal</a>.</p>
+</div></div></section>{more_crafts("calligraphy-practice-sheets.html")}'''
+cal_faq = [
+ ("What x-height should I use for calligraphy practice?", "About 5 mm for a small brush pen or a pointed pen, and 7 to 9 mm for a large brush pen. Bigger guidelines are easier while you learn the strokes."),
+ ("What slant is used in modern calligraphy?", "Most modern brush and pointed-pen styles slant at about 55 degrees from the baseline. Copperplate is usually written at about 55 degrees too. For upright lettering set the angle to 90."),
+ ("Are these calligraphy practice sheets free?", "Yes. Make as many as you like, print them on US Letter or A4, or save them as an SVG image for an iPad."),
+ ("How do I stop my brush pen fraying?", "Use smooth paper such as laser or marker paper, hold the pen at a low angle and don't scrub back and forth. Rough copy paper wears felt tips quickly."),
+]
+page("calligraphy-practice-sheets.html", "Free Calligraphy Practice Sheets: Printable Guideline Generator (Brush Pen + Pointed Pen) | Purl & Paper",
+     "Make free printable calligraphy practice sheets: set the x-height, slant and spacing for your brush pen or pointed pen, print on Letter or A4, or save for iPad.",
+     cal, cal_faq, "Calligraphy practice sheets", app_name="Calligraphy practice sheet generator")
+
+dot = top("Printable dot grid paper (and graph and lined)", "The bullet journal standard. Choose dot grid, square grid or lines, any spacing, US Letter or A4, then print or save it.", "Dot grid paper") + PREV_CSS + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> bullet journals use <strong>5 mm dot grid</strong> almost everywhere: it's the spacing in the popular journals and fits one line of handwriting in each row. Choose <strong>4 mm</strong> for small writing or more boxes per page, <strong>6 to 7 mm</strong> for large handwriting or children.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="field"><label for="ps-type">Paper type</label><select id="ps-type"><option value="dot">Dot grid</option><option value="grid">Square grid (graph)</option><option value="lined">Lined</option></select></div>
+<div class="row2"><div class="field"><label for="ps-sp">Spacing (mm)</label><input type="number" id="ps-sp" value="5" min="3" max="15" step="0.5"></div>
+<div class="field"><label for="ps-paper">Paper</label><select id="ps-paper"><option value="letter">US Letter</option><option value="a4">A4</option></select></div></div>
+<div class="btns"><button type="button" class="go" onclick="PPprint()">Print sheet</button> <button type="button" class="go" onclick="PPdl('dot-grid-paper')">Save as image (SVG)</button></div>
+<p class="note">Printing tip: choose "Actual size" (not "Fit to page") so the spacing prints exactly.</p>
+</div><div class="result"><h2>Preview</h2><div id="ps-prev"></div></div></div></section>
+{SHEET_JS}<script>(function(){{["ps-type","ps-sp","ps-paper"].forEach(function(i){{document.getElementById(i).addEventListener("input",function(){{PPsheet("dot")}})}});PPsheet("dot")}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Bullet journal spreads to start with</h2>
+<ul><li><strong>Future log:</strong> six months on one spread, two or three boxes per page.</li>
+<li><strong>Monthly log:</strong> dates down the left, events beside them, a task list opposite.</li>
+<li><strong>Weekly spread:</strong> seven boxes plus a to-do column. With 5 mm dots a Letter page is about 40 squares across, so each day gets roughly 10 by 12 squares.</li>
+<li><strong>Habit tracker:</strong> one row per habit, one column per day. A full month needs 31 columns, so turn the page sideways or use 4 mm spacing.</li>
+<li><strong>Trackers for makers:</strong> a yarn or project log, a pattern wishlist, a craft fair plan.</li></ul>
+<h2>Dot grid vs graph paper vs lined</h2>
+<p>Dot grid gives you the structure of graph paper without the lines showing through your drawings, which is why bullet journalers love it. Graph paper is better for charts, knitting and cross stitch planning. Lined is best for long writing.</p>
+<h2>Making a printable journal</h2>
+<p>Print double-sided, fold the sheets in half and stitch them into a signature. Our <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets to fold, and the <a href="{href("journal-prompts.html")}">journal prompt generator</a> gives you something to write about.</p>
+<p>Lettering your headers? Print <a href="{href("calligraphy-practice-sheets.html")}">calligraphy practice sheets</a> first.</p>
+</div></div></section>{more_crafts("dot-grid-paper.html")}'''
+dot_faq = [
+ ("What size dot grid is best for a bullet journal?", "5 mm is the standard and suits most handwriting. 4 mm fits more on a page; 6 to 7 mm suits large writing."),
+ ("How do I print dot grid paper at the right size?", "Print at Actual size or 100%, not Fit to page, so the spacing stays exact."),
+ ("Is this dot grid paper free?", "Yes. Print as many sheets as you like on US Letter or A4, or save them as an SVG image."),
+]
+page("dot-grid-paper.html", "Free Printable Dot Grid Paper for Bullet Journals (5 mm, A4 + Letter) + Graph and Lined | Purl & Paper",
+     "Free printable dot grid paper for bullet journals, plus graph and lined paper: choose 4, 5 or 6 mm spacing, US Letter or A4, then print or save as an image.",
+     dot, dot_faq, "Dot grid paper", app_name="Dot grid paper generator")
+
+# ---- Diamond painting ----
+DP_ROWS = [(20, 30), (25, 30), (30, 30), (30, 40), (40, 40), (40, 50), (50, 60), (60, 80)]
+def dp_n(w, h, s): return int(w * 10 // s) * int(h * 10 // s)
+dp = top("Diamond painting calculator", "How many drills fit your canvas, round or square, how many hours it will take, and how big to make a custom kit.", "Diamond painting calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> a full-drill <strong>30 × 40 cm</strong> canvas holds about <strong>{dp_n(30,40,2.5):,} square drills</strong> (2.5 mm) or <strong>{dp_n(30,40,2.8):,} round drills</strong> (2.8 mm). Square drills sit edge to edge, 4 per cm; round drills are slightly bigger, about 3.6 per cm.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="dp-w">Canvas width</label><input type="number" id="dp-w" value="30" min="5" step="1"></div>
+<div class="field"><label for="dp-h">Canvas height</label><input type="number" id="dp-h" value="40" min="5" step="1"></div></div>
+<div class="row2"><div class="field"><label for="dp-u">Units</label><select id="dp-u"><option value="cm">cm</option><option value="in">inches</option></select></div>
+<div class="field"><label for="dp-d">Drills</label><select id="dp-d"><option value="2.5">Square (2.5 mm)</option><option value="2.8">Round (2.8 mm)</option></select></div></div>
+<div class="row2"><div class="field"><label for="dp-c">Coverage</label><select id="dp-c"><option value="1">Full drill</option><option value="0.6">Partial drill (about 60%)</option></select></div>
+<div class="field"><label for="dp-r">Your pace (drills per hour)</label><input type="number" id="dp-r" value="800" min="100" step="50"></div></div>
+</div><div class="result" aria-live="polite" id="dp-out"></div></div></section>
+<script>(function(){{function v(i){{return parseFloat(document.getElementById(i).value)||0}}function run(){{var k=document.getElementById("dp-u").value=="in"?25.4:10,s=v("dp-d"),a=Math.floor(v("dp-w")*k/s),d=Math.floor(v("dp-h")*k/s),n=Math.round(a*d*v("dp-c")),h=n/Math.max(1,v("dp-r"));
+document.getElementById("dp-out").innerHTML="<h2>"+n.toLocaleString()+" drills</h2><p>"+a+" across × "+d+" down"+(v("dp-c")<1?", about 60% covered":"")+".</p><p>At "+v("dp-r")+" drills an hour that's about <strong>"+Math.round(h)+" hours</strong>: "+Math.ceil(h/1)+" one-hour sessions, or about "+Math.ceil(h/7)+" weeks at an hour a day.</p><p class=\\"muted\\">Kits usually include spare drills, so keep the extras for repairs.</p>"}}
+["dp-w","dp-h","dp-u","dp-d","dp-c","dp-r"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Diamond painting size chart: drills per canvas</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Canvas (cm)</th><th scope="col">Inches (approx.)</th><th scope="col">Square drills (2.5 mm)</th><th scope="col">Round drills (2.8 mm)</th></tr></thead><tbody>
+{"".join(f"<tr><td>{w} × {h}</td><td>{round(w/2.54)} × {round(h/2.54)}</td><td>{dp_n(w,h,2.5):,}</td><td>{dp_n(w,h,2.8):,}</td></tr>" for w, h in DP_ROWS)}
+</tbody></table></div>
+<p class="note">Full drill counts, worked out from the drill size (canvas ÷ drill size, across and down). Real kits vary a little because the printed area is often slightly smaller than the canvas.</p>
+<h2>Round or square drills?</h2>
+<p><strong>Round drills</strong> (2.8 mm) don't need lining up, so they're quicker and easier for beginners and give more sparkle, with small gaps between them. <strong>Square drills</strong> (2.5 mm) click together edge to edge for a smoother, more detailed picture, but they take longer because each one has to sit straight.</p>
+<h2>How long does a diamond painting take?</h2>
+<p>It depends almost entirely on your pace. A beginner might place a few hundred drills an hour; an experienced painter with a multi-placer can manage well over a thousand. Time yourself for 15 minutes, multiply by four and put that in the calculator. A 30 × 40 cm full drill is a few weeks of evenings for most people.</p>
+<h2>Beginner tips</h2>
+<ul><li>Peel back only a strip of the film at a time so the glue stays sticky.</li>
+<li>Work one colour at a time, or in small blocks, checking the symbol on the canvas against the legend.</li>
+<li>Roll the drills into a tray and give it a gentle shake so they land facet side up.</li>
+<li>When you finish, press the whole canvas flat with a rolling pin or a heavy book under a cloth, then seal it if you want to frame it.</li></ul>
+<p>Selling finished pieces or custom kits? Work out what Etsy takes with the <a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>.</p>
+</div></div></section>{more_crafts("diamond-painting-calculator.html")}'''
+dp_faq = [
+ ("How many drills are in a 30x40 diamond painting?", f"About {dp_n(30,40,2.5):,} square drills (2.5 mm) or {dp_n(30,40,2.8):,} round drills (2.8 mm) for a full drill canvas."),
+ ("What size are diamond painting drills?", "Square drills are usually 2.5 mm and round drills 2.8 mm. Some brands differ slightly."),
+ ("Are round or square drills better for beginners?", "Round drills are easier because they don't need lining up. Square drills give a sharper, more detailed picture but take longer."),
+ ("How long does it take to finish a diamond painting?", "Divide the number of drills by how many you place in an hour. At 800 an hour a 30 x 40 cm square-drill canvas takes about 24 hours."),
+]
+page("diamond-painting-calculator.html", "Diamond Painting Calculator: How Many Drills (Round vs Square) + Size Chart | Purl & Paper",
+     "Free diamond painting calculator: how many round or square drills fit any canvas size, how many hours it will take, and a drills-per-canvas size chart.",
+     dp, dp_faq, "Diamond painting calculator", app_name="Diamond painting drill calculator")
+
+# ---- Cross stitch ----
+XS_SK = {11: 1400, 14: 1750, 16: 1950, 18: 2250, 22: 2750}   # full crosses per 8 m DMC skein, 2 strands (lordlibidan.com experiment, average stitching)
+def xs_in(st, ct): return st / ct
+xs = top("Cross stitch calculator: size, fabric and floss", "Enter your pattern's stitch count. See the finished size on any Aida or evenweave, how much fabric to cut, and roughly how many skeins to buy.", "Cross stitch calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> divide the stitches by the fabric count. <strong>100 × 100 stitches on 14-count Aida is {xs_in(100,14):.1f} × {xs_in(100,14):.1f} in</strong> ({xs_in(100,14)*2.54:.1f} cm). Add <strong>3 in (7.5 cm) on every side</strong> for framing, so cut {xs_in(100,14)+6:.1f} × {xs_in(100,14)+6:.1f} in. On 28-count evenweave stitched over two, the size is the same as 14-count.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="xs-w">Stitches wide</label><input type="number" id="xs-w" value="100" min="1"></div>
+<div class="field"><label for="xs-h">Stitches high</label><input type="number" id="xs-h" value="100" min="1"></div></div>
+<div class="row2"><div class="field"><label for="xs-c">Fabric</label><select id="xs-c"><option value="11">11-count Aida</option><option value="14" selected>14-count Aida</option><option value="16">16-count Aida</option><option value="18">18-count Aida</option><option value="14o2">28-count evenweave, over 2</option><option value="16o2">32-count linen, over 2</option><option value="22">22-count Hardanger</option></select></div>
+<div class="field"><label for="xs-m">Margin each side (in)</label><input type="number" id="xs-m" value="3" min="0" step="0.5"></div></div>
+<div class="row2"><div class="field"><label for="xs-p">Stitched area (%)</label><input type="number" id="xs-p" value="100" min="1" max="100"></div>
+<div class="field"><label for="xs-s">Strands</label><select id="xs-s"><option value="2">2 strands</option><option value="3">3 strands</option><option value="1">1 strand</option></select></div></div>
+<div class="field"><label for="xs-n">Number of colours</label><input type="number" id="xs-n" value="12" min="1"></div>
+</div><div class="result" aria-live="polite" id="xs-out"></div></div></section>
+<script>(function(){{var SK={json.dumps(XS_SK)};function v(i){{return parseFloat(document.getElementById(i).value)||0}}
+function run(){{var c=document.getElementById("xs-c").value,ct=parseInt(c),W=v("xs-w"),H=v("xs-h"),M=v("xs-m"),w=W/ct,h=H/ct,st=Math.round(W*H*v("xs-p")/100),s=+document.getElementById("xs-s").value,per=(SK[ct]||1750)*(2/s),sk=st/per,n=Math.max(1,v("xs-n"));
+document.getElementById("xs-out").innerHTML="<h2>"+w.toFixed(1)+" × "+h.toFixed(1)+" in</h2><p>("+(w*2.54).toFixed(1)+" × "+(h*2.54).toFixed(1)+" cm) finished design.</p><p><strong>Cut your fabric "+(w+2*M).toFixed(1)+" × "+(h+2*M).toFixed(1)+" in</strong> ("+((w+2*M)*2.54).toFixed(0)+" × "+((h+2*M)*2.54).toFixed(0)+" cm) with "+M+" in on every side.</p><p>About <strong>"+st.toLocaleString()+" stitches</strong>, roughly <strong>"+sk.toFixed(1)+" skeins</strong> of floss in total. With "+n+" colours, buy at least 1 skein of each, and "+Math.ceil(sk/n*1.2)+" of your main colours.</p><p class=\\"muted\\">Floss is an estimate from about "+Math.round(per).toLocaleString()+" full crosses per standard 8 m skein at this count. Backstitch and fractional stitches add more. The pattern's key is always the best guide.</p>"}}
+["xs-w","xs-h","xs-c","xs-m","xs-p","xs-s","xs-n"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Cross stitch size chart</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Stitches</th><th scope="col">11-count</th><th scope="col">14-count</th><th scope="col">16-count</th><th scope="col">18-count</th></tr></thead><tbody>
+{"".join(f"<tr><td>{n}</td>" + "".join(f"<td>{n/c:.1f} in</td>" for c in (11, 14, 16, 18)) + "</tr>" for n in (50, 80, 100, 120, 150, 200, 250, 300))}
+</tbody></table></div>
+<h2>What does fabric count mean?</h2>
+<p>The count is how many stitches fit in one inch. 14-count Aida has 14 squares per inch, so it's the usual beginner's fabric: big enough to see the holes, small enough for detail. Higher counts make a smaller, finer picture from the same pattern. Evenweave and linen are counted by threads, and you usually stitch over two threads, so 28-count over two gives the same size as 14-count.</p>
+<h2>How many strands of floss?</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Fabric</th><th scope="col">Cross stitch</th><th scope="col">Backstitch</th></tr></thead><tbody>
+<tr><td>11-count Aida</td><td>3 strands</td><td>1 or 2</td></tr><tr><td>14-count Aida</td><td>2 (or 3 for full coverage)</td><td>1</td></tr><tr><td>16-count Aida</td><td>2</td><td>1</td></tr><tr><td>18-count Aida</td><td>1 or 2</td><td>1</td></tr><tr><td>28-count evenweave over 2</td><td>2</td><td>1</td></tr></tbody></table></div>
+<p class="note">Common starting points used by most stitching guides. Your pattern's own instructions come first.</p>
+<h2>How much fabric to allow</h2>
+<p>Allow about 3 in (7.5 cm) on every side if you'll frame the piece, so there's room to stretch it and for the mat. For a hoop display, 2 in is usually enough; allow the hoop size plus about 2 in. Small finishes such as ornaments and cards need only 1 to 1.5 in.</p>
+<p>Planning a big piece? Chart and count it on <a href="{href("dot-grid-paper.html")}">printable graph paper</a>. Quilting too? Try the <a href="{href("quilt-size-calculator.html")}">quilt size calculator</a>.</p>
+</div></div></section>{more_crafts("cross-stitch-calculator.html")}'''
+xs_faq = [
+ ("How do I work out the size of a cross stitch?", "Divide the number of stitches by the fabric count. 140 stitches on 14-count Aida is 10 inches."),
+ ("How much fabric do I need for cross stitch?", "The design size plus 3 inches on every side for framing, or about 2 inches for a hoop."),
+ ("How many stitches does one skein of floss make?", "Roughly 1,700 to 1,800 full cross stitches on 14-count Aida with 2 strands, from one standard 8 m skein. Finer fabric makes more stitches per skein."),
+ ("Is 28-count evenweave the same as 14-count Aida?", "When you stitch over two threads, yes: the finished size is the same."),
+]
+page("cross-stitch-calculator.html", "Cross Stitch Calculator: Finished Size, Fabric to Cut + Floss (Aida 11, 14, 16, 18) | Purl & Paper",
+     "Free cross stitch calculator: finished size on any Aida or evenweave count, how much fabric to cut, skeins of floss to buy, plus a size chart and strands guide.",
+     xs, xs_faq, "Cross stitch calculator", app_name="Cross stitch size and floss calculator")
+
+# ---- Quilt size ----
+QB = [("crib", "Crib", 28, 52), ("twin", "Twin", 38, 75), ("twinxl", "Twin XL", 38, 80), ("full", "Full / double", 54, 75), ("queen", "Queen", 60, 80), ("king", "King", 76, 80), ("calking", "California king", 72, 84)]
+def q_sz(w, l, drop, tuck): return (w + 2 * drop, l + drop + tuck)
+qs = top("Quilt size calculator (with backing and binding)", "Pick the bed and how far you want the quilt to hang. Get the finished size, plus how much backing and binding fabric to buy.", "Quilt size calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> quilt size = mattress + the drop on both sides (and at the foot) + about 10 in to tuck under pillows. With a 12 in drop, a <strong>queen quilt is about {q_sz(60,80,12,10)[0]} × {q_sz(60,80,12,10)[1]} in</strong>, a <strong>twin {q_sz(38,75,12,10)[0]} × {q_sz(38,75,12,10)[1]} in</strong> and a <strong>king {q_sz(76,80,12,10)[0]} × {q_sz(76,80,12,10)[1]} in</strong>. A sofa throw is usually about 50 × 65 in.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="field"><label for="qs-b">Bed</label><select id="qs-b">{"".join(f'<option value="{w},{l}"{" selected" if k=="queen" else ""}>{n} ({w} × {l} in mattress)</option>' for k, n, w, l in QB)}<option value="50,65,t">Throw / sofa quilt</option></select></div>
+<div class="row2"><div class="field"><label for="qs-d">Drop each side (in)</label><input type="number" id="qs-d" value="12" min="0" step="1"></div>
+<div class="field"><label for="qs-t">Pillow tuck (in)</label><input type="number" id="qs-t" value="10" min="0" step="1"></div></div>
+<div class="row2"><div class="field"><label for="qs-fw">Backing fabric width (in)</label><select id="qs-fw"><option value="40">42–44 in quilting cotton</option><option value="104">108 in wide backing</option></select></div>
+<div class="field"><label for="qs-bw">Binding strip width (in)</label><input type="number" id="qs-bw" value="2.5" min="1.5" step="0.25"></div></div>
+</div><div class="result" aria-live="polite" id="qs-out"></div></div></section>
+<script>(function(){{function v(i){{return parseFloat(document.getElementById(i).value)||0}}function yd(x){{return Math.ceil(x/36*8)/8}}
+function run(){{var b=document.getElementById("qs-b").value.split(","),t=b[2]=="t",W=t?+b[0]:+b[0]+2*v("qs-d"),L=t?+b[1]:+b[1]+v("qs-d")+v("qs-t"),fw=+document.getElementById("qs-fw").value;
+var bw=W+8,bl=L+8,pan,len;if(fw>100){{pan=1;len=Math.min(bw,bl)>fw?Math.max(bw,bl)*2:Math.min(bw,bl);}}else{{var a=Math.ceil(bw/fw),c=Math.ceil(bl/fw);if(a*bl<=c*bw){{pan=a;len=pan*bl}}else{{pan=c;len=pan*bw}}}}
+var per=2*(W+L)+12,strips=Math.ceil(per/40);
+document.getElementById("qs-out").innerHTML="<h2>"+W+" × "+L+" in quilt</h2><p>("+Math.round(W*2.54)+" × "+Math.round(L*2.54)+" cm) finished size.</p><p><strong>Backing:</strong> "+yd(len)+" yd"+(fw>100?" of 108 in wide backing":" of 42–44 in fabric, as "+pan+" panels sewn together")+". The backing is cut "+bw+" × "+bl+" in, 4 in bigger on every side for quilting.</p><p><strong>Binding:</strong> "+strips+" strips of "+v("qs-bw")+" in, about "+yd(strips*v("qs-bw"))+" yd of fabric, for "+per+" in of binding.</p><p><strong>Batting:</strong> at least "+bw+" × "+bl+" in.</p>"}}
+["qs-b","qs-d","qs-t","qs-fw","qs-bw"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Quilt size chart</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Bed</th><th scope="col">Mattress</th><th scope="col">Coverlet (8 in drop)</th><th scope="col">Standard (12 in drop + tuck)</th></tr></thead><tbody>
+{"".join(f"<tr><td>{n}</td><td>{w} × {l} in</td><td>{q_sz(w,l,8,0)[0]} × {q_sz(w,l,8,0)[1]} in</td><td>{q_sz(w,l,12,10)[0]} × {q_sz(w,l,12,10)[1]} in</td></tr>" for k, n, w, l in QB)}
+<tr><td>Throw</td><td>n/a</td><td colspan="2">About 50 × 65 in (lap quilts 36 × 48 to 50 × 60 in)</td></tr></tbody></table></div>
+<p class="note">Standard US mattress sizes. Measure your own mattress, especially pillow-tops and deep mattresses, which need more drop.</p>
+<h2>How to measure for a quilt</h2>
+<p>Measure the top of the mattress, then the drop: from the top edge down to where you want the quilt to stop. About 8 in just covers the mattress (a coverlet), 12 in or more hides the box spring, and a bedspread reaches the floor, usually 20 in or more. Add about 10 in at the head if the quilt tucks under the pillows.</p>
+<h2>Backing and batting</h2>
+<p>Cut both about 4 in bigger than the quilt top on every side (8 in in total), because quilting draws the layers in and longarm quilters need room to clamp. Ordinary quilting cotton is about 42 in wide with around 40 in usable, so most bed quilts need two or three panels seamed together; wide backing (108 in) avoids the seams.</p>
+<h2>Binding</h2>
+<p>Add up the four sides and about 12 in for joining and corners. Most quilters cut 2.25 to 2.5 in strips across the fabric width (about 40 in usable per strip) and fold them in half for a double-fold binding.</p>
+<p>Prefer yarn? See the <a href="{href("blanket-size-calculator.html")}">knit and crochet blanket size calculator</a>. Stitching a label? Plan it with the <a href="{href("cross-stitch-calculator.html")}">cross stitch calculator</a>.</p>
+</div></div></section>{more_crafts("quilt-size-calculator.html")}'''
+qs_faq = [
+ ("What size is a queen quilt?", f"About {q_sz(60,80,12,10)[0]} × {q_sz(60,80,12,10)[1]} in with a 12 in drop and a pillow tuck, or {q_sz(60,80,8,0)[0]} × {q_sz(60,80,8,0)[1]} in as a coverlet. A queen mattress is 60 × 80 in."),
+ ("How do I calculate quilt size?", "Width = mattress width + 2 × drop. Length = mattress length + drop at the foot + about 10 in for a pillow tuck."),
+ ("How much bigger should the backing be than the quilt top?", "About 4 in on every side, 8 in bigger in total, for the quilting to draw in and for longarm clamps."),
+ ("How much binding do I need for a quilt?", "The perimeter plus about 12 in. Divide by 40 for the number of strips cut across 42 in fabric."),
+ ("What size is a throw quilt?", "Usually around 50 × 65 in, though anything from about 50 × 60 to 60 × 70 in is common."),
+]
+page("quilt-size-calculator.html", "Quilt Size Calculator + Quilt Size Chart (Twin, Queen, King) with Backing and Binding Yardage | Purl & Paper",
+     "Free quilt size calculator and chart: finished quilt size for crib, twin, full, queen and king beds, plus how much backing, batting and binding fabric to buy.",
+     qs, qs_faq, "Quilt size calculator", app_name="Quilt size and yardage calculator")
+
+# ---- Candle making ----
+CW = [("soy", "Soy wax", 0.86), ("coco", "Coconut / coconut-soy blend", 0.89), ("para", "Paraffin", 0.92), ("bees", "Beeswax", 0.96)]
+cm = top("Candle wax and fragrance calculator", "How much wax and fragrance oil for any jar and any batch, and what each candle costs to make.", "Candle wax calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> weigh the water your jar holds and multiply by <strong>0.86 for soy wax</strong>. An <strong>8 oz jar takes about 6.9 oz of soy wax</strong> in total. At a <strong>6 to 10% fragrance load</strong> (check your wax's maximum), that's 6.3 oz wax + 0.55 oz fragrance at 8%.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="cm-v">Water the jar holds</label><input type="number" id="cm-v" value="8" min="0.5" step="0.5"></div>
+<div class="field"><label for="cm-u">Units</label><select id="cm-u"><option value="oz">oz / fl oz</option><option value="g">grams / ml</option></select></div></div>
+<div class="row2"><div class="field"><label for="cm-w">Wax</label><select id="cm-w">{"".join(f'<option value="{d}">{n} ({d})</option>' for k, n, d in CW)}</select></div>
+<div class="field"><label for="cm-f">Fragrance load (%)</label><input type="number" id="cm-f" value="8" min="0" max="15" step="0.5"></div></div>
+<div class="row2"><div class="field"><label for="cm-n">Number of candles</label><input type="number" id="cm-n" value="12" min="1"></div>
+<div class="field"><label for="cm-fill">Fill (% of the water line you weighed)</label><input type="number" id="cm-fill" value="100" min="50" max="100"></div></div>
+<div class="row2"><div class="field"><label for="cm-pw">Wax price per lb / kg</label><input type="number" id="cm-pw" value="4" min="0" step="0.1"></div>
+<div class="field"><label for="cm-pf">Fragrance price per oz / 100 g</label><input type="number" id="cm-pf" value="2.5" min="0" step="0.1"></div></div>
+<div class="field"><label for="cm-px">Jar + wick + label, each</label><input type="number" id="cm-px" value="1.6" min="0" step="0.05"></div>
+</div><div class="result" aria-live="polite" id="cm-out"></div></div></section>
+<script>(function(){{function v(i){{return parseFloat(document.getElementById(i).value)||0}}
+function run(){{var g=document.getElementById("cm-u").value=="g",u=g?"g":"oz",tot=v("cm-v")*v("cm-w")*v("cm-fill")/100,f=v("cm-f")/100,fo=tot*f,wx=tot-fo,n=v("cm-n"),W=wx*n,F=fo*n;
+var cw=g?W/1000*v("cm-pw"):W/16*v("cm-pw"),cf=g?F/100*v("cm-pf"):F*v("cm-pf"),each=(cw+cf)/n+v("cm-px");function r(x){{return g?Math.round(x):Math.round(x*100)/100}}
+document.getElementById("cm-out").innerHTML="<h2>Per candle: "+r(wx)+" "+u+" wax + "+r(fo)+" "+u+" fragrance</h2><p>("+r(tot)+" "+u+" in total, "+v("cm-f")+"% fragrance by weight.)</p><p><strong>For "+n+" candles:</strong> "+r(W)+" "+u+" of wax"+(g?" ("+(W/1000).toFixed(2)+" kg)":" ("+(W/16).toFixed(2)+" lb)")+" and "+r(F)+" "+u+" of fragrance oil.</p><p><strong>Cost to make:</strong> about "+each.toFixed(2)+" per candle. Many makers price at 3 to 4 times their cost for retail.</p>"}}
+["cm-v","cm-u","cm-w","cm-f","cm-n","cm-fill","cm-pw","cm-pf","cm-px"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Wax per jar size (soy wax)</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Jar (water it holds)</th><th scope="col">Total fill</th><th scope="col">Wax at 8%</th><th scope="col">Fragrance at 8%</th></tr></thead><tbody>
+{"".join(f"<tr><td>{j} oz</td><td>{j*0.86:.1f} oz</td><td>{j*0.86*0.92:.1f} oz</td><td>{j*0.86*0.08:.2f} oz</td></tr>" for j in (4, 6, 8, 10, 12, 16))}
+</tbody></table></div>
+<p class="note">Soy wax weighs about 0.86 times as much as the same volume of water, the figure most candle suppliers use. Paraffin is about 0.92 and beeswax about 0.96.</p>
+<h2>How to measure a jar</h2>
+<p>Put the empty jar on a kitchen scale, zero it, then fill it with water to where you want the wax to stop (usually about half an inch below the rim). That weight is the number to enter. It's more accurate than the volume printed on the jar.</p>
+<h2>What fragrance load should I use?</h2>
+<p>Most container waxes are made for a fragrance load of about 6 to 10%, and many list a maximum of 10 or 12%. More oil doesn't always mean a stronger throw and can make the candle sweat or burn badly, so start at the wax maker's recommendation and test-burn. The calculator works the percentage out of the total weight, so the wax and the oil together fill the jar.</p>
+<h2>Safety</h2>
+<ul><li>Melt wax in a double boiler or a pouring pot over water, never directly on a burner, and never leave it.</li>
+<li>Check the fragrance oil's flash point and the wax maker's temperatures for adding fragrance and pouring.</li>
+<li>Choose the wick from the wick maker's chart for your jar diameter and wax, then test-burn for several hours before selling.</li>
+<li>Selling? Add warning labels as required where you sell; in the US many makers follow ASTM candle labelling guidance, and in the UK and EU, CLP labelling applies to fragrance.</li></ul>
+<p>Selling your candles online? See what Etsy takes with the <a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>. Making resin pieces too? Try the <a href="{href("resin-calculator.html")}">resin calculator</a>.</p>
+</div></div></section>{more_crafts("candle-making-calculator.html")}'''
+cm_faq = [
+ ("How much wax do I need for an 8 oz candle?", "About 6.9 oz of soy wax in total for a jar that holds 8 oz of water. At an 8% fragrance load that's about 6.3 oz of wax and 0.55 oz of fragrance oil."),
+ ("How do I calculate candle wax?", "Weigh the water your jar holds and multiply by the wax density: 0.86 for soy, about 0.92 for paraffin."),
+ ("How much fragrance oil per pound of wax?", "At 6% about 1 oz per pound, at 10% about 1.6 oz. Check your wax's maximum fragrance load."),
+ ("What is fragrance load?", "The fragrance oil as a percentage of the candle's weight. Most container waxes suit 6 to 10%."),
+]
+page("candle-making-calculator.html", "Candle Wax Calculator: How Much Wax and Fragrance Oil per Jar (Soy, Coconut, Paraffin) | Purl & Paper",
+     "Free candle making calculator: how much soy, coconut or paraffin wax and fragrance oil for any jar size and batch, fragrance load, and cost per candle.",
+     cm, cm_faq, "Candle wax calculator", app_name="Candle wax and fragrance calculator")
+
+# ---- Resin ----
+rs = top("Epoxy resin calculator", "How much resin and hardener to mix for a mould, tray, coaster set, tumbler or river table, by volume or by weight.", "Resin calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> volume = length × width × depth. In centimetres that's millilitres: a <strong>30 × 20 cm tray poured 0.5 cm deep needs 300 ml</strong> of mixed resin. Add about 10% for waste, then split it by your kit's ratio: for a <strong>1:1</strong> kit that's 165 ml resin + 165 ml hardener; for <strong>2:1</strong>, 220 ml + 110 ml.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="rs-sh">Shape</label><select id="rs-sh"><option value="r">Rectangle</option><option value="c">Circle (coaster, round mould)</option></select></div>
+<div class="field"><label for="rs-u">Units</label><select id="rs-u"><option value="cm">cm</option><option value="in">inches</option></select></div></div>
+<div class="row2"><div class="field"><label for="rs-l" id="rs-ll">Length</label><input type="number" id="rs-l" value="30" min="0" step="0.1"></div>
+<div class="field" id="rs-wf"><label for="rs-w">Width</label><input type="number" id="rs-w" value="20" min="0" step="0.1"></div></div>
+<div class="row2"><div class="field"><label for="rs-d">Depth</label><input type="number" id="rs-d" value="0.5" min="0" step="0.05"></div>
+<div class="field"><label for="rs-q">How many</label><input type="number" id="rs-q" value="1" min="1"></div></div>
+<div class="row2"><div class="field"><label for="rs-r">Mix ratio (resin : hardener)</label><select id="rs-r"><option value="1,1">1 : 1</option><option value="2,1">2 : 1</option><option value="3,1">3 : 1</option><option value="100,45">100 : 45 (by weight)</option></select></div>
+<div class="field"><label for="rs-x">Extra for waste (%)</label><input type="number" id="rs-x" value="10" min="0" max="50"></div></div>
+</div><div class="result" aria-live="polite" id="rs-out"></div></div></section>
+<script>(function(){{function v(i){{return parseFloat(document.getElementById(i).value)||0}}
+function run(){{var c=document.getElementById("rs-sh").value=="c",k=document.getElementById("rs-u").value=="in"?2.54:1,L=v("rs-l")*k,W=v("rs-w")*k,D=v("rs-d")*k;document.getElementById("rs-wf").style.display=c?"none":"";document.getElementById("rs-ll").textContent=c?"Diameter":"Length";
+var ml=(c?Math.PI*L*L/4*D:L*W*D)*v("rs-q"),tot=ml*(1+v("rs-x")/100),r=document.getElementById("rs-r").value.split(","),a=+r[0],b=+r[1],A=tot*a/(a+b),B=tot*b/(a+b),g=tot*1.1,oz=tot/29.574;
+document.getElementById("rs-out").innerHTML="<h2>"+Math.round(tot)+" ml mixed resin</h2><p>("+oz.toFixed(1)+" fl oz, about "+Math.round(g)+" g). That's "+Math.round(ml)+" ml for the piece plus "+v("rs-x")+"%.</p><p><strong>Mix "+Math.round(A)+" "+(a==100?"g":"ml")+" resin + "+Math.round(B)+" "+(a==100?"g":"ml")+" hardener</strong> ("+a+":"+b+").</p>"+(D>(1.3)?"<p><strong>Check the pour depth.</strong> Most coating and art resins are poured in layers of about 3 to 6 mm; pours deeper than about 1 cm usually need a deep-pour casting resin, or several layers. Follow your product's maximum.</p>":"")+"<p class=\\"muted\\">Grams use a typical epoxy density of about 1.1 g per ml. Check your kit's data sheet, and measure by volume or weight exactly as its instructions say.</p>"}}
+["rs-sh","rs-u","rs-l","rs-w","rs-d","rs-q","rs-r","rs-x"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>How much resin for common projects</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Project</th><th scope="col">Size</th><th scope="col">Mixed resin (+10%)</th></tr></thead><tbody>
+<tr><td>4 round coasters</td><td>10 cm across, 0.6 cm deep</td><td>{round(3.14159*25*0.6*4*1.1)} ml</td></tr>
+<tr><td>Serving tray coat</td><td>40 × 25 cm, 0.3 cm</td><td>{round(40*25*0.3*1.1)} ml</td></tr>
+<tr><td>Charcuterie board coat</td><td>45 × 20 cm, 0.2 cm</td><td>{round(45*20*0.2*1.1)} ml</td></tr>
+<tr><td>Small river table</td><td>100 × 10 cm river, 4 cm deep</td><td>{round(100*10*4*1.1/1000,1)} litres (deep-pour resin)</td></tr></tbody></table></div>
+<h2>Volume or weight?</h2>
+<p>Use whatever your kit says. Many art resins are 1:1 by volume; many casting and deep-pour resins give the ratio by weight (for example 100:45). Getting the ratio wrong is the most common reason resin stays sticky, so measure carefully and mix for the full time on the label, scraping the sides and bottom.</p>
+<h2>Resin safety</h2>
+<ul><li>Work in a well-ventilated room and follow the product's safety data sheet.</li>
+<li>Wear nitrile gloves and eye protection; uncured resin can cause skin sensitisation.</li>
+<li>Mix only what you can pour in the working time; large batches can heat up fast.</li>
+<li>Food contact: only use a resin rated food safe once fully cured, and follow its cure times.</li></ul>
+<p>Selling resin art? Our resin calculator and pricing spreadsheet tracks material cost per piece, and the <a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a> shows what you'll keep.</p>
+</div></div></section>{more_crafts("resin-calculator.html")}'''
+rs_faq = [
+ ("How do I calculate how much resin I need?", "Length × width × depth in centimetres gives millilitres. Add about 10% for waste, then split by your kit's mix ratio."),
+ ("How much resin for 4 coasters?", f"Four 10 cm coasters 6 mm deep take about {round(3.14159*25*0.6*4*1.1)} ml of mixed resin, including 10% extra."),
+ ("How deep can I pour epoxy resin?", "Coating and art resins are usually poured in layers of about 3 to 6 mm. Deeper pours need a deep-pour casting resin; follow the product's maximum depth."),
+ ("How many grams is 100 ml of resin?", "About 110 g, as most epoxy resins weigh about 1.1 g per ml. Check your kit's data sheet."),
+]
+page("resin-calculator.html", "Resin Calculator: How Much Epoxy Resin Do I Need? (Mould, Tray, Coasters, River Table) | Purl & Paper",
+     "Free epoxy resin calculator: how much resin and hardener to mix for moulds, coasters, trays and river tables, by volume or weight, with 1:1 and 2:1 ratios.",
+     rs, rs_faq, "Resin calculator", app_name="Epoxy resin calculator")
+
+# ---- Macrame ----
+mc = top("Macrame cord calculator", "How many cords to cut, how long each one should be, and how much cord to buy for a wall hanging, plant hanger or keychain.", "Macrame cord calculator") + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> cut each cord about <strong>4 times the finished length</strong>, or <strong>8 times</strong> if you fold it in half over the dowel with a lark's head knot (most wall hangings). Dense knotting such as half hitches uses more, so allow up to 5 times; add the fringe on top.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="mc-l">Finished length (without fringe)</label><input type="number" id="mc-l" value="24" min="1"></div>
+<div class="field"><label for="mc-fr">Fringe length</label><input type="number" id="mc-fr" value="6" min="0"></div></div>
+<div class="row2"><div class="field"><label for="mc-u">Units</label><select id="mc-u"><option value="in">inches</option><option value="cm">cm</option></select></div>
+<div class="field"><label for="mc-fold">Cords</label><select id="mc-fold"><option value="2">Folded in half (lark's head)</option><option value="1">Single</option></select></div></div>
+<div class="row2"><div class="field"><label for="mc-k">Knotting</label><select id="mc-k"><option value="4">Average (square knots, some open space)</option><option value="3.5">Open, lacy</option><option value="5">Dense (half hitches, solid panels)</option></select></div>
+<div class="field"><label for="mc-w">Dowel width used</label><input type="number" id="mc-w" value="16" min="1"></div></div>
+<div class="field"><label for="mc-cw">Cord thickness</label><select id="mc-cw"><option value="0.12">3 mm</option><option value="0.16" selected>4 mm</option><option value="0.2">5 mm</option><option value="0.24">6 mm</option></select></div>
+</div><div class="result" aria-live="polite" id="mc-out"></div></div></section>
+<script>(function(){{function v(i){{return parseFloat(document.getElementById(i).value)||0}}
+function run(){{var cm=document.getElementById("mc-u").value=="cm",u=cm?"cm":"in",f=v("mc-fold"),k=v("mc-k"),per=(v("mc-l")*k+v("mc-fr"))*f,cw=v("mc-cw")*(cm?2.54:1),n=Math.max(1,Math.floor(v("mc-w")/(cw*(f==2?4:1.5)))),tot=per*n,yd=cm?tot/100:tot/36;
+document.getElementById("mc-out").innerHTML="<h2>Cut "+n+" cords of "+Math.round(per)+" "+u+"</h2><p>That's "+n*f+" working ends across "+v("mc-w")+" "+u+" of dowel"+(f==2?", each cord folded in half":"")+".</p><p><strong>Buy at least "+(Math.ceil(yd*1.1*10)/10)+(cm?" m":" yd")+"</strong> of cord ("+Math.round(tot)+" "+u+" plus 10% spare), plus a short piece to hang it.</p><p class=\\"muted\\">The number of cords assumes the lark's head knots sit side by side, touching, on the dowel (about 4 cord widths each). Leave gaps and you'll need fewer.</p>"}}
+["mc-l","mc-fr","mc-u","mc-fold","mc-k","mc-w","mc-cw"].forEach(function(i){{document.getElementById(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Why 8 times?</h2>
+<p>The usual rule is that every working strand needs about four times the finished length, because each knot takes up cord. When a cord is folded in half over the dowel, it becomes two strands, so the cord you cut must be about eight times the finished length. Projects with lots of open space need less; solid rows of half hitches need more. If you run short, you can add in a new length behind a knot.</p>
+<h2>Cord lengths for common projects</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Project</th><th scope="col">Finished length</th><th scope="col">Cut each cord (folded)</th></tr></thead><tbody>
+<tr><td>Keychain</td><td>4 in (10 cm)</td><td>about 36 in (90 cm)</td></tr><tr><td>Small plant hanger</td><td>30 in (75 cm)</td><td>about 20 ft (6 m), as a plant hanger is mostly long sinnets</td></tr>
+<tr><td>Small wall hanging</td><td>18 in (45 cm)</td><td>about 12 ft (3.7 m)</td></tr><tr><td>Medium wall hanging</td><td>30 in (75 cm)</td><td>about 20 ft (6 m)</td></tr></tbody></table></div>
+<p class="note">Rule-of-thumb lengths using 8× for folded cords. Follow your pattern if it gives lengths.</p>
+<h2>Beginner knots to learn first</h2>
+<p>The lark's head (to mount cords), the square knot, the spiral (a half knot repeated), the half hitch and double half hitch, and the gathering knot (to finish plant hangers). Practise each on a short piece of cord before a project.</p>
+<p>Love fibre crafts? Try the <a href="{href("yarn-calculator.html")}">yarn calculator</a> for knitting and crochet.</p>
+</div></div></section>{more_crafts("macrame-cord-calculator.html")}'''
+mc_faq = [
+ ("How much macrame cord do I need?", "Cut each cord about 4 times the finished length, or 8 times if it's folded in half with a lark's head knot. Add the fringe length on top."),
+ ("How many cords for a macrame wall hanging?", "Divide the width of the dowel you'll cover by the cord thickness. Each folded cord mounted with a lark's head takes about 4 cord widths, so a 16 in dowel holds about 25 folded 4 mm cords (50 working ends)."),
+ ("What thickness of macrame cord for beginners?", "4 to 5 mm single-strand cotton is easy to knot, undo and comb into fringe."),
+]
+page("macrame-cord-calculator.html", "Macrame Cord Calculator: How Much Cord Do I Need? (Wall Hangings, Plant Hangers) | Purl & Paper",
+     "Free macrame cord calculator: how many cords to cut, how long (the 4x and 8x rules) and how much cord to buy for wall hangings, plant hangers and keychains.",
+     mc, mc_faq, "Macrame cord calculator", app_name="Macrame cord calculator")
