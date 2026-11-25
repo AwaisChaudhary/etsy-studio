@@ -14,6 +14,7 @@ CRAFTS = [
  ("candle-making-calculator.html", "Candle wax calculator", "Wax and fragrance oil for any jar and batch, with cost per candle."),
  ("resin-calculator.html", "Resin calculator", "How much epoxy resin and hardener to mix for a mould, tray or table."),
  ("macrame-cord-calculator.html", "Macrame cord calculator", "How many cords to cut, how long, and how much cord to buy."),
+ ("half-square-triangle-calculator.html", "Half square triangle calculator", "What size squares to cut for HSTs, 2, 4 or 8 at a time, and how much fabric."),
  ("polymer-clay-baking-calculator.html", "Polymer clay baking calculator", "Oven temperature and bake time for your clay brand and thickness."),
 ]
 CRAFT_LINKS = '<ul class="craft-links">' + "".join(f'<li><a href="{href(f)}">{n}</a> <span class="muted">{d}</span></li>' for f, n, d in CRAFTS[1:]) + "</ul>"
@@ -30,6 +31,7 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <h2>Needlework</h2>
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
 <li><a href="{href("quilt-size-calculator.html")}">Quilt size calculator</a>: finished size for any bed, backing and binding yardage.</li>
+<li><a href="{href("half-square-triangle-calculator.html")}">Half square triangle calculator</a>: cut sizes for HSTs made 2, 4 or 8 at a time.</li>
 <li><a href="{href("diamond-painting-calculator.html")}">Diamond painting calculator</a>: drills per canvas and time to finish.</li></ul>
 <h2>Clay</h2>
 <ul><li><a href="{href("polymer-clay-baking-calculator.html")}">Polymer clay baking calculator</a>: oven temperature and time for Sculpey, Premo, Fimo, Kato and Cernit by thickness.</li></ul>
@@ -435,3 +437,44 @@ pcb_faq = [("What temperature do you bake polymer clay?", "275 °F (130 °C) for
 page("polymer-clay-baking-calculator.html", "Polymer Clay Baking Temperature and Time Calculator (Sculpey, Premo, Fimo, Kato) | Purl & Paper",
      "Polymer clay baking calculator and chart: oven temperature and bake time for Sculpey III, Premo, Souffle, Fimo, Kato and Cernit by thickness, plus how to stop burning and breaking.",
      pcb, pcb_faq, "Polymer clay baking calculator", app_name="Polymer clay baking calculator")
+
+# ---- Half square triangles (standard quilting maths: 2-at-a-time finished + 7/8 in; 8-at-a-time (finished + 7/8) x 2; 4-at-a-time (finished + 7/8) x 1.414; unfinished = finished + 1/2) ----
+def _fr(x):
+    w = int(x); e8 = round((x - w) * 8)
+    if e8 == 8: w, e8 = w + 1, 0
+    from math import gcd
+    if not e8: return f"{w} in"
+    g = gcd(e8, 8); return f"{w} {e8 // g}/{8 // g} in" if w else f"{e8 // g}/{8 // g} in"
+import math as _m
+hst_rows = "".join(f"<tr><td>{_fr(f)}</td><td>{_fr(f + .5)}</td><td>{_fr(f + .875)}</td><td>{_fr(_m.ceil((f + .875) * 1.414 * 8) / 8)}</td><td>{_fr((f + .875) * 2)}</td></tr>" for f in (1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 6))
+hst = top("Half square triangle calculator", "Enter the finished size of your HSTs and how many you need. Get the size to cut your squares for the 2, 4 and 8 at a time methods, and how much fabric to buy.", "Half square triangle calculator") + f"""
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> for the classic <strong>2 at a time</strong> method, cut squares <strong>⅞ in bigger than the finished size</strong>: a 3 in finished HST starts from 3⅞ in squares. Many quilters cut 1 in bigger instead and trim to the unfinished size (finished + ½ in, so 3½ in). For <strong>8 at a time</strong>, cut squares (finished + ⅞ in) × 2: 7¾ in for 3 in HSTs.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<div class="row2"><div class="field"><label for="hs-f">Finished HST size (in)</label><input type="number" id="hs-f" value="3" min="0.5" step="0.25"></div>
+<div class="field"><label for="hs-n">How many HSTs</label><input type="number" id="hs-n" value="48" min="1"></div></div>
+<div class="row2"><div class="field"><label for="hs-m">Method</label><select id="hs-m"><option value="2">2 at a time (draw a diagonal, sew both sides)</option><option value="4">4 at a time (sew round the edge, cut both diagonals)</option><option value="8">8 at a time (sew both diagonals)</option></select></div>
+<div class="field"><label for="hs-t">Trim allowance</label><select id="hs-t"><option value="0">Exact (no trimming)</option><option value="0.125">Add ⅛ in, then trim</option></select></div></div>
+</div><div class="result" aria-live="polite" id="hs-out"></div></div></section>
+<script>(function(){{function g(i){{return document.getElementById(i)}}function fr(x){{x=Math.ceil(x*8-1e-9)/8;var w=Math.floor(x),e=Math.round((x-w)*8),n=[0,"⅛","¼","⅜","½","⅝","¾","⅞"][e];return (w?w:"")+(e?n:"")+" in"}}
+function run(){{var f=+g("hs-f").value||0,n=+g("hs-n").value||0,m=+g("hs-m").value,t=+g("hs-t").value,c=m==2?f+.875:m==8?(f+.875)*2:(f+.875)*1.414;c+=t;var per=m,pairs=Math.ceil(n/per),across=Math.floor(40/c),strips=Math.ceil(pairs/Math.max(1,across)),yd=Math.ceil(strips*c/36*8)/8;
+g("hs-out").innerHTML="<h2>Cut squares "+fr(c)+"</h2><p>You need <strong>"+pairs+" light and "+pairs+" dark squares</strong> to make "+(pairs*per)+" HSTs ("+n+" needed).</p><p>From 42 in quilting cotton you get "+across+" squares per strip: cut <strong>"+strips+" strips "+fr(c)+" wide</strong> of each fabric, about <strong>"+yd+" yd</strong> of each.</p><p>Each HST should then measure <strong>"+fr(f+.5)+"</strong> unfinished"+(t||m!=2?", so trim to that.":".")+"</p>"+(m==4?"<p class=\\"muted\\">4 at a time leaves bias edges on the outside, so press gently and starch before cutting.</p>":"")}}
+["hs-f","hs-n","hs-m","hs-t"].forEach(function(i){{g(i).addEventListener("input",run)}});run()}})();</script>
+<section><div class="wrap"><div class="narrow prose">
+<h2>HST cut size chart</h2>
+<div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Finished</th><th scope="col">Unfinished (trim to)</th><th scope="col">2 at a time</th><th scope="col">4 at a time</th><th scope="col">8 at a time</th></tr></thead><tbody>{hst_rows}</tbody></table></div>
+<p class="note">Exact cut sizes with a ¼ in seam allowance; 4 at a time is rounded up to the next ⅛ in. Add ⅛ to ½ in if you like to trim your HSTs square.</p>
+<h2>Which HST method should I use?</h2>
+<ul><li><strong>2 at a time:</strong> the most accurate and easiest for beginners. Pair a light and a dark square, draw one diagonal, sew ¼ in either side, cut on the line, press.</li>
+<li><strong>4 at a time:</strong> sew all round the edge of two squares, then cut both diagonals. Fast, but the outer edges are on the bias and stretch.</li>
+<li><strong>8 at a time:</strong> draw both diagonals, sew ¼ in either side of both, then cut across, down and on both diagonals. Fastest for big quilts; best with starch and a trim.</li></ul>
+<h2>Why ⅞ in?</h2>
+<p>A triangle's seam takes up more fabric along its diagonal than a straight seam does. Half an inch covers the two ¼ in seam allowances; the extra ⅜ in covers the diagonal, giving ⅞ in in total.</p>
+<p>Planning the whole quilt? Work out its size, backing and binding with the <a href="{href("quilt-size-calculator.html")}">quilt size calculator</a>.</p>
+</div></div></section>{more_crafts("half-square-triangle-calculator.html")}"""
+hst_faq = [("What size do I cut squares for half square triangles?", "For 2 at a time, the finished size plus ⅞ in. For 3 in finished HSTs, cut 3⅞ in squares. Many quilters add 1 in and trim instead."),
+           ("How do I make 8 half square triangles at once?", "Cut two squares (finished + ⅞ in) × 2, draw both diagonals, sew ¼ in either side of each, then cut horizontally, vertically and on both diagonals."),
+           ("What size should a 3 inch HST measure before sewing into the quilt?", "3½ in unfinished. It finishes at 3 in once it's sewn in."),
+           ("Why are my half square triangles too small?", "Usually a seam wider than ¼ in, or stretching the bias when pressing. Cut a little bigger and trim to the unfinished size.")]
+page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: HST Cut Sizes (2, 4 and 8 at a Time) + Chart | Purl & Paper",
+     "Free half square triangle calculator: what size squares to cut for HSTs made 2, 4 or 8 at a time, how many squares and strips you need, and a cut size chart.",
+     hst, hst_faq, "Half square triangle calculator", app_name="Half square triangle calculator")
