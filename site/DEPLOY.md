@@ -5,3 +5,5 @@ Deploy (needs Chrome on Awais's computer): zip the CONTENTS of: all *.html, robo
 Shop boxes: SHOP / SHOP_FOR dicts in build.py (key -> name, price, Etsy listing path, Gumroad slug); thumbnails in assets/shop/<key>.jpg (400x400 from scenes gumroad-thumb).
 AdSense: script with ca-pub-1558743317014653 is in the template and ads.txt is set, but the site is NOT yet added in AdSense. Only add it (AdSense -> Sites -> Add site) after neoncoast.org or getdayonedrop.com is approved and the site has 15+ useful pages.
 IndexNow key (22 Nov 2026): ALSO include 587793d06442be2254b0454e95cf84ff.txt in every deploy zip (it is a .txt in site/ like robots.txt). A Direct Upload replaces all files, so leaving it out breaks IndexNow.
+
+25 Nov 2026: the Chrome file upload limit is 3.8 MB per file. Zip from site/ with `zip -qr -9 /home/claude/purl-deploy.zip *.html *.txt sitemap.xml _redirects assets -x assets/og/.cache.json` (the zip must be under /home/claude to be uploadable). OG images were resaved at JPEG quality 40 and shop thumbs at 72 to fit; if the zip grows past 3.8 MB, resave new og/*.jpg at quality 40 first.
