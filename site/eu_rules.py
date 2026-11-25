@@ -39,6 +39,14 @@ eu = top("EU rules checker for Etsy sellers (2026)", "Answer five questions abou
 <h2>What about digital downloads?</h2>
 <p>Downloads have no packaging and aren't "goods" for the guarantee notice. Etsy's guidance still says GPSR covers digital items, so complete the fields Etsy shows on digital listings visible in the EU.</p>
 <p>Pricing your products after compliance costs? Use the <a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>.</p>
+<div class="nl-card" id="eu-waitlist" style="margin:26px 0">
+<div><h2>Get your whole shop checked automatically</h2><p>We're building a low-cost tool that scans every Etsy listing, flags the ones missing EU details, and fills them in bulk from your saved templates. Join the waitlist for early access and a launch discount. No spam: one email when it's ready.</p></div>
+<form class="nl-form" action="https://app.kit.com/forms/10243558/subscriptions" method="post">
+<label class="nl-sr" for="eu-email">Email address</label>
+<input id="eu-email" type="email" name="email_address" required placeholder="Your email address" autocomplete="email">
+<button type="submit">Join the waitlist</button>
+</form>
+</div>
 <p class="muted">Sources: Etsy Help Centre (GPSR); Regulation (EU) 2023/988; Regulation (EU) 2025/40 (PPWR), Article 45; Directive (EU) 2024/825 and Implementing Regulation (EU) 2025/1960; German Central Agency Packaging Register (LUCID). Checked 26 November 2026. General information, not legal advice.</p>
 </div></div></section>{more_seller("eu-rules-checker-etsy-sellers.html")}"""
 eu_faq = [("Do Etsy sellers need an EU responsible person?", "Yes, if you're based outside the EU and sell products to EU buyers: GPSR requires an EU-based responsible person whose details appear on your listings."),
@@ -48,3 +56,9 @@ eu_faq = [("Do Etsy sellers need an EU responsible person?", "Yes, if you're bas
 page("eu-rules-checker-etsy-sellers.html", "EU Rules Checker for Etsy Sellers 2026: GPSR, Packaging (PPWR) and Guarantee Notice | Purl & Paper",
      "Free EU rules checker for Etsy sellers: answer five questions to see if GPSR, the 12 August 2026 packaging rules (PPWR) and the 27 September 2026 guarantee notice apply to your shop.",
      eu, eu_faq, "EU rules checker", app_name="EU rules checker for Etsy sellers")
+
+page("eu-waitlist-thanks.html", "You're on the waitlist | Purl & Paper", "Confirm your email to join the EU seller tool waitlist.",
+     """<section><div class="wrap nl-done"><h1>Check your inbox</h1>
+<p>We've emailed you a confirmation link. Tap it and you're on the waitlist for our EU listing checker for Etsy sellers. We'll email you once when early access opens.</p>
+<p>Can't see it after a minute? Look in your spam or promotions folder.</p>
+<div class="nl-links"><a href="/eu-rules-checker-etsy-sellers">EU rules checker</a><a href="/etsy-fee-calculator">Etsy fee calculator</a><a href="/seller-tools">All seller tools</a></div></div></section>""")

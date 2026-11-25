@@ -140,8 +140,8 @@ def book_box(file):
 
 
 # ---- Email signup (Kit form 10215409). Sign-ups go to Kit; Kit redirects to /thanks, then /welcome after confirming. ----
-NL_SKIP = ("thanks.html", "welcome.html", "404.html", "privacy.html")
-NOINDEX = ("thanks.html", "welcome.html", "404.html")
+NL_SKIP = ("thanks.html", "eu-waitlist-thanks.html", "welcome.html", "404.html", "privacy.html")
+NOINDEX = ("thanks.html", "eu-waitlist-thanks.html", "welcome.html", "404.html")
 def signup(file):
     if file in NL_SKIP:
         return ""

@@ -1,3 +1,16 @@
+## MORE CATEGORIES ROUND 2 (Awais 26 Nov 01:13: "look for trends and demands and, based on those and the domain name, add further categories; Purl & Paper can add tons of categories in demand") — Keyword Planner WORLDWIDE, 26 Nov 2026
+Build in this order (timely first), 2-3 per run, each = hub or tool + 2-3 how-to pages, internal links, quick answer + FAQ, a Pinterest pin each, and a matching shop box where one exists. Original art/diagrams only (own SVG), never copy patterns or images.
+C8. OPEN NOW (seasonal, peaks Dec) /2027-calendar-printable: free 2027 calendar generator ("2027 calendar printable" 10k-100k, +900% YoY): yearly/monthly, Mon/Sun start, US/UK holidays optional, A4/Letter, print/PDF; plus /2027-planner-pages. Links to the shop planners.
+C9. OPEN NOW (seasonal) /christmas-crafts hub ("christmas crafts" 10k-100k) + /advent-calendar-ideas (1k-10k, +900% 3-month): paper and yarn makes, printable gift tags/advent number cards (own designs), crochet ornament ideas linking our tools.
+C10. OPEN /coloring-pages ("coloring pages" 100k-1M, LOW competition): printable coloring page generator with OUR OWN algorithmic art (mandalas, geometric, granny-square and yarn motifs, junk-journal frames), seeded so each is unique; adult + kids sets; print/save SVG. Huge Pinterest fit.
+C11. OPEN /amigurumi hub ("amigurumi" 100k-1M): beginner guide (magic ring, sc in the round, increases), amigurumi size/yarn calculator, stuffing + safety-eyes guide (child safety note).
+C12. OPEN /bookbinding hub ("bookbinding" 100k-1M, ties to junk journals): signature/page calculator already exists -> add stitch guides (pamphlet, coptic, kettle stitch) with own SVG diagrams, paper grain + folding guide.
+C13. OPEN /origami hub ("origami" 100k-1M): beginner models with own step SVGs (crane, box, heart, star), paper size guide, printable origami paper patterns generator.
+C14. OPEN paper crafts: /card-making ("card making" 10k-100k: card size + envelope size calculator, fold guide), /paper-flowers (10k-100k: printable petal templates, own SVG).
+C15. OPEN yarn/fibre extras: /punch-needle (10k-100k, +900% YoY), /tunisian-crochet (10k-100k), /loom-knitting (10k-100k), /needle-felting (10k-100k), /tufting (10k-100k: rug size + yarn calculator), /friendship-bracelet-patterns (10k-100k: pattern generator with own grid), /embroidery-patterns (10k-100k: printable original patterns + transfer guide).
+C16. LATER /watercolor-for-beginners (10k-100k), /beading-patterns (1k-10k), /cricut-projects (1k-10k, brand name: describe generically).
+Lower volume (skip unless a tool fits): sewing for beginners 1k-10k.
+
 ## NEW CATEGORIES (Awais 25 Nov: add new topic areas where data shows demand) — Keyword Planner, US, 25 Nov 2026
 Purl & Paper covers yarn and paper crafts; these adjacent crafts have big search demand and fit the brand and the shop (build each as a hub + tools/how-tos, 2-3 per run, data-first):
 C1. PART-DONE 25 Nov (/calligraphy-practice-sheets live; next: pen guide, alphabet drills) Calligraphy & hand lettering — "calligraphy" 100k-1M, LOW comp. Hub + free printable practice sheets generator (own fonts-free guides), pen/nib guide, alphabet drills.
