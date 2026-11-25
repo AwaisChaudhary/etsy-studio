@@ -47,3 +47,8 @@ python3 listing_b8.py $B ../batch8 ../pins/batch8
 ```
 Etsy photos = `upload_images` (1 = scenes etsy-hero); Gumroad = `gumroad_cover` + `gumroad_thumb`. Planned Gumroad slugs: laser-engraving-spreadsheet,
 nail-tech-spreadsheet, sticker-business-spreadsheet (pin-b links in queue.json already use them).
+
+## 25 Nov 2026 19:50-20:10 PKT (main chat, Chrome)
+- Etsy DRAFTS made with the copy recipe (photos, file, title, description, price, 13 tags replaced; category Bookkeeping Templates, section Business Spreadsheets): nail 4625445559 (from lash), laser 4625446969 (from resin), sticker 4625456612 (from resin). Publishing was blocked by the auto-mode safety check ($0.20 fee), so they are drafts until Awais approves; then publish from Listings > Draft.
+- Gumroad not done: the new Chrome profile's extension can't act on gumroad.com yet.
+- Pins stay 'queued (needs listing first)' until the listings are live.
