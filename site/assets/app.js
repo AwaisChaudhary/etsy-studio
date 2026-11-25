@@ -914,10 +914,10 @@
   }
   /* ---- Crochet / knitting price calculator ---- */
   if ($("#pr-m") && $("#pr-out")) {
-    var prE = {}; ["m", "h", "r", "oh", "ch", "fair", "bf", "bn", "cf", "con", "cp", "try", "out"].forEach(function (k) { prE[k] = $("#pr-" + k); });
-    var prKeys = ["m", "h", "r", "oh", "ch", "bf", "bn", "cf", "cp"], prPref = store.get("pp-price", null);
+    var prE = {}; ["m", "h", "r", "oh", "ch", "fair", "bf", "bn", "cf", "con", "cp", "try", "out", "cur"].forEach(function (k) { prE[k] = $("#pr-" + k); });
+    var prKeys = ["m", "h", "r", "oh", "ch", "bf", "bn", "cf", "cp"].concat(prE.cur ? ["cur"] : []), prPref = store.get("pp-price", null);
     if (prPref) prKeys.forEach(function (k) { if (prPref[k] != null && prPref[k] !== "") prE[k].value = prPref[k]; });
-    var money = function (n) { return "$" + (Math.round(n * 100) / 100).toFixed(2); };
+    var money = function (n) { return (prE.cur ? prE.cur.value : "$") + (Math.round(n * 100) / 100).toFixed(2); };
     var num = function (el) { return Math.max(0, parseFloat(el.value) || 0); };
     function prCalc() {
       var m = num(prE.m), h = num(prE.h), r = num(prE.r), oh = num(prE.oh) / 100, ch = prE.ch.value;
@@ -2158,6 +2158,160 @@
       setTimeout(off, 1500);
     });
     jsCalc();
+  }
+
+
+  /* ---------- PICK UP STITCHES calculator ---------- */
+  if ($("#pu-out") && $("#pu-edge")) {
+    var puHow = $("#pu-how"), puFlat = $("#pu-flat");
+    var gcd = function (a, b) { while (b) { var t = b; b = a % b; a = t; } return a; };
+    var puLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '" style="color:#ffd38a">' + t + "</a>"; };
+    function puRib(n, mult, extra) { var k = Math.max(1, Math.round((n - extra) / mult)); return mult * k + extra; }
+    // even sequence of picks (true) and skips (false) for N picks along E units, N <= E
+    function puSeq(E, N) {
+      var out = [], i, S = E - N;
+      if (S <= 0) { for (i = 0; i < E; i++) out.push(true); return out; }
+      if (N >= S) {
+        var q = Math.floor(N / S), r = N - q * S;
+        for (i = 0; i < S; i++) { var sz = q + (Math.floor((i + 1) * r / S) - Math.floor(i * r / S)); for (var j = 0; j < sz; j++) out.push(true); out.push(false); }
+      } else {
+        var q2 = Math.floor(S / N), r2 = S - q2 * N;
+        for (i = 0; i < N; i++) { out.push(true); var sk = q2 + (Math.floor((i + 1) * r2 / N) - Math.floor(i * r2 / N)); for (var k = 0; k < sk; k++) out.push(false); }
+      }
+      return out;
+    }
+    function puCalc() {
+      var edge = $("#pu-edge").value, top = edge === "top", unit = top ? "stitch" : "row", units = top ? "stitches" : "rows";
+      var measure = segVal(puHow) === "measure";
+      $("#pu-count-f").hidden = measure; $("#pu-measure-f").hidden = !measure;
+      $("#pu-n-l").textContent = top ? "Stitches along the edge" : "Rows along the edge";
+      $("#pu-n-note").textContent = edge === "garter" ? "Count the ridges and double it (1 ridge = 2 rows)." : top ? "Count the stitches of the cast on or bound off edge." : "Count the rows, or measure instead.";
+      var cm = $("#pu-unit").value === "cm";
+      $("#pu-g-l").textContent = (top ? "Stitches" : "Rows") + " in " + (cm ? "10 cm" : "4 in") + " of the body";
+      var E = measure ? Math.round((parseFloat($("#pu-len").value) || 0) * (parseFloat($("#pu-g").value) || 0) / (cm ? 10 : 4)) : Math.round(parseFloat($("#pu-n").value) || 0);
+      var rsel = $("#pu-ratio").value, ratio, rname;
+      $("#pu-gauge-f").hidden = rsel !== "gauge";
+      if (rsel === "auto") ratio = top ? 1 : edge === "garter" ? 0.5 : 0.75;
+      else if (rsel === "gauge") { var bg = parseFloat($("#pu-bg").value) || 0, rg = parseFloat($("#pu-rg").value) || 0; ratio = rg > 0 ? bg / rg : 0.75; }
+      else ratio = parseFloat(rsel);
+      var names = { "1": "1 in every " + unit, "0.75": "3 for every 4 rows", "0.6667": "2 for every 3 rows", "0.8": "4 for every 5 rows", "0.5": "1 for every 2 rows (1 per ridge)" };
+      rname = rsel === "gauge" ? "your gauge (" + ratio.toFixed(2) + " stitches per row)" : names[String(ratio)] || ratio.toFixed(2);
+      var out = $("#pu-out");
+      if (!(E >= 2)) { out.innerHTML = "<h3>Stitches to pick up</h3><div class=\"big\">–</div><p class=\"sub\">Enter the " + units + " along the edge, or measure it.</p>"; $("#pu-svg").innerHTML = ""; return; }
+      var tIn = parseInt($("#pu-target").value, 10), hasT = tIn > 0, band = $("#pu-band").value, round = segVal(puFlat) === "round";
+      var raw = Math.max(1, Math.round(E * ratio)), N = raw, note = "";
+      var mult = band === "r1" ? 2 : band === "r2" ? 4 : 0, extra = round ? 0 : (band === "r1" ? 1 : band === "r2" ? 2 : 0);
+      if (hasT) {
+        N = tIn;
+        if (mult && (N - extra) % mult !== 0) note = "Heads up: " + N + " isn't a multiple of " + mult + (extra ? " + " + extra : "") + ", so the " + (band === "r1" ? "1×1" : "2×2") + " rib won't match at both ends. Follow the pattern if it says so.";
+      } else if (mult) {
+        N = puRib(raw, mult, extra);
+        if (N !== raw) note = "Rounded from " + raw + " to " + N + " so the " + (band === "r1" ? "1×1" : "2×2") + " rib works out (a multiple of " + mult + (extra ? " + " + extra : "") + ").";
+      }
+      var h = "<h3>Stitches to pick up</h3><div class=\"big\">" + fmt(N) + " <small>along " + fmt(E) + " " + units + "</small></div>";
+      h += "<p class=\"sub\">" + (hasT ? "Your pattern's number." : "At " + esc(rname) + ".") + (note ? " " + esc(note) : "") + "</p>";
+      var how;
+      if (N === E) how = "Pick up 1 in every " + unit + ".";
+      else if (N > E) how = "That's more stitches than " + units + ". Pick up 1 in every " + unit + " (" + fmt(E) + "), then increase " + fmt(N - E) + " evenly on the next row, or pick up an extra stitch between " + units + " " + fmt(N - E) + " times along the edge.";
+      else {
+        var S = E - N, g = gcd(N, E);
+        if (N >= S) {
+          var q = Math.floor(N / S), r = N - q * S;
+          how = r === 0 ? "<strong>Pick up " + q + ", skip 1</strong>, all the way along (" + S + " times)." :
+            "<strong>Pick up " + q + ", skip 1</strong>, and in " + r + " of the " + S + " repeats pick up " + (q + 1) + " instead of " + q + ". Spread those out.";
+        } else {
+          var q2 = Math.floor(S / N), r2 = S - q2 * N;
+          how = r2 === 0 ? "<strong>Pick up 1, skip " + q2 + "</strong>, all the way along." : "<strong>Pick up 1, skip " + q2 + "</strong>, and skip " + (q2 + 1) + " instead in " + r2 + " of the " + N + " repeats.";
+        }
+        if (E / g <= 12 && E / g > 1) how += " That's exactly " + (N / g) + " for every " + (E / g) + " " + units + ".";
+      }
+      h += "<h3>How to space them</h3><p>" + how + "</p>";
+      var secs = E >= 40 ? 4 : E >= 16 ? 2 : 1;
+      if (secs > 1) {
+        h += "<h3>Markers</h3><p class=\"sub\">Put " + (secs - 1) + " locking markers on the edge to split it into " + secs + " equal parts, then check your count at each one:</p><ul class=\"sk-steps\">";
+        var a0 = 0;
+        for (var i = 0; i < secs; i++) {
+          var eu = Math.floor((i + 1) * E / secs) - Math.floor(i * E / secs), nu = Math.floor((i + 1) * N / secs) - Math.floor(i * N / secs);
+          h += "<li>Part " + (i + 1) + ": " + units + " " + (a0 + 1) + "–" + (a0 + eu) + ", pick up <strong>" + nu + "</strong></li>"; a0 += eu;
+        }
+        h += "</ul>";
+      }
+      h += "<p class=\"sub\">Tip: pick up with a needle a size or two smaller than the band's, then switch on the next row.</p>";
+      h += '<hr><p class="sub">Ratios: Wikipedia, Purl Soho, Knotions, Interweave. Spacing and rounding are our own sums. Next: ' + puLink("how-to-bind-off-knitting", "a stretchy bind off for the band") + " or " + puLink("increase-decrease-calculator", "fix the count evenly") + ".</p>";
+      out.innerHTML = h;
+      // drawing: first up to 24 units of the edge
+      var show = Math.min(E, 24), seq = N <= E ? puSeq(E, N) : [], g2 = "", cw = 260 / show;
+      g2 += '<rect x="20" y="40" width="260" height="70" rx="6" fill="#f2e6cf"/><text x="20" y="22" font-size="11" fill="#4a5470">First ' + show + " " + units + " of " + fmt(E) + (top ? "" : ", edge along the top") + "</text>";
+      for (var u = 0; u < show; u++) {
+        var x = 20 + cw * (u + 0.5), pick = N > E ? true : seq[u];
+        g2 += '<line x1="' + x.toFixed(1) + '" y1="56" x2="' + x.toFixed(1) + '" y2="104" stroke="#d97aa0" stroke-width="' + Math.max(1, Math.min(3, cw / 4)).toFixed(1) + '" stroke-linecap="round" opacity=".55"/>';
+        g2 += pick ? '<circle cx="' + x.toFixed(1) + '" cy="40" r="' + Math.min(6, cw / 2.4).toFixed(1) + '" fill="#2f8f8a"/>' : '<text x="' + x.toFixed(1) + '" y="44" font-size="12" text-anchor="middle" fill="#b8326a" font-weight="700">×</text>';
+      }
+      g2 += '<circle cx="26" cy="132" r="5" fill="#2f8f8a"/><text x="36" y="136" font-size="11" fill="#1f2a44">pick up</text><text x="100" y="136" font-size="12" fill="#b8326a" font-weight="700">×</text><text x="112" y="136" font-size="11" fill="#1f2a44">skip this ' + unit + "</text>";
+      $("#pu-svg").innerHTML = g2;
+      $("#pu-cap").textContent = N >= E ? "Every " + unit + " gets a stitch." : "Pick up at the teal dots, skip the crosses, and keep the same rhythm to the end.";
+    }
+    ["#pu-edge", "#pu-ratio", "#pu-band", "#pu-unit"].forEach(function (s) { $(s).addEventListener("change", puCalc); });
+    ["#pu-n", "#pu-len", "#pu-g", "#pu-bg", "#pu-rg", "#pu-target"].forEach(function (s) { $(s).addEventListener("input", puCalc); });
+    seg(puHow, puCalc); seg(puFlat, puCalc);
+    puCalc();
+  }
+
+  /* ---------- AMIGURUMI price calculator ---------- */
+  if ($("#am-out") && $("#am-size")) {
+    var AMG = { 1: 26, 2: 18, 3: 14, 4: 12, 5: 9, 6: 8 }, AMSPM = 12;
+    var amLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '" style="color:#ffd38a">' + t + "</a>"; };
+    function amPreset() {
+      var o = $("#am-size").selectedOptions[0];
+      $("#am-custom").hidden = $("#am-size").value !== "custom";
+      if (o && o.getAttribute("data-h")) {
+        $("#am-parts").value = o.getAttribute("data-parts"); $("#am-cx").value = o.getAttribute("data-cx");
+        $("#am-y").value = o.getAttribute("data-y"); $("#am-o").value = o.getAttribute("data-o");
+      }
+      amCalc();
+    }
+    function amCalc() {
+      var o = $("#am-size").selectedOptions[0], hIn = o && o.getAttribute("data-h") ? parseFloat(o.getAttribute("data-h")) : (parseFloat($("#am-hgt").value) || 0) / ($("#am-hu").value === "cm" ? 2.54 : 1);
+      var cur = $("#am-cur").value, money = function (x) { return cur + (x >= 100 ? Math.round(x).toLocaleString("en-US") : x.toFixed(2)); };
+      var out = $("#am-out");
+      if (!(hIn > 0)) { out.innerHTML = "<p>Enter the toy's height.</p>"; return; }
+      var w = parseInt($("#am-w").value, 10), cx = parseFloat($("#am-cx").value) || 1.3, parts = Math.max(0, parseInt($("#am-parts").value, 10) || 0), face = $("#am-face").value;
+      var speed = parseFloat($("#am-speed").value) || 1, spsi = Math.pow((AMG[w] || 12) * 1.25 / 4, 2), sts = Math.PI * hIn * hIn * spsi * cx;
+      var hC = sts / (AMSPM * 60) * speed, hP = parts * 10 / 60 * speed, hF = (face === "eyes" ? 5 : 20) / 60 * speed, hS = (10 + hIn * 1.5) / 60 * speed;
+      var est = hC + hP + hF + hS, hIn2 = parseFloat($("#am-h").value), hrs = hIn2 > 0 ? hIn2 : est;
+      $("#am-h-note").textContent = hIn2 > 0 ? "Our estimate was about " + est.toFixed(1) + " h." : "Leave empty to use our estimate (about " + est.toFixed(1) + " h).";
+      var mat = (parseFloat($("#am-y").value) || 0) + (parseFloat($("#am-o").value) || 0), rate = parseFloat($("#am-rate").value) || 0, oh = (parseFloat($("#am-oh").value) || 0) / 100;
+      var labour = hrs * rate, base = (mat + labour) * (1 + oh), ch = $("#am-ch").value, price;
+      if (ch === "etsy") price = (base + 0.45) / (1 - 0.095); else if (ch === "fair") price = base / 0.97; else price = base;
+      var fees = price - base, nice = price < 20 ? Math.ceil(price) : Math.ceil(price / 5) * 5;
+      var h = "<h3>Fair price</h3><div class=\"big\">" + cur + nice.toLocaleString("en-US") + " <small>" + (ch === "etsy" ? "on Etsy" : ch === "fair" ? "at a craft fair" : "direct") + "</small></div>";
+      h += "<p class=\"sub\">A " + (Math.round(hIn * 2) / 2) + " in (" + Math.round(hIn * 2.54) + " cm) toy, about " + fmt(Math.round(sts / 50) * 50) + " stitches" + (parts ? " plus " + parts + " part" + (parts > 1 ? "s" : "") + " to sew on" : "") + ". Exact: " + money(price) + ". Shipping is extra.</p>";
+      h += '<div class="tb-stats"><div><strong>' + (Math.round(hrs * 4) / 4) + " h</strong><span>" + (hIn2 > 0 ? "your hours" : "our estimate") + "</span></div><div><strong>" + money(mat) + "</strong><span>materials</span></div>";
+      h += "<div><strong>" + money(labour) + "</strong><span>your pay at " + cur + rate + "/h</span></div><div><strong>" + money(fees) + "</strong><span>" + (ch === "direct" ? "no fees" : "fees covered") + "</span></div></div>";
+      var x3 = mat * 3, x3h = hrs > 0 ? Math.max(0, (x3 - mat) / hrs) : 0;
+      h += "<h3>Compare</h3><ul class=\"sk-steps\"><li><strong>Materials × 3:</strong> " + money(x3) + ", which pays you about <strong>" + money(x3h) + " an hour</strong>.</li><li><strong>Wholesale to a shop:</strong> about " + money(base) + "; the shop adds its own markup.</li></ul>";
+      var tr = parseFloat($("#am-try").value);
+      if (tr > 0) {
+        var net = ch === "etsy" ? tr * 0.905 - 0.45 : ch === "fair" ? tr * 0.97 : tr, ph = hrs > 0 ? (net / (1 + oh) - mat) / hrs : 0;
+        h += "<p class=\"sub" + (ph < rate ? " tb-warn" : "") + "\">At " + money(tr) + " you'd earn about <strong>" + money(Math.max(0, ph)) + " an hour</strong>" + (ph < rate ? ", less than the " + cur + rate + " you set." : ". Nice.") + "</p>";
+        if (ph < rate && rate > 0) { var fitH = Math.max(0, (net / (1 + oh) - mat) / rate); h += "<p class=\"sub\">To earn " + cur + rate + " an hour at that price, the toy needs to take about " + (Math.round(fitH * 4) / 4) + " h. Fewer parts, a smaller size or a one-piece design gets you there.</p>"; }
+      }
+      if (face === "emb") h += "<p class=\"sub\">Embroidered eyes: a good choice for babies and young children. Check the toy safety rules where you sell.</p>";
+      h += '<hr><p class="sub">Hours are our estimate: about the surface of a ball as tall as the toy at amigurumi gauge, ' + AMSPM + " single crochet a minute, 10 min a part, plus face and stuffing. Etsy: US fees (6.5% + 3% + $0.25 + $0.20). Next: " + amLink("crochet-circle-calculator", "plan the rounds") + " or " + amLink("etsy-fee-calculator", "check Etsy fees") + ".</p>";
+      out.innerHTML = h;
+      var parts4 = [["Crocheting", hC, "#b8326a"], ["Sewing on parts", hP, "#f4a823"], ["Face", hF, "#2f8f8a"], ["Stuffing and closing", hS, "#4a5470"]];
+      var sc = hIn2 > 0 && est > 0 ? hIn2 / est : 1, tot = est * sc || 1, X = 20, g = "", k;
+      parts4.forEach(function (p, i) { var ww = 260 * p[1] * sc / tot; if (ww > 0) g += '<rect x="' + X.toFixed(1) + '" y="24" width="' + ww.toFixed(1) + '" height="34" fill="' + p[2] + '"' + (i === 0 ? ' rx="4"' : "") + "/>"; X += ww; });
+      for (k = 0; k < 4; k++) { var p = parts4[k], yy = 84 + k * 16, mins = Math.round(p[1] * sc * 60);
+        g += '<rect x="20" y="' + (yy - 9) + '" width="10" height="10" rx="2" fill="' + p[2] + '"/><text x="36" y="' + yy + '" font-size="11" fill="#1f2a44">' + p[0] + '</text><text x="280" y="' + yy + '" font-size="11" text-anchor="end" fill="#1f2a44">' + (mins >= 60 ? (Math.round(mins / 6) / 10) + " h" : mins + " min") + "</text>"; }
+      g += '<text x="20" y="16" font-size="11" fill="#4a5470">Where the hours go</text>';
+      $("#am-svg").innerHTML = g;
+      $("#am-cap").textContent = "Finishing (parts, face, stuffing) is " + Math.round((hP + hF + hS) / est * 100) + "% of this toy's time.";
+    }
+    $("#am-size").addEventListener("change", amPreset);
+    ["#am-w", "#am-cx", "#am-face", "#am-speed", "#am-ch", "#am-cur", "#am-hu"].forEach(function (s) { $(s).addEventListener("change", amCalc); });
+    ["#am-hgt", "#am-parts", "#am-y", "#am-o", "#am-h", "#am-rate", "#am-oh", "#am-try"].forEach(function (s) { $(s).addEventListener("input", amCalc); });
+    amCalc();
   }
 
 })();
