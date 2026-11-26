@@ -26,6 +26,79 @@ def fmt(v, nf):
         return f"{v:,.0f}"
     return str(v)
 
+
+# ---------- light conditional-formatting emulation (cellIs equal/less/greater, colour scales, data bars, tick formulas) ----------
+def _rgb(c):
+    try:
+        v = c.rgb
+        if isinstance(v, str) and v not in ("00000000",): return v[-6:]
+    except Exception: pass
+    return None
+
+def _dxf_css(rule):
+    st = []
+    d = rule.dxf
+    if d is not None:
+        if d.fill is not None:
+            col = _rgb(d.fill.bgColor) or _rgb(d.fill.fgColor)
+            if col: st.append(f"background:#{col}")
+        if d.font is not None:
+            if d.font.b: st.append("font-weight:700")
+            if d.font.color is not None and _rgb(d.font.color): st.append(f"color:#{_rgb(d.font.color)}")
+    return st
+
+def _mix(a, b, t):
+    a = [int(a[i:i + 2], 16) for i in (0, 2, 4)]; b = [int(b[i:i + 2], 16) for i in (0, 2, 4)]
+    return "".join(f"{round(x + (y - x) * t):02x}" for x, y in zip(a, b))
+
+def _num(v):
+    try: return float(v)
+    except Exception: return None
+
+def cf_rules(ws):
+    out = []
+    for cf in ws.conditional_formatting:
+        cells = set()
+        for cr in cf.sqref.ranges:
+            out_rng = (cr.min_col, cr.min_row, cr.max_col, cr.max_row)
+            cells.add(out_rng)
+        for rule in sorted(cf.rules, key=lambda r: r.priority or 0):
+            out.append((cells, rule))
+    return out
+
+def cf_css(rules, r, c, val):
+    """Returns (css list, stop) for the first matching rule(s)."""
+    css = []
+    for cells, rule in rules:
+        if not any(a <= c <= cc and b <= r <= d for a, b, cc, d in cells): continue
+        t = rule.type
+        if t == "cellIs" and rule.formula:
+            f = rule.formula[0]; op = rule.operator
+            if f.startswith('"'):
+                if op == "equal" and val == f.strip('"'): return css + _dxf_css(rule)
+            else:
+                n, x = _num(val), _num(f)
+                if n is not None and x is not None and isinstance(val, (int, float)):
+                    if (op == "lessThan" and n < x) or (op == "greaterThan" and n > x): css += _dxf_css(rule)
+        elif t == "expression" and rule.formula:
+            f = rule.formula[0]
+            if '="\u2713"' in f or '="✓"' in f:
+                if val in ("✓", "x", "X"): return css + _dxf_css(rule)
+            elif '="\u2717"' in f or '="✗"' in f:
+                if val == "✗": return css + _dxf_css(rule)
+        elif t == "colorScale" and isinstance(val, (int, float)) and not isinstance(val, bool):
+            cs = rule.colorScale; vals = [_num(v.val) for v in cs.cfvo]; cols = [_rgb(c_) for c_ in cs.color]
+            if None in vals or None in cols: continue
+            if len(vals) == 2: vals = [vals[0], (vals[0] + vals[1]) / 2, vals[1]]; cols = [cols[0], _mix(cols[0], cols[1], .5), cols[1]]
+            v = min(max(val, vals[0]), vals[2])
+            col = _mix(cols[0], cols[1], (v - vals[0]) / ((vals[1] - vals[0]) or 1)) if v <= vals[1] else _mix(cols[1], cols[2], (v - vals[1]) / ((vals[2] - vals[1]) or 1))
+            css.append(f"background:#{col}")
+        elif t == "dataBar" and isinstance(val, (int, float)) and not isinstance(val, bool):
+            db = rule.dataBar; lo, hi = _num(db.cfvo[0].val) or 0, _num(db.cfvo[1].val) or 1
+            pct = max(0, min(1, (val - lo) / ((hi - lo) or 1))) * 100; col = _rgb(db.color) or "9CC5A8"
+            css.append(f"background:linear-gradient(90deg,#{col} {pct:.0f}%,transparent {pct:.0f}%)")
+    return css
+
 def xl_html(path, sheet, rng, tabs, active):
     wf = load_workbook(path); wv = load_workbook(path, data_only=True)
     ws, vs = wf[sheet], wv[sheet]
@@ -36,6 +109,7 @@ def xl_html(path, sheet, rng, tabs, active):
         for part in spec.split(","):
             a, _, b = part.partition("-"); hide.update(range(ci(a), ci(b or a) + 1))
     c1, r1, c2, r2 = range_boundaries(rng)
+    rules = cf_rules(ws)
     merged = {}
     skip = set()
     for m in ws.merged_cells.ranges:
@@ -66,6 +140,7 @@ def xl_html(path, sheet, rng, tabs, active):
             if al and al.horizontal == "center": st.append("text-align:center")
             if al and al.wrap_text: st.append("white-space:normal")
             if cell.border and cell.border.left and cell.border.left.style: st.append("box-shadow:inset 0 0 0 1px #d5dce3")
+            st += cf_css(rules, r, c, val)
             span = ""
             if (r, c) in merged: rs, cs = merged[(r, c)]; span = f' rowspan="{rs}" colspan="{cs}"'
             tds += f'<td{span} style="{";".join(st)}">{e(fmt(val, cell.number_format or ""))}</td>'

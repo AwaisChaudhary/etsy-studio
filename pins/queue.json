@@ -222,6 +222,33 @@
   "status": "queued"
  },
  {
+  "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-a.jpg",
+  "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
+  "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
+  "link": null,
+  "board": "Small Business Spreadsheets",
+  "topic": "Small business",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-a.jpg",
+  "title": "Embroidery Pricing Calculator: Price by Stitch Count",
+  "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
+  "link": null,
+  "board": "Small Business Spreadsheets",
+  "topic": "Machine embroidery",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-a.jpg",
+  "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
+  "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
+  "link": null,
+  "board": "Planners & Trackers",
+  "topic": "Habit tracker",
+  "status": "queued (needs listing first)"
+ },
+ {
   "image": "pins/batch2/2027-monthly-budget-planner-pin-a.jpg",
   "title": "2027 Budget Planner Spreadsheet | Monthly Budget Template",
   "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
@@ -312,7 +339,7 @@
   "link": "https://karamat4.gumroad.com/l/baking-cost-calculator",
   "board": "Small Business Spreadsheets",
   "topic": "Baking",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/night-garden-junk-journal-kit-pin-b.jpg",
@@ -321,7 +348,7 @@
   "link": "https://karamat4.gumroad.com/l/night-garden-junk-journal-kit",
   "board": "Junk Journal Printables",
   "topic": "Junk Journal",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/crochet-knitting-pricing-calculator-pin-b.jpg",
@@ -330,7 +357,7 @@
   "link": "https://karamat4.gumroad.com/l/crochet-pricing-calculator",
   "board": "Small Business Spreadsheets",
   "topic": "Crochet",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/yarn-stash-tracker-pin-b.jpg",
@@ -339,7 +366,7 @@
   "link": "https://karamat4.gumroad.com/l/yarn-stash-tracker",
   "board": "Crochet & Knitting Planners",
   "topic": "Crochet",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/vintage-ephemera-pack-pin-b.jpg",
@@ -348,7 +375,7 @@
   "link": "https://karamat4.gumroad.com/l/vintage-ephemera-pack",
   "board": "Junk Journal Printables",
   "topic": "Junk Journal",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/cleaning-business-quote-client-tracker-pin-b.jpg",
@@ -357,7 +384,7 @@
   "link": "https://karamat4.gumroad.com/l/cleaning-business-tracker",
   "board": "Small Business Spreadsheets",
   "topic": "Cleaning",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/journaling-cards-3x4-pin-b.jpg",
@@ -366,7 +393,7 @@
   "link": "https://karamat4.gumroad.com/l/journaling-cards",
   "board": "Junk Journal Printables",
   "topic": "Junk Journal",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/tea-room-junk-journal-kit-pin-b.jpg",
@@ -375,7 +402,7 @@
   "link": "https://karamat4.gumroad.com/l/tea-room-junk-journal-kit",
   "board": "Junk Journal Printables",
   "topic": "Junk Journal",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/2027-crochet-knitting-planner-pin-b.jpg",
@@ -384,7 +411,7 @@
   "link": "https://karamat4.gumroad.com/l/2027-crochet-knitting-planner",
   "board": "Crochet & Knitting Planners",
   "topic": "Crochet",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch1/junk-journal-mega-bundle-pin-b.jpg",
@@ -393,7 +420,7 @@
   "link": "https://karamat4.gumroad.com/l/junk-journal-mega-bundle",
   "board": "Junk Journal Printables",
   "topic": "Junk Journal",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch2/christmas-gift-planner-budget-pin-b.jpg",
@@ -402,7 +429,7 @@
   "link": "https://karamat4.gumroad.com/l/christmas-gift-planner",
   "board": "Small Business Spreadsheets",
   "topic": "Christmas",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch2/2027-monthly-budget-planner-pin-b.jpg",
@@ -411,7 +438,7 @@
   "link": "https://karamat4.gumroad.com/l/2027-budget-planner",
   "board": "Small Business Spreadsheets",
   "topic": "Budgeting",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch2/christmas-gift-tags-pin-b.jpg",
@@ -420,7 +447,7 @@
   "link": "https://karamat4.gumroad.com/l/christmas-gift-tags",
   "board": "Junk Journal Printables",
   "topic": "Christmas",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch3/christmas-party-games-bundle-pin-b.jpg",
@@ -430,7 +457,7 @@
   "link_from": "batch3/listings.json:christmas-party-games-bundle:gumroad_url (planned slug christmas-party-games)",
   "board": "Christmas Printables (create board)",
   "topic": "Christmas",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch3/kids-christmas-activity-pack-pin-b.jpg",
@@ -440,7 +467,7 @@
   "link_from": "batch3/listings.json:kids-christmas-activity-pack:gumroad_url (planned slug kids-christmas-activity-pack)",
   "board": "Christmas Printables (create board)",
   "topic": "Christmas",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch3/winter-woodland-wall-art-set-pin-b.jpg",
@@ -450,7 +477,7 @@
   "link_from": "batch3/listings.json:winter-woodland-wall-art-set:gumroad_url (planned slug winter-woodland-wall-art)",
   "board": "Printable Wall Art (create board; until then Christmas Printables)",
   "topic": "Home Decor",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/site/crochet-knitting-gift-planner.jpg",
@@ -487,7 +514,7 @@
   "link_from": "batch4/listings.json:candle-business-spreadsheet:gumroad_url",
   "board": "Small Business Spreadsheets",
   "topic": "Candle Making",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch4/nordic-folk-christmas-clipart-pin-b.jpg",
@@ -497,7 +524,7 @@
   "link_from": "batch4/listings.json:nordic-folk-christmas-clipart:gumroad_url",
   "board": "Christmas Printables",
   "topic": "Christmas",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch4/december-days-journal-kit-pin-b.jpg",
@@ -507,7 +534,7 @@
   "link_from": "batch4/listings.json:december-days-journal-kit:gumroad_url",
   "board": "Junk Journal Printables",
   "topic": "Journaling",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/site/increase-decrease-calculator.jpg",
@@ -571,7 +598,7 @@
   "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:gumroad_url",
   "board": "Planners & Trackers",
   "topic": "Reading",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch5/new-years-eve-party-games-pin-b.jpg",
@@ -581,7 +608,7 @@
   "link_from": "batch5/listings.json:new-years-eve-party-games:gumroad_url",
   "board": "Christmas Printables",
   "topic": "New Year's Eve",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch5/kids-routine-chore-chart-pack-pin-b.jpg",
@@ -591,7 +618,7 @@
   "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:gumroad_url",
   "board": "Planners & Trackers",
   "topic": "Parenting",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/site/crochet-circle-calculator.jpg",
@@ -679,7 +706,7 @@
   "topic": "Soap Making",
   "link": "https://karamat4.gumroad.com/l/soap-business-spreadsheet",
   "link_from": "batch6/listings.json:soap-making-business-spreadsheet:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch6/family-advent-activity-calendar-pin-b.jpg",
@@ -689,7 +716,7 @@
   "topic": "Advent",
   "link": "https://karamat4.gumroad.com/l/family-advent-calendar",
   "link_from": "batch6/listings.json:family-advent-activity-calendar:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-b.jpg",
@@ -699,7 +726,7 @@
   "topic": "Wall Art",
   "link": "https://karamat4.gumroad.com/l/mid-century-wall-art-set",
   "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/site/foundation-chain-calculator.jpg",
@@ -781,7 +808,7 @@
   "topic": "Resin Art",
   "link": "https://karamat4.gumroad.com/l/resin-business-spreadsheet",
   "link_from": "batch7/listings.json:resin-art-business-spreadsheet:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-b.jpg",
@@ -791,7 +818,7 @@
   "topic": "Sublimation",
   "link": "https://karamat4.gumroad.com/l/tumbler-pricing-spreadsheet",
   "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/batch7/lash-tech-business-spreadsheet-pin-b.jpg",
@@ -801,7 +828,7 @@
   "topic": "Eyelash Extensions",
   "link": "https://karamat4.gumroad.com/l/lash-tech-spreadsheet",
   "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:gumroad_url",
-  "status": "queued"
+  "status": "skipped: Gumroad dropped (26 Nov)"
  },
  {
   "image": "pins/site/how-to-fix-a-dropped-stitch.jpg",
@@ -1039,5 +1066,32 @@
   "board": "Crochet & Knitting Planners",
   "topic": "Crochet project planner",
   "status": "queued"
+ },
+ {
+  "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-b.jpg",
+  "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
+  "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
+  "link": null,
+  "board": "Small Business Spreadsheets",
+  "topic": "Small business",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-b.jpg",
+  "title": "Embroidery Pricing Calculator - Price by Stitch Count",
+  "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
+  "link": null,
+  "board": "Small Business Spreadsheets",
+  "topic": "Machine embroidery",
+  "status": "queued (needs listing first)"
+ },
+ {
+  "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-b.jpg",
+  "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
+  "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
+  "link": null,
+  "board": "Planners & Trackers",
+  "topic": "Habit tracker",
+  "status": "queued (needs listing first)"
  }
 ]
