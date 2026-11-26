@@ -7,6 +7,11 @@ Tools in this repo: `seo_post.py` (runs at the end of build.py: sitemap = every 
 5. Links: only real editorial links via outreach batches Awais approves; build "linkable assets" (original data, free tools, maps) and list pitch targets in DEMAND for approval.
 6. Monthly: run seo_audit.py on the whole site and fix broken links, orphans, duplicate titles/descriptions, missing schema.
 
+## DEMAND RADAR 26 Nov 06:45 (Google autocomplete US)
+X1. OPEN Christmas crafts for kids / toddlers / to make and sell (sections or pages off /christmas-crafts; "to make and sell" links seller tools + Etsy fees).
+X2. OPEN coloring pages for kids (simple preset) + Christmas coloring pages (own seasonal motifs: stars, trees, snowflakes, baubles) on /coloring-pages.
+X3. OPEN junk journal kit / supplies: extend /junk-journal-supply-checklist with a printable kit list and link the shop kits.
+
 ## MORE CATEGORIES ROUND 2 — APPROVED by Awais 26 Nov 01:23 ("Add all these"). 26 Nov 02:00: first page of EVERY category below is LIVE (C9-C15). NEXT per category: 2-3 supporting how-tos + a Pinterest pin each; keep the zip under 3.9 MB (now 3.72 MB; OG images 800x420 q45). (Awais 26 Nov 01:13: "look for trends and demands and, based on those and the domain name, add further categories; Purl & Paper can add tons of categories in demand") — Keyword Planner WORLDWIDE, 26 Nov 2026
 Build in this order (timely first), 2-3 per run, each = hub or tool + 2-3 how-to pages, internal links, quick answer + FAQ, a Pinterest pin each, and a matching shop box where one exists. Original art/diagrams only (own SVG), never copy patterns or images.
 C8. PART-DONE 26 Nov (/2027-calendar-printable live: yearly/monthly/planner, US/UK holidays; next: /2027-planner-pages) /2027-calendar-printable: free 2027 calendar generator ("2027 calendar printable" 10k-100k, +900% YoY): yearly/monthly, Mon/Sun start, US/UK holidays optional, A4/Letter, print/PDF; plus /2027-planner-pages. Links to the shop planners.

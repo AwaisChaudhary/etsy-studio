@@ -7,3 +7,7 @@ AdSense: script with ca-pub-1558743317014653 is in the template and ads.txt is s
 IndexNow key (22 Nov 2026): ALSO include 587793d06442be2254b0454e95cf84ff.txt in every deploy zip (it is a .txt in site/ like robots.txt). A Direct Upload replaces all files, so leaving it out breaks IndexNow.
 
 25 Nov 2026: the Chrome file upload limit is 3.8 MB per file. Zip from site/ with `zip -qr -9 /home/claude/purl-deploy.zip *.html *.txt sitemap.xml _redirects assets -x assets/og/.cache.json` (the zip must be under /home/claude to be uploadable). build.py now resizes OG images to 960x504 q50 after each build (zip ~3.3 MB on 25 Nov with 56 pages). If it nears 3.8 MB again, move to Git-connected Pages deploys.
+
+
+## RULE (26 Nov): sync before you build, push before you deploy
+A run built and committed but did not push; another run then built from an older main. Every run: `git fetch origin main && git rebase FETCH_HEAD` BEFORE building, `git push origin HEAD:main` right after committing, and only deploy a zip built from the pushed main. If the rebase conflicts in generated HTML, resolve the .py sources, rebuild, and commit the rebuild.
