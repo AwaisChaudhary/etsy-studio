@@ -173,7 +173,7 @@ ks_faq = [
 ]
 SHOP_FOR["knit-stitch-patterns.html"] = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"]
 page("knit-stitch-patterns.html", "Knit Stitch Patterns for Beginners: 15 Knit & Purl Stitches | Purl & Paper",
-     "15 easy knit stitch patterns for beginners using only knit and purl: garter, seed, moss, rib, basketweave and more, with swatches, rows, stitch multiples and a cast on tool.",
+     "15 easy knit stitch patterns for beginners using only knit and purl: garter, seed, moss, rib, basketweave and more, with swatches and stitch multiples.",
      ksp, ks_faq, "Knit stitch patterns", app_name="Knit stitch pattern row writer")
 
 
@@ -290,5 +290,5 @@ sb_faq = [
 ]
 SHOP_FOR["scrapbook-page-sizes.html"] = ["journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle", "december-days-journal-kit"]
 page("scrapbook-page-sizes.html", "Scrapbook Page Sizes + How Many Photos Fit (Calculator) | Purl & Paper",
-     "Scrapbook page sizes in inches and cm (12x12, 8.5x11, A4, 8x8, 6x6) and a layout calculator: how many 4x6 photos fit on a page, mat sizes, and pages for an album.",
+     "Scrapbook page sizes in inches and cm (12x12, 8.5x11, A4, 8x8, 6x6) plus a layout calculator: how many 4x6 photos fit, mat sizes and pages per album.",
      sbp, sb_faq, "Scrapbook page sizes", app_name="Scrapbook photo layout calculator")

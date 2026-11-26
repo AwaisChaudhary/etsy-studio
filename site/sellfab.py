@@ -119,7 +119,7 @@ fy_faq = [
 ]
 SHOP_FOR["fabric-yardage-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "2027-crochet-knitting-planner", "christmas-gift-tags"]
 page("fabric-yardage-calculator.html", "Fabric Yardage Calculator: How Much Fabric Do I Need? | Purl & Paper",
-     "Free fabric yardage calculator: enter your pieces and fabric width (44, 54, 60 or 108 in) to get the yards or metres to buy, with a cutting layout and shrinkage.",
+     "Free fabric yardage calculator: enter your pieces and fabric width (44, 54, 60 or 108 in) to get the yards or metres to buy, with a cutting layout.",
      fyp, fy_faq, "Fabric yardage calculator", app_name="Fabric yardage calculator")
 
 
@@ -297,5 +297,5 @@ jvs_faq = [
 ]
 SHOP_FOR["junk-journal-vs-scrapbook.html"] = ["junk-journal-mega-bundle", "tea-room-junk-journal-kit", "journaling-cards-3x4", "vintage-ephemera-pack"]
 page("junk-journal-vs-scrapbook.html", "Junk Journal vs Scrapbook: What's the Difference? | Purl & Paper",
-     "Junk journal vs scrapbook: a scrapbook tells a photo story on acid-free album pages; a junk journal is a handmade book of found paper. Compare them and take the quiz.",
+     "Junk journal vs scrapbook: a scrapbook tells a photo story on acid-free pages; a junk journal is a handmade book of found paper. Compare and take the quiz.",
      jvsp, jvs_faq, "Junk journal vs scrapbook")

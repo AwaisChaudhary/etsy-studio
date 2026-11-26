@@ -187,6 +187,7 @@ def write_redirects(root):
 
 
 def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=None):
+    if len(title) > 60 and title.endswith(" | " + SITE): title = title[: -len(" | " + SITE)]  # SEO: keep titles <= 60 chars
     _og = og_image(file, title, DOMAIN)
     url = canon(file)
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": url, "dateModified": UPDATED,
@@ -291,7 +292,7 @@ home_faq = [
     ("Do the tools work on a phone?", "Yes. Everything is built for a phone at the craft table first, with big buttons and a keep-screen-on option on the row counter."),
 ]
 page("index.html", "Free Row Counter, Yarn Calculator and Junk Journal Prompts | Purl & Paper",
-     "Free tools for knitting, crochet and junk journaling: a row counter that keeps your screen on, a yarn calculator, a gauge converter, a project tracker and journal prompts.",
+     "Free tools for knitting, crochet and junk journaling: a row counter that keeps your screen on, yarn calculator, gauge converter, project tracker and prompts.",
      home, home_faq, scripts=f'<script src="{asset("knit.js")}"></script><script src="{asset("swatch.js")}"></script>')
 
 # ---------------- ROW COUNTER ----------------
@@ -530,8 +531,8 @@ jp_lists = "".join(f'<div class="sheet jp-list"><h3>{e(x["name"])} prompts</h3><
                    '</ul><p class="k">Glue in</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["ephemera"]) + '</ul><p class="k">Write about</p><ul>' + "".join(f"<li>{e(t)}</li>" for t in x["write"]) + "</ul></div>" for x in _sets)
 jp = jp.replace("@@SETOPTS@@", jp_setopts).replace("@@SETLISTS@@", jp_lists).replace("@@AD@@", AD.format("jp-mid"))
 jp = jp.replace("@@JJ@@", href("junk-journal-beginners.html")).replace("@@TS@@", href("how-to-tea-stain-paper.html")).replace("@@PJ@@", href("projects.html")).replace("@@EP@@", href("junk-journal-ephemera-ideas.html"))
-page("journal-prompts.html", "Junk Journal Prompts: Generator + Winter, Christmas and Seasonal Ideas | Purl & Paper",
-     "Free junk journal prompt generator with winter, Christmas, new year, spring, summer, autumn, memory and self-care prompts. Shuffle a theme, ephemera, technique, palette and question.",
+page("journal-prompts.html", "Junk Journal Prompts: Generator + Seasonal Ideas | Purl & Paper",
+     "Free junk journal prompt generator with winter, Christmas, new year, seasonal, memory and self-care prompts. Shuffle a theme, ephemera, technique and palette.",
      jp, jp_faq, "Journal prompts", app_name="Junk journal prompt generator")
 
 # ---------------- YARN WEIGHTS ----------------
@@ -589,7 +590,7 @@ yw_faq = [
     ("How can I tell the weight from the yarn label?", "Divide the length by the ball weight. About 180 to 240 metres per 100 g is DK, 140 to 180 is worsted, and 90 to 140 is bulky."),
 ]
 page("yarn-weights.html", "Yarn Weight Chart: Lace to Jumbo, Needle and Hook Sizes | Purl & Paper",
-     "Yarn weight chart from 0 lace to 7 jumbo: US, UK and Australian (ply) names, wraps per inch, metres per 100 g, gauge, needle and hook sizes. With a finder: what weight is my yarn?",
+     "Yarn weight chart from 0 lace to 7 jumbo: US, UK and Australian ply names, wraps per inch, gauge, needle and hook sizes, and a what-weight-is-my-yarn finder.",
      yw + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', yw_faq, "Yarn weight chart", app_name="Yarn weight finder", scripts=f"<script>window.YWID={json.dumps([[r[0], r[1], r[3], r[4], r[9], r[10]] for r in YW_ID])};</script>")
 
 # ---------------- HOOK / NEEDLE SIZES ----------------
@@ -625,7 +626,7 @@ hn_faq = [
     ("What size needles for sock yarn?", "Socks in fingering yarn are usually knitted on 2.25 to 2.75 mm needles (US 1 to 2) for a firm fabric."),
     ("Should I go up or down a needle size to get gauge?", "If you have more stitches per 4 inches than the pattern, go up a size. If you have fewer, go down a size, then swatch again."),
 ]
-page("hook-needle-sizes.html", "Crochet Hook Size Chart and Knitting Needle Sizes (mm, US, UK) | Purl & Paper",
+page("hook-needle-sizes.html", "Crochet Hook and Knitting Needle Size Chart (mm, US, UK) | Purl & Paper",
      "Crochet hook and knitting needle size conversion chart: metric mm, US numbers and letters, and old UK sizes, with a quick size finder.",
      hn + f'''<section><div class="wrap"><div class="aff-box"><h3>Need hooks, needles or yarn?</h3><ul class="aff-links"><li><a href="/go/crochet-hooks" rel="sponsored nofollow noopener" target="_blank">Crochet hooks</a></li><li><a href="/go/knitting-needles" rel="sponsored nofollow noopener" target="_blank">Knitting needles</a></li><li><a href="/go/yarn-by-weight" rel="sponsored nofollow noopener" target="_blank">Yarn by weight</a></li><li><a href="/go/free-patterns" rel="sponsored nofollow noopener" target="_blank">Free patterns</a></li></ul>{AFF_NOTE}</div></div></section>''', hn_faq, "Hook and needle sizes")
 
@@ -673,7 +674,7 @@ ct_faq = [
     ("Is a granny square made with double or treble crochet?", "Both, depending on the pattern's terms. A classic granny square uses clusters of US double crochet, which a UK pattern calls treble crochet. The stitch is the same."),
 ]
 page("crochet-terms.html", "US vs UK Crochet Terms and Abbreviations: Conversion Chart | Purl & Paper",
-     "US and UK crochet terms side by side: single crochet vs double crochet, treble, half treble and more, common abbreviations, how to tell which a pattern uses, and a granny square round in both.",
+     "US and UK crochet terms side by side: single vs double crochet, treble, half treble and more, common abbreviations, and how to tell which a pattern uses.",
      ct, ct_faq, "US vs UK crochet terms")
 
 # ---------------- JUNK JOURNAL BEGINNERS ----------------
@@ -736,8 +737,8 @@ jj_faq = [
     ("What glue is best for junk journals?", "A glue stick is fine for paper. For heavier pieces like card, fabric or buttons, use PVA glue or matte gel medium, applied thinly so pages don't wrinkle."),
     ("How do I make paper look old for a junk journal?", "Tea stain it: brush or dip the paper in strong cooled black tea, add a sprinkle of instant coffee for spots, and dry it flat. Crumpling first and tearing the edges adds to the aged look."),
 ]
-page("junk-journal-beginners.html", "Junk Journaling for Beginners: How to Start a Junk Journal for Free | Purl & Paper",
-     "How to start a junk journal for free: what it is, a supply checklist, where to find free paper and ephemera, how to sew your first signature, and easy techniques to fill the pages.",
+page("junk-journal-beginners.html", "Junk Journaling for Beginners: Start for Free | Purl & Paper",
+     "How to start a junk journal for free: what it is, a supply checklist, where to find free paper and ephemera, sewing your first signature, and easy techniques.",
      jj, jj_faq, "Junk journaling for beginners")
 
 # ---------------- BLANKET SIZE CALCULATOR ----------------
@@ -796,7 +797,7 @@ bk_faq = [
     ("How much yarn for a queen size crochet blanket?", "Very roughly 6,700 to 8,500 yards of worsted weight yarn for plain crochet, which is often 34 to 43 skeins of 200 yards. Chunky yarn needs far fewer yards. Use the calculator for your own yarn, and treat it as an estimate."),
     ("How many skeins for a throw blanket?", "In worsted yarn, a knitted throw takes roughly 1,800 to 2,200 yards and a crocheted one about 2,300 to 2,800 yards, so roughly 10 to 15 skeins of 200 yards once you allow a little spare. These are estimates."),
 ]
-page("blanket-size-calculator.html", "Blanket Size Chart and Yarn Calculator for Crochet and Knitting | Purl & Paper",
+page("blanket-size-calculator.html", "Blanket Size Chart and Yarn Calculator | Purl & Paper",
      "Free blanket size chart and calculator: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm, with the yards and skeins for your yarn weight.",
      bk, bk_faq, "Blanket size calculator", app_name="Blanket size calculator")
 
@@ -900,8 +901,8 @@ gp_faq = [
     ("What are good last-minute crochet gifts?", "Small sets and chunky makes: coasters, dishcloths with soap, ornaments, headbands, and a super bulky beanie, which takes about three hours on a 10 mm hook."),
     ("Where is my gift list saved?", "On this device, in your browser. Nothing is uploaded. Use 'Print my list' to keep a paper copy."),
 ]
-page("crochet-knitting-gift-planner.html", "Christmas Knitting and Crochet Gift Planner: Will It Be Ready in Time? | Purl & Paper",
-     "Free handmade gift planner for knitters and crocheters. List your gifts, add your crafting hours per week and see if they'll be finished by Christmas, plus how long hats, scarves and blankets take.",
+page("crochet-knitting-gift-planner.html", "Knitting and Crochet Gift Planner: Ready by Christmas? | Purl & Paper",
+     "Free handmade gift planner for knitters and crocheters: list your gifts and weekly crafting hours to see if they'll be finished by Christmas.",
      gp, gp_faq, "Handmade gift planner", app_name="Handmade gift planner")
 
 # ---------------- HAT SIZE CHART + CALCULATOR ----------------
@@ -967,8 +968,8 @@ ht_faq = [
     ("How much yarn do I need for a beanie?", f"Roughly {yc_yd('hat', 4)} yards of worsted yarn for a simple adult beanie, or about {yc_yd('kidhat', 4)} yards for a child's hat. Add more for a folded brim, cables or a pompom."),
     ("What is negative ease in a hat?", "It means the hat is smaller than the head, so the stretchy fabric holds it in place. Hats usually have about 10 to 15 percent negative ease, more for ribbing and less for thick or firm fabric."),
 ]
-page("hat-size-chart.html", "Hat Size Chart for Knitting and Crochet, with Stitch Calculator | Purl & Paper",
-     "Free knit and crochet hat size chart from preemie to adult, with head sizes, hat height and negative ease, plus a calculator for cast-on stitches or crochet crown size.",
+page("hat-size-chart.html", "Hat Size Chart for Knitting and Crochet + Calculator | Purl & Paper",
+     "Free knit and crochet hat size chart from preemie to adult: head sizes, hat height and negative ease, plus a cast-on stitch and crochet crown calculator.",
      ht, ht_faq, "Hat size chart", app_name="Hat size calculator")
 
 # ---------------- GRANNY SQUARE BLANKET CALCULATOR ----------------
@@ -1034,8 +1035,8 @@ gs_faq = [
     ("Can I mix yarn brands in a granny square blanket?", "Yes, as long as they're the same yarn weight and give similar gauge, so the squares come out the same size. Make one square in each yarn and measure before you commit."),
     ("Does joining granny squares make the blanket bigger?", "Sewn seams and join as you go add almost nothing. A slip stitch or single crochet seam adds roughly a quarter inch per seam, and decorative joins can add half an inch or more."),
 ]
-page("granny-square-blanket-calculator.html", "Granny Square Blanket Calculator: How Many Squares and How Much Yarn | Purl & Paper",
-     "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, the layout, and an estimate of the yarn for squares, joins and border.",
+page("granny-square-blanket-calculator.html", "Granny Square Blanket Calculator: Squares and Yarn | Purl & Paper",
+     "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, the layout, and the yarn for squares, joins and border.",
      gs, gs_faq, "Granny square calculator", app_name="Granny square blanket calculator")
 
 # ---------------- INCREASE / DECREASE EVENLY CALCULATOR ----------------
@@ -1129,8 +1130,8 @@ id_faq = [
     ("What's the difference between k2tog and ssk?", "Both knit 2 stitches together to take one away. K2tog leans to the right and ssk leans to the left, so patterns often pair them on either side of a V-neck or raglan line."),
     ("How do I decrease 6 stitches evenly in a crochet round of 36?", "6 decreases use 12 stitches, leaving 24 plain stitches, 4 before each decrease: (sc 4, sc2tog) 6 times gives 30."),
 ]
-page("increase-decrease-calculator.html", "Increase and Decrease Evenly Calculator for Knitting and Crochet | Purl & Paper",
-     "Free calculator to increase or decrease evenly across a row or round, for knitting (M1, kfb, k2tog) and crochet (inc, sc2tog), with a written instruction and a stitch diagram.",
+page("increase-decrease-calculator.html", "Increase and Decrease Evenly Calculator | Purl & Paper",
+     "Free calculator to increase or decrease evenly across a row or round, for knitting (M1, kfb, k2tog) and crochet (inc, sc2tog), with written steps.",
      idc, id_faq, "Increase evenly calculator", app_name="Increase and decrease evenly calculator")
 
 # ---------------- HOW TO PRICE CROCHET ITEMS (guide + calculator) ----------------
@@ -1218,7 +1219,7 @@ pr_faq = [
     ("How much should I charge for amigurumi?", "Price the whole toy's time, including stuffing, sewing on parts and the face, plus yarn, stuffing and eyes, then fees. A 15 cm toy that takes 5 hours with $6 of materials is around $89 at $15 an hour with 10% overheads."),
 ]
 page("how-to-price-crochet-items.html", "How to Price Crochet and Knitting Items (Free Calculator) | Purl & Paper",
-     "The formula for pricing crochet and knitted items to sell: materials, an hourly rate, overheads and Etsy or craft fair fees, with a free calculator and example prices.",
+     "How to price crochet and knitted items to sell: materials, an hourly rate, overheads and Etsy or craft fair fees, with a free calculator and examples.",
      prc, pr_faq, "How to price crochet", app_name="Crochet and knitting price calculator")
 
 # ---------------- ETSY FEE CALCULATOR (senior SEO pass 25 Nov 2026; funnels to the pricing + business spreadsheets) ----------------
@@ -1265,8 +1266,8 @@ ef_faq = [
     ("How do I price my item to cover Etsy fees?", "Add your materials, postage, the fixed fees and the profit you want, then divide by what is left after the percentage fees (about 0.905 in the US). The calculator above does this for you."),
     ("Can I turn off Etsy Offsite Ads?", "Shops that made under $10,000 in the past 12 months can opt out in their shop settings. Bigger shops are enrolled at the 12% rate."),
 ]
-page("etsy-fee-calculator.html", "Etsy Fee Calculator 2026: Fees, Profit and Price to Charge (US + UK) | Purl & Paper",
-     "Free Etsy fee calculator for handmade sellers: listing, 6.5% transaction, payment processing and Offsite Ads fees, your profit, and the price to charge. US and UK.",
+page("etsy-fee-calculator.html", "Etsy Fee Calculator 2026: Fees, Profit and Price | Purl & Paper",
+     "Free Etsy fee calculator for handmade sellers: listing, 6.5% transaction, payment processing and Offsite Ads fees, your profit and the price to charge.",
      ef, ef_faq, "Etsy fee calculator", app_name="Etsy fee calculator")
 
 # ---------------- SOCK SIZE CHART + CALCULATOR ----------------
@@ -1335,7 +1336,7 @@ sk_faq = [
     ("How long should a heel flap be?", "Work the heel flap on half the stitches. Many patterns make it about as many rows as it has stitches, so it's roughly square; some use fewer rows for a shallower heel."),
 ]
 page("sock-size-chart.html", "Sock Size Chart for Knitting, with Cast-On Calculator | Purl & Paper",
-     "Free sock size chart from baby to men's 14 (foot around, length, leg height) plus a sock knitting calculator: cast-on stitches, heel flap, gusset, toe and yarn for your gauge.",
+     "Free sock size chart from baby to men's 14 (foot around, length, leg) plus a sock knitting calculator for cast-on stitches, heel flap, gusset and toe.",
      sk, sk_faq, "Sock size chart", app_name="Sock knitting calculator")
 
 # ---------------- YARN SUBSTITUTION CALCULATOR ----------------
@@ -1406,8 +1407,8 @@ ys_faq = [
     ("Is two strands of DK the same as worsted?", "Roughly. Two strands of DK held together usually work like a worsted or aran yarn, but swatch first, and remember you'll need twice the length of DK."),
     ("How much extra yarn should I buy when substituting?", "Round up to the next whole ball, then add about 10 to 15% or one extra ball for swatching and differences in tension. Buy it all from the same dye lot."),
 ]
-page("yarn-substitution-calculator.html", "Yarn Substitution Calculator: How Many Balls of a Different Yarn? | Purl & Paper",
-     "Free yarn substitution calculator: turn the pattern's yarn into balls of your yarn (yards or metres), check the thickness by length per 100 g, and plan holding two strands together.",
+page("yarn-substitution-calculator.html", "Yarn Substitution Calculator: How Many Balls? | Purl & Paper",
+     "Free yarn substitution calculator: turn the pattern's yarn into balls of your yarn, check thickness by length per 100 g, and plan holding two strands.",
      ys, ys_faq, "Yarn substitution calculator", app_name="Yarn substitution calculator")
 
 # ---------------- HOW TO TEA STAIN PAPER (guide + shade tester) ----------------
@@ -1481,7 +1482,7 @@ ts_faq = [
     ("How do you stop tea stained paper from curling?", "Dry it flat. Once it's only damp, cover it with a paper towel and press it under heavy books or a sheet of glass until fully dry."),
 ]
 page("how-to-tea-stain-paper.html", "How to Tea Stain Paper for Junk Journals (Oven or Air Dry) | Purl & Paper",
-     "How to tea stain paper for junk journals: the tea recipe, four ways to apply it, the best paper, drying flat or in the oven, and easy age spots, rings and torn edges. With a shade tester.",
+     "How to tea stain paper for junk journals: the tea recipe, four ways to apply it, the best paper, oven or air drying, and age spots. With a shade tester.",
      ts, ts_faq, "How to tea stain paper")
 
 # ---------------- CAST ON CALCULATOR ----------------
@@ -1554,7 +1555,7 @@ co_faq = [
     ("How many stitches for an infinity scarf?", f"Multiply the distance around (usually 50 to 60 in) by your stitches per inch. At 4.5 stitches per inch, 55 in around is about {co_count(55, 18, 1, 0, 0, 0)} stitches, worked on a circular needle a little shorter than the scarf."),
 ]
 page("cast-on-calculator.html", "Cast On Calculator: How Many Stitches to Cast On? | Purl & Paper",
-     "How many stitches to cast on for a scarf, blanket, dishcloth or cowl: free knitting cast-on calculator for your gauge, stitch pattern multiple, borders and long-tail length.",
+     "How many stitches to cast on for a scarf, blanket, dishcloth or cowl: a free knitting cast-on calculator for your gauge, stitch multiple and borders.",
      co, co_faq, "Cast on calculator", app_name="Knitting cast on calculator")
 
 # ---------------- CROCHET CIRCLE + AMIGURUMI BALL CALCULATOR ----------------
@@ -1644,7 +1645,7 @@ ci_faq = [
     ("How many rounds to work even on an amigurumi ball?", "About as many as you increased. Five increase rounds, five even rounds and then decrease back down to 6 stitches makes a round ball."),
 ]
 page("crochet-circle-calculator.html", "Crochet Circle Calculator: Increase Chart and Amigurumi Ball | Purl & Paper",
-     "Free crochet circle calculator: stitches per round for sc, hdc and dc, how many rounds for your size, a flat circle increase chart and an amigurumi ball pattern written out round by round.",
+     "Free crochet circle calculator: stitches per round for sc, hdc and dc, rounds for your size, a flat circle increase chart and an amigurumi ball pattern.",
      ci, ci_faq, "Crochet circle calculator", app_name="Crochet circle calculator")
 
 # ---------------- KNITTING ABBREVIATIONS ----------------
@@ -1793,8 +1794,8 @@ ka_faq = [
     ("Are knitting abbreviations different in the UK?", "Mostly no. The big differences are words: cast off instead of bind off, tension instead of gauge, stocking stitch instead of stockinette, moss stitch instead of seed stitch, and yfwd, yon or yrn for a yarn over."),
     ("What does RS and WS mean in knitting?", "RS is the right side, the side that shows on the finished piece. WS is the wrong side, which faces inwards."),
 ]
-page("knitting-abbreviations.html", "Knitting Abbreviations: Full List, UK Terms and a Pattern Decoder | Purl & Paper",
-     "Every common knitting abbreviation in plain English (k2tog, ssk, M1, yo, psso, pm and more), how to work each one, UK vs US terms, and a free decoder that translates a pattern line for you.",
+page("knitting-abbreviations.html", "Knitting Abbreviations: Full List + Pattern Decoder | Purl & Paper",
+     "Every common knitting abbreviation in plain English (k2tog, ssk, M1, yo, psso and more), UK vs US terms, and a free decoder that translates a pattern line.",
      ka, ka_faq, "Knitting abbreviations", scripts=f"<script>window.KA={ka_js};</script>", app_name="Knitting pattern decoder")
 
 # ---------------- JUNK JOURNAL EPHEMERA IDEAS ----------------
@@ -1933,8 +1934,8 @@ ep_faq = [
     ("How much ephemera do I need for a junk journal?", "Less than you think. Three to five pieces per spread is a good start. A shoe box of saved paper will fill a first journal with room to spare."),
     ("How do I store junk journal ephemera?", "Flat and dry, sorted into envelopes or zip bags by type, colour or theme, in a box or file folder out of direct sun."),
 ]
-page("junk-journal-ephemera-ideas.html", "Junk Journal Ephemera Ideas: 60+ Free Things to Use (Checklist) | Purl & Paper",
-     f"{EP_N} free junk journal ephemera ideas from around the house, the kitchen, the post and days out, where to find them, how to use them on a page, whether receipts fade, plus a checklist that saves your ticks.",
+page("junk-journal-ephemera-ideas.html", "Junk Journal Ephemera Ideas: 60+ Free Things to Use | Purl & Paper",
+     f"{EP_N} free junk journal ephemera ideas from the house, kitchen, post and days out, where to find them, how to use them on a page, and a checklist that saves.",
      ep, ep_faq, "Junk journal ephemera ideas", app_name="Junk journal ephemera checklist")
 
 # ---------------- TEMPERATURE BLANKET PLANNER ----------------
@@ -2038,8 +2039,8 @@ tb_faq = [
     ("Should I use the high or the average temperature?", "Either works. The daily high is the most common because it's easy to find. You can also work two rows a day, the high and then the low, but that doubles the length."),
     ("What if I miss a day or fall behind?", "Keep writing the temperatures down every day, then catch up when you have time. Weather history sites keep the daily records, so you can always look up a missed day."),
 ]
-page("temperature-blanket-planner.html", "Temperature Blanket Planner 2027: Colors, Ranges and Yarn Calculator | Purl & Paper",
-     "Free temperature blanket planner: pick your temperature ranges and colours, see how long a 365-row crochet or knit blanket will be, the foundation chain and how much yarn per colour. Paste real temperatures to preview it.",
+page("temperature-blanket-planner.html", "Temperature Blanket Planner 2027: Colors and Yarn | Purl & Paper",
+     "Free temperature blanket planner: pick ranges and colours, see how long a 365-row crochet or knit blanket will be and how much yarn each colour needs.",
      tb, tb_faq, "Temperature blanket planner", app_name="Temperature blanket planner")
 
 # ---------------- YARN YARDAGE CALCULATOR (how much yarn is left) ----------------
@@ -2110,7 +2111,7 @@ yy_faq = [
     ("How do I know how many skeins I used?", "Weigh the finished project and divide by the weight of one full skein. A 140 g hat used about 1.4 skeins of 100 g yarn."),
 ]
 page("yarn-yardage-calculator.html", "Yarn Yardage Calculator: How Much Yarn Is Left? (Weigh It) | Purl & Paper",
-     "Free yarn yardage calculator: weigh a leftover ball or scrap to see how many yards or metres are left, work without a label, take off a cone or core, and check if it's enough for your project.",
+     "Free yarn yardage calculator: weigh a leftover ball or scrap to see how many yards or metres are left, even without a label, and if it's enough to finish.",
      yy, yy_faq, "Yarn yardage calculator", app_name="Yarn yardage calculator")
 
 # ---------------- CRAFT FAIR CHECKLIST (crochet, knit and paper sellers) ----------------
@@ -2254,8 +2255,8 @@ cf_faq = [
     ("How heavy should tent weights be at a craft fair?", "At least 15 lb per leg is a common minimum in windy places, with 20 lb or more better. Many fairs require weights on every leg, so check the rules."),
     ("What sells well at craft fairs for crocheters?", "Small, giftable items at lower prices tend to move quickly, like ornaments, coasters, hats and small toys, with a few larger showpieces to draw people in. Keep notes on what sells and adjust for the next fair."),
 ]
-page("craft-fair-checklist.html", "Craft Fair Checklist: What to Bring (Printable, for Crochet & Paper Sellers) | Purl & Paper",
-     f"Free craft fair checklist: {CF_N} things to pack for your booth, payments, packaging and comfort, extras for crochet, knitting and junk journal sellers, how much stock and cash float to bring, and a planner that remembers your ticks.",
+page("craft-fair-checklist.html", "Craft Fair Checklist: What to Bring (Printable) | Purl & Paper",
+     f"Free craft fair checklist: {CF_N} things to pack for your booth, payments and packaging, extras for crochet and paper sellers, and how much stock and float to take.",
      cf, cf_faq, "Craft fair checklist", app_name="Craft fair checklist and stock planner")
 
 # ---------------- FOUNDATION CHAIN CALCULATOR (crochet) ----------------
@@ -2336,8 +2337,8 @@ fc_faq = [
     ("How do I calculate a foundation chain?", "Divide the stitches in a 4 in swatch by 4 to get stitches per inch, multiply by the width you want, then add the turning chain for your stitch and round to any multiple your pattern gives."),
     ("Why does my crochet get wider at the top?", "Usually the foundation chain is too tight, so the bottom edge pulls in. Chain more loosely or use a hook one size larger just for the chain."),
 ]
-page("foundation-chain-calculator.html", "Foundation Chain Calculator: How Many Chains for a Crochet Blanket or Scarf? | Purl & Paper",
-     "How many chains to start a crochet blanket, scarf or dishcloth: free foundation chain calculator for your gauge and stitch (sc, hdc, dc, tr), turning chains, pattern multiples, borders and rows to length.",
+page("foundation-chain-calculator.html", "Foundation Chain Calculator: How Many Chains? | Purl & Paper",
+     "How many chains to start a crochet blanket, scarf or dishcloth: a free foundation chain calculator for your gauge and stitch, turning chains and multiples.",
      fc, fc_faq, "Foundation chain calculator", app_name="Crochet foundation chain calculator")
 
 # ---------------- JUNK JOURNAL SIGNATURE CALCULATOR ----------------
@@ -2405,18 +2406,18 @@ js_faq = [
     ("How much thread do I need to sew a signature?", "For a pamphlet stitch, cut about 3 times the height of the spine. For an 8.5 in tall journal that's about 26 in (0.7 yd) per signature."),
     ("How many holes do I need to sew a signature?", "Use an odd number so you start and finish in the centre: 3 holes for small journals and 5 for most letter-size journals. Very tall journals can use 7."),
 ]
-page("junk-journal-signature-calculator.html", "Junk Journal Signature Calculator: Pages, Sheets, Spine and Sewing Holes | Purl & Paper",
-     "How many pages in a junk journal signature, how many sheets and signatures to use, page sizes for letter, A4 and 12x12 paper, spine thickness, sewing hole spacing and thread length: free junk journal signature calculator.",
+page("junk-journal-signature-calculator.html", "Junk Journal Signature Calculator: Pages and Sheets | Purl & Paper",
+     "Free junk journal signature calculator: pages and sheets per signature, page sizes for letter, A4 and 12x12 paper, spine thickness and sewing holes.",
      js, js_faq, "Signature calculator", app_name="Junk journal signature calculator")
 
 # ---------------- ABOUT / PRIVACY / 404 ----------------
-page("about.html", "About Purl & Paper", "About Purl & Paper, free tools for knitting, crochet and junk journaling.",
+page("about.html", "About Purl & Paper: Free Craft Tools", "About Purl & Paper: who makes our free row counter, yarn calculators, pattern makers and printables for knitting, crochet and junk journaling, and why.",
      top("About Purl &amp; Paper", "Free, simple tools for people who make things with yarn and paper.", "About") + '''<section style="padding-top:10px"><div class="narrow prose">
 <p>Purl &amp; Paper started from a simple wish: a row counter that doesn't let the phone go to sleep, and a quick answer to "how much yarn do I need?". It grew into a small set of tools and charts for knitters, crocheters and junk journalers.</p>
 <p>Everything is free to use and works in your browser. Your counters, projects and saved prompts stay on your own device. The site is supported by ads.</p>
 <p>Yarn amounts and size conversions come from widely used industry standards and typical pattern amounts. They're estimates, so always check your pattern and your own swatch.</p>
 <h2>Contact</h2><p>Spotted a mistake or have an idea for a tool? Email <a href="mailto:awaiskaramat@hotmail.com">awaiskaramat@hotmail.com</a>.</p></div></section>''', crumb="About")
-page("privacy.html", "Privacy Policy | Purl & Paper", "How Purl & Paper handles your data.",
+page("privacy.html", "Privacy Policy | Purl & Paper", "How Purl & Paper handles your data: what our tools save in your browser, analytics and advertising cookies, affiliate links, and how to contact us.",
      top("Privacy policy", "Short version: your counters, projects and saved prompts never leave your device.", "Privacy") + f'''<section style="padding-top:10px"><div class="narrow prose">
 <h2>Email list</h2><p>If you join our email list, we keep your email address with our email provider, Kit (kit.com), to send you the free printables and our updates. Every email has an unsubscribe link, and you can ask us to delete your address at any time.</p>
 <h2>What we store</h2><p>The tools save your counters, projects and saved prompts in your browser's local storage on your device. We can't see them and they're not sent to us. Clearing your browser data removes them.</p>
@@ -2518,7 +2519,7 @@ mr_faq = [
     ("Is a magic circle the same as a magic ring?", "Yes. Magic ring, magic circle, magic loop and adjustable ring are different names for the same start."),
 ]
 page("how-to-crochet-magic-ring.html", "How to Crochet a Magic Ring (Step by Step + Round 1 Writer) | Purl & Paper",
-     "How to crochet a magic ring (magic circle) in 6 simple drawings: which strand to pull, how many stitches go in, why it won't close and how to stop it undoing. With a helper that writes your first rounds.",
+     "How to crochet a magic ring (magic circle) in 6 drawings: which strand to pull, how many stitches go in, why it won't close, and a first-round writer.",
      mr, mr_faq, "How to crochet a magic ring", app_name="Magic ring round writer")
 
 # ---------------- HOW TO CHANGE COLORS IN CROCHET (guide + stripe planner) ----------------
@@ -2605,8 +2606,8 @@ cc_faq = [
     ("How long should the tail be when changing colours?", "About 6 in (15 cm) is plenty to weave in with a yarn needle."),
     ("How do you change colour in a spiral round?", "Change on the last yarn over of the last stitch, as usual. Spirals always leave a small jog at the change; a slip stitch or shorter stitch at the start of the new colour softens it."),
 ]
-page("how-to-change-colors-in-crochet.html", "How to Change Colors in Crochet (Without Cutting) + Stripe Planner | Purl & Paper",
-     "How to change colours in crochet: the last yarn over method for sc, hdc and dc, at the end of a row, mid-row and in rounds; carrying yarn up the side without cutting; knots and tails. With a stripe planner.",
+page("how-to-change-colors-in-crochet.html", "How to Change Colors in Crochet + Stripe Planner | Purl & Paper",
+     "How to change colours in crochet: the last yarn over method for sc, hdc and dc, at row ends, mid-row and in rounds, carrying yarn up the side. Stripe planner.",
      cc, cc_faq, "How to change colours in crochet", app_name="Crochet stripe planner")
 
 # ---------------- HOW TO BIND OFF KNITTING (guide + bind off chooser) ----------------
@@ -2714,8 +2715,8 @@ bo_faq = [
     ("What is the stretchiest bind off?", "Jeny's surprisingly stretchy bind off and the tubular bind off are the usual choices for toe-up sock cuffs, sleeve cuffs, necklines and 1×1 rib."),
     ("How do you bind off in rib?", "Bind off in pattern: knit the knit stitches and purl the purl stitches, lifting the first over the second after each one."),
 ]
-page("how-to-bind-off-knitting.html", "How to Bind Off Knitting (Cast Off) + Stretchy Bind Off Chooser | Purl & Paper",
-     "How to bind off knitting step by step: the basic bind off in 4 drawings, binding off in rib, stretchy bind offs for cuffs, socks and necklines, fixing a tight edge and the last stitch, and how long a tail to leave.",
+page("how-to-bind-off-knitting.html", "How to Bind Off Knitting + Stretchy Bind Off Chooser | Purl & Paper",
+     "How to bind off knitting step by step: the basic bind off in 4 drawings, binding off in rib, stretchy bind offs for cuffs and socks, and fixing a tight edge.",
      bo, bo_faq, "How to bind off knitting", app_name="Bind off chooser")
 
 # ---------------- HOW TO WEAVE IN ENDS (crochet + knitting, fasten off) ----------------
@@ -2815,7 +2816,7 @@ we_faq = [
     ("How do you stop ends coming out of slippery yarn?", "Weave further (5 to 7 stitches each way), split the plies, change direction three times, and for extra hold whipstitch the tails together with sewing thread."),
 ]
 page("how-to-weave-in-ends.html", "How to Weave in Ends (Crochet and Knitting) + Fasten Off | Purl & Paper",
-     "How to fasten off and weave in ends in crochet and knitting so they never come undone: tail length, duplicate stitch, invisible fasten off, slippery and chunky yarn, amigurumi, and a helper for your yarn.",
+     "How to fasten off and weave in ends in crochet and knitting so they never come undone: tail length, duplicate stitch, invisible fasten off and slippery yarn.",
      we, we_faq, "How to weave in ends", app_name="Weaving in ends helper")
 
 # ---------------- HOW TO CAST ON KNITTING (guide + long-tail tail calculator + cast on chooser) ----------------
@@ -2928,7 +2929,7 @@ cn_faq = [
     ("Does the cast on count as the first row?", "Usually not. Patterns start counting at the first row you knit after the cast on, unless they say otherwise."),
 ]
 page("how-to-cast-on-knitting.html", "How to Cast On Knitting (Long-Tail) + Tail Length Calculator | Purl & Paper",
-     "How to cast on knitting: the long-tail cast on in 4 drawings, how long a tail to leave for any number of stitches, what to do if it runs out, and which cast on to use for scarves, hats, socks and firm edges.",
+     "How to cast on knitting: the long-tail cast on in 4 drawings, how long a tail to leave for any stitch count, and which cast on suits scarves, hats and socks.",
      cn, cn_faq, "How to cast on knitting", app_name="Long-tail cast on calculator")
 
 # ---------------- HOW TO DECREASE IN CROCHET (guide + decrease round writer) ----------------
@@ -3049,8 +3050,8 @@ dc_faq = [
     ("What does sc 4, dec mean?", "Work 4 single crochet, then 1 decrease (sc2tog). Repeated 6 times on 36 stitches it leaves 30."),
     ("Why does my crochet decrease leave a hole?", "The working loop has probably grown too long. Tug it snug before each yarn over, use the invisible decrease, and try a smaller hook for amigurumi."),
 ]
-page("how-to-crochet-decrease.html", "How to Decrease in Crochet (sc2tog, Invisible Decrease) + Round Writer | Purl & Paper",
-     "How to decrease in crochet: sc2tog and the invisible decrease in 4 drawings, hdc2tog and dc2tog, fixing holes and bumps, closing amigurumi, and a helper that writes your decrease rounds.",
+page("how-to-crochet-decrease.html", "How to Decrease in Crochet (sc2tog, Invisible) | Purl & Paper",
+     "How to decrease in crochet: sc2tog and the invisible decrease in 4 drawings, hdc2tog and dc2tog, fixing holes, and a helper that writes decrease rounds.",
      dcp, dc_faq, "How to decrease in crochet", app_name="Crochet decrease round writer")
 
 
@@ -3154,7 +3155,7 @@ ds_faq = [
     ("Can I fix a dropped stitch after binding off?", "Yes. Ladder it up to the top with a crochet hook, then sew the top loop to the bound off edge with matching yarn and weave in the ends."),
 ]
 page("how-to-fix-a-dropped-stitch.html", "How to Fix a Dropped Stitch in Knitting (Even Rows Down) | Purl & Paper",
-     "How to fix a dropped stitch in knitting: catch it, ladder it up with a crochet hook in 4 drawings, garter, rib and purl stitches, twisted stitches, after binding off, and when to rip back. Free helper.",
+     "How to fix a dropped stitch in knitting: ladder it up with a crochet hook in 4 drawings, in garter, rib and purl, after binding off, and when to rip back.",
      dsp, ds_faq, "How to fix a dropped stitch", app_name="Dropped stitch helper")
 
 # ---------------- HOW TO PRICE A CROCHET BLANKET (guide + calculator) ----------------
@@ -3236,8 +3237,8 @@ bp_faq = [
     ("Should I charge for the whole skein?", "Most sellers do. The Crochet Crowd suggests charging the full ball price even if some is left, since small leftovers are hard to use."),
     ("How do I price a custom blanket order?", "Time a sample of the stitch, quote yarn plus hours at your rate, take payment before you buy the yarn, give a finish date and don't charge more than you quoted."),
 ]
-page("how-to-price-a-crochet-blanket.html", "How to Price a Crochet Blanket (Free Blanket Price Calculator) | Purl & Paper",
-     "How much to charge for a crochet blanket: a free calculator for yarn, hours and a fair price by size, a price chart from baby to king, how long blankets take, and pricing custom orders.",
+page("how-to-price-a-crochet-blanket.html", "How to Price a Crochet Blanket (Free Calculator) | Purl & Paper",
+     "How much to charge for a crochet blanket: a free calculator for yarn, hours and a fair price by size, a price chart from baby to king, and custom orders.",
      bpp, bp_faq, "How to price a crochet blanket", app_name="Crochet blanket price calculator")
 
 # ---------------- HOW TO KNIT IN THE ROUND (guide + needle length finder) ----------------
@@ -3355,8 +3356,8 @@ kr_faq = [
     ("How do you knit stockinette in the round?", "Knit every round. Because you never turn the work, the right side always faces you, so there are no purl rows."),
     ("What is magic loop?", "A way to knit a small tube on one long circular needle (32 in / 80 cm or longer): the extra cable is pulled out as a loop at two points so half the stitches sit on each tip."),
 ]
-page("how-to-knit-in-the-round.html", "How to Knit in the Round: Join Without Twisting + Needle Length Finder | Purl & Paper",
-     "How to knit in the round on circular needles: join without twisting in 4 drawings, which circular needle length for hats, socks and sweaters, magic loop and DPNs, fixing a twisted join. Free needle length finder.",
+page("how-to-knit-in-the-round.html", "How to Knit in the Round + Needle Length Finder | Purl & Paper",
+     "How to knit in the round: join without twisting in 4 drawings, which circular needle length for hats, socks and sweaters, magic loop, DPNs and a length finder.",
      krp, kr_faq, "How to knit in the round", app_name="Circular needle length finder")
 
 # ---------------- JUNK JOURNAL SUPPLY CHECKLIST ----------------
@@ -3476,7 +3477,7 @@ js_faq = [
     ("Where are my ticks saved?", "On this device, in your browser. Nothing is uploaded. Use 'Print my list' to keep a paper copy."),
 ]
 page("junk-journal-supply-checklist.html", "Junk Journal Supply Checklist: What You Need (Mostly Free) | Purl & Paper",
-     f"Junk journal supplies for beginners: a {JS_N}-item checklist of what you need, what's free at home and what to buy first, best glue and paper, how to bind, plus a free printable pocket and tag template.",
+     f"Junk journal supplies for beginners: a {JS_N}-item checklist of what you need, what's free at home, what to buy first, and a free printable pocket and tag template.",
      jsp, js_faq, "Junk journal supply checklist", app_name="Junk journal supply checklist")
 
 # ---------------- HOW TO PICK UP STITCHES (guide + pick up calculator) ----------------
@@ -3598,7 +3599,7 @@ pu_faq = [
     ("What does 'pick up and knit 3 stitches for every 4 rows' mean?", "Pull a new loop through the edge in 3 rows, skip the 4th row, and repeat along the edge."),
 ]
 page("how-to-pick-up-stitches-knitting.html", "How to Pick Up Stitches in Knitting (+ Pick Up Calculator) | Purl & Paper",
-     "How to pick up stitches in knitting in 4 drawings: 3 for 4 rows, garter and cast on edges, necklines, spacing with markers and fixing holes. Free calculator for how many and how to space them.",
+     "How to pick up stitches in knitting in 4 drawings: 3 for 4 rows, garter and cast on edges, necklines, and a free calculator for how many and how to space them.",
      pup, pu_faq, "How to pick up stitches", app_name="Pick up stitches calculator")
 
 # ---------------- HOW TO PRICE AMIGURUMI (guide + calculator) ----------------
@@ -3692,7 +3693,7 @@ am_faq = [
     ("How do I price custom crochet toys?", "Add your design time, use fixed prices for common add-ons like a name or a scarf, take payment before you start and give a finish date."),
 ]
 page("how-to-price-amigurumi.html", "How to Price Amigurumi (Crochet Toy Price Calculator) | Purl & Paper",
-     "How much to charge for amigurumi and crochet toys: a free calculator that estimates hours from size and parts, a price chart from keyring to large plush, custom orders, pattern rights and toy safety.",
+     "How much to charge for amigurumi and crochet toys: a free calculator that estimates hours from size and parts, a price chart from keyring to large plush.",
      amp, am_faq, "How to price amigurumi", app_name="Amigurumi price calculator")
 
 # ---------------- C2C BLANKET CALCULATOR (corner to corner crochet) ----------------
@@ -3772,7 +3773,7 @@ c2c_faq = [
     ("How big is one C2C tile?", "About 0.8 in in worsted yarn (5 tiles to 4 in), about 1.25 in in bulky and about 1.65 in in super bulky, from published patterns. Your swatch decides."),
 ]
 page("c2c-blanket-calculator.html", "C2C Blanket Calculator: How Many Tiles, Rows and Yarn? | Purl & Paper",
-     "Free C2C (corner to corner) crochet blanket calculator: how many tiles wide and tall for any blanket size, when to start decreasing for a rectangle, total rows and how much yarn, with a tile chart from baby to king.",
+     "Free C2C crochet blanket calculator: tiles wide and tall for any size, when to decrease for a rectangle, total rows and yarn, with a tile chart to king size.",
      c2c, c2c_faq, "C2C blanket calculator", app_name="C2C blanket calculator")
 
 # ---------------- SCARF SIZE CHART + YARN CALCULATOR ----------------
@@ -3851,8 +3852,8 @@ scf_faq = [
     ("How long should a child's scarf be?", "About 35 to 40 in for ages 4 to 5 and 50 to 60 in for ages 6 to 10, and 3 to 5 in wide. For toddlers, a cowl is safer."),
     ("How many stitches do I cast on for a scarf?", "Width times stitches per inch. In worsted at 18 stitches per 4 in, a 7 in scarf is about 32 stitches. Swatch in your stitch pattern first."),
 ]
-page("scarf-size-chart.html", "Scarf Size Chart: How Long and Wide Should a Scarf Be? (+ Yarn Calculator) | Purl & Paper",
-     "Scarf size chart for children, teens, women and men, plus infinity scarves and cowls, with a free calculator for the stitches to cast on, the chains to start and the yards of yarn to buy.",
+page("scarf-size-chart.html", "Scarf Size Chart: How Long Should a Scarf Be? | Purl & Paper",
+     "Scarf size chart for children, teens, women and men, plus infinity scarves and cowls, with a free calculator for stitches, chains and yards of yarn to buy.",
      scf, scf_faq, "Scarf size chart", app_name="Scarf size and yarn calculator")
 
 
@@ -3952,8 +3953,8 @@ te_faq = [
     ("How long does it take to crochet a scarf?", f"About {te_rng(te_hrs(_te_sf[2], _te_sf[3], 4, 'dc'))} for a 65 × 7 in worsted scarf in double crochet at 20 stitches a minute, or {te_rng(te_hrs(_te_sf[2], _te_sf[3], 4, 'sc'))} in single crochet (our estimates)."),
     ("What is the fastest crochet stitch for a blanket?", "Of the basic stitches, double crochet: it is about twice as tall as single crochet, so a blanket needs far fewer rows. Treble crochet and a bigger yarn are faster still."),
 ]
-page("crochet-time-estimator.html", "How Long Does It Take to Crochet a Blanket? (Time Calculator) | Purl & Paper",
-     "Free crochet and knitting time calculator: stitches, hours and your finish date for a blanket, scarf, hat or any size, by yarn, stitch and your own pace, with a time chart from dishcloth to king blanket.",
+page("crochet-time-estimator.html", "How Long Does It Take to Crochet a Blanket? | Purl & Paper",
+     "Free crochet and knitting time calculator: stitches, hours and your finish date for a blanket, scarf or hat by yarn, stitch and pace, with a time chart.",
      tep, te_faq, "Crochet and knitting time calculator", app_name="Crochet and knitting time calculator")
 
 # ---------------- RANDOM STRIPE GENERATOR ----------------
@@ -4010,7 +4011,7 @@ sg_faq = [
     ("How many colours should a striped blanket have?", "Anything from 2 for a classic stripe to 8 or more for a scrappy look. Three to five colours is a popular middle ground, and an odd number makes random stripes look less repetitive."),
 ]
 page("stripe-generator.html", "Random Stripe Generator for Crochet and Knitting (Free) | Purl & Paper",
-     "Free random stripe generator for crochet and knitting blankets, scarves and hats: pick your colours, rows and stripe widths, shuffle, and print a row-by-row stripe pattern with yarn per colour. Fibonacci and even stripes too.",
+     "Free random stripe generator for crochet and knitting: pick colours, rows and stripe widths, shuffle, and print a row-by-row pattern with yarn per colour.",
      sgp, sg_faq, "Random stripe generator", app_name="Random stripe generator")
 
 
@@ -4158,7 +4159,7 @@ bs_faq = [
     ("How tall is a double crochet compared to a single crochet?", "About twice as tall. A half double is about one and a half times, and a treble about two and a half to three times, depending on your yarn and tension."),
 ]
 page("basic-crochet-stitches.html", "Basic Crochet Stitches for Beginners: Step by Step (US & UK) | Purl & Paper",
-     "Learn the 6 basic crochet stitches step by step: chain, slip stitch, single, half double, double and treble crochet, with our own drawings, a loops-on-hook stepper, US/UK names and a stitch height and turning chain chart.",
+     "Learn the 6 basic crochet stitches step by step: chain, slip stitch, single, half double, double and treble, with drawings, US/UK names and a height chart.",
      bsp, bs_faq, "Basic crochet stitches", app_name="Crochet stitch stepper")
 
 
@@ -4244,8 +4245,8 @@ sw_faq = [
     ("What does finished chest mean in a pattern?", "The measurement around the sweater itself, ease included. Compare it with your body measurement plus the ease you want, not with your body alone."),
     ("Should I size up or down between sweater sizes?", "Usually up for a pullover, and down for a fitted top or an open cardigan. Look at how much ease the pattern sample is shown with and match that."),
 ]
-page("sweater-size-calculator.html", "What Size Sweater Should I Knit or Crochet? Ease & Yarn Calculator | Purl & Paper",
-     "Free sweater size calculator for knitting and crochet: add the right ease for your fit (Craft Yarn Council chart), find which pattern size to make, and estimate the yarn and skeins for a pullover in DK, worsted or bulky.",
+page("sweater-size-calculator.html", "What Size Sweater Should I Knit? Ease + Yarn Calculator | Purl & Paper",
+     "Free sweater size calculator for knitting and crochet: add the right ease for your fit, find which pattern size to make, and estimate yarn and skeins.",
      swp, sw_faq, "Sweater size calculator", app_name="Sweater size and yarn calculator")
 
 exec((ROOT / "knitpurl.py").read_text())

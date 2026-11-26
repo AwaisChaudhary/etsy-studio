@@ -112,7 +112,7 @@ gj_faq = [
 ]
 SHOP_FOR["how-to-join-granny-squares.html"] = ["yarn-stash-tracker", "crochet-knitting-pricing-calculator", "2027-crochet-knitting-planner", "christmas-gift-tags"]
 page("how-to-join-granny-squares.html", "How to Join Granny Squares: 5 Easy Ways + Yarn Calculator | Purl & Paper",
-     "How to join granny squares: whip stitch, mattress stitch, slip stitch, single crochet and join as you go, with our own diagrams and a calculator for seams and joining yarn.",
+     "How to join granny squares: whip stitch, mattress stitch, slip stitch, single crochet and join as you go, with diagrams and a joining yarn calculator.",
      gjp, gj_faq, "How to join granny squares", app_name="Granny square joining calculator")
 
 
@@ -216,5 +216,5 @@ ki_faq = [
 ]
 SHOP_FOR["how-to-increase-knitting.html"] = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"]
 page("how-to-increase-knitting.html", "How to Increase in Knitting: KFB, M1L, M1R, Yarn Over | Purl & Paper",
-     "How to increase in knitting: knit front and back, make 1 left and right, yarn over, lifted and backward loop increases, with diagrams, an increase picker and spacing tips.",
+     "How to increase in knitting: kfb, M1L, M1R, yarn over, lifted and backward loop increases, with diagrams, an increase picker and spacing tips.",
      kip, ki_faq, "How to increase in knitting", app_name="Knitting increase picker")

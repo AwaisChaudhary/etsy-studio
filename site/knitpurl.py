@@ -169,6 +169,6 @@ kp_faq = [
     ("What does k1, p1 mean?", "Knit 1 stitch, purl 1 stitch, then repeat. Bring the yarn between the needles to the front before each purl and to the back before each knit."),
 ]
 SHOP_FOR["how-to-knit-and-purl.html"] = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"]
-page("how-to-knit-and-purl.html", "How to Knit and Purl for Beginners: Step by Step + Pattern Maker | Purl & Paper",
-     "Learn the knit stitch and the purl stitch in 4 steps each with our own drawings, how to tell them apart, and a free pattern maker that writes the rows for stockinette, garter, rib, seed and basketweave.",
+page("how-to-knit-and-purl.html", "How to Knit and Purl for Beginners + Pattern Maker | Purl & Paper",
+     "Learn the knit and purl stitches in 4 steps each with drawings, how to tell them apart, and a free pattern maker for stockinette, garter, rib and seed stitch.",
      kp, kp_faq, "How to knit and purl", app_name="Knit and purl stitch pattern maker")

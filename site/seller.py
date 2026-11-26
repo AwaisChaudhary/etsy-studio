@@ -32,7 +32,7 @@ hub = top("Free tools for Etsy and KDP sellers", "We sell digital products on Et
 <li><a href="{href("craft-fair-checklist.html")}">Craft fair checklist</a> and <a href="{href("how-to-price-crochet-items.html")}">how to price handmade items</a>.</li></ul>
 <p class="muted">Figures checked 26 November 2026. Etsy and Amazon change their fees and rules; each tool says where its numbers come from.</p>
 </div></div></section>'''
-page("seller-tools.html", "Free Tools for Etsy and KDP Sellers: Fee, Royalty, Cover Size and Tag Calculators | Purl & Paper",
+page("seller-tools.html", "Free Etsy and KDP Seller Tools and Calculators | Purl & Paper",
      "Free tools for Etsy and Amazon KDP sellers: Etsy fee calculator, Etsy title and tag checker, KDP royalty calculator and KDP cover size and spine calculator.",
      hub, None, "Seller tools")
 
@@ -70,8 +70,8 @@ tt_faq = [("How many characters can an Etsy title have?", "Up to 140 characters.
           ("How many tags can you use on Etsy?", "13 tags, each up to 20 characters."),
           ("Should Etsy tags be single words or phrases?", "Phrases usually work better: they match what buyers actually type and face less competition than single words."),
           ("Do Etsy tags need to repeat the title?", "No. Etsy matches searches across your title, tags, category and attributes, so use tags for phrases your title doesn't already cover.")]
-page("etsy-title-tag-checker.html", "Etsy Title and Tag Checker: 140 Characters, 13 Tags, 20-Character Limit (Free) | Purl & Paper",
-     "Free Etsy title and tag checker: paste your title and tags to check Etsy's 140-character and 20-character limits, empty tag slots, duplicates and repeated words.",
+page("etsy-title-tag-checker.html", "Etsy Title and Tag Checker (140 Characters, 13 Tags) | Purl & Paper",
+     "Free Etsy title and tag checker: paste your title and tags to check the 140-character and 20-character limits, empty tag slots, duplicates and repeats.",
      tt, tt_faq, "Etsy title and tag checker", app_name="Etsy title and tag checker")
 
 # ---- KDP royalty calculator ----
@@ -112,7 +112,7 @@ kr_faq = [("How much does KDP pay per paperback?", "60% of the list price at $9.
           ("How much does KDP charge to print a paperback?", "For black ink on a regular trim: $2.30 for 24 to 110 pages, then $1.00 plus $0.012 per page. Large trims cost $2.84, then $1.00 plus $0.017 per page."),
           ("What is the best price for a KDP journal?", "Usually $9.99 or more, because that's where the royalty rate rises from 50% to 60%."),
           ("How much do I earn on a 120-page journal at $9.99?", f"About ${_roy(9.99,120):.2f} per copy on Amazon.com: 60% of $9.99 minus ${_pc(120):.2f} printing.")]
-page("kdp-royalty-calculator.html", "KDP Royalty Calculator 2026: Paperback Printing Cost + Royalty (60% at $9.99) | Purl & Paper",
+page("kdp-royalty-calculator.html", "KDP Royalty Calculator: Printing Cost + Royalty | Purl & Paper",
      "Free KDP royalty calculator for paperbacks: printing cost for any page count and trim, royalty per copy at the 50% and 60% rates, and why $9.99 matters.",
      kr, kr_faq, "KDP royalty calculator", app_name="KDP paperback royalty calculator")
 
@@ -148,8 +148,8 @@ kc_faq = [("How do I calculate KDP spine width?", "Multiply the page count by 0.
           ("What size should a KDP cover be?", "Width = 0.125 in + back cover + spine + front cover + 0.125 in. Height = trim height + 0.25 in."),
           ("What size is a 6x9 KDP cover with 120 pages?", f"{_w:.3f} × {_h:.3f} in on white paper, with a {_s:.3f} in spine."),
           ("Can I put text on the spine?", "Only if the book has more than 79 pages.")]
-page("kdp-cover-size-calculator.html", "KDP Cover Size Calculator + Spine Width (6x9, 8.5x11, Pixels at 300 DPI) | Purl & Paper",
-     "Free KDP cover size calculator: spine width for white, cream and colour paper, full-wrap cover size with bleed in inches, mm and pixels, for 6x9, 8.5x11 and more.",
+page("kdp-cover-size-calculator.html", "KDP Cover Size Calculator + Spine Width | Purl & Paper",
+     "Free KDP cover size calculator: spine width for white, cream and colour paper, and full-wrap cover size with bleed in inches, mm and pixels for 6x9 and more.",
      kc, kc_faq, "KDP cover size calculator", app_name="KDP cover size and spine width calculator")
 
 exec((ROOT / "eu_rules.py").read_text())

@@ -98,7 +98,7 @@ cfp_faq = [
 ]
 SHOP_FOR["craft-fair-profit-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"]
 page("craft-fair-profit-calculator.html", "Craft Fair Profit Calculator: Break-Even Sales vs Booth Fee | Purl & Paper",
-     "Free craft fair profit calculator: add your booth fee, travel, card fees, materials and hours to see your profit per hour, how many sales you need to break even, and if you meet the 3x booth fee rule.",
+     "Free craft fair profit calculator: add booth fee, travel, card fees, materials and hours to see profit per hour, break-even sales and the 3x booth fee rule.",
      cfp, cfp_faq, "Craft fair profit calculator", app_name="Craft fair profit and break-even calculator")
 
 
@@ -281,6 +281,6 @@ es_faq = [
     ("Why does my French knot pull through the fabric?", "The needle went back down in the same hole it came up from. Go down just beside it, and keep the wraps snug while you pull through."),
 ]
 SHOP_FOR["embroidery-stitches.html"] = ["machine-embroidery-business-spreadsheet", "christmas-gift-tags", "2027-crochet-knitting-planner", "junk-journal-mega-bundle"]
-page("embroidery-stitches.html", "Embroidery Stitches for Beginners: 12 Basic Stitches with Diagrams | Purl & Paper",
-     "Basic embroidery stitches for beginners with our own step diagrams: running, backstitch, stem, split, satin, chain, lazy daisy, French knot, blanket, fly, cross and seed stitch, plus strands and a stitch chooser.",
+page("embroidery-stitches.html", "Embroidery Stitches for Beginners: 12 Basic Stitches | Purl & Paper",
+     "Basic embroidery stitches for beginners with step diagrams: running, backstitch, stem, satin, chain, lazy daisy, French knot and more, plus a stitch chooser.",
      es, es_faq, "Embroidery stitches", app_name="Embroidery stitch chooser")

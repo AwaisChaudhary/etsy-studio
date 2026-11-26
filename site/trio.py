@@ -85,7 +85,7 @@ sh_faq = [
 ]
 SHOP_FOR["etsy-shipping-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "sublimation-tumbler-business-spreadsheet", "christmas-gift-tags"]
 page("etsy-shipping-calculator.html", "Etsy Shipping Calculator: What to Charge for Shipping | Purl & Paper",
-     "Free Etsy shipping calculator: label plus packaging, with Etsy's 6.5% and 3% fees on shipping, what to add for free shipping, and a USPS weight and box size check.",
+     "Free Etsy shipping calculator: label plus packaging, Etsy's 6.5% and 3% fees on shipping, what to add for free shipping, and a USPS weight and box check.",
      shp + more_seller("etsy-shipping-calculator.html"), sh_faq, "Etsy shipping calculator", app_name="Etsy shipping calculator")
 
 
@@ -193,7 +193,7 @@ cx_faq = [
 ]
 SHOP_FOR["how-to-cross-stitch.html"] = ["machine-embroidery-business-spreadsheet", "crochet-knitting-pricing-calculator", "2027-crochet-knitting-planner", "christmas-gift-tags"]
 page("how-to-cross-stitch.html", "How to Cross Stitch for Beginners (Step by Step) | Purl & Paper",
-     "How to cross stitch for beginners: 14-count Aida, 2 strands, a size 24 needle, start in the centre with no knot. Five drawn steps, a chart guide and a needle helper.",
+     "How to cross stitch for beginners: 14-count Aida, 2 strands, a size 24 needle, start in the centre with no knot. Five drawn steps, a chart guide and helper.",
      cxp, cx_faq, "How to cross stitch", app_name="Cross stitch needle and centre helper")
 
 
@@ -286,5 +286,5 @@ gq_faq = [
 ]
 SHOP_FOR["how-to-crochet-a-granny-square.html"] = ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"]
 page("how-to-crochet-a-granny-square.html", "How to Crochet a Granny Square for Beginners | Purl & Paper",
-     "How to crochet a granny square: ch 4 ring, round 1 of four 3-dc clusters, then (3 dc, ch 2, 3 dc) in every corner. Diagrams, US/UK pattern writer, size and yarn.",
+     "How to crochet a granny square: ch 4 ring, round 1 of four 3-dc clusters, then (3 dc, ch 2, 3 dc) in each corner. Diagrams, US/UK pattern writer and yarn.",
      gqp, gq_faq, "How to crochet a granny square", app_name="Granny square pattern writer")

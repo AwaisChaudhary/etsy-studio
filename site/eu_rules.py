@@ -53,8 +53,8 @@ eu_faq = [("Do Etsy sellers need an EU responsible person?", "Yes, if you're bas
           ("What changed for packaging on 12 August 2026?", "The EU Packaging and Packaging Waste Regulation started applying. Sellers who ship packaged goods directly to buyers in an EU country where they aren't established must register as a packaging producer there and appoint an authorised representative."),
           ("What is the EU legal guarantee notice?", "From 27 September 2026, sellers of goods to EU consumers must show a standard EU notice explaining the 2-year legal guarantee, with fixed wording and design, wherever they sell."),
           ("Do digital downloads need GPSR details on Etsy?", "Etsy's guidance says GPSR applies to physical and digital products, so fill in the details Etsy asks for on digital listings visible in the EU. The packaging rules and the guarantee notice don't apply to downloads.")]
-page("eu-rules-checker-etsy-sellers.html", "EU Rules Checker for Etsy Sellers 2026: GPSR, Packaging (PPWR) and Guarantee Notice | Purl & Paper",
-     "Free EU rules checker for Etsy sellers: answer five questions to see if GPSR, the 12 August 2026 packaging rules (PPWR) and the 27 September 2026 guarantee notice apply to your shop.",
+page("eu-rules-checker-etsy-sellers.html", "EU Rules Checker for Etsy Sellers: GPSR and PPWR | Purl & Paper",
+     "Free EU rules checker for Etsy sellers: five questions show whether GPSR, the August 2026 packaging rules (PPWR) and the guarantee notice apply to you.",
      eu, eu_faq, "EU rules checker", app_name="EU rules checker for Etsy sellers")
 
 page("eu-waitlist-thanks.html", "You're on the waitlist | Purl & Paper", "Confirm your email to join the EU seller tool waitlist.",

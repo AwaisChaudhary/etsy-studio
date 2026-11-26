@@ -65,7 +65,7 @@ return s;''', '["t-motif","t-col","t-text"]') + PROSE("christmas-crafts.html", '
 <li><strong>Making extra to sell?</strong> See <a href="{H:christmas-crafts-to-sell.html}">Christmas crafts to make and sell</a>: 19 ideas with material cost, time and a price for your hourly rate.</li>
 <li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
 <p>Counting down? See our <a href="{H:advent-calendar-ideas.html}">advent calendar ideas</a> and printable number cards.</p>''')
-page("christmas-crafts.html", "Christmas Crafts for Paper and Yarn + Free Printable Gift Tags (2026) | Purl & Paper",
+page("christmas-crafts.html", "Christmas Crafts for Paper and Yarn + Gift Tags | Purl & Paper",
      "Easy Christmas crafts for paper crafters, knitters and crocheters, plus a free printable gift tag maker with stars, trees or snowflakes and your own message.",
      x, [("What are easy Christmas crafts for adults?", "Printable gift tags, paper book-page stars, origami ornaments, crochet baubles and pom-pom garlands are all quick, cheap and use scraps."),
          ("How do I print Christmas gift tags?", "Pick a motif, colour and message above, then print on cardstock at actual size. Twelve tags fit on one Letter or A4 sheet."),
@@ -102,7 +102,7 @@ return s;''', '["a-shape","a-col"]') + PROSE("advent-calendar-ideas.html", '''
 <li><strong>Pattern a day:</strong> 24 small makes from our free tools, such as a crochet bauble from the <a href="{H:amigurumi.html}">ball calculator</a>.</li></ul>
 <h2>How to make the calendar</h2>
 <p>Print the number cards above on cardstock, cut them out and glue or tie them to 24 paper bags, envelopes, matchboxes or socks pegged on a string. For a reusable calendar, laminate the cards.</p>''')
-page("advent-calendar-ideas.html", "Advent Calendar Ideas (Kids, Adults, Crafters) + Free Printable Numbers 1-24 | Purl & Paper",
+page("advent-calendar-ideas.html", "Advent Calendar Ideas + Free Printable Numbers 1-24 | Purl & Paper",
      "Advent calendar filler ideas for kids, adults and crafters (not just sweets), plus free printable 1-24 advent number cards in circles, tags or squares.",
      x, [("When does an advent calendar start?", "Most advent calendars run from 1 to 24 December. Church Advent begins on Advent Sunday, the fourth Sunday before Christmas: 29 November 2026."),
          ("What can I put in an advent calendar instead of chocolate?", "Activity notes, stickers, small craft supplies, tea or hot chocolate sachets, jigsaw pieces, mini skeins of yarn or ephemera for a journal."),
@@ -135,8 +135,8 @@ return s;''', '["c-style","c-det","g-seed"]', reroll=True) + PROSE("coloring-pag
 <li>Alcohol markers bleed; put a spare sheet underneath.</li>
 <li>Coloured pages make great junk journal backgrounds: see our <a href="{H:junk-journal-ephemera-ideas.html}">ephemera ideas</a>.</li></ul>
 <p>All designs are drawn by our own code and are free for personal use, classrooms and gifts.</p>''')
-page("coloring-pages.html", "Free Printable Coloring Pages Generator: Mandalas, Geometric + Granny Square | Purl & Paper",
-     "Free printable coloring pages for adults and kids: mandalas, geometric tiles and granny-square patterns, simple to intricate, a new design every time. Letter or A4.",
+page("coloring-pages.html", "Free Printable Coloring Pages: Mandala Generator | Purl & Paper",
+     "Free printable coloring pages for adults and kids: mandalas, geometric tiles and granny-square patterns, simple to intricate, new every time. Letter or A4.",
      x, [("Are these coloring pages free?", "Yes. Print as many as you like for personal use, classrooms or gifts."),
          ("How do I get a different coloring page?", "Press 'New design' or type any design number. Each number draws a different page, and the same number always gives the same page."),
          ("What paper is best for printable coloring pages?", "Smooth paper of 24 lb (90 gsm) or more. Use cardstock for markers or watercolour pencils.")],
@@ -163,8 +163,8 @@ document.getElementById("calc-out").innerHTML='<p><span class="big-n">'+mx+'</sp
 <p>Safety eyes lock with a washer and must go in before you close the piece. For toys for babies and children under 3, embroider the eyes with yarn instead: small parts can come loose.</p>
 <h2>Using the ball pattern</h2>
 <p>Heads, bodies, baubles and fruit all start from this ball. For an egg or body shape, add more even rounds; for a flat-bottomed piece, stop increasing earlier. Selling your makes? See <a href="{H:how-to-price-amigurumi.html}">how to price amigurumi</a>.</p>''')
-page("amigurumi.html", "Amigurumi Ball Pattern Calculator + Beginner Guide (Any Size) | Purl & Paper",
-     "Free amigurumi ball calculator: enter the diameter and your gauge to get a round-by-round crochet ball pattern, plus a beginner guide to magic rings, invisible decreases and safety eyes.",
+page("amigurumi.html", "Amigurumi Ball Pattern Calculator + Beginner Guide | Purl & Paper",
+     "Free amigurumi ball calculator: enter the diameter and gauge for a round-by-round crochet ball pattern, plus magic rings, invisible decreases and safety eyes.",
      x, [("How do you crochet a ball for amigurumi?", "Start with 6 sc in a magic ring, increase 6 stitches per round to the widest point, work a few even rounds, then decrease 6 per round, stuffing before you close."),
          ("What yarn is best for amigurumi?", "Cotton or acrylic in DK or worsted weight, worked with a smaller hook than usual for tight stitches."),
          ("Are safety eyes safe for babies?", "For babies and children under 3, embroider eyes instead. Small parts can become choking hazards.")],
@@ -192,8 +192,8 @@ return s;''', '["b-h","b-n","b-m"]') + PROSE("bookbinding.html", '''
 <li>Waxed linen or waxed polyester thread; a blunt bookbinding needle.</li>
 <li>A bone folder, a metal ruler, a cutting mat and a sharp knife.</li>
 <li>Printable pages: <a href="{H:dot-grid-paper.html}">dot grid</a>, <a href="{H:calligraphy-practice-sheets.html}">lettering guides</a> or a <a href="{H:2027-calendar-printable.html}">2027 calendar</a>.</li></ul>''')
-page("bookbinding.html", "Bookbinding for Beginners: Printable Hole Punching Template + Stitch Guide | Purl & Paper",
-     "Free bookbinding hole template: set the signature height and number of sewing stations, print the punching guide, then follow our pamphlet, kettle and coptic stitch guide.",
+page("bookbinding.html", "Bookbinding for Beginners: Printable Hole Template | Purl & Paper",
+     "Free bookbinding hole template: set the signature height and sewing stations, print the punching guide, then follow our pamphlet, kettle and coptic guide.",
      x, [("How many holes for a pamphlet stitch?", "3 holes for small booklets, 5 for anything taller than about 15 cm (6 in)."),
          ("How far from the edge should bookbinding holes be?", "Most binders put the end stations 1 to 2 cm (about 1/2 to 3/4 in) from the head and tail, then space the rest evenly."),
          ("Which way should the paper grain go in a book?", "Parallel to the spine, so pages turn easily and don't warp.")],
@@ -228,8 +228,8 @@ return s;''', '["o-sz","o-p","o-c"]') + PROSE("origami.html", '''
 <li><strong>Kami:</strong> thin, coloured on one side; the standard for practice.</li>
 <li><strong>Modular origami:</strong> print 7.5 cm squares above; you'll need many identical units.</li></ul>
 <p>Origami stars and boxes make good <a href="{H:christmas-crafts.html}">Christmas ornaments</a> and gift boxes. More paper crafts: <a href="{H:paper-flowers.html}">paper flowers</a> and <a href="{H:card-making.html}">card making</a>.</p>''')
-page("origami.html", "Printable Origami Paper (15 cm / 6 in) + Easy Origami for Beginners | Purl & Paper",
-     "Free printable origami paper in polka dots, stripes, checks and waves, 15 cm, 10 cm or 7.5 cm squares, plus how to make a square from A4 and easy beginner folds.",
+page("origami.html", "Printable Origami Paper + Easy Origami for Beginners | Purl & Paper",
+     "Free printable origami paper in polka dots, stripes, checks and waves, in 15, 10 or 7.5 cm squares, plus how to cut a square from A4 and easy first folds.",
      x, [("What size is origami paper?", "Standard origami paper is 15 cm (about 6 in) square. 7.5 cm (3 in) is common for small and modular models."),
          ("Can I use printer paper for origami?", "Yes. Cut a square: fold one corner to the opposite edge and trim the strip. 75 to 90 gsm copy paper folds well."),
          ("What is the easiest origami for beginners?", "A paper cup, a fortune teller or a heart. Learn the crane next.")],
@@ -260,7 +260,7 @@ document.getElementById("calc-out").innerHTML="<p><strong>Finished card:</strong
 <li><strong>Layer with mats:</strong> cut each layer 1/4 in (6 mm) smaller than the one below. Scrapbooking too? See <a href="{H:scrapbook-page-sizes.html}">scrapbook page sizes</a> for photo mats and layouts.</li>
 <li><strong>Postage:</strong> square cards and cards thicker than 1/4 in (6 mm) may cost extra postage in the US.</li></ul>
 <p>Decorate with <a href="{H:paper-flowers.html}">paper flowers</a>, ephemera from our <a href="{H:junk-journal-ephemera-ideas.html}">junk journal ideas</a>, or <a href="{H:calligraphy-practice-sheets.html}">hand lettering</a>. Making Christmas cards? See <a href="{H:christmas-crafts.html}">Christmas crafts</a>.</p>''')
-page("card-making.html", "Card Making Size Calculator: Card Sizes, Envelopes + Cuts per Sheet (A2, A6, A7, C6) | Purl & Paper",
+page("card-making.html", "Card Making Size Calculator: Card and Envelope Sizes | Purl & Paper",
      "Free card size calculator: A2, A6, A7, A9, ISO A6, A5 and DL card sizes, the flat size to cut, the matching envelope and how many cards per sheet of cardstock.",
      x, [("What size envelope for an A2 card?", "An A2 envelope, 4.375 x 5.75 in, fits a 4.25 x 5.5 in A2 card."),
          ("What envelope fits a 5x7 card?", "An A7 envelope, 5.25 x 7.25 in."),
@@ -294,8 +294,8 @@ return s;''', '["f-sh","f-n","f-max"]') + PROSE("paper-flowers.html", '''
 <ul><li>Wreaths and table decorations for <a href="{H:christmas-crafts.html}">Christmas</a> in red and white cardstock.</li>
 <li>Card toppers: small 4 cm flowers on <a href="{H:card-making.html}">handmade cards</a>.</li>
 <li>Junk journal pages and pockets: see <a href="{H:junk-journal-ephemera-ideas.html}">ephemera ideas</a>.</li></ul>''')
-page("paper-flowers.html", "Free Printable Paper Flower Templates: Petal Shapes in Graduated Sizes | Purl & Paper",
-     "Free printable paper flower petal templates: round, pointed, heart and frilly petals in four graduated sizes for layered cardstock or crepe paper flowers, with step-by-step instructions.",
+page("paper-flowers.html", "Free Printable Paper Flower Templates | Purl & Paper",
+     "Free printable paper flower petal templates: round, pointed, heart and frilly petals in four graduated sizes for cardstock or crepe paper, with instructions.",
      x, [("What paper is best for paper flowers?", "65 lb (176 gsm) cardstock for structured layered flowers; crepe paper for soft, realistic petals."),
          ("How do you curl paper flower petals?", "Wrap each petal around a pencil or paintbrush handle and slide it off, or pull it gently over a scissor blade."),
          ("How many layers does a paper flower need?", "Three to five layers in decreasing sizes, often two of each for fullness.")],
@@ -318,8 +318,8 @@ document.getElementById("calc-out").innerHTML="<p><strong>Cut fabric:</strong> <
 <li>Most needles let you change the loop length; longer loops use more yarn and make a plusher pile.</li></ul>
 <h2>Finishing</h2>
 <p>For a rug or pillow, fold the margin to the back, stitch or glue it down and add a non-slip backing. Want a bigger rug faster? See <a href="{H:tufting.html}">tufting</a>. Choosing colours: try the <a href="{H:stripe-generator.html}">stripe generator</a> for a palette.</p>''')
-page("punch-needle.html", "Punch Needle for Beginners + Fabric and Frame Size Calculator | Purl & Paper",
-     "Free punch needle calculator: how much fabric to cut and what frame or hoop size you need for any design, plus a beginner guide to needles, yarn, monk's cloth and finishing.",
+page("punch-needle.html", "Punch Needle for Beginners + Frame Size Calculator | Purl & Paper",
+     "Free punch needle calculator: how much fabric to cut and which frame or hoop size you need, plus a beginner guide to needles, yarn and monk's cloth.",
      x, [("How much fabric do I need for punch needle?", "The design size plus 2 to 3 in (5 to 8 cm) on every side, so it grips the frame and you can fold the edges to finish."),
          ("What fabric is used for punch needle?", "Monk's cloth with regular rug punch needles, and weaver's cloth with fine punch needles."),
          ("Why are my punch needle loops pulling out?", "Usually the fabric isn't tight enough, or the needle is lifted too high between punches.")],
@@ -343,8 +343,8 @@ document.getElementById("calc-out").innerHTML="<p>Chain and pick up <span class=
 <ul><li>Go up a hook size or two to reduce curling, especially in TSS and TKS.</li>
 <li>Count loops at the end of each forward pass: the first and last stitches are the easiest to miss.</li>
 <li>Planning a blanket? Check yardage with the <a href="{H:yarn-calculator.html}">yarn calculator</a> and size with the <a href="{H:blanket-size-calculator.html}">blanket size calculator</a>.</li></ul>''')
-page("tunisian-crochet.html", "Tunisian Crochet for Beginners + Stitch Count and Hook Calculator | Purl & Paper",
-     "Free Tunisian crochet calculator: stitches to pick up, rows to work and whether you need a cabled hook, plus a beginner guide to TSS, TKS, TPS and TFS and how to stop curling.",
+page("tunisian-crochet.html", "Tunisian Crochet for Beginners + Hook Calculator | Purl & Paper",
+     "Free Tunisian crochet calculator: stitches to pick up, rows to work and if you need a cabled hook, plus a beginner guide to TSS, TKS and stopping curl.",
      x, [("What is the difference between Tunisian crochet and regular crochet?", "Tunisian crochet keeps all the loops of a row on a long hook and works them off on a return pass, making a dense fabric closer to knitting or weaving."),
          ("Can I use a regular crochet hook for Tunisian crochet?", "Only for very narrow pieces. A Tunisian hook is long (or cabled) to hold all the loops of a row."),
          ("Why does my Tunisian crochet curl?", "Tunisian simple and knit stitch naturally curl. Use a bigger hook, add a border, or block the finished piece.")],
@@ -366,8 +366,8 @@ document.getElementById("calc-out").innerHTML="<p><strong>"+r[0]+"</strong> head
 <table><thead><tr><th>Head size</th><th>Head circumference</th><th>Typical loom</th></tr></thead><tbody>''' + "".join(f"<tr><td>{a}</td><td>{b} to {c} in</td><td>{d}</td></tr>" for a, b, c, d in LOOM) + '''</tbody></table>
 <p>Long looms make scarves and blankets; the small round looms make socks and mittens. Use 2 strands of worsted yarn if you don't have bulky yarn.</p>
 <p>Knitting with needles too? Compare sizes with our <a href="{H:hat-size-chart.html}">hat size chart</a> and plan colours with the <a href="{H:stripe-generator.html}">stripe generator</a>.</p>''')
-page("loom-knitting.html", "Loom Knitting for Beginners: Which Loom Size for a Hat? (24, 31, 36, 41 Pegs) | Purl & Paper",
-     "Which round loom to use for a hat: enter the head size to get the right peg count (24, 31, 36 or 41 pegs), plus a beginner guide to e-wrap cast on, brims and crowns.",
+page("loom-knitting.html", "Loom Knitting for Beginners: Which Loom for a Hat? | Purl & Paper",
+     "Which round loom to use for a hat: enter the head size to get the right peg count (24, 31, 36 or 41), plus a beginner guide to e-wrap, brims and crowns.",
      x, [("What size loom for an adult hat?", "With a common large-gauge round loom set and bulky yarn, the 41-peg loom makes a standard adult hat."),
          ("What size loom for a child's hat?", "Usually the 31-peg loom; a 24-peg loom for babies."),
          ("How long should a loom knit hat be?", "About a third of the head circumference from the brim fold to the crown before you gather it, around 7 to 8 in for adults.")],
@@ -393,8 +393,8 @@ x = CALC_PAGE("Needle felting needle guide", "Which felting needle to use at eac
 <li>Cover with coloured wool (merino tops or batts) and finish with finer needles.</li></ol>
 <p><strong>Safety:</strong> felting needles are very sharp and barbed. Keep your fingers away from the stabbing area, use a finger guard or leather thimbles, and store needles in a case away from children.</p>
 <p>Wet felting and knitting? Felted (fulled) knits shrink a lot; see <a href="{H:yarn-weights.html}">yarn weights</a> for which wool works.</p>''')
-page("needle-felting.html", "Needle Felting Needle Sizes Guide (36, 38, 40, 42) + Beginner Tips | Purl & Paper",
-     "Which needle felting needle to use: 36, 38, 40 and 42 gauge explained, triangle, star, spiral and reverse needles, plus a beginner guide to needle felting safely.",
+page("needle-felting.html", "Needle Felting Needle Sizes Guide (36-42 Gauge) | Purl & Paper",
+     "Which needle felting needle to use: 36, 38, 40 and 42 gauge, triangle, star, spiral and reverse needles, plus a beginner guide to needle felting safely.",
      x, [("What size felting needle for beginners?", "A 38 gauge triangle needle. It shapes quickly and still gives a fairly smooth surface."),
          ("What do felting needle numbers mean?", "The gauge: a higher number is a thinner needle. 36 is coarse, 38 medium, 40 fine and 42 extra fine."),
          ("Why do my felting needles keep breaking?", "Needles snap when they bend. Stab straight in and out at the same angle.")],
@@ -418,8 +418,8 @@ document.getElementById("calc-out").innerHTML="<p><strong>Cut tufting cloth:</st
 <li>Keep fingers and loose clothing away from the needle and scissors.</li>
 <li>Use backing glue in a well-ventilated room and follow its label.</li></ul>
 <p>Want a smaller, quieter project first? <a href="{H:punch-needle.html}">Punch needle</a> uses the same idea by hand. Choose colours with the <a href="{H:stripe-generator.html}">stripe generator</a>.</p>''')
-page("tufting.html", "Rug Tufting for Beginners: Tufting Cloth and Frame Size Calculator | Purl & Paper",
-     "Free tufting calculator: how much tufting cloth to cut and what frame size you need for any rug, plus a beginner guide to tufting, backing, finishing and safety.",
+page("tufting.html", "Rug Tufting for Beginners + Frame Size Calculator | Purl & Paper",
+     "Free tufting calculator: how much tufting cloth to cut and what frame size you need for any rug, plus a beginner guide to tufting, backing and finishing.",
      x, [("How much tufting cloth do I need?", "Your rug size plus about 6 in (15 cm) on every side, to grip the frame and fold back when finishing."),
          ("What size frame for tufting?", "The inner opening should be at least 2 in (5 cm) larger than the rug on every side."),
          ("How much yarn does a tufted rug need?", "It depends on pile height and density. Tuft a small test square, weigh the yarn used and scale it up by the rug's area.")],
@@ -453,7 +453,7 @@ return s;''', '["fb-p","fb-n","fb-c1","fb-c2","fb-c3","fb-c4","fb-c5"]') + PROSE
 <li>Pull each knot up firmly and evenly, always tighten the same way.</li>
 <li>Finish with a braid on each end, or a loop and button.</li></ul>
 <p>More colour planning: our <a href="{H:stripe-generator.html}">stripe generator</a>. More quick makes: <a href="{H:christmas-crafts.html}">Christmas crafts</a>.</p>''')
-page("friendship-bracelet-patterns.html", "Friendship Bracelet Patterns: Free Chevron and Diagonal Stripe Pattern Maker | Purl & Paper",
+page("friendship-bracelet-patterns.html", "Friendship Bracelet Patterns: Free Pattern Maker | Purl & Paper",
      "Make your own friendship bracelet pattern: choose 2 to 5 colours for a chevron or diagonal stripe, print the chart, and follow our step-by-step knotting guide.",
      x, [("How long should friendship bracelet strings be?", "Cut each string about 4 times the finished length, around 24 in (60 cm) for a 6 in bracelet. Strings for very knotty patterns need more."),
          ("How many strings for a chevron bracelet?", "Twice the number of colours: 6 strings for 3 colours, 8 for 4."),
@@ -487,8 +487,8 @@ return s;''', '["em-h","em-s","g-seed"]', reroll=True) + PROSE("embroidery-patte
 <li><strong>French knots</strong> for flower centres and the dotted flowers.</li></ul>
 <h2>Supplies</h2>
 <p>Use cotton or linen in a hoop one size bigger than the design, 6-strand embroidery floss split into 2 or 3 strands, and a size 5 to 9 embroidery needle. New to the stitches? See <a href="{H:embroidery-stitches.html}">embroidery stitches for beginners</a>, with a diagram for each. Working on Aida instead? Use our <a href="{H:cross-stitch-calculator.html}">cross stitch calculator</a>. Finished hoops make lovely <a href="{H:christmas-crafts.html}">Christmas gifts</a>.</p>''')
-page("embroidery-patterns.html", "Free Printable Embroidery Patterns: Floral Hoop Pattern Generator (4-8 in) | Purl & Paper",
-     "Free printable embroidery patterns for beginners: floral wreaths, bouquets and half wreaths sized to a 4, 5, 6 or 8 in hoop, new designs every time, plus how to transfer and which stitches to use.",
+page("embroidery-patterns.html", "Free Printable Embroidery Patterns for Any Hoop | Purl & Paper",
+     "Free printable embroidery patterns for beginners: floral wreaths, bouquets and half wreaths sized to a 4, 5, 6 or 8 in hoop, with transfer and stitch tips.",
      x, [("How do I transfer an embroidery pattern to fabric?", "Trace it with a water-soluble pen over a light box or bright window, or print it on water-soluble stabiliser for dark fabric."),
          ("What stitches do beginners need for floral embroidery?", "Backstitch or stem stitch, lazy daisy, satin stitch and French knots cover most floral patterns."),
          ("Are these embroidery patterns free to use?", "Yes, for personal projects and gifts. Every design is drawn by our own code.")],

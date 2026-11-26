@@ -51,7 +51,7 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <p class="muted">Every tool runs in your browser. Nothing you type is uploaded.</p>
 </div></div></section>'''
 hub = hub.replace("<h2>Clay</h2>", L(NEW_HUB) + "<h2>Clay</h2>", 1)
-page("crafts.html", "Free Craft Calculators and Printables: Calligraphy, Cross Stitch, Quilting, Candles, Resin | Purl & Paper",
+page("crafts.html", "Free Craft Calculators and Printables | Purl & Paper",
      "Free craft tools: calligraphy practice sheets, dot grid paper, cross stitch, quilt size, diamond painting, candle wax, resin and macrame cord calculators.",
      hub, None, "All crafts")
 
@@ -112,7 +112,7 @@ cal_faq = [
  ("Are these calligraphy practice sheets free?", "Yes. Make as many as you like, print them on US Letter or A4, or save them as an SVG image for an iPad."),
  ("How do I stop my brush pen fraying?", "Use smooth paper such as laser or marker paper, hold the pen at a low angle and don't scrub back and forth. Rough copy paper wears felt tips quickly."),
 ]
-page("calligraphy-practice-sheets.html", "Free Calligraphy Practice Sheets: Printable Guideline Generator (Brush Pen + Pointed Pen) | Purl & Paper",
+page("calligraphy-practice-sheets.html", "Free Calligraphy Practice Sheets (Printable) | Purl & Paper",
      "Make free printable calligraphy practice sheets: set the x-height, slant and spacing for your brush pen or pointed pen, print on Letter or A4, or save for iPad.",
      cal, cal_faq, "Calligraphy practice sheets", app_name="Calligraphy practice sheet generator")
 
@@ -145,7 +145,7 @@ dot_faq = [
  ("How do I print dot grid paper at the right size?", "Print at Actual size or 100%, not Fit to page, so the spacing stays exact."),
  ("Is this dot grid paper free?", "Yes. Print as many sheets as you like on US Letter or A4, or save them as an SVG image."),
 ]
-page("dot-grid-paper.html", "Free Printable Dot Grid Paper for Bullet Journals (5 mm, A4 + Letter) + Graph and Lined | Purl & Paper",
+page("dot-grid-paper.html", "Free Printable Dot Grid Paper (5 mm, A4 + Letter) | Purl & Paper",
      "Free printable dot grid paper for bullet journals, plus graph and lined paper: choose 4, 5 or 6 mm spacing, US Letter or A4, then print or save as an image.",
      dot, dot_faq, "Dot grid paper", app_name="Dot grid paper generator")
 
@@ -188,7 +188,7 @@ dp_faq = [
  ("Are round or square drills better for beginners?", "Round drills are easier because they don't need lining up. Square drills give a sharper, more detailed picture but take longer."),
  ("How long does it take to finish a diamond painting?", "Divide the number of drills by how many you place in an hour. At 800 an hour a 30 x 40 cm square-drill canvas takes about 24 hours."),
 ]
-page("diamond-painting-calculator.html", "Diamond Painting Calculator: How Many Drills (Round vs Square) + Size Chart | Purl & Paper",
+page("diamond-painting-calculator.html", "Diamond Painting Calculator: How Many Drills? | Purl & Paper",
      "Free diamond painting calculator: how many round or square drills fit any canvas size, how many hours it will take, and a drills-per-canvas size chart.",
      dp, dp_faq, "Diamond painting calculator", app_name="Diamond painting drill calculator")
 
@@ -248,7 +248,7 @@ xs_faq = [
  ("How do I start cross stitch without a knot?", "Use the loop method: fold one strand in half, thread the cut ends, come up for your first half stitch, go down, and pass the needle through the loop at the back. For an odd number of strands, use a waste knot on the front that your stitches cover."),
  ("Is 28-count evenweave the same as 14-count Aida?", "When you stitch over two threads, yes: the finished size is the same."),
 ]
-page("cross-stitch-calculator.html", "Cross Stitch Calculator: Finished Size, Fabric to Cut + Floss (Aida 11, 14, 16, 18) | Purl & Paper",
+page("cross-stitch-calculator.html", "Cross Stitch Calculator: Size, Fabric and Floss | Purl & Paper",
      "Free cross stitch calculator: finished size on any Aida or evenweave count, how much fabric to cut, skeins of floss to buy, plus a size chart and strands guide.",
      xs, xs_faq, "Cross stitch calculator", app_name="Cross stitch size and floss calculator")
 
@@ -292,7 +292,7 @@ qs_faq = [
  ("How much binding do I need for a quilt?", "The perimeter plus about 12 in. Divide by 40 for the number of strips cut across 42 in fabric."),
  ("What size is a throw quilt?", "Usually around 50 × 65 in, though anything from about 50 × 60 to 60 × 70 in is common."),
 ]
-page("quilt-size-calculator.html", "Quilt Size Calculator + Quilt Size Chart (Twin, Queen, King) with Backing and Binding Yardage | Purl & Paper",
+page("quilt-size-calculator.html", "Quilt Size Calculator + Chart (Twin, Queen, King) | Purl & Paper",
      "Free quilt size calculator and chart: finished quilt size for crib, twin, full, queen and king beds, plus how much backing, batting and binding fabric to buy.",
      qs, qs_faq, "Quilt size calculator", app_name="Quilt size and yardage calculator")
 
@@ -339,7 +339,7 @@ cm_faq = [
  ("How much fragrance oil per pound of wax?", "At 6% about 1 oz per pound, at 10% about 1.6 oz. Check your wax's maximum fragrance load."),
  ("What is fragrance load?", "The fragrance oil as a percentage of the candle's weight. Most container waxes suit 6 to 10%."),
 ]
-page("candle-making-calculator.html", "Candle Wax Calculator: How Much Wax and Fragrance Oil per Jar (Soy, Coconut, Paraffin) | Purl & Paper",
+page("candle-making-calculator.html", "Candle Wax Calculator: Wax and Fragrance per Jar | Purl & Paper",
      "Free candle making calculator: how much soy, coconut or paraffin wax and fragrance oil for any jar size and batch, fragrance load, and cost per candle.",
      cm, cm_faq, "Candle wax calculator", app_name="Candle wax and fragrance calculator")
 
@@ -383,7 +383,7 @@ rs_faq = [
  ("How deep can I pour epoxy resin?", "Coating and art resins are usually poured in layers of about 3 to 6 mm. Deeper pours need a deep-pour casting resin; follow the product's maximum depth."),
  ("How many grams is 100 ml of resin?", "About 110 g, as most epoxy resins weigh about 1.1 g per ml. Check your kit's data sheet."),
 ]
-page("resin-calculator.html", "Resin Calculator: How Much Epoxy Resin Do I Need? (Mould, Tray, Coasters, River Table) | Purl & Paper",
+page("resin-calculator.html", "Resin Calculator: How Much Epoxy Resin Do I Need? | Purl & Paper",
      "Free epoxy resin calculator: how much resin and hardener to mix for moulds, coasters, trays and river tables, by volume or weight, with 1:1 and 2:1 ratios.",
      rs, rs_faq, "Resin calculator", app_name="Epoxy resin calculator")
 
@@ -420,7 +420,7 @@ mc_faq = [
  ("How many cords for a macrame wall hanging?", "Divide the width of the dowel you'll cover by the cord thickness. Each folded cord mounted with a lark's head takes about 4 cord widths, so a 16 in dowel holds about 25 folded 4 mm cords (50 working ends)."),
  ("What thickness of macrame cord for beginners?", "4 to 5 mm single-strand cotton is easy to knot, undo and comb into fringe."),
 ]
-page("macrame-cord-calculator.html", "Macrame Cord Calculator: How Much Cord Do I Need? (Wall Hangings, Plant Hangers) | Purl & Paper",
+page("macrame-cord-calculator.html", "Macrame Cord Calculator: How Much Cord Do I Need? | Purl & Paper",
      "Free macrame cord calculator: how many cords to cut, how long (the 4x and 8x rules) and how much cord to buy for wall hangings, plant hangers and keychains.",
      mc, mc_faq, "Macrame cord calculator", app_name="Macrame cord calculator")
 
@@ -460,8 +460,8 @@ pcb_faq = [("What temperature do you bake polymer clay?", "275 °F (130 °C) for
            ("How long do you bake polymer clay?", "Sculpey III: 15 minutes per ¼ inch (6 mm). Premo and Souffle: 30 minutes per ¼ inch. Fimo: 30 minutes. Longer at the correct temperature makes stronger pieces."),
            ("Can you overbake polymer clay?", "At the right temperature, extra time is usually fine. Too high a temperature is what scorches and darkens it."),
            ("Why did my polymer clay crack or break?", "Usually underbaking, or a thin piece of a brittle clay. Bake longer at the correct temperature with an oven thermometer.")]
-page("polymer-clay-baking-calculator.html", "Polymer Clay Baking Temperature and Time Calculator (Sculpey, Premo, Fimo, Kato) | Purl & Paper",
-     "Polymer clay baking calculator and chart: oven temperature and bake time for Sculpey III, Premo, Souffle, Fimo, Kato and Cernit by thickness, plus how to stop burning and breaking.",
+page("polymer-clay-baking-calculator.html", "Polymer Clay Baking Temperature and Time Calculator | Purl & Paper",
+     "Polymer clay baking chart and calculator: oven temperature and bake time for Sculpey, Premo, Fimo, Kato and Cernit by thickness, and how to stop burning.",
      pcb, pcb_faq, "Polymer clay baking calculator", app_name="Polymer clay baking calculator")
 
 # ---- Half square triangles (standard quilting maths: 2-at-a-time finished + 7/8 in; 8-at-a-time (finished + 7/8) x 2; 4-at-a-time (finished + 7/8) x 1.414; unfinished = finished + 1/2) ----
@@ -502,7 +502,7 @@ hst_faq = [("What size do I cut squares for half square triangles?", "For 2 at a
            ("How do I make 8 half square triangles at once?", "Cut two squares (finished + ⅞ in) × 2, draw both diagonals, sew ¼ in either side of each, then cut horizontally, vertically and on both diagonals."),
            ("What size should a 3 inch HST measure before sewing into the quilt?", "3½ in unfinished. It finishes at 3 in once it's sewn in."),
            ("Why are my half square triangles too small?", "Usually a seam wider than ¼ in, or stretching the bias when pressing. Cut a little bigger and trim to the unfinished size.")]
-page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: HST Cut Sizes (2, 4 and 8 at a Time) + Chart | Purl & Paper",
+page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: HST Cut Sizes | Purl & Paper",
      "Free half square triangle calculator: what size squares to cut for HSTs made 2, 4 or 8 at a time, how many squares and strips you need, and a cut size chart.",
      hst, hst_faq, "Half square triangle calculator", app_name="Half square triangle calculator")
 
@@ -616,8 +616,8 @@ cl_faq = [
  ("Is this 2027 calendar printable free?", "Yes. Print as many as you like, on US Letter or A4, or save them as a PDF or SVG image. Nothing to sign up for."),
 ]
 SHOP_FOR["2027-calendar-printable.html"] = ["2027-habit-tracker-spreadsheet", "2027-crochet-knitting-planner", "december-days-journal-kit", "christmas-gift-planner-budget"]
-page("2027-calendar-printable.html", "Free 2027 Calendar Printable: Yearly + Monthly, US & UK Holidays (Letter + A4) | Purl & Paper",
-     "Free printable 2027 calendar maker: whole year on one page or a month per page, US federal or UK bank holidays, Sunday or Monday start, US Letter or A4, print or save as PDF.",
+page("2027-calendar-printable.html", "Free 2027 Calendar Printable: Yearly and Monthly | Purl & Paper",
+     "Free printable 2027 calendar maker: whole year or a month per page, US or UK holidays, Sunday or Monday start, US Letter or A4. Print or save as PDF.",
      cl, cl_faq, "2027 calendar printable", app_name="2027 calendar printable maker")
 
 exec((ROOT / "newcrafts.py").read_text())
