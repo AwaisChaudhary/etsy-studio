@@ -212,7 +212,7 @@ def page(file, title, desc, body, faqs=None, crumb=None, scripts="", app_name=No
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{"noindex, follow" if file in NOINDEX else "index, follow, max-image-preview:large"}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{e(SITE)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}">
-<meta property="og:image" content="{_og}"><meta property="og:image:width" content="800"><meta property="og:image:height" content="420"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
+<meta property="og:image" content="{_og}"><meta property="og:image:width" content="720"><meta property="og:image:height" content="378"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{_og}"><meta name="theme-color" content="#1f2a44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='15' cy='17' r='12' fill='%23b8326a'/%3E%3Crect x='19' y='2' width='11' height='8' rx='2' fill='%23f4a823'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet"></noscript>
@@ -4246,7 +4246,7 @@ write_redirects(ROOT)
 from PIL import Image as _Im
 for _f in (ROOT / "assets" / "og").glob("*.jpg"):
     _i = _Im.open(_f)
-    if _i.width > 800: _i.convert("RGB").resize((800, 420), _Im.LANCZOS).save(_f, quality=45, optimize=True, progressive=True)
+    if _i.width > 720: _i.convert("RGB").resize((720, 378), _Im.LANCZOS).save(_f, quality=42, optimize=True, progressive=True)
 
 # --- honest sitemap: every indexable page, lastmod only when content changes (seo_post.py, 26 Nov) ---
 import subprocess as _sp, sys as _sys, pathlib as _pl
