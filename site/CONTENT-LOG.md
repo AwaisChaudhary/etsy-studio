@@ -340,3 +340,5 @@
 - SHOP: 3 new products (Etsy only; Gumroad link now optional per item). Mapped: craft-fair-profit-calculator, etsy-fee-calculator, craft-fair-checklist -> small business sheet; embroidery-stitches -> machine embroidery sheet; 2027-calendar-printable -> habit tracker.
 - Mobile fix: data tables (table.mt) scroll inside their box under 600px (etsy-fee-calculator overflowed at 390px). All pages checked at 390px: 0 overflow.
 - IndexNow pending https://purlandpaperco.com/craft-fair-profit-calculator https://purlandpaperco.com/embroidery-stitches https://purlandpaperco.com/2027-calendar-printable https://purlandpaperco.com/etsy-fee-calculator https://purlandpaperco.com/craft-fair-checklist
+
+- 26 Nov 20:20 PKT: deployed a59fe8fc (OG recompressed q26 in the zip copy only to stay < 3.8 MB: zip 3.64 MB); IndexNow FLUSHED 26 URLs (200).
