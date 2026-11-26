@@ -1,5 +1,13 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## RADAR 27 Nov run 8 (web search 05:45 PKT, Black Friday)
+G1. DONE 27 Nov (/etsy-shipping-calculator) = D5 'etsy shipping calculator' / 'how much to charge for shipping on etsy' (SERP: Etsy Help "How to Calculate Shipping Costs", Alura, Keywords Everywhere, Printify, ShipStation, Ordoro, Printful, Dummies, ParcelPath: mostly label-rate lookups; none add Etsy's 9.5% fees on shipping or the free-shipping price) -> label + packaging / 0.905, Offsite Ads, free shipping price + $35 boost, USPS 4 oz steps + dim weight check.
+G2. DONE 27 Nov (/how-to-cross-stitch) = D4 'how to cross stitch for beginners step by step' (SERP: Gathered x4, LoveCrafts, Sewing Trip, MasterClass, DMC, Cutesy Crafts, Craft Club Co, Stitched Modern) -> 5 own SVG steps, needle/strand table by count, centre-finder helper.
+G3. DONE 27 Nov (/how-to-crochet-a-granny-square) 'how to crochet a granny square for beginners' (SERP: LoveCrafts x2, Gathered, Yahoo video, Skillshare x3, Ravelry, eHow, Hobbii, Vogue Knitting, Marching North, Yours: none write the rounds for your count or give size/yarn) -> own diagrams, US/UK round writer 1-20, size + yarn estimate, print.
+G4. OPEN 'last minute crochet christmas gifts' / 'quick crochet gifts' (SERP: LoveCrafts 25 + 47 last-minute, Juniper and Oakes 17, EasyCrochet weekend gifts, Hanjan, AllFreeCrochet Christmas Quickies, Jo to the World 25, Love Life Yarn) -> merge as H2 + "under 3 hours" filter into /crochet-knitting-gift-planner (seasonal until ~20 Dec).
+G5. OPEN granny square children: 'how to join granny squares' (join-as-you-go, whip stitch, slip stitch seam; own SVGs) and 'solid granny square' -> next run, link from /how-to-crochet-a-granny-square.
+G6. OPEN 'cross stitch fabric count guide' / 'how to read a cross stitch pattern' -> if Search Console shows it, grow the chart section of /how-to-cross-stitch.
+
 ## EVENING RADAR 26 Nov 18:45 PKT (Google autocomplete US + Trends past 24h)
 - R1 DONE 26 Nov run 7 (/junk-journal-vs-scrapbook) 'junk journal vs scrapbook' (autocomplete #7 for 'junk journal'; 0 pages): comparison guide linking both tool sets.
 - R2 OPEN Trends rising 'yarn holder for crochet' (+130%): DIY yarn holder/bowl guide (own SVG) + shop box. (Skip 'ikea crochet' +400%: brand news, not our page.)
@@ -22,8 +30,8 @@ Tools in this repo: `seo_post.py` (runs at the end of build.py: sitemap = every 
 D1. DONE 26 Nov (/fabric-yardage-calculator) 'fabric yardage calculator' / 'how much fabric do I need' (SERP: Omni fabric calculator, calculator.academy, canvasetc yardage calculator, Melly Sews, Cashmerette 2025, Sew Guide, AllFreeSewing charts, Inspired to Sew, fabrics-store) -> multi-piece layout calculator, widths 44/54/60/108, shrinkage, nap, project table.
 D2. DONE 26 Nov (/christmas-crafts-to-sell) = R3 (SERP: Penny Hoarder, Small Business Trends x3, Unexpectedly Domestic 101, Gumtree, MoneyPantry, xTool: all lists, none price for your wage).
 D3. DONE 26 Nov (/junk-journal-vs-scrapbook) = R1 (SERP: Bearly Art, Artsy Fartsy Life, AOL/Real Simple, Journalsay, My Modern Met, Red River, Wikipedia, Happy Planner).
-D4. OPEN 'how to cross stitch for beginners' (SERP: Gathered x3, LoveCrafts, DMC, MasterClass, EGA "10 things", Fat Quarter Shop FAQ, Mr X Stitch, Sew Guide, Wool Warehouse): /how-to-cross-stitch guide with own SVG steps (start without a knot, loop start, half/full cross), link /cross-stitch-calculator.
-D5. OPEN 'etsy shipping calculator' (Alura, ecomcalctools, keywordseverywhere, parcelpath tools): seller tool for package weight/size -> shipping profile price incl. fees on shipping; link /etsy-fee-calculator.
+D4. DONE 27 Nov (/how-to-cross-stitch) 'how to cross stitch for beginners' (SERP: Gathered x3, LoveCrafts, DMC, MasterClass, EGA "10 things", Fat Quarter Shop FAQ, Mr X Stitch, Sew Guide, Wool Warehouse): /how-to-cross-stitch guide with own SVG steps (start without a knot, loop start, half/full cross), link /cross-stitch-calculator.
+D5. DONE 27 Nov (/etsy-shipping-calculator) 'etsy shipping calculator' (Alura, ecomcalctools, keywordseverywhere, parcelpath tools): seller tool for package weight/size -> shipping profile price incl. fees on shipping; link /etsy-fee-calculator.
 
 ## RADAR 26 Nov run 6 (web search)
 B1. DONE 26 Nov (/fat-quarter-calculator) 'how many fat quarters for a quilt' / 'fat quarter size' / 'how many 5 inch squares in a fat quarter' (SERP: Missouri Star fat quarter guides x3, Mrs Quilty "with a simple calculator", HC Quilts, Linda's fat quarter size + bundle guides, Gathered fabric guide, Storables queen-quilt FQ count, New Quilters "12 ways to cut fat quarters", Hello Sewing) -> pieces-per-FQ + FQs-per-quilt calculator with cutting layout.

@@ -33,6 +33,7 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <li><a href="{href("junk-journal-beginners.html")}">Junk journaling for beginners</a> and the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</li></ul>
 <h2>Needlework</h2>
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
+<li><a href="{href("how-to-cross-stitch.html")}">How to cross stitch for beginners</a>: supplies, the stitch in five drawn steps, and which needle and strands to use.</li>
 <li><a href="{href("quilt-size-calculator.html")}">Quilt size calculator</a>: finished size for any bed, backing and binding yardage.</li>
 <li><a href="{href("half-square-triangle-calculator.html")}">Half square triangle calculator</a>: cut sizes for HSTs made 2, 4 or 8 at a time.</li>
 <li><a href="{href("fat-quarter-calculator.html")}">Fat quarter calculator</a>: squares and strips per fat quarter, and how many a quilt needs.</li>
@@ -239,7 +240,7 @@ document.getElementById("xs-out").innerHTML="<h2>"+w.toFixed(1)+" × "+h.toFixed
 <li>Go down at the top-right to make the first half stitch, then pass the needle through the loop at the back and pull gently. The thread is locked, with no knot.</li></ol>
 <p>For 1 or 3 strands, use a <strong>waste knot</strong> instead: knot the end, go down from the front about 2 in (5 cm) along the row you're about to stitch, and work over the tail at the back; snip the knot when the tail is covered. To finish any thread, slide the needle under 3 or 4 stitches at the back and trim close. More hand stitches, with diagrams, are in <a href="{href("embroidery-stitches.html")}">embroidery stitches for beginners</a>.</p>
 <p>Planning a big piece? Chart and count it on <a href="{href("dot-grid-paper.html")}">printable graph paper</a>. Quilting too? Try the <a href="{href("quilt-size-calculator.html")}">quilt size calculator</a>.</p>
-</div></div></section>{more_crafts("cross-stitch-calculator.html")}'''
+<p>First time? Follow <a href="{href("how-to-cross-stitch.html")}">how to cross stitch for beginners</a>: the stitch in five drawn steps, reading a chart, and the right needle and strands.</p></div></div></section>{more_crafts("cross-stitch-calculator.html")}'''
 xs_faq = [
  ("How do I work out the size of a cross stitch?", "Divide the number of stitches by the fabric count. 140 stitches on 14-count Aida is 10 inches."),
  ("How much fabric do I need for cross stitch?", "The design size plus 3 inches on every side for framing, or about 2 inches for a hoop."),

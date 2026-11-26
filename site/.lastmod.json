@@ -1,47 +1,47 @@
 {
 "2027-calendar-printable.html": [
-"50f7a44ebdb33d92",
-"2026-11-26"
+"7eb5befe6e5d92dd",
+"2026-11-27"
 ],
 "about.html": [
 "54cb8b9299425cf5",
 "2026-11-19"
 ],
 "advent-calendar-ideas.html": [
-"f15652abdead5ee6",
-"2026-11-26"
+"0c78fb6ff59cca9b",
+"2026-11-27"
 ],
 "amigurumi.html": [
-"0b49b434f218a077",
-"2026-11-26"
+"c2bb4fec28a38e91",
+"2026-11-27"
 ],
 "basic-crochet-stitches.html": [
-"7df6b8035da701d9",
-"2026-11-26"
+"5e7f7dba6b267cdc",
+"2026-11-27"
 ],
 "blanket-size-calculator.html": [
 "777ff4f85e585382",
 "2026-11-24"
 ],
 "bookbinding.html": [
-"459fef65452dfcca",
-"2026-11-26"
+"e1a36170b7cd86cb",
+"2026-11-27"
 ],
 "c2c-blanket-calculator.html": [
 "29826237c5fccd24",
 "2026-11-25"
 ],
 "calligraphy-practice-sheets.html": [
-"897efe98dfcde2e2",
-"2026-11-26"
+"fed6e9b06c595e18",
+"2026-11-27"
 ],
 "candle-making-calculator.html": [
-"c457285fad938e7f",
-"2026-11-26"
+"9822c9220ee7f9f9",
+"2026-11-27"
 ],
 "card-making.html": [
-"25f2dc19bffd50eb",
-"2026-11-26"
+"52cddac61ad5c13e",
+"2026-11-27"
 ],
 "cast-on-calculator.html": [
 "d11b04d215be0f47",
@@ -52,36 +52,36 @@
 "2026-11-26"
 ],
 "christmas-crafts.html": [
-"d829dc0a2d16b04c",
-"2026-11-26"
+"e3824b4a945ca918",
+"2026-11-27"
 ],
 "christmas-stocking-calculator.html": [
 "0defa37a666d9346",
 "2026-11-26"
 ],
 "coloring-pages.html": [
-"29bc7e92e78fe1c1",
-"2026-11-26"
+"d95c357dfd4c5fa7",
+"2026-11-27"
 ],
 "craft-fair-checklist.html": [
 "6be895d222b5a102",
 "2026-11-26"
 ],
 "craft-fair-profit-calculator.html": [
-"b2a898e648eb5d80",
-"2026-11-26"
+"8d3db18dc4d6bf35",
+"2026-11-27"
 ],
 "crafts.html": [
-"798755bab279b299",
-"2026-11-26"
+"08bfbdc1a67caeff",
+"2026-11-27"
 ],
 "crochet-circle-calculator.html": [
 "a96d4287e681a7a7",
 "2026-11-22"
 ],
 "crochet-knitting-gift-planner.html": [
-"cc97e43b717550f8",
-"2026-11-26"
+"e9f2e7fe581f6dc4",
+"2026-11-27"
 ],
 "crochet-project-planner.html": [
 "2554876477f94a1f",
@@ -96,36 +96,40 @@
 "2026-11-25"
 ],
 "cross-stitch-calculator.html": [
-"bd6910aed9953d0f",
-"2026-11-26"
+"657f57f6f4f163ec",
+"2026-11-27"
 ],
 "diamond-painting-calculator.html": [
-"979ab86c5a44c17d",
-"2026-11-26"
+"79bfe80b8bc982c3",
+"2026-11-27"
 ],
 "dot-grid-paper.html": [
-"fa4c9495dcace490",
-"2026-11-26"
+"3cecb48518c75121",
+"2026-11-27"
 ],
 "embroidery-patterns.html": [
-"59d7dbd4d526e37f",
-"2026-11-26"
+"22cba49e6e27d9b8",
+"2026-11-27"
 ],
 "embroidery-stitches.html": [
-"38c35107b2866bbd",
-"2026-11-26"
+"9cb940c223ac8573",
+"2026-11-27"
 ],
 "etsy-fee-calculator.html": [
-"8bcb9b420e629b7c",
+"efb209afaa837afe",
+"2026-11-27"
+],
+"etsy-shipping-calculator.html": [
+"ab798e5bb35b0adb",
 "2026-11-26"
 ],
 "etsy-title-tag-checker.html": [
-"9fb81bd51c669035",
-"2026-11-26"
+"4f295905c84b27cf",
+"2026-11-27"
 ],
 "eu-rules-checker-etsy-sellers.html": [
-"03e968de6525de35",
-"2026-11-26"
+"b80b54122cd27fa3",
+"2026-11-27"
 ],
 "fabric-yardage-calculator.html": [
 "ee085e1221266d21",
@@ -140,20 +144,20 @@
 "2026-11-23"
 ],
 "friendship-bracelet-patterns.html": [
-"2adba83e1af5f98a",
-"2026-11-26"
+"7ae95e003a0704c5",
+"2026-11-27"
 ],
 "gauge-converter.html": [
 "990c361a66bb931a",
 "2026-11-24"
 ],
 "granny-square-blanket-calculator.html": [
-"787e4b52efdbc62f",
-"2026-11-23"
+"565d563109928680",
+"2026-11-27"
 ],
 "half-square-triangle-calculator.html": [
-"97ff1a0d2c0792a6",
-"2026-11-26"
+"af04437f52e4584e",
+"2026-11-27"
 ],
 "hat-size-chart.html": [
 "dcf6b9f4181833f2",
@@ -175,6 +179,10 @@
 "f6b1f75559505918",
 "2026-11-24"
 ],
+"how-to-crochet-a-granny-square.html": [
+"9baf1c7e2ade2d3a",
+"2026-11-27"
+],
 "how-to-crochet-decrease.html": [
 "fc47251d17c170ad",
 "2026-11-24"
@@ -182,6 +190,10 @@
 "how-to-crochet-magic-ring.html": [
 "09c7490b773a5bf9",
 "2026-11-24"
+],
+"how-to-cross-stitch.html": [
+"1cf21bef968915e6",
+"2026-11-26"
 ],
 "how-to-fix-a-dropped-stitch.html": [
 "6103fb22c7927374",
@@ -208,8 +220,8 @@
 "2026-11-25"
 ],
 "how-to-price-crochet-items.html": [
-"e6ce5cb2f19f4449",
-"2026-11-26"
+"551b849a8b03d521",
+"2026-11-27"
 ],
 "how-to-read-crochet-patterns.html": [
 "902f7c19eb62dea1",
@@ -228,8 +240,8 @@
 "2026-11-24"
 ],
 "index.html": [
-"0b772154ac796290",
-"2026-11-26"
+"935fe17f1963ffb4",
+"2026-11-27"
 ],
 "journal-prompts.html": [
 "f1ff81275a13fcc6",
@@ -256,12 +268,12 @@
 "2026-11-26"
 ],
 "kdp-cover-size-calculator.html": [
-"e952e67b2376e29e",
-"2026-11-26"
+"7f8e3ab8a250e92b",
+"2026-11-27"
 ],
 "kdp-royalty-calculator.html": [
-"95889ea6dd38933f",
-"2026-11-26"
+"714ea12f4d68b6ef",
+"2026-11-27"
 ],
 "knit-stitch-patterns.html": [
 "809d95fa811e2c2e",
@@ -272,28 +284,28 @@
 "2026-11-26"
 ],
 "loom-knitting.html": [
-"55562353e909118d",
-"2026-11-26"
+"e6ea67497cd70290",
+"2026-11-27"
 ],
 "macrame-cord-calculator.html": [
-"5ab9b2b69c63f2b3",
-"2026-11-26"
+"0044968cc62d335b",
+"2026-11-27"
 ],
 "needle-felting.html": [
-"dd798fbcecac350a",
-"2026-11-26"
+"ac376406d614d87f",
+"2026-11-27"
 ],
 "origami.html": [
-"2b098b1f12f0e34a",
-"2026-11-26"
+"03543aa5e05bfaf4",
+"2026-11-27"
 ],
 "paper-flowers.html": [
-"bd375a6786aba444",
-"2026-11-26"
+"21261bebb3b275a4",
+"2026-11-27"
 ],
 "polymer-clay-baking-calculator.html": [
-"216e16fb15671ee4",
-"2026-11-26"
+"7e1d760366a63ec1",
+"2026-11-27"
 ],
 "privacy.html": [
 "9f4aa19ef9ec5b01",
@@ -304,16 +316,16 @@
 "2026-11-26"
 ],
 "punch-needle.html": [
-"f88b346333f8b73d",
-"2026-11-26"
+"10781497a78ffc9e",
+"2026-11-27"
 ],
 "quilt-size-calculator.html": [
-"b759f933c97f0207",
-"2026-11-26"
+"704ca67e8aa33a0d",
+"2026-11-27"
 ],
 "resin-calculator.html": [
-"28d9581e9c895fcf",
-"2026-11-26"
+"a7814a9ebdfb970b",
+"2026-11-27"
 ],
 "row-counter.html": [
 "d3da07eb67ee0652",
@@ -328,8 +340,8 @@
 "2026-11-26"
 ],
 "seller-tools.html": [
-"9b3fa7617b964823",
-"2026-11-26"
+"83294f872c40604d",
+"2026-11-27"
 ],
 "sewing-seam-allowance.html": [
 "0a25215395880d68",
@@ -352,12 +364,12 @@
 "2026-11-23"
 ],
 "tufting.html": [
-"d8ead376009c856b",
-"2026-11-26"
+"1a916369e910490d",
+"2026-11-27"
 ],
 "tunisian-crochet.html": [
-"c07cdd49af435f75",
-"2026-11-26"
+"8b7b3475d9265ab4",
+"2026-11-27"
 ],
 "yarn-calculator.html": [
 "8098a5e0560066e1",

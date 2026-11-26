@@ -357,3 +357,18 @@
 - Shop boxes: fabric -> small business sheet, pricing calculator, 2027 planner, gift tags; Christmas-to-sell -> pricing calculator, small business sheet, gift tags, gift planner; jvs -> mega bundle, Tea Room kit, journaling cards, ephemera pack. No new live products (batch 9 already mapped).
 - Pins queued: pins/site/fabric-yardage-calculator.jpg, pins/site/christmas-crafts-to-sell.jpg, pins/site/junk-journal-vs-scrapbook.jpg.
 - IndexNow pending (live after the next deploy): https://purlandpaperco.com/fabric-yardage-calculator, https://purlandpaperco.com/christmas-crafts-to-sell, https://purlandpaperco.com/junk-journal-vs-scrapbook, https://purlandpaperco.com/junk-journal-beginners
+
+## 2026-11-27 (daily SEO run 8, 05:45 PKT)
+- DEMAND.md: new RADAR 27 Nov run 8 block (G1-G6); D4, D5 closed.
+- New tool: /etsy-shipping-calculator (trio.py; SELLER list + seller hub + footer Guides; in-links from /etsy-fee-calculator, /how-to-price-crochet-items, /seller-tools, Home "Fresh today"). Label + packaging grossed up for Etsy's 6.5% + 3% fees on shipping (Offsite Ads 15/12% option), free-shipping item price with the $35 US boost note, what you keep per order, USPS Ground Advantage 4 oz step + dimensional weight (>1,728 cu in, /166) check.
+- Targets: "etsy shipping calculator", "how much to charge for shipping on etsy", "does etsy charge fees on shipping", "etsy free shipping $35", "how much does it cost to ship a crochet hat".
+- Sources: Etsy fees policy + Help Center (shipping costs, Free Shipping Guarantee), USPS weight steps and dim weight rule (SERP 27 Nov). Label prices typed by the user.
+- New guide + helper: /how-to-cross-stitch (NEW_CRAFTS + crafts hub Needlework + footer Guides; in-links from /cross-stitch-calculator, /embroidery-stitches, Home). 5 own SVG step diagrams (half stitch, row, return, loop start, finishing), needle/strand table for 11-32 count, helper: needle + strands + centre stitch + finished size + fabric cut.
+- Targets: "how to cross stitch for beginners", "how many strands for cross stitch", "what needle for cross stitch", "where to start cross stitch", "cross stitch without a knot".
+- Sources: DMC beginner guide, Gathered, LoveCrafts (SERP 27 Nov). Steps/drawings ours.
+- New guide + writer: /how-to-crochet-a-granny-square (footer Guides; in-links from /granny-square-blanket-calculator, /basic-crochet-stitches, Home). Own SVG step figures + 4-round diagram, stitch counts (4n clusters, 12n dc), US/UK round-by-round pattern writer (1-20 rounds, one colour or colour per round), size + yardage estimate (DK/worsted/bulky), print.
+- Targets: "how to crochet a granny square for beginners", "granny square pattern", "how big is a 5 round granny square", "how much yarn for a granny square", "why is my granny square twisting".
+- Sources: LoveCrafts, Gathered, Vogue Knitting, Hobbii (SERP 27 Nov); sizes/yardage our estimates, consistent with /granny-square-blanket-calculator.
+- Shop boxes: shipping -> small business sheet, pricing calculator, tumbler sheet, gift tags; cross stitch -> machine embroidery sheet, pricing calculator, 2027 planner, gift tags; granny -> stash tracker, 2027 planner, pricing calculator, gift tags. No new live products found (batch 9 already mapped).
+- Pins queued: pins/site/etsy-shipping-calculator.jpg (Small Business Spreadsheets), pins/site/how-to-cross-stitch.jpg, pins/site/how-to-crochet-a-granny-square.jpg.
+- IndexNow pending (live after the next deploy): https://purlandpaperco.com/etsy-shipping-calculator, https://purlandpaperco.com/how-to-cross-stitch, https://purlandpaperco.com/how-to-crochet-a-granny-square, https://purlandpaperco.com/seller-tools

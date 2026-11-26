@@ -3199,4 +3199,89 @@
     jvsRun();
   }
 
+  /* ---------- ETSY SHIPPING CALCULATOR ---------- */
+  if ($("#sh-label") && $("#sh-out")) {
+    var shIds = ["#sh-label", "#sh-pack", "#sh-price", "#sh-ads", "#sh-wi", "#sh-wp", "#sh-l", "#sh-w", "#sh-h"];
+    var usd = function (x) { return "$" + (Math.round(x * 100) / 100).toFixed(2); };
+    var shRun = function () {
+      var n = function (id) { return Math.max(0, parseFloat($(id).value) || 0); };
+      var L = n("#sh-label"), P = n("#sh-pack"), pr = n("#sh-price"), ads = parseFloat($("#sh-ads").value) || 0;
+      var f = 0.065 + 0.03 + ads, keep = 1 - f, o = [];
+      var S = (L + P) / keep, Sr = Math.ceil(S * 4 - 1e-9) / 4;
+      o.push("<h3>Charge for shipping</h3><p class=\"big\">" + usd(S) + "</p>");
+      o.push("<p>Covers the " + usd(L) + " label, " + usd(P) + " packaging and " + usd(S * f) + " of Etsy fees on the shipping charge (" + Math.round(f * 1000) / 10 + "%). Rounded up: <strong>" + usd(Sr) + "</strong>.</p>");
+      if (pr > 0) {
+        var fp = pr + S, tot = pr + S;
+        var fees = tot * f + 0.25 + 0.20, net = tot - fees - L - P;
+        o.push("<h3>Or offer free shipping</h3><p>Price the item at about <strong>" + usd(fp) + "</strong> instead of " + usd(pr) + "." + (fp >= 35 ? " That's over $35, so US buyers see free shipping and the listing gets the US search boost." : (fp >= 25 ? " Close to $35: buyers who add a second item reach the free shipping boost." : "")) + "</p>");
+        o.push("<p>Either way you keep about <strong>" + usd(net) + "</strong> from the order after all Etsy fees (incl. $0.25 processing and $0.20 listing), the label and packaging, before your materials. Check the whole sale in the <a href=\"" + ($("#sh-out").getAttribute("data-fee") || "/etsy-fee-calculator") + "\">Etsy fee calculator</a>.</p>");
+      }
+      var oz = n("#sh-wi") + n("#sh-wp"), vol = n("#sh-l") * n("#sh-w") * n("#sh-h");
+      if (oz > 0) {
+        var tier = oz <= 4 ? "up to 4 oz" : oz <= 8 ? "4.01 to 8 oz" : oz <= 12 ? "8.01 to 12 oz" : oz < 16 ? "12.01 to 15.99 oz" : Math.ceil(oz / 16 - 1e-9) + " lb";
+        var t = "<h3>Package</h3><p>" + (Math.round(oz * 10) / 10) + " oz packed (" + (Math.round(oz * 28.35)) + " g): USPS Ground Advantage step <strong>" + tier + "</strong>.";
+        if (oz < 16) { var nx = oz <= 4 ? 4 : oz <= 8 ? 8 : oz <= 12 ? 12 : 15.99; if (nx - oz < 1) t += " You're within an ounce of the next step: keep the packaging light."; }
+        if (vol > 1728) { var dw = Math.ceil(vol / 166); t += " The box is " + Math.round(vol) + " cu in, over 1 cubic foot, so USPS charges dimensional weight of about <strong>" + dw + " lb</strong>" + (dw * 16 > oz ? ", more than the real weight. A smaller box or a soft mailer would cost less." : "."); }
+        else if (vol > 0) t += " Box " + Math.round(vol) + " cu in: under 1 cubic foot, so it's priced by real weight.";
+        o.push(t + "</p>");
+      }
+      $("#sh-out").innerHTML = o.join("");
+      var st = {}; shIds.forEach(function (id) { st[id] = $(id).value; }); store.set("pp-sh", st);
+    };
+    var shS = store.get("pp-sh", null);
+    if (shS) shIds.forEach(function (id) { if (shS[id] != null) $(id).value = shS[id]; });
+    shIds.forEach(function (id) { $(id).addEventListener("input", shRun); $(id).addEventListener("change", shRun); });
+    shRun();
+  }
+
+  /* ---------- HOW TO CROSS STITCH: NEEDLE + CENTRE HELPER ---------- */
+  if ($("#cx-fab") && $("#cx-out") && $("#cx-data")) {
+    var CXD = JSON.parse($("#cx-data").textContent);
+    var cxRun = function () {
+      var d = CXD[$("#cx-fab").value] || CXD["14"], w = parseInt($("#cx-w").value, 10) || 0, h = parseInt($("#cx-h").value, 10) || 0, o = [];
+      o.push("<h3>Use</h3><p class=\"big\">" + d[1] + " <small>strand" + (d[1] === "1" ? "" : "s") + "</small></p>");
+      o.push("<p>Tapestry needle size <strong>" + d[3] + "</strong>, " + d[2] + " strand" + (d[2] === "1" ? "" : "s") + " for backstitch, " + d[0] + " stitches to the inch.</p>");
+      if (w > 0 && h > 0) {
+        var fw = w / d[0], fh = h / d[0], cw = Math.ceil(w / 2), ch = Math.ceil(h / 2);
+        o.push("<h3>Centre of the design</h3><p>Stitch " + cw + " across and " + ch + " down (counting from the top left of the chart). Start there, at the centre of your fabric.</p>");
+        o.push("<p>Finished size about <strong>" + fw.toFixed(1) + " x " + fh.toFixed(1) + " in</strong> (" + (fw * 2.54).toFixed(1) + " x " + (fh * 2.54).toFixed(1) + " cm). Cut the fabric about <strong>" + Math.ceil(fw + 6) + " x " + Math.ceil(fh + 6) + " in</strong> to leave 3 in on each side. Floss amounts: <a href=\"" + ($("#cx-out").getAttribute("data-calc") || "/cross-stitch-calculator") + "\">cross stitch calculator</a>.</p>");
+      }
+      $("#cx-out").innerHTML = o.join("");
+      store.set("pp-cx", { f: $("#cx-fab").value, w: $("#cx-w").value, h: $("#cx-h").value });
+    };
+    var cxS = store.get("pp-cx", null);
+    if (cxS) { if (CXD[cxS.f]) $("#cx-fab").value = cxS.f; if (cxS.w) $("#cx-w").value = cxS.w; if (cxS.h) $("#cx-h").value = cxS.h; }
+    ["#cx-fab", "#cx-w", "#cx-h"].forEach(function (id) { $(id).addEventListener("input", cxRun); $(id).addEventListener("change", cxRun); });
+    cxRun();
+  }
+
+  /* ---------- GRANNY SQUARE PATTERN WRITER ---------- */
+  if ($("#gq-n") && $("#gq-out")) {
+    var gqRun = function () {
+      var N = Math.min(20, Math.max(1, parseInt($("#gq-n").value, 10) || 1)), uk = $("#gq-t").value === "uk", cc = $("#gq-c").value === "2", y = $("#gq-y").value;
+      var D = uk ? "tr" : "dc", SL = uk ? "ss" : "sl st", R = [], o = [];
+      R.push("<li><strong>Start:</strong> ch 4, " + SL + " in first ch to form a ring.</li>");
+      R.push("<li><strong>Round 1:</strong> ch 3 (counts as " + D + "), 2 " + D + " in ring, ch 2, [3 " + D + " in ring, ch 2] 3 times, " + SL + " to top of ch-3. <em>(4 clusters, 12 " + D + ")</em></li>");
+      var mv = cc ? "Fasten off. Join new colour in any ch-2 corner sp, " : SL + " in next 2 " + D + " and into ch-2 corner sp, ";
+      for (var r = 2; r <= N; r++) {
+        var side = r - 2, sd = side ? ", [3 " + D + " in next ch-1 sp, ch 1] " + (side === 1 ? "once" : side + " times") : "";
+        R.push("<li><strong>Round " + r + ":</strong> " + mv + "ch 3, (2 " + D + ", ch 2, 3 " + D + ") in same sp, ch 1" + sd + ", *(3 " + D + ", ch 2, 3 " + D + ") in next corner sp, ch 1" + sd + "; rep from * twice more, " + SL + " to top of ch-3. <em>(" + 4 * r + " clusters, " + 12 * r + " " + D + ")</em></li>");
+      }
+      R.push("<li><strong>Finish:</strong> fasten off and weave in the ends.</li>");
+      var pr = { dk: [0.8, "DK"], w: [1.0, "worsted"], b: [1.3, "bulky"] }[y] || [1, "worsted"];
+      var side_in = (N + 0.1) * pr[0], yd = side_in * side_in * (y === "dk" ? 1.4 : y === "b" ? 0.65 : 1.0); /* yd per sq in, our estimate: 5-round worsted ~5 in, ~26 yd */
+      o.push("<h3>Your square</h3><p class=\"big\">" + side_in.toFixed(1) + " <small>in</small></p>");
+      o.push("<p>About " + (side_in * 2.54).toFixed(0) + " cm across in " + pr[1] + ", using roughly <strong>" + Math.round(yd) + " yd</strong> (" + Math.round(yd * 0.9144) + " m) of yarn. Estimates: measure your first square. Planning a blanket? Use the <a href=\"" + ($("#gq-out").getAttribute("data-bl") || "/granny-square-blanket-calculator") + "\">granny square blanket calculator</a>.</p>");
+      o.push("<h3>Pattern (" + (uk ? "UK" : "US") + " terms)</h3><ol class=\"gq-pat\">" + R.join("") + "</ol>");
+      o.push('<p><button type="button" class="btn ghost sm" id="gq-print">Print the pattern</button></p>');
+      $("#gq-out").innerHTML = o.join("");
+      $("#gq-print").addEventListener("click", function () { window.print(); });
+      store.set("pp-gq", { n: $("#gq-n").value, t: $("#gq-t").value, c: $("#gq-c").value, y: $("#gq-y").value });
+    };
+    var gqS = store.get("pp-gq", null);
+    if (gqS) { ["n", "t", "c", "y"].forEach(function (k) { if (gqS[k]) $("#gq-" + k).value = gqS[k]; }); }
+    ["#gq-n", "#gq-t", "#gq-c", "#gq-y"].forEach(function (id) { $(id).addEventListener("input", gqRun); $(id).addEventListener("change", gqRun); });
+    gqRun();
+  }
+
 })();

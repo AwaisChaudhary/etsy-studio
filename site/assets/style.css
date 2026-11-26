@@ -661,3 +661,11 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .chk input { margin-top: 4px; flex: none; }
 .jvs-q { border: 0; padding: 0; margin: 0 0 14px; min-width: 0; } .jvs-q legend { font-weight: 700; margin-bottom: 4px; padding: 0; }
 #cs-table tr[hidden] { display: none; }
+
+/* run 8 (27 Nov): granny square + cross stitch step figures */
+.gq-figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 14px 0 18px; }
+.gq-fig { margin: 0; background: #fff; border-radius: 12px; padding: 10px; box-shadow: 0 1px 3px rgba(31,42,68,.12); }
+.gq-fig svg { width: 100%; height: auto; display: block; }
+.gq-fig figcaption { font-size: .88rem; color: #555; margin-top: 6px; }
+.gq-pat { padding-left: 20px; } .gq-pat li { margin: 6px 0; line-height: 1.45; }
+@media print { [data-page="how-to-crochet-a-granny-square"] .sheet, [data-page="how-to-crochet-a-granny-square"] .quick, [data-page="how-to-crochet-a-granny-square"] #gq-print { display: none !important; } [data-page="how-to-crochet-a-granny-square"] .tool { display: block; } }

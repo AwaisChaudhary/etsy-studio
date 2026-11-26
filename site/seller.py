@@ -12,6 +12,7 @@ SELLER = [
  ("kdp-cover-size-calculator.html", "KDP cover size and spine calculator", "Full-wrap cover size, spine width and pixels for any trim and page count."),
  ("craft-fair-profit-calculator.html", "Craft fair profit calculator", "Break-even sales, profit per hour and the 3x booth fee rule for a market day."),
  ("christmas-crafts-to-sell.html", "Christmas crafts to make and sell", "19 Christmas makes with material cost, time and a price for your hourly rate."),
+ ("etsy-shipping-calculator.html", "Etsy shipping calculator", "What to charge for shipping so the label, packaging and Etsy fees are covered, or what to add for free shipping."),
 ]
 def more_seller(file):
     return '<section><div class="wrap"><div class="narrow prose"><h2>More free seller tools</h2><ul>' + "".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n, _ in SELLER if f != file) + "</ul></div></div></section>"
@@ -21,6 +22,7 @@ hub = top("Free tools for Etsy and KDP sellers", "We sell digital products on Et
 <h2>Etsy</h2><ul>
 <li><a href="{href("etsy-fee-calculator.html")}">Etsy fee calculator</a>: listing, transaction, payment processing and Offsite Ads fees, and the price you need for the profit you want.</li>
 <li><a href="{href("etsy-title-tag-checker.html")}">Etsy title and tag checker</a>: length limits, repeated words, tags over 20 characters, tags that waste a slot.</li>
+<li><a href="{href("etsy-shipping-calculator.html")}">Etsy shipping calculator</a>: what to charge for shipping once Etsy's fees on shipping are counted, free shipping, and package weight.</li>
 <li><a href="{href("eu-rules-checker-etsy-sellers.html")}">EU rules checker</a>: five questions to see which EU rules apply to your shop, with a to-do list.</li></ul>
 <h2>Amazon KDP</h2><ul>
 <li><a href="{href("kdp-royalty-calculator.html")}">KDP royalty calculator</a>: printing cost and royalty per paperback, and why $9.99 matters.</li>

@@ -21,6 +21,7 @@ NEW_CRAFTS = [
  ("sewing-seam-allowance.html", "Seam allowance guide + calculator", "Standard seam allowances and the cut size for any finished size."),
  ("fabric-yardage-calculator.html", "Fabric yardage calculator", "How many yards or metres to buy for any set of pieces."),
  ("junk-journal-vs-scrapbook.html", "Junk journal vs scrapbook", "How they differ, a quiz to pick one, and how to combine them."),
+ ("how-to-cross-stitch.html", "How to cross stitch for beginners", "Supplies, reading a chart, the stitch in five drawn steps, and a needle and strand helper."),
 ]
 CRAFTS.extend(NEW_CRAFTS)
 NEW_HUB = '''<h2>Seasonal</h2><ul><li><a href="{H:christmas-crafts.html}">Christmas crafts</a>: paper and yarn makes, plus printable gift tags.</li><li><a href="{H:advent-calendar-ideas.html}">Advent calendar ideas</a>: fillers and printable 1-24 number cards.</li><li><a href="{H:2027-calendar-printable.html}">2027 calendar printable</a>.</li><li><a href="{H:christmas-crafts-to-sell.html}">Christmas crafts to make and sell</a>, with prices.</li></ul>
