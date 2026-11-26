@@ -275,7 +275,7 @@ document.getElementById("qs-out").innerHTML="<h2>"+W+" × "+L+" in quilt</h2><p>
 {"".join(f"<tr><td>{n}</td><td>{w} × {l} in</td><td>{q_sz(w,l,8,0)[0]} × {q_sz(w,l,8,0)[1]} in</td><td>{q_sz(w,l,12,10)[0]} × {q_sz(w,l,12,10)[1]} in</td></tr>" for k, n, w, l in QB)}
 <tr><td>Throw</td><td>n/a</td><td colspan="2">About 50 × 65 in (lap quilts 36 × 48 to 50 × 60 in)</td></tr></tbody></table></div>
 <p class="note">Standard US mattress sizes. Measure your own mattress, especially pillow-tops and deep mattresses, which need more drop.</p>
-<p>Making the top from a fat quarter bundle? The <a href="{href("fat-quarter-calculator.html")}">fat quarter calculator</a> counts the squares per fat quarter and how many you need. New to the ¼ in seam? See the <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a>.</p>
+<p>Making the top from a fat quarter bundle? The <a href="{href("fat-quarter-calculator.html")}">fat quarter calculator</a> counts the squares per fat quarter and how many you need. New to the ¼ in seam? See the <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a>. Sewing something else? The <a href="{href("fabric-yardage-calculator.html")}">fabric yardage calculator</a> covers cushions, bags and more.</p>
 <h2>How to measure for a quilt</h2>
 <p>Measure the top of the mattress, then the drop: from the top edge down to where you want the quilt to stop. About 8 in just covers the mattress (a coverlet), 12 in or more hides the box spring, and a bedspread reaches the floor, usually 20 in or more. Add about 10 in at the head if the quilt tucks under the pillows.</p>
 <h2>Backing and batting</h2>

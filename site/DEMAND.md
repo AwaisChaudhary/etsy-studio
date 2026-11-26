@@ -1,9 +1,9 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
 ## EVENING RADAR 26 Nov 18:45 PKT (Google autocomplete US + Trends past 24h)
-- R1 OPEN 'junk journal vs scrapbook' (autocomplete #7 for 'junk journal'; 0 pages): comparison guide linking both tool sets.
+- R1 DONE 26 Nov run 7 (/junk-journal-vs-scrapbook) 'junk journal vs scrapbook' (autocomplete #7 for 'junk journal'; 0 pages): comparison guide linking both tool sets.
 - R2 OPEN Trends rising 'yarn holder for crochet' (+130%): DIY yarn holder/bowl guide (own SVG) + shop box. (Skip 'ikea crochet' +400%: brand news, not our page.)
-- R3 OPEN 'christmas crafts to make and sell' / 'for adults to make and sell' (#4/#7; 1 page): list with material cost + suggested price via our pricing calculator (estimates labelled).
+- R3 DONE 26 Nov run 7 (/christmas-crafts-to-sell) 'christmas crafts to make and sell' / 'for adults to make and sell' (#4/#7; 1 page): list with material cost + suggested price via our pricing calculator (estimates labelled).
 
 ## NEW CATEGORY EXPANSION (Awais 26 Nov: when traffic plateaus, open new categories backed by Trends/searches; don't wait for input)
 Evidence = Google autocomplete 26 Nov 18:10 PKT. Each is a CATEGORY: build a hub page first, then 1-2 child pages per run. Skip if it already exists.
@@ -18,12 +18,19 @@ Tools in this repo: `seo_post.py` (runs at the end of build.py: sitemap = every 
 5. Links: only real editorial links via outreach batches Awais approves; build "linkable assets" (original data, free tools, maps) and list pitch targets in DEMAND for approval.
 6. Monthly: run seo_audit.py on the whole site and fix broken links, orphans, duplicate titles/descriptions, missing schema.
 
+## RADAR 26 Nov run 7 (web search 21:40 PKT)
+D1. DONE 26 Nov (/fabric-yardage-calculator) 'fabric yardage calculator' / 'how much fabric do I need' (SERP: Omni fabric calculator, calculator.academy, canvasetc yardage calculator, Melly Sews, Cashmerette 2025, Sew Guide, AllFreeSewing charts, Inspired to Sew, fabrics-store) -> multi-piece layout calculator, widths 44/54/60/108, shrinkage, nap, project table.
+D2. DONE 26 Nov (/christmas-crafts-to-sell) = R3 (SERP: Penny Hoarder, Small Business Trends x3, Unexpectedly Domestic 101, Gumtree, MoneyPantry, xTool: all lists, none price for your wage).
+D3. DONE 26 Nov (/junk-journal-vs-scrapbook) = R1 (SERP: Bearly Art, Artsy Fartsy Life, AOL/Real Simple, Journalsay, My Modern Met, Red River, Wikipedia, Happy Planner).
+D4. OPEN 'how to cross stitch for beginners' (SERP: Gathered x3, LoveCrafts, DMC, MasterClass, EGA "10 things", Fat Quarter Shop FAQ, Mr X Stitch, Sew Guide, Wool Warehouse): /how-to-cross-stitch guide with own SVG steps (start without a knot, loop start, half/full cross), link /cross-stitch-calculator.
+D5. OPEN 'etsy shipping calculator' (Alura, ecomcalctools, keywordseverywhere, parcelpath tools): seller tool for package weight/size -> shipping profile price incl. fees on shipping; link /etsy-fee-calculator.
+
 ## RADAR 26 Nov run 6 (web search)
 B1. DONE 26 Nov (/fat-quarter-calculator) 'how many fat quarters for a quilt' / 'fat quarter size' / 'how many 5 inch squares in a fat quarter' (SERP: Missouri Star fat quarter guides x3, Mrs Quilty "with a simple calculator", HC Quilts, Linda's fat quarter size + bundle guides, Gathered fabric guide, Storables queen-quilt FQ count, New Quilters "12 ways to cut fat quarters", Hello Sewing) -> pieces-per-FQ + FQs-per-quilt calculator with cutting layout.
 B2. DONE 26 Nov (/sewing-seam-allowance) = A6 'standard seam allowance' (Sew Direct, AllFreeSewing guide, Oregon State 4-H PDF, UKY FCS PDF, Threads industry SA PDF, Wikipedia, Sew Guide, Mood Fabrics help, ASG) -> chart by sewing type, in/cm converter, add/remove SA calculator. Starts the sewing hub (E2).
 B3. DONE 26 Nov (/crochet-project-planner) = A4 'free printable crochet project planner' / 'crochet planner 2027' (SERP: I Like Crochet, Repeat Crafter Me, Daisy Cottage, Winding Road Crochet free downloads; Payhip x6, Etsy, Treasurie, Design Bundles, Skillshare paid planners; Joy of Motion 2026 planner) -> fill-in-then-print planner: project page, row tracker, yarn list, 2027 make list. Lead magnet to the 2027 planner product.
 B4. OPEN 'how much yarn for a crochet hat' (EasyCrochet, AllFreeCrochet, Knit Picks hat chart, Dummies, many Ravelry beanies) -> already answered on /hat-size-chart (yardage para + FAQ); if Search Console shows hat-yarn queries, add a yardage-by-size table there.
-B5. OPEN sewing hub next steps (E2): 'fabric yardage calculator', 'how to sew a straight seam', 'sewing machine needle sizes', 'how to sew a cushion cover' (own SVG steps).
+B5. PART-DONE 26 Nov run 7 (/fabric-yardage-calculator) sewing hub next steps (E2): 'how to sew a straight seam', 'sewing machine needle sizes', 'how to sew a cushion cover' (own SVG steps).
 
 ## RADAR 26 Nov run 5 (Google SERP checks)
 A1. DONE 26 Nov (/knit-stitch-patterns) 'knit stitch patterns for beginners' (SERP: StudioKnit 51/52, Gathered 132 + 17 knit-and-purl, Handy Little Me 12, Nimble Needles library, A Box of Twine, Bob Vila 15, B.Hooked 5, Sarah Maker: all lists, none write the rows for your own cast on) -> 15 knit/purl stitches with own chart swatches, rows derived from the charts, multiples table, width-to-cast-on row writer. Closes X4/Z3.

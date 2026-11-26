@@ -11,6 +11,7 @@ SELLER = [
  ("kdp-royalty-calculator.html", "KDP royalty calculator", "Printing cost and royalty for any paperback, and the price you need."),
  ("kdp-cover-size-calculator.html", "KDP cover size and spine calculator", "Full-wrap cover size, spine width and pixels for any trim and page count."),
  ("craft-fair-profit-calculator.html", "Craft fair profit calculator", "Break-even sales, profit per hour and the 3x booth fee rule for a market day."),
+ ("christmas-crafts-to-sell.html", "Christmas crafts to make and sell", "19 Christmas makes with material cost, time and a price for your hourly rate."),
 ]
 def more_seller(file):
     return '<section><div class="wrap"><div class="narrow prose"><h2>More free seller tools</h2><ul>' + "".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n, _ in SELLER if f != file) + "</ul></div></div></section>"

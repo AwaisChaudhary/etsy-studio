@@ -262,6 +262,7 @@ sbp = top("Scrapbook page sizes and how many photos fit", "Every common scrapboo
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Page</th>{"".join(f'<th scope="col">{e(n.split(" (")[0])}</th>' for k, n, a, b in SB_PHOTOS[:5])}</tr></thead><tbody>{sb_tbl}</tbody></table></div>
 <figure class="sb-fig"><div>{sb_svg(12, 12, 4, 6)}<figcaption>12 x 12 page: {_n12} photos of 4 x 6</figcaption></div><div>{sb_svg(8.5, 11, 4, 6)}<figcaption>8.5 x 11 page: {_n85} photos of 4 x 6</figcaption></div></figure>
 <p>That's the maximum. A classic 12 x 12 layout uses <strong>1 to 3 photos</strong> with patterned paper, a title and a journaling spot, and a two-page spread 4 to 6. Matting each photo takes room too: a 12 x 12 page fits {_n12m} matted 4 x 6 photos with a ¼ in mat. Pocket-page albums are the exception: their 12 x 12 protectors often hold six 4 x 6 pockets, or a mix of 4 x 6 and 3 x 4 cards.</p>
+<p>Not sure a scrapbook is for you? Compare it with a handmade book of found paper in <a href="{href("junk-journal-vs-scrapbook.html")}">junk journal vs scrapbook</a>.</p>
 <h2>12 x 12 or 8.5 x 11: which should I choose?</h2>
 <ul><li><strong>12 x 12</strong> if you buy patterned paper and kits: they're nearly all 12 x 12, so there's no trimming, and you get room for 2 to 4 photos plus embellishments.</li>
 <li><strong>8.5 x 11</strong> (or A4) if you print backgrounds, journaling and ephemera at home, want a smaller shelf album, or keep pages in a binder.</li>

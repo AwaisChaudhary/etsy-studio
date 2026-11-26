@@ -653,3 +653,11 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .result .pjp-paper, .result .pjp-paper p, .result .pjp-paper h3, .result .pjp-paper b, .result .pjp-paper li, .result .pjp-paper th { color: #1f2a44; } .result .pjp-paper .pjp-k { color: #2f8f8a; } .result .pjp-paper .pjp-mo b { color: #b8326a; } .result .pjp-paper .pjp-sm, .result .pjp-paper .pjp-ln span { color: #5b6b94; } .result .pjp-paper .pjp-foot { color: #8a93ad; }
 
 @media (max-width:600px){table.mt{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}}
+/* run 7 (26 Nov): fabric yardage rows, checkbox labels, quiz */
+.fy-row { display: grid; grid-template-columns: 28px 1fr 1fr 1fr; gap: 8px; align-items: end; }
+.fy-row .field { min-width: 0; } .fy-row input { width: 100%; min-width: 0; box-sizing: border-box; }
+.fy-n { font: 700 18px Georgia, serif; color: var(--berry, #b8326a); padding-bottom: 12px; }
+.chk { display: flex; gap: 8px; align-items: flex-start; margin: 6px 0; font-weight: 400; cursor: pointer; }
+.chk input { margin-top: 4px; flex: none; }
+.jvs-q { border: 0; padding: 0; margin: 0 0 14px; min-width: 0; } .jvs-q legend { font-weight: 700; margin-bottom: 4px; padding: 0; }
+#cs-table tr[hidden] { display: none; }

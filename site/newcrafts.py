@@ -62,6 +62,7 @@ return s;''', '["t-motif","t-col","t-text"]') + PROSE("christmas-crafts.html", '
 <li><strong>Crochet balls and baubles:</strong> the <a href="{H:amigurumi.html}">amigurumi ball calculator</a> writes the pattern for any size.</li>
 <li><strong>Mini stockings and hats:</strong> knit a tiny hat on a few stitches; the <a href="{H:cast-on-calculator.html}">cast on calculator</a> works for any size, and the <a href="{H:christmas-stocking-calculator.html}">Christmas stocking calculator</a> sizes stockings from 7 in minis to 26 in.</li>
 <li><strong>Pom-pom garlands:</strong> wrap yarn around a fork for mini pom-poms and thread them on a long strand.</li>
+<li><strong>Making extra to sell?</strong> See <a href="{H:christmas-crafts-to-sell.html}">Christmas crafts to make and sell</a>: 19 ideas with material cost, time and a price for your hourly rate.</li>
 <li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
 <p>Counting down? See our <a href="{H:advent-calendar-ideas.html}">advent calendar ideas</a> and printable number cards.</p>''')
 page("christmas-crafts.html", "Christmas Crafts for Paper and Yarn + Free Printable Gift Tags (2026) | Purl & Paper",

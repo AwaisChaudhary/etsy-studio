@@ -342,3 +342,18 @@
 - IndexNow pending https://purlandpaperco.com/craft-fair-profit-calculator https://purlandpaperco.com/embroidery-stitches https://purlandpaperco.com/2027-calendar-printable https://purlandpaperco.com/etsy-fee-calculator https://purlandpaperco.com/craft-fair-checklist
 
 - 26 Nov 20:20 PKT: deployed a59fe8fc (OG recompressed q26 in the zip copy only to stay < 3.8 MB: zip 3.64 MB); IndexNow FLUSHED 26 URLs (200).
+
+## 2026-11-26 (daily SEO run 7, 21:40 PKT)
+- DEMAND.md: new RADAR run 7 block (D1-D5); R1, R3 closed, B5 part-done.
+- New tool: /fabric-yardage-calculator (sellfab.py; NEW_CRAFTS + crafts hub, Home "Just added"; in-links from /fat-quarter-calculator, /sewing-seam-allowance, /quilt-size-calculator). Up to 3 piece sizes x qty, fabric width 44/45, 54, 60, 108 in or custom, in/cm, add seam allowance, 0/5/10% shrinkage, one-way print/nap (no turning); yards rounded up to 1/8 yd + metres; to-scale layout. Tables: 7 example projects (own cut lists), yard fractions in in/cm.
+- Targets: "fabric yardage calculator", "how much fabric do I need", "how much fabric for a cushion cover", "1/8 yard in inches", "usable width of 45 inch fabric", "how much fabric for a tote bag".
+- Sources: Melly Sews, Cashmerette (2025), Sew Guide, AllFreeSewing (SERP 26 Nov). Layout maths our own.
+- New guide + tool: /christmas-crafts-to-sell (SELLER list + footer Guides; in-links from /christmas-crafts, /how-to-price-crochet-items, /craft-fair-profit-calculator, /seller-tools). 19 ideas with estimated materials/hours; price for your hourly rate, Etsy US fees / fair card fee / none; craft and max-hours filters. Safety notes (toys, candles, EU).
+- Targets: "christmas crafts to make and sell", "christmas crafts to sell for adults", "how to price christmas crafts", "quick crafts to sell".
+- Sources: Penny Hoarder, Small Business Trends, Gumtree, Unexpectedly Domestic (SERP 26 Nov); Etsy US fee schedule. Costs/hours = our estimates (labelled).
+- New guide + quiz: /junk-journal-vs-scrapbook (NEW_CRAFTS + crafts hub + footer Guides; in-links from /junk-journal-beginners, /scrapbook-page-sizes). Comparison table, own SVG, 5-question picker, photos-in-junk-journal advice.
+- Targets: "junk journal vs scrapbook", "difference between junk journal and scrapbook", "can I put photos in a junk journal", "is a junk journal archival".
+- Sources: Bearly Art, Red River Catalog, My Modern Met, Wikipedia junk journal, The Happy Planner (SERP 26 Nov).
+- Shop boxes: fabric -> small business sheet, pricing calculator, 2027 planner, gift tags; Christmas-to-sell -> pricing calculator, small business sheet, gift tags, gift planner; jvs -> mega bundle, Tea Room kit, journaling cards, ephemera pack. No new live products (batch 9 already mapped).
+- Pins queued: pins/site/fabric-yardage-calculator.jpg, pins/site/christmas-crafts-to-sell.jpg, pins/site/junk-journal-vs-scrapbook.jpg.
+- IndexNow pending (live after the next deploy): https://purlandpaperco.com/fabric-yardage-calculator, https://purlandpaperco.com/christmas-crafts-to-sell, https://purlandpaperco.com/junk-journal-vs-scrapbook, https://purlandpaperco.com/junk-journal-beginners

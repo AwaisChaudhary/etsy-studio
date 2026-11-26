@@ -3101,4 +3101,102 @@
     pjpRun();
   }
 
+  /* ---------- FABRIC YARDAGE CALCULATOR ---------- */
+  if ($("#fy-fw") && $("#fy-out") && $("#fy-data")) {
+    var FYD = JSON.parse($("#fy-data").textContent);
+    var fyFr = function (y) { var w = Math.floor(y + 1e-9), f = Math.round((y - w) * 8); if (f === 8) { w++; f = 0; } return (w ? w : "") + ["", "⅛", "¼", "⅜", "½", "⅝", "¾", "⅞"][f] + " yd"; };
+    var fyIds = ["#fy-u", "#fy-fw", "#fy-own", "#fy-sa", "#fy-x", "#fy-dir", "#fy-w0", "#fy-h0", "#fy-q0", "#fy-w1", "#fy-h1", "#fy-q1", "#fy-w2", "#fy-h2", "#fy-q2"];
+    var fyCols = ["#2f8f8a", "#b8326a", "#e39a14"];
+    var fyRun = function () {
+      var cm = $("#fy-u").value === "cm", fwv = $("#fy-fw").value, rot = !$("#fy-dir").checked;
+      $("#fy-own-f").hidden = fwv !== "own";
+      var FW = fwv === "own" ? (parseFloat($("#fy-own").value) || 0) : parseFloat(fwv) * (cm ? 2.54 : 1);
+      var sa = parseFloat($("#fy-sa").value) || 0; if (cm) sa *= 2.54;
+      var ex = parseFloat($("#fy-x").value) || 0, u = cm ? " cm" : " in", P = [], o = [], bad = null;
+      for (var i = 0; i < 3; i++) {
+        var w = parseFloat($("#fy-w" + i).value) || 0, h = parseFloat($("#fy-h" + i).value) || 0, q = parseInt($("#fy-q" + i).value, 10) || 0;
+        if (w > 0 && h > 0 && q > 0) P.push({ k: i, w: w + 2 * sa, h: h + 2 * sa, q: q });
+      }
+      if (!P.length || FW <= 0) { $("#fy-out").innerHTML = "<p>Type the width, length and number of at least one piece.</p>"; return; }
+      var tot = 0, rows = [];
+      P.forEach(function (p) {
+        var best = null;
+        (rot ? [[p.w, p.h], [p.h, p.w]] : [[p.w, p.h]]).forEach(function (ab) {
+          if (ab[0] <= FW + 1e-9) { var per = Math.floor(FW / ab[0] + 1e-9), n = Math.ceil(p.q / per), L = n * ab[1]; if (!best || L < best.L) best = { a: ab[0], b: ab[1], per: per, n: n, L: L }; }
+        });
+        if (!best) bad = p; else { best.p = p; rows.push(best); tot += best.L; }
+      });
+      if (bad) { $("#fy-out").innerHTML = "<p>⚠ Piece " + "ABC"[bad.k] + " (" + (Math.round(bad.w * 10) / 10) + " x " + (Math.round(bad.h * 10) / 10) + u + ") is wider than the fabric both ways" + (rot ? "" : " (turning is off)") + ". Choose wider fabric or split the piece with a seam.</p>"; return; }
+      var Lx = tot * (1 + ex), inches = cm ? Lx / 2.54 : Lx, yd = Math.ceil(inches / 4.5 - 1e-9) / 8, m = Math.ceil((cm ? Lx : Lx * 2.54) / 10 - 1e-9) / 10;
+      o.push("<h3>Fabric to buy</h3><p class=\"big\">" + (cm ? m.toFixed(1) + " m" : fyFr(yd)) + "</p>");
+      o.push("<p>" + (cm ? "About " + fyFr(yd) : "About " + m.toFixed(1) + " m") + ". Layout length " + (Math.round(tot * 10) / 10) + u + (ex ? " + " + Math.round(ex * 100) + "% extra" : "") + " on " + (Math.round(FW * 10) / 10) + u + " usable width.</p>");
+      o.push("<ul>" + rows.map(function (r) { return "<li>Piece " + "ABC"[r.p.k] + ": " + r.p.q + " x " + (Math.round(r.p.w * 100) / 100) + " x " + (Math.round(r.p.h * 100) / 100) + u + (sa ? " (with seam allowance)" : "") + ", " + r.per + " across" + (r.a !== r.p.w ? " turned sideways" : "") + ", " + r.n + " row" + (r.n === 1 ? "" : "s") + " = " + (Math.round(r.L * 10) / 10) + u + "</li>"; }).join("") + "</ul>");
+      var S = 260 / FW, y = 0, svg = '<rect x="0" y="0" width="260" height="' + (tot * S).toFixed(1) + '" fill="#f3ede2" stroke="#1f2a44" stroke-width="2"/>', cnt = 0;
+      rows.forEach(function (r) {
+        var left = r.p.q;
+        for (var n = 0; n < r.n; n++) { for (var c = 0; c < r.per && left > 0; c++, left--) { if (cnt++ < 400) svg += '<rect x="' + (c * r.a * S + 1).toFixed(1) + '" y="' + (y + 1).toFixed(1) + '" width="' + Math.max(1, r.a * S - 2).toFixed(1) + '" height="' + Math.max(1, r.b * S - 2).toFixed(1) + '" rx="2" fill="' + fyCols[r.p.k] + '" opacity=".85"/>'; } y += r.b * S; }
+      });
+      o.push('<figure class="sb-prev"><svg viewBox="-2 -2 264 ' + (tot * S + 4).toFixed(0) + '" role="img" aria-label="Cutting layout to scale">' + svg + "</svg><figcaption>Cutting layout to scale (fabric width across the top). Real layouts can often nest pieces tighter.</figcaption></figure>");
+      $("#fy-out").innerHTML = o.join("");
+      var st = {}; fyIds.forEach(function (id) { var el = $(id); st[id] = el.type === "checkbox" ? el.checked : el.value; }); store.set("pp-fy", st);
+    };
+    var fyS = store.get("pp-fy", null);
+    if (fyS) fyIds.forEach(function (id) { var el = $(id); if (fyS[id] == null) return; if (el.type === "checkbox") el.checked = !!fyS[id]; else el.value = fyS[id]; });
+    if (!$("#fy-fw").value) $("#fy-fw").value = "42";
+    $("#fy-proj").addEventListener("change", function () {
+      var p = FYD[this.value]; if (!p) return;
+      $("#fy-u").value = "in"; $("#fy-sa").value = "0";
+      for (var i = 0; i < 3; i++) { var r = p.p[i]; $("#fy-w" + i).value = r ? r[0] : ""; $("#fy-h" + i).value = r ? r[1] : ""; $("#fy-q" + i).value = r ? r[2] : ""; }
+      fyRun();
+    });
+    fyIds.forEach(function (id) { $(id).addEventListener("input", fyRun); $(id).addEventListener("change", fyRun); });
+    fyRun();
+  }
+
+  /* ---------- CHRISTMAS CRAFTS TO SELL: PRICE LIST ---------- */
+  if ($("#cs-rate") && $("#cs-out") && $("#cs-data")) {
+    var CSD = JSON.parse($("#cs-data").textContent);
+    var csPrice = function (m, h, r, wh) { var b = (m + h * r) * 1.1; return wh === "etsy" ? (b + 0.45) / 0.905 : wh === "fair" ? b / 0.97 : b; };
+    var csRun = function () {
+      var r = Math.max(0, parseFloat($("#cs-rate").value) || 0), wh = $("#cs-where").value, g = $("#cs-g").value, mx = parseFloat($("#cs-max").value) || 99;
+      var list = CSD.filter(function (x) { return (g === "all" || x[1] === g) && x[3] <= mx; });
+      var rowsT = document.querySelectorAll("#cs-table tbody tr");
+      CSD.forEach(function (x, i) { var tr = rowsT[i]; if (!tr) return; tr.hidden = !((g === "all" || x[1] === g) && x[3] <= mx); var td = tr.querySelectorAll("td")[3]; if (td) td.innerHTML = "<strong>$" + Math.ceil(csPrice(x[2], x[3], r, wh)) + "</strong>"; });
+      var o = [];
+      if (!list.length) o.push("<p>No ideas match. Try more hours or all crafts.</p>");
+      else {
+        var lo = list.slice().sort(function (a, b) { return csPrice(a[2], a[3], r, wh) - csPrice(b[2], b[3], r, wh); });
+        o.push("<h3>" + list.length + " idea" + (list.length === 1 ? "" : "s") + " at $" + r + " an hour</h3>");
+        o.push("<p>From <strong>$" + Math.ceil(csPrice(lo[0][2], lo[0][3], r, wh)) + "</strong> (" + esc(lo[0][0]) + ") to <strong>$" + Math.ceil(csPrice(lo[lo.length - 1][2], lo[lo.length - 1][3], r, wh)) + "</strong> (" + esc(lo[lo.length - 1][0]) + "). The table below now shows your prices.</p>");
+        var q = lo.filter(function (x) { return x[3] <= 1.5; }).slice(0, 3);
+        if (q.length) o.push("<p>Fastest to batch: " + q.map(function (x) { return esc(x[0]) + " ($" + Math.ceil(csPrice(x[2], x[3], r, wh)) + ")"; }).join(", ") + ".</p>");
+        if (wh === "etsy") o.push('<p class="sub">Etsy US fees included: 6.5% transaction, 3% + $0.25 processing, $0.20 listing. Shipping and Offsite Ads are extra: check with the <a href="' + ($("#cs-out").getAttribute("data-fee") || "/etsy-fee-calculator") + '">Etsy fee calculator</a>.</p>');
+        if (r < 10) o.push("<p>⚠ Below $10 an hour you're paying for your customers' gifts. Choose a faster make before you cut your rate.</p>");
+      }
+      $("#cs-out").innerHTML = o.join("");
+      store.set("pp-cs", { r: $("#cs-rate").value, w: wh, g: g, m: $("#cs-max").value });
+    };
+    var csS = store.get("pp-cs", null);
+    if (csS) { $("#cs-rate").value = csS.r || 15; $("#cs-where").value = csS.w || "etsy"; $("#cs-g").value = csS.g || "all"; $("#cs-max").value = csS.m || "99"; }
+    ["#cs-rate", "#cs-where", "#cs-g", "#cs-max"].forEach(function (id) { $(id).addEventListener("input", csRun); $(id).addEventListener("change", csRun); });
+    csRun();
+  }
+
+  /* ---------- JUNK JOURNAL VS SCRAPBOOK QUIZ ---------- */
+  if ($("#jvs-form") && $("#jvs-out")) {
+    var jvsRun = function () {
+      var sc = { s: 0, j: 0, b: 0 }, done = 0, qs = document.querySelectorAll("#jvs-form .jvs-q");
+      qs.forEach(function (f) { var c = f.querySelector("input:checked"); if (c) { done++; var p = c.value.split(":"); sc[p[0]] += parseInt(p[1], 10); } });
+      var out = $("#jvs-out"), jj = out.getAttribute("data-jj"), sb = out.getAttribute("data-sb");
+      if (done < qs.length) { out.innerHTML = "<p>" + done + " of " + qs.length + " answered. Pick an answer for each question to see your match.</p>"; return; }
+      var d = sc.j - sc.s, h;
+      if (d >= 3) h = '<h3>Junk journal</h3><p>You want the making, the textures and room to write. Start a junk journal from paper you already have: our <a href="' + jj + '">beginner guide</a> walks you through the first book.</p>';
+      else if (d <= -3) h = '<h3>Scrapbook</h3><p>Your photos are the point and you want them to last. Go for an album with acid-free pages: see <a href="' + sb + '">scrapbook page sizes</a> to choose one and plan how many photos fit.</p>';
+      else h = '<h3>Both: a memory junk journal</h3><p>Make a junk journal with pockets for photo prints, or a scrapbook with junk journal layers. Keep photos in sleeves or corners, away from old book pages. Start with the <a href="' + jj + '">junk journal guide</a> and the <a href="' + sb + '">scrapbook size chart</a>.</p>';
+      out.innerHTML = h + '<p class="sub">Scrapbook ' + sc.s + " · Junk journal " + sc.j + "</p>";
+    };
+    document.querySelectorAll("#jvs-form input").forEach(function (el) { el.addEventListener("change", jvsRun); });
+    jvsRun();
+  }
+
 })();
