@@ -3284,4 +3284,66 @@
     gqRun();
   }
 
+  /* ---------- GRANNY SQUARE JOINING CALCULATOR ---------- */
+  if ($("#gj-a") && $("#gj-out")) {
+    /* yarn per inch of seam, our rough estimates for worsted: sewn ~2.5-3x, slip stitch ~4x, single crochet ~6x, join as you go 0 */
+    var GJ_F = { whip: [2.5, "whip stitch"], mattress: [3, "mattress stitch"], slip: [4, "slip stitch join"], sc: [6, "single crochet join"], jaygo: [0, "join as you go"] };
+    var gjRun = function () {
+      var a = Math.min(60, Math.max(1, parseInt($("#gj-a").value, 10) || 1)), b = Math.min(60, Math.max(1, parseInt($("#gj-b").value, 10) || 1));
+      var s = Math.min(30, Math.max(1, parseFloat($("#gj-s").value) || 6)), m = GJ_F[$("#gj-m").value] ? $("#gj-m").value : "whip", f = GJ_F[m];
+      var n = a * b, shortS = (a - 1) * b + (b - 1) * a, longS = (a - 1) + (b - 1), len = s * shortS, yd = len * f[0] / 36 * 1.1;
+      var o = [];
+      o.push("<h3>Your blanket</h3><p class=\"big\">" + n + " <small>squares</small></p>");
+      o.push("<p>About <strong>" + (a * s).toFixed(1).replace(/\.0$/, "") + " × " + (b * s).toFixed(1).replace(/\.0$/, "") + " in</strong> (" + Math.round(a * s * 2.54) + " × " + Math.round(b * s * 2.54) + " cm) before a border.</p>");
+      if (n < 2) { o.push("<p>Add a second square to see the seams.</p>"); }
+      else {
+        o.push("<h3>Seams</h3><p><strong>" + longS + " long seams</strong> if you join in strips (" + (a - 1) + " one way, " + (b - 1) + " the other), instead of " + shortS + " short ones. Total seam length about <strong>" + Math.round(len / 12) + " ft</strong> (" + (len * 0.0254).toFixed(1) + " m).</p>");
+        if (m === "jaygo") o.push("<h3>Joining yarn</h3><p>No extra yarn: with join as you go the joins are worked on the last round of each square. You'll weave in only the ends from the squares themselves.</p>");
+        else o.push("<h3>Joining yarn</h3><p class=\"big\">" + Math.ceil(yd) + " <small>yd</small></p><p>About " + Math.ceil(yd * 0.9144) + " m for a " + f[1] + " in worsted yarn, including about 10% for tails. That's our rough estimate: work 4 in of seam and measure your yarn to check. Joining in strips leaves about <strong>" + (longS * 2) + " ends</strong> to weave in.</p>");
+      }
+      o.push("<p class=\"sub\">Need squares and yarn for the whole blanket? Use the <a href=\"" + ($("#gj-out").getAttribute("data-bl") || "/granny-square-blanket-calculator") + "\">granny square blanket calculator</a>.</p>");
+      $("#gj-out").innerHTML = o.join("");
+      store.set("pp-gj", { a: $("#gj-a").value, b: $("#gj-b").value, s: $("#gj-s").value, m: $("#gj-m").value });
+    };
+    var gjS = store.get("pp-gj", null);
+    if (gjS) { ["a", "b", "s", "m"].forEach(function (k) { if (gjS[k]) $("#gj-" + k).value = gjS[k]; }); }
+    ["#gj-a", "#gj-b", "#gj-s", "#gj-m"].forEach(function (id) { $(id).addEventListener("input", gjRun); $(id).addEventListener("change", gjRun); });
+    gjRun();
+  }
+
+  /* ---------- KNITTING INCREASE PICKER ---------- */
+  if ($("#ki-hole") && $("#ki-out")) {
+    var KI = {
+      kfb: ["Knit front and back (kfb)", "Easy to learn and easy to count. The small bump it leaves hides in garter stitch and at edges.", ["Knit the stitch but leave it on the left needle.", "Knit into the back loop of the same stitch.", "Slip it off: one stitch is now two."]],
+      m1l: ["Make 1 left (M1L)", "Almost invisible and closes without a hole when it's twisted.", ["Pick up the bar between stitches from front to back with the left needle.", "Knit it through the back loop."]],
+      lift: ["Lifted increase (RLI or LLI)", "The least visible increase in stocking stitch, for when it really needs to disappear.", ["RLI: knit into the right leg of the stitch below the next stitch, then knit the stitch.", "LLI: knit a stitch, then knit into the left leg of the stitch two rows below it."]],
+      pair: ["M1R before the marker, M1L after it", "A mirrored pair, so the increases lean away from the line on both sides, as on a raglan seam or a sleeve.", ["Knit to the marker and work M1R (pick up the bar from back to front and knit it through the front loop).", "Slip the marker and work M1L (pick up the bar from front to back and knit it through the back loop)."]],
+      yo: ["Yarn over (yo)", "Adds a stitch and a neat eyelet hole on purpose: lace, raglan lines, pretty edges.", ["Bring the yarn to the front between the needles.", "Knit the next stitch: the yarn goes over the needle and makes the new loop.", "Work the loop as a normal stitch on the next row."]],
+      yopair: ["Yarn over each side of the marker", "Two eyelets frame the line, a classic look on top-down raglans and shawls.", ["Knit to the marker, yarn over, slip the marker, yarn over.", "Work each yarn over as a stitch on the next row."]],
+      rib: ["M1 worked as knit or purl (M1 or M1P)", "In ribbing the new stitch has to match the rib, so pick up the bar and knit or purl it twisted to keep the column going.", ["Pick up the bar between stitches from front to back.", "Knit it through the back loop if a knit column is next to it, or purl it through the back loop (M1P) if a purl column is."]]
+    };
+    var kiRun = function () {
+      var hole = segVal($("#ki-hole")) || "no", where = segVal($("#ki-where")) || "edge", lvl = segVal($("#ki-lvl")) || "new", st = $("#ki-st").value, k, extra = "";
+      if (hole === "yes") { k = where === "pair" ? "yopair" : "yo"; if (where === "edge") extra = "At an edge, work it one stitch in: k1, yo, knit to the last stitch, yo, k1."; }
+      else if (st === "rib") k = "rib";
+      else if (where === "pair") k = "pair";
+      else if (st === "gt" || lvl === "new") { k = "kfb"; if (where === "edge") extra = "A common way at the edges: kfb into the first stitch and into the second-to-last stitch, so the edge stitch stays neat."; if (st === "st" && lvl === "new") extra += (extra ? " " : "") + "In stocking stitch the kfb bump shows a little. Once you're comfortable, try M1L instead."; }
+      else { k = where === "mid" ? "lift" : "m1l"; if (where === "edge") { k = "pair"; extra = "A common recipe at the edges: k1, M1L, knit to the last stitch, M1R, k1. Try it on a swatch; some patterns mirror it the other way."; } }
+      var x = KI[k], o = [];
+      o.push("<h3>Use</h3><p class=\"big\" style=\"font-size:1.6rem\">" + esc(x[0]) + "</p><p>" + esc(x[1]) + "</p><ol>" + x[2].map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ol>");
+      if (extra) o.push("<p>" + esc(extra) + "</p>");
+      if (where === "mid") o.push("<p>Spacing several increases across a row? The <a href=\"" + ($("#ki-out").getAttribute("data-ev") || "/increase-decrease-calculator") + "\">increase evenly calculator</a> writes out the row for you.</p>");
+      $("#ki-out").innerHTML = o.join("");
+      store.set("pp-ki", { hole: hole, where: where, lvl: lvl, st: st });
+    };
+    var kiS = store.get("pp-ki", null);
+    if (kiS) {
+      ["hole", "where", "lvl"].forEach(function (g) { if (kiS[g]) $$("#ki-" + g + " button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === kiS[g]); }); });
+      if (kiS.st) $("#ki-st").value = kiS.st;
+    }
+    seg($("#ki-hole"), kiRun); seg($("#ki-where"), kiRun); seg($("#ki-lvl"), kiRun);
+    $("#ki-st").addEventListener("change", kiRun);
+    kiRun();
+  }
+
 })();
