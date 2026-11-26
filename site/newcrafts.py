@@ -60,7 +60,7 @@ return s;''', '["t-motif","t-col","t-text"]') + PROSE("christmas-crafts.html", '
 <h2>Yarn Christmas crafts</h2>
 <ul><li><strong>Granny square baubles:</strong> two small squares sewn together over a little stuffing. The <a href="{H:granny-square-blanket-calculator.html}">granny square calculator</a> helps you size them.</li>
 <li><strong>Crochet balls and baubles:</strong> the <a href="{H:amigurumi.html}">amigurumi ball calculator</a> writes the pattern for any size.</li>
-<li><strong>Mini stockings and hats:</strong> knit a tiny hat on a few stitches; the <a href="{H:cast-on-calculator.html}">cast on calculator</a> works for any size.</li>
+<li><strong>Mini stockings and hats:</strong> knit a tiny hat on a few stitches; the <a href="{H:cast-on-calculator.html}">cast on calculator</a> works for any size, and the <a href="{H:christmas-stocking-calculator.html}">Christmas stocking calculator</a> sizes stockings from 7 in minis to 26 in.</li>
 <li><strong>Pom-pom garlands:</strong> wrap yarn around a fork for mini pom-poms and thread them on a long strand.</li>
 <li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
 <p>Counting down? See our <a href="{H:advent-calendar-ideas.html}">advent calendar ideas</a> and printable number cards.</p>''')
@@ -95,7 +95,7 @@ return s;''', '["a-shape","a-col"]') + PROSE("advent-calendar-ideas.html", '''
 <li>Scratch-off "date ideas" or one memory per day written on cards.</li>
 <li>A 2027 plan: one page of our <a href="{H:2027-calendar-printable.html}">2027 calendar</a> each day with an outing written on it.</li></ul>
 <h2>Advent calendar ideas for crafters</h2>
-<ul><li><strong>Yarn advent:</strong> 24 mini skeins (about 10 to 20 g each) that make a scrappy shawl, socks or a <a href="{H:temperature-blanket-planner.html}">temperature blanket</a> palette.</li>
+<ul><li><strong>Mini stocking advent:</strong> 24 knitted or crocheted 7 in stockings on a line; the <a href="{H:christmas-stocking-calculator.html}">stocking calculator</a> has the mini size and yarn.</li><li><strong>Yarn advent:</strong> 24 mini skeins (about 10 to 20 g each) that make a scrappy shawl, socks or a <a href="{H:temperature-blanket-planner.html}">temperature blanket</a> palette.</li>
 <li><strong>Junk journal advent:</strong> one ephemera piece a day: a tag, a postage stamp, a vintage ticket, a pocket.</li>
 <li><strong>Stitch markers, a new hook or needle, a row counter charm.</strong></li>
 <li><strong>Pattern a day:</strong> 24 small makes from our free tools, such as a crochet bauble from the <a href="{H:amigurumi.html}">ball calculator</a>.</li></ul>

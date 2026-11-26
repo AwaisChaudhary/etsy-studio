@@ -2631,4 +2631,203 @@
     swCalc();
   }
 
+  /* ---------- CHRISTMAS STOCKING CALCULATOR (26 Nov run 4) ---------- */
+  if (page === "christmas-stocking-calculator" && $("#xs-out")) {
+    var SKS = { mini: [7, 3.5, 4.5, 1.5], small: [12, 5, 7, 2.5], standard: [18, 7, 10, 3.5], large: [22, 8, 12, 4], xl: [26, 9, 14, 5] };
+    var SKG = { knit: { 3: 22, 4: 18, 5: 14, 6: 9 }, crochet: { 3: 15, 4: 13, 5: 10, 6: 8 } }, SKM = { 3: 1.18, 4: 1, 5: 0.72, 6: 0.52 }, SKY = { 3: 250, 4: 200, 5: 130, 6: 80 };
+    var SKN = { 3: "DK", 4: "worsted", 5: "bulky", 6: "super bulky" };
+    var sk = {}; ["size", "h", "w", "f", "c", "wt", "g", "sk", "cuff", "name"].forEach(function (k) { sk[k] = $("#xs-" + k); });
+    var skCraft = $("#xs-craft");
+    var skSaved = store.get("pp-stocking", null);
+    if (skSaved) {
+      Object.keys(sk).forEach(function (k) { if (skSaved[k] != null) sk[k].value = skSaved[k]; });
+      if (skSaved.craft) $$("button", skCraft).forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === skSaved.craft); });
+    }
+    var skNum = function (el, d) { var v = parseFloat(el.value); return isFinite(v) && v > 0 ? v : d; };
+    var skR = function (y) { var r = y < 120 ? 5 : 10; return fmt(Math.round(y * 0.85 / r) * r) + "–" + fmt(Math.round(y * 1.15 / r) * r); };
+    function skCalc() {
+      var size = sk.size.value, custom = size === "custom", d = SKS[size] || SKS.standard;
+      $("#xs-custom").hidden = !custom;
+      if (!custom) { sk.h.value = d[0]; sk.w.value = d[1]; sk.f.value = d[2]; sk.c.value = d[3]; }
+      var h = skNum(sk.h, 18), w = skNum(sk.w, 7), f = skNum(sk.f, 10), c = Math.max(0, parseFloat(sk.c.value) || 0);
+      var craft = segVal(skCraft) || "knit", wt = +sk.wt.value, g = skNum(sk.g, SKG[craft][wt]), spi = g / 4, folded = sk.cuff.value === "fold";
+      var body = 2 * (w * Math.max(h - w, 0) + f * w), cuffA = 2 * w * c * (folded ? 2 : 1), k = 0.667 * SKM[wt] * (craft === "crochet" ? 1.27 : 1) * 1.1;
+      var cuffY = cuffA * k, heelY = body * 0.15 * k, mainY = Math.max(0, body - 2 * w * c - body * 0.15) * k, tot = cuffY + heelY + mainY;
+      var skein = skNum(sk.sk, SKY[wt]), o = [];
+      o.push("<h2>About " + skR(tot) + " yd</h2><p>of " + SKN[wt] + " yarn to " + (craft === "knit" ? "knit" : "crochet") + " " + (/^(8|11|18)/.test(String(h)) ? "an " : "a ") + h + " × " + w + " in stocking (" + Math.round(h * 2.54) + " × " + Math.round(w * 2.54) + " cm), foot " + f + " in. That's <strong>" + Math.ceil(tot * 1.15 / skein) + " skein" + (Math.ceil(tot * 1.15 / skein) > 1 ? "s" : "") + "</strong> of " + skein + " yd if it's all one colour.</p>");
+      o.push("<p><strong>By colour:</strong> body about " + skR(mainY) + " yd, " + (folded ? "folded " : "") + "cuff " + skR(cuffY) + " yd, heel and toe " + skR(heelY) + " yd.</p>");
+      if (craft === "knit") {
+        var co = Math.max(8, Math.round(2 * w * spi / 4) * 4);
+        o.push("<p><strong>Cast on " + co + " stitches</strong> to knit it in the round (a multiple of 4, so the heel takes " + co / 2 + "). Two flat pieces: " + (co / 2 + 2) + " each.</p>");
+      } else {
+        var ch = Math.max(6, Math.round(2 * w * spi));
+        o.push("<p><strong>Chain " + ch + "</strong> and join to work it in rounds, or <strong>chain " + (Math.round(w * spi) + 1) + "</strong> for each of two flat panels (single crochet).</p>");
+      }
+      var nm = (sk.name.value || "").replace(/\s+/g, " ").trim(), fit = Math.max(0, Math.floor((w * spi - 2) / 6)), rpi = spi * (craft === "knit" ? 1.35 : 1.15), lh = 7 / rpi;
+      if (nm) {
+        var n = nm.replace(/ /g, "").length;
+        o.push("<p>" + (n <= fit ? "✔ <strong>" + esc(nm) + "</strong> fits" : "✘ <strong>" + esc(nm) + "</strong> has " + n + " letters; about <strong>" + fit + "</strong> fit") + " across the front with a 5-stitch alphabet. Letters will be about " + (Math.round(lh * 10) / 10) + " in tall" + (lh > c && c > 0 ? ", taller than your cuff: make the cuff deeper or put the name on the leg" : "") + ".</p>");
+      } else {
+        o.push("<p>About <strong>" + fit + " letters</strong> fit across the front with a 5-stitch alphabet, each about " + (Math.round(lh * 10) / 10) + " in tall. Type a name to check it.</p>");
+      }
+      o.push('<p class="muted">Our estimate for plain stitches, with a hanging loop and ends. Colourwork, cables and furry yarn use more, so buy a little extra.</p>');
+      o.push('<p class="sub">Next: <a href="' + (location.protocol === "file:" ? "crochet-time-estimator.html" : "/crochet-time-estimator") + '">how long it will take</a>, <a href="' + (location.protocol === "file:" ? "crochet-knitting-gift-planner.html" : "/crochet-knitting-gift-planner") + '">gift planner</a>.</p>');
+      $("#xs-out").innerHTML = o.join("");
+      var s = { craft: craft }; Object.keys(sk).forEach(function (k2) { s[k2] = sk[k2].value; }); store.set("pp-stocking", s);
+    }
+    function skGauge() { sk.g.value = SKG[segVal(skCraft) || "knit"][+sk.wt.value]; sk.sk.value = SKY[+sk.wt.value]; }
+    seg(skCraft, function () { skGauge(); skCalc(); });
+    sk.wt.addEventListener("change", function () { skGauge(); skCalc(); });
+    Object.keys(sk).forEach(function (k) { if (k !== "wt") { sk[k].addEventListener("input", skCalc); sk[k].addEventListener("change", skCalc); } });
+    skCalc();
+  }
+
+  /* ---------- CROCHET PATTERN LINE EXPLAINER (26 Nov run 4) ---------- */
+  if (page === "how-to-read-crochet-patterns" && $("#rp-in")) {
+    var RPN = { sc: "single crochet", hdc: "half double crochet", dc: "double crochet", tr: "treble crochet", dtr: "double treble crochet", "sl st": "slip stitch",
+      inc: "increase", dec: "decrease", fpdc: "front post double crochet", bpdc: "back post double crochet", fphdc: "front post half double crochet", bphdc: "back post half double crochet",
+      fpsc: "front post single crochet", bpsc: "back post single crochet", fptr: "front post treble", bptr: "back post treble", puff: "puff stitch", pc: "popcorn", bobble: "bobble", esc: "extended single crochet", edc: "extended double crochet" };
+    var RPUK = { sc: "UK dc", hdc: "UK htr", dc: "UK tr", tr: "UK dtr", dtr: "UK trtr", "sl st": "UK ss" };
+    var RPS = "(sl st|fpdc|bpdc|fphdc|bphdc|fpsc|bpsc|fptr|bptr|esc|edc|hdc|dtr|sc|dc|tr|inc|dec|[a-z]+[23]tog|puff|pc|bobble)";
+    var NUMW = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12 };
+    function stEff(s, n) { /* used, made per stitch */
+      if (s === "inc") return [1, 2];
+      if (s === "dec") return [2, 1];
+      var m = s.match(/^([a-z]+)([23])tog$/); if (m) return [+m[2], 1];
+      if (s === "sl st") return [1, 0];
+      return [1, 1];
+    }
+    function stName(s) { var m = s.match(/^([a-z]+)([23])tog$/); if (m) return (RPN[m[1]] || m[1]) + " " + m[2] + " together (a decrease)"; return RPN[s] || s; }
+    function one(n, s) { return n + " " + stName(s); }
+    function plural(n, s) { return n === 1 ? s : s + "s"; }
+    function item(t) {
+      t = t.replace(/^[\s,;.]+|[\s,;.]+$/g, "").replace(/^(then|and)\s+/, "");
+      if (!t) return null;
+      var mult = 1, mm = t.match(/^(.*?)\s*(?:x\s*(\d+)|(\d+)\s*times)$/);
+      if (mm && mm[1]) { t = mm[1]; mult = +(mm[2] || mm[3]); }
+      var around = /\b(around|across|to end)\b/.test(t), m, r;
+      t = t.replace(/\s*\b(around|across|to end)\b/, "").trim();
+      if (/^(turn|join|fasten off|fo|finish off)$/.test(t) || /^(sl st|join)( with sl st)?\s*(to|in|into)\s*(the\s*)?(first|1st|top|beg)/.test(t) || /^join\b/.test(t))
+        return { u: 0, m: 0, ch: 0, d: /turn/.test(t) ? "Turn your work." : /fasten|fo|finish/.test(t) ? "Fasten off." : "Join the round with a slip stitch into the first stitch (not counted).", seq: [] };
+      if (/^(mr|magic ring|magic circle)$/.test(t)) return { u: 0, m: 0, ch: 0, d: "Make a magic ring.", seq: [] };
+      if ((m = t.match(new RegExp("^(\\d+)\\s*" + RPS + "\\s*(?:in|into)\\s*(?:a\\s*|the\\s*)?(?:mr|magic ring|magic circle|ring|2nd ch from hook|second ch from hook)")))) {
+        r = { u: 0, m: +m[1], ch: 0, d: "Work " + one(+m[1], m[2]) + " into the " + (/ch/.test(t) ? "chain" : "magic ring") + ".", seq: [m[1] + " " + m[2]] };
+      } else if ((m = t.match(/^ch\s*-?\s*(\d+)?\s*(?:countsas\s*([a-z ]+))?$/))) {
+        var nch = +(m[1] || 1);
+        r = m[2] ? { u: 1, m: 1, ch: 0, d: "Chain " + nch + "; it counts as the first " + (RPN[m[2].trim()] || m[2]) + ".", seq: ["ch " + nch] } : { u: 0, m: 0, ch: nch, d: "Chain " + nch + " (chains aren't counted as stitches here).", seq: ["ch " + nch] };
+      } else if ((m = t.match(/^(?:sk|skip)\s*(?:the\s*)?(?:next\s*)?(\d+)?\s*(st|ch|sc|dc|hdc)?$/))) {
+        var nsk = +(m[1] || 1); r = { u: nsk, m: 0, ch: 0, d: "Skip the next " + (nsk > 1 ? nsk + " stitches" : "stitch") + ".", seq: ["skip " + nsk] };
+      } else if ((m = t.match(new RegExp("^(\\d+)\\s*" + RPS + "\\s*(?:in|into)\\s*(?:the\\s*)?(same|next|each|first|last)\\s*(st|sp|ch-sp|ch)?")))) {
+        var nn = +m[1], same = m[3] === "same", e1 = stEff(m[2]);
+        if (m[3] === "each") around = true;
+        r = { u: same ? 0 : 1, m: nn * e1[1], ch: 0, d: "Work " + one(nn, m[2]) + " all into the " + (same ? "same stitch" : m[3] === "each" ? "next stitch" : m[3] + " " + (m[4] === "ch-sp" ? "chain space" : "stitch")) + (nn > 1 && !same ? " (an increase of " + (nn - 1) + ")" : "") + ".", seq: [nn + " " + m[2] + " in 1"] };
+      } else if ((m = t.match(new RegExp("^" + RPS + "\\s*(?:in|into)\\s*(?:each\\s*of\\s*)?(?:the\\s*)?next\\s*(\\d+)\\s*(?:st|ch)?$"))) || (m = t.match(new RegExp("^(?:\\d+\\s*)?" + RPS + "\\s*(\\d+)$"))) || (m = t.match(new RegExp("^(\\d+)\\s*" + RPS + "$")))) {
+        var s1 = isNaN(+m[1]) ? m[1] : m[2], n1 = isNaN(+m[1]) ? +m[2] : +m[1], e2 = stEff(s1);
+        r = { u: n1 * e2[0], m: n1 * e2[1], ch: 0, d: (s1 === "inc" ? n1 + " " + plural(n1, "increase") + ": 2 stitches in each of the next " + n1 + " " + plural(n1, "stitch").replace("stitchs", "stitches") : s1 === "dec" ? n1 + " " + plural(n1, "decrease") + ": work 2 stitches together, " + n1 + " " + plural(n1, "time") : "Work 1 " + stName(s1) + " in each of the next " + n1 + " stitches") + ".", seq: Array(Math.min(n1, 40) + 1).join(s1 + ",").split(",").slice(0, n1) };
+      } else if ((m = t.match(new RegExp("^" + RPS + "\\s*(?:(?:in|into)\\s*(?:the\\s*)?(next|same|first|last|each)\\s*(st|ch|sp|ch-sp)?)?$")))) {
+        var e3 = stEff(m[1]), sm = m[2] === "same";
+        if (m[2] === "each") around = true;
+        r = { u: sm ? 0 : e3[0], m: e3[1], ch: 0, d: (m[1] === "inc" ? "Increase: 2 stitches in the next stitch" : m[1] === "dec" ? "Decrease: work the next 2 stitches together as 1" : m[1] === "sl st" ? "Slip stitch into the " + (m[2] || "next") + " stitch (not counted)" : "Work 1 " + stName(m[1]) + " into the " + (sm ? "same" : (m[2] || "next")) + " stitch") + ".", seq: [m[1]] };
+      } else return { bad: t };
+      r.n = mult; r.around = around; return r;
+    }
+    function parse(s, i, close) {
+      var out = [], buf = "";
+      function flush() { if (buf.trim()) buf.split(/[,;]|\bthen\b/).forEach(function (p) { var it = item(p); if (it) out.push(it); }); buf = ""; }
+      while (i < s.length) {
+        var c = s[i];
+        if (c === "[" || c === "(") {
+          flush();
+          var sub = parse(s, i + 1, c === "[" ? "]" : ")"); i = sub.i;
+          var rest = s.slice(i), mm, g = { g: sub.items, n: 1, around: false, shell: false, sameSt: false };
+          if ((mm = rest.match(/^\s*,?\s*(?:rep(?:eat)?\s*)?(?:x\s*(\d+)|(\d+)\s*(more\s*)?times)/))) { g.n = +(mm[1] || mm[2]) + (mm[3] ? 1 : 0); i += mm[0].length; }
+          else if ((mm = rest.match(/^\s*,?\s*(?:rep(?:eat)?\s*)?(around|across|to end|in each (?:st|stitch|ch-sp|sp) around)/))) { g.around = true; if (/each/.test(mm[1])) g.shell = true; i += mm[0].length; }
+          else if ((mm = rest.match(/^\s*(?:all\s*)?(?:in|into)\s*(?:the\s*)?(same|next|each|first|last|top|beg)\s*[a-z-]*/))) { g.shell = true; g.sameSt = mm[1] === "same"; if (mm[1] === "each") g.around = true; i += mm[0].length; }
+          out.push(g); continue;
+        }
+        if (c === close) { flush(); return { items: out, i: i + 1 }; }
+        buf += c; i++;
+      }
+      flush(); return { items: out, i: i };
+    }
+    function tot(items) { var u = 0, m = 0, ch = 0; items.forEach(function (it) { var t = it.g ? (it.shell ? { u: it.sameSt ? 0 : 1, m: tot(it.g).m, ch: tot(it.g).ch } : tot(it.g)) : it; var n = it.n || 1; if (it.bad) return; u += t.u * n; m += t.m * n; ch += t.ch * n; }); return { u: u, m: m, ch: ch }; }
+    function rpRun() {
+      var raw = $("#rp-in").value.trim(), prev = parseInt($("#rp-prev").value, 10), hasPrev = isFinite(prev) && prev >= 0 && $("#rp-prev").value !== "";
+      if (!raw) { $("#rp-out").innerHTML = "<h3>Paste a line</h3><p>Paste one row or round from your pattern to see it step by step.</p>"; return; }
+      var t = " " + raw.toLowerCase().replace(/[–—]/g, "-").replace(/×/g, "x").replace(/\s+/g, " ") + " ";
+      Object.keys(NUMW).forEach(function (w) { t = t.replace(new RegExp("\\b" + w + "\\b", "g"), NUMW[w]); });
+      t = t.replace(/\btwice\b/g, "2 times").replace(/\bstitches\b|\bstitch\b|\bsts\b/g, "st").replace(/\bslip st\b|\bslst\b|\bss\b/g, "sl st")
+        .replace(/\binv(?:isible)?\s*dec(?:rease)?\b|\bsc2tog\b|\bdecrease\b/g, "dec").replace(/\bincrease\b/g, "inc").replace(/\bsingle crochet\b/g, "sc").replace(/\bhalf double crochet\b/g, "hdc").replace(/\bdouble crochet\b/g, "dc").replace(/\bchain\b/g, "ch").replace(/\brepeat\b/g, "rep");
+      t = t.trim();
+      var label = "", lm = t.match(/^(rnds?|rounds?|rows?|r)\s*(\d+)(?:\s*-\s*(\d+))?\s*[:.)-]?\s*/);
+      if (lm) { label = (/^r(ow)?s?$/.test(lm[1]) && !/^rnd|^round/.test(lm[1]) ? "Row " : "Round ") + lm[2] + (lm[3] ? " to " + lm[3] : ""); t = t.slice(lm[0].length); }
+      var stated = null, cm = t.match(/[\(\[{]\s*(\d+)\s*(?:st|sc|dc|hdc)?\s*[\)\]}]\s*\.?\s*$/) || t.match(/(?:-|=|:)\s*(\d+)\s*st\.?\s*$/);
+      if (cm) { stated = +cm[1]; t = t.slice(0, cm.index); }
+      t = t.replace(/\bch\s*-?\s*(\d+)\s*\(\s*counts? as (?:a |the |first |1 )*([a-z ]+?)\s*\)/g, "ch $1 countsas $2");
+      if ((t.match(/\*/g) || []).length === 1 && /rep\s*from\s*\*/.test(t)) t = "*" + t;
+      if (!/\*/.test(t)) t = t.replace(/^(.*)[,;]\s*rep(?:eat)?\s*((?:\d+\s*(?:more\s*)?times|x\s*\d+|around|across)\s*\.?)$/, "[$1] $2");
+      t = t.replace(/\*([^*]+?)[;,.]?\s*rep\s*from\s*\*\s*/g, "[$1] ");
+      t = t.replace(/\*([^*]+)\*\s*,?\s*/g, "[$1] ");
+      t = t.replace(/\bin each st around\b/g, "around").replace(/\bin each st across\b/g, "across").replace(/\.\s*$/, "");
+      var items = parse(t, 0, null).items, steps = [], seq = [], bad = [], warn = [];
+      var fixed = { u: 0 }; items.forEach(function (it) { if (!it.around && !it.bad) fixed.u += tot([it]).u; });
+      function reps(it) {
+        if (!it.around) return it.n || 1;
+        var per = it.g ? (it.shell ? (it.sameSt ? 0 : 1) : tot(it.g).u) : it.u;
+        if (!hasPrev || per <= 0) return null;
+        var r = (prev - fixed.u) / per; if (r !== Math.floor(r)) warn.push("The repeat doesn't divide evenly into " + prev + " stitches; check the stitch count of the last round.");
+        return Math.max(0, Math.floor(r));
+      }
+      var U = 0, M = 0, CH = 0, unknown = false;
+      function describe(list, depth, out) {
+        list.forEach(function (it) {
+          if (it.bad) { bad.push(it.bad); return; }
+          var n = depth === 0 ? reps(it) : (it.around ? null : it.n || 1);
+          if (n === null) { unknown = true; n = 1; }
+          if (it.g) {
+            var sub = [], tt = it.shell ? { u: it.sameSt ? 0 : 1, m: tot(it.g).m, ch: tot(it.g).ch } : tot(it.g), inner = [];
+            describe(it.g, depth + 1, inner);
+            sub = inner.map(function (x) { return x.d; });
+            var shellSeq = []; inner.forEach(function (x) { shellSeq = shellSeq.concat(x.seq); });
+            var txt = it.shell ? "Into " + (it.sameSt ? "the same stitch" : "the next stitch") + ", work all of: " + shellSeq.join(", ") + "." : "Repeat: " + sub.join(" ");
+            var times = it.around ? (unknown && !hasPrev ? " Repeat to the end (enter the stitches in the round before to see how many times)." : " Do this " + n + " " + plural(n, "time") + " to the end.") : n > 1 ? " Do this " + n + " times." : "";
+            out.push({ d: txt + times, sub: [] });
+            var one1 = []; inner.forEach(function (x) { one1 = one1.concat(x.seq); });
+            if (it.shell) one1 = ["(" + one1.join(" ") + ")"];
+            out[out.length - 1].seq = [];
+            for (var k2 = 0; k2 < n; k2++) out[out.length - 1].seq = out[out.length - 1].seq.concat(one1);
+            if (depth === 0) { U += tt.u * n; M += tt.m * n; CH += tt.ch * n; }
+          } else {
+            var d = it.d + (it.around ? (n && hasPrev ? " Do this in each of the remaining " + n + " stitches." : " Do this to the end.") : n > 1 ? " Do this " + n + " times." : "");
+            var sq = []; for (var k3 = 0; k3 < n; k3++) sq = sq.concat(it.seq);
+            out.push({ d: d, seq: sq });
+            if (depth === 0) { U += it.u * n; M += it.m * n; CH += it.ch * n; }
+          }
+        });
+      }
+      describe(items, 0, steps);
+      steps.forEach(function (s) { seq = seq.concat(s.seq); });
+      var o = [];
+      o.push("<h3>" + (label ? esc(label) + ", step by step" : "Step by step") + "</h3><ol class=\"rp-steps\">" + steps.map(function (s) { return "<li>" + esc(s.d) + "</li>"; }).join("") + "</ol>");
+      if (bad.length) o.push("<p>⚠ Couldn't read: <strong>" + bad.map(esc).join("</strong>, <strong>") + "</strong>. Check the pattern's own abbreviation list, or our <a href=\"" + (location.protocol === "file:" ? "crochet-terms.html" : "/crochet-terms") + "\">US and UK terms</a>.</p>");
+      if (!unknown) {
+        o.push("<h2>" + M + " " + plural(M, "stitch").replace("stitchs", "stitches") + "</h2><p>made in this " + (!label ? "line" : /^Row/.test(label) ? "row" : "round") + (hasPrev ? ", using " + U + " of the " + prev + " stitches from the one before" : "") + (CH ? ", plus " + CH + " " + plural(CH, "chain") + " not counted" : "") + ".</p>");
+        if (stated !== null) o.push(stated === M ? "<p>✔ Matches the pattern's count of <strong>" + stated + "</strong>.</p>" : "<p>✘ The pattern says <strong>" + stated + "</strong>. " + (Math.abs(stated - M) <= CH + 1 ? "The difference may be a chain or slip stitch the pattern counts. " : "") + "Check the line, or the stitches in the round before.</p>");
+        if (hasPrev && U !== prev && !bad.length) warn.push("This line uses " + U + " stitches but the round before had " + prev + ".");
+      } else if (stated !== null) o.push("<p>The pattern says you'll end with <strong>" + stated + " stitches</strong>.</p>");
+      warn.forEach(function (w) { o.push("<p>⚠ " + esc(w) + "</p>"); });
+      if (seq.length && seq.length <= 120) o.push("<p class=\"sub\" style=\"color:#fff\">Written out in full:</p><p class=\"rp-seq\">" + esc(seq.join(", ")) + "</p>");
+      var found = {}; (raw.toLowerCase().match(/\b(sl st|hdc|dtr|sc|dc|tr|inc|dec|sc2tog|ch|sk|fpdc|bpdc)\b/g) || []).forEach(function (a) { found[a] = 1; });
+      var fl = Object.keys(found).filter(function (a) { return RPN[a] || a === "ch" || a === "sk" || a === "sc2tog"; });
+      if (fl.length) o.push("<p class=\"sub\" style=\"color:#fff\">" + fl.map(function (a) { return "<strong>" + esc(a) + "</strong> = " + esc(a === "ch" ? "chain" : a === "sk" ? "skip" : a === "sc2tog" ? "single crochet 2 together" : RPN[a]) + (RPUK[a] ? " (" + RPUK[a] + ")" : ""); }).join(" · ") + "</p>");
+      if (/\bhtr\b|\btrtr\b/.test(raw.toLowerCase())) o.push("<p>⚠ This line has UK terms (htr or trtr). Translate it to US terms first with our <a href=\"" + (location.protocol === "file:" ? "crochet-terms.html" : "/crochet-terms") + "\">US vs UK chart</a>.</p>");
+      $("#rp-out").innerHTML = o.join("");
+      store.set("pp-rp", { t: $("#rp-in").value, p: $("#rp-prev").value });
+    }
+    var rpS = store.get("pp-rp", null); if (rpS) { $("#rp-in").value = rpS.t || $("#rp-in").value; $("#rp-prev").value = rpS.p != null ? rpS.p : ""; }
+    $("#rp-in").addEventListener("input", rpRun); $("#rp-prev").addEventListener("input", rpRun);
+    $$(".ka-ex button").forEach(function (b) { b.addEventListener("click", function () { $("#rp-in").value = b.getAttribute("data-ex"); $("#rp-prev").value = b.getAttribute("data-prev"); rpRun(); }); });
+    rpRun();
+  }
+
 })();
