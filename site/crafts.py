@@ -192,6 +192,14 @@ page("diamond-painting-calculator.html", "Diamond Painting Calculator: How Many 
 # ---- Cross stitch ----
 XS_SK = {11: 1400, 14: 1750, 16: 1950, 18: 2250, 22: 2750}   # full crosses per 8 m DMC skein, 2 strands (lordlibidan.com experiment, average stitching)
 def xs_in(st, ct): return st / ct
+XS_LOOP_SVG = ('<svg viewBox="0 0 320 120" role="img" aria-label="Loop start: one strand folded in half, cut ends in the needle, needle passes through the loop at the back" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;height:auto">'
+  '<rect width="320" height="120" rx="10" fill="#f3ede2"/>' + "".join(f'<rect x="{x}" y="{y}" width="12" height="12" fill="none" stroke="#d6cbb6"/>' for x in range(170, 306, 14) for y in range(20, 104, 14)) +
+  '<path d="M20 60 C 60 30, 100 30, 130 60" fill="none" stroke="#b8326a" stroke-width="3"/><path d="M20 66 C 60 96, 100 96, 130 66" fill="none" stroke="#e59ab9" stroke-width="3"/>'
+  '<ellipse cx="18" cy="63" rx="8" ry="6" fill="none" stroke="#b8326a" stroke-width="3"/><line x1="128" y1="63" x2="160" y2="63" stroke="#8a8a8a" stroke-width="3"/>'
+  '<text x="18" y="100" font-size="11" text-anchor="middle" fill="#1f2a44">loop</text><text x="140" y="44" font-size="11" text-anchor="middle" fill="#1f2a44">cut ends</text>'
+  '<line x1="198" y1="76" x2="210" y2="64" stroke="#b8326a" stroke-width="4" stroke-linecap="round"/>'
+  '<path d="M210 64 C 230 92, 190 104, 184 86" fill="none" stroke="#1f2a44" stroke-width="1.6" stroke-dasharray="3 3"/><ellipse cx="190" cy="84" rx="7" ry="4" fill="none" stroke="#e59ab9" stroke-width="2.4"/>'
+  '<text x="238" y="114" font-size="10.5" text-anchor="middle" fill="#1f2a44">through the loop, at the back</text></svg>')
 xs = top("Cross stitch calculator: size, fabric and floss", "Enter your pattern's stitch count. See the finished size on any Aida or evenweave, how much fabric to cut, and roughly how many skeins to buy.", "Cross stitch calculator") + f'''
 <section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> divide the stitches by the fabric count. <strong>100 × 100 stitches on 14-count Aida is {xs_in(100,14):.1f} × {xs_in(100,14):.1f} in</strong> ({xs_in(100,14)*2.54:.1f} cm). Add <strong>3 in (7.5 cm) on every side</strong> for framing, so cut {xs_in(100,14)+6:.1f} × {xs_in(100,14)+6:.1f} in. On 28-count evenweave stitched over two, the size is the same as 14-count.</div></div></section>
 <section style="padding-top:0"><div class="wrap tool"><div class="sheet">
@@ -220,12 +228,21 @@ document.getElementById("xs-out").innerHTML="<h2>"+w.toFixed(1)+" × "+h.toFixed
 <p class="note">Common starting points used by most stitching guides. Your pattern's own instructions come first.</p>
 <h2>How much fabric to allow</h2>
 <p>Allow about 3 in (7.5 cm) on every side if you'll frame the piece, so there's room to stretch it and for the mat. For a hoop display, 2 in is usually enough; allow the hoop size plus about 2 in. Small finishes such as ornaments and cards need only 1 to 1.5 in.</p>
+<h2>How to start cross stitch without a knot (the loop method)</h2>
+<p>Knots make lumps under a framed piece and can pull through Aida. When you stitch with an even number of strands, the loop start is the neatest way in:</p>
+<div class="xs-loop">{XS_LOOP_SVG}</div>
+<ol><li>Pull <strong>one</strong> strand from the floss, about twice your usual length, and fold it in half.</li>
+<li>Thread the two cut ends through the needle, so the fold hangs as a loop. Now you're stitching with 2 strands.</li>
+<li>Come up from the back at the bottom-left of your first stitch. Stop before the loop reaches the fabric.</li>
+<li>Go down at the top-right to make the first half stitch, then pass the needle through the loop at the back and pull gently. The thread is locked, with no knot.</li></ol>
+<p>For 1 or 3 strands, use a <strong>waste knot</strong> instead: knot the end, go down from the front about 2 in (5 cm) along the row you're about to stitch, and work over the tail at the back; snip the knot when the tail is covered. To finish any thread, slide the needle under 3 or 4 stitches at the back and trim close. More hand stitches, with diagrams, are in <a href="{href("embroidery-stitches.html")}">embroidery stitches for beginners</a>.</p>
 <p>Planning a big piece? Chart and count it on <a href="{href("dot-grid-paper.html")}">printable graph paper</a>. Quilting too? Try the <a href="{href("quilt-size-calculator.html")}">quilt size calculator</a>.</p>
 </div></div></section>{more_crafts("cross-stitch-calculator.html")}'''
 xs_faq = [
  ("How do I work out the size of a cross stitch?", "Divide the number of stitches by the fabric count. 140 stitches on 14-count Aida is 10 inches."),
  ("How much fabric do I need for cross stitch?", "The design size plus 3 inches on every side for framing, or about 2 inches for a hoop."),
  ("How many stitches does one skein of floss make?", "Roughly 1,700 to 1,800 full cross stitches on 14-count Aida with 2 strands, from one standard 8 m skein. Finer fabric makes more stitches per skein."),
+ ("How do I start cross stitch without a knot?", "Use the loop method: fold one strand in half, thread the cut ends, come up for your first half stitch, go down, and pass the needle through the loop at the back. For an odd number of strands, use a waste knot on the front that your stitches cover."),
  ("Is 28-count evenweave the same as 14-count Aida?", "When you stitch over two threads, yes: the finished size is the same."),
 ]
 page("cross-stitch-calculator.html", "Cross Stitch Calculator: Finished Size, Fabric to Cut + Floss (Aida 11, 14, 16, 18) | Purl & Paper",

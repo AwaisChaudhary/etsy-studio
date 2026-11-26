@@ -10,6 +10,7 @@ SELLER = [
  ("eu-rules-checker-etsy-sellers.html", "EU rules checker for Etsy sellers", "Which EU rules apply to your shop: GPSR, packaging (PPWR) and the 2026 guarantee notice."),
  ("kdp-royalty-calculator.html", "KDP royalty calculator", "Printing cost and royalty for any paperback, and the price you need."),
  ("kdp-cover-size-calculator.html", "KDP cover size and spine calculator", "Full-wrap cover size, spine width and pixels for any trim and page count."),
+ ("craft-fair-profit-calculator.html", "Craft fair profit calculator", "Break-even sales, profit per hour and the 3x booth fee rule for a market day."),
 ]
 def more_seller(file):
     return '<section><div class="wrap"><div class="narrow prose"><h2>More free seller tools</h2><ul>' + "".join(f'<li><a href="{href(f)}">{n}</a></li>' for f, n, _ in SELLER if f != file) + "</ul></div></div></section>"
@@ -24,6 +25,7 @@ hub = top("Free tools for Etsy and KDP sellers", "We sell digital products on Et
 <li><a href="{href("kdp-royalty-calculator.html")}">KDP royalty calculator</a>: printing cost and royalty per paperback, and why $9.99 matters.</li>
 <li><a href="{href("kdp-cover-size-calculator.html")}">KDP cover size and spine calculator</a>: full-wrap size in inches, millimetres and pixels.</li></ul>
 <h2>Running the business</h2><ul>
+<li><a href="{href("craft-fair-profit-calculator.html")}">Craft fair profit calculator</a>: booth fee, travel and card fees against your sales, break-even and profit per hour.</li>
 <li><a href="{href("craft-fair-checklist.html")}">Craft fair checklist</a> and <a href="{href("how-to-price-crochet-items.html")}">how to price handmade items</a>.</li></ul>
 <p class="muted">Figures checked 26 November 2026. Etsy and Amazon change their fees and rules; each tool says where its numbers come from.</p>
 </div></div></section>'''

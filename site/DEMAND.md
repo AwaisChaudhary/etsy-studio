@@ -43,17 +43,25 @@ We have 47 site pages (~22 calculators/charts/trackers, 12 how-tos, junk journal
 3. GAP: Briana K's calculator passes a result between tools ('send to skeins', 'send to resize') and gives yardage as a range with a units dropdown on every field. Plan: add in/cm + yd/m toggles to every calculator that lacks them, and a 'use this in yarn calculator' button that carries numbers across our tools.
 4. BETTER-THAN-THEM: none of them save, print or work offline. Ours: every calculator remembers last inputs, prints a clean one-page 'project card' (size, stitches, yardage, skeins, colours), and the tool hub installs as an offline app (DEMAND item 5 PWA). Then pixel/C2C pattern maker (24 Nov item 5).
 
+## RADAR 26 Nov 13:45 PKT (run 3: web search)
+Y1. DONE 26 Nov (/craft-fair-profit-calculator) 'craft fair pricing / how much to charge / booth fee worth it' (SERP: Made Urban "10 costs of selling at craft fairs", SmartAsset "economics of craft fairs", TheCraftMap booth fee guide + break-even + budget posts, Fine Woodworking craft fair pricing, Folksy and Ceramic Arts Daily forum threads on table rates: all articles, no calculator) -> break-even, profit per hour, 3x booth fee rule, card fees, cost bar.
+Y2. DONE 26 Nov (/embroidery-stitches) 'basic embroidery stitches for beginners' (EGA top 10, LoveCrafts top ten, Lia Griffith, Gathered, Needle'nThread, Wool Warehouse, The Creative Curator, DIY Joy, Skillshare class rank) -> 12 stitches with own step SVGs + "what do you want to stitch" chooser. Closes W4/V4.
+Y3. DONE 26 Nov (merged as H2 + FAQ + own SVG on /cross-stitch-calculator) 'cross stitch how to start without a knot / loop method' (Stitched Modern, Sewing Trip, Mr X Stitch, Tiny Modernist, Needle'nThread, Michaels class rank) -> loop start + waste knot steps; too thin for its own page.
+Y4. OPEN seasonal: 'crochet christmas stocking' (Ravelry results dominate: Basic Christmas Stockings, Christmas Stocking in a Hurry, Quick & Easy Stocking; Purl Soho Knit Before Christmas stocking) -> stocking size + yarn helper (= W5).
+Y5. OPEN 'craft fair booth display ideas' / 'craft fair sales log' (follows Y1) -> printable fair log (fee, footfall, sales, weather) as H2 + print view on /craft-fair-profit-calculator.
+X3 note: already covered by the "Quick gifts for the last weeks" block + time calculator link on /crochet-knitting-gift-planner (checked 26 Nov run 3).
+
 ## RADAR 26 Nov 09:40 PKT (run 2: web search)
 X1. DONE 26 Nov (/2027-calendar-printable) '2027 calendar printable free' (SERP: Calendarlabs, Vertex42, calendar-12, Paper Trail Design, Monday Mandala, StudioBinder, Just a Girl and Her Blog: all static PDFs; none let you pick holidays + week start + paper + a maker's planner layout) -> generator.
 X2. DONE 26 Nov (/how-to-knit-and-purl) 'how to knit and purl for beginners step by step' (Sarah Maker, Gathered, Mama in a Stitch, Briana K, DMC, Mary Maxim, Nimble Needles rank; none offer a pattern writer) -> 4-step drawings each + knit/purl pattern maker (stockinette, garter, rib, seed, basketweave).
-X3. OPEN seasonal NOW: 'last minute crochet christmas gifts' / 'crochet christmas gifts in a weekend' (LoveCrafts 47 last-minute makes, EasyCrochet weekend gifts, AllFreeCrochet Christmas quickies, Juniper and Oakes 17 quick gifts) -> "quick gifts you can make by Christmas" H2 + hours filter on /crochet-knitting-gift-planner (link the time calculator).
+X3. DONE (already on /crochet-knitting-gift-planner: quick gifts block) seasonal NOW: 'last minute crochet christmas gifts' / 'crochet christmas gifts in a weekend' (LoveCrafts 47 last-minute makes, EasyCrochet weekend gifts, AllFreeCrochet Christmas quickies, Juniper and Oakes 17 quick gifts) -> "quick gifts you can make by Christmas" H2 + hours filter on /crochet-knitting-gift-planner (link the time calculator).
 X4. OPEN 'knit stitch patterns for beginners' (follows from X2) -> grow the pattern maker into a /knit-stitch-patterns library (moss/seed, rib, basketweave, garter rib, waffle) with own swatch drawings.
 
 ## RADAR 26 Nov 06:00 PKT (run 1: web search)
 W1. DONE 26 Nov (/sweater-size-calculator) 'what size sweater should I knit/crochet' / 'sweater ease' / 'how much yarn for a sweater' (SERP: Craft Yarn Council body sizing + ease chart, Brooklyn Tweed "Selecting a sweater size", Lion Brand "What size sweater should I knit or crochet", Purl Soho ease guide; yarn calculators at Jimmy Beans, easycrochet, B.Hooked, Sarah Maker) -> ease + pattern size picker + pullover yarn estimate.
 W2. DONE 26 Nov (/basic-crochet-stitches) 'basic crochet stitches for beginners chart' (Vogue Knitting, Lion Brand, Purl Soho, Sarah Maker, Mama in a Stitch rank; competitors have stitch libraries) -> stepper with own drawings + US/UK toggle + turning chain/height chart.
 W3. DONE 26 Nov (/how-to-knit-and-purl) 'how to knit and purl for beginners' -> knit stitch + purl stitch page with own drawings (completes the stitch library).
-W4. OPEN 'embroidery stitches for beginners' (EGA top 10, Gathered 23-stitch library, Lia Griffith, Needle'nThread rank) -> embroidery stitch guide with own SVGs (= V4, C3).
+W4. DONE 26 Nov (/embroidery-stitches) 'embroidery stitches for beginners' (EGA top 10, Gathered 23-stitch library, Lia Griffith, Needle'nThread rank) -> embroidery stitch guide with own SVGs (= V4, C3).
 W5. OPEN seasonal: 'crochet christmas stocking' (Ravelry full of stocking patterns, A Crocheted Simplicity, AllFreeCrochet) -> stocking size + yarn helper, or H2 on the gift planner. Valentine makes (heart, amigurumi) from early Jan.
 W6. OPEN 'sweater size chart women men child' (CYC size charts: couldn't fetch the tables this run) -> add verified CYC body tables to /sweater-size-calculator.
 
@@ -61,7 +69,7 @@ W6. OPEN 'sweater size chart women men child' (CYC size charts: couldn't fetch t
 V1. DONE 25 Nov (/crochet-time-estimator) 'how long does it take to crochet a blanket' (results full of single-answer articles: AllFreeCrochet, LoveCrochet, Storables, CraftTribe; Briana K Designs ships a 'crochet time estimator') -> time calculator with own pace timer + deadline.
 V2. DONE 25 Nov (/stripe-generator) 'random stripe generator crochet knitting' (easycrochet.com and lbas.lboro.ac.uk generators rank; Ravelry full of random-stripe patterns) -> stripe generator with random/Fibonacci/even, yarn per colour, print.
 V3. DONE 26 Nov (/basic-crochet-stitches) 'basic crochet stitches for beginners' / 'sc hdc dc chart' (crowded SERP: Sarah Maker, Purl Soho, EasyCrochet 30-stitch library) -> stitch library with own SVGs + US/UK toggle (same as COMPETITOR item 2). Biggest remaining gap.
-V4. OPEN 'basic embroidery stitches for beginners' (EGA, DMC, LoveCrafts, Gathered rank) -> embroidery stitch guide with own SVGs (C3 next step).
+V4. DONE 26 Nov (/embroidery-stitches) 'basic embroidery stitches for beginners' (EGA, DMC, LoveCrafts, Gathered rank) -> embroidery stitch guide with own SVGs (C3 next step).
 
 ## RADAR 25 Nov 06:45 PKT (Google autocomplete, US)
 U1. DONE 25 Nov (/how-to-price-amigurumi + commission H2) 'how to price crochet amigurumi' / 'commissions' -> new /how-to-price-amigurumi (calculator preset) + commission pricing H2 on /how-to-price-crochet-items.

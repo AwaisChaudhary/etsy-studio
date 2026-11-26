@@ -1,6 +1,6 @@
 {
 "2027-calendar-printable.html": [
-"8de5599601f10a22",
+"a27ab5da9912124f",
 "2026-11-26"
 ],
 "about.html": [
@@ -8,11 +8,11 @@
 "2026-11-19"
 ],
 "advent-calendar-ideas.html": [
-"316bce23d0834258",
+"2e83d2b32491995e",
 "2026-11-26"
 ],
 "amigurumi.html": [
-"89d9bc4ceaacb421",
+"c0af84ee722fb536",
 "2026-11-26"
 ],
 "basic-crochet-stitches.html": [
@@ -24,7 +24,7 @@
 "2026-11-24"
 ],
 "bookbinding.html": [
-"7bb856832ca7e3cd",
+"fc409ede55389b77",
 "2026-11-26"
 ],
 "c2c-blanket-calculator.html": [
@@ -32,15 +32,15 @@
 "2026-11-25"
 ],
 "calligraphy-practice-sheets.html": [
-"5e8cdbdd155697a9",
+"9dbed9488d83975b",
 "2026-11-26"
 ],
 "candle-making-calculator.html": [
-"8b3ab69948fcddd5",
+"1f2d96163ce52c30",
 "2026-11-26"
 ],
 "card-making.html": [
-"2e3996601400bbda",
+"0312801d62946964",
 "2026-11-26"
 ],
 "cast-on-calculator.html": [
@@ -48,19 +48,23 @@
 "2026-11-24"
 ],
 "christmas-crafts.html": [
-"736a5db20dbe8221",
+"d647e978d0466d61",
 "2026-11-26"
 ],
 "coloring-pages.html": [
-"5eae985f65f61518",
+"60ea71b41dfb3065",
 "2026-11-26"
 ],
 "craft-fair-checklist.html": [
-"61727132390830ea",
-"2026-11-23"
+"6be895d222b5a102",
+"2026-11-26"
+],
+"craft-fair-profit-calculator.html": [
+"ff5c80b8eb6f51aa",
+"2026-11-26"
 ],
 "crafts.html": [
-"d679f1b51bf6a7b1",
+"c5af7f663b31805e",
 "2026-11-26"
 ],
 "crochet-circle-calculator.html": [
@@ -80,31 +84,35 @@
 "2026-11-25"
 ],
 "cross-stitch-calculator.html": [
-"7175a95648552463",
+"953a5bb534ed4649",
 "2026-11-26"
 ],
 "diamond-painting-calculator.html": [
-"87721da753ae9a4f",
+"0c4d6777ee663162",
 "2026-11-26"
 ],
 "dot-grid-paper.html": [
-"3304bb8921dbcc48",
+"8ee5e3fec3bfb18b",
 "2026-11-26"
 ],
 "embroidery-patterns.html": [
-"759b471fc68ae2d3",
+"5019e00fa6d7ab31",
+"2026-11-26"
+],
+"embroidery-stitches.html": [
+"9e34614f7d85f593",
 "2026-11-26"
 ],
 "etsy-fee-calculator.html": [
-"42f86eeb8d697591",
-"2026-11-25"
+"826916c4f7ab6961",
+"2026-11-26"
 ],
 "etsy-title-tag-checker.html": [
-"e41aa6c69bec9de9",
+"66cbb5eeff47dc5e",
 "2026-11-26"
 ],
 "eu-rules-checker-etsy-sellers.html": [
-"0457db3e6c235ef0",
+"7d53a274198612d0",
 "2026-11-26"
 ],
 "foundation-chain-calculator.html": [
@@ -112,7 +120,7 @@
 "2026-11-23"
 ],
 "friendship-bracelet-patterns.html": [
-"1ef02768898b6625",
+"1834bd09bdc29eba",
 "2026-11-26"
 ],
 "gauge-converter.html": [
@@ -124,7 +132,7 @@
 "2026-11-23"
 ],
 "half-square-triangle-calculator.html": [
-"2a628d909ea4dcc4",
+"ec70fbd46957883f",
 "2026-11-26"
 ],
 "hat-size-chart.html": [
@@ -180,8 +188,8 @@
 "2026-11-25"
 ],
 "how-to-price-crochet-items.html": [
-"705f284380bb6da4",
-"2026-11-25"
+"28ccb725ec75dd36",
+"2026-11-26"
 ],
 "how-to-tea-stain-paper.html": [
 "e6ab36026b1cb1b6",
@@ -196,7 +204,7 @@
 "2026-11-24"
 ],
 "index.html": [
-"d831adc0dfb01ad5",
+"c4dadd4a906ae00b",
 "2026-11-26"
 ],
 "journal-prompts.html": [
@@ -220,11 +228,11 @@
 "2026-11-25"
 ],
 "kdp-cover-size-calculator.html": [
-"f6a600e763aed530",
+"63a5a4c102c16d49",
 "2026-11-26"
 ],
 "kdp-royalty-calculator.html": [
-"7cb1559d8b44a773",
+"e21fd8a43ff7b148",
 "2026-11-26"
 ],
 "knitting-abbreviations.html": [
@@ -232,27 +240,27 @@
 "2026-11-24"
 ],
 "loom-knitting.html": [
-"2940b7f917dcd03f",
+"db9d9f5ee5fc8b36",
 "2026-11-26"
 ],
 "macrame-cord-calculator.html": [
-"abefea9a5f5edfd0",
+"bfac6feedfd6e0f5",
 "2026-11-26"
 ],
 "needle-felting.html": [
-"b5f599d85c61944d",
+"b482e12648a6d9d3",
 "2026-11-26"
 ],
 "origami.html": [
-"d52bbd97dc2db35d",
+"2b3a45eda6236424",
 "2026-11-26"
 ],
 "paper-flowers.html": [
-"13763525f3691545",
+"feaaf52b425878b3",
 "2026-11-26"
 ],
 "polymer-clay-baking-calculator.html": [
-"0dde86f617720d19",
+"0f06b325b27a622e",
 "2026-11-26"
 ],
 "privacy.html": [
@@ -264,15 +272,15 @@
 "2026-11-20"
 ],
 "punch-needle.html": [
-"d946a501707751da",
+"54812a8423dc98ff",
 "2026-11-26"
 ],
 "quilt-size-calculator.html": [
-"818d66dd84dbcc47",
+"ed59ac98dcc7bc3d",
 "2026-11-26"
 ],
 "resin-calculator.html": [
-"3b76b426854301d1",
+"f0f6cee54eafbeb8",
 "2026-11-26"
 ],
 "row-counter.html": [
@@ -284,7 +292,7 @@
 "2026-11-25"
 ],
 "seller-tools.html": [
-"ba15b65b34853ee7",
+"9b3fa7617b964823",
 "2026-11-26"
 ],
 "sock-size-chart.html": [
@@ -304,11 +312,11 @@
 "2026-11-23"
 ],
 "tufting.html": [
-"cbd7df7dd9d75e78",
+"6a3ea44a75e4281d",
 "2026-11-26"
 ],
 "tunisian-crochet.html": [
-"d6d2cd4d20c9f3f2",
+"a357434839f05ab3",
 "2026-11-26"
 ],
 "yarn-calculator.html": [

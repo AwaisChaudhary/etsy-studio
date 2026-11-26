@@ -485,7 +485,7 @@ return s;''', '["em-h","em-s","g-seed"]', reroll=True) + PROSE("embroidery-patte
 <li><strong>Satin stitch</strong> to fill small leaves.</li>
 <li><strong>French knots</strong> for flower centres and the dotted flowers.</li></ul>
 <h2>Supplies</h2>
-<p>Use cotton or linen in a hoop one size bigger than the design, 6-strand embroidery floss split into 2 or 3 strands, and a size 5 to 9 embroidery needle. Working on Aida instead? Use our <a href="{H:cross-stitch-calculator.html}">cross stitch calculator</a>. Finished hoops make lovely <a href="{H:christmas-crafts.html}">Christmas gifts</a>.</p>''')
+<p>Use cotton or linen in a hoop one size bigger than the design, 6-strand embroidery floss split into 2 or 3 strands, and a size 5 to 9 embroidery needle. New to the stitches? See <a href="{H:embroidery-stitches.html}">embroidery stitches for beginners</a>, with a diagram for each. Working on Aida instead? Use our <a href="{H:cross-stitch-calculator.html}">cross stitch calculator</a>. Finished hoops make lovely <a href="{H:christmas-crafts.html}">Christmas gifts</a>.</p>''')
 page("embroidery-patterns.html", "Free Printable Embroidery Patterns: Floral Hoop Pattern Generator (4-8 in) | Purl & Paper",
      "Free printable embroidery patterns for beginners: floral wreaths, bouquets and half wreaths sized to a 4, 5, 6 or 8 in hoop, new designs every time, plus how to transfer and which stitches to use.",
      x, [("How do I transfer an embroidery pattern to fabric?", "Trace it with a water-soluble pen over a light box or bright window, or print it on water-soluble stabiliser for dark fabric."),
