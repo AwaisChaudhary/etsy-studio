@@ -144,7 +144,7 @@ kp = top("How to knit and purl: the two stitches every pattern uses", "Every kni
 </div><div class="result" aria-live="polite" id="kp-out"></div></div></section>
 {KP_JS}
 <section style="padding-top:0"><div class="wrap"><h2>What knit and purl make: the beginner stitch patterns</h2>
-<div class="tbl-wrap"><table><thead><tr><th scope="col">Pattern</th><th scope="col">How</th><th scope="col">Looks like</th><th scope="col">Edges</th><th scope="col">Good for</th></tr></thead><tbody>{kp_rows}</tbody></table></div></div></section>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Pattern</th><th scope="col">How</th><th scope="col">Looks like</th><th scope="col">Edges</th><th scope="col">Good for</th></tr></thead><tbody>{kp_rows}</tbody></table></div><p>Ready for more textures? The <a href="{href("knit-stitch-patterns.html")}">knit stitch patterns library</a> has 15 knit and purl stitches (moss, double seed, garter rib, mistake rib, welt and more) with swatch drawings, rows and stitch multiples.</p></div></section>
 <section><div class="wrap"><div class="narrow prose">
 <h2>How do I tell a knit stitch from a purl stitch?</h2>
 <figure class="co-fig">{KP_FACE}<figcaption class="note">Our drawing. Look at the stitches just below the needle.</figcaption></figure>

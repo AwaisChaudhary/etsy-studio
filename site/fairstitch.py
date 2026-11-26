@@ -61,6 +61,23 @@ F.forEach(function(k){{g(k).addEventListener("input",run)}});run()}})();</script
 <li><strong>Sales tax and permits.</strong> Many places need a seller's permit for in-person sales and expect you to collect sales tax. Check your state or local rules.</li></ul>
 <h2>Is a craft fair worth it?</h2>
 <p>Run the numbers before you apply. If you'd need to sell more than you've ever sold in a day just to break even, it's a pass, or a reason to bring more lower-priced items. A fair can still be worth a small profit if it brings custom orders, followers or wholesale contacts, so note those too: a sign-up sheet or a QR code to your shop turns browsers into later buyers. Keep a simple log of each fair (fee, footfall, sales, weather) and after three or four you'll know which ones to rebook.</p>
+</div></div></section>
+<section class="cf-log-sec"><div class="wrap"><div class="narrow prose cf-log">
+<h2>Craft fair sales log (free printable)</h2>
+<p>Fill in one line after each fair. After three or four fairs the log answers the questions that matter: which fairs pay, what the weather or footfall did to sales, which items sell out, and which price points move. Compare the takings with the booth fee: if it's under 3 times the fee, it goes on the "maybe not" list.</p>
+<div class="tbl-wrap"><table><thead><tr><th scope="col">Date</th><th scope="col">Fair</th><th scope="col">Booth fee + costs</th><th scope="col">Hours</th><th scope="col">Visitors (rough)</th><th scope="col">Weather</th><th scope="col">Items sold</th><th scope="col">Takings</th><th scope="col">Card share</th><th scope="col">Top seller</th><th scope="col">Custom orders / sign-ups</th><th scope="col">Book again?</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p><button type="button" class="btn" id="cf-log-print">Print the sales log</button></p>
+<p class="note">Prints just this table, landscape works best. Tip: tally sales on a sheet at the stall (item and price) so the "top seller" and "card share" columns take a minute to fill in.</p>
+</div></div></section>
+<section><div class="wrap"><div class="narrow prose">
+<h2>Craft fair booth display ideas that help you sell</h2>
+<ul><li><strong>Build height.</strong> Crates, risers or a small shelf at the back put items at eye level, and shoppers see them from the aisle.</li>
+<li><strong>Price everything clearly.</strong> Many shoppers walk away rather than ask. Group items by price with one sign per group.</li>
+<li><strong>Show it in use.</strong> A hat on a head form, a blanket draped over a chair, a journal open at a finished spread.</li>
+<li><strong>Keep the front open.</strong> Put the table at the back or side so people can step in, and stand rather than sit behind it.</li>
+<li><strong>A clear sign with your name</strong> and a QR code to your shop, so browsers can buy later.</li>
+<li><strong>Light it.</strong> Indoor halls are often dim; a battery lamp or string lights make colours pop.</li></ul>
+<p>The <a href="{href("craft-fair-checklist.html")}">craft fair checklist</a> has the full packing list, stock count and cash float.</p>
 <h2>How to raise your profit at a fair</h2>
 <ul><li><strong>Price from costs, not from the stall next to you.</strong> Our <a href="{href("how-to-price-crochet-items.html")}">pricing guide for handmade items</a> has a calculator with a craft fair option.</li>
 <li><strong>Have small add-ons at the till.</strong> Ornaments, bookmarks, stickers or coasters lift the average sale.</li>
@@ -70,6 +87,7 @@ F.forEach(function(k){{g(k).addEventListener("input",run)}});run()}})();</script
 <p class="note">Figures from TheCraftMap's craft fair booth fee guide (2026 fee ranges, electricity extras, the 3× rule and a break-even formula), Made Urban's "10 costs of selling at craft fairs" (the hidden-cost list and sales tax), and Square's published US in-person rate. All amounts are typical examples, not quotes: check your fair's and your card reader's own terms. This is general information, not tax or financial advice.</p>
 </div></div></section>{more_seller("craft-fair-profit-calculator.html")}'''
 cfp_faq = [
+    ("What should I record after a craft fair?", "The fee and other costs, hours, a rough visitor count, the weather, items sold, takings, how much came by card, the best seller and any custom orders or sign-ups. After three or four fairs you can see which ones are worth booking again."),
     ("How do I calculate break-even at a craft fair?", "Add up the booth fee and every other cost of the day (travel, food, extras), then divide by what you keep per item after materials, packaging and card fees. With $140 of costs and about $13 kept per $20 item, you need 11 sales to break even."),
     ("How much should I sell at a craft fair compared with the booth fee?", "A common rule of thumb is sales of at least three times the booth fee: $450 of sales for a $150 booth. Below that, the fair rarely pays for your time."),
     ("How much do craft fair booths cost?", "Roughly $25 to $75 for small community fairs, $75 to $200 for regional fairs, $100 to $400 for holiday markets and $200 to $500 or more for juried shows, according to TheCraftMap's 2026 guide."),

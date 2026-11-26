@@ -251,12 +251,12 @@ var S={ltr:[8.5,11,"in"],"12":[12,12,"in"],a4:[210,297,"mm"]}[sh],f=c[4]==S[2]?1
 function fit(A,B){return Math.floor(A/w+1e-6)*Math.floor(B/h+1e-6)}var per=Math.max(fit(S[0],S[1]),fit(S[1],S[0]));
 document.getElementById("calc-out").innerHTML="<p><strong>Finished card:</strong> "+c[1]+"<br><strong>Cut flat (fold in half):</strong> "+c[2]+"<br><strong>Envelope:</strong> "+c[3]+"</p><p><span class=big-n>"+per+"</span> card"+(per==1?"":"s")+" per sheet &rarr; <strong>"+(per?Math.ceil(q/per):"-")+"</strong> sheets for "+q+" cards.</p>"+(per==0?"<p>This card is bigger than the sheet when flat: use a larger sheet.</p>":"");''') + PROSE("card-making.html", '''
 <h2>Card and envelope sizes</h2>
-<table><thead><tr><th>Card</th><th>Finished size</th><th>Cut flat</th><th>Envelope</th><th>Per Letter/A4 sheet</th></tr></thead><tbody>''' + rows + '''</tbody></table>
+<div class="tbl-wrap"><table><thead><tr><th>Card</th><th>Finished size</th><th>Cut flat</th><th>Envelope</th><th>Per Letter/A4 sheet</th></tr></thead><tbody>''' + rows + '''</tbody></table></div>
 <p>Envelopes are made slightly bigger than the card, about 1/8 to 1/4 in (3 to 10 mm) on each side, so the card slides in easily with embellishments.</p>
 <h2>Card making for beginners</h2>
 <ul><li><strong>Score before you fold:</strong> run a bone folder or an empty ballpoint along a ruler, then fold. The fold stays crisp and doesn't crack.</li>
 <li><strong>Cardstock weight:</strong> 80 to 110 lb cover (216 to 300 gsm) for the card base; lighter paper for layers.</li>
-<li><strong>Layer with mats:</strong> cut each layer 1/4 in (6 mm) smaller than the one below.</li>
+<li><strong>Layer with mats:</strong> cut each layer 1/4 in (6 mm) smaller than the one below. Scrapbooking too? See <a href="{H:scrapbook-page-sizes.html}">scrapbook page sizes</a> for photo mats and layouts.</li>
 <li><strong>Postage:</strong> square cards and cards thicker than 1/4 in (6 mm) may cost extra postage in the US.</li></ul>
 <p>Decorate with <a href="{H:paper-flowers.html}">paper flowers</a>, ephemera from our <a href="{H:junk-journal-ephemera-ideas.html}">junk journal ideas</a>, or <a href="{H:calligraphy-practice-sheets.html}">hand lettering</a>. Making Christmas cards? See <a href="{H:christmas-crafts.html}">Christmas crafts</a>.</p>''')
 page("card-making.html", "Card Making Size Calculator: Card Sizes, Envelopes + Cuts per Sheet (A2, A6, A7, C6) | Purl & Paper",

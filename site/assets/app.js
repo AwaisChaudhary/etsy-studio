@@ -2830,4 +2830,133 @@
     rpRun();
   }
 
+  /* ---------- KNIT STITCH PATTERNS (row writer from our charts) ---------- */
+  if ($("#ks-pat") && $("#ks-data")) {
+    var KSD = JSON.parse($("#ks-data").textContent), KSB = {};
+    KSD.forEach(function (p) { KSB[p.k] = p; });
+    var ksBit = function (g, r, x) { var row = g[r % g.length]; return row.charAt(x % row.length) === "1"; };
+    var ksOps = function (g, r, n) { var o = []; for (var i = 0; i < n; i++) { var xr = r % 2 === 0 ? i : n - 1 - i, k = ksBit(g, r, xr); o.push(r % 2 === 0 ? (k ? "k" : "p") : (k ? "p" : "k")); } return o; };
+    var ksRl = function (a) { var u = [], i = 0; while (i < a.length) { var j = i; while (j < a.length && a[j] === a[i]) j++; u.push(a[i] + (j - i)); i = j; } return u; };
+    var ksSay = function (o) {
+      var n = o.length;
+      for (var p = 1; p <= 8 && p <= n; p++) {
+        var best = null;
+        for (var a = 0; a < p && a < n; a++) {
+          var ok = true; for (var i = a; i < n; i++) if (o[i] !== o[a + ((i - a) % p)]) { ok = false; break; }
+          if (!ok) continue;
+          var reps = Math.floor((n - a) / p); if (reps < 2 && p > 1) continue;
+          var L = o.slice(0, a), U = o.slice(a, a + p), T = o.slice(a + reps * p), sc = ksRl(L).length + ksRl(T).length + ksRl(U).length;
+          if (!best || sc < best.sc) best = { L: L, U: U, T: T, sc: sc };
+        }
+        if (!best) continue;
+        if (p === 1 && !best.L.length) return o[0] === "k" ? "Knit every stitch." : "Purl every stitch.";
+        var t = best.T.length, s = (best.L.length ? ksRl(best.L).join(", ") + ", " : "") + "*" + ksRl(best.U).join(", ") + "; repeat from * ";
+        return t ? s + (t > 1 ? "to last " + t + " sts, " : "to last st, ") + ksRl(best.T).join(", ") + "." : s + "to end.";
+      }
+      return ksRl(o).join(", ") + ".";
+    };
+    var ksRows = function (g, n) {
+      var H = g.length * (g.length % 2 ? 2 : 1), txt = [];
+      for (var r = 0; r < H; r++) txt.push(ksSay(ksOps(g, r, n)));
+      for (var per = 1; per <= H; per++) { if (H % per) continue; var ok = true; for (var r2 = 0; r2 < H; r2++) if (txt[r2] !== txt[r2 % per]) { ok = false; break; } if (ok) return txt.slice(0, per); }
+      return txt;
+    };
+    var ksRun = function () {
+      var p = KSB[$("#ks-pat").value] || KSD[0], u = $("#ks-u").value, w = parseFloat($("#ks-w").value) || 8, g = parseFloat($("#ks-g").value) || 18;
+      var per = g / (u === "cm" ? 10 : 4), raw = w * per, own = parseInt($("#ks-n").value, 10), n;
+      if (own >= 2) n = Math.min(600, own);
+      else { var k = Math.max(1, Math.round((raw - p.x) / p.m)); n = p.m * k + p.x; if (n < 2) n = 2; }
+      var fits = (n - p.x) % p.m === 0 && n - p.x >= (p.m > 1 ? p.m : 0);
+      var rows = ksRows(p.g, n), o = [];
+      o.push("<h3>" + esc(p.n) + "</h3><p class=\"big\">" + n + " <small>stitches to cast on</small></p>");
+      o.push("<p>Comes out about <strong>" + (n / per).toFixed(1) + " " + u + "</strong> wide at " + g + " sts per " + (u === "cm" ? "10 cm" : "4 in") + ". Pattern multiple: " + (p.m === 1 ? "any number" : p.m + (p.x ? " + " + p.x : "")) + ".</p>");
+      if (own >= 2 && !fits) {
+        var lo = Math.max(p.m + p.x, Math.floor((n - p.x) / p.m) * p.m + p.x), hi = lo + p.m;
+        o.push("<p>⚠ " + n + " doesn't fit the multiple, so the edges won't match. Nearest counts that do: <strong>" + lo + "</strong> or <strong>" + hi + "</strong>. The rows below are still correct for " + n + ".</p>");
+      }
+      o.push("<ol class=\"ks-out-rows\">" + rows.map(function (t, i) { return "<li><strong>Row " + (i + 1) + (rows.length > 1 ? (i % 2 === 0 ? " (RS)" : " (WS)") : "") + ":</strong> " + esc(t) + "</li>"; }).join("") + "</ol>");
+      o.push("<p>" + (rows.length === 1 ? "Repeat this row." : "Repeat rows 1 to " + rows.length + ".") + " Want tidy edges? Cast on " + (n + 2) + " and knit the first and last stitch of every row.</p>");
+      var cols = Math.min(n, 28), R = 12, cs = 10, W = cols * cs + 8, H = R * cs + 8, s = "";
+      for (var r = 0; r < R; r++) for (var x = 0; x < cols; x++) {
+        var cx = W - 4 - (x + 0.5) * cs, cy = H - 4 - (r + 0.5) * cs;
+        s += ksBit(p.g, r, x) ? '<path d="M' + (cx - 3.5) + " " + (cy - 3.5) + ' l3.5 6.5 l3.5 -6.5" fill="none" stroke="#f4a823" stroke-width="2" stroke-linecap="round"/>' : '<path d="M' + (cx - 4) + " " + (cy + 1) + " q4 " + ((x + r) % 2 ? -5 : 5) + ' 8 0" fill="none" stroke="#e07aa3" stroke-width="2.2" stroke-linecap="round"/>';
+      }
+      o.push('<figure class="ks-prev"><svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Preview of the right side">' + s + "</svg><figcaption>Right side" + (n > 28 ? ", first 28 stitches" : "") + "</figcaption></figure>");
+      $("#ks-out").innerHTML = o.join("");
+      store.set("pp-ks", { p: $("#ks-pat").value, w: $("#ks-w").value, u: u, g: $("#ks-g").value, n: $("#ks-n").value });
+    };
+    var ksS = store.get("pp-ks", null);
+    if (ksS && KSB[ksS.p]) { $("#ks-pat").value = ksS.p; $("#ks-w").value = ksS.w || 8; $("#ks-u").value = ksS.u || "in"; $("#ks-g").value = ksS.g || 18; $("#ks-n").value = ksS.n || ""; }
+    if (location.hash && KSB[location.hash.slice(1)]) $("#ks-pat").value = location.hash.slice(1);
+    ["#ks-pat", "#ks-w", "#ks-u", "#ks-g", "#ks-n"].forEach(function (id) { $(id).addEventListener("input", ksRun); $(id).addEventListener("change", ksRun); });
+    ksRun();
+  }
+
+  /* ---------- SCRAPBOOK PAGE LAYOUT ---------- */
+  if ($("#sb-page") && $("#sb-data")) {
+    var SBD = JSON.parse($("#sb-data").textContent);
+    var sbGrid = function (W, H, w, h, m, g) { return [Math.max(0, Math.floor((W - 2 * m + g + 1e-9) / (w + g))), Math.max(0, Math.floor((H - 2 * m + g + 1e-9) / (h + g)))]; };
+    var sbRows = function (W, H, w, h, m, g) {
+      var best = [];
+      [[w, h], [h, w]].forEach(function (o) {
+        var a = o[0], b = o[1], ca = sbGrid(W, H, a, b, m, g)[0], cb = sbGrid(W, H, b, a, m, g)[0];
+        for (var ra = 0; ra < 40; ra++) {
+          var used = ra * (b + g); if (ra && 2 * m + used - g > H + 1e-9) break;
+          var rb = cb ? Math.max(0, Math.floor((H - 2 * m - used + g + 1e-9) / (a + g))) : 0;
+          if (ra * ca + rb * cb > best.length) {
+            var R = [], r, i;
+            for (r = 0; r < ra; r++) for (i = 0; i < ca; i++) R.push([m + i * (a + g), m + r * (b + g), a, b]);
+            for (r = 0; r < rb; r++) for (i = 0; i < cb; i++) R.push([m + i * (b + g), m + used + r * (a + g), b, a]);
+            best = R;
+          }
+        }
+      });
+      return best;
+    };
+    var sbFit = function (W, H, w, h, m, g) {
+      var best = sbRows(W, H, w, h, m, g), cols = sbRows(H, W, w, h, m, g).map(function (q) { return [q[1], q[0], q[3], q[2]]; });
+      if (cols.length > best.length) best = cols;
+      var L = Math.max(w, h), S = Math.min(w, h);
+      if (L > S && L + S + g <= Math.min(W, H) - 2 * m + 1e-9 && best.length < 4) best = [[m, m, L, S], [m + L + g, m, S, L], [m + S + g, m + L + g, L, S], [m, m + S + g, S, L]];
+      return { n: best.length, r: best };
+    };
+    var sbNum = function (id, d) { var v = parseFloat($(id).value); return isFinite(v) && v >= 0 ? v : d; };
+    var fr = function (x) { var w = Math.floor(x + 1e-9), f = Math.round((x - w) * 8); if (f === 8) { w++; f = 0; } var F = ["", "⅛", "¼", "⅜", "½", "⅝", "¾", "⅞"][f]; return (w ? w : (F ? "" : "0")) + F; };
+    var sbRun = function () {
+      var pk = $("#sb-page").value, fk = $("#sb-photo").value;
+      $("#sb-pc").hidden = pk !== "custom"; $("#sb-fc").hidden = fk !== "custom";
+      var P = pk === "custom" ? [sbNum("#sb-pw", 12), sbNum("#sb-ph", 12)] : SBD.p[pk], F = fk === "custom" ? [sbNum("#sb-fw", 4), sbNum("#sb-fh", 6)] : SBD.f[fk];
+      var mat = parseFloat($("#sb-mat").value) || 0, m = sbNum("#sb-m", 0.5), g = sbNum("#sb-g", 0.25);
+      var w = F[0] + 2 * mat, h = F[1] + 2 * mat, W = P[0], H = P[1], fit = sbFit(W, H, w, h, m, g), want = parseInt($("#sb-want").value, 10), o = [];
+      var show = want > 0 ? Math.min(want, fit.n) : fit.n;
+      o.push("<h3>" + W + " x " + H + " in page</h3><p class=\"big\">" + fit.n + " <small>photo" + (fit.n === 1 ? "" : "s") + " of " + F[0] + " x " + F[1] + " in fit" + (mat ? ", matted" : "") + "</small></p>");
+      if (!fit.n) o.push("<p>The photo is bigger than the page inside the margin. Try a smaller print or a smaller margin.</p>");
+      else {
+        var used = show * w * h, area = W * H;
+        o.push("<p>" + (mat ? "Each mat: <strong>" + fr(w) + " x " + fr(h) + " in</strong>. " : "") + "With " + show + " photo" + (show === 1 ? "" : "s") + " the page is <strong>" + Math.round(used / area * 100) + "% photos</strong>, leaving about " + Math.round(100 - used / area * 100) + "% for paper, a title and journaling.</p>");
+        if (want > fit.n) o.push("<p>⚠ Only " + fit.n + " fit. Use smaller prints, or spread them over a two-page spread.</p>");
+      }
+      var S = 300 / Math.max(W, H), svg = '<rect x="1" y="1" width="' + (W * S) + '" height="' + (H * S) + '" rx="4" fill="#f3ede2" stroke="#1f2a44" stroke-width="2"/>', C = ["#2f8f8a", "#b8326a", "#e39a14", "#5b6b94"];
+      fit.r.slice(0, show).forEach(function (q, k) { svg += '<rect x="' + (1 + q[0] * S).toFixed(1) + '" y="' + (1 + q[1] * S).toFixed(1) + '" width="' + (q[2] * S).toFixed(1) + '" height="' + (q[3] * S).toFixed(1) + '" rx="2" fill="' + C[k % 4] + '" opacity=".9"/>'; });
+      o.push('<figure class="sb-prev"><svg viewBox="0 0 ' + (W * S + 2).toFixed(0) + " " + (H * S + 2).toFixed(0) + '" role="img" aria-label="Layout preview">' + svg + "</svg><figcaption>Layout preview, to scale</figcaption></figure>");
+      var tot = parseInt($("#sb-n").value, 10);
+      if (tot > 0 && show > 0) { var pg = Math.ceil(tot / show); o.push("<p>For <strong>" + tot + " photos</strong> at " + show + " a page you need <strong>" + pg + " pages</strong>: " + Math.ceil(pg / 2) + " page protectors used both sides, or " + pg + " one-sided.</p>"); }
+      $("#sb-out").innerHTML = o.join("");
+      store.set("pp-sb", { p: pk, f: fk, pw: $("#sb-pw").value, ph: $("#sb-ph").value, fw: $("#sb-fw").value, fh: $("#sb-fh").value, mat: $("#sb-mat").value, m: $("#sb-m").value, g: $("#sb-g").value, n: $("#sb-n").value, want: $("#sb-want").value });
+    };
+    var sbS = store.get("pp-sb", null);
+    if (sbS) { ["pw", "ph", "fw", "fh", "mat", "m", "g", "n", "want"].forEach(function (k) { if (sbS[k] != null && $("#sb-" + k)) $("#sb-" + k).value = sbS[k]; }); if (SBD.p[sbS.p] || sbS.p === "custom") $("#sb-page").value = sbS.p; if (SBD.f[sbS.f] || sbS.f === "custom") $("#sb-photo").value = sbS.f; }
+    ["#sb-page", "#sb-photo", "#sb-pw", "#sb-ph", "#sb-fw", "#sb-fh", "#sb-mat", "#sb-m", "#sb-g", "#sb-n", "#sb-want"].forEach(function (id) { $(id).addEventListener("input", sbRun); $(id).addEventListener("change", sbRun); });
+    sbRun();
+  }
+
+  /* ---------- CRAFT FAIR SALES LOG print ---------- */
+  if ($("#cf-log-print")) {
+    $("#cf-log-print").addEventListener("click", function () {
+      document.body.classList.add("print-cflog");
+      window.print();
+      setTimeout(function () { document.body.classList.remove("print-cflog"); }, 500);
+    });
+  }
+
 })();

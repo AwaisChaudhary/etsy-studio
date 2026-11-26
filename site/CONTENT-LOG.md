@@ -306,3 +306,17 @@
 - Pins queued: pins/site/christmas-stocking-calculator.jpg, pins/site/how-to-read-crochet-patterns.jpg.
 - Shop boxes: no new live products with Gumroad links (batch 8 still Etsy-only).
 - IndexNow pending (live after the evening deploy): https://purlandpaperco.com/christmas-stocking-calculator, https://purlandpaperco.com/how-to-read-crochet-patterns, https://purlandpaperco.com/crochet-terms, https://purlandpaperco.com/christmas-crafts
+
+## 2026-11-26 (daily SEO run 5)
+- DEMAND.md: new RADAR 26 Nov run 5 block (A1-A6); X4, Z3 and Y5 closed.
+- New guide + tool: /knit-stitch-patterns (stitchscrap.py; GUIDES + footer, Home "New", in-links from /how-to-knit-and-purl, /scarf-size-chart, /knitting-abbreviations). 15 knit/purl stitches (stockinette, garter, reverse st, 1x1 and 2x2 rib, seed, US moss, double seed, basketweave checks, garter rib, broken rib, mistake rib, Andalusian, welt, diagonal rib). Each is our own right-side chart; the written rows and swatch drawings are generated from it, so they always agree. Row writer: pattern + width + gauge (or own count) -> cast on rounded to the multiple, rows, preview, warning if a typed count breaks the multiple.
+- Targets: "knit stitch patterns for beginners", "easy knitting stitches", "seed stitch vs moss stitch", "knitting stitches that don't curl", "reversible knitting stitches for scarf", "multiple of 2 + 1 meaning".
+- Sources: Gathered knit-and-purl patterns, Yarnspirations repeats and multiples, StudioKnit beginner stitch list, Vogue Knitting basic stitches (SERP 26 Nov). Wording and charts our own.
+- New tool: /scrapbook-page-sizes (stitchscrap.py; NEW_CRAFTS, crafts hub "More paper crafts", Home "New", in-links from /card-making, /junk-journal-beginners new H2 "Junk journal or scrapbook?"). Page size chart in/cm, photos-per-page table (½ in margin, ¼ in gaps; row blocks, column blocks or a 4-photo pinwheel), mat size table, calculator (page, photo, mat, margin, gap, photos wanted, photos per album -> pages and protectors) with to-scale preview.
+- Targets: "scrapbook page sizes", "standard scrapbook page size", "how many photos fit on a 12x12 scrapbook page", "12x12 vs 8.5x11 scrapbook", "scrapbook page size in cm", "mat size for 4x6 photo".
+- Sources: hometosight standard page sizes, Creative Memories album guide (2024), Get It Scrapped album formats, Simple Scrapper 8.5x11, Print File 6-pocket 12x12 refill. Counts and mats are our maths.
+- Merged: /craft-fair-profit-calculator gets "Craft fair sales log (free printable)" H2 with a print-only-this-table button + "Craft fair booth display ideas" H2 + FAQ (closes Y5).
+- Fix: /card-making size table wrapped for mobile (was 78 px horizontal overflow at 390 px).
+- New script: tools/site_pins.py (house-style site pins). Pins queued: pins/site/knit-stitch-patterns.jpg, pins/site/scrapbook-page-sizes.jpg.
+- Shop boxes: knit page -> planner, stash tracker, pricing calculator, gift tags; scrapbook page -> journaling cards 3x4, ephemera pack, mega bundle, December Days kit. No new live products with Gumroad links (batch 8 still Etsy-only).
+- IndexNow pending (live after the evening deploy): https://purlandpaperco.com/knit-stitch-patterns, https://purlandpaperco.com/scrapbook-page-sizes, https://purlandpaperco.com/craft-fair-profit-calculator, https://purlandpaperco.com/how-to-knit-and-purl
