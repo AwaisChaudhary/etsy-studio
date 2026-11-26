@@ -7,8 +7,8 @@ def L(s): return _re.sub(r"\{H:([a-z0-9-]+\.html)\}", lambda m: href(m.group(1))
 CRAFTS = [
  ("crafts.html", "All crafts", "Every craft we cover, with its free tools."),
  ("calligraphy-practice-sheets.html", "Calligraphy practice sheets", "Make printable guideline sheets for any pen: x-height, slant and spacing."),
+ ("2027-calendar-printable.html", "2027 calendar printable", "Free 2027 calendar, yearly or monthly, with US or UK holidays, Letter or A4."),
  ("dot-grid-paper.html", "Dot grid paper (bullet journal)", "Printable dot grid, graph and lined paper in any spacing, A4 or Letter."),
- ("2027-calendar-printable.html", "2027 calendar printable", "A free 2027 calendar: one-page year or 12 monthly pages, US or UK holidays."),
  ("diamond-painting-calculator.html", "Diamond painting calculator", "How many drills fit your canvas, round or square, and how long it will take."),
  ("cross-stitch-calculator.html", "Cross stitch calculator", "Finished size on any fabric count, how much fabric to cut and how many skeins."),
  ("quilt-size-calculator.html", "Quilt size calculator", "Quilt size for any bed, plus backing and binding yardage."),
@@ -28,8 +28,8 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <section style="padding-top:10px"><div class="wrap"><div class="narrow prose">
 <h2>Paper and lettering</h2>
 <ul><li><a href="{href("calligraphy-practice-sheets.html")}">Calligraphy practice sheets</a>: guideline sheets for brush pens and pointed pens, set to your x-height and slant.</li>
+<li><a href="{href("2027-calendar-printable.html")}">2027 calendar printable</a>: the whole year on one page or a month per page, with US or UK holidays.</li>
 <li><a href="{href("dot-grid-paper.html")}">Dot grid paper</a>: the bullet journal standard, plus graph and lined paper, ready to print.</li>
-<li><a href="{href("2027-calendar-printable.html")}">2027 calendar printable</a>: a one-page year or twelve monthly pages, with US or UK holidays.</li>
 <li><a href="{href("junk-journal-beginners.html")}">Junk journaling for beginners</a> and the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</li></ul>
 <h2>Needlework</h2>
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
@@ -135,6 +135,7 @@ dot = top("Printable dot grid paper (and graph and lined)", "The bullet journal 
 <h2>Making a printable journal</h2>
 <p>Print double-sided, fold the sheets in half and stitch them into a signature. Our <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets to fold, and the <a href="{href("journal-prompts.html")}">journal prompt generator</a> gives you something to write about.</p>
 <p>Lettering your headers? Print <a href="{href("calligraphy-practice-sheets.html")}">calligraphy practice sheets</a> first.</p>
+<p>Need the dates too? Print a free <a href="{href("2027-calendar-printable.html")}">2027 calendar</a>, a whole year or a page a month.</p>
 </div></div></section>{more_crafts("dot-grid-paper.html")}'''
 dot_faq = [
  ("What size dot grid is best for a bullet journal?", "5 mm is the standard and suits most handwriting. 4 mm fits more on a page; 6 to 7 mm suits large writing."),
@@ -483,5 +484,118 @@ page("half-square-triangle-calculator.html", "Half Square Triangle Calculator: H
      "Free half square triangle calculator: what size squares to cut for HSTs made 2, 4 or 8 at a time, how many squares and strips you need, and a cut size chart.",
      hst, hst_faq, "Half square triangle calculator", app_name="Half square triangle calculator")
 
-exec((ROOT / "calendar.py").read_text())
+
+# ---------------- 2027 CALENDAR PRINTABLE (DEMAND C8: "2027 calendar printable" 10k-100k, +900% YoY, peaks Dec) ----------------
+# Holidays computed in the browser. US: federal holidays (5 U.S.C. 6103) with OPM's Saturday->Friday / Sunday->Monday observed rule.
+# UK: England & Wales bank holidays; 2027 dates match the Privy Council proclamation of 8 July 2026 (1 Jan, 3 May, 28 Dec) plus the usual rules.
+CAL_JS = r'''<script>(function(){
+var MN=["January","February","March","April","May","June","July","August","September","October","November","December"],DN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+P={a4:[210,297],letter:[215.9,279.4]},AC={ink:"#1f2a44",berry:"#b8326a",teal:"#2a8a86",gold:"#c98a12"};
+function g(i){return document.getElementById(i)}
+function nth(y,m,dow,n){var d=new Date(y,m,1),off=(dow-d.getDay()+7)%7;return 1+off+(n-1)*7}
+function last(y,m,dow){var L=new Date(y,m+1,0),off=(L.getDay()-dow+7)%7;return L.getDate()-off}
+function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),gg=Math.floor((b-f+1)/3),h=(19*a+b-d-gg+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function dow(y,m,d){return new Date(y,m,d).getDay()}
+window.PPhol=function(y,mode){var H={};function add(m,d,n){var k=m+"-"+d;H[k]=H[k]?H[k]+" / "+n:n}
+ if(mode=="us"){var fx=[[0,1,"New Year's Day"],[5,19,"Juneteenth"],[6,4,"Independence Day"],[10,11,"Veterans Day"],[11,25,"Christmas Day"]];
+  fx.forEach(function(h){add(h[0],h[1],h[2]);var w=dow(y,h[0],h[1]);if(w==6&&!(h[0]==0&&h[1]==1))add(h[0],h[1]-1,h[2]+" (obs.)");if(w==0)add(h[0],h[1]+1,h[2]+" (obs.)")});
+  if(dow(y+1,0,1)==6)add(11,31,"New Year's observed");
+  add(0,nth(y,0,1,3),"MLK Day");add(1,nth(y,1,1,3),"Presidents' Day");add(4,last(y,4,1),"Memorial Day");add(8,nth(y,8,1,1),"Labor Day");add(9,nth(y,9,1,2),"Columbus Day");add(10,nth(y,10,4,4),"Thanksgiving")}
+ else if(mode=="uk"){var w=dow(y,0,1);add(0,w==6?3:(w==0?2:1),"New Year's Day"+(w==6||w==0?" (sub)":""));
+  var E=easter(y),gf=new Date(E);gf.setDate(E.getDate()-2);var em=new Date(E);em.setDate(E.getDate()+1);add(gf.getMonth(),gf.getDate(),"Good Friday");add(em.getMonth(),em.getDate(),"Easter Monday");
+  add(4,nth(y,4,1,1),"Early May bank hol");add(4,last(y,4,1),"Spring bank hol");add(7,last(y,7,1),"Summer bank hol");
+  var c=dow(y,11,25);if(c==6){add(11,25,"Christmas Day");add(11,26,"Boxing Day");add(11,27,"Christmas (sub)");add(11,28,"Boxing Day (sub)")}else if(c==0){add(11,25,"Christmas Day");add(11,26,"Boxing Day");add(11,27,"Christmas (sub)")}else if(c==5){add(11,25,"Christmas Day");add(11,26,"Boxing Day");add(11,28,"Boxing Day (sub)")}else{add(11,25,"Christmas Day");add(11,26,"Boxing Day")}}
+ return H};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/'/g,"&#39;")}
+function T(x,y,s,sz,col,wt,anc){return '<text x="'+x+'" y="'+y+'" font-family="Helvetica,Arial,sans-serif" font-size="'+sz+'" fill="'+col+'"'+(wt?' font-weight="'+wt+'"':'')+(anc?' text-anchor="'+anc+'"':'')+'>'+esc(s)+'</text>'}
+function opts(){return{y:+g("cl-year").value,lay:g("cl-lay").value,st:g("cl-start").value=="mon"?1:0,hol:g("cl-hol").value,pp:P[g("cl-paper").value],ac:AC[g("cl-ac").value],m:+g("cl-mon").value}}
+function weeks(y,m,st){var f=(dow(y,m,1)-st+7)%7,n=new Date(y,m+1,0).getDate();return Math.ceil((f+n)/7)}
+function yearSvg(o){var W=o.pp[0],H=o.pp[1],mg=12,s="",HL=PPhol(o.y,o.hol),cw=(W-2*mg)/3,top=34,listH=o.hol=="none"?0:34,ch=(H-top-mg-listH)/4;
+ s+=T(W/2,24,String(o.y),16,o.ac,"700","middle");
+ for(var m=0;m<12;m++){var cx=mg+(m%3)*cw,cy=top+Math.floor(m/3)*ch,cel=(cw-6)/7,rh=(ch-14)/7,f=(dow(o.y,m,1)-o.st+7)%7,n=new Date(o.y,m+1,0).getDate();
+  s+=T(cx+3,cy+5,MN[m],4.2,o.ac,"700");
+  for(var j=0;j<7;j++)s+=T(cx+3+cel*j+cel/2,cy+11,DN[(j+o.st)%7].charAt(0),2.6,"#777","700","middle");
+  for(var d=1;d<=n;d++){var p=f+d-1,r=Math.floor(p/7),c=p%7,x=cx+3+cel*c+cel/2,yy=cy+11+rh*(r+1),wk=(c+o.st)%7,h=HL[m+"-"+d];
+   if(h)s+='<circle cx="'+x+'" cy="'+(yy-1.1)+'" r="2.4" fill="'+o.ac+'" opacity=".16"/>';
+   s+=T(x,yy,d,3,h?o.ac:(wk==0||wk==6?"#888":"#222"),h?"700":"","middle")}}
+ if(listH){var ks=Object.keys(HL).sort(function(a,b){var A=a.split("-"),B=b.split("-");return(A[0]-B[0])||(A[1]-B[1])}),y0=H-mg-listH+6,per=Math.ceil(ks.length/3);
+  s+=T(mg,y0,o.hol=="us"?"US federal holidays":"UK bank holidays (England and Wales)",3,o.ac,"700");
+  ks.forEach(function(k,i){var A=k.split("-");s+=T(mg+Math.floor(i/per)*cw,y0+4.5+(i%per)*3.6,MN[+A[0]].slice(0,3)+" "+A[1]+"  "+HL[k],2.6,"#333")})}
+ s+=T(W-mg,H-5,"purlandpaperco.com",2.4,"#aaa","","end");
+ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'mm" height="'+H+'mm"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>'}
+function monthSvg(o,m){var W=o.pp[1],H=o.pp[0],mg=11,s="",HL=PPhol(o.y,o.hol),side=o.lay=="planner"?64:0,gw=W-2*mg-side,top=30,nw=weeks(o.y,m,o.st),gh=H-top-mg-8,cw=gw/7,rh=gh/nw,f=(dow(o.y,m,1)-o.st+7)%7,n=new Date(o.y,m+1,0).getDate();
+ s+=T(mg,20,MN[m],13,o.ac,"700")+T(mg+gw,20,String(o.y),13,"#bbb","700","end");
+ for(var j=0;j<7;j++){s+='<rect x="'+(mg+cw*j)+'" y="'+(top-7)+'" width="'+cw+'" height="7" fill="'+o.ac+'"/>';s+=T(mg+cw*j+cw/2,top-2.2,DN[(j+o.st)%7],3.2,"#fff","700","middle")}
+ for(var r=0;r<nw;r++)for(var c=0;c<7;c++){var p=r*7+c,d=p-f+1,x=mg+cw*c,yy=top+rh*r,wk=(c+o.st)%7,h=HL[m+"-"+d];
+  s+='<rect x="'+x+'" y="'+yy+'" width="'+cw+'" height="'+rh+'" fill="'+(d<1||d>n?"#f6f6f4":(h?"#fbf3f7":"#fff"))+'" stroke="#c9c9c9" stroke-width=".25"/>';
+  if(d>=1&&d<=n){s+=T(x+2,yy+5.2,d,4.2,h?o.ac:(wk==0||wk==6?"#888":"#222"),"700");if(h)s+=T(x+2,yy+rh-2.2,h.length>24?h.slice(0,23)+"…":h,2.5,o.ac)}}
+ if(side){var sx=W-mg-side+6,sw=side-6;s+=T(sx,top-2,"Projects this month",3.4,o.ac,"700");
+  for(var i=0;i<5;i++){var by=top+4+i*9;s+='<rect x="'+sx+'" y="'+by+'" width="3.4" height="3.4" fill="none" stroke="#888" stroke-width=".3"/><line x1="'+(sx+5)+'" x2="'+(sx+sw)+'" y1="'+(by+3.4)+'" y2="'+(by+3.4)+'" stroke="#ccc" stroke-width=".25"/>'}
+  var ny=top+54;s+=T(sx,ny,"Yarn, supplies and to-buy",3.4,o.ac,"700");for(var i=1;i<=5;i++)s+='<line x1="'+sx+'" x2="'+(sx+sw)+'" y1="'+(ny+i*7)+'" y2="'+(ny+i*7)+'" stroke="#ccc" stroke-width=".25"/>';
+  var ty=ny+46;s+=T(sx,ty,"Notes",3.4,o.ac,"700");for(var i=1;i*7+ty<=H-mg-6;i++)s+='<line x1="'+sx+'" x2="'+(sx+sw)+'" y1="'+(ty+i*7)+'" y2="'+(ty+i*7)+'" stroke="#ccc" stroke-width=".25"/>'}
+ s+=T(W-mg,H-4,"purlandpaperco.com",2.4,"#aaa","","end");
+ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'mm" height="'+H+'mm"><rect width="'+W+'" height="'+H+'" fill="#fff"/>'+s+'</svg>'}
+function draw(){var o=opts(),mb=g("cl-mon-f");mb.hidden=o.lay=="year";var svg=o.lay=="year"?yearSvg(o):monthSvg(o,o.m);g("cl-prev").innerHTML=svg;window.PPsvg=svg;
+ var HL=PPhol(o.y,o.hol),k=Object.keys(HL).length,f=new Date(o.y,0,1);
+ g("cl-info").innerHTML="<strong>"+o.y+"</strong> starts on a "+["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][f.getDay()]+" and has "+((o.y%4==0&&o.y%100!=0)||o.y%400==0?"366 days (leap year)":"365 days")+"."+(k?" "+k+" holiday dates marked.":"")+" "+(o.lay=="year"?"One page, portrait.":"12 pages when you print, landscape.");
+ try{localStorage.setItem("pp-cal",JSON.stringify(["cl-year","cl-lay","cl-start","cl-hol","cl-paper","cl-ac"].map(function(i){return g(i).value})))}catch(e){}}
+window.PPcalPrint=function(){var o=opts(),pages=o.lay=="year"?[yearSvg(o)]:MN.map(function(_,m){return monthSvg(o,m)}),W=o.lay=="year"?o.pp[0]:o.pp[1],H=o.lay=="year"?o.pp[1]:o.pp[0],w=window.open("","_blank");if(!w)return;
+ w.document.write('<!DOCTYPE html><html><head><title>'+o.y+' calendar</title><style>@page{size:'+W+'mm '+H+'mm;margin:0}body{margin:0}svg{display:block;page-break-after:always;break-after:page}</style></head><body>'+pages.join("")+'<scr'+'ipt>setTimeout(function(){print()},400)</scr'+'ipt></body></html>');w.document.close()};
+window.PPcalDl=function(){var o=opts(),b=new Blob([window.PPsvg],{type:"image/svg+xml"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=o.y+"-calendar"+(o.lay=="year"?"":"-"+MN[o.m].toLowerCase())+".svg";a.click()};
+if(!g("cl-prev"))return;
+try{var sv=JSON.parse(localStorage.getItem("pp-cal")||"null");if(sv)["cl-year","cl-lay","cl-start","cl-hol","cl-paper","cl-ac"].forEach(function(i,n){if(sv[n]&&g(i).querySelector('option[value="'+sv[n]+'"]'))g(i).value=sv[n]})}catch(e){}
+["cl-year","cl-lay","cl-start","cl-hol","cl-paper","cl-ac","cl-mon"].forEach(function(i){g(i).addEventListener("input",draw)});draw()})();</script>'''
+CAL_CSS = '<style>#cl-prev{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px}#cl-prev svg{width:100%;height:auto;display:block}#cl-info{color:rgba(255,255,255,.85);font-size:.95rem}</style>'
+def _cl_sel(i, lab, opts, sel=None): return f'<div class="field"><label for="{i}">{lab}</label><select id="{i}">' + "".join(f'<option value="{v}"{" selected" if v == sel else ""}>{t}</option>' for v, t in opts) + '</select></div>'
+CL_US = [("Fri 1 Jan", "New Year's Day"), ("Mon 18 Jan", "Martin Luther King Jr. Day"), ("Mon 15 Feb", "Presidents' Day (Washington's Birthday)"), ("Mon 31 May", "Memorial Day"),
+         ("Sat 19 Jun", "Juneteenth (observed Fri 18 Jun)"), ("Sun 4 Jul", "Independence Day (observed Mon 5 Jul)"), ("Mon 6 Sep", "Labor Day"), ("Mon 11 Oct", "Columbus Day"),
+         ("Thu 11 Nov", "Veterans Day"), ("Thu 25 Nov", "Thanksgiving"), ("Sat 25 Dec", "Christmas Day (observed Fri 24 Dec)"), ("Fri 31 Dec", "New Year's Day 2028 (observed)")]
+CL_UK = [("Fri 1 Jan", "New Year's Day"), ("Fri 26 Mar", "Good Friday"), ("Mon 29 Mar", "Easter Monday"), ("Mon 3 May", "Early May bank holiday"), ("Mon 31 May", "Spring bank holiday"),
+         ("Mon 30 Aug", "Summer bank holiday"), ("Mon 27 Dec", "Christmas Day (substitute day)"), ("Tue 28 Dec", "Boxing Day (substitute day)")]
+def _cl_tbl(rows): return '<div class="tbl-wrap"><table><thead><tr><th scope="col">Date (2027)</th><th scope="col">Holiday</th></tr></thead><tbody>' + "".join(f"<tr><td><strong>{d}</strong></td><td>{n}</td></tr>" for d, n in rows) + "</tbody></table></div>"
+cl = top("Free 2027 calendar printable", "Make your own 2027 calendar: one page for the whole year, or a page a month, with US or UK holidays, Sunday or Monday start, on US Letter or A4. Print it or save it.", "2027 calendar printable") + CAL_CSS + f'''
+<section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> <strong>2027 starts on a Friday</strong> (1 January) and ends on a Friday (31 December). It is <strong>not a leap year</strong>, so it has <strong>365 days</strong> and 52 ISO weeks. Easter Sunday is <strong>28 March 2027</strong>, Thanksgiving is <strong>Thursday 25 November</strong>, and Christmas Day falls on a <strong>Saturday</strong>. A 2027 calendar has the same layout as 2021, so a 2021 wall calendar lines up day for day.</div></div></section>
+<section style="padding-top:0"><div class="wrap tool"><div class="sheet">
+<h2 style="margin-top:0">Make your calendar</h2>
+<div class="row2">{_cl_sel("cl-lay", "Layout", [("year", "Whole year on one page"), ("month", "A month per page (12 pages)"), ("planner", "Monthly planner with project notes")])}
+{_cl_sel("cl-year", "Year", [("2026", "2026"), ("2027", "2027"), ("2028", "2028")], "2027")}</div>
+<div class="row2">{_cl_sel("cl-hol", "Holidays", [("us", "US federal holidays"), ("uk", "UK bank holidays"), ("none", "No holidays")])}
+{_cl_sel("cl-start", "Week starts on", [("sun", "Sunday"), ("mon", "Monday")])}</div>
+<div class="row2">{_cl_sel("cl-paper", "Paper", [("letter", "US Letter"), ("a4", "A4")])}
+{_cl_sel("cl-ac", "Colour", [("ink", "Navy"), ("berry", "Berry"), ("teal", "Teal"), ("gold", "Marigold")])}</div>
+<div class="field" id="cl-mon-f">{_cl_sel("cl-mon", "Preview month", [(str(i), m) for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])])}</div>
+<div class="btns"><button type="button" class="btn" onclick="PPcalPrint()">Print or save as PDF</button> <button type="button" class="btn ghost" onclick="PPcalDl()">Save this page (SVG)</button></div>
+<p class="note">To make a PDF, choose "Save as PDF" in the print window. Print at "Actual size". The monthly layouts print all 12 months at once.</p>
+</div><div class="result" aria-live="polite"><h2>Preview</h2><div id="cl-prev"></div><p id="cl-info"></p></div></div></section>
+{CAL_JS}
+<section><div class="wrap"><div class="narrow prose">
+<h2>2027 US federal holidays</h2>
+{_cl_tbl(CL_US)}
+<p class="note">When a federal holiday falls on a Saturday it's usually observed on the Friday before, and on a Sunday the Monday after (the US Office of Personnel Management rule). That's why New Year's Day 2028, a Saturday, is observed on Friday 31 December 2027. Other days people plan around: Valentine's Day (Sun 14 Feb), Mother's Day (Sun 9 May), Father's Day (Sun 20 Jun) and Halloween (Sun 31 Oct).</p>
+<h2>2027 UK bank holidays (England and Wales)</h2>
+{_cl_tbl(CL_UK)}
+<p class="note">Christmas Day and Boxing Day 2027 fall on a weekend, so the bank holidays move to Monday 27 and Tuesday 28 December. 1 January, 3 May and 28 December were set by royal proclamation in July 2026. Scotland and Northern Ireland have some different days.</p>
+<h2>Which 2027 calendar layout should I print?</h2>
+<ul><li><strong>Whole year on one page</strong>: for the fridge, a planner cover, or counting weeks to a deadline. Holidays are listed along the bottom.</li>
+<li><strong>A month per page</strong>: big boxes to write appointments in. Pin it up or punch it for a binder.</li>
+<li><strong>Monthly planner</strong>: the month grid plus a "Projects this month" checklist, a supplies list and notes. Made for makers: plan which blanket rows, gifts or market stock you'll finish each month.</li></ul>
+<h2>Sunday or Monday start?</h2>
+<p>US calendars usually start the week on Sunday; UK, European and ISO week calendars start on Monday. Pick whichever matches your diary so the days line up.</p>
+<h2>Making it into a journal or planner</h2>
+<p>Print the monthly pages double-sided, fold and stitch them into a booklet: the <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets per section. Add <a href="{href("dot-grid-paper.html")}">dot grid pages</a> between the months for notes and trackers, and letter the month names with <a href="{href("calligraphy-practice-sheets.html")}">calligraphy practice</a> first.</p>
+<div class="callout"><strong>Planning a year of making?</strong> The <a href="{href("temperature-blanket-planner.html")}">2027 temperature blanket planner</a> gives you a colour for every day of the year, and the <a href="{href("crochet-time-estimator.html")}">crochet time calculator</a> tells you which month a big project will be done.</div>
+</div></div></section>{more_crafts("2027-calendar-printable.html")}'''
+cl_faq = [
+ ("What day does 2027 start on?", "Friday 1 January 2027. It also ends on a Friday, 31 December 2027."),
+ ("Is 2027 a leap year?", "No. 2027 has 365 days. The next leap year is 2028, which has 29 February."),
+ ("Which year has the same calendar as 2027?", "2021 and 2010. Both started on a Friday and weren't leap years, so every date falls on the same weekday. The next repeat is 2038."),
+ ("When is Easter 2027?", "Sunday 28 March 2027. Good Friday is 26 March and Easter Monday is 29 March."),
+ ("How many weeks are in 2027?", "52 ISO weeks. Week 1 starts on Monday 4 January 2027, and week 52 ends on Sunday 2 January 2028."),
+ ("Is this 2027 calendar printable free?", "Yes. Print as many as you like, on US Letter or A4, or save them as a PDF or SVG image. Nothing to sign up for."),
+]
+SHOP_FOR["2027-calendar-printable.html"] = ["2027-crochet-knitting-planner", "december-days-journal-kit", "junk-journal-mega-bundle", "christmas-gift-planner-budget"]
+page("2027-calendar-printable.html", "Free 2027 Calendar Printable: Yearly + Monthly, US & UK Holidays (Letter + A4) | Purl & Paper",
+     "Free printable 2027 calendar maker: whole year on one page or a month per page, US federal or UK bank holidays, Sunday or Monday start, US Letter or A4, print or save as PDF.",
+     cl, cl_faq, "2027 calendar printable", app_name="2027 calendar printable maker")
+
 exec((ROOT / "newcrafts.py").read_text())
