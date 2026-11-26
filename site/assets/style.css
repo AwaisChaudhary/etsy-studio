@@ -621,3 +621,33 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 /* craft fair sales log */
 .cf-log table td { height: 30px; }
 @media print { body.print-cflog > * { display: none !important; } body.print-cflog > main { display: block !important; } body.print-cflog main > * { display: none !important; } body.print-cflog main > .cf-log-sec { display: block !important; } body.print-cflog .cf-log-sec .btn { display: none !important; } }
+
+/* 26 Nov run 6: crochet project planner printable */
+.pjp-paper { background: #fff; color: #1f2a44; border: 1px solid #d9d3c4; border-radius: 6px; padding: 18px 18px 10px; font-size: 13px; }
+.pjp-k { margin: 0; color: #2f8f8a; font: 700 14px Georgia, serif; }
+.pjp-t { margin: 2px 0 10px; font: 700 22px Georgia, serif; border-bottom: 2px solid #1f2a44; padding-bottom: 4px; min-height: 1.3em; }
+.pjp-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; }
+.pjp-ln { display: flex; gap: 6px; align-items: baseline; border-bottom: 1px solid #c9c2b2; padding: 5px 0 2px; min-height: 24px; min-width: 0; }
+.pjp-ln span { color: #5b6b94; white-space: nowrap; font-size: 12px; }
+.pjp-ln b { font-weight: 600; overflow-wrap: anywhere; }
+.pjp-h { margin: 12px 0 4px; font-weight: 700; }
+.pjp-sm { margin: 0 0 8px; color: #5b6b94; }
+.pjp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(28px, 1fr)); gap: 3px; }
+.pjp-grid i { font-style: normal; border: 1px solid #8a93ad; border-radius: 3px; height: 24px; font-size: 9px; color: #8a93ad; padding: 1px 3px; }
+.pjp-lines i { display: block; border-bottom: 1px solid #c9c2b2; height: 22px; }
+.pjp-ck { list-style: none; padding: 0; margin: 0; }
+.pjp-ck li { padding: 3px 0 3px 22px; position: relative; }
+.pjp-ck li::before { content: ""; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; border: 1.5px solid #1f2a44; border-radius: 2px; }
+.pjp-tb { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.pjp-tb th, .pjp-tb td { border: 1px solid #c9c2b2; height: 26px; padding: 2px 4px; font-size: 11px; text-align: left; }
+.pjp-tb th:last-child { width: 24px; }
+.pjp-yr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pjp-mo { border: 1px solid #c9c2b2; border-radius: 4px; padding: 4px 6px; }
+.pjp-mo b { font: 700 13px Georgia, serif; color: #b8326a; }
+.pjp-mo i { display: block; border-bottom: 1px solid #ddd6c6; height: 20px; }
+.pjp-foot { margin: 12px 0 0; text-align: right; font-size: 10px; color: #8a93ad; }
+@media (max-width: 520px) { .pjp-2 { grid-template-columns: 1fr; } .pjp-yr { grid-template-columns: repeat(2, 1fr); } }
+#pjp-printbox { display: none; }
+@media print { body.print-pjp > * { display: none !important; } body.print-pjp > #pjp-printbox { display: block !important; border: 0; padding: 0; font-size: 12pt; } body.print-pjp .pjp-grid i { height: 30px; } }
+#pjp-form .row2 > .field { min-width: 0; } #pjp-form input, #pjp-form select { min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box; }
+.result .pjp-paper, .result .pjp-paper p, .result .pjp-paper h3, .result .pjp-paper b, .result .pjp-paper li, .result .pjp-paper th { color: #1f2a44; } .result .pjp-paper .pjp-k { color: #2f8f8a; } .result .pjp-paper .pjp-mo b { color: #b8326a; } .result .pjp-paper .pjp-sm, .result .pjp-paper .pjp-ln span { color: #5b6b94; } .result .pjp-paper .pjp-foot { color: #8a93ad; }

@@ -320,3 +320,17 @@
 - New script: tools/site_pins.py (house-style site pins). Pins queued: pins/site/knit-stitch-patterns.jpg, pins/site/scrapbook-page-sizes.jpg.
 - Shop boxes: knit page -> planner, stash tracker, pricing calculator, gift tags; scrapbook page -> journaling cards 3x4, ephemera pack, mega bundle, December Days kit. No new live products with Gumroad links (batch 8 still Etsy-only).
 - IndexNow pending (live after the evening deploy): https://purlandpaperco.com/knit-stitch-patterns, https://purlandpaperco.com/scrapbook-page-sizes, https://purlandpaperco.com/craft-fair-profit-calculator, https://purlandpaperco.com/how-to-knit-and-purl
+
+## 2026-11-26 (daily SEO run 6)
+- DEMAND.md: new RADAR 26 Nov run 6 block (B1-B5); A4, A6 closed, E2 part-done.
+- New tool: /fat-quarter-calculator (sewplan.py; NEW_CRAFTS + crafts hub Needlework, Home "New"; in-links from /quilt-size-calculator, /half-square-triangle-calculator, /sewing-seam-allowance). Pieces per fat quarter (US 18x21 usable, full 18x22, fat eighth, long quarter, metric 50x55 cm, half yard) with a to-scale cutting layout, or fat quarters for a quilt of squares (adds 1/4 in seams). Tables: squares per FQ, strips per FQ, FQs for baby/throw/twin/queen tops.
+- Targets: "how many fat quarters do I need", "fat quarter size", "how many 5 inch squares in a fat quarter", "how many 2.5 inch squares in a fat quarter", "how many fat quarters for a throw quilt", "fat quarter vs quarter yard", "fat eighth size".
+- Sources: Missouri Star fat quarter guides, Linda's fat quarter size guide, Mrs Quilty, Hello Sewing (SERP 26 Nov). Piece counts our own maths.
+- New guide + tool: /sewing-seam-allowance (sewplan.py; same links). Standard SA by sewing type, in to mm/cm converter, add/remove seam allowance calculator (sides/top-bottom/hem, pieces -> fabric length), throat plate tip, trimming/grading/clipping, French seam split; own SVG diagrams.
+- Targets: "standard seam allowance", "what seam allowance should I use", "5/8 seam allowance in cm", "how to add seam allowance to a pattern", "quilting seam allowance", "french seam allowance".
+- Sources: Sew Direct, AllFreeSewing seam allowance guide, Oregon State University 4-H sewing guide, University of Kentucky FCS seams guide, Threads industry seam allowances, Wikipedia (SERP 26 Nov).
+- New printable tool: /crochet-project-planner (sewplan.py; TOOLS_MORE + footer, Home "New"; in-links from /projects, /row-counter, /2027-calendar-printable). Fill-in-then-print: project page, row tracker (5-300), yarn shopping list, 2027 make list; crochet/knit/both; prints only the sheet; saved on device.
+- Targets: "free printable crochet project planner", "crochet project planner", "crochet planner 2027", "knitting project planner printable", "crochet row tracker printable".
+- Shop boxes: planner -> 2027 planner, stash tracker, pricing calculator, gift planner; sewing pages -> pricing calculator, 2027 planner, gift planner, gift tags (no sewing products yet). No new live products with Gumroad links (batch 8 still Etsy-only).
+- Pins queued: pins/site/fat-quarter-calculator.jpg, pins/site/sewing-seam-allowance.jpg, pins/site/crochet-project-planner.jpg.
+- IndexNow pending (live after the evening deploy): https://purlandpaperco.com/fat-quarter-calculator, https://purlandpaperco.com/sewing-seam-allowance, https://purlandpaperco.com/crochet-project-planner, https://purlandpaperco.com/quilt-size-calculator

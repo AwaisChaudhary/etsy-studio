@@ -35,6 +35,8 @@ hub = top("Free craft tools and calculators", "Knitting, crochet and junk journa
 <ul><li><a href="{href("cross-stitch-calculator.html")}">Cross stitch calculator</a>: finished size on Aida or evenweave, fabric to cut and floss to buy.</li>
 <li><a href="{href("quilt-size-calculator.html")}">Quilt size calculator</a>: finished size for any bed, backing and binding yardage.</li>
 <li><a href="{href("half-square-triangle-calculator.html")}">Half square triangle calculator</a>: cut sizes for HSTs made 2, 4 or 8 at a time.</li>
+<li><a href="{href("fat-quarter-calculator.html")}">Fat quarter calculator</a>: squares and strips per fat quarter, and how many a quilt needs.</li>
+<li><a href="{href("sewing-seam-allowance.html")}">Seam allowance guide</a>: standard allowances for dressmaking, quilting and home decor, with a cut size calculator.</li>
 <li><a href="{href("diamond-painting-calculator.html")}">Diamond painting calculator</a>: drills per canvas and time to finish.</li></ul>
 <h2>Clay</h2>
 <ul><li><a href="{href("polymer-clay-baking-calculator.html")}">Polymer clay baking calculator</a>: oven temperature and time for Sculpey, Premo, Fimo, Kato and Cernit by thickness.</li></ul>
@@ -273,6 +275,7 @@ document.getElementById("qs-out").innerHTML="<h2>"+W+" × "+L+" in quilt</h2><p>
 {"".join(f"<tr><td>{n}</td><td>{w} × {l} in</td><td>{q_sz(w,l,8,0)[0]} × {q_sz(w,l,8,0)[1]} in</td><td>{q_sz(w,l,12,10)[0]} × {q_sz(w,l,12,10)[1]} in</td></tr>" for k, n, w, l in QB)}
 <tr><td>Throw</td><td>n/a</td><td colspan="2">About 50 × 65 in (lap quilts 36 × 48 to 50 × 60 in)</td></tr></tbody></table></div>
 <p class="note">Standard US mattress sizes. Measure your own mattress, especially pillow-tops and deep mattresses, which need more drop.</p>
+<p>Making the top from a fat quarter bundle? The <a href="{href("fat-quarter-calculator.html")}">fat quarter calculator</a> counts the squares per fat quarter and how many you need. New to the ¼ in seam? See the <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a>.</p>
 <h2>How to measure for a quilt</h2>
 <p>Measure the top of the mattress, then the drop: from the top edge down to where you want the quilt to stop. About 8 in just covers the mattress (a coverlet), 12 in or more hides the box spring, and a bedspread reaches the floor, usually 20 in or more. Add about 10 in at the head if the quilt tucks under the pillows.</p>
 <h2>Backing and batting</h2>
@@ -485,6 +488,7 @@ g("hs-out").innerHTML="<h2>Cut squares "+fr(c)+"</h2><p>You need <strong>"+pairs
 <h2>HST cut size chart</h2>
 <div class="tbl-wrap"><table class="mt"><thead><tr><th scope="col">Finished</th><th scope="col">Unfinished (trim to)</th><th scope="col">2 at a time</th><th scope="col">4 at a time</th><th scope="col">8 at a time</th></tr></thead><tbody>{hst_rows}</tbody></table></div>
 <p class="note">Exact cut sizes with a ¼ in seam allowance; 4 at a time is rounded up to the next ⅛ in. Add ⅛ to ½ in if you like to trim your HSTs square.</p>
+<p>Cutting your squares from fat quarters? The <a href="{href("fat-quarter-calculator.html")}">fat quarter calculator</a> shows how many fit. Why ¼ in, and how to sew it accurately: our <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a>.</p>
 <h2>Which HST method should I use?</h2>
 <ul><li><strong>2 at a time:</strong> the most accurate and easiest for beginners. Pair a light and a dark square, draw one diagonal, sew ¼ in either side, cut on the line, press.</li>
 <li><strong>4 at a time:</strong> sew all round the edge of two squares, then cut both diagonals. Fast, but the outer edges are on the bias and stretch.</li>
@@ -582,7 +586,7 @@ cl = top("Free 2027 calendar printable", "Make your own 2027 calendar: one page 
 {_cl_sel("cl-ac", "Colour", [("ink", "Navy"), ("berry", "Berry"), ("teal", "Teal"), ("gold", "Marigold")])}</div>
 <div class="field" id="cl-mon-f">{_cl_sel("cl-mon", "Preview month", [(str(i), m) for i, m in enumerate(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])])}</div>
 <div class="btns"><button type="button" class="btn" onclick="PPcalPrint()">Print or save as PDF</button> <button type="button" class="btn ghost" onclick="PPcalDl()">Save this page (SVG)</button></div>
-<p class="note">To make a PDF, choose "Save as PDF" in the print window. Print at "Actual size". The monthly layouts print all 12 months at once.</p>
+<p class="note">To make a PDF, choose "Save as PDF" in the print window. Print at "Actual size". The monthly layouts print all 12 months at once. Planning your makes? Print the free <a href="{href("crochet-project-planner.html")}">crochet project planner</a> with a 2027 make list.</p>
 </div><div class="result" aria-live="polite"><h2>Preview</h2><div id="cl-prev"></div><p id="cl-info"></p></div></div></section>
 {CAL_JS}
 <section><div class="wrap"><div class="narrow prose">

@@ -2959,4 +2959,146 @@
     });
   }
 
+  /* ---------- FAT QUARTER CALCULATOR ---------- */
+  if ($("#fq-mode") && $("#fq-data")) {
+    var FQD = JSON.parse($("#fq-data").textContent);
+    var fqRows = function (W, H, w, h) {
+      var best = 0, pick = null;
+      [[w, h], [h, w]].forEach(function (o) {
+        var a = o[0], b = o[1], ca = Math.floor(W / a + 1e-9), cb = Math.floor(W / b + 1e-9);
+        for (var ra = 0; ra < 200; ra++) {
+          var used = ra * b; if (used > H + 1e-9) break;
+          var rb = cb ? Math.floor((H - used) / a + 1e-9) : 0, n = ra * ca + rb * cb;
+          if (n > best) { best = n; pick = [a, b, ca, ra, cb, rb]; }
+        }
+      });
+      return { n: best, p: pick };
+    };
+    var fqFit = function (W, H, w, h) { var A = fqRows(W, H, w, h), B = fqRows(H, W, w, h); return A.n >= B.n ? { n: A.n, p: A.p, t: false } : { n: B.n, p: B.p, t: true }; };
+    var fqFr = function (x) { var w = Math.floor(x + 1e-9), f = Math.round((x - w) * 8); if (f === 8) { w++; f = 0; } var F = ["", "⅛", "¼", "⅜", "½", "⅝", "¾", "⅞"][f]; return (w ? w : (F ? "" : "0")) + F; };
+    var fqSvg = function (W, H, fit) {
+      var S = 260 / Math.max(W, H), s = '<rect x="1" y="1" width="' + (W * S).toFixed(1) + '" height="' + (H * S).toFixed(1) + '" rx="4" fill="#f3ede2" stroke="#1f2a44" stroke-width="2"/>', C = ["#2f8f8a", "#b8326a", "#e39a14"], k = 0;
+      if (fit.p) {
+        var p = fit.p, R = [], r, i;
+        for (r = 0; r < p[3]; r++) for (i = 0; i < p[2]; i++) R.push([i * p[0], r * p[1], p[0], p[1]]);
+        for (r = 0; r < p[5]; r++) for (i = 0; i < p[4]; i++) R.push([i * p[1], p[3] * p[1] + r * p[0], p[1], p[0]]);
+        R.forEach(function (q) { if (fit.t) q = [q[1], q[0], q[3], q[2]]; s += '<rect x="' + (1.5 + q[0] * S).toFixed(1) + '" y="' + (1.5 + q[1] * S).toFixed(1) + '" width="' + Math.max(1, q[2] * S - 2).toFixed(1) + '" height="' + Math.max(1, q[3] * S - 2).toFixed(1) + '" rx="2" fill="' + C[(k++) % 3] + '" opacity=".85"/>'; });
+      }
+      return '<figure class="sb-prev"><svg viewBox="0 0 ' + (W * S + 3).toFixed(0) + " " + (H * S + 3).toFixed(0) + '" role="img" aria-label="Cutting layout, to scale">' + s + "</svg><figcaption>Cutting layout, " + fqFr(W) + " x " + fqFr(H) + " in, to scale</figcaption></figure>";
+    };
+    var fqN = function (id, d) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : d; };
+    var fqRun = function () {
+      var mode = $("#fq-mode").value, t = $("#fq-type"), P = FQD[t.value] || [18, 21], W = P[0], H = P[1], nm = ({ fq: "fat quarter", "fq-full": "fat quarter", fe: "fat eighth", lq: "long quarter", "fq-m": "metric fat quarter", hy: "half yard" })[t.value] || "fat quarter", o = [];
+      $("#fq-pieces").hidden = mode !== "pieces"; $("#fq-quilt").hidden = mode !== "quilt";
+      if (mode === "pieces") {
+        var w = fqN("#fq-w", 5), h = fqN("#fq-h", 5), fit = fqFit(W, H, w, h), need = parseInt($("#fq-need").value, 10);
+        o.push("<h3>" + fqFr(w) + " x " + fqFr(h) + " in pieces</h3><p class=\"big\">" + fit.n + " <small>per " + esc(nm) + "</small></p>");
+        if (!fit.n) o.push("<p>That piece is bigger than a " + esc(nm) + " (" + fqFr(W) + " x " + fqFr(H) + " in usable). Try a half yard or yardage.</p>");
+        else {
+          o.push("<p>Planning on " + fqFr(W) + " x " + fqFr(H) + " in usable, straight cuts only. Finished size with ¼ in seams: <strong>" + fqFr(Math.max(0, w - 0.5)) + " x " + fqFr(Math.max(0, h - 0.5)) + " in</strong>.</p>");
+          if (need > 0) { var q = Math.ceil(need / fit.n); o.push("<p>For <strong>" + need + " pieces</strong> you need <strong>" + q + " " + esc(nm) + (q === 1 ? "" : "s") + "</strong>" + (q * fit.n > need ? ", with " + (q * fit.n - need) + " spare pieces" : "") + ". Buy one extra to move colours around.</p>"); }
+          o.push(fqSvg(W, H, fit));
+        }
+        store.set("pp-fq", { m: mode, t: t.value, w: $("#fq-w").value, h: $("#fq-h").value, n: $("#fq-need").value, qw: $("#fq-qw").value, qh: $("#fq-qh").value, f: $("#fq-f").value });
+      } else {
+        var qw = fqN("#fq-qw", 50), qh = fqN("#fq-qh", 65), f = fqN("#fq-f", 5), cut = f + 0.5, ac = Math.ceil(qw / f - 1e-9), dn = Math.ceil(qh / f - 1e-9), sq = ac * dn, fit2 = fqFit(W, H, cut, cut);
+        o.push("<h3>" + qw + " x " + qh + " in quilt top</h3>");
+        if (!fit2.n) o.push("<p>A " + fqFr(cut) + " in square doesn't fit a " + esc(nm) + ". Use smaller squares or yardage.</p>");
+        else {
+          var fqs = Math.ceil(sq / fit2.n);
+          o.push("<p class=\"big\">" + fqs + " <small>" + esc(nm) + (fqs === 1 ? "" : "s") + "</small></p>");
+          o.push("<p><strong>" + sq + " squares</strong> (" + ac + " across x " + dn + " down), cut <strong>" + fqFr(cut) + " in</strong> for " + fqFr(f) + " in finished. " + fit2.n + " squares per " + esc(nm) + ". Top comes out " + (ac * f) + " x " + (dn * f) + " in before borders.</p>");
+          o.push("<p>That's about <strong>" + (fqs / 4).toFixed(1) + " yards</strong> of fabric in total. Borders, binding and backing are extra: the <a href=\"" + ($("#fq-out").getAttribute("data-q") || "/quilt-size-calculator") + "\">quilt size calculator</a> works those out.</p>");
+          o.push(fqSvg(W, H, fit2));
+        }
+        store.set("pp-fq", { m: mode, t: t.value, w: $("#fq-w").value, h: $("#fq-h").value, n: $("#fq-need").value, qw: $("#fq-qw").value, qh: $("#fq-qh").value, f: $("#fq-f").value });
+      }
+      $("#fq-out").innerHTML = o.join("");
+    };
+    var fqS = store.get("pp-fq", null);
+    if (fqS) { if (fqS.m) $("#fq-mode").value = fqS.m; if (FQD[fqS.t]) $("#fq-type").value = fqS.t; [["w", "w"], ["h", "h"], ["need", "n"], ["qw", "qw"], ["qh", "qh"], ["f", "f"]].forEach(function (k) { if (fqS[k[1]] != null && fqS[k[1]] !== "") $("#fq-" + k[0]).value = fqS[k[1]]; }); }
+    ["#fq-mode", "#fq-type", "#fq-w", "#fq-h", "#fq-need", "#fq-qw", "#fq-qh", "#fq-f"].forEach(function (id) { $(id).addEventListener("input", fqRun); $(id).addEventListener("change", fqRun); });
+    fqRun();
+  }
+
+  /* ---------- SEAM ALLOWANCE CALCULATOR ---------- */
+  if ($("#sa-mode") && $("#sa-out")) {
+    var saFr = function (x) { var w = Math.floor(x + 1e-9), f = Math.round((x - w) * 8); if (f === 8) { w++; f = 0; } var F = ["", "⅛", "¼", "⅜", "½", "⅝", "¾", "⅞"][f]; return (w ? w : (F ? "" : "0")) + F; };
+    var saRun = function () {
+      var mode = $("#sa-mode").value, u = $("#sa-u").value, sv = $("#sa-sa").value, cm = u === "cm";
+      $("#sa-own-f").hidden = sv !== "own";
+      $("#sa-wl").textContent = (mode === "add" ? "Finished" : "Cut") + " width"; $("#sa-hl").textContent = (mode === "add" ? "Finished" : "Cut") + " height";
+      var sa;
+      if (sv === "own") sa = Math.max(0, parseFloat($("#sa-own").value) || 0);
+      else if (sv.indexOf("cm") === 0) { sa = parseFloat(sv.slice(2)); if (!cm) sa = sa / 2.54; }
+      else { sa = parseFloat(sv); if (cm) sa = sa * 2.54; }
+      var w = parseFloat($("#sa-w").value) || 0, h = parseFloat($("#sa-h").value) || 0, ns = parseInt($("#sa-sides").value, 10), nt = parseInt($("#sa-tb").value, 10), hem = Math.max(0, parseFloat($("#sa-hem").value) || 0), qty = parseInt($("#sa-qty").value, 10);
+      var dw = sa * ns, dh = sa * nt + hem, sgn = mode === "add" ? 1 : -1, rw = w + sgn * dw, rh = h + sgn * dh;
+      var fmt = function (x) { return cm ? (Math.round(x * 10) / 10) + " cm" : saFr(x) + " in" + (Math.abs(x * 8 - Math.round(x * 8)) > 0.01 ? " (" + (Math.round(x * 100) / 100) + ")" : ""); };
+      var alt = function (x) { return cm ? (x / 2.54).toFixed(2) + " in" : (x * 2.54).toFixed(1) + " cm"; };
+      var o = [];
+      o.push("<h3>" + (mode === "add" ? "Cut your piece" : "Finished size") + "</h3><p class=\"big\">" + fmt(rw) + " x " + fmt(rh) + "</p>");
+      if (rw <= 0 || rh <= 0) o.push("<p>⚠ The allowances are bigger than the piece. Check the numbers and units.</p>");
+      else {
+        o.push("<p>About " + alt(rw) + " x " + alt(rh) + ". Seam allowance " + fmt(sa) + " on " + ns + " side edge" + (ns === 1 ? "" : "s") + " (" + (sgn > 0 ? "+" : "-") + fmt(dw) + " across) and " + nt + " top/bottom edge" + (nt === 1 ? "" : "s") + (hem ? " plus a " + fmt(hem) + " hem" : "") + " (" + (sgn > 0 ? "+" : "-") + fmt(dh) + " down).</p>");
+        if (qty > 0) {
+          var aw = mode === "add" ? rw : w, ah = mode === "add" ? rh : h, area = aw * ah * qty, ya = cm ? area / (100 * 100) : area / (36 * 36);
+          var fw = cm ? 110 : 42, per = Math.floor(fw / aw + 1e-9), len = per > 0 ? Math.ceil(qty / per) * ah : 0;
+          o.push("<p>For <strong>" + qty + " pieces</strong>: " + (per > 0 ? per + " fit across " + fw + (cm ? " cm" : " in") + " wide fabric, so buy about <strong>" + (cm ? (len / 100).toFixed(2) + " m" : (len / 36).toFixed(2) + " yd") + "</strong> plus a little for straightening and shrinkage." : "the piece is wider than standard " + fw + (cm ? " cm" : " in") + " fabric; turn it or use wide fabric.") + "</p>");
+        }
+        var S = 200 / Math.max(mode === "add" ? rw : w, mode === "add" ? rh : h), CW = (mode === "add" ? rw : w) * S, CH = (mode === "add" ? rh : h) * S;
+        var l = (ns >= 1 ? sa : 0) * S, r = (ns >= 2 ? sa : 0) * S, tp = (nt >= 1 ? sa : 0) * S, bt = ((nt >= 2 ? sa : 0) + hem) * S;
+        var svg = '<rect x="2" y="2" width="' + CW.toFixed(1) + '" height="' + CH.toFixed(1) + '" fill="#f3ede2" stroke="#1f2a44" stroke-width="2"/>' +
+          '<rect x="' + (2 + l).toFixed(1) + '" y="' + (2 + tp).toFixed(1) + '" width="' + Math.max(1, CW - l - r).toFixed(1) + '" height="' + Math.max(1, CH - tp - bt).toFixed(1) + '" fill="#fbf8f1" stroke="#b8326a" stroke-width="2" stroke-dasharray="7 5"/>';
+        o.push('<figure class="sb-prev"><svg viewBox="0 0 ' + (CW + 4).toFixed(0) + " " + (CH + 4).toFixed(0) + '" role="img" aria-label="Cut line and stitching line, to scale">' + svg + "</svg><figcaption>Solid = cut, dashed = sew (to scale). Edges with no allowance are folds or already finished.</figcaption></figure>");
+      }
+      $("#sa-out").innerHTML = o.join("");
+      store.set("pp-sa", { m: mode, u: u, s: sv, o: $("#sa-own").value, w: $("#sa-w").value, h: $("#sa-h").value, si: $("#sa-sides").value, tb: $("#sa-tb").value, he: $("#sa-hem").value, q: $("#sa-qty").value });
+    };
+    var saS = store.get("pp-sa", null);
+    if (saS) { $("#sa-mode").value = saS.m || "add"; $("#sa-u").value = saS.u || "in"; $("#sa-sa").value = saS.s || "0.5"; if (!$("#sa-sa").value) $("#sa-sa").value = "0.5"; $("#sa-own").value = saS.o || 0.5; $("#sa-w").value = saS.w || 16; $("#sa-h").value = saS.h || 16; $("#sa-sides").value = saS.si || "2"; $("#sa-tb").value = saS.tb || "2"; $("#sa-hem").value = saS.he || ""; $("#sa-qty").value = saS.q || ""; }
+    ["#sa-mode", "#sa-u", "#sa-sa", "#sa-own", "#sa-w", "#sa-h", "#sa-sides", "#sa-tb", "#sa-hem", "#sa-qty"].forEach(function (id) { $(id).addEventListener("input", saRun); $(id).addEventListener("change", saRun); });
+    saRun();
+  }
+
+  /* ---------- CROCHET PROJECT PLANNER PRINTABLE ---------- */
+  if ($("#pjp-sheet") && $("#pjp-out")) {
+    var PJF = ["name", "pattern", "size", "yarn", "colour", "yards", "tool", "gauge", "for", "start", "due"];
+    var pjpV = function (k) { var el = $("#pjp-" + k); return el ? el.value.trim() : ""; };
+    var pjpD = function (v) { if (!v) return ""; var d = new Date(v + "T12:00:00"); return isNaN(d) ? v : d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }); };
+    var pjpLine = function (label, v) { return '<div class="pjp-ln"><span>' + esc(label) + '</span><b>' + esc(v) + "</b></div>"; };
+    var pjpGrid = function (n) { var s = '<div class="pjp-grid">'; for (var i = 1; i <= n; i++) s += "<i>" + i + "</i>"; return s + "</div>"; };
+    var pjpRun = function () {
+      var sh = $("#pjp-sheet").value, cr = $("#pjp-craft").value, kn = cr === "Knitting", tl = kn ? "Needle size" : (cr === "Crochet" ? "Hook size" : "Hook / needle size"), rows = Math.max(5, Math.min(300, parseInt($("#pjp-rows").value, 10) || 60)), h = "";
+      $("#pjp-proj").hidden = sh === "yarn" || sh === "year"; $("#pjp-rows-f").hidden = !(sh === "project" || sh === "tracker");
+      if (sh === "project") {
+        h = '<p class="pjp-k">' + esc(cr) + ' project</p><h3 class="pjp-t">' + (esc(pjpV("name")) || "&nbsp;") + "</h3>" +
+          '<div class="pjp-2">' + pjpLine("Pattern", pjpV("pattern")) + pjpLine("Size", pjpV("size")) + pjpLine("Yarn", pjpV("yarn")) + pjpLine("Colours / dye lot", pjpV("colour")) + pjpLine("Yards / skeins", pjpV("yards")) + pjpLine(tl, pjpV("tool")) + pjpLine("Gauge", pjpV("gauge")) + pjpLine("Made for", pjpV("for")) + pjpLine("Started", pjpD(pjpV("start"))) + pjpLine("Due", pjpD(pjpV("due"))) + "</div>" +
+          '<p class="pjp-h">Rows / rounds</p>' + pjpGrid(Math.min(rows, 120)) +
+          '<div class="pjp-2"><div><p class="pjp-h">Changes and notes</p><div class="pjp-lines"><i></i><i></i><i></i><i></i><i></i></div></div><div><p class="pjp-h">Finishing</p><ul class="pjp-ck"><li>Gauge swatch</li><li>Weave in ends</li><li>Block</li><li>Label / care tag</li><li>Photo taken</li><li>Hours: ______  Cost: ______</li></ul></div></div>';
+      } else if (sh === "tracker") {
+        h = '<p class="pjp-k">' + esc(cr) + ' row tracker</p><h3 class="pjp-t">' + (esc(pjpV("name")) || "&nbsp;") + "</h3>" + '<p class="pjp-sm">Strike through a box at the end of every row or round. Colour every repeat start first.</p>' + pjpGrid(rows);
+      } else if (sh === "yarn") {
+        var tr = ""; for (var i = 0; i < 12; i++) tr += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+        h = '<p class="pjp-k">' + esc(cr) + '</p><h3 class="pjp-t">Yarn shopping list</h3><table class="pjp-tb"><thead><tr><th>Project</th><th>Yarn</th><th>Weight</th><th>Colour / lot</th><th>Yards</th><th>Skeins</th><th>✓</th></tr></thead><tbody>' + tr + "</tbody></table>";
+      } else {
+        var M = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], b = "";
+        M.forEach(function (m) { b += '<div class="pjp-mo"><b>' + m + "</b><i></i><i></i><i></i></div>"; });
+        h = '<p class="pjp-k">' + esc(cr) + '</p><h3 class="pjp-t">2027 make list</h3><div class="pjp-yr">' + b + '</div><div class="pjp-2"><div><p class="pjp-h">Gifts to make</p><div class="pjp-lines"><i></i><i></i><i></i></div></div><div><p class="pjp-h">Skills to learn</p><div class="pjp-lines"><i></i><i></i><i></i></div></div></div>';
+      }
+      $("#pjp-out").innerHTML = h + '<p class="pjp-foot">purlandpaperco.com · free crochet project planner</p>';
+      var sv = { s: sh, c: cr, r: $("#pjp-rows").value }; PJF.forEach(function (k) { sv[k] = pjpV(k); }); store.set("pp-pjp", sv);
+    };
+    var pjS = store.get("pp-pjp", null);
+    if (pjS) { if (pjS.s) $("#pjp-sheet").value = pjS.s; if (pjS.c) $("#pjp-craft").value = pjS.c; if (pjS.r) $("#pjp-rows").value = pjS.r; PJF.forEach(function (k) { if (pjS[k]) $("#pjp-" + k).value = pjS[k]; }); }
+    ["#pjp-sheet", "#pjp-craft", "#pjp-rows"].concat(PJF.map(function (k) { return "#pjp-" + k; })).forEach(function (id) { $(id).addEventListener("input", pjpRun); $(id).addEventListener("change", pjpRun); });
+    $("#pjp-clear").addEventListener("click", function () { PJF.forEach(function (k) { $("#pjp-" + k).value = ""; }); pjpRun(); });
+    $("#pjp-print").addEventListener("click", function () {
+      var bx = document.getElementById("pjp-printbox"); if (!bx) { bx = document.createElement("div"); bx.id = "pjp-printbox"; bx.className = "pjp-paper"; document.body.appendChild(bx); }
+      bx.innerHTML = $("#pjp-out").innerHTML; document.body.classList.add("print-pjp"); window.print();
+      setTimeout(function () { document.body.classList.remove("print-pjp"); }, 500);
+    });
+    pjpRun();
+  }
+
 })();

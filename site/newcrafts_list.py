@@ -17,6 +17,8 @@ NEW_CRAFTS = [
  ("embroidery-patterns.html", "Embroidery pattern generator", "Printable floral hoop patterns to trace, any hoop size."),
  ("embroidery-stitches.html", "Embroidery stitches for beginners", "12 basic hand embroidery stitches with step diagrams."),
  ("scrapbook-page-sizes.html", "Scrapbook page sizes + photo layout", "Every page size and how many photos fit on it."),
+ ("fat-quarter-calculator.html", "Fat quarter calculator", "Squares and strips per fat quarter, and fat quarters per quilt."),
+ ("sewing-seam-allowance.html", "Seam allowance guide + calculator", "Standard seam allowances and the cut size for any finished size."),
 ]
 CRAFTS.extend(NEW_CRAFTS)
 NEW_HUB = '''<h2>Seasonal</h2><ul><li><a href="{H:christmas-crafts.html}">Christmas crafts</a>: paper and yarn makes, plus printable gift tags.</li><li><a href="{H:advent-calendar-ideas.html}">Advent calendar ideas</a>: fillers and printable 1-24 number cards.</li><li><a href="{H:2027-calendar-printable.html}">2027 calendar printable</a>.</li></ul>
