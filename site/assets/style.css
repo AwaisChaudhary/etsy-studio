@@ -651,3 +651,5 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 @media print { body.print-pjp > * { display: none !important; } body.print-pjp > #pjp-printbox { display: block !important; border: 0; padding: 0; font-size: 12pt; } body.print-pjp .pjp-grid i { height: 30px; } }
 #pjp-form .row2 > .field { min-width: 0; } #pjp-form input, #pjp-form select { min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box; }
 .result .pjp-paper, .result .pjp-paper p, .result .pjp-paper h3, .result .pjp-paper b, .result .pjp-paper li, .result .pjp-paper th { color: #1f2a44; } .result .pjp-paper .pjp-k { color: #2f8f8a; } .result .pjp-paper .pjp-mo b { color: #b8326a; } .result .pjp-paper .pjp-sm, .result .pjp-paper .pjp-ln span { color: #5b6b94; } .result .pjp-paper .pjp-foot { color: #8a93ad; }
+
+@media (max-width:600px){table.mt{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}}

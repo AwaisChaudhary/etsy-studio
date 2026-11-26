@@ -334,3 +334,9 @@
 - Shop boxes: planner -> 2027 planner, stash tracker, pricing calculator, gift planner; sewing pages -> pricing calculator, 2027 planner, gift planner, gift tags (no sewing products yet). No new live products with Gumroad links (batch 8 still Etsy-only).
 - Pins queued: pins/site/fat-quarter-calculator.jpg, pins/site/sewing-seam-allowance.jpg, pins/site/crochet-project-planner.jpg.
 - IndexNow pending (live after the evening deploy): https://purlandpaperco.com/fat-quarter-calculator, https://purlandpaperco.com/sewing-seam-allowance, https://purlandpaperco.com/crochet-project-planner, https://purlandpaperco.com/quilt-size-calculator
+
+## 2026-11-26 20:30 PKT (main chat)
+- Batch 9 live on Etsy: small business pricing+inventory 4626203317 ($4.99), machine embroidery 4626204819 ($8.99), 2027 habit tracker 4626206151 ($4.99).
+- SHOP: 3 new products (Etsy only; Gumroad link now optional per item). Mapped: craft-fair-profit-calculator, etsy-fee-calculator, craft-fair-checklist -> small business sheet; embroidery-stitches -> machine embroidery sheet; 2027-calendar-printable -> habit tracker.
+- Mobile fix: data tables (table.mt) scroll inside their box under 600px (etsy-fee-calculator overflowed at 390px). All pages checked at 390px: 0 overflow.
+- IndexNow pending https://purlandpaperco.com/craft-fair-profit-calculator https://purlandpaperco.com/embroidery-stitches https://purlandpaperco.com/2027-calendar-printable https://purlandpaperco.com/etsy-fee-calculator https://purlandpaperco.com/craft-fair-checklist

@@ -614,7 +614,7 @@ cl_faq = [
  ("How many weeks are in 2027?", "52 ISO weeks. Week 1 starts on Monday 4 January 2027, and week 52 ends on Sunday 2 January 2028."),
  ("Is this 2027 calendar printable free?", "Yes. Print as many as you like, on US Letter or A4, or save them as a PDF or SVG image. Nothing to sign up for."),
 ]
-SHOP_FOR["2027-calendar-printable.html"] = ["2027-crochet-knitting-planner", "december-days-journal-kit", "junk-journal-mega-bundle", "christmas-gift-planner-budget"]
+SHOP_FOR["2027-calendar-printable.html"] = ["2027-habit-tracker-spreadsheet", "2027-crochet-knitting-planner", "december-days-journal-kit", "christmas-gift-planner-budget"]
 page("2027-calendar-printable.html", "Free 2027 Calendar Printable: Yearly + Monthly, US & UK Holidays (Letter + A4) | Purl & Paper",
      "Free printable 2027 calendar maker: whole year on one page or a month per page, US federal or UK bank holidays, Sunday or Monday start, US Letter or A4, print or save as PDF.",
      cl, cl_faq, "2027 calendar printable", app_name="2027 calendar printable maker")

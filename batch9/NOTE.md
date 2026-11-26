@@ -42,3 +42,7 @@ PRODUCTS=products_b9 python3 scenes.py $B/pages $B/demo $B/scenes $S; PRODUCTS=p
 python3 listing_b9.py $B ../batch9 ../pins/batch9
 ```
 Etsy photos = `upload_images` in /home/claude/etsy/batch9/upload (1 = scenes etsy-hero).
+
+## 26 Nov 2026 20:00-20:35 PKT (main chat, Chrome)
+- Listed on Etsy with the copy recipe: small business 4626203317 (copy of sticker), embroidery 4626204819 (copy of sticker), habit tracker 4626206151 (copy of reading tracker; Planner Templates / Planners). Image order 1,3,4,5,2 (image 2 has a lot of empty space at right). Tags typed with 1 s pauses (0.5 s garbled 3 tags once; fixed before publishing).
+- Pinterest 27 Nov: laser 10:30, small business 12:00, embroidery 15:00, nail 17:30, habit 20:00 PKT (all AI-modified).

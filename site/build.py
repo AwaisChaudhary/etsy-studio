@@ -67,6 +67,9 @@ SHOP = {
  "soap-making-business-spreadsheet": ("Soap making business spreadsheet", "11.99", "4623878110", "soap-business-spreadsheet"),
  "resin-art-business-spreadsheet": ("Resin calculator and pricing spreadsheet", "11.99", "4624644331", "resin-business-spreadsheet"),
  "sublimation-tumbler-business-spreadsheet": ("Tumbler and sublimation pricing spreadsheet", "11.99", "4624645405", "tumbler-pricing-spreadsheet"),
+ "small-business-pricing-inventory-spreadsheet": ("Small business pricing and inventory spreadsheet", "4.99", "4626203317", None),
+ "machine-embroidery-business-spreadsheet": ("Machine embroidery pricing spreadsheet", "8.99", "4626204819", None),
+ "2027-habit-tracker-spreadsheet": ("2027 habit tracker spreadsheet", "4.99", "4626206151", None),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
 JJ = ["december-days-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
@@ -87,8 +90,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
             "yarn-yardage-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
-            "etsy-fee-calculator.html": ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet", "sublimation-tumbler-business-spreadsheet"],
-            "craft-fair-checklist.html": ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet", "sublimation-tumbler-business-spreadsheet"],
+            "etsy-fee-calculator.html": ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"],
+            "craft-fair-checklist.html": ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"],
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "c2c-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "scarf-size-chart.html": ["christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
@@ -119,7 +122,7 @@ def shop_box(file):
         return ""
     cards = "".join(
         f'<li class="shop-card"><a href="https://www.etsy.com/listing/{SHOP[k][2]}" rel="noopener"><img src="{asset("shop/" + k + ".jpg")}" alt="{e(SHOP[k][0])} preview" width="400" height="400" loading="lazy">'
-        f'<span class="shop-name">{e(SHOP[k][0])}</span></a><span class="shop-meta">${SHOP[k][1]} &middot; <a href="https://www.etsy.com/listing/{SHOP[k][2]}" rel="noopener">Etsy</a> or <a href="{GUM}/l/{SHOP[k][3]}" rel="noopener">Gumroad</a></span></li>'
+        f'<span class="shop-name">{e(SHOP[k][0])}</span></a><span class="shop-meta">${SHOP[k][1]} &middot; <a href="https://www.etsy.com/listing/{SHOP[k][2]}" rel="noopener">Etsy</a>' + (f' or <a href="{GUM}/l/{SHOP[k][3]}" rel="noopener">Gumroad</a>' if SHOP[k][3] else '') + '</span></li>'
         for k in keys)
     return (f'<section class="shop-strip" aria-labelledby="shop-h"><div class="wrap"><h2 id="shop-h">Made by us, for your next project</h2>'
             f'<p class="muted">These tools are free. If you\'d like printables or planners to go with them, our shop helps keep the site free.</p>'

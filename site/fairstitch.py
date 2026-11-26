@@ -95,7 +95,7 @@ cfp_faq = [
     ("Is a craft fair worth it if I only break even?", "Sometimes. Count custom orders, new followers and wholesale contacts too. But if a fair only breaks even, your time has been unpaid, so try a cheaper fair, higher prices or more small add-on items."),
     ("Do I need to charge sales tax at a craft fair?", "In many US states and other countries you do, and you may need a seller's permit for the event. Check your state or local rules; the calculator leaves tax out of your takings."),
 ]
-SHOP_FOR["craft-fair-profit-calculator.html"] = ["crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet", "sublimation-tumbler-business-spreadsheet"]
+SHOP_FOR["craft-fair-profit-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"]
 page("craft-fair-profit-calculator.html", "Craft Fair Profit Calculator: Break-Even Sales vs Booth Fee | Purl & Paper",
      "Free craft fair profit calculator: add your booth fee, travel, card fees, materials and hours to see your profit per hour, how many sales you need to break even, and if you meet the 3x booth fee rule.",
      cfp, cfp_faq, "Craft fair profit calculator", app_name="Craft fair profit and break-even calculator")
@@ -279,7 +279,7 @@ es_faq = [
     ("How do I start embroidery without a knot?", "Use the loop start for an even number of strands: fold one strand in half, thread the cut ends, make your first stitch and pass the needle through the loop at the back. Or use a waste knot placed on the front where later stitches will cover the tail."),
     ("Why does my French knot pull through the fabric?", "The needle went back down in the same hole it came up from. Go down just beside it, and keep the wraps snug while you pull through."),
 ]
-SHOP_FOR["embroidery-stitches.html"] = ["christmas-gift-tags", "2027-crochet-knitting-planner", "junk-journal-mega-bundle", "december-days-journal-kit"]
+SHOP_FOR["embroidery-stitches.html"] = ["machine-embroidery-business-spreadsheet", "christmas-gift-tags", "2027-crochet-knitting-planner", "junk-journal-mega-bundle"]
 page("embroidery-stitches.html", "Embroidery Stitches for Beginners: 12 Basic Stitches with Diagrams | Purl & Paper",
      "Basic embroidery stitches for beginners with our own step diagrams: running, backstitch, stem, split, satin, chain, lazy daisy, French knot, blanket, fly, cross and seed stitch, plus strands and a stitch chooser.",
      es, es_faq, "Embroidery stitches", app_name="Embroidery stitch chooser")
