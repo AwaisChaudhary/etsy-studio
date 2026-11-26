@@ -1,3 +1,12 @@
+## COMPETITOR WATCH 26 Nov 2026 (vs easycrochet.com/calculators (14 tools), theloopylamb calculators, vivcrochets calculators, stitch-fiddle)
+We have 89 site pages (~35 calculators/charts incl. stripe generator, C2C calc, circle calc, time estimator, yarn substitution, increase/decrease; 12 how-tos). Since 24 Nov DONE: stripe generator, C2C calculator, basic stitches, bind off, cast on, knit in the round, pick up stitches, weave in ends, dropped stitch.
+1. GAP: yarn stash calculator (Easy Crochet: total yardage of your whole stash by weight). Our /yarn-yardage-calculator already does 'how much is left' for one skein. Plan: add a stash table mode to it (add skeins, totals per yarn weight, 'what can I make' link to /yarn-calculator), saved on device.
+2. GAP: blanket pattern resizer (stitch multiples -> new chain count, rows, yardage for each size) + stitch multiple calculator: Easy Crochet has both. Plan: /blanket-pattern-resizer using our blanket sizes + multiples; fold the multiples tool into it.
+3. GAP: scarf pattern calculator (Easy Crochet generates a sample pattern with yardage). We have /scarf-size-chart only. Plan: add a calculator block to the chart page (width x length x stitch -> chain, rows, yards).
+4. GAP: yarn colour palette generator (Loopy Lamb). Plan: /yarn-color-palette-generator: pick a base colour, get 3-5 harmonious yarn colours, export to the stripe generator and temperature blanket planner (our own link-up no one else has).
+5. GAP (open since 24 Nov): graph/pixel pattern maker, amigurumi ball calculator, raglan calculator.
+6. BETTER-THAN-THEM: Viv Crochets is the only one with pricing calculators and they are three separate forms. Ours: 'Price my make' that pulls hours from our time estimator + yarn cost from the yarn calculator + Etsy fees from our fee calculator into one price with a profit line. Nobody chains tools together.
+
 ## COMPETITOR WATCH 24 Nov 2026 (vs stitch-fiddle, easycrochet tools, sarahmaker, knittingfool, allfreecrochet)
 We have 38 site pages (~20 calculators/charts, 6 how-tos, junk journal set).
 1. GAP: basic stitch library (sc, hdc, dc, tr, slip stitch, chain; knit, purl, long-tail cast on) with US/UK toggle: biggest volume, we have none. Plan: /crochet-stitches hub + one page per stitch (own SVG diagrams), US/UK toggle from /crochet-terms.
