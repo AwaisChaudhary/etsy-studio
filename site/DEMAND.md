@@ -1,5 +1,10 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## EVENING RADAR 26 Nov 18:45 PKT (Google autocomplete US + Trends past 24h)
+- R1 OPEN 'junk journal vs scrapbook' (autocomplete #7 for 'junk journal'; 0 pages): comparison guide linking both tool sets.
+- R2 OPEN Trends rising 'yarn holder for crochet' (+130%): DIY yarn holder/bowl guide (own SVG) + shop box. (Skip 'ikea crochet' +400%: brand news, not our page.)
+- R3 OPEN 'christmas crafts to make and sell' / 'for adults to make and sell' (#4/#7; 1 page): list with material cost + suggested price via our pricing calculator (estimates labelled).
+
 ## NEW CATEGORY EXPANSION (Awais 26 Nov: when traffic plateaus, open new categories backed by Trends/searches; don't wait for input)
 Evidence = Google autocomplete 26 Nov 18:10 PKT. Each is a CATEGORY: build a hub page first, then 1-2 child pages per run. Skip if it already exists.
 - E1 OPEN Coloring pages category: free printable coloring pages for kids/adults (own SVG line art only), hub + themed sets — 'coloring pages for kids|free|printable|for adults'. Lead magnet to Etsy.
