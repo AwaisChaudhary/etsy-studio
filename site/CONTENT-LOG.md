@@ -448,3 +448,13 @@
 - Sources: Craft Yarn Council hat sizes and gauge ranges (as /hat-size-chart); technique checked against LoveCrafts, AllFreeCrochet, Marly Bird (crochet hats), Knit Picks, Dummies, AllFreeKnitting (knit hats), Mary Maxim, Purl Soho, Treasurie (pom poms). Round heights, row gauge, wraps and yarn amounts are labelled estimates.
 - Pins queued: pins/site/how-to-crochet-a-hat.jpg, how-to-knit-a-hat.jpg, how-to-make-a-pom-pom.jpg.
 - DEMAND: added Q4 crochet Christmas ornaments, Q5 crochet snowflake (seasonal, OPEN).
+
+## 28 Nov 2026 run 17 (demand-first)
+- NEW /crochet-christmas-ornament-pattern — 'crochet christmas ornaments free pattern easy', 'easy crochet bauble pattern'. Own bauble design: 6 SVG steps, cap + loop, decorating ideas, selling note; writer (cxo-*: 4 sizes 24-42 sts, DK/worsted/chunky, plain/band/stripes/two-tone, US/UK, count) writes every round with tick boxes saved per size, yarn per colour, diameter, time. Shop box: gift tags, pricing calculator, gift planner, crochet planner.
+- NEW /crochet-snowflake-pattern — 'how to make a crochet snowflake for beginners', 'how to stiffen crochet snowflakes'. Own 4-round snowflake with tick boxes (US/UK switch rewrites the stitches), 6 SVG steps, stiffener table (PVA glue, liquid starch, cornflour, sugar, spray, ready-made) + 5 steps, fixes; helper (csf-*: thread/yarn -> size, yarn, time, stiffener amounts, pins, drying).
+- NEW /how-to-crochet-a-blanket — 'how to crochet a blanket for beginners step by step'. 6 SVG steps, best stitch, chains, straight edges, time, finishing; writer (cbk-*: 12 sizes or own, weight 3-7, sc/hdc/dc, optional swatch, skein length, US/UK) -> chains, stitches, rows, yarn, skeins, hours, written pattern with border. Same yardage model as /blanket-size-calculator.
+- Links: footer Guides, home 'Fresh today', /blanket-size-calculator ('First blanket?'), /christmas-crafts (crochet ornaments bullet); new pages link each other and the sheep, stocking, pom pom, pricing pages.
+- Sources: stiffening methods checked against The Purple Poncho, Crochet Spot, Hunker, Itchin' for some Stitchin'; blanket method against LoveCrafts, EasyCrochet, Jo to the World; gauges = CYC ranges in data.json. Patterns and drawings our own; sizes, yarn, times labelled estimates.
+- Pins queued: pins/site/crochet-christmas-ornament-pattern.jpg, crochet-snowflake-pattern.jpg, how-to-crochet-a-blanket.jpg.
+- SHOP: no new craft products live (batch listings not in SHOP are non-craft); candle business spreadsheet (4622481559) could go on /candle-making-calculator in a later run.
+- IndexNow pending: https://purlandpaperco.com/crochet-christmas-ornament-pattern https://purlandpaperco.com/crochet-snowflake-pattern https://purlandpaperco.com/how-to-crochet-a-blanket

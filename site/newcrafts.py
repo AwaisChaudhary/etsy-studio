@@ -63,7 +63,7 @@ return s;''', '["t-motif","t-col","t-text"]') + PROSE("christmas-crafts.html", '
 <li><strong>Mini stockings and hats:</strong> knit a tiny hat on a few stitches; the <a href="{H:cast-on-calculator.html}">cast on calculator</a> works for any size, and the <a href="{H:christmas-stocking-calculator.html}">Christmas stocking calculator</a> sizes stockings from 7 in minis to 26 in.</li>
 <li><strong>Pom-pom garlands:</strong> wrap yarn around a fork for mini pom-poms and thread them on a long strand.</li>
 <li><strong>Making extra to sell?</strong> See <a href="{H:christmas-crafts-to-sell.html}">Christmas crafts to make and sell</a>: 19 ideas with material cost, time and a price for your hourly rate.</li>
-<li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
+<li><strong>Crochet ornaments:</strong> our free <a href="{H:crochet-christmas-ornament-pattern.html}">crochet bauble pattern</a> and <a href="{H:crochet-snowflake-pattern.html}">crochet snowflake pattern</a> each take under an hour.</li><li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
 <p>Counting down? See our <a href="{H:advent-calendar-ideas.html}">advent calendar ideas</a> and printable number cards.</p>''')
 page("christmas-crafts.html", "Christmas Crafts for Paper and Yarn + Gift Tags | Purl & Paper",
      "Easy Christmas crafts for paper crafters, knitters and crocheters, plus a free printable gift tag maker with stars, trees or snowflakes and your own message.",

@@ -4168,4 +4168,130 @@
     ppmRun();
   }
 
+  /* ---------- run 17: crochet bauble writer (cxo-*) ---------- */
+  if ($("#cxo-k") && $("#cxo-out")) {
+    // Standard amigurumi sphere: k increase rounds to 6k, k even rounds, k-1 decrease rounds. Gauge (tight sc per in) and yarn per 36 sc are our estimates.
+    var CXY = { dk: { g: 5.5, per: 1.25, hk: "3 mm (C-2 or D-3)" }, w: { g: 4.5, per: 1.6, hk: "3.5 mm (E-4)" }, ch: { g: 3.2, per: 2.3, hk: "5 mm (H-8)" } };
+    var cxoT = "us", cxoS = store.get("pp-cxo", null) || {};
+    if (cxoS.k) $("#cxo-k").value = cxoS.k; if (cxoS.y && CXY[cxoS.y]) $("#cxo-y").value = cxoS.y; if (cxoS.s) $("#cxo-s").value = cxoS.s; if (cxoS.n) $("#cxo-n").value = cxoS.n;
+    if (cxoS.t === "uk") { cxoT = "uk"; $$("#cxo-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); }
+    var cxoRun = function () {
+      var k = parseInt($("#cxo-k").value, 10) || 5, yk = $("#cxo-y").value, y = CXY[yk] || CXY.w, st = $("#cxo-s").value, n = Math.max(1, Math.min(60, parseInt($("#cxo-n").value, 10) || 1));
+      var SC = cxoT === "uk" ? "dc" : "sc", DEC = cxoT === "uk" ? "dc2tog" : "sc2tog";
+      var R = [], r = 1;
+      R.push([r++, "6 " + SC + " in a magic ring", 6]);
+      R.push([r++, "inc in each st around", 12]);
+      for (var i = 3; i <= k; i++) R.push([r++, "(" + SC + " " + (i - 2) + ", inc) x 6", 6 * i]);
+      var evenStart = r;
+      for (var j = 0; j < k; j++) R.push([r++, SC + " in each st around", 6 * k]);
+      var decStart = r;
+      for (var m = k - 1; m >= 1; m--) R.push([r++, m > 1 ? "(" + SC + " " + (m - 1) + ", dec) x 6" : "dec x 6", 6 * m]);
+      // colour plan
+      var col = R.map(function () { return "A"; }), even = [];
+      for (var q = evenStart; q < decStart; q++) even.push(q - 1);
+      if (st === "band") { var bw = k >= 6 ? 3 : 2, b0 = Math.floor((k - bw) / 2); for (var b = 0; b < bw; b++) col[even[b0 + b]] = "B"; }
+      else if (st === "stripes") { col[even[Math.max(0, Math.floor(k / 2) - 2)]] = "B"; col[even[Math.min(k - 1, Math.floor(k / 2) + 1)]] = "B"; }
+      else if (st === "half") { for (var h = Math.ceil(k / 2) + evenStart - 1; h < R.length; h++) col[h] = "B"; }
+      var key = "pp-cxo-done-" + k + st, done = store.get(key, []) || [];
+      var stsA = 0, stsB = 0, rows = R.map(function (x, idx) {
+        if (col[idx] === "B") stsB += x[2]; else stsA += x[2];
+        var change = idx > 0 && col[idx] !== col[idx - 1] && st !== "plain" ? "<strong>Switch to colour " + col[idx] + ":</strong> " : "";
+        var stuff = x[2] === 18 && idx >= decStart - 1 && k >= 4 ? " Stuff firmly now." : (x[2] === 12 && idx >= decStart - 1 && k === 3 ? " Stuff firmly now." : "");
+        return '<li><label class="chk"><input type="checkbox" data-cxo="' + idx + '"' + (done.indexOf(idx) >= 0 ? " checked" : "") + '> <span><strong>R' + x[0] + ":</strong> " + (st !== "plain" && idx === 0 ? "With colour A, " : "") + change + x[1] + " <em>(" + x[2] + ")</em>" + stuff + "</span></label></li>";
+      });
+      var D = 6 * k / y.g / Math.PI, ydA = Math.ceil(stsA * y.per / 36 * 1.1 + 2), ydB = Math.ceil(stsB * y.per / 36 * 1.1 + (stsB ? 1 : 0));
+      var o = ['<p class="sub">Your bauble</p><p class="big">' + (Math.round(D * 10) / 10) + '<small> in across (about ' + Math.round(D * 2.54 * 10) / 10 + " cm)</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Hook</td><td>' + y.hk + "</td></tr><tr><td>Colour A, per bauble</td><td>about " + ydA + " yd</td></tr>" + (stsB ? "<tr><td>Colour B, per bauble</td><td>about " + ydB + " yd</td></tr>" : "") +
+        "<tr><td>Gold for cap and loop</td><td>about 3 yd</td></tr><tr><td>For " + n + " bauble" + (n > 1 ? "s" : "") + "</td><td>" + (ydA * n) + " yd of A" + (stsB ? ", " + (ydB * n) + " yd of B" : "") + ", " + (3 * n) + " yd of gold</td></tr><tr><td>Time</td><td>about " + Math.round(k * 10) + " to " + Math.round(k * 13) + " min each</td></tr></tbody></table>");
+      o.push('<h3>Your pattern (' + (cxoT === "uk" ? "UK" : "US") + ' terms)</h3><p class="sub">Work in a spiral, moving a marker up each round. inc = 2 ' + SC + " in the same stitch; dec = " + DEC + ".</p><ul class=\"shp-list\">" + rows.join("") + '<li class="shp-note">Fasten off, thread the tail through the front loops of the last 6 stitches and pull closed. Make the cap and loop (below) and sew them on.</li></ul>');
+      o.push('<p class="sub">Sizes and yarn are estimates from the stitch count with 10% spare; tension changes them. Ticks are kept on this device. <button type="button" class="btn ghost" id="cxo-reset">Clear ticks</button></p>');
+      $("#cxo-out").innerHTML = o.join("");
+      $$("input[data-cxo]", $("#cxo-out")).forEach(function (c) { c.addEventListener("change", function () { var d = $$("input[data-cxo]", $("#cxo-out")).filter(function (x) { return x.checked; }).map(function (x) { return parseInt(x.getAttribute("data-cxo"), 10); }); store.set(key, d); }); });
+      $("#cxo-reset").addEventListener("click", function () { store.set(key, []); cxoRun(); });
+      store.set("pp-cxo", { k: $("#cxo-k").value, y: yk, s: st, n: $("#cxo-n").value, t: cxoT });
+    };
+    ["#cxo-k", "#cxo-y", "#cxo-s", "#cxo-n"].forEach(function (s) { $(s).addEventListener("change", cxoRun); });
+    $("#cxo-n").addEventListener("input", cxoRun);
+    seg($("#cxo-t"), function (v) { cxoT = v; cxoRun(); });
+    cxoRun();
+  }
+
+  /* ---------- run 17: crochet snowflake helper (csf-*) ---------- */
+  if ($("#csf-y") && $("#csf-out")) {
+    // Our estimates for the 4-round pattern on the page: finished diameter (in) and length per snowflake incl. tails (yd).
+    var CSFY = { t10: { d: 3, yd: 7, nm: "size 10 cotton thread" }, t3: { d: 3.75, yd: 9, nm: "size 3 cotton" }, sp: { d: 4.25, yd: 10, nm: "sport yarn" }, dk: { d: 5, yd: 12, nm: "DK yarn" }, w: { d: 5.5, yd: 15, nm: "worsted yarn" } };
+    var CSFM = { glue: ["White PVA glue + water", function (ml) { return "about " + Math.ceil(ml / 2) + " ml glue and " + Math.ceil(ml / 2) + " ml water (equal parts; more glue for stiffer)"; }, "overnight, up to 24 hours", "Firm and long-lasting."],
+                 starch: ["Liquid laundry starch", function (ml) { return "about " + ml + " ml, straight from the bottle"; }, "overnight", "Medium stiff; washes out."],
+                 corn: ["Cornflour paste", function () { return "1 tablespoon cornflour stirred into a little cold water, added to 1 cup (240 ml) boiling water and stirred until slightly thick; cool before use (one batch does a lot)"; }, "overnight", "Medium; can soften in damp rooms."],
+                 sugar: ["Sugar syrup", function (ml) { var c = Math.max(0.25, Math.ceil(ml / 60) / 4); return "about " + c + " cup sugar + " + c + " cup water, warmed until clear, cooled"; }, "overnight; keep away from damp", "Very stiff, but sticky in humid air."],
+                 spray: ["Spray starch", function () { return "a can of spray starch; spray the pinned snowflakes until damp, let dry, spray again"; }, "1 to 2 hours per coat", "Light hold."] };
+    var CSF_UK = [["sc", "dc"], ["dc", "tr"]];
+    var csfT = "us", csfS = store.get("pp-csf", null) || {}, csfBoxes = $$("input[data-csf]");
+    if (csfS.y && CSFY[csfS.y]) $("#csf-y").value = csfS.y; if (csfS.m && CSFM[csfS.m]) $("#csf-m").value = csfS.m; if (csfS.n) $("#csf-n").value = csfS.n;
+    if (csfS.t === "uk") { csfT = "uk"; $$("#csf-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); }
+    var csfDone = store.get("pp-csf-done", []) || [];
+    csfBoxes.forEach(function (b) { if (csfDone.indexOf(b.getAttribute("data-csf")) >= 0) b.checked = true; b.addEventListener("change", function () { store.set("pp-csf-done", csfBoxes.filter(function (x) { return x.checked; }).map(function (x) { return x.getAttribute("data-csf"); })); csfRun(); }); });
+    var csfTerms = function () {
+      $$("#csf-rounds [data-us]").forEach(function (s) {
+        var t = s.getAttribute("data-us");
+        if (csfT === "uk") t = t.replace(/\bdc\b/g, "@@").replace(/\bsc\b/g, "dc").replace(/@@/g, "tr");
+        s.textContent = t;
+      });
+    };
+    var csfRun = function () {
+      var y = CSFY[$("#csf-y").value] || CSFY.t3, mk = $("#csf-m").value, m = CSFM[mk] || CSFM.glue, n = Math.max(1, Math.min(100, parseInt($("#csf-n").value, 10) || 1));
+      var ml = Math.max(60, Math.ceil(n * y.d * y.d * 1.2 / 10) * 10), yd = y.yd * n, done = csfBoxes.filter(function (x) { return x.checked; }).length;
+      var o = ['<p class="sub">Your snowflake in ' + y.nm + '</p><p class="big">' + y.d + '<small> in across (about ' + Math.round(y.d * 2.54 * 10) / 10 + " cm)</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Thread or yarn</td><td>about ' + y.yd + " yd each, " + yd + " yd for " + n + "</td></tr><tr><td>Time</td><td>about " + Math.round(n * 25 / 60 * 10) / 10 + " hours of crochet for " + n + "</td></tr><tr><td>Stiffener</td><td>" + m[0] + ": " + m[1](ml) + "</td></tr><tr><td>Drying</td><td>" + m[2] + "</td></tr><tr><td>Pins</td><td>about " + (n * 13) + " rust-proof pins (13 per snowflake: centre, 6 points, 6 side picots), or pin in batches</td></tr></tbody></table>");
+      o.push("<p>" + m[3] + " Board space: about " + Math.ceil(Math.sqrt(n)) + " x " + Math.ceil(n / Math.ceil(Math.sqrt(n))) + " snowflakes, each " + (Math.round((y.d + 1) * 10) / 10) + " in apart.</p>");
+      o.push('<p class="sub">Sizes, yarn and amounts are our estimates for the pattern on this page. ' + done + " of 4 rounds ticked.</p>");
+      $("#csf-out").innerHTML = o.join("");
+      csfTerms();
+      store.set("pp-csf", { y: $("#csf-y").value, m: mk, n: $("#csf-n").value, t: csfT });
+    };
+    ["#csf-y", "#csf-m", "#csf-n"].forEach(function (s) { $(s).addEventListener("change", csfRun); });
+    $("#csf-n").addEventListener("input", csfRun);
+    seg($("#csf-t"), function (v) { csfT = v; csfRun(); });
+    csfRun();
+  }
+
+  /* ---------- run 17: beginner crochet blanket writer (cbk-*) ---------- */
+  if ($("#cbk-z") && $("#cbk-out") && P.tblanket) {
+    // Same model as the blanket size calculator / temperature blanket planner: CYC-based sc gauge by weight x stitch factors; yardage 0.667 yd per sq in
+    // x weight factor x 1.27 for crochet x stitch density. Speeds are our beginner estimates (12-18 stitches a minute).
+    var CBK = P.tblanket, cbkW = P.weights || [], cbkT = "us", cbkS0 = store.get("pp-cbk", null) || {};
+    var CBST = { sc: { ch: 1, from: "2nd", tc: "ch 1", uk: "dc" }, hdc: { ch: 2, from: "3rd", tc: "ch 2", uk: "htr" }, dc: { ch: 2, from: "4th", tc: "ch 3 (counts as the first dc)", uk: "tr" } };
+    ["z", "w", "l", "y", "s", "k", "g"].forEach(function (f) { if (cbkS0[f] !== undefined && $("#cbk-" + f)) $("#cbk-" + f).value = cbkS0[f]; });
+    if (cbkS0.t === "uk") { cbkT = "uk"; $$("#cbk-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); }
+    var cbkRun = function () {
+      var z = $("#cbk-z").value, own = z === "custom", bl = (P.blankets || []).filter(function (b) { return b.id === z; })[0];
+      $("#cbk-own").hidden = !own;
+      var W = own ? Math.min(120, Math.max(8, parseFloat($("#cbk-w").value) || 50)) : bl.w, L = own ? Math.min(120, Math.max(8, parseFloat($("#cbk-l").value) || 60)) : bl.l;
+      var wn = $("#cbk-y").value, wt = cbkW.filter(function (x) { return String(x.n) === wn; })[0] || { m: 1, hook: "" }, sk = $("#cbk-s").value;
+      var st = CBK.stitches.filter(function (x) { return x.id === sk; })[0], cs = CBST[sk], base = CBK.cg[wn] || 12.5;
+      var g = parseFloat($("#cbk-g").value) || 0, spi = g > 0 ? g / 4 : base * st.w / 4, rpi = g > 0 ? g / 4 / st.w * st.r : base * st.r / 4;
+      var bord = 3 * 2 / (base / 4); /* 3 sc rounds each side, in inches */
+      var bodyW = Math.max(4, W - bord), bodyL = Math.max(4, L - bord), sts = Math.max(4, Math.round(bodyW * spi)), rows = Math.max(2, Math.round(bodyL * rpi)), chains = sts + cs.ch;
+      var dens = g > 0 ? (base * st.w / 4) / spi : 1, yd = W * L * 0.667 * (wt.m || 1) * 1.27 * st.d * dens, lo = yd * 0.88, hi = yd * 1.12;
+      var per = parseFloat($("#cbk-k").value) || 0, skeins = per > 0 ? Math.ceil(hi / per) : 0;
+      var total = sts * rows + 2 * (sts + rows) * 3, hLo = total / 18 / 60, hHi = total / 12 / 60;
+      var nm = cbkT === "uk" ? cs.uk : sk, SC = cbkT === "uk" ? "dc" : "sc", f = function (v) { return Math.round(v).toLocaleString(); };
+      var o = ['<p class="sub">' + (own ? "Your blanket" : bl.name) + ", " + W + " x " + L + ' in</p><p class="big">' + chains + "<small> chains to start</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Stitches per row</td><td>' + sts + "</td></tr><tr><td>Rows</td><td>about " + rows + " (or work until the body is " + Math.round(bodyL) + " in long)</td></tr><tr><td>Yarn</td><td>about " + f(lo) + " to " + f(hi) + " yd (" + f(lo * 0.9144) + " to " + f(hi * 0.9144) + " m)</td></tr><tr><td>Skeins</td><td>" + (skeins ? skeins + " of " + per + " yd (covers the high end)" : "enter yards per skein") + "</td></tr><tr><td>Hook</td><td>" + wt.hook + "</td></tr><tr><td>Time</td><td>about " + Math.round(hLo) + " to " + Math.round(hHi) + " hours</td></tr></tbody></table>");
+      o.push("<h3>Your pattern (" + (cbkT === "uk" ? "UK" : "US") + " terms)</h3><ol>" +
+        "<li>Chain " + chains + ".</li>" +
+        "<li><strong>Row 1:</strong> " + nm + " in the " + cs.from + " chain from the hook and in each chain to the end. Turn. (" + sts + " sts)</li>" +
+        "<li><strong>Row 2:</strong> " + cs.tc + ", " + (sk === "dc" ? "skip the first st, " + nm + " in each st across, " + nm + " in the top of the turning chain" : nm + " in each st across") + ". Turn. (" + sts + " sts)</li>" +
+        "<li><strong>Rows 3 to " + rows + ":</strong> repeat row 2. Don't fasten off.</li>" +
+        "<li><strong>Border:</strong> ch 1, then work " + SC + " evenly round all four sides with 3 " + SC + " in each corner (along the side edges about " + (sk === "sc" ? "1 " + SC + " per row" : sk === "hdc" ? "3 " + SC + " for every 2 rows" : "2 " + SC + " per row") + "). Join with a sl st. Work 2 more rounds of " + SC + ", with 3 " + SC + " in each corner stitch.</li>" +
+        "<li>Fasten off and weave in all ends.</li></ol>");
+      o.push('<p class="sub">Estimates from typical gauge for this yarn and stitch' + (g > 0 ? " (using your swatch)" : "") + ", with the 3-round border taken off the body. Your tension changes everything: crochet a 6 in swatch first, and buy one spare skein in the same dye lot.</p>");
+      $("#cbk-out").innerHTML = o.join("");
+      var sv = { t: cbkT }; ["z", "w", "l", "y", "s", "k", "g"].forEach(function (k) { sv[k] = $("#cbk-" + k).value; }); store.set("pp-cbk", sv);
+    };
+    ["z", "w", "l", "y", "s", "k", "g"].forEach(function (k) { var el = $("#cbk-" + k); el.addEventListener("change", cbkRun); el.addEventListener("input", cbkRun); });
+    seg($("#cbk-t"), function (v) { cbkT = v; cbkRun(); });
+    cbkRun();
+  }
+
 })();
