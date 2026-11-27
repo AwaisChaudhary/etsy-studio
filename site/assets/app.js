@@ -3885,4 +3885,73 @@
     kswRun();
   }
 
+  /* ---------- BEGINNER CROCHET SCARF PATTERN WRITER (run 14) ---------- */
+  if ($("#csw-y") && $("#csw-out")) {
+    // Craft Yarn Council crochet gauge (sc per 4 in) mid values and a hook in the CYC range. Taller stitches spread a little (our estimate).
+    var CSW = { "3": { g: 14, r: "12–17", hk: "5 mm (H-8)", nm: "DK" }, "4": { g: 12, r: "11–14", hk: "6 mm (J-10)", nm: "worsted" },
+                "5": { g: 9.5, r: "8–11", hk: "8 mm (L-11)", nm: "chunky" }, "6": { g: 8, r: "7–9", hk: "10 mm (N/P-15)", nm: "super bulky" } };
+    var cswT = "us";
+    var cswRun = function () {
+      var y = CSW[$("#csw-y").value], st = $("#csw-s").value, uk = cswT === "uk";
+      var w = Math.min(24, Math.max(2, parseFloat($("#csw-w").value) || 7)), l = Math.min(120, Math.max(10, parseFloat($("#csw-l").value) || 65));
+      var mine = parseFloat($("#csw-g").value), g = mine >= 4 && mine <= 40 ? mine : y.g;
+      var N = { sc: uk ? "dc" : "sc", hdc: uk ? "htr" : "hdc", dc: uk ? "tr" : "dc" };
+      var NL = { sc: uk ? "double crochet (dc)" : "single crochet (sc)", hdc: uk ? "half treble (htr)" : "half double crochet (hdc)", dc: uk ? "treble (tr)" : "double crochet (dc)" };
+      var f = { sc: 1, hdc: 0.95, dc: 0.92, moss: 1 }[st], n = Math.max(6, Math.round(w * g / 4 * f)), ch, rows, first;
+      if (st === "sc") { ch = n + 1; first = "Row 1: " + N.sc + " in the 2nd ch from the hook and in each ch across (" + n + " sts)."; rows = ["Every row after: ch 1 (doesn't count as a stitch), turn, " + N.sc + " in each st across (" + n + " sts)."]; }
+      else if (st === "hdc") { ch = n + 2; first = "Row 1: " + N.hdc + " in the 3rd ch from the hook and in each ch across (" + n + " sts)."; rows = ["Every row after: ch 2 (doesn't count as a stitch), turn, " + N.hdc + " in each st across (" + n + " sts)."]; }
+      else if (st === "dc") { ch = n + 2; first = "Row 1: " + N.dc + " in the 4th ch from the hook (the skipped 3 ch count as the first stitch) and in each ch across (" + n + " sts)."; rows = ["Every row after: ch 3 (counts as a " + N.dc + "), turn, skip the first st, " + N.dc + " in each st across, and work the last " + N.dc + " into the top of the turning chain (" + n + " sts)."]; }
+      else { ch = Math.max(8, Math.round((n + 2) / 2) * 2); first = "Row 1: " + N.sc + " in the 4th ch from the hook, *ch 1, skip 1 ch, " + N.sc + " in the next ch; repeat from * to the end."; rows = ["Every row after: ch 2, turn, " + N.sc + " in the first ch-1 space, *ch 1, " + N.sc + " in the next ch-1 space; repeat from * across, working the last " + N.sc + " into the turning-chain space."]; }
+      var o = [];
+      o.push('<p class="sub">Chain</p><p class="big">' + ch + "<small> chains to start</small></p><p>" + y.hk + " hook, " + y.nm + " yarn, " + (mine ? "your gauge of " + g + " sts per 4 in" : "about " + y.r + " " + N.sc + " per 4 in (the Craft Yarn Council range)") + ". Terms: " + (uk ? "UK" : "US") + ".</p>");
+      o.push("<h3>Your pattern</h3><ol><li>Make a slip knot and chain " + ch + " loosely.</li><li>" + first + "</li>");
+      rows.forEach(function (r) { o.push("<li>" + r + "</li>"); });
+      o.push("<li>Repeat until the scarf measures " + l + " in (" + Math.round(l * 2.54) + " cm).</li><li>Fasten off: cut the yarn, leaving a 6 in tail, and pull it through the loop. Weave in both ends.</li></ol>");
+      o.push('<p class="sub">Stitch: ' + (st === "moss" ? "moss (linen) stitch, worked in " + NL.sc : NL[st]) + ". Width: about " + w + " in. Work 4 in, then measure: if it's wider than planned, start again with fewer chains" + (st === "moss" ? " (keep an even number)" : "") + ". Stitch counts for taller stitches are our estimate, so a quick swatch helps.</p>");
+      o.push('<p class="sub">How much yarn? Pick the same size in the <a href="' + ($("#csw-out").getAttribute("data-scarf") || "scarf-size-chart") + '">scarf size calculator</a> and choose crochet.</p>');
+      $("#csw-out").innerHTML = o.join("");
+      store.set("pp-csw", { y: $("#csw-y").value, s: st, w: w, l: l, g: $("#csw-g").value, t: cswT });
+    };
+    var cswS = store.get("pp-csw", null);
+    if (cswS) { if (CSW[cswS.y]) $("#csw-y").value = cswS.y; if (cswS.s) $("#csw-s").value = cswS.s; if (cswS.w) $("#csw-w").value = cswS.w; if (cswS.l) $("#csw-l").value = cswS.l; if (cswS.g) $("#csw-g").value = cswS.g;
+      if (cswS.t === "uk") { cswT = "uk"; $$("#csw-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); } }
+    ["#csw-y", "#csw-s"].forEach(function (s) { $(s).addEventListener("change", cswRun); });
+    ["#csw-w", "#csw-l", "#csw-g"].forEach(function (s) { $(s).addEventListener("input", cswRun); });
+    seg($("#csw-t"), function (v) { cswT = v; cswRun(); });
+    cswRun();
+  }
+
+  /* ---------- HAND SEWING STITCH CHOOSER (run 14) ---------- */
+  if ($("#hss-job") && $("#hss-out")) {
+    var HSN = { running: "Running stitch", baste: "Basting stitch", back: "Backstitch", whip: "Whip stitch", ladder: "Ladder stitch", slip: "Slip stitch (blind hem)", blanket: "Blanket stitch", "catch": "Catch stitch" };
+    var HSJ = { seam: ["back", "Backstitch along the old seam line, starting and ending about 1/2 in (12 mm) past the split so the new stitches overlap the sound ones."],
+                hem: ["slip", "Fold and press the hem, pin it, then slip stitch. Pick up only one or two threads of the main fabric so the front stays clean."],
+                stretch: ["catch", "Catch stitch keeps a little give, so the thread doesn't snap when the fabric stretches. Keep the stitches loose."],
+                gap: ["ladder", "Fold the seam allowances in, ladder stitch across, and pull the thread every few stitches to close the gap. Knot inside and bury the tail in the stuffing."],
+                felt: ["whip", "Whip stitch close to the edge for a quick join; blanket stitch if you want the stitches to show as a border."],
+                edge: ["blanket", "Space the stitches evenly with a ruler or by eye using the weave; keep each loop the same depth from the edge."],
+                hole: ["whip", "For a small hole or tear, whip stitch the edges together from the wrong side with tiny stitches, or back a bigger hole with a patch and whip stitch round it."],
+                gather: ["running", "Sew two parallel rows of running stitch inside the seam allowance with long tails, then pull the tails to gather evenly."],
+                hold: ["baste", "Baste with long stitches in a contrasting colour, then remove them after the real seam is done."] };
+    var HSF = { light: ["sharps size 9 to 10", "fine polyester or silk thread", "1/16 to 1/8 in (2 to 3 mm)"], medium: ["sharps size 7 to 9", "all-purpose polyester or cotton thread", "about 1/8 in (3 mm)"],
+                heavy: ["sharps 5 to 6 or a heavy-duty needle (and a thimble)", "heavy-duty or upholstery thread", "1/8 to 1/4 in (3 to 6 mm)"], knit: ["a ballpoint hand needle", "all-purpose polyester thread", "about 1/8 in, kept loose"],
+                felt: ["a sharps or embroidery needle", "embroidery floss (2 to 3 strands) or all-purpose thread", "about 1/8 in, close to the edge"] };
+    var hssRun = function () {
+      var j = HSJ[$("#hss-job").value], fb = $("#hss-fab").value, fv = HSF[fb], k = j[0];
+      if ($("#hss-job").value === "hem" && fb === "knit") k = "catch";
+      var dbl = ["seam", "hole"].indexOf($("#hss-job").value) >= 0 || fb === "heavy";
+      var len = k === "baste" ? "1/4 to 1/2 in (6 to 12 mm)" : fv[2];
+      var o = ['<p class="sub">Use</p><p class="big">' + HSN[k] + "</p>"];
+      o.push("<p>" + (k !== j[0] ? "On stretchy fabric, catch stitch beats slip stitch for a hem. " + HSJ.stretch[1] : j[1]) + "</p>");
+      o.push('<table class="mt"><tbody><tr><td>Needle</td><td>' + fv[0] + "</td></tr><tr><td>Thread</td><td>" + fv[1] + ", " + (dbl ? "doubled for strength" : "single") + ", about 18 in (45 cm)</td></tr><tr><td>Stitch length</td><td>" + len + " (typical)</td></tr></tbody></table>");
+      o.push('<p class="sub"><a href="#hs-' + k + '">See how to sew ' + HSN[k].toLowerCase() + " ↓</a></p>");
+      $("#hss-out").innerHTML = o.join("");
+      store.set("pp-hss", { j: $("#hss-job").value, f: fb });
+    };
+    var hssS = store.get("pp-hss", null);
+    if (hssS) { if (HSJ[hssS.j]) $("#hss-job").value = hssS.j; if (HSF[hssS.f]) $("#hss-fab").value = hssS.f; }
+    ["#hss-job", "#hss-fab"].forEach(function (s) { $(s).addEventListener("change", hssRun); });
+    hssRun();
+  }
+
 })();

@@ -421,3 +421,10 @@
 - NEW /how-to-knit-a-scarf: 6 own SVG steps, beginner pattern writer (ksw-*: garter/seed/2x2 rib, CYC gauge ranges, own gauge), yarn/needle advice, cast-on maths, mistakes, time. Targets 'how to knit a scarf for beginners'. Sources: Craft Yarn Council yarn weight gauge ranges; yarn estimate matches /scarf-size-chart.
 - Links: footer (Tools: hoop calculator; Guides: scarf + punch needle), home 'Fresh today', /punch-needle -> how-to, /embroidery-stitches -> hoop calculator, /scarf-size-chart -> how to knit a scarf. Shop boxes on all three. Pins queued x3.
 
+
+## 27 Nov 2026 run 14
+- NEW /how-to-crochet-a-scarf: 6 SVG steps + beginner crochet scarf pattern writer (sc, hdc, dc, moss; US/UK terms; CYC crochet gauge). Targets 'how to crochet a scarf for beginners', 'how many chains for a crochet scarf'. Linked from /how-to-knit-a-scarf, /scarf-size-chart, home, footer.
+- NEW /hand-sewing-stitches: 8 hand stitches drawn (running, basting, backstitch, whip, ladder, slip/blind hem, blanket, catch) + job/fabric stitch chooser + needle/thread table + tie-off. Targets 'basic hand sewing stitches', 'how to sew by hand'. Linked from /how-to-sew-a-button, /sewing-seam-allowance, home, footer.
+- MERGE /etsy-fee-calculator: Offsite Ads $100-per-order cap applied in the calculator (US), new H2 'Etsy Offsite Ads fee: how it works', 2 FAQs (cap, 30-day window). Source: help.etsy.com 'How Etsy's Offsite Ads Work' (checked 27 Nov).
+- MERGE /basic-crochet-stitches: H2 'How to make a slip knot for crochet' with 3 SVG steps + 2 FAQs (DEMAND L5).
+- Sources: Craft Yarn Council weight/gauge standards (data.json); stitch uses cross-checked against LoveCrafts, Homedit, Melly Sews, MasterClass guides. Wording and drawings ours. Pins queued: how-to-crochet-a-scarf, hand-sewing-stitches.

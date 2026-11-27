@@ -228,7 +228,7 @@ ksp = top("How to knit a scarf for beginners", "A scarf is the classic first kni
 <li><strong>Tight bind off:</strong> bind off with a needle one or two sizes bigger. See <a href="{href("how-to-bind-off-knitting.html")}">how to bind off knitting</a>.</li></ul>
 <h2>How long does it take to knit a scarf?</h2>
 <p>A beginner knitting an adult garter scarf in worsted usually needs somewhere around 10 to 20 hours; in chunky yarn on big needles it can be half that. Use the <a href="{href("crochet-time-estimator.html")}">knitting time calculator</a> to see if a scarf will be ready for Christmas, and the <a href="{href("row-counter.html")}">row counter</a> to keep your place.</p>
-<p>New to knitting? Start with <a href="{href("how-to-cast-on-knitting.html")}">how to cast on</a> and <a href="{href("how-to-knit-and-purl.html")}">how to knit and purl</a>, then <a href="{href("how-to-weave-in-ends.html")}">weave in your ends</a> when you're done.</p>
+<p>Prefer a hook? <a href="{href("how-to-crochet-a-scarf.html")}">How to crochet a scarf</a> has the same six-step guide and a crochet pattern writer. New to knitting? Start with <a href="{href("how-to-cast-on-knitting.html")}">how to cast on</a> and <a href="{href("how-to-knit-and-purl.html")}">how to knit and purl</a>, then <a href="{href("how-to-weave-in-ends.html")}">weave in your ends</a> when you're done.</p>
 </div></div></section>'''
 ks_faq = [
     ("How many stitches do I cast on for a beginner scarf?", "With worsted yarn and 5 mm (US 8) needles, about 27 to 32 stitches gives a 6 to 7 in wide scarf. Multiply the width by the stitches per inch on your yarn label."),

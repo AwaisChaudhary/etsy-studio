@@ -272,7 +272,7 @@ bsp = top("How to sew on a button", "Sew a button on by hand in four steps, with
 <ul><li><strong>No shank:</strong> sewn flat and tight, the thread rubs through when the button is done up. Use a spacer.</li>
 <li><strong>Too few passes or weak thread:</strong> 4 to 6 passes with doubled thread, or button thread for coats.</li>
 <li><strong>Knot only on the front:</strong> finish with two or three small stitches and a knot on the back.</li></ul>
-<p>Sewing more? See the <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a> and the <a href="{href("fabric-yardage-calculator.html")}">fabric yardage calculator</a>. More crafts are on the <a href="{href("crafts.html")}">crafts page</a>.</p>
+<p>New to sewing by hand? <a href="{href("hand-sewing-stitches.html")}">8 basic hand sewing stitches</a> shows backstitch, ladder stitch, blind hem and more, with a chooser for your job. Sewing more? See the <a href="{href("sewing-seam-allowance.html")}">seam allowance guide</a> and the <a href="{href("fabric-yardage-calculator.html")}">fabric yardage calculator</a>. More crafts are on the <a href="{href("crafts.html")}">crafts page</a>.</p>
 <p class="note">Sewing on a button is a standard hand-sewing technique, taught the same way by LoveCrafts, Hobbycraft, Tilly and the Buttons and MasterClass (checked 27 Nov 2026). Our wording and drawings; the spacing maths is ours.</p>
 </div></div></section>'''
 bs_faq = [
