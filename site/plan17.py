@@ -226,7 +226,7 @@ csf_faq = [
     ("How long does a crochet snowflake take?", "About 20 to 30 minutes for this pattern once you know it, plus overnight drying after stiffening."),
 ]
 SHOP_FOR["crochet-snowflake-pattern.html"] = ["christmas-gift-tags", "december-days-journal-kit", "crochet-knitting-pricing-calculator", "christmas-gift-planner-budget"]
-page("crochet-snowflake-pattern.html", "Free Crochet Snowflake Pattern (Easy) + How to Stiffen Snowflakes",
+page("crochet-snowflake-pattern.html", "Free Crochet Snowflake Pattern (Easy) + How to Stiffen It",
      "Free easy 4-round crochet snowflake pattern with tick boxes and drawn steps, plus how to stiffen snowflakes with glue, starch, cornflour or sugar.",
      csf, csf_faq, "Crochet snowflake pattern", app_name="Crochet snowflake size and stiffener helper")
 

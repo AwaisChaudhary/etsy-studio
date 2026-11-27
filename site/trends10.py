@@ -200,7 +200,7 @@ et_faq = [
 ]
 SHOP_FOR["how-to-transfer-embroidery-pattern.html"] = ["machine-embroidery-business-spreadsheet", "crochet-knitting-pricing-calculator", "2027-crochet-knitting-planner", "christmas-gift-tags"]
 page("how-to-transfer-embroidery-pattern.html", "How to Transfer an Embroidery Pattern to Fabric | Purl & Paper",
-     "How to transfer an embroidery pattern to fabric, including dark fabric: tracing, water-soluble stabilizer, carbon paper, tissue paper and iron-on, with a picker.",
+     "How to transfer an embroidery pattern to fabric, including dark fabric: tracing, water-soluble stabilizer, carbon paper, tissue paper or iron-on, with a picker.",
      etp, et_faq, "How to transfer an embroidery pattern", app_name="Embroidery transfer method picker")
 
 # ======== HOW TO SEW ON A BUTTON ========

@@ -157,7 +157,7 @@ mk_faq = [
 ]
 SHOP_FOR["macrame-knots.html"] = ["small-business-pricing-inventory-spreadsheet", "christmas-gift-planner-budget", "2027-habit-tracker-spreadsheet", "christmas-gift-tags"]
 page("macrame-knots.html", "Macrame Knots for Beginners: 10 Basic Knots Step by Step",
-     "Macrame knots for beginners: the 10 basic knots drawn step by step, plus a project finder that lists the knots, cord size and cut lengths for what you're making.",
+     "Macrame knots for beginners: the 10 basic knots drawn step by step, plus a project finder that lists the knots, cord size and cut lengths for your project.",
      mkp, mk_faq, "Macrame knots", app_name="Macrame project and knot finder")
 
 

@@ -458,3 +458,10 @@
 - Pins queued: pins/site/crochet-christmas-ornament-pattern.jpg, crochet-snowflake-pattern.jpg, how-to-crochet-a-blanket.jpg.
 - SHOP: no new craft products live (batch listings not in SHOP are non-craft); candle business spreadsheet (4622481559) could go on /candle-making-calculator in a later run.
 - IndexNow pending: https://purlandpaperco.com/crochet-christmas-ornament-pattern https://purlandpaperco.com/crochet-snowflake-pattern https://purlandpaperco.com/how-to-crochet-a-blanket
+
+## 2026-11-28 AUDIT (daily technical SEO pass)
+- Found (seo_audit.py + extended checks, 121 pages): /crochet-snowflake-pattern title 65 chars; /how-to-transfer-embroidery-pattern and /macrame-knots descriptions 161. Everything else clean (links, canonicals, breadcrumbs, FAQ JSON-LD, images, robots, sitemap 121 URLs).
+- Fixed at source: title in plan17.py, descriptions in trends10.py and plan12.py. Re-audit clean.
+- Remaining / acceptable: google7cb8a0335ce88e7c.html verification file flagged by seo_audit.py as expected. Not deployed (hand deploy).
+- Checked 390px render: /crochet-snowflake-pattern, /macrame-knots: no JS errors, no overflow.
+- IndexNow pending: https://purlandpaperco.com/crochet-snowflake-pattern https://purlandpaperco.com/how-to-transfer-embroidery-pattern https://purlandpaperco.com/macrame-knots
