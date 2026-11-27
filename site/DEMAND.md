@@ -1,5 +1,14 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## RADAR 27 Nov run 12 (web search, rotation: macrame knots / junk journal page ideas / punch needle how to / slip knot / slip stitch join / yarn holder DIY / cross stitch fabric size)
+L1. DONE 27 Nov (/macrame-knots) 'macrame knots for beginners', 'basic macrame knots' (SERP: Hobbii US+CA, Gathered, Marching North 17 knots + PDF, Bob Vila 7 knots, Sarah Maker, Hobbycraft projects, Twinkl, Hometalk x2, Udemy course; no tool on page 1) -> 10 knots with own SVGs + project finder (knots in order, cord, cut length). Part of E4.
+L2. DONE 27 Nov (/junk-journal-page-ideas) R5 'junk journal page ideas' (SERP: CBC artist ideas, Passion Planner, 101 Planners, Archer & Olive US+AU, Book Riot, 8 Lemon8 posts, Organized Mom; autocomplete 'junk journal' #7) -> 42 ideas, 6 layout SVGs, spread generator.
+L3. DONE 27 Nov (/how-to-slip-stitch-crochet) 'how to slip stitch crochet', 'slip stitch join round' (SERP: LoveCrafts x3, The Woobles x2, Annie's, Gathered, One Little Project, A Crocheted Simplicity special join, Dummies, Simply Crochet) -> 3 SVG steps + joined round writer (US/UK, chain counts or not, colour change, invisible join).
+L4. OPEN 'how to punch needle for beginners' (SERP: Hobbycraft x3, Crewel Ghoul, DMC video x3, Mary Maxim, Marching North, Gathered x2, Studio Koekoek, Skillshare) -> /punch-needle has only a short how-to: grow it into a step-by-step with SVGs (loop height, direction, finishing) or a separate /how-to-punch-needle if it would not be thin. Rest of E4.
+L5. OPEN 'how to make a slip knot crochet' (SERP: Yarnspirations, Mary Maxim CA x2, Hobbii, Instructables, EasyCrochet, Sarah Maker, Marching North, Purple Poncho, Jo to the World 4 ways) -> slip knot is only mentioned on /basic-crochet-stitches + /how-to-cast-on-knitting: add an H2 'How to make a slip knot' with SVG + FAQ to /basic-crochet-stitches (merge, not a new page).
+L6. NOTE R2 'yarn holder DIY' (SERP: Mary Maxim yarn ball holder, Make: x3, Make and Do Crew household items, Hometalk, Ribblr pattern) -> still OPEN as R2: DIY yarn holder/bowl guide with own SVGs.
+L7. NOTE 'cross stitch fabric size calculator' (Omni, Studio Koekoek, Lindas, Heaven and Earth, miniwebtool, cross-stitched.com) -> /cross-stitch-calculator exists; check its title says 'fabric size' if Search Console shows these queries.
+
 ## RADAR 27 Nov run 11 (web search, rotation: junk journal pockets / solid granny square / 2027 goal planner / blocking knitting crochet / blocking acrylic / new year goal worksheet)
 K1. DONE 27 Nov (/how-to-block-knitting-crochet) NEW 'how to block knitting / crochet' (SERP: DMC, LoveCrafts US+UK, Gathered x2, Wool Warehouse, Purl Soho, Annie's x2, Dummies wet blocking, Petals to Picots, Knitting with Chopsticks; no tool on page 1) + 'how to block acrylic yarn' (A Crocheted Simplicity x2, Mary Maxim US+CA, Herrschners, Yarnspirations video, Nicki's, eHow) -> wet/steam/spray SVGs + method, mats and pins helper.
 K2. DONE 27 Nov 'solid granny square' (Moogly, Sigoni Macaroni FAQ, B.Hooked, AllFreeCrochet video, Purple Poncho, Nicki's, many Ravelry patterns) -> H2 + FAQ merged into /how-to-crochet-a-granny-square (not thin page).
@@ -16,7 +25,7 @@ J6. NOTE 'how much yarn for a crochet blanket chart' (Mary Maxim, Handy Little M
 
 ## DAILY RADAR 27 Nov 06:45 PKT (Google autocomplete US)
 - R4 OPEN 'how to price crochet plushies / blankets / commissions' ('how to price crochet' #2-4): pricing guides per item type linked to the pricing calculator + shop box.
-- R5 OPEN 'junk journal page ideas' (#7; 0 pages): 30+ page ideas with own SVG thumbnails, link to kits.
+- R5 DONE 27 Nov (/junk-journal-page-ideas) 'junk journal page ideas' (#7; 0 pages): 30+ page ideas with own SVG thumbnails, link to kits.
 - R6 OPEN 'yarn bowl' ('yarn' #7; 0 pages) + 'yarn weight chart' (#6): DIY yarn bowl guide (pairs with yarn holder R2) and make sure the weight chart page ranks (title wording).
 - R7 OPEN 'christmas crafts for preschoolers / toddlers' (#5-6): simple printable craft list with own SVG templates.
 
@@ -42,7 +51,7 @@ G6. OPEN 'cross stitch fabric count guide' / 'how to read a cross stitch pattern
 
 ## NEW CATEGORY EXPANSION (Awais 26 Nov: when traffic plateaus, open new categories backed by Trends/searches; don't wait for input)
 Evidence = Google autocomplete 26 Nov 18:10 PKT. Each is a CATEGORY: build a hub page first, then 1-2 child pages per run. Skip if it already exists.
-- E4 OPEN (27 Nov growth review) Macrame + punch needle categories (/macrame-cord-calculator and /punch-needle EXIST; build the rest): macrame knots guide with own SVG diagrams, plant hanger tutorial, cord size/length calculator; punch needle how-to for beginners + supply checklist. Autocomplete 'macrame' -> plant hanger, wall hanging, cord, knots, bracelet; 'punch needle' -> kits, embroidery, tutorial, how to, kit for beginners, rug.
+- E4 PART DONE 27 Nov (/macrame-knots; punch needle how-to still OPEN as L4) (27 Nov growth review) Macrame + punch needle categories (/macrame-cord-calculator and /punch-needle EXIST; build the rest): macrame knots guide with own SVG diagrams, plant hanger tutorial, cord size/length calculator; punch needle how-to for beginners + supply checklist. Autocomplete 'macrame' -> plant hanger, wall hanging, cord, knots, bracelet; 'punch needle' -> kits, embroidery, tutorial, how to, kit for beginners, rug.
 - E1 OPEN Coloring pages category: free printable coloring pages for kids/adults (own SVG line art only), hub + themed sets — 'coloring pages for kids|free|printable|for adults'. Lead magnet to Etsy.
 - E2 PART-DONE 26 Nov (/sewing-seam-allowance, /fat-quarter-calculator) Sewing for beginners: free beginner patterns/guides with own diagrams ('sewing patterns for beginners|free').
 - E3 OPEN Printable planner pages + inserts ('printable planner pages|2027|inserts') linked to Etsy planner listings.

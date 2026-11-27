@@ -3660,4 +3660,123 @@
     blkRun();
   }
 
+  /* ---------- MACRAME PROJECT FINDER (run 12) ---------- */
+  if ($("#mkf-p") && $("#mkf-out")) {
+    var MKK = { lark: "Lark's head", rlark: "Reverse lark's head", square: "Square knot", spiral: "Half knot spiral", hh: "Half hitch", dhh: "Double half hitch", diag: "Diagonal double half hitch", gather: "Gathering knot", over: "Overhand knot", berry: "Berry knot" };
+    var MKP = {
+      hanger: { k: ["gather", "square", "spiral", "over"], cord: "3-ply cotton rope, 4 to 5 mm", n: "4 cords folded over a wooden ring (8 ends), or 6 for a bigger pot", f: 8, fr: 10,
+        steps: ["Fold the cords through a wooden ring and tie a gathering knot just below it.", "Split into 4 groups of 2 folded cords and tie a sinnet of square knots or a spiral in each: these are the arms.", "Drop down 3 in (8 cm) and tie alternating square knots between neighbouring groups to make the basket.", "Gather all the cords with a gathering knot under the basket and trim the tassel."] },
+      wall: { k: ["rlark", "square", "dhh", "diag", "over"], cord: "Single-strand cotton, 4 to 5 mm", n: "12 to 20 cords for a 12 to 16 in (30 to 40 cm) dowel", f: 8, fr: 6,
+        steps: ["Mount every cord on the dowel with a reverse lark's head.", "Tie a row of double half hitches straight across to make a neat top edge.", "Work rows of alternating square knots, then a V of diagonal double half hitches.", "Comb out the fringe and trim it straight, in a V or a curve."] },
+      key: { k: ["lark", "square", "spiral", "gather"], cord: "Single-strand or braided cord, 3 mm", n: "2 to 4 cords folded onto the key ring", f: 9, fr: 3,
+        steps: ["Mount the cords on the key ring with lark's head knots.", "Tie a short sinnet of square knots or a spiral.", "Finish with a gathering knot and comb out a short tassel."] },
+      brace: { k: ["square", "spiral", "over"], cord: "Waxed cotton or nylon cord, 1 to 1.5 mm", n: "2 filler cords and 2 working cords (or 1 long one folded)", f: 0, fr: 0,
+        steps: ["Tape the two fillers down with 6 in (15 cm) spare at the top for the ties.", "Tie the middle of the working cord under the fillers and work square knots down to the bracelet length.", "Seal the ends and tie a sliding square knot clasp over the crossed ties, or knot them with overhand knots."] },
+      coaster: { k: ["lark", "square", "dhh", "over"], cord: "Single-strand cotton, 3 mm", n: "6 to 10 cords folded onto a mounting cord or wooden ring", f: 8, fr: 1.5,
+        steps: ["Mount the cords with lark's head knots onto a short mounting cord.", "Tie alternating square knots or rows of double half hitches until the coaster is square.", "Tie the end off with a row of double half hitches and trim a short fringe."] },
+      feather: { k: ["lark", "dhh", "over"], cord: "Single-strand cotton, 3 to 5 mm (soft, so it brushes out)", n: "1 folded spine cord and lots of short rib cords", f: 0, fr: 0,
+        steps: ["Fold the spine cord and knot a loop at the top for hanging.", "Tie pairs of short rib cords to the spine with lark's head knots (one from each side), pushing each pair up tight.", "Brush the ribs out with a pet brush until fluffy, stiffen with fabric stiffener or hairspray, then trim to a feather shape."] },
+      star: { k: ["lark", "square", "berry", "over"], cord: "Single-strand cotton, 3 mm", n: "1 cord folded onto each point of a star frame or a small ring", f: 8, fr: 2,
+        steps: ["Mount the cords on a small ring or wire star with lark's head knots.", "Tie square knots or a berry knot along each arm.", "Finish with overhand knots, comb the fringe and add a loop for hanging."] },
+      runner: { k: ["lark", "square", "dhh", "diag", "over"], cord: "Single-strand or 3-ply cotton, 4 to 5 mm", n: "20 to 30 cords folded onto a mounting cord for a 12 in (30 cm) wide runner", f: 8, fr: 6,
+        steps: ["Mount the cords on a temporary mounting cord with lark's head knots.", "Work alternating square knots for the length, with rows of double half hitches for borders.", "Undo the mounting cord at the end so both ends have a fringe, and trim them to match."] }
+    };
+    var mkU = "in";
+    var mkLen = function (v) { if (mkU === "cm") return Math.round(v) + " cm (" + (v / 100).toFixed(1) + " m)"; return (v >= 36 ? Math.round(v) + " in (" + (v / 12).toFixed(1) + " ft)" : (Math.round(v * 2) / 2) + " in"); };
+    var mkfRun = function () {
+      var p = $("#mkf-p").value, d = MKP[p], L = Math.min(400, Math.max(0.5, parseFloat($("#mkf-l").value) || 0)), cm = mkU === "cm", fr = cm ? d.fr * 2.5 : d.fr, o = [];
+      o.push("<h3>Knots you need</h3><p>" + d.k.map(function (k) { return '<a href="#knot-' + k + '">' + esc(MKK[k]) + "</a>"; }).join(", ") + "</p>");
+      o.push("<h3>Steps</h3><ol>" + d.steps.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>");
+      o.push("<h3>Cord</h3><p>" + esc(d.cord) + ". " + esc(d.n) + ".</p>");
+      if (p === "brace") {
+        o.push('<h3>Cut lengths</h3><p class="jpk-big">' + mkLen(L * 5) + "</p><p>for the working cord (about 5 times the bracelet length), and " + mkLen(L + (cm ? 30 : 12)) + " for each filler cord, which leaves room for the ties.</p>");
+      } else if (p === "feather") {
+        o.push('<h3>Cut lengths</h3><p class="jpk-big">' + mkLen(L * 2 + (cm ? 20 : 8)) + "</p><p>for the spine cord (folded), and rib cords about " + mkLen(L + (cm ? 5 : 2)) + " each. You need roughly 2 pairs of ribs for every inch (2.5 cm) of feather.</p>");
+      } else {
+        o.push('<h3>Cut each cord</h3><p class="jpk-big">' + mkLen(L * d.f + 2 * fr) + "</p><p>That's about " + d.f + " times the finished length because each cord is folded in half, plus " + mkLen(fr) + " of fringe on each end.</p>");
+      }
+      o.push('<p class="sub">Estimates for beginner patterns. Tight knots and long sinnets use more, so cut a little extra. For a full cord count, try the <a href="' + esc($("#mkf-out").getAttribute("data-cc") || "macrame-cord-calculator.html") + '">macrame cord calculator</a>.</p>');
+      $("#mkf-out").innerHTML = o.join("");
+      store.set("pp-mkf", { p: p, l: $("#mkf-l").value, u: mkU });
+    };
+    var mkS = store.get("pp-mkf", null);
+    if (mkS) { if (MKP[mkS.p]) $("#mkf-p").value = mkS.p; if (mkS.l) $("#mkf-l").value = mkS.l; if (mkS.u) { mkU = mkS.u; $$("#mkf-u button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === mkU); }); } }
+    var MKD = { hanger: 30, wall: 24, key: 4, brace: 7, coaster: 4, feather: 8, star: 4, runner: 60 };
+    $("#mkf-p").addEventListener("change", function () { var v = MKD[$("#mkf-p").value]; $("#mkf-l").value = mkU === "cm" ? Math.round(v * 2.54) : v; mkfRun(); });
+    $("#mkf-l").addEventListener("input", mkfRun);
+    seg($("#mkf-u"), function (v) { if (v !== mkU) { var x = parseFloat($("#mkf-l").value) || 0; $("#mkf-l").value = v === "cm" ? Math.round(x * 2.54) : Math.round(x / 2.54 * 2) / 2; mkU = v; } mkfRun(); });
+    mkfRun();
+  }
+
+  /* ---------- JUNK JOURNAL SPREAD GENERATOR (run 12) ---------- */
+  if ($("#jpi-go") && $("#jpi-out")) {
+    var JPI = {
+      base: { any: ["a page torn from an old book", "tea-stained copy paper", "a flattened brown paper bag", "an old map or atlas page", "sheet music", "a patterned scrapbook paper", "a coffee-dyed envelope opened flat", "plain card painted with a wash of watercolour"],
+        winter: ["sheet music from an old carol book", "deep green or navy card", "a page from a Christmas catalogue"], new: ["a calendar page from last year", "graph paper", "a crisp white page with a gold edge"],
+        nature: ["a tea-dyed page", "a seed catalogue page", "kraft card"], vintage: ["a ledger or accounts book page", "an old dictionary page", "a yellowed letter"], memory: ["a page from your own old diary", "a photocopied family document"],
+        free: ["a cereal box, printed side in", "the inside of an envelope", "junk mail with a nice colour"] },
+      focal: { any: ["a postcard", "a photo with a white border", "a big vintage label", "a cut-out from a magazine", "a playing card", "a pressed flower", "a quote typed on a strip", "a small drawing of your own"],
+        winter: ["the front of an old Christmas card", "a paper snowflake", "a gift tag from last year"], new: ["your word of the year cut out in big letters", "a ticket to something you want to do this year"],
+        nature: ["a pressed leaf", "a feather drawing", "a seed packet"], vintage: ["an old stamp blown up on the copier", "a cabinet card style portrait (your own family)", "a luggage label"], memory: ["a ticket stub", "a photo of a place you lived", "a child's drawing"],
+        free: ["the front of a tea box", "a pretty bit of packaging", "a fortune from a fortune cookie"] },
+      inter: ["a glue-on pocket with flaps", "a tag tucked behind the focal piece", "a fold-up page pocket", "a belly band with three cards", "a flap that opens to hidden journaling", "an envelope pocket", "a pull-tab under the photo", "a tiny folded mini book"],
+      emb: ["two strips of washi tape crossed at a corner", "a line of running stitch round the edge", "a button tied with twine", "a rubber stamp in brown ink", "a scrap of lace", "a paper clip holding a ticket", "inked edges in brown", "a wax seal or round sticker", "a tea bag tag", "a ribbon from a gift"],
+      words: { any: ["Today I noticed...", "Three small things that made me smile this week", "A place I want to go back to", "What I'm making right now", "Something I learned this month", "A letter to myself a year ago"],
+        winter: ["My favourite winter smell", "The best gift I ever gave", "Five things on my cosy list"], new: ["My word for 2027 and why", "One thing I'll stop doing this year", "What I want to make in 2027"],
+        nature: ["What the sky looked like today", "A walk I'd like to take again"], vintage: ["Who might have owned this paper?", "A story about an old photo"], memory: ["The first thing I remember about this day", "Who I was with and what we laughed about"],
+        free: ["Where each scrap on this page came from", "What I almost threw away"] }
+    };
+    var JPL = [["base", "Background"], ["focal", "Focal piece"], ["inter", "Something interactive"], ["emb", "Embellishment"], ["words", "Words"]];
+    var jpiPool = function (k, th) { var p = JPI[k]; if (Array.isArray(p)) return p; return th !== "any" && p[th] ? p[th].concat(p.any.slice(0, 3)) : p.any; };
+    var jpiCur = store.get("pp-jpi", null);
+    var jpiRender = function () {
+      $("#jpi-out").innerHTML = "<h2>Your spread</h2><ol>" + JPL.map(function (l) {
+        return '<li><button type="button" class="linkish" data-k="' + l[0] + '" title="Change this layer"><strong>' + esc(l[1]) + ":</strong> " + esc(jpiCur[l[0]]) + "</button></li>";
+      }).join("") + '</ol><p class="sub">Tap a line to swap just that layer, or shuffle again for a whole new spread.</p>';
+    };
+    var jpiNew = function (k) {
+      var th = $("#jpi-th").value, p = jpiPool(k, th), v = pick(p), g = 0;
+      while (jpiCur && p.length > 1 && v === jpiCur[k] && g++ < 9) v = pick(p);
+      return v;
+    };
+    var jpiShuffle = function () { var c = {}; jpiCur = jpiCur || {}; JPL.forEach(function (l) { c[l[0]] = jpiNew(l[0]); }); jpiCur = c; jpiCur.th = $("#jpi-th").value; store.set("pp-jpi", jpiCur); jpiRender(); };
+    $("#jpi-go").addEventListener("click", jpiShuffle);
+    $("#jpi-th").addEventListener("change", jpiShuffle);
+    $("#jpi-out").addEventListener("click", function (ev) {
+      var b = ev.target.closest("button[data-k]"); if (!b) return;
+      var k = b.getAttribute("data-k"); jpiCur[k] = jpiNew(k); store.set("pp-jpi", jpiCur); jpiRender();
+      var nb = $('#jpi-out button[data-k="' + k + '"]'); if (nb) nb.focus();
+    });
+    if (jpiCur && jpiCur.base) { if (jpiCur.th) $("#jpi-th").value = jpiCur.th; jpiRender(); } else jpiShuffle();
+  }
+
+  /* ---------- SLIP STITCH JOINED ROUND WRITER (run 12) ---------- */
+  if ($("#sls-st") && $("#sls-out")) {
+    var SLS = { sc: { us: "sc", uk: "dc", ch: 1, cnt: false, nm: "single crochet" }, hdc: { us: "hdc", uk: "htr", ch: 2, cnt: false, nm: "half double crochet" },
+                dc: { us: "dc", uk: "tr", ch: 3, cnt: true, nm: "double crochet" }, tr: { us: "tr", uk: "dtr", ch: 4, cnt: true, nm: "treble crochet" } };
+    var slsT = "us";
+    var slsRun = function () {
+      var k = $("#sls-st").value, d = SLS[k], n = Math.min(400, Math.max(3, parseInt($("#sls-n").value, 10) || 12)), chs = $("#sls-ch").value, x = $("#sls-x").value;
+      var a = d[slsT], ss = slsT === "uk" ? "ss" : "sl st", cnt = chs === "auto" ? d.cnt : chs === "yes", o = [];
+      if (k === "sc" && cnt) o.push('<p class="sub">A ch 1 is too short to stand in for a single crochet, so almost no pattern counts it. Written below as asked anyway.</p>');
+      var line = cnt
+        ? "Ch " + d.ch + " (counts as first " + a + "), " + a + " in each st around, skipping the st at the base of the ch-" + d.ch + " (" + n + " " + a + ", counting the ch-" + d.ch + ")" 
+        : "Ch " + d.ch + " (doesn't count as a st), " + a + " in same st as join and in each st around (" + n + " " + a + ")";
+      var join = cnt ? ss + " to top of beginning ch-" + d.ch : ss + " to first " + a;
+      o.push("<h2>Your round</h2><p class=\"sls-line\"><strong>" + esc(line + ", " + join + ".") + "</strong></p>");
+      o.push("<h3>Where the join goes</h3><p>" + (cnt ? "Into the top chain of the ch " + d.ch + " you started with (the 3rd chain from the bottom for ch 3), under two loops." : "Into the top of the first " + d.nm + " you made after the chain, not into the chain itself.") + " The " + ss + " is not a stitch: don't work into it on the next round.</p>");
+      if (x === "colour") o.push("<h3>Change colour at the join</h3><p>Insert the hook for the " + ss + ", drop the old colour, yarn over with the new colour and pull it through to make the " + ss + ". Start the next round's chain in the new colour. Leave 6 in (15 cm) tails to weave in.</p>");
+      if (x === "last") o.push("<h3>Invisible join instead</h3><p>Skip the " + ss + ". Cut the yarn, leaving a 6 in (15 cm) tail, and pull it up through the last stitch. Thread it on a needle, go under both top loops of the " + (cnt ? "first real stitch after the chain" : "second stitch of the round") + ", then back down into the centre of the last stitch. Snug it to the size of one stitch and weave in the end.</p>");
+      o.push("<h3>Check your count</h3><p>" + n + " stitches, plus the " + ss + " join (not counted). If you keep getting " + (n + 1) + ", you're working into the join" + (cnt ? " or into the stitch at the base of the chain" : "") + "; if you get " + (n - 1) + ", " + (cnt ? "you're not counting the ch-" + d.ch + " or you're skipping the last stitch before the join." : "you're skipping the first stitch.") + "</p>");
+      $("#sls-out").innerHTML = o.join("");
+      store.set("pp-sls", { k: k, n: n, c: chs, x: x, t: slsT });
+    };
+    var slsS = store.get("pp-sls", null);
+    if (slsS) { if (SLS[slsS.k]) $("#sls-st").value = slsS.k; if (slsS.n) $("#sls-n").value = slsS.n; if (slsS.c) $("#sls-ch").value = slsS.c; if (slsS.x) $("#sls-x").value = slsS.x; if (slsS.t) { slsT = slsS.t; $$("#sls-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === slsT); }); } }
+    ["#sls-st", "#sls-ch", "#sls-x"].forEach(function (s) { $(s).addEventListener("change", slsRun); });
+    $("#sls-n").addEventListener("input", slsRun);
+    seg($("#sls-t"), function (v) { slsT = v; slsRun(); });
+    slsRun();
+  }
+
 })();

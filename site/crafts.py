@@ -412,7 +412,7 @@ document.getElementById("mc-out").innerHTML="<h2>Cut "+n+" cords of "+Math.round
 <tr><td>Small wall hanging</td><td>18 in (45 cm)</td><td>about 12 ft (3.7 m)</td></tr><tr><td>Medium wall hanging</td><td>30 in (75 cm)</td><td>about 20 ft (6 m)</td></tr></tbody></table></div>
 <p class="note">Rule-of-thumb lengths using 8× for folded cords. Follow your pattern if it gives lengths.</p>
 <h2>Beginner knots to learn first</h2>
-<p>The lark's head (to mount cords), the square knot, the spiral (a half knot repeated), the half hitch and double half hitch, and the gathering knot (to finish plant hangers). Practise each on a short piece of cord before a project.</p>
+<p>The lark's head (to mount cords), the square knot, the spiral (a half knot repeated), the half hitch and double half hitch, and the gathering knot (to finish plant hangers). Practise each on a short piece of cord before a project. See all ten drawn step by step in <a href="{href("macrame-knots.html")}">macrame knots for beginners</a>.</p>
 <p>Love fibre crafts? Try the <a href="{href("yarn-calculator.html")}">yarn calculator</a> for knitting and crochet.</p>
 </div></div></section>{more_crafts("macrame-cord-calculator.html")}'''
 mc_faq = [
