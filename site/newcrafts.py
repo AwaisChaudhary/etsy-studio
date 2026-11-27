@@ -477,6 +477,7 @@ else{var rr=hr*.62,a0=st=="border"?Math.PI*.15:0,a1=st=="border"?Math.PI*.85:Mat
 s+='<text x="'+cx+'" y="'+(cy+hr+10)+'" text-anchor="middle" font-family="sans-serif" font-size="3.4" fill="#666">'+N("em-h")+' in hoop (dashed line). Trace inside the circle.</text>';
 return s;''', '["em-h","em-s","g-seed"]', reroll=True) + PROSE("embroidery-patterns.html", '''
 <h2>How to transfer an embroidery pattern</h2>
+<p>All five methods, with drawings and a picker for your fabric, are on <a href="{H:how-to-transfer-embroidery-pattern.html}">how to transfer an embroidery pattern</a>.</p>
 <ul><li><strong>Light box or window:</strong> tape the printout behind the fabric and trace with a water-soluble or heat-erasable pen.</li>
 <li><strong>Dark fabric:</strong> print on water-soluble stabiliser, stick it on, stitch through it, then rinse it away.</li>
 <li><strong>Carbon transfer paper:</strong> place it between pattern and fabric and trace firmly with a stylus.</li></ul>

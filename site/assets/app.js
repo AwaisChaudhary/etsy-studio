@@ -3346,4 +3346,126 @@
     kiRun();
   }
 
+  /* ---------- CROCHET INCREASE WRITER ---------- */
+  if ($("#ci-a") && $("#ci-out")) {
+    var CI_N = { us: { sc: "sc", hdc: "hdc", dc: "dc" }, uk: { sc: "dc", hdc: "htr", dc: "tr" } };
+    var ciText = function (tok, nm) {
+      /* tok: array of "p"/"i"; compress into "(sc 3, inc) x 6" style */
+      var items = [], i = 0;
+      while (i < tok.length) {
+        var p = 0; while (i < tok.length && tok[i] === "p") { p++; i++; }
+        var inc = i < tok.length; if (inc) i++;
+        items.push([p, inc]);
+      }
+      var out = [], j = 0;
+      while (j < items.length) {
+        var k = j; while (k + 1 < items.length && items[k + 1][0] === items[j][0] && items[k + 1][1] === items[j][1]) k++;
+        var cnt = k - j + 1, it = items[j], part = (it[0] ? nm + " " + it[0] : "") + (it[1] ? (it[0] ? ", " : "") + "inc" : "");
+        if (part) out.push(cnt > 1 ? "(" + part + ") " + cnt + " times" : part);
+        j = k + 1;
+      }
+      return out.join(", ");
+    };
+    var ciRun = function () {
+      var a = Math.min(500, Math.max(1, parseInt($("#ci-a").value, 10) || 1)), b = Math.min(1000, Math.max(1, parseInt($("#ci-b").value, 10) || 1));
+      var w = segVal($("#ci-w")) || "round", t = segVal($("#ci-t")) || "us", st = CI_N[t][$("#ci-s").value] ? $("#ci-s").value : "sc", nm = CI_N[t][st], o = [];
+      var k = b - a;
+      if (k <= 0) {
+        o.push("<h3>That's not an increase</h3><p>" + (k === 0 ? "Same count: just work 1 " + nm + " in each stitch." : "You want fewer stitches, so you need to decrease. See <a href=\"" + ($("#ci-out").getAttribute("data-dec") || "/how-to-crochet-decrease") + "\">how to decrease in crochet</a>.") + "</p>");
+      } else if (k > a) {
+        o.push("<h3>More than double</h3><p>Going from " + a + " to " + b + " needs " + k + " increases, but one round can at most double (inc in every stitch makes " + (2 * a) + "). Work <strong>inc in every stitch</strong> this round, then increase " + (b - 2 * a) + " more next round.</p>");
+      } else {
+        var q = Math.floor(a / k), r = a % k, sz = [], acc = 0;
+        for (var g = 0; g < k; g++) { var big = Math.floor((g + 1) * r / k) > Math.floor(g * r / k); sz.push(q + (big ? 1 : 0)); acc += sz[g]; }
+        var tok = []; sz.forEach(function (s) { for (var x = 0; x < s - 1; x++) tok.push("p"); tok.push("i"); });
+        var lead = Math.floor((sz[0] - 1) / 2), rot = tok.slice(lead).concat(tok.slice(0, lead));
+        o.push("<h3>" + k + " increases</h3><p class=\"big\" style=\"font-size:1.4rem\">" + esc(w === "row" ? ciText(rot, nm) : ciText(tok, nm)) + "</p>");
+        o.push("<p>That makes <strong>" + b + " stitches</strong> (" + a + " + " + k + "). Inc = 2 " + esc(nm) + " in the same stitch" + (t === "uk" ? " (UK terms)" : "") + ".</p>");
+        if (w === "round") {
+          if (lead > 0) o.push("<h3>Staggered version</h3><p>" + esc(ciText(rot, nm)) + "</p><p class=\"sub\">Use it on every other round so the increases don't stack up into corners and your circle stays round.</p>");
+          if (k === 6 && st === "sc" || k === 12 && st === "dc") o.push("<p class=\"sub\">Making a flat circle? The <a href=\"" + ($("#ci-out").getAttribute("data-circ") || "/crochet-circle-calculator") + "\">crochet circle calculator</a> writes every round.</p>");
+        } else if (lead > 0) {
+          o.push("<p class=\"sub\">The row starts with " + lead + " plain stitch" + (lead === 1 ? "" : "es") + " so no increase lands on the edge.</p>");
+        }
+      }
+      $("#ci-out").innerHTML = o.join("");
+      store.set("pp-ci", { a: $("#ci-a").value, b: $("#ci-b").value, s: $("#ci-s").value, w: w, t: t });
+    };
+    var ciS = store.get("pp-ci", null);
+    if (ciS) {
+      ["a", "b", "s"].forEach(function (x) { if (ciS[x]) $("#ci-" + x).value = ciS[x]; });
+      ["w", "t"].forEach(function (g) { if (ciS[g]) $$("#ci-" + g + " button").forEach(function (bt) { bt.setAttribute("aria-pressed", bt.getAttribute("data-v") === ciS[g]); }); });
+    }
+    ["#ci-a", "#ci-b", "#ci-s"].forEach(function (id) { $(id).addEventListener("input", ciRun); $(id).addEventListener("change", ciRun); });
+    seg($("#ci-w"), ciRun); seg($("#ci-t"), ciRun);
+    ciRun();
+  }
+
+  /* ---------- EMBROIDERY TRANSFER PICKER ---------- */
+  if ($("#et-c") && $("#et-out")) {
+    var ET = {
+      light: ["Trace with light and a water-soluble pen", ["Tape the pattern to a bright window, light pad or tablet on full white.", "Tape the fabric over it and trace with a water-soluble fabric marker.", "Stitch, then soak in cool water to remove the lines. Don't iron first."]],
+      lightdry: ["Trace with light and a heat-erasable pen or light pencil", ["Tape the pattern to a bright window or light pad, fabric on top.", "Trace thin lines with a heat-erasable pen, or a sharp light pencil your stitches will cover.", "Stitch, then press lightly to clear heat-erasable lines (they can show again in the cold)."]],
+      wss: ["Water-soluble stick-on stabilizer", ["Print the design onto the stabilizer sheet (check the pack) or trace it on.", "Peel and stick it in place, then hoop the fabric with it.", "Stitch through both layers, trim the extra and soak until it dissolves."]],
+      carbon: ["White or yellow transfer (carbon) paper", ["Lay the fabric on a hard surface, transfer paper colour side down, pattern on top.", "Pin it all and draw over the lines with a ballpoint or stylus, pressing firmly.", "Check one corner before unpinning. Choose a wash-out paper if you can."]],
+      tissue: ["Tissue paper or tear-away", ["Trace the design onto tissue paper or tear-away stabilizer.", "Tack it to the fabric with big running stitches round the edge.", "Stitch through it, then tear the paper away gently and pick out bits with tweezers."]]
+    };
+    var etRun = function () {
+      var c = segVal($("#et-c")) || "light", k = segVal($("#et-k")) || "thin", w = segVal($("#et-w")) || "yes", d = segVal($("#et-d")) || "fine", best, alt, why;
+      if (c === "light" && k === "thin") { best = w === "yes" ? "light" : "lightdry"; alt = w === "yes" ? "wss" : "tissue"; why = "Light, thin fabric lets the pattern show through, so tracing is quickest."; }
+      else if (k === "thick") { best = w === "yes" ? "wss" : "tissue"; alt = w === "yes" ? "tissue" : (c === "dark" && d === "bold" ? "carbon" : "wss"); why = "Thick or textured fabric hides a traced line, so the design sits on top of it instead."; }
+      else if (c === "mid") { best = w === "yes" ? (d === "fine" ? "wss" : "light") : "tissue"; alt = w === "yes" ? "carbon" : "carbon"; why = "Medium colours are hit and miss with light, so test a window first."; }
+      else { best = w === "yes" ? "wss" : (d === "bold" ? "carbon" : "tissue"); alt = w === "yes" ? (d === "bold" ? "carbon" : "tissue") : (d === "bold" ? "tissue" : "carbon"); why = "You can't see through dark fabric, so trace onto something that sits on top, or use a light-coloured transfer paper."; }
+      if (alt === best) alt = best === "tissue" ? "carbon" : "tissue";
+      if (w === "no" && alt === "wss") alt = "carbon";
+      var x = ET[best], y = ET[alt], o = [];
+      o.push("<h3>Best for you</h3><p class=\"big\" style=\"font-size:1.5rem\">" + esc(x[0]) + "</p><p>" + esc(why) + "</p><ol>" + x[1].map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>");
+      o.push("<h3>Also works</h3><p><strong>" + esc(y[0]) + ".</strong> " + esc(y[1][0]) + "</p>");
+      if (d === "fine" && best === "carbon") o.push("<p class=\"sub\">Carbon lines are thicker than a pen line, so keep fine lettering simple.</p>");
+      o.push("<p class=\"sub\">Need a design? Try the <a href=\"" + ($("#et-out").getAttribute("data-pat") || "/embroidery-patterns") + "\">embroidery pattern generator</a>. Always test a marker on a scrap first.</p>");
+      $("#et-out").innerHTML = o.join("");
+      store.set("pp-et", { c: c, k: k, w: w, d: d });
+    };
+    var etS = store.get("pp-et", null);
+    if (etS) ["c", "k", "w", "d"].forEach(function (g) { if (etS[g]) $$("#et-" + g + " button").forEach(function (bt) { bt.setAttribute("aria-pressed", bt.getAttribute("data-v") === etS[g]); }); });
+    ["c", "k", "w", "d"].forEach(function (g) { seg($("#et-" + g), etRun); });
+    etRun();
+  }
+
+  /* ---------- BUTTON SPACING CALCULATOR ---------- */
+  if ($("#bs-l") && $("#bs-out")) {
+    var bsF = function (v, u) {
+      if (u === "cm") return v.toFixed(1) + " cm";
+      var e8 = Math.round(v * 8), w = Math.floor(e8 / 8), f = e8 % 8, fr = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"][f];
+      return (w ? w + (fr ? " " + fr : "") : (fr || "0")) + " in";
+    };
+    var bsU = "in";
+    var bsRun = function () {
+      var u = segVal($("#bs-u")) || "in";
+      if (u !== bsU) { ["#bs-l", "#bs-t", "#bs-b"].forEach(function (id) { var v = parseFloat($(id).value); if (!isNaN(v)) $(id).value = +(u === "cm" ? v * 2.54 : v / 2.54).toFixed(u === "cm" ? 1 : 2); }); var rv = parseFloat($("#bs-r").value); if (rv) $("#bs-r").value = +(u === "cm" ? rv / 2.54 : rv * 2.54).toFixed(1); bsU = u; }
+      var L = Math.max(0.5, parseFloat($("#bs-l").value) || 0), n = Math.min(40, Math.max(2, parseInt($("#bs-n").value, 10) || 2));
+      var t = Math.max(0, parseFloat($("#bs-t").value) || 0), b = Math.max(0, parseFloat($("#bs-b").value) || 0), rpi = parseFloat($("#bs-r").value) || 0, o = [];
+      var span = L - t - b;
+      if (span <= 0) { o.push("<h3>Check the numbers</h3><p>The top and bottom gaps add up to more than the opening.</p>"); }
+      else {
+        var gap = span / (n - 1), pos = [];
+        for (var i = 0; i < n; i++) pos.push(t + gap * i);
+        o.push("<h3>Space between buttons</h3><p class=\"big\">" + bsF(gap, u) + "</p><p>" + n + " buttons over " + bsF(span, u) + " from the top button to the bottom one" + (u === "in" ? " (" + (gap * 2.54).toFixed(1) + " cm apart)" : " (" + (gap / 2.54).toFixed(2) + " in apart)") + ".</p>");
+        o.push("<h3>Mark each button from the top edge</h3><ol>" + pos.map(function (p) { return "<li>" + bsF(p, u) + (rpi > 0 ? " — about row " + Math.round(p * rpi) + " of the band" : "") + "</li>"; }).join("") + "</ol>");
+        if (rpi > 0) o.push("<p class=\"sub\">Rows counted from the top of the band at " + rpi + " rows per " + (u === "cm" ? "cm" : "inch") + ". For a buttonhole band knitted from the bottom up, count from the bottom instead.</p>");
+        if (gap > (u === "cm" ? 12 : 4.75)) o.push("<p class=\"sub\">Gaps over about " + (u === "cm" ? "12 cm" : "4.75 in") + " can gape on a fitted top. Try one more button.</p>");
+      }
+      $("#bs-out").innerHTML = o.join("");
+      store.set("pp-bs", { u: u, l: $("#bs-l").value, n: $("#bs-n").value, t: $("#bs-t").value, b: $("#bs-b").value, r: $("#bs-r").value });
+    };
+    var bsS = store.get("pp-bs", null);
+    if (bsS) {
+      ["l", "n", "t", "b", "r"].forEach(function (x) { if (bsS[x] != null && bsS[x] !== "") $("#bs-" + x).value = bsS[x]; });
+      if (bsS.u) { $$("#bs-u button").forEach(function (bt) { bt.setAttribute("aria-pressed", bt.getAttribute("data-v") === bsS.u); }); bsU = bsS.u; }
+    }
+    ["#bs-l", "#bs-n", "#bs-t", "#bs-b", "#bs-r"].forEach(function (id) { $(id).addEventListener("input", bsRun); $(id).addEventListener("change", bsRun); });
+    seg($("#bs-u"), bsRun);
+    bsRun();
+  }
+
 })();
