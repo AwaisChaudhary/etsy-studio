@@ -4038,4 +4038,134 @@
     shpRun();
   }
 
+  /* ---------- HAT PATTERN WRITERS + POM POM HELPER (run 16) ---------- */
+  // Hat sizes: same table as /hat-size-chart (CYC head ranges; hat about 11-12% smaller than the head). Fitted beanie lengths are typical figures.
+  var HATS = [[12, 10.5, 4.5], [14, 12.5, 5.5], [17, 15, 6.5], [18.5, 16.5, 7], [20, 17.5, 7.5], [21, 18.5, 8], [22, 19.5, 8.5], [23.5, 20.5, 9]];
+  var hatSize = function (zSel, mSel) {
+    var z = $(zSel).value, h;
+    if (z === "m") { var m = Math.min(26, Math.max(10, parseFloat($(mSel).value) || 22)); h = [m, Math.round(m * 0.886 * 10) / 10, Math.round(m * 0.386 * 4) / 4]; }
+    else h = HATS[+z] || HATS[6];
+    $(mSel).closest(".field").style.opacity = z === "m" ? "1" : ".55";
+    return { head: h[0], c: h[1], len: h[2] };
+  };
+  var r10 = function (n) { return Math.max(10, Math.round(n / 10) * 10); };
+  var YF = { "3": 1.2, "4": 1, "5": 0.7, "6": 0.5 };
+  if ($("#cht-z") && $("#cht-out")) {
+    // CYC crochet gauge (sc per 4 in) mid values and hooks; taller stitch widths and round heights are our estimates.
+    var CHY = { "3": { g: 14, hk: "4.5 to 5 mm (7 to H-8)", nm: "DK" }, "4": { g: 12, hk: "5.5 to 6 mm (I-9 to J-10)", nm: "worsted" },
+                "5": { g: 9.5, hk: "8 mm (L-11)", nm: "chunky" }, "6": { g: 8, hk: "10 mm (N/P-15)", nm: "super bulky" } };
+    var CHS = { sc: { b: 6, w: 1, h: 0.85, ch: 1, yd: 1.45 }, hdc: { b: 8, w: 1.05, h: 1.2, ch: 2, yd: 1.3 }, dc: { b: 12, w: 1.09, h: 1.55, ch: 2, yd: 1.2 } };
+    var chtT = "us", chtB = "sc";
+    var chtRun = function () {
+      var hs = hatSize("#cht-z", "#cht-m"), yk = $("#cht-y").value, y = CHY[yk], sk = $("#cht-s").value, S = CHS[sk], uk = chtT === "uk";
+      var NM = { sc: uk ? "dc" : "sc", hdc: uk ? "htr" : "hdc", dc: uk ? "tr" : "dc" }, st = NM[sk], scN = NM.sc;
+      var ws = 4 / y.g, sw = ws * S.w, rh = ws * S.h;
+      var Nt = Math.round(hs.c / sw); if (chtB === "rib" && Nt % 2) Nt++;
+      var k = Math.max(3, Math.floor(Nt / S.b)), N = k * S.b, E = Math.max(0, Nt - N); if (E < 2) E = 0;
+      var brimH = chtB === "rib" ? Math.max(0.75, Math.round(hs.head * 0.068 * 4) / 4) : 2 * ws * 0.85;
+      var NF = N + E, even = Math.max(1, Math.round((hs.len - brimH - hs.c / (2 * Math.PI)) / rh) - (E ? 1 : 0)), k2 = k + (E ? 1 : 0);
+      var ribR = Math.max(2, Math.round(brimH / (ws * 1.55)));
+      var chs = "ch " + S.ch + " (doesn't count as a stitch)";
+      var o = [];
+      o.push('<p class="sub">Top circle</p><p class="big">' + k2 + "<small> increase rounds to " + NF + " stitches</small></p><p>" + y.hk + " hook, " + y.nm + " yarn, " + (uk ? "UK" : "US") + " terms. Hat " + hs.c + " in around for a " + hs.head + " in head; " + hs.len + " in long from the top.</p>");
+      o.push("<h3>Your pattern</h3><ol>");
+      o.push("<li><strong>Round 1:</strong> make a magic ring, " + chs + ", work " + S.b + " " + st + " into the ring. Pull the ring closed and join with a sl st to the first " + st + " (" + S.b + ").</li>");
+      o.push("<li><strong>Round 2:</strong> " + chs.split(" (")[0] + ", 2 " + st + " in each st around, join (" + (2 * S.b) + ").</li>");
+      for (var r = 3; r <= k; r++) o.push("<li><strong>Round " + r + ":</strong> " + chs.split(" (")[0] + ", *" + st + " in the next " + (r - 2 > 1 ? (r - 2) + " sts" : "st") + ", 2 " + st + " in the next st; repeat from * " + (S.b - 1) + " more times, join (" + (r * S.b) + ").</li>");
+      if (E) { var q = Math.floor(N / E) - 1, rest = N - E * (q + 1); o.push("<li><strong>Round " + (k + 1) + " (part increase):</strong> " + chs.split(" (")[0] + ", *" + st + " in the next " + q + " sts, 2 " + st + " in the next st; repeat from * " + (E - 1) + " more times" + (rest ? ", " + st + " in the last " + rest + (rest > 1 ? " sts" : " st") : "") + ", join (" + NF + ").</li>"); }
+      o.push('<li><strong>Check:</strong> the flat circle should be about <strong>' + (Math.round(hs.c / Math.PI * 10) / 10) + " in (" + Math.round(hs.c / Math.PI * 2.54) + " cm) across</strong>. Bigger? Pull out a round. Smaller? Work one more round with a few increases spread out, or go up a hook size.</li>");
+      o.push("<li><strong>Rounds " + (k2 + 1) + " to " + (k2 + even) + ":</strong> " + chs.split(" (")[0] + ", 1 " + st + " in each st around, join (" + NF + "). That's about " + even + " rounds: keep going until the hat is " + (Math.round((hs.len - brimH) * 4) / 4) + " in (" + Math.round((hs.len - brimH) * 2.54) + " cm) from the centre top.</li>");
+      if (chtB === "rib") o.push("<li><strong>Brim, " + ribR + " rounds:</strong> ch 2, *FP" + (uk ? "tr" : "dc") + " round the next st, BP" + (uk ? "tr" : "dc") + " round the next st; repeat from * around, join (" + NF + "). On later rounds work FP over FP and BP over BP. About " + brimH + " in deep.</li>");
+      else o.push("<li><strong>Last 2 rounds:</strong> ch 1, " + scN + " in each st around, join (" + NF + ").</li>");
+      o.push("<li>Fasten off, weave in the ends and add a pom pom if you like.</li></ol>");
+      var yd = hs.c * hs.len * 0.93 * S.yd * YF[yk];
+      o.push('<p class="sub">Yarn: about <strong>' + r10(yd * 0.9) + " to " + r10(yd * 1.15) + " yd</strong> (" + Math.round(yd * 0.9 * 0.9144) + " to " + Math.round(yd * 1.15 * 0.9144) + " m), our estimate. Round heights are estimates too, so try the hat on as you go. Sizes from the <a href=\"" + ($("#cht-out").getAttribute("data-chart") || "hat-size-chart") + "\">hat size chart</a>.</p>");
+      $("#cht-out").innerHTML = o.join("");
+      store.set("pp-cht", { z: $("#cht-z").value, m: $("#cht-m").value, y: yk, s: sk, t: chtT, b: chtB });
+    };
+    var chtS = store.get("pp-cht", null);
+    if (chtS) { ["z", "m", "y", "s"].forEach(function (q) { if (chtS[q] != null && $("#cht-" + q)) $("#cht-" + q).value = chtS[q]; });
+      if (!CHY[$("#cht-y").value]) $("#cht-y").value = "4"; if (!CHS[$("#cht-s").value]) $("#cht-s").value = "dc"; if (!$("#cht-z").value) $("#cht-z").value = "6";
+      if (chtS.t === "uk") { chtT = "uk"; $$("#cht-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); }
+      if (chtS.b === "rib") { chtB = "rib"; $$("#cht-b button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "rib" ? "true" : "false"); }); } }
+    ["#cht-z", "#cht-y", "#cht-s"].forEach(function (s) { $(s).addEventListener("change", chtRun); });
+    $("#cht-m").addEventListener("input", chtRun);
+    seg($("#cht-t"), function (v) { chtT = v; chtRun(); });
+    seg($("#cht-b"), function (v) { chtB = v; chtRun(); });
+    chtRun();
+  }
+
+  if ($("#kht-z") && $("#kht-out")) {
+    // CYC knit gauge ranges (sts per 4 in) mid values and needles; rows per inch estimated at 1.35 x stitches per inch (typical stocking stitch).
+    var KHY = { "3": { g: 22.5, nd: "4 to 4.5 mm (US 6 to 7)", rb: "3.5 mm (US 4)", nm: "DK" }, "4": { g: 18, nd: "5 mm (US 8)", rb: "4.5 mm (US 7)", nm: "worsted" },
+                "5": { g: 13.5, nd: "6.5 mm (US 10½)", rb: "6 mm (US 10)", nm: "chunky" }, "6": { g: 9, nd: "9 to 10 mm (US 13 to 15)", rb: "8 mm (US 11)", nm: "super bulky" } };
+    var khtF = "fit";
+    var khtRun = function () {
+      var hs = hatSize("#kht-z", "#kht-m"), yk = $("#kht-y").value, y = KHY[yk], rib = $("#kht-r").value;
+      var mine = parseFloat($("#kht-g").value), g = mine >= 6 && mine <= 40 ? mine : y.g, spi = g / 4, rpi = spi * 1.35;
+      var N = Math.max(24, Math.round(hs.c * spi / 8) * 8), s = N / 8;
+      var bd = Math.max(0.75, Math.round(hs.head * 0.09 * 4) / 4);
+      var L = hs.len + (khtF === "slouch" ? Math.round(hs.head * 0.11 * 2) / 2 : 0) + (khtF === "fold" ? bd + 0.5 : 0);
+      var brim = rib === "0" ? 0 : (khtF === "fold" ? 2 * bd + 0.5 : bd);
+      var pairs = Math.max(0, s - 6), crownR = 2 * pairs + (Math.min(s, 6) - 1), crownD = crownR / rpi;
+      var before = Math.max(brim + 0.5, Math.round((L - crownD) * 4) / 4);
+      var ribTxt = rib === "2" ? "*k2, p2; repeat from * to the end" : "*k1, p1; repeat from * to the end";
+      var o = [];
+      o.push('<p class="sub">Cast on</p><p class="big">' + N + "<small> stitches</small></p><p>" + y.nd + " needles, " + y.nm + " yarn, " + (mine ? "your gauge of " + g + " sts per 4 in" : "about " + g + " sts per 4 in (the Craft Yarn Council range)") + ". Hat " + hs.c + " in around for a " + hs.head + " in head.</p>");
+      o.push("<h3>Your pattern</h3><ol><li>Cast on " + N + " stitches onto a " + (hs.c >= 17 ? "16 in (40 cm) circular needle" : "set of double-pointed needles or a long circular for the magic loop (this size is too small for a 16 in circular)") + ". Place a marker and join in the round without twisting.</li>");
+      if (rib === "0") o.push("<li>Knit every round. The edge will roll up into a neat curl (allow about 0.75 in for it).</li>");
+      else o.push("<li><strong>Brim:</strong> " + ribTxt + ". Repeat this round for " + brim + " in (" + Math.round(brim * 2.54) + " cm)" + (khtF === "fold" ? ", long enough to fold up" : "") + ". A needle 1 or 2 sizes smaller, " + y.rb + ", makes a snugger brim.</li>");
+      o.push("<li><strong>Body:</strong> knit every round until the hat measures <strong>" + before + " in (" + Math.round(before * 2.54) + " cm)</strong> from the cast-on edge" + (khtF === "fold" ? " (unfolded)" : "") + ".</li>");
+      o.push("<li><strong>Set up the crown:</strong> *k" + s + ", place marker; repeat from * 7 more times (8 sections of " + s + ").</li>");
+      var c = s, rn = 1, lines = [];
+      while (c > 1) {
+        lines.push("<strong>Crown round " + rn + ":</strong> " + (c - 2 > 0 ? "*knit to 2 sts before the marker (k" + (c - 2) + "), k2tog" : "*k2tog") + "; repeat from * 7 more times (" + ((c - 1) * 8) + " sts).");
+        rn++; c--;
+        if (c >= 6 && c > 1) { lines.push("<strong>Crown round " + rn + ":</strong> knit."); rn++; }
+      }
+      if (lines.length > 14) { o.push("<li>" + lines[0] + "</li><li>" + lines[1] + "</li><li>Repeat these 2 rounds (one fewer stitch before each k2tog every time) until 48 sts are left, ending with a knit round.</li>"); lines.filter(function (l) { return / \((40|32|24|16|8) sts\)/.test(l); }).forEach(function (l) { o.push("<li>" + l.replace(/Crown round \d+/, "Then") + "</li>"); }); }
+      else lines.forEach(function (l) { o.push("<li>" + l + "</li>"); });
+      o.push("<li>Switch to double-pointed needles or magic loop when the stitches get tight. With 8 sts left, cut the yarn with a 6 in tail, thread it through all 8, pull tight and weave in.</li></ol>");
+      var yd = hs.c * L * 0.93 * YF[yk] * (rib === "0" ? 0.95 : 1.05);
+      o.push('<p class="sub">Finished length about ' + (Math.round((before + crownD) * 4) / 4) + " in. The crown is about " + (Math.round(crownD * 4) / 4) + " in deep (our estimate from a typical row gauge). Yarn: about <strong>" + r10(yd * 0.9) + " to " + r10(yd * 1.15) + " yd</strong> (" + Math.round(yd * 0.9 * 0.9144) + " to " + Math.round(yd * 1.15 * 0.9144) + " m), our estimate. Sizes from the <a href=\"" + ($("#kht-out").getAttribute("data-chart") || "hat-size-chart") + "\">hat size chart</a>.</p>");
+      $("#kht-out").innerHTML = o.join("");
+      store.set("pp-kht", { z: $("#kht-z").value, m: $("#kht-m").value, y: yk, r: rib, g: $("#kht-g").value, f: khtF });
+    };
+    var khtS = store.get("pp-kht", null);
+    if (khtS) { ["z", "m", "y", "r", "g"].forEach(function (q) { if (khtS[q] != null && $("#kht-" + q)) $("#kht-" + q).value = khtS[q]; });
+      if (!KHY[$("#kht-y").value]) $("#kht-y").value = "4"; if (!$("#kht-r").value) $("#kht-r").value = "2"; if (!$("#kht-z").value) $("#kht-z").value = "6";
+      if (khtS.f === "fold" || khtS.f === "slouch") { khtF = khtS.f; $$("#kht-f button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === khtF ? "true" : "false"); }); } }
+    ["#kht-z", "#kht-y", "#kht-r"].forEach(function (s) { $(s).addEventListener("change", khtRun); });
+    ["#kht-m", "#kht-g"].forEach(function (s) { $(s).addEventListener("input", khtRun); });
+    seg($("#kht-f"), function (v) { khtF = v; khtRun(); });
+    khtRun();
+  }
+
+  if ($("#ppm-d") && $("#ppm-out")) {
+    // Our rough model: wraps ~ 20 x D^2 in worsted (scaled for yarn thickness); each wrap ~ ring width + card thickness. Labelled as estimates.
+    var PPY = { dk: { w: 1.6, g: 2.3, nm: "DK" }, w: { w: 1, g: 1.9, nm: "worsted" }, ch: { w: 0.6, g: 1.3, nm: "chunky" }, sb: { w: 0.35, g: 0.8, nm: "super bulky" } };
+    var ppmU = "in";
+    var ppmRun = function () {
+      var D = parseFloat($("#ppm-d").value) || 3, yk = $("#ppm-y").value, y = PPY[yk] || PPY.w, cm = ppmU === "cm";
+      var out = D + 0.25, hole = Math.round(out * 0.4 * 8) / 8, wraps = Math.round(20 * D * D * y.w / 10) * 10;
+      var yd = wraps * (out - hole + 0.2) / 36 + 0.3, u = function (v) { return cm ? (Math.round(v * 2.54 * 10) / 10) + " cm" : v + " in"; };
+      var o = [];
+      o.push('<p class="sub">Cut two card rings</p><p class="big">' + u(out) + "<small> across</small></p><p>Centre hole: <strong>" + u(hole) + "</strong> across.</p>");
+      o.push("<p>Wrap about <strong>" + wraps + " times</strong> in " + y.nm + " (until the hole is full). Yarn: about <strong>" + Math.round(yd) + " to " + Math.round(yd * 1.3) + " yd</strong> (" + Math.round(yd * 0.9144) + " to " + Math.round(yd * 1.3 * 0.9144) + " m, roughly " + Math.max(1, Math.round(yd / y.g)) + " to " + Math.max(2, Math.round(yd * 1.3 / y.g)) + " g). Plus a 12 in piece of strong yarn for the middle tie.</p>");
+      o.push("<p>" + (D <= 1.5 ? "<strong>Easiest method:</strong> a fork works for this size: wrap the tines about " + Math.round(wraps * 0.9 / 5) * 5 + " times." : D <= 3 ? "<strong>No card?</strong> Wrap " + (D <= 2 ? "two" : D <= 2.5 ? "three" : "four") + " fingers instead, about " + Math.round(wraps * 0.7 / 10) * 10 + " times (it's less even, so trim a little more)." : "<strong>Big pom pom:</strong> card is best; wrap in several colours or hold 2 strands together to fill it faster.") + "</p>");
+      var R = out / 2, r = hole / 2, ring = function (cx) { return '<circle cx="' + cx + '" cy="' + R + '" r="' + R + '" fill="#efe3cf" stroke="#1f2a44" stroke-width="0.02"/><circle cx="' + cx + '" cy="' + R + '" r="' + r + '" fill="#fff" stroke="#1f2a44" stroke-width="0.02"/><rect x="' + (cx - 0.06) + '" y="0" width="0.12" height="' + (R - r) + '" fill="#fff" stroke="#1f2a44" stroke-width="0.015"/>'; };
+      var two = 2 * out + 0.3 <= 7.5, tw = two ? 2 * out + 0.3 : out;
+      o.push('<p class="sub">Template at actual size (print at 100%, no scaling)' + (two ? "" : "; cut it twice") + ':</p><div class="ppm-tpl" style="overflow-x:auto"><svg role="img" aria-label="Pom pom card ring template at actual size" width="' + tw + 'in" height="' + out + 'in" viewBox="0 0 ' + tw + " " + out + '">' + ring(R) + (two ? ring(out + 0.3 + R) : "") + "</svg></div>");
+      o.push('<p class="sub">Ring and wrap numbers are our rough guide: tight or loose wrapping changes them. Cut the rings from a cereal box or a postcard.</p>');
+      $("#ppm-out").innerHTML = o.join("");
+      store.set("pp-ppm", { d: $("#ppm-d").value, y: yk, u: ppmU });
+    };
+    var ppmS = store.get("pp-ppm", null);
+    if (ppmS) { if (ppmS.d) $("#ppm-d").value = ppmS.d; if (PPY[ppmS.y]) $("#ppm-y").value = ppmS.y; if (!$("#ppm-d").value) $("#ppm-d").value = "3";
+      if (ppmS.u === "cm") { ppmU = "cm"; $$("#ppm-u button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "cm" ? "true" : "false"); }); } }
+    ["#ppm-d", "#ppm-y"].forEach(function (s) { $(s).addEventListener("change", ppmRun); });
+    seg($("#ppm-u"), function (v) { ppmU = v; ppmRun(); });
+    ppmRun();
+  }
+
 })();

@@ -439,3 +439,12 @@
 - Links in: cables <- how to knit and purl, knit stitch patterns, knitting abbreviations; sheep <- crochet decrease, crochet circle calculator, how to price amigurumi, amigurumi guide; both in footer Guides + home 'Fresh today'.
 - Pins queued: pins/site/how-to-knit-cables.jpg, crochet-sheep-pattern.jpg.
 - IndexNow pending: https://purlandpaperco.com/how-to-knit-cables https://purlandpaperco.com/crochet-sheep-pattern https://purlandpaperco.com/junk-journal-page-ideas https://purlandpaperco.com/how-to-cross-stitch
+
+## 28 Nov 2026 run 16 (demand-first)
+- NEW /how-to-crochet-a-hat — 'how to crochet a hat / beanie for beginners step by step', 'crochet hat crown increase chart'. 6 own SVG steps + top-down beanie writer (8 CYC sizes or own head, sc/hdc/dc, US/UK, sc or FPdc/BPdc brim, part-increase round, crown check diameter, yarn estimate). Shop box: planner, pricing calculator, stash tracker, gift tags.
+- NEW /how-to-knit-a-hat — 'how to knit a hat for beginners circular needles'. 6 own SVG steps + beanie writer (CYC gauge or own, cast-on multiple of 8, k1p1/k2p2/rolled brim, fitted/fold/slouchy, every crown round, DPN note for small sizes, yarn estimate).
+- NEW /how-to-make-a-pom-pom — 'how to make a yarn pom pom without a maker', 'how much yarn for a pom pom'. 5 card steps + fork + fingers, size helper (ring/hole size, wraps, yd/g) with an actual-size printable ring template.
+- Links: hat size chart, both scarf guides, home 'Fresh today', footer guides list. Sitemap lastmod for changed pages.
+- Sources: Craft Yarn Council hat sizes and gauge ranges (as /hat-size-chart); technique checked against LoveCrafts, AllFreeCrochet, Marly Bird (crochet hats), Knit Picks, Dummies, AllFreeKnitting (knit hats), Mary Maxim, Purl Soho, Treasurie (pom poms). Round heights, row gauge, wraps and yarn amounts are labelled estimates.
+- Pins queued: pins/site/how-to-crochet-a-hat.jpg, how-to-knit-a-hat.jpg, how-to-make-a-pom-pom.jpg.
+- DEMAND: added Q4 crochet Christmas ornaments, Q5 crochet snowflake (seasonal, OPEN).
