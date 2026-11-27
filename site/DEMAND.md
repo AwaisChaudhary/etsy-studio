@@ -1,5 +1,15 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## SITE REVENUE (Awais 28 Nov: "Dont just rely on etsy kdp... huge potential to earn from the site as well")
+The site must earn on its own. Streams, in order:
+S1. Display ads via Journey by Mediavine once purlandpaperco.com passes 1,000 premium sessions/month (craft/DIY readers are mostly US/UK women: among the best-paying ad audiences). Until then AdSense (code already on site).
+S2. Affiliate 'Supplies' blocks on every tool + how-to page (yarn for the yarn calculator, hooks for hook sizes, Cricut for card making, paper for junk journals): Amazon (arts & crafts), Awin craft/yarn shops, Cricut's affiliate programme. Slots ready now (data-aff), links on approval.
+S3. Sell OUR printables DIRECTLY on the site (no Etsy fee, keeps the buyer): 'Shop' page + 'Download now' buttons through Payhip or Lemon Squeezy (Awais makes the account: payouts/tax), same files as Etsy; Etsy stays for discovery.
+S4. Premium versions of the free tools (one-time $3-9 unlock): pattern-writer PDF export, blanket/temperature-blanket planner with saved projects, printable row-counter charts. Free tier stays free.
+S5. Email list (MailerLite free plan, Awais's account): 'free printable pack' signup on top 20 pages -> weekly email with a free printable + 1 product + affiliate picks. The list is the asset that turns visits into repeat buyers.
+S6. Later (5k+ sessions): sponsored pattern posts / yarn-brand partnerships, clearly labelled.
+
+
 ## REVENUE PUSH (Awais 28 Nov: $1,000/month by March; plan doc https://claude.ai/artifact/2qfQi3yzzfVwehKNF4748s)
 R1. OPEN: every craft tool page gets a 'Supplies' block with 'Where to buy' slots (data-aff) for yarn/hook/needle/paper (Awin craft shops, Amazon) once Awais's accounts exist; and a shop box (already on most).
 R2. OPEN: free printable 'coloring pages' hub (Christmas, winter, mandala, for kids, for adults): autocomplete shows huge demand; each page links to the paid coloring book (KDP) and Etsy bundle.
