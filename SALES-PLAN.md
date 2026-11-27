@@ -34,3 +34,9 @@
 2. KDP coloring books (autocomplete: 'coloring pages for adults/kids/christmas' is huge): 'Cozy Winter Coloring Book for Adults' + 'Christmas Coloring Book for Kids', 50 original pages each (no copyrighted characters).
 3. Junk Journal Mega Bundle upgrade: merge all kits into 60+ pages.
 4. Padel-player gift printables? NO: printables only where Etsy demand is proven; check Etsy search counts first.
+
+## BUSINESS MODE (Awais 28 Nov 02:04: "we have to take pinterest, etsy, kdp very serious... We mean business")
+Weekly targets (checked by the Monday scorecard):
+- PINTEREST: 10 fresh pins/day from 1 Dec (not 5): every product gets 3 pin designs (pin-a/b/c) + every site page a pin; video pins (5-10 s, ffmpeg) for the top 10 products; group into keyword-named boards; descriptions written for Pinterest search terms. Target: 1,000 impressions/week by mid-Dec, 10,000 by end of Jan; outbound clicks > 1% of impressions.
+- ETSY: 5 new products/week that beat the top 3 results; videos on all top listings; Etsy Ads $3/day from 4 Dec; 40% sale 29 Nov-2 Dec then LAUNCH35; renew/refresh titles of listings with 0 views after 14 days using Etsy search autocomplete terms. Target: first sale by 7 Dec, 50 sales in January.
+- KDP: 2 new books/week in proven-demand niches (coloring books adults/kids/Christmas, cricket scorebook, crochet/knitting journals, planners), each with a real keyword set (7 backend keywords), 2 categories, A+ content, and author page; Amazon Ads: raise from $1/day ONLY with Awais's OK (ask in the Monday report with numbers). Target: 12 live books by end of December, first royalties in December.
