@@ -11,3 +11,5 @@ IndexNow key (22 Nov 2026): ALSO include 587793d06442be2254b0454e95cf84ff.txt in
 
 ## RULE (26 Nov): sync before you build, push before you deploy
 A run built and committed but did not push; another run then built from an older main. Every run: `git fetch origin main && git rebase FETCH_HEAD` BEFORE building, `git push origin HEAD:main` right after committing, and only deploy a zip built from the pushed main. If the rebase conflicts in generated HTML, resolve the .py sources, rebuild, and commit the rebuild.
+
+27 Nov (evening): the deploy zip hit 4.3 MB with q26 OG. Shrinking OG to 600x315 q28 + shop thumbs to 300px in the copy got it to 3.77 MB. Next deploy will not fit: move purlandpaper to a Git-connected Pages project (or Wrangler) before the next site run.
