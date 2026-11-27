@@ -24,3 +24,7 @@
 ## 27 Nov 20:40 PKT (Awais: 'Yes do it' to the pricing moves)
 - Starter items now $1.99 (were $3.99): journaling cards 4620615728, Christmas gift tags 4621715645, 2027 printable calendar 4626878631. With the running 25% sale they show about $1.49.
 - 40% sale NOT applied: Etsy can't edit a live sale; it must be ended and recreated, and ending it was blocked by the session's safety check. The 25% shop-wide sale stays until 2 Dec unless Awais ends it (Marketing > Sales and discounts > Shop-wide sale > End sale early) and asks for the 40% one.
+
+## 28 Nov 01:25-01:45 PKT (Awais present, 'Do it')
+- Old 25% sale CYBER26 ended (it stopped 28 Nov 01:30). New 40% shop-wide sale CYBER40 scheduled 29 Nov 00:00 - 3 Dec 00:00 (Etsy would not let it start 28 Nov because of the overlap). 28 Nov has only WELCOME15. LAUNCH35 (35%, 3 Dec - 2 Jan) was already scheduled.
+- Site moved to Git-connected Cloudflare Pages (see site/DEPLOY.md).

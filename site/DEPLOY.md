@@ -1,3 +1,13 @@
+# DEPLOY (since 28 Nov 2026, 01:40 PKT): GIT-CONNECTED. Just push.
+
+purlandpaperco.com + www now serve from the Cloudflare Pages project **purlandpaper-site**, connected to GitHub AwaisChaudhary/etsy-studio (branch main).
+- Build: root `site`, command `mkdir -p dist && (cp -r *.html *.txt sitemap.xml _redirects _headers assets dist/ 2>/dev/null || true)`, output `dist` (the .py sources are NOT published).
+- Build watch path: `site/*` only (commits outside site/ don't use the 500 builds/month).
+- So: build the site (python3 build.py), commit site/, push -> live in ~1 minute. NO zip upload, NO 3.8 MB limit, NO image shrinking.
+- If a new file type must be published (e.g. a new top-level folder), add it to the build command in Cloudflare > purlandpaper-site > Settings > Builds.
+- Old direct-upload project `purlandpaper` no longer has the domains; leave it (rollback: move the domains back).
+
+---- old notes (zip upload, kept for history) ----
 # Purl & Paper website (purlandpaperco.com)
 Source of truth: this folder (etsy-studio/site). Cloudflare Pages project "purlandpaper" (Direct Upload; custom domains purlandpaperco.com + www.purlandpaperco.com).
 Build: `cd site && python3 build.py` (live, clean URLs) or `--preview` for local file links. GA4: G-CDBWSR0KT3. Search Console: URL-prefix property https://purlandpaperco.com/ verified by google7cb8a0335ce88e7c.html (never delete). Pinterest claim meta p:domain_verify is in the <head> template (keep).
