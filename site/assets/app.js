@@ -3779,4 +3779,110 @@
     slsRun();
   }
 
+  /* ---------- EMBROIDERY HOOP SIZE CALCULATOR (run 13) ---------- */
+  if ($("#ehc-w") && $("#ehc-out")) {
+    var EHC = [3, 4, 5, 6, 7, 8, 9, 10, 12, 14], ehcU = "in";
+    var ehcF = function (v) { return ehcU === "cm" ? (Math.round(v * 2.54 * 2) / 2) + " cm" : (Math.round(v * 4) / 4) + " in"; };
+    var ehcRun = function () {
+      var k = ehcU === "cm" ? 2.54 : 1;
+      var w = Math.max(0.2, parseFloat($("#ehc-w").value) || 4) / k, h = Math.max(0.2, parseFloat($("#ehc-h").value) || 4) / k;
+      var rect = $("#ehc-sh").value === "rect", disp = $("#ehc-use").value === "display";
+      var span = rect ? Math.sqrt(w * w + h * h) : Math.max(w, h), need = span + 1, hoop = null, o = [];
+      for (var i = 0; i < EHC.length; i++) if (EHC[i] >= need - 0.001) { hoop = EHC[i]; break; }
+      if (hoop) {
+        o.push('<p class="sub">Hoop to buy</p><p class="big">' + hoop + ' in<small> hoop (' + (Math.round(hoop * 2.54 * 2) / 2) + ' cm)</small></p>');
+        o.push("<p>Your design spans " + ehcF(span) + (rect ? " corner to corner" : " at its widest") + ", so it needs at least " + ehcF(need) + " inside the ring to keep a clear margin.</p>");
+      } else {
+        o.push('<p class="sub">Too big for one hoop</p><p style="font-size:1.6rem;font-weight:800">Scroll frame</p><p>Your design spans ' + ehcF(span) + ' and needs about ' + ehcF(need) + ': bigger than the 14 in hoops sold. Use a scroll, slate or clip frame, or stitch it in sections with a 7 in hoop that you move.</p>');
+      }
+      var fill = hoop ? Math.round(Math.max(w, h) / hoop * 100) : 0;
+      if (hoop && disp) {
+        o.push("<p><strong>As hoop art:</strong> the design fills about " + fill + "% of the hoop's width. " + (fill < 55 ? "That may look a little lost; a slightly bigger design, or a frame around the hoop, will balance it." : fill > 82 ? "It will look snug against the ring; that's fine for a bold motif." : "That's a nicely balanced look.") + "</p>");
+      } else if (hoop && hoop > 9) {
+        o.push("<p><strong>Comfort tip:</strong> a " + hoop + " in hoop is heavy to hold for long. If you'll frame the work, a 6 or 7 in hoop moved around the design is easier, or use a stand.</p>");
+      }
+      var base = hoop || Math.ceil(need), fab = disp ? base + 4 : Math.max(base + 4, Math.max(w, h) + 6);
+      o.push("<h3>Fabric to cut</h3><p><strong>" + ehcF(fab) + " × " + ehcF(fab) + "</strong> (our rule of thumb: " + (disp ? "2 in past the hoop on every side, enough to gather or glue at the back" : "2 in past the hoop and 3 in round the design, enough to frame or sew it up") + ").</p>");
+      if (hoop) {
+        var sc = 150 / (hoop + 1), r = hoop / 2 * sc, dw = w * sc, dh = h * sc;
+        var d = rect ? '<rect x="' + (100 - dw / 2).toFixed(1) + '" y="' + (90 - dh / 2).toFixed(1) + '" width="' + dw.toFixed(1) + '" height="' + dh.toFixed(1) + '" rx="3" fill="none" stroke="#b8326a" stroke-width="2" stroke-dasharray="5 3"/>'
+                     : '<ellipse cx="100" cy="90" rx="' + (dw / 2).toFixed(1) + '" ry="' + (dh / 2).toFixed(1) + '" fill="none" stroke="#b8326a" stroke-width="2" stroke-dasharray="5 3"/>';
+        o.push('<svg viewBox="0 0 200 180" role="img" aria-label="Your design drawn to scale inside a ' + hoop + ' in hoop" style="max-width:260px;display:block;margin:10px auto 0"><circle cx="100" cy="90" r="' + r.toFixed(1) + '" fill="#fbf8f1" stroke="#c99a5b" stroke-width="6"/>' + d + '</svg><p class="sub" style="text-align:center">To scale: design (dashed) in a ' + hoop + ' in hoop.</p>');
+      }
+      $("#ehc-out").innerHTML = o.join("");
+      store.set("pp-ehc", { w: $("#ehc-w").value, h: $("#ehc-h").value, s: $("#ehc-sh").value, u: $("#ehc-use").value, n: ehcU });
+    };
+    var ehcS = store.get("pp-ehc", null);
+    if (ehcS) { if (ehcS.w) $("#ehc-w").value = ehcS.w; if (ehcS.h) $("#ehc-h").value = ehcS.h; if (ehcS.s) $("#ehc-sh").value = ehcS.s; if (ehcS.u) $("#ehc-use").value = ehcS.u; if (ehcS.n === "cm") { ehcU = "cm"; $$("#ehc-u button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "cm" ? "true" : "false"); }); } }
+    ["#ehc-sh", "#ehc-use"].forEach(function (s) { $(s).addEventListener("change", ehcRun); });
+    ["#ehc-w", "#ehc-h"].forEach(function (s) { $(s).addEventListener("input", ehcRun); });
+    seg($("#ehc-u"), function (v) {
+      if (v === ehcU) return; var f = v === "cm" ? 2.54 : 1 / 2.54;
+      ["#ehc-w", "#ehc-h"].forEach(function (s) { var x = parseFloat($(s).value); if (x) $(s).value = Math.round(x * f * 4) / 4; });
+      ehcU = v; ehcRun();
+    });
+    ehcRun();
+  }
+
+  /* ---------- PUNCH NEEDLE MATCHER (run 13) ---------- */
+  if ($("#pnm-y") && $("#pnm-out")) {
+    var PNM = {
+      floss: { n: "A small embroidery punch needle", why: "Floss and perle cotton need a fine, thin needle; rug and #10 needles are far too big.", f: "Tightly woven cotton, linen or weaver's cloth", ok: { rug: "Floss is too fine for a rug that gets walked on: switch to rug yarn and a regular needle." } },
+      fine: { n: "A fine punch needle (like an Oxford #10 Fine), on a short setting", why: "Fingering, sport and DK run through the fine needle; very thin yarn can be held double so it fills.", f: "Weaver's cloth", ok: { rug: "Thin yarn makes a delicate pile; for a rug, hold it double or use rug yarn." } },
+      worsted: { n: "A fine punch needle (like an Oxford #10 Fine)", why: "Worsted and aran are the fine needle's sweet spot. Or hold two strands together in a regular needle.", f: "Weaver's cloth (or monk's cloth if you use a regular needle)", ok: {} },
+      bulky: { n: "A regular rug punch needle (like an Oxford #10 Regular)", why: "Chunky and rug yarn need the wider regular needle; forcing them through a fine needle snags.", f: "Monk's cloth", ok: {} },
+      strip: { n: "A regular rug punch needle (like an Oxford #10 Regular)", why: "Cut strips about 1/4 in (6 mm) wide; wider strips jam the needle.", f: "Monk's cloth", ok: { hoop: "Fabric strips are bulky for small hoop art; save them for cushions and rugs." } }
+    };
+    var PNL = { flat: "the shortest setting, about 1/4 in (6 mm) loops or less, or use the flat side as the front", mid: "about 1/4 to 3/8 in (6 to 10 mm) loops", plush: "a tall setting, up to about 1/2 in (12 mm) loops, which uses noticeably more yarn" };
+    var pnmRun = function () {
+      var y = PNM[$("#pnm-y").value], p = $("#pnm-p").value, f = $("#pnm-f").value, o = [];
+      o.push('<p class="sub">Needle</p><p style="font-size:1.3rem;font-weight:700;line-height:1.3">' + esc(y.n) + "</p><p>" + esc(y.why) + "</p>");
+      o.push("<h3>Fabric and frame</h3><p><strong>" + esc(y.f) + "</strong>, stretched drum-tight in " + (p === "hoop" ? "a no-slip hoop (or a plain hoop with the inner ring wrapped in tape)." : "a gripper-strip frame; a hoop tends to let bigger pieces creep.") + " Leave at least 2 in (5 cm) of fabric beyond the design all round.</p>");
+      o.push("<h3>Loop height</h3><p>Use " + esc(PNL[f]) + "." + (p === "rug" && f === "plush" ? " For a rug that's walked on, shorter, denser loops wear better and shed less dirt into the pile." : "") + "</p>");
+      if (y.ok[p]) o.push('<p class="sub"><strong>Heads-up:</strong> ' + esc(y.ok[p]) + "</p>");
+      o.push("<h3>Finish</h3><p>" + (p === "hoop" ? "Trim the fabric 1 in past the ring and glue or gather it behind the hoop." : p === "cushion" ? "Fold the margin to the back, stitch it down and back with felt or a cushion back." : "Fold under a 2 in margin, whip stitch or bind it, and add a non-slip backing.") + "</p>");
+      $("#pnm-out").innerHTML = o.join("");
+      store.set("pp-pnm", { y: $("#pnm-y").value, p: p, f: f });
+    };
+    var pnmS = store.get("pp-pnm", null);
+    if (pnmS) { if (PNM[pnmS.y]) $("#pnm-y").value = pnmS.y; if (pnmS.p) $("#pnm-p").value = pnmS.p; if (pnmS.f) $("#pnm-f").value = pnmS.f; }
+    ["#pnm-y", "#pnm-p", "#pnm-f"].forEach(function (s) { $(s).addEventListener("change", pnmRun); });
+    pnmRun();
+  }
+
+  /* ---------- BEGINNER SCARF PATTERN WRITER (run 13) ---------- */
+  if ($("#ksw-y") && $("#ksw-out")) {
+    // Craft Yarn Council knit gauge ranges (sts per 4 in) with a mid value, and a needle within the CYC range.
+    var KSW = { "3": { g: 22.5, r: "21–24", nd: "4.5 mm (US 7)", nm: "DK" }, "4": { g: 18, r: "16–20", nd: "5 mm (US 8)", nm: "worsted" },
+                "5": { g: 13.5, r: "12–15", nd: "6.5 mm (US 10½)", nm: "chunky" }, "6": { g: 9, r: "7–11", nd: "10 mm (US 15)", nm: "super bulky" } };
+    var kswRun = function () {
+      var y = KSW[$("#ksw-y").value], st = $("#ksw-s").value;
+      var w = Math.min(24, Math.max(2, parseFloat($("#ksw-w").value) || 7)), l = Math.min(120, Math.max(10, parseFloat($("#ksw-l").value) || 65));
+      var mine = parseFloat($("#ksw-g").value), g = mine >= 4 && mine <= 40 ? mine : y.g;
+      var n = w * g / 4 * (st === "rib" ? 1.25 : 1);
+      if (st === "garter") n = Math.round(n);
+      else if (st === "seed") { n = Math.round(n); if (n % 2 === 0) n += 1; }
+      else { n = Math.round((n - 2) / 4) * 4 + 2; }
+      n = Math.max(st === "rib" ? 10 : 9, n);
+      var rows = { garter: ["<strong>Every row:</strong> knit to the end."],
+                   seed: ["<strong>Every row:</strong> *k1, p1; repeat from * to the last stitch, k1."],
+                   rib: ["<strong>Row 1:</strong> *k2, p2; repeat from * to the last 2 stitches, k2.", "<strong>Row 2:</strong> *p2, k2; repeat from * to the last 2 stitches, p2."] }[st];
+      var o = [];
+      o.push('<p class="sub">Cast on</p><p class="big">' + n + "<small> stitches</small></p><p>" + y.nd + " needles, " + y.nm + " yarn, " + (mine ? "your gauge of " + g + " sts per 4 in" : "about " + y.r + " sts per 4 in (the Craft Yarn Council range)") + ".</p>");
+      o.push("<h3>Your pattern</h3><ol><li>Make a slip knot and cast on " + n + " stitches (long-tail cast on is ideal).</li>");
+      rows.forEach(function (r) { o.push("<li>" + r + "</li>"); });
+      o.push("<li>Repeat " + (rows.length > 1 ? "rows 1 and 2" : "this row") + " until the scarf measures " + l + " in (" + Math.round(l * 2.54) + " cm), or leave about 1 yard of yarn for the bind off.</li>");
+      o.push("<li>Bind off " + (st === "garter" ? "knitwise" : "in pattern (knit the knits, purl the purls)") + ". Weave in the ends.</li></ol>");
+      o.push('<p class="sub">Width: about ' + w + " in" + (st === "rib" ? " relaxed (ribbing pulls in, so we added stitches)" : "") + ". Knit 4 in, then measure: if it's wider than planned, start again with fewer stitches. " + (st !== "garter" ? "Tip: knit the first and last 3 stitches of every row for a garter border." : "Tip: slip the first stitch of each row purlwise for a neat edge.") + "</p>");
+      o.push('<p class="sub">How much yarn? Pick the same size in the <a href="' + ($("#ksw-out").getAttribute("data-scarf") || "scarf-size-chart") + '">scarf size calculator</a>.</p>');
+      $("#ksw-out").innerHTML = o.join("");
+      store.set("pp-ksw", { y: $("#ksw-y").value, s: st, w: w, l: l, g: $("#ksw-g").value });
+    };
+    var kswS = store.get("pp-ksw", null);
+    if (kswS) { if (KSW[kswS.y]) $("#ksw-y").value = kswS.y; if (kswS.s) $("#ksw-s").value = kswS.s; if (kswS.w) $("#ksw-w").value = kswS.w; if (kswS.l) $("#ksw-l").value = kswS.l; if (kswS.g) $("#ksw-g").value = kswS.g; }
+    ["#ksw-y", "#ksw-s"].forEach(function (s) { $(s).addEventListener("change", kswRun); });
+    ["#ksw-w", "#ksw-l", "#ksw-g"].forEach(function (s) { $(s).addEventListener("input", kswRun); });
+    kswRun();
+  }
+
 })();

@@ -414,3 +414,10 @@
 - Shop boxes: macrame -> small business sheet, gift planner, habit tracker, gift tags; page ideas -> mega bundle, ephemera pack, journaling cards, Tea Room kit; slip stitch -> 2027 planner, stash tracker, pricing calculator, gift tags. No new live products (batch 9 latest).
 - Pins queued: pins/site/macrame-knots.jpg, junk-journal-page-ideas.jpg, how-to-slip-stitch-crochet.jpg.
 - IndexNow pending: https://purlandpaperco.com/macrame-knots https://purlandpaperco.com/junk-journal-page-ideas https://purlandpaperco.com/how-to-slip-stitch-crochet
+
+## 27 Nov 2026 (run 13): embroidery hoop size calculator, how to punch needle, how to knit a scarf
+- NEW /embroidery-hoop-size-calculator: design size + shape + display/stitch -> hoop to buy (diagonal + 1 in margin, shop sizes 3-14 in), fabric to cut (rule of thumb, labelled), to-scale SVG, hoop size chart, 6 FAQs. Targets 'embroidery hoop size guide', 'what size embroidery hoop do I need'. Sources: practicalembroidery.eu (hoop 2-4 cm bigger than design, 6-7 in most comfortable, re-centre for big designs, don't leave fabric hooped), WeAllSew hooping tips.
+- NEW /how-to-punch-needle: 7 own SVG steps, needle/yarn/fabric matcher (pnm-*), supplies, tips, finishing, problems, 6 FAQs. Targets 'how to punch needle for beginners' (L4/E4). Sources: KnitPicks Oxford punch needle page (loop heights #8/#9/#10), The Stitch Witch blog (#10 Regular vs Fine yarns), DMC start and finish (no knots, trim tails to loop height, outline then fill).
+- NEW /how-to-knit-a-scarf: 6 own SVG steps, beginner pattern writer (ksw-*: garter/seed/2x2 rib, CYC gauge ranges, own gauge), yarn/needle advice, cast-on maths, mistakes, time. Targets 'how to knit a scarf for beginners'. Sources: Craft Yarn Council yarn weight gauge ranges; yarn estimate matches /scarf-size-chart.
+- Links: footer (Tools: hoop calculator; Guides: scarf + punch needle), home 'Fresh today', /punch-needle -> how-to, /embroidery-stitches -> hoop calculator, /scarf-size-chart -> how to knit a scarf. Shop boxes on all three. Pins queued x3.
+

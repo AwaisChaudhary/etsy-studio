@@ -308,6 +308,7 @@ x = CALC_PAGE("Punch needle fabric and frame calculator", "Enter your design siz
  r'''var u=document.getElementById("pn-u").value,w=n("pn-w"),h=n("pn-h"),mg=n("pn-f")*(u=="cm"?2.54:1),r=function(v){return Math.round(v*10)/10},fw=w+2*mg,fh=h+2*mg,hoop=Math.max(w,h)+(u=="cm"?2.5:1);
 document.getElementById("calc-out").innerHTML="<p><strong>Cut fabric:</strong> <span class=big-n>"+r(fw)+" x "+r(fh)+" "+u+"</span></p><p><strong>Gripper frame:</strong> inner opening at least "+r(w+(u=="cm"?2.5:1))+" x "+r(h+(u=="cm"?2.5:1))+" "+u+"<br><strong>Or a no-slip hoop:</strong> "+r(hoop)+" "+u+" or larger</p><p class=note>Add a little extra if your fabric frays a lot, and zigzag or tape the edges before you start.</p>";''') + PROSE("punch-needle.html", '''
 <h2>Punch needle for beginners</h2>
+<p>Want every step drawn out? <a href="{H:how-to-punch-needle.html}">How to punch needle for beginners</a> has seven step diagrams, a needle and yarn matcher, and fixes for loops that pull out.</p>
 <ol><li><strong>Stretch the fabric drum-tight</strong> in a gripper-strip frame or a no-slip hoop. Loose fabric is the main reason loops pull out.</li>
 <li><strong>Transfer the design</strong> to the back of the fabric (you punch from the back): trace with a fabric marker over a light box or window.</li>
 <li><strong>Punch with the opening facing the direction you travel</strong>, keep the needle all the way down to the handle, and don't lift it more than just off the surface between punches.</li>
