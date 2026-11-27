@@ -138,7 +138,7 @@ dot = top("Printable dot grid paper (and graph and lined)", "The bullet journal 
 <h2>Making a printable journal</h2>
 <p>Print double-sided, fold the sheets in half and stitch them into a signature. Our <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets to fold, and the <a href="{href("journal-prompts.html")}">journal prompt generator</a> gives you something to write about.</p>
 <p>Lettering your headers? Print <a href="{href("calligraphy-practice-sheets.html")}">calligraphy practice sheets</a> first.</p>
-<p>Need the dates too? Print a free <a href="{href("2027-calendar-printable.html")}">2027 calendar</a>, a whole year or a page a month.</p>
+<p>Need the dates too? Print a free <a href="{href("2027-calendar-printable.html")}">2027 calendar</a>, a whole year or a page a month. Setting goals? Fill in the free <a href="{href("2027-goal-planner-printable.html")}">2027 goal planner</a>.</p>
 </div></div></section>{more_crafts("dot-grid-paper.html")}'''
 dot_faq = [
  ("What size dot grid is best for a bullet journal?", "5 mm is the standard and suits most handwriting. 4 mm fits more on a page; 6 to 7 mm suits large writing."),
@@ -605,6 +605,7 @@ cl = top("Free 2027 calendar printable", "Make your own 2027 calendar: one page 
 <p>US calendars usually start the week on Sunday; UK, European and ISO week calendars start on Monday. Pick whichever matches your diary so the days line up.</p>
 <h2>Making it into a journal or planner</h2>
 <p>Print the monthly pages double-sided, fold and stitch them into a booklet: the <a href="{href("junk-journal-signature-calculator.html")}">signature calculator</a> works out how many sheets per section. Add <a href="{href("dot-grid-paper.html")}">dot grid pages</a> between the months for notes and trackers, and letter the month names with <a href="{href("calligraphy-practice-sheets.html")}">calligraphy practice</a> first.</p>
+<div class="callout"><strong>Setting goals for 2027?</strong> Fill in and print the free <a href="{href("2027-goal-planner-printable.html")}">2027 goal planner</a>: four goals, quarterly milestones and a monthly check-in.</div>
 <div class="callout"><strong>Planning a year of making?</strong> The <a href="{href("temperature-blanket-planner.html")}">2027 temperature blanket planner</a> gives you a colour for every day of the year, and the <a href="{href("crochet-time-estimator.html")}">crochet time calculator</a> tells you which month a big project will be done.</div>
 </div></div></section>{more_crafts("2027-calendar-printable.html")}'''
 cl_faq = [

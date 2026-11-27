@@ -669,3 +669,27 @@ td code { font: 600 0.92rem/1.45 var(--body); overflow-wrap: anywhere; }
 .gq-fig figcaption { font-size: .88rem; color: #555; margin-top: 6px; }
 .gq-pat { padding-left: 20px; } .gq-pat li { margin: 6px 0; line-height: 1.45; }
 @media print { [data-page="how-to-crochet-a-granny-square"] .sheet, [data-page="how-to-crochet-a-granny-square"] .quick, [data-page="how-to-crochet-a-granny-square"] #gq-print { display: none !important; } [data-page="how-to-crochet-a-granny-square"] .tool { display: block; } }
+
+/* run 11: junk journal pockets, 2027 goal planner, blocking */
+.result .jpk-big, .result .blk-m { font: 800 clamp(1.9rem, 4.6vw, 2.6rem)/1.05 var(--display); letter-spacing: -0.03em; margin: 4px 0 8px; color: #fff; }
+.jpk-prev { background: #fff; border-radius: 8px; padding: 8px; margin: 6px 0 8px; overflow: hidden; }
+.jpk-prev svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+@media print {
+  html.print-jpk body > * { display: none !important; }
+  html.print-jpk body > #jpk-printbox { display: block !important; }
+  html.print-jpk #jpk-printbox svg { width: var(--w) !important; height: var(--h) !important; }
+}
+#jpk-printbox { display: none; }
+fieldset.gpl-g { border: 2px solid var(--line); border-radius: 12px; padding: 8px 12px 2px; margin: 0 0 12px; min-width: 0; }
+fieldset.gpl-g legend { font-weight: 700; padding: 0 6px; }
+.gpl-pg + .gpl-pg { margin-top: 18px; padding-top: 14px; border-top: 2px dashed #c9c2b2; }
+.gpl-goal { break-inside: avoid; }
+.gpl-q { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 10px; }
+.gpl-hb td:first-child, .gpl-hb th:first-child { width: 34%; }
+.gpl-hb th:last-child { width: auto; }
+.gpl-mo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.gpl-tk { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6px; font-size: 10px; color: #5b6b94; margin: 2px 0; }
+.gpl-tk span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 560px) { .gpl-mo { grid-template-columns: 1fr 1fr; } }
+@media print { body.print-gpl > * { display: none !important; } body.print-gpl > #gpl-printbox { display: block !important; border: 0; padding: 0; font-size: 11pt; }
+  body.print-gpl .gpl-pg + .gpl-pg { break-before: page; border-top: 0; margin-top: 0; padding-top: 0; } body.print-gpl .gpl-mo { grid-template-columns: repeat(3, 1fr); } body.print-gpl .pjp-mo { break-inside: avoid; min-height: 2in; } body.print-gpl .pjp-ln { padding-top: 9px; } }

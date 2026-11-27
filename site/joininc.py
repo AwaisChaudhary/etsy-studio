@@ -95,7 +95,7 @@ gjp = top("How to join granny squares", "Five ways to join granny squares, from 
 <p>Instead of joining every square to its neighbour separately, join all the squares into rows with one long seam per row, then join the rows with long seams the other way. When you cross a corner, catch both corners and keep going. A blanket 8 squares across and 10 down then has just 16 long seams instead of 142 short ones, and only about 32 ends to weave in.</p>
 <h2>Common problems</h2>
 <ul><li><strong>Seams pucker:</strong> the join is too tight. Use a hook one size up for slip stitch or sc joins, or pull sewn stitches only until they close.</li>
-<li><strong>Squares don't line up:</strong> count stitches from each corner and pin matching corners before you start. Blocking fixes small size differences.</li>
+<li><strong>Squares don't line up:</strong> count stitches from each corner and pin matching corners before you start. <a href="{href("how-to-block-knitting-crochet.html")}">Blocking</a> fixes small size differences.</li>
 <li><strong>Corners have holes:</strong> work into both corner chain spaces, and at four-way corners go into the join already made.</li>
 <li><strong>The seam shows too much:</strong> use matching yarn, join through the back loops, or switch to mattress stitch.</li></ul>
 <p>Once it's joined, add a border, and if it's a gift or for sale, see <a href="{href("how-to-price-a-crochet-blanket.html")}">how to price a crochet blanket</a>. Planning the next one? The <a href="{href("granny-square-blanket-calculator.html")}">granny square blanket calculator</a> works out squares and yarn for any size.</p>

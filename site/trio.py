@@ -265,6 +265,8 @@ gqp = top("How to crochet a granny square for beginners", "The classic granny sq
 <figure class="sb-fig"><div>{gq_svg(4, 300, "Diagram of a classic four-round granny square: each round in a new colour, clusters of three stitches, two clusters at each corner")}<figcaption>Four rounds: each colour is one round. Every round adds one cluster to each side.</figcaption></div></figure>
 <h2>Granny square stitch counts by round</h2>
 <p>Round <em>n</em> has <strong>4 × n clusters</strong>, so 12 × n double crochets: 12 in round 1, 24 in round 2, 36 in round 3, 48 in round 4 and 60 in round 5. Along each side, between the corners, there are n minus 2 clusters from round 2 onwards. Counting clusters is the quickest way to spot a missed space.</p>
+<h2 id="solid">How to crochet a solid granny square</h2>
+<p>A solid granny square has no gaps: instead of clusters with chain spaces, you work a double crochet into <strong>every stitch</strong> along the sides. Start exactly like the classic square (ch 4 ring, round 1 of four 3-dc groups with ch 2 corners). From round 2 on: ch 3 (counts as a dc), dc in each stitch to the corner, then work <strong>(2 dc, ch 2, 2 dc) in each ch-2 corner space</strong>, and join to the top of the ch-3. Each side grows by 4 stitches a round, so round <em>n</em> has <strong>4n minus 1</strong> dc along each side between corners: 3, 7, 11, 15, 19, or 12, 28, 44, 60 and 76 dc in all for rounds 1 to 5. It's denser and warmer than the classic square and uses roughly a third more yarn (our estimate), so allow extra in the <a href="{href("granny-square-blanket-calculator.html")}">blanket calculator</a>. Corners not square? Try ch 3 instead of ch 2 at the corners. In UK terms, dc is treble (tr).</p>
 <h2>Common granny square problems</h2>
 <ul><li><strong>Square twists or turns into a swirl:</strong> it's normal for granny squares to lean a little because you never turn. Some crocheters turn the work at the end of each round to straighten it. Blocking also fixes most of it.</li>
 <li><strong>Corners look rounded:</strong> make sure the corner has ch 2 (some people use ch 3 with thicker yarn) and both clusters go into the same space.</li>
@@ -282,6 +284,7 @@ gq_faq = [
     ("How much yarn does one granny square take?", "Roughly 25 to 30 yards for a 5 in, 5-round worsted square. Weigh one finished square to know exactly."),
     ("Why is my granny square twisting?", "Working in the round without turning makes stitches lean. Turn the work at the end of each round or block the finished squares to straighten them."),
     ("Is a granny square double crochet or treble?", "The same stitch, two names: double crochet (dc) in US terms is treble crochet (tr) in UK terms."),
+    ("How do you crochet a solid granny square?", "Start like a classic granny square, then from round 2 work a dc in every stitch along the sides and (2 dc, ch 2, 2 dc) in each corner space. Each side grows by 4 stitches a round."),
     ("How many clusters are in each round of a granny square?", "Round n has 4 x n clusters of 3 stitches: 4 in round 1, 8 in round 2, 12 in round 3 and so on."),
 ]
 SHOP_FOR["how-to-crochet-a-granny-square.html"] = ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"]

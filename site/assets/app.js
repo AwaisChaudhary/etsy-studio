@@ -3468,4 +3468,196 @@
     bsRun();
   }
 
+  /* ---------- JUNK JOURNAL POCKET SIZE HELPER (run 11) ---------- */
+  if ($("#jpk-pg") && $("#jpk-out")) {
+    var jpkF = function (v) {
+      var e8 = Math.round(v * 8), w = Math.floor(e8 / 8), f = e8 % 8, fr = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"][f];
+      return (w ? w + (fr ? " " + fr : "") : (fr || "0")) + " in";
+    };
+    var jpkC = function (v) { return (v * 2.54).toFixed(1) + " cm"; };
+    var jpkD = function (a, b) { return jpkF(a).replace(" in", "") + " x " + jpkF(b) + " (" + (a * 2.54).toFixed(1) + " x " + jpkC(b) + ")"; };
+    var r8 = function (v) { return Math.round(v * 8) / 8; };
+    var ENV = [["A1 (4 bar)", 3.625, 5.125], ["#10", 4.125, 9.5], ["A2", 4.375, 5.75], ["C6", 4.49, 6.38], ["A6", 4.75, 6.5], ["A7", 5.25, 7.25], ["6 x 9 booklet", 6, 9], ["C5", 6.38, 9.02]];
+    var jpkSvg = function (tw, th, body) {
+      var w = +tw.toFixed(3), h = +th.toFixed(3);
+      return '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + 'in" height="' + h + 'in" viewBox="0 0 ' + w + " " + h + '" style="--w:' + w + "in;--h:" + h + 'in" role="img" aria-label="Pocket cutting template"><rect width="' + w + '" height="' + h + '" fill="#fff"/>' + body + "</svg>";
+    };
+    var ln = function (x1, y1, x2, y2, dash) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + (dash ? "#b8326a" : "#1f2a44") + '" stroke-width="0.02"' + (dash ? ' stroke-dasharray="0.08 0.06"' : "") + "/>"; };
+    var tx = function (x, y, s, sz) { return '<text x="' + x + '" y="' + y + '" font-family="Inter,Arial,sans-serif" font-size="' + (sz || 0.15) + '" fill="#1f2a44" text-anchor="middle">' + esc(s) + "</text>"; };
+    var rc = function (x, y, w, h, fill) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + (fill || "none") + '" stroke="#1f2a44" stroke-width="0.02"/>'; };
+    var jpkRun = function () {
+      var po = $("#jpk-pg").selectedOptions[0], fo = $("#jpk-fill").selectedOptions[0], t = $("#jpk-t").value, o = [], tpl = "", P = 0.25;
+      var cust = $("#jpk-pg").value === "custom"; $("#jpk-cust").hidden = !cust;
+      var pw = cust ? Math.min(14, Math.max(2, parseFloat($("#jpk-w").value) || 6)) : +po.getAttribute("data-w");
+      var ph = cust ? Math.min(14, Math.max(2, parseFloat($("#jpk-h").value) || 8)) : +po.getAttribute("data-h");
+      var cw = +fo.getAttribute("data-w"), ch = +fo.getAttribute("data-h"), side = false, warn = "";
+      var sizeFor = function (a, b) { return { W: r8(a + 0.25), H: r8(Math.max(b - 1, b * 0.55)) }; };
+      var s = sizeFor(cw, ch);
+      if (t !== "corner" && t !== "band" && t !== "fold" && s.W > pw - 0.5) {
+        var s2 = sizeFor(ch, cw);
+        if (s2.W <= pw - 0.5) { s = s2; side = true; } else warn = "This card is wider than the page. Pick a smaller card or a bigger page.";
+      }
+      if (s.H > ph - 0.75) s.H = r8(ph * 0.6);
+      var W = s.W, H = s.H, peek = (side ? cw : ch) - H;
+      if (t === "flap" || t === "washi") {
+        o.push("<h3>Pocket size</h3><p class=\"jpk-big\">" + jpkF(W).replace(" in", "") + " x " + jpkF(H) + "</p><p>" + (W * 2.54).toFixed(1) + " x " + jpkC(H) + ". Your " + esc(fo.textContent.split(" (")[0]) + (side ? " goes in sideways and" : "") + " shows about " + jpkF(peek) + " above the pocket.</p>");
+        if (t === "flap") {
+          o.push("<h3>Cut the card</h3><p>" + jpkD(W + 1, H + 0.5) + ". Score 1/2 in in from both sides and the bottom, fold the flaps back, trim the flap corners, and glue only the flaps.</p>");
+          var x0 = P, mL = P + 0.5, mR = mL + W, xR = mR + 0.5, y0 = P, yB = P + H, yE = yB + 0.5;
+          var path = "M" + mL + " " + y0 + " L" + mR + " " + y0 + " L" + xR + " " + (y0 + 0.2) + " L" + xR + " " + (yB - 0.1) + " L" + mR + " " + yB + " L" + (mR - 0.2) + " " + yE + " L" + (mL + 0.2) + " " + yE + " L" + mL + " " + yB + " L" + x0 + " " + (yB - 0.1) + " L" + x0 + " " + (y0 + 0.2) + " Z";
+          tpl = jpkSvg(xR + P, yE + P, '<path d="' + path + '" fill="#fbf3f6" stroke="#1f2a44" stroke-width="0.02"/>' + ln(mL, y0, mL, yB, 1) + ln(mR, y0, mR, yB, 1) + ln(mL, yB, mR, yB, 1) + tx((mL + mR) / 2, y0 + H / 2, "pocket front") + tx((mL + mR) / 2, y0 + H / 2 + 0.22, jpkF(W) + " x " + jpkF(H), 0.12) + tx((mL + mR) / 2, yB + 0.3, "glue flap", 0.12) + tx((mL + mR) / 2, y0 + 0.2, "open top", 0.12));
+        } else {
+          o.push("<h3>Cut the paper</h3><p>" + jpkD(W + 0.5, H + 0.25) + ". Tape down the two sides and the bottom with washi tape about 1/2 in wide, half on the paper and half on the page.</p>");
+          tpl = jpkSvg(W + 0.5 + 2 * P, H + 0.25 + 2 * P, rc(P, P, W + 0.5, H + 0.25, "#fbf3f6") + ln(P + 0.25, P, P + 0.25, P + H, 1) + ln(P + W + 0.25, P, P + W + 0.25, P + H, 1) + ln(P + 0.25, P + H, P + W + 0.25, P + H, 1) + tx(P + (W + 0.5) / 2, P + H / 2, "tape on the pink lines", 0.13));
+        }
+      } else if (t === "fold") {
+        var Hf = r8(Math.min(Math.max(ch - 1, ch * 0.55), ph * 0.5));
+        if (cw > pw - 0.25) warn = "The card is wider than the page, so it won't slide in. Try a smaller card.";
+        o.push("<h3>Cut the page taller</h3><p class=\"jpk-big\">" + jpkF(pw).replace(" in", "") + " x " + jpkF(ph + Hf) + "</p><p>" + (pw * 2.54).toFixed(1) + " x " + jpkC(ph + Hf) + ". Fold the bottom " + jpkF(Hf) + " up against the front and glue or stitch the two sides, about 1/4 in in from the edge.</p>");
+        o.push("<p>That makes a " + jpkD(pw, Hf) + " pocket the full width of the page, with " + jpkF(ch - Hf) + " of the card showing.</p>");
+        if (ph + Hf > 11) o.push("<p class=\"sub\">Taller than a Letter sheet: glue a " + jpkF(Hf + 0.5) + " strip to the bottom of a normal page instead and fold that up.</p>");
+        tpl = jpkSvg(pw + 2 * P, ph + Hf + 2 * P, rc(P, P, pw, ph + Hf, "#fff") + '<rect x="' + P + '" y="' + (P + ph) + '" width="' + pw + '" height="' + Hf + '" fill="#fbf3f6"/>' + ln(P, P + ph, P + pw, P + ph, 1) + ln(P + 0.25, P + ph, P + 0.25, P + ph + Hf, 1) + ln(P + pw - 0.25, P + ph, P + pw - 0.25, P + ph + Hf, 1) + tx(P + pw / 2, P + ph / 2, "journal page") + tx(P + pw / 2, P + ph + Hf / 2, "fold this up", 0.13) + tx(P + pw / 2, P + ph - 0.12, "fold line", 0.11));
+      } else if (t === "env") {
+        var need = W, best = null;
+        ENV.forEach(function (en) {
+          [[en[2], en[1], "long side up"], [en[1], en[2], "short side up"]].forEach(function (or) {
+            if (or[0] >= need && or[1] >= H && or[0] <= pw && (!best || or[0] * H < best.w * H || (or[0] === best.w && or[1] < best.h))) best = { n: en[0], w: or[0], h: or[1], how: or[2] };
+          });
+        });
+        o.push("<h3>Pocket size</h3><p class=\"jpk-big\">" + jpkF(W).replace(" in", "") + " x " + jpkF(H) + "</p><p>" + (W * 2.54).toFixed(1) + " x " + jpkC(H) + (side ? ", with the card sideways" : "") + ".</p>");
+        if (best) {
+          o.push("<h3>Envelope to use</h3><p>A <strong>" + esc(best.n) + "</strong> envelope (" + jpkF(Math.min(best.w, best.h)).replace(" in", "") + " x " + jpkF(Math.max(best.w, best.h)) + "), " + best.how + ". Cut it to " + jpkF(H) + " tall, keeping the bottom: the cut edge is the opening. Any old envelope at least " + jpkF(W) + " wide works too.</p>");
+          tpl = jpkSvg(best.w + 2 * P, best.h + 2 * P, rc(P, P, best.w, best.h, "#fbf8f1") + '<path d="M' + P + " " + (P + best.h) + " L" + (P + best.w / 2) + " " + (P + best.h * 0.55) + " L" + (P + best.w) + " " + (P + best.h) + '" fill="none" stroke="#9aa6c4" stroke-width="0.02"/>' + ln(P, P + best.h - H, P + best.w, P + best.h - H, 1) + tx(P + best.w / 2, P + best.h - H - 0.1, "cut here", 0.13) + tx(P + best.w / 2, P + (best.h - H) / 2 + 0.05, "throw this part away", 0.12));
+        } else o.push("<p>No standard envelope fits this page with that card. Make a glue-on pocket instead.</p>");
+      } else if (t === "corner") {
+        var S = r8(Math.min(3, Math.max(1.25, Math.min(cw, ch) * 0.5)));
+        o.push("<h3>Cut two squares</h3><p class=\"jpk-big\">" + jpkF(S).replace(" in", "") + " x " + jpkF(S) + "</p><p>" + jpkC(S) + " squares. Fold each in half diagonally and glue one in the top left and one in the bottom right corner of the card's spot, with the folds facing in.</p><p>Place them so the card's corners sit about " + jpkF(S * 0.45) + " into each pocket.</p>");
+        tpl = jpkSvg(2 * S + 3 * P, S + 2 * P, rc(P, P, S, S, "#e3f1ef") + ln(P, P + S, P + S, P, 1) + rc(2 * P + S, P, S, S, "#e3f1ef") + ln(2 * P + S, P + S, 2 * P + 2 * S, P, 1) + tx(P + S / 2, P + S + 0.18, "fold on the diagonal", 0.11));
+      } else {
+        var bw = cw <= 3.2 ? 1.5 : 2, L = r8(2 * pw + 1);
+        o.push("<h3>Cut a strip</h3><p class=\"jpk-big\">" + jpkF(bw).replace(" in", "") + " x " + jpkF(L) + "</p><p>" + (bw * 2.54).toFixed(1) + " x " + jpkC(L) + ". Wrap it round the page, overlap the ends 1 in at the back and glue them to each other, not to the page, so the band slides.</p>");
+        if (L > 10.5) o.push("<p class=\"sub\">Longer than a sheet of paper: join two strips with the overlap hidden at the back, or use ribbon.</p>");
+        tpl = jpkSvg(L + 2 * P, bw + 2 * P, rc(P, P, L, bw, "#fdf0d8") + ln(P + L - 1, P, P + L - 1, P + bw, 1) + tx(P + (L - 1) / 2, P + bw / 2 + 0.05, "belly band", 0.14) + tx(P + L - 0.5, P + bw / 2 + 0.05, "glue", 0.12));
+      }
+      if (warn) o.unshift("<p><strong>" + esc(warn) + "</strong></p>");
+      var big = false;
+      if (tpl) {
+        var m = tpl.match(/width="([\d.]+)in" height="([\d.]+)in"/); big = m && (+m[1] > 8 || +m[2] > 10.5);
+        o.push("<h3>Template</h3><div class=\"jpk-prev\" id=\"jpk-tpl\">" + tpl + "</div>" + (big ? "<p class=\"sub\">Too big to print on one sheet: mark it out with a ruler from the sizes above.</p>" : "<p><button type=\"button\" class=\"btn gold sm\" id=\"jpk-print\">Print the template at actual size</button></p><p class=\"sub\">Print at 100% (turn off \"fit to page\"), then check one measurement with a ruler.</p>"));
+      }
+      $("#jpk-out").innerHTML = o.join("");
+      var pb = $("#jpk-print");
+      if (pb) pb.addEventListener("click", function () {
+        var bx = document.getElementById("jpk-printbox"); if (!bx) { bx = document.createElement("div"); bx.id = "jpk-printbox"; document.body.appendChild(bx); }
+        bx.innerHTML = $("#jpk-tpl").innerHTML; document.documentElement.classList.add("print-jpk");
+        var off = function () { document.documentElement.classList.remove("print-jpk"); window.removeEventListener("afterprint", off); };
+        window.addEventListener("afterprint", off); window.print(); setTimeout(off, 1500);
+      });
+      store.set("pp-jpk", { pg: $("#jpk-pg").value, f: $("#jpk-fill").value, t: t, w: $("#jpk-w").value, h: $("#jpk-h").value });
+    };
+    var jpkS = store.get("pp-jpk", null);
+    if (jpkS) { if (jpkS.pg) $("#jpk-pg").value = jpkS.pg; if (jpkS.f) $("#jpk-fill").value = jpkS.f; if (jpkS.t) $("#jpk-t").value = jpkS.t; if (jpkS.w) $("#jpk-w").value = jpkS.w; if (jpkS.h) $("#jpk-h").value = jpkS.h; }
+    if (!$("#jpk-pg").value) $("#jpk-pg").selectedIndex = 0;
+    ["#jpk-pg", "#jpk-fill", "#jpk-t", "#jpk-w", "#jpk-h"].forEach(function (id) { $(id).addEventListener("input", jpkRun); $(id).addEventListener("change", jpkRun); });
+    jpkRun();
+  }
+
+  /* ---------- 2027 GOAL PLANNER PRINTABLE (run 11) ---------- */
+  if ($("#gpl-form") && $("#gpl-out")) {
+    var GPL_IDS = ["name", "word", "theme", "g1", "y1", "s1", "d1", "g2", "y2", "s2", "d2", "g3", "y3", "s3", "d3", "g4", "y4", "s4", "d4", "h1", "h2", "h3"];
+    var gV = function (k) { var el = $("#gpl-" + k); return el ? el.value.trim() : ""; };
+    var gLn = function (label, v) { return '<div class="pjp-ln"><span>' + esc(label) + "</span><b>" + esc(v) + "</b></div>"; };
+    var MO = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var gplPaper = "letter";
+    var gplRun = function () {
+      var h = [], th = gV("theme");
+      h.push('<div class="gpl-pg"><p class="pjp-k">Purl &amp; Paper goal planner</p><p class="pjp-t">My 2027 goals' + (gV("name") ? " · " + esc(gV("name")) : "") + "</p>");
+      h.push(gLn("Word of the year:", gV("word")));
+      for (var i = 1; i <= 4; i++) {
+        h.push('<div class="gpl-goal"><p class="pjp-h">Goal ' + i + "</p>" + gLn("Goal:", gV("g" + i)) + '<div class="pjp-2">' + gLn("Why:", gV("y" + i)) + gLn("First step:", gV("s" + i)) + "</div>" + gLn("Done by:", gV("d" + i)) +
+          '<div class="gpl-q">' + ["Q1", "Q2", "Q3", "Q4"].map(function (q) { return '<div class="pjp-ln"><span>' + q + "</span><b></b></div>"; }).join("") + "</div></div>");
+      }
+      var tl = { craft: "Makes and skills for 2027", biz: "Shop and sales goals", read: "Books to read" }[th];
+      if (tl) h.push('<p class="pjp-h">' + tl + '</p><div class="pjp-2">' + [1, 2, 3, 4, 5, 6].map(function () { return '<div class="pjp-ln"><span>☐</span><b></b></div>'; }).join("") + "</div>");
+      h.push('<p class="pjp-h">Habits to track</p><table class="pjp-tb gpl-hb"><tr><th>Habit</th>' + MO.map(function (m) { return "<th>" + m.charAt(0) + "</th>"; }).join("") + "</tr>" +
+        [1, 2, 3].map(function (n) { return "<tr><td>" + esc(gV("h" + n)) + "</td>" + MO.map(function () { return "<td></td>"; }).join("") + "</tr>"; }).join("") + "</table></div>");
+      h.push('<div class="gpl-pg gpl-p2"><p class="pjp-k">Purl &amp; Paper goal planner</p><p class="pjp-t">2027 monthly check-in</p><p class="pjp-sm">At the end of each month: tick each goal you moved forward, write one win and choose next month\'s focus.</p><div class="gpl-mo">' +
+        MO.map(function (m) {
+          return '<div class="pjp-mo"><strong>' + m + '</strong><div class="gpl-tk">' + [1, 2, 3, 4].map(function (n) { var g = gV("g" + n); return '<span title="' + esc(g) + '">☐ ' + (g ? esc(g.length > 14 ? g.slice(0, 13) + "…" : g) : "Goal " + n) + "</span>"; }).join("") + "</div>" + gLn("Win:", "") + gLn("Next:", "") + "</div>";
+        }).join("") + "</div><p class=\"pjp-sm\" style=\"margin-top:8px\">Free printable from purlandpaperco.com</p></div>");
+      $("#gpl-out").innerHTML = h.join("");
+      var sv = { paper: gplPaper }; GPL_IDS.forEach(function (k) { sv[k] = gV(k); }); store.set("pp-gpl", sv);
+    };
+    var gS = store.get("pp-gpl", null);
+    if (gS) { GPL_IDS.forEach(function (k) { if (gS[k] != null && $("#gpl-" + k)) $("#gpl-" + k).value = gS[k]; }); if (gS.paper) { gplPaper = gS.paper; $$("#gpl-paper button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === gplPaper); }); } }
+    if (!$("#gpl-theme").value) $("#gpl-theme").value = "none";
+    GPL_IDS.forEach(function (k) { var el = $("#gpl-" + k); if (el) { el.addEventListener("input", gplRun); el.addEventListener("change", gplRun); } });
+    seg($("#gpl-paper"), function (v) { gplPaper = v; gplRun(); });
+    $("#gpl-clear").addEventListener("click", function () { GPL_IDS.forEach(function (k) { var el = $("#gpl-" + k); if (el) el.value = k === "theme" ? "none" : ""; }); gplRun(); });
+    $("#gpl-print").addEventListener("click", function () {
+      var st = $("#gpl-page"); if (!st) { st = document.createElement("style"); st.id = "gpl-page"; document.head.appendChild(st); }
+      st.textContent = "@page { size: " + (gplPaper === "a4" ? "A4" : "letter") + "; margin: 0.45in; }";
+      var bx = document.getElementById("gpl-printbox"); if (!bx) { bx = document.createElement("div"); bx.id = "gpl-printbox"; bx.className = "pjp-paper"; document.body.appendChild(bx); }
+      bx.innerHTML = $("#gpl-out").innerHTML; document.body.classList.add("print-gpl"); window.print();
+      setTimeout(function () { document.body.classList.remove("print-gpl"); }, 500);
+    });
+    gplRun();
+  }
+
+  /* ---------- BLOCKING HELPER (run 11) ---------- */
+  if ($("#blk-f") && $("#blk-out")) {
+    var BLK_F = {
+      wool: { m: "Wet block", why: "Wool takes a new shape when it's wet and keeps it once it's dry.", dry: "24 to 48 hours", tip: "Don't rub or swish it in warm water: wool felts with heat plus friction." },
+      sw: { m: "Wet block, gently", why: "Superwash wool relaxes and can grow a lot when wet.", dry: "24 to 48 hours", tip: "Squeeze out as much water as you can, push it back to size rather than stretching, and never hang it to dry." },
+      acr: { m: "Steam block", why: "Acrylic doesn't reshape with water, but heat sets a new shape for good.", dry: "about 30 minutes, until cool", tip: "Keep the iron about 1 in above the yarn. Touching melts it flat and shiny, and the change can't be undone. Try your swatch first." },
+      blend: { m: "Wet block (steam if it needs more)", why: "The wool part takes a shape from water; the acrylic part needs a little heat.", dry: "24 to 48 hours", tip: "Test on the swatch: if wet blocking doesn't hold, pin it out again and steam lightly from above." },
+      cot: { m: "Wet block", why: "Cotton and plant fibres don't spring back, so water and pins settle the stitches well.", dry: "1 to 2 days (cotton holds water)", tip: "It won't stretch much, so pin to size rather than pulling. A steam iron held above is fine too." },
+      moh: { m: "Spray or gentle wet block", why: "Fine and fluffy yarns need little help, and heavy handling can mat a mohair halo.", dry: "a few hours (spray) or a day (wet)", tip: "Skip hard steam: it flattens the halo. For silk lace, a full wet block opens the pattern." }
+    };
+    var BLK_I = {
+      lace: "Pin out hard to open the lace: points first, every 1 in along the edges. Blocking wires along straight edges save a lot of pins.",
+      sweater: "Block the pieces before seaming, flat, to the measurements on the pattern's schematic. Don't stretch the ribbing.",
+      squares: "Draw your square size on the mat (or use a grid), pin each square at the corners and middles, and block the whole batch the same.",
+      blanket: "Block it on a bed or a carpet with towels, in sections if it's big. Pin the edges straight with long pins.",
+      scarf: "Pin the long edges straight with pins every 2 in, or run blocking wires along them.",
+      hat: "Dry a hat over a balloon or a plate (for a beret) so it keeps its shape; socks and mittens on blockers or flat.",
+      toy: "Toys usually don't need blocking. If a part is lumpy, steam it lightly from above and pat it into shape.",
+      swatch: "Block it exactly as you'll block the finished piece, let it dry, unpin it and then measure your gauge."
+    };
+    var blkU = "in";
+    var blkRun = function () {
+      var u = segVal($("#blk-u")) || "in";
+      if (u !== blkU) { ["#blk-w", "#blk-h"].forEach(function (id) { var v = parseFloat($(id).value); if (!isNaN(v)) $(id).value = +(u === "cm" ? v * 2.54 : v / 2.54).toFixed(1); }); blkU = u; }
+      var f = $("#blk-f").value, it = $("#blk-i").value, F = BLK_F[f] || BLK_F.wool, o = [];
+      var W = Math.max(1, parseFloat($("#blk-w").value) || 1), H = Math.max(1, parseFloat($("#blk-h").value) || 1);
+      var m = F.m, dry = F.dry;
+      if (it === "toy") { m = "Usually no blocking"; dry = "a few minutes"; }
+      else if (it === "squares" && f !== "acr") { m = "Spray block (or wet block the batch)"; dry = "a few hours (spray)"; }
+      else if (it === "lace" && f === "moh") { m = "Wet block and pin out"; dry = "about a day"; }
+      o.push("<h3>Best method</h3><p class=\"blk-m\">" + esc(m) + "</p><p>" + esc(it === "toy" ? "Stuffed toys keep their shape from the stuffing." : F.why) + "</p>");
+      o.push("<h3>For this project</h3><p>" + esc(BLK_I[it]) + "</p>");
+      if (it !== "toy") {
+        o.push("<p><strong>Watch out:</strong> " + esc(F.tip) + "</p><p>Drying time: " + esc(dry) + ".</p>");
+        var tile = u === "cm" ? 30 : 12, cols = Math.ceil((W + (u === "cm" ? 5 : 2)) / tile), rows = Math.ceil((H + (u === "cm" ? 5 : 2)) / tile), tiles = cols * rows;
+        var sp = it === "lace" ? (u === "cm" ? 2.5 : 1) : (u === "cm" ? 5 : 2), per = 2 * (W + H), pins = Math.ceil(per / sp);
+        if (it === "sweater") pins = Math.ceil(pins / 2);
+        o.push("<hr><h3>Mats and pins</h3><p class=\"blk-m\">" + tiles + " mat tile" + (tiles === 1 ? "" : "s") + "</p><p>" + cols + " across by " + rows + " down of " + (u === "cm" ? "30 cm" : "12 in") + " interlocking tiles, with a little room around the " + W + " x " + H + " " + u + " piece.</p>");
+        o.push("<p>About <strong>" + pins + " pins</strong> (one every " + sp + " " + u + " round a " + (Math.round(per * 10) / 10) + " " + u + " edge)" + (it === "sweater" ? ", fewer for a sweater: pin the corners, hems and any curling edges" : "") + ".</p>");
+        if (it === "lace" || it === "scarf") o.push("<p class=\"sub\">With blocking wires along the straight edges you need roughly half the pins.</p>");
+        if (tiles > 16) o.push("<p class=\"sub\">That's a lot of tiles: a spare bed or a carpet with towels on it works just as well.</p>");
+      }
+      $("#blk-out").innerHTML = o.join("");
+      store.set("pp-blk", { f: f, i: it, w: $("#blk-w").value, h: $("#blk-h").value, u: u });
+    };
+    var blkS = store.get("pp-blk", null);
+    if (blkS) {
+      if (blkS.f) $("#blk-f").value = blkS.f; if (blkS.i) $("#blk-i").value = blkS.i; if (blkS.w) $("#blk-w").value = blkS.w; if (blkS.h) $("#blk-h").value = blkS.h;
+      if (blkS.u) { blkU = blkS.u; $$("#blk-u button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === blkS.u); }); }
+    }
+    if (!$("#blk-f").value) $("#blk-f").selectedIndex = 0; if (!$("#blk-i").value) $("#blk-i").selectedIndex = 0;
+    ["#blk-f", "#blk-i", "#blk-w", "#blk-h"].forEach(function (id) { $(id).addEventListener("input", blkRun); $(id).addEventListener("change", blkRun); });
+    seg($("#blk-u"), blkRun);
+    blkRun();
+  }
+
 })();
