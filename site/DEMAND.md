@@ -1,5 +1,10 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## DAILY RADAR 27 Nov 06:45 PKT (Google autocomplete US)
+- R4 OPEN 'how to price crochet plushies / blankets / commissions' ('how to price crochet' #2-4): pricing guides per item type linked to the pricing calculator + shop box.
+- R5 OPEN 'junk journal page ideas' (#7; 0 pages): 30+ page ideas with own SVG thumbnails, link to kits.
+- R6 OPEN 'yarn bowl' ('yarn' #7; 0 pages) + 'yarn weight chart' (#6): DIY yarn bowl guide (pairs with yarn holder R2) and make sure the weight chart page ranks (title wording).
+- R7 OPEN 'christmas crafts for preschoolers / toddlers' (#5-6): simple printable craft list with own SVG templates.
 ## RADAR 27 Nov run 9 (web search, rotation: join/increase/quick gifts/etsy profit/embroidery)
 H1. DONE 27 Nov (/how-to-join-granny-squares) 'how to join granny squares' (SERP: Gathered, Make: x2, We Are Knitters x2, Ravelry, B.Hooked 6 ways + JAYGO, Yarnspirations JAYGO guide, Marching North x2, Petals to Picots, Nana's Crafty Home sc join, Craft Passion 12 ways, Joy of Motion; none calculate seams or joining yarn) -> 5 methods with own SVGs + joining calculator (seams, strip seams, yarn by method, ends).
 H2. DONE 27 Nov (/how-to-increase-knitting) 'knitting how to increase stitches' (SERP: Gathered m1l/m1r/kfb, Annie's, Yarnspirations, Wikipedia, DMC video, Lion Brand 5 ways, Vogue Knitting, We Are Knitters, Knitty, WonderHowTo) -> 6 increases with own SVGs + increase picker (hole / edges / paired / rib).
