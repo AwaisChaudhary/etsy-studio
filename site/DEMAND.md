@@ -42,6 +42,7 @@ G6. OPEN 'cross stitch fabric count guide' / 'how to read a cross stitch pattern
 
 ## NEW CATEGORY EXPANSION (Awais 26 Nov: when traffic plateaus, open new categories backed by Trends/searches; don't wait for input)
 Evidence = Google autocomplete 26 Nov 18:10 PKT. Each is a CATEGORY: build a hub page first, then 1-2 child pages per run. Skip if it already exists.
+- E4 OPEN (27 Nov growth review) Macrame + punch needle categories (new crafts, fit the brand): macrame knots guide with own SVG diagrams, plant hanger tutorial, cord size/length calculator; punch needle how-to for beginners + supply checklist. Autocomplete 'macrame' -> plant hanger, wall hanging, cord, knots, bracelet; 'punch needle' -> kits, embroidery, tutorial, how to, kit for beginners, rug.
 - E1 OPEN Coloring pages category: free printable coloring pages for kids/adults (own SVG line art only), hub + themed sets — 'coloring pages for kids|free|printable|for adults'. Lead magnet to Etsy.
 - E2 PART-DONE 26 Nov (/sewing-seam-allowance, /fat-quarter-calculator) Sewing for beginners: free beginner patterns/guides with own diagrams ('sewing patterns for beginners|free').
 - E3 OPEN Printable planner pages + inserts ('printable planner pages|2027|inserts') linked to Etsy planner listings.
