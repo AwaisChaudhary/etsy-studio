@@ -28,3 +28,9 @@
 ## 28 Nov 01:25-01:45 PKT (Awais present, 'Do it')
 - Old 25% sale CYBER26 ended (it stopped 28 Nov 01:30). New 40% shop-wide sale CYBER40 scheduled 29 Nov 00:00 - 3 Dec 00:00 (Etsy would not let it start 28 Nov because of the overlap). 28 Nov has only WELCOME15. LAUNCH35 (35%, 3 Dec - 2 Jan) was already scheduled.
 - Site moved to Git-connected Cloudflare Pages (see site/DEPLOY.md).
+
+## NEXT BATCHES (revenue push, 28 Nov; each must pass the 'worth buying' rule: beat the top 3 Etsy results)
+1. Cricket scorebook printable (Etsy: limited-overs + Test sheets, partnership/bowling/fall-of-wickets, US Letter + A4) AND KDP paperback 'Cricket Scorebook: 100 matches' (8.5x11). Cross-sell from pitchsidecric.com.
+2. KDP coloring books (autocomplete: 'coloring pages for adults/kids/christmas' is huge): 'Cozy Winter Coloring Book for Adults' + 'Christmas Coloring Book for Kids', 50 original pages each (no copyrighted characters).
+3. Junk Journal Mega Bundle upgrade: merge all kits into 60+ pages.
+4. Padel-player gift printables? NO: printables only where Etsy demand is proven; check Etsy search counts first.

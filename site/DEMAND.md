@@ -1,5 +1,11 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## REVENUE PUSH (Awais 28 Nov: $1,000/month by March; plan doc https://claude.ai/artifact/2qfQi3yzzfVwehKNF4748s)
+R1. OPEN: every craft tool page gets a 'Supplies' block with 'Where to buy' slots (data-aff) for yarn/hook/needle/paper (Awin craft shops, Amazon) once Awais's accounts exist; and a shop box (already on most).
+R2. OPEN: free printable 'coloring pages' hub (Christmas, winter, mandala, for kids, for adults): autocomplete shows huge demand; each page links to the paid coloring book (KDP) and Etsy bundle.
+R3. OPEN: email capture: 'free printable pack' signup on the 20 top pages (needs an email tool; until then a 'download free sampler' link to /assets/free/).
+
+
 ## RADAR 28 Nov run 16 (web search, rotation: crochet a beanie / knit a hat circular / pom pom without maker / crochet hat crown chart / crochet christmas ornaments / crochet snowflake)
 Q1. DONE 28 Nov (/how-to-crochet-a-hat) 'how to crochet a beanie for beginners step by step' / 'how to crochet a hat' (SERP: Green Matters, LoveCrafts US+UK, Instructables x2, Make and Do Crew 1-hour hat, Create Whimsy, Ravelry x2, Handy Little Me, Hooked on Homemade Happiness) + 'crochet hat crown increase chart' (Payhip resize, Gathered crown, DROPS, Heart Hook Home master beanie, Purl Soho, Marly Bird, AllFreeCrochet 3 ways; no writer) -> 6 SVG steps + top-down beanie writer (8 sizes or own head, sc/hdc/dc, US/UK, sc or post-stitch brim, yarn estimate).
 Q2. DONE 28 Nov (/how-to-knit-a-hat) 'how to knit a hat for beginners circular needles' (SERP: Yahoo video, Instructables x2, AllFreeKnitting x2, Knit Picks x2, Handy Little Me, B.Hooked x2, Mary Maxim, Skillshare, Ravelry x2, Dummies adult+child specs, Sheep & Stitch, LoveCrafts) -> 6 SVG steps + beanie writer (cast-on to a multiple of 8, rib/rolled brim, fitted/fold/slouchy, every crown round, yarn).
