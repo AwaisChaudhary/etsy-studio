@@ -1,5 +1,11 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## EVENING RADAR 27 Nov 2026 (18:40 PKT)
+E1. OPEN: Trends crochet 1-d rising 'ikea crochet sheep' +130%, 'ikea x crochet' +100%, 'crochet sheep' +80%: a free crochet sheep pattern page (amigurumi sheep, beginner) if we can write an original pattern; do not copy IKEA's.
+E2. OPEN: 'christmas crafts' -> to make and sell, for adults to make and sell: check a 'christmas crafts to sell' page exists; if not, build it with links to our Etsy printables.
+E3. OPEN: 'coloring pages' -> for kids, for adults, christmas, for boys/girls: check our coloring page titles include 'printable christmas coloring pages'.
+
+
 ## RADAR 27 Nov run 13 (web search, rotation: knit a scarf how to / skeins for a crochet scarf / punch needle how to / embroidery hoop size / last-minute crochet Christmas gifts / etsy offsite ads calculator)
 M1. DONE 27 Nov (/embroidery-hoop-size-calculator) 'embroidery hoop size guide', 'what size embroidery hoop do I need' (SERP: Instructables, Practical Embroidery, WeAllSew x2, Ricoma, HC Quilts, Stitcher UK, Missouri Quilt, bsewinn, several machine-hoop guides; no hand-embroidery calculator on page 1) -> calculator (diagonal + margin, shop sizes, fabric to cut, to-scale drawing) + hoop size chart.
 M2. DONE 27 Nov (/how-to-punch-needle) = L4 'how to punch needle for beginners' (SERP: Hobbycraft x3, Gathered x2, Crewel Ghoul, Marching North, We Are Knitters, LoveCrafts x3, DMC, Sarah Maker, Stitchonomy) -> 7 SVG steps + needle/yarn/fabric matcher + finishing + problems. /punch-needle links to it.
