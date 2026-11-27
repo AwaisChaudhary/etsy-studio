@@ -238,6 +238,33 @@ JI_IDEAS = [
 _ji_total = sum(len(v) for _, v in JI_IDEAS)
 ji_html = "".join(f'<h3>{e(g)}</h3><ol>' + "".join(f'<li><strong>{e(n)}.</strong> {e(d)}</li>' for n, d in v) + '</ol>' for g, v in JI_IDEAS)
 
+
+# run 15 merge (DEMAND N2 'christmas junk journal ideas'): Christmas H2 with our own printable templates.
+def _xj_svg():
+    tag = (f'<path d="M30 40 h70 l22 22 v76 h-92 z" fill="#fbf8f1" stroke="#1f2a44" stroke-width="1.6" stroke-dasharray="5 4"/><circle cx="100" cy="58" r="6" fill="none" stroke="#1f2a44" stroke-width="1.4"/>'
+           f'<path d="M48 96 l14 -26 l14 26 z M58 96 h8 v8 h-8z" fill="#2f8f8a"/><text x="76" y="156" {_T12} text-anchor="middle">gift tag</text>')
+    mit = (f'<path d="M150 50 c0 -14 34 -14 34 0 v20 c10 -10 22 -2 16 10 l-12 14 v44 h-38 z" fill="#fbf8f1" stroke="#1f2a44" stroke-width="1.6" stroke-dasharray="5 4"/>'
+           f'<rect x="150" y="128" width="38" height="10" fill="#b8326a"/><text x="174" y="156" {_T12} text-anchor="middle">mitten pocket</text>')
+    tk = (f'<rect x="208" y="70" width="60" height="34" rx="3" fill="#fbf8f1" stroke="#1f2a44" stroke-width="1.6" stroke-dasharray="5 4"/><circle cx="208" cy="87" r="5" fill="#f6f1e6"/><circle cx="268" cy="87" r="5" fill="#f6f1e6"/>'
+          f'<text x="238" y="91" font-family="Inter,sans-serif" font-size="9" fill="#b8326a" text-anchor="middle">North Pole</text><text x="238" y="124" {_T12} text-anchor="middle">ticket</text>')
+    return _svg12(tag + mit + tk, "Printable Christmas junk journal templates: a gift tag, a mitten-shaped pocket and a North Pole ticket")
+XJ = [("Advent tag strip", "Number 24 small tags and add one line or a tiny find to each December day."),
+      ("Mitten pocket", "Cut the mitten template from a festive paper, glue three sides and tuck a wish list inside."),
+      ("Christmas card mosaic", "Trim the fronts of last year's cards into squares and grid them across a spread."),
+      ("Recipe of the season", "Write out a family bake on a recipe card, with a pocket for the crumb-stained original."),
+      ("Gift log", "A simple table: who, what, made or bought. Handy for next year too."),
+      ("North Pole ticket", "A ticket for a Christmas outing, real or pretend, with the date and who came."),
+      ("Wrapping paper background", "Flatten leftover wrapping paper or tissue as the base layer."),
+      ("Ornament page", "Draw or cut paper baubles and write a memory in each one."),
+      ("Twelve days list", "Twelve tags or flaps, one small joy per day from Christmas to Twelfth Night."),
+      ("Winter walk", "Pressed holly or a pine sprig sealed under a strip of packing tape, with where you found it."),
+      ("Letter to Santa", "A sealed envelope pocket with a letter, or a grown-up version: what you'd wish for this year."),
+      ("Year in review", "A spread for the end of December: best moment, hardest moment, one word for next year.")]
+_xj_html = ('<h2 id="christmas">Christmas junk journal ideas</h2><p>December is a lovely time to start a junk journal: there\'s paper everywhere, from cards to wrapping to food packaging. Here are twelve Christmas page ideas and three free templates to trace or print and cut out (our own designs; dashed lines are the cut lines). Print on card or kraft paper and scale the drawing to the size you want.</p>'
+            f'<div class="gq-figs"><figure class="gq-fig"><div>{_xj_svg()}<figcaption><strong>Free templates.</strong> Gift tag, mitten pocket and a North Pole ticket. Print this page or tap and save the drawing.</figcaption></div></figure></div><ol>'
+            + "".join(f'<li><strong>{e(n)}.</strong> {e(d)}</li>' for n, d in XJ) + '</ol>'
+            '<p>Want 25 ready-made December pages? Our December Days kit below has a page for every day, and the <a href="' + href("journal-prompts.html") + '">prompt shuffler</a> has a winter theme.</p>')
+
 jip = top("Junk journal page ideas", f"{_ji_total} junk journal page ideas sorted by theme, six spread layouts drawn out, and a spread generator that picks a background, a focal piece, something interactive, an embellishment and a prompt for you, so you never face a blank page again.", "Junk journal page ideas") + f'''
 <section style="padding-top:10px"><div class="wrap"><div class="quick"><strong>Quick answer:</strong> a junk journal page comes together in <strong>five layers</strong>: a <strong>background</strong> (book page, map, tea-stained paper, a flattened paper bag), a <strong>focal piece</strong> (a photo, a postcard, a big label), something <strong>interactive</strong> (a pocket, tag, flap or tuck spot), a few <strong>embellishments</strong> (washi, stamps, stitching, a button) and a few <strong>words</strong>. Pick one idea from each layer and the page is done. Stuck? Press the shuffle button below for a ready-made spread, or try one of the {_ji_total} ideas further down: memories, seasons, nature, vintage collage, writing prompts, interactive pages and pages made only from things you already have at home.</div></div></section>
 <section style="padding-top:0"><div class="wrap tool"><div class="sheet">
@@ -251,6 +278,7 @@ jip = top("Junk journal page ideas", f"{_ji_total} junk journal page ideas sorte
 <div class="gq-figs">{jl_cards}</div>
 <h2>{_ji_total} junk journal page ideas</h2>
 {ji_html}
+{_xj_html}
 <h2>How to start a junk journal page</h2>
 <ol><li><strong>Choose a background first.</strong> It sets the colours for everything else, so pick it before anything gets glued.</li>
 <li><strong>Lay it all out dry.</strong> Move pieces around before gluing. Take a quick photo when you like it, so you can put it back.</li>
@@ -268,9 +296,11 @@ ji_faq = [
     ("What should be on the first page of a junk journal?", "Something that says whose journal it is: your name, the year or a word for the journal, with a favourite photo or paper. Many people leave it until last."),
     ("How do you make a junk journal page look vintage?", "Tea-stain the paper, ink the edges with brown ink, and use old book pages, stamps, lace and labels. Keep the colours warm and muted."),
     ("Can you junk journal without buying supplies?", "Yes. Envelopes, food packaging, receipts, junk mail, paper bags, tea bags and old books are all free and make great pages."),
+    ("What can I put in a Christmas junk journal?", "Christmas cards, wrapping paper, gift tags, receipts from presents, recipe cards, ticket stubs, pressed holly or pine, photos and a gift list. Most of it is free from the season."),
+    ("How do you make a Christmas junk journal?", "Fold a few signatures from festive paper and old cards, bind them into a cover made from a cereal box or cardstock, then add a page or two each day of December."),
     ("How many pages should a junk journal have?", "Most handmade junk journals have 3 to 6 signatures of 4 to 6 folded sheets each. Make it smaller than you think: a thin finished journal beats a fat empty one."),
 ]
-SHOP_FOR["junk-journal-page-ideas.html"] = ["junk-journal-mega-bundle", "vintage-ephemera-pack", "journaling-cards-3x4", "tea-room-junk-journal-kit"]
+SHOP_FOR["junk-journal-page-ideas.html"] = ["december-days-journal-kit", "winter-cottage-junk-journal-kit", "junk-journal-mega-bundle", "journaling-cards-3x4"]
 page("junk-journal-page-ideas.html", f"{_ji_total} Junk Journal Page Ideas + a Spread Generator",
      f"{_ji_total} junk journal page ideas by theme, six spread layouts drawn out, and a free generator that picks the background, focal piece, pocket and prompt.",
      jip, ji_faq, "Junk journal page ideas", app_name="Junk journal spread generator")

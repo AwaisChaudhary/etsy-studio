@@ -429,3 +429,13 @@
 - MERGE /basic-crochet-stitches: H2 'How to make a slip knot for crochet' with 3 SVG steps + 2 FAQs (DEMAND L5).
 - Sources: Craft Yarn Council weight/gauge standards (data.json); stitch uses cross-checked against LoveCrafts, Homedit, Melly Sews, MasterClass guides. Wording and drawings ours. Pins queued: how-to-crochet-a-scarf, hand-sewing-stitches.
 - 27 Nov 20:45 PKT: deployed (zip 3.77 MB: OG images shrunk to 600x315 q28 and shop thumbs to 300px IN THE ZIP COPY ONLY; source unchanged). Batch 10 SHOP boxes on 2027 calendar, 2027 goal planner, junk journal beginners, journal prompts, Etsy fee calculator, craft fair checklist, craft fair profit calculator. IndexNow FLUSHED 107 URLs (200), incl. every earlier 'IndexNow pending' line.
+
+## 27 Nov 2026 run 15 (plan15.py)
+- NEW /how-to-knit-cables: 6 own SVG steps, C4F vs C4B, reading cable charts, cabling without a needle, fixes, extra yarn (labelled estimate); cable pattern + chart writer (ckw-*: C4/C6/C8, front/back/alternate, rows between crosses, purls between, number of cables, flat/round -> cast on, row-by-row repeat, SVG chart). Targets 'how to knit cables for beginners', 'C4F vs C4B', 'how to read a cable chart'. Checked: LoveCrafts, Knit Picks, Dummies.
+- NEW /crochet-sheep-pattern: our own free amigurumi sheep (body 36-st ball, head 24, tuft, ears, legs), round tick boxes saved on device, yarn/size helper (shp-*: DK/worsted/chunky/super bulky; yardage from the pattern's stitch count x yarn per tight sc, +10%, labelled estimate), assembly, variations, selling note. Targets 'crochet sheep pattern', 'amigurumi sheep free pattern' (Trends rising).
+- MERGE /junk-journal-page-ideas: H2 #christmas 'Christmas junk journal ideas' (12 ideas, 3 template drawings) + 2 FAQs; shop box -> December Days, Winter Cottage, mega bundle, journaling cards.
+- MERGE /how-to-cross-stitch: H2 #finish-hoop 'How to finish a cross stitch in a hoop' (5 steps + glue option) + FAQ. Sources: Stitched Modern, LoveCrafts, Make:.
+- SHOP prices: journaling cards, Christmas gift tags, 2027 calendar now $1.99 (per SALES-PLAN 27 Nov).
+- Links in: cables <- how to knit and purl, knit stitch patterns, knitting abbreviations; sheep <- crochet decrease, crochet circle calculator, how to price amigurumi, amigurumi guide; both in footer Guides + home 'Fresh today'.
+- Pins queued: pins/site/how-to-knit-cables.jpg, crochet-sheep-pattern.jpg.
+- IndexNow pending: https://purlandpaperco.com/how-to-knit-cables https://purlandpaperco.com/crochet-sheep-pattern https://purlandpaperco.com/junk-journal-page-ideas https://purlandpaperco.com/how-to-cross-stitch

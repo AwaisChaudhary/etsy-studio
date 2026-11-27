@@ -1,1385 +1,1403 @@
 [
-  {
-    "image": "pins/batch4/candle-business-spreadsheet-pin-a.jpg",
-    "title": "Candle Business Spreadsheet | Candle Cost & Pricing Calculator for Excel & Google Sheets",
-    "description": "Know the true cost of every candle: wax, fragrance load, wick, jar and labels. Get wholesale and retail prices, a pour planner with exact wax and fragrance weights, stock alerts and a sales dashboard. #candlebusiness #candlemaking #candlepricing #smallbusiness #soycandles",
-    "link": "https://www.etsy.com/listing/4622481559/candle-business-spreadsheet-candle-cost",
-    "link_from": "batch4/listings.json:candle-business-spreadsheet:etsy_url",
-    "board": "Small Business Spreadsheets",
-    "topic": "Candle Making",
-    "status": "scheduled 2026-11-22 12:00 PM"
-  },
-  {
-    "image": "pins/batch4/nordic-folk-christmas-clipart-pin-a.jpg",
-    "title": "Nordic Folk Christmas Clipart | 45 PNG & SVG Elements + Seamless Patterns",
-    "description": "Cosy Scandinavian folk Christmas clipart: gnomes, woven hearts, straw stars, toadstools, folk birds, baubles and more. Transparent PNG, SVG and 6 seamless patterns, small business commercial use. #christmasclipart #nordicchristmas #scandinavianchristmas #gnomes #svgfiles",
-    "link": "https://www.etsy.com/listing/4622493176/nordic-christmas-clipart-png-svg-bundle",
-    "link_from": "batch4/listings.json:nordic-folk-christmas-clipart:etsy_url",
-    "board": "Christmas Printables",
-    "topic": "Christmas",
-    "status": "scheduled 2026-11-22 3:00 PM"
-  },
-  {
-    "image": "pins/batch4/december-days-journal-kit-pin-a.jpg",
-    "title": "December Daily Journal Kit | 25 Printable Prompt Cards, Papers & Ephemera",
-    "description": "Capture every day of December: 25 numbered prompt cards, number circles, journaling cards, patterned papers, tickets and tags in a cosy Nordic folk style. Print at home. #decemberdaily #junkjournal #christmasjournal #memorykeeping #journalingcards",
-    "link": "https://www.etsy.com/listing/4622484083/december-daily-journal-kit-printable-25",
-    "link_from": "batch4/listings.json:december-days-journal-kit:etsy_url",
-    "board": "Junk Journal Printables",
-    "topic": "Journaling",
-    "status": "scheduled 2026-11-22 6:00 PM"
-  },
-  {
-    "image": "pins/batch1/home-baker-cost-pricing-calculator-pin-a.jpg",
-    "title": "Baking Cost Calculator | Home Bakery Pricing Spreadsheet",
-    "description": "Work out what every bake really costs and what to charge. Ingredient costs, recipe costing and pricing for home bakers. Excel and Google Sheets. #homebakery #bakingbusiness #cakepricing #smallbusiness",
-    "link": "https://www.etsy.com/listing/4620604733/baking-cost-calculator-bakery-pricing",
-    "board": "Small Business Spreadsheets",
-    "topic": "Baking",
-    "status": "published 19 Nov"
-  },
-  {
-    "image": "pins/batch1/night-garden-junk-journal-kit-pin-a.jpg",
-    "title": "Night Garden Junk Journal Kit Printable | Celestial Moon Phases",
-    "description": "A dark, dreamy printable junk journal kit: moon phases, moths, midnight florals and celestial ephemera. Instant download to print at home. #junkjournal #celestial #moonphases #darkacademia #printables",
-    "link": "https://www.etsy.com/listing/4620614320/night-garden-junk-journal-kit-printable",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "scheduled 20 Nov 12:00"
-  },
-  {
-    "image": "pins/batch1/crochet-knitting-pricing-calculator-pin-a.jpg",
-    "title": "Crochet Pricing Calculator | How to Price Handmade Items",
-    "description": "Stop guessing what to charge. This crochet and knitting pricing calculator works out yarn cost, your time and profit for every item. Excel and Google Sheets. #crochetbusiness #pricinghandmade #crochet #smallbusiness",
-    "link": "https://www.etsy.com/listing/4620610040/crochet-pricing-calculator-knitting",
-    "board": "Small Business Spreadsheets",
-    "topic": "Crochet",
-    "status": "published 20 Nov"
-  },
-  {
-    "image": "pins/batch1/yarn-stash-tracker-pin-a.jpg",
-    "title": "Yarn Stash Tracker Spreadsheet | Yarn Inventory for Knitters & Crocheters",
-    "description": "Track your yarn stash in Excel or Google Sheets: weight, fibre, colour, yardage and what you planned it for. Instant download. #yarnstash #yarnaddict #crochet #knitting #yarninventory",
-    "link": "https://www.etsy.com/listing/4620611752/yarn-stash-tracker-spreadsheet-yarn",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "published 20 Nov"
-  },
-  {
-    "image": "pins/batch1/vintage-ephemera-pack-pin-a.jpg",
-    "title": "Vintage Ephemera Printable Pack | Junk Journal Tickets & Tags",
-    "description": "A printable pack of vintage-style ephemera: tickets, tags, labels and postage pieces for junk journals, scrapbooks and collage. Instant download. #ephemera #junkjournal #vintageephemera #collage #scrapbooking",
-    "link": "https://www.etsy.com/listing/4620615058/vintage-ephemera-printable-pack-junk",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "published 20 Nov"
-  },
-  {
-    "image": "pins/batch1/cleaning-business-quote-client-tracker-pin-a.jpg",
-    "title": "Cleaning Business Spreadsheet | House Cleaning Price Calculator",
-    "description": "Quote cleaning jobs in seconds and keep regular clients organised: quote calculator, client list, weekly schedule and dashboard. Excel and Google Sheets. #cleaningbusiness #housecleaning #smallbusiness #cleaningtips",
-    "link": "https://www.etsy.com/listing/4620608954/cleaning-business-spreadsheet-house",
-    "board": "Small Business Spreadsheets",
-    "topic": "Cleaning",
-    "status": "published 20 Nov"
-  },
-  {
-    "image": "pins/site/blanket-size-calculator.jpg",
-    "title": "Crochet Blanket Size Chart + Free Yarn Calculator (Baby to King)",
-    "description": "Free blanket size chart for crochet and knitting: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm. Pick your yarn weight to see how many yards and skeins to buy. #crochetblanket #blanketsizes #knittingblanket #crochettips",
-    "link": "https://purlandpaperco.com/blanket-size-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "published 20 Nov"
-  },
-  {
-    "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-a.jpg",
-    "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
-    "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
-    "link": "https://www.etsy.com/listing/4623371099/2027-reading-tracker-spreadsheet-book",
-    "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:etsy_url",
-    "board": "Planners & Trackers",
-    "topic": "Reading",
-    "status": "published 2026-11-23"
-  },
-  {
-    "image": "pins/batch5/new-years-eve-party-games-pin-a.jpg",
-    "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
-    "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
-    "link": "https://www.etsy.com/listing/4623381612/new-years-eve-party-games-printable-nye",
-    "link_from": "batch5/listings.json:new-years-eve-party-games:etsy_url",
-    "board": "Christmas Printables",
-    "topic": "New Year's Eve",
-    "status": "published 2026-11-23"
-  },
-  {
-    "image": "pins/batch5/kids-routine-chore-chart-pack-pin-a.jpg",
-    "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
-    "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
-    "link": "https://www.etsy.com/listing/4623374247/kids-chore-chart-printable-morning",
-    "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:etsy_url",
-    "board": "Planners & Trackers",
-    "topic": "Parenting",
-    "status": "published 2026-11-23"
-  },
-  {
-    "image": "pins/batch6/soap-making-business-spreadsheet-pin-a.jpg",
-    "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
-    "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Soap Making",
-    "link": "https://www.etsy.com/listing/4623878110",
-    "link_from": "batch6/listings.json:soap-making-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-24 10:30 AM"
-  },
-  {
-    "image": "pins/batch6/family-advent-activity-calendar-pin-a.jpg",
-    "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
-    "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
-    "board": "Christmas Printables",
-    "topic": "Advent",
-    "link": "https://www.etsy.com/listing/4623873061",
-    "link_from": "batch6/listings.json:family-advent-activity-calendar:etsy_url",
-    "status": "scheduled 2026-11-24 2:30 PM"
-  },
-  {
-    "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-a.jpg",
-    "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
-    "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
-    "board": "Printable Wall Art",
-    "topic": "Wall Art",
-    "link": "https://www.etsy.com/listing/4623882770",
-    "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:etsy_url",
-    "status": "scheduled 2026-11-24 8:00 PM"
-  },
-  {
-    "image": "pins/batch7/resin-art-business-spreadsheet-pin-a.jpg",
-    "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
-    "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Resin Art",
-    "link": "https://www.etsy.com/listing/4624644331",
-    "link_from": "batch7/listings.json:resin-art-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-25 12:00 PM"
-  },
-  {
-    "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-a.jpg",
-    "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
-    "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Sublimation",
-    "link": "https://www.etsy.com/listing/4624645405",
-    "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-25 5:00 PM"
-  },
-  {
-    "image": "pins/batch7/lash-tech-business-spreadsheet-pin-a.jpg",
-    "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
-    "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Eyelash Extensions",
-    "link": "https://www.etsy.com/listing/4624651798",
-    "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-25 8:30 PM"
-  },
-  {
-    "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
-    "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
-    "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
-    "link": "https://www.etsy.com/listing/4621713425/christmas-gift-planner-spreadsheet",
-    "board": "Small Business Spreadsheets",
-    "topic": "Christmas",
-    "status": "scheduled 2026-11-25 10:30 AM"
-  },
-  {
-    "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-a.jpg",
-    "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
-    "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Laser Cutting",
-    "link": "https://www.etsy.com/listing/4625446969",
-    "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-27 10:30 AM"
-  },
-  {
-    "image": "pins/batch8/nail-tech-business-spreadsheet-pin-a.jpg",
-    "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
-    "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Nail Salon",
-    "link": "https://www.etsy.com/listing/4625445559",
-    "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-27 5:30 PM"
-  },
-  {
-    "image": "pins/batch10/jewelry-business-spreadsheet-pin-a.jpg",
-    "title": "Jewelry Pricing Calculator Spreadsheet for Handmade Jewelry Makers",
-    "description": "Price every necklace, ring and pair of earrings from metal weight, findings and your time: classic jewelry formula, cost x multiplier and a margin price after Etsy fees side by side. Custom order tracker, inventory, sales dashboard. Excel + Google Sheets. #jewelrybusiness #handmadejewelry #pricingcalculator #silversmith #smallbusiness",
-    "link": "https://www.etsy.com/listing/4626872711",
-    "board": "Small Business Spreadsheets",
-    "topic": "Jewelry making",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/debt-payoff-planner-spreadsheet-pin-a.jpg",
-    "title": "Debt Payoff Planner Spreadsheet: Snowball or Avalanche + Colour-In Tracker",
-    "description": "See the month you'll be debt-free, the interest you save vs minimum payments, and colour in a 100-square chart as you pay. Up to 12 debts, savings goals too. Excel + Google Sheets. #debtfree #debtsnowball #budgeting #moneygoals #2027goals",
-    "link": "https://www.etsy.com/listing/4626884176",
-    "board": "Planners & Trackers",
-    "topic": "Debt free",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/wedding-budget-planner-spreadsheet-pin-a.jpg",
-    "title": "Wedding Budget Planner Spreadsheet with Guest List, RSVPs and Checklist",
-    "description": "Budget by category with guide %, vendor quotes and deposits, a payment schedule with due dates, guest list with RSVPs, meals and tables, and a 60-task checklist dated from your wedding day. Excel + Google Sheets. #weddingbudget #weddingplanning #engaged #bridetobe #weddingchecklist",
-    "link": "https://www.etsy.com/listing/4626885492",
-    "board": "Planners & Trackers",
-    "topic": "Wedding planning",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/winter-cottage-junk-journal-kit-pin-a.jpg",
-    "title": "Winter Cottage Junk Journal Kit: Printable Snowy Cottage + Nordic Knit Papers",
-    "description": "17 pages of original winter ephemera: a snowy cottage at dusk, winter greenery, cocoa recipe cards, Nordic knit and plaid papers, tags, tickets, stamps and journaling cards. US Letter + A4. #junkjournal #junkjournalkit #winterjournal #hygge #printableephemera",
-    "link": "https://www.etsy.com/listing/4626887026",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/2027-printable-calendar-pin-a.jpg",
-    "title": "2027 Printable Calendar with Seasonal Patterns, Sunday + Monday Start",
-    "description": "12 monthly pages, each with its own hand-drawn seasonal pattern (snowflakes, tulips, lemons, sunflowers, pumpkins, holly...), plus a 2027 year at a glance. US Letter + A4. #2027calendar #printablecalendar #wallcalendar #2027planner #newyear",
-    "link": "https://www.etsy.com/listing/4626878631",
-    "board": "Planners & Trackers",
-    "topic": "Calendar",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-a.jpg",
-    "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
-    "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
-    "board": "Small Business Spreadsheets",
-    "topic": "Stickers",
-    "link": "https://www.etsy.com/listing/4625456612",
-    "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:etsy_url",
-    "status": "scheduled 2026-11-28 10:30 AM"
-  },
-  {
-    "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-a.jpg",
-    "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
-    "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
-    "link": "https://www.etsy.com/listing/4626203317",
-    "board": "Small Business Spreadsheets",
-    "topic": "Small business",
-    "status": "scheduled 2026-11-27 12:00 PM"
-  },
-  {
-    "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-a.jpg",
-    "title": "Embroidery Pricing Calculator: Price by Stitch Count",
-    "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
-    "link": "https://www.etsy.com/listing/4626204819",
-    "board": "Small Business Spreadsheets",
-    "topic": "Machine embroidery",
-    "status": "scheduled 2026-11-27 3:00 PM"
-  },
-  {
-    "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-a.jpg",
-    "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
-    "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
-    "link": "https://www.etsy.com/listing/4626206151",
-    "board": "Planners & Trackers",
-    "topic": "Habit tracker",
-    "status": "scheduled 2026-11-27 8:00 PM"
-  },
-  {
-    "image": "pins/batch2/2027-monthly-budget-planner-pin-a.jpg",
-    "title": "2027 Budget Planner Spreadsheet | Monthly Budget Template",
-    "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
-    "link": "https://www.etsy.com/listing/4621714773/2027-budget-planner-spreadsheet-monthly",
-    "board": "Small Business Spreadsheets",
-    "topic": "Budgeting",
-    "status": "scheduled 2026-11-28 3:00 PM"
-  },
-  {
-    "image": "pins/batch2/christmas-gift-tags-pin-a.jpg",
-    "title": "Printable Christmas Gift Tags | 48 Tags + Round Labels",
-    "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
-    "link": "https://www.etsy.com/listing/4621715645/printable-christmas-gift-tags-holiday",
-    "board": "Christmas Printables",
-    "topic": "Christmas",
-    "status": "scheduled 2026-11-28 12:30 PM"
-  },
-  {
-    "image": "pins/batch1/journaling-cards-3x4-pin-a.jpg",
-    "title": "Printable Journaling Cards 3x4 | Pocket Cards for Junk Journals",
-    "description": "24 printable journaling cards sized 3x4 inches for pocket pages, junk journals and project life albums. Instant download. #journalingcards #projectlife #pocketletters #junkjournal #printables",
-    "link": "https://www.etsy.com/listing/4620615728/printable-journaling-cards-3x4-pocket",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "scheduled 2026-11-28 8:00 PM"
-  },
-  {
-    "image": "pins/batch1/tea-room-junk-journal-kit-pin-a.jpg",
-    "title": "Tea Room Junk Journal Kit Printable | Vintage Tea Stained Paper",
-    "description": "A printable junk journal kit with a cosy tea room theme: tea-stained papers, vintage recipe cards, labels and ephemera. Instant download, print at home as often as you like. #junkjournal #junkjournalkit #printables #vintageephemera #teatime",
-    "link": "https://www.etsy.com/listing/4620607287/tea-room-junk-journal-kit-printable",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch1/2027-crochet-knitting-planner-pin-a.jpg",
-    "title": "2027 Crochet Planner Printable | Knitting Project Planner",
-    "description": "Plan a year of making: a printable 2027 crochet and knitting planner with project pages, pattern notes, yarn stash log and gift planning. Instant download. #crochetplanner #knittingplanner #crochet #knitting #2027planner",
-    "link": "https://www.etsy.com/listing/4620606347/2027-crochet-planner-printable-knitting",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch1/junk-journal-mega-bundle-pin-a.jpg",
-    "title": "Junk Journal Mega Bundle Printable | Tea Room & Night Garden Kits",
-    "description": "Everything in one printable bundle: the Tea Room and Night Garden junk journal kits, a vintage ephemera pack and 24 journaling cards. Instant download. #junkjournal #junkjournalkit #printablebundle #scrapbooking",
-    "link": "https://www.etsy.com/listing/4620610591/junk-journal-mega-bundle-printable-tea",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch3/christmas-party-games-bundle-pin-a.jpg",
-    "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
-    "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
-    "link": "https://www.etsy.com/listing/4621829841/christmas-party-games-bundle-printable",
-    "link_from": "batch3/listings.json:christmas-party-games-bundle:etsy_url",
-    "board": "Christmas Printables",
-    "topic": "Christmas",
-    "status": "scheduled 2026-11-21 12:00"
-  },
-  {
-    "image": "pins/batch3/kids-christmas-activity-pack-pin-a.jpg",
-    "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
-    "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
-    "link": "https://www.etsy.com/listing/4621831051/kids-christmas-activity-pack-printable",
-    "link_from": "batch3/listings.json:kids-christmas-activity-pack:etsy_url",
-    "board": "Christmas Printables",
-    "topic": "Christmas",
-    "status": "scheduled 2026-11-21 14:00"
-  },
-  {
-    "image": "pins/batch3/winter-woodland-wall-art-set-pin-a.jpg",
-    "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
-    "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
-    "link": "https://www.etsy.com/listing/4621832807/winter-wall-art-set-of-3-printable",
-    "link_from": "batch3/listings.json:winter-woodland-wall-art-set:etsy_url",
-    "board": "Christmas Printables",
-    "topic": "Home Decor",
-    "status": "scheduled 2026-11-21 17:00"
-  },
-  {
-    "image": "pins/batch1/home-baker-cost-pricing-calculator-pin-b.jpg",
-    "title": "How to Price Cakes | Recipe Cost Calculator Spreadsheet",
-    "description": "A recipe cost calculator for home bakers: enter ingredient prices once and see the cost and suggested price of every recipe. Instant download. #cakebusiness #bakerytips #recipecosting",
-    "link": "https://karamat4.gumroad.com/l/baking-cost-calculator",
-    "board": "Small Business Spreadsheets",
-    "topic": "Baking",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/night-garden-junk-journal-kit-pin-b.jpg",
-    "title": "Celestial Junk Journal Pages | Moon Phases & Moths Printable",
-    "description": "Celestial junk journal papers with moon phases, moths and night flowers. Print at home for journals, scrapbooks and witchy grimoires. Instant download. #junkjournal #celestialart #grimoire #journalsupplies",
-    "link": "https://karamat4.gumroad.com/l/night-garden-junk-journal-kit",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/crochet-knitting-pricing-calculator-pin-b.jpg",
-    "title": "Knitting Price Calculator Spreadsheet | Handmade Pricing Template",
-    "description": "A handmade pricing spreadsheet for crochet and knitting sellers: materials, hours, fees and profit margin give a fair price. Instant download. #handmadebusiness #craftfair #knittingbusiness",
-    "link": "https://karamat4.gumroad.com/l/crochet-pricing-calculator",
-    "board": "Small Business Spreadsheets",
-    "topic": "Crochet",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/yarn-stash-tracker-pin-b.jpg",
-    "title": "Yarn Inventory Spreadsheet | Organise Your Yarn Stash",
-    "description": "A yarn inventory spreadsheet for knitters and crocheters. Search your stash by weight, colour and yardage before you buy more. Excel and Google Sheets. #yarnstorage #yarnorganization #crochetlife",
-    "link": "https://karamat4.gumroad.com/l/yarn-stash-tracker",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/vintage-ephemera-pack-pin-b.jpg",
-    "title": "Printable Tickets, Tags & Labels | Junk Journal Ephemera",
-    "description": "Junk journal ephemera you can print at home again and again: vintage tickets, gift tags, labels and stamps. Original designs, instant download. #junkjournalideas #ephemerapack #printables #craftsupplies",
-    "link": "https://karamat4.gumroad.com/l/vintage-ephemera-pack",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/cleaning-business-quote-client-tracker-pin-b.jpg",
-    "title": "How to Price House Cleaning Jobs | Cleaning Quote Template",
-    "description": "A house cleaning quote template that uses your own hourly rate, supplies and travel to price every job. Includes client tracker and schedule. #cleaningbusinesstips #maidservice #businessplanner",
-    "link": "https://karamat4.gumroad.com/l/cleaning-business-tracker",
-    "board": "Small Business Spreadsheets",
-    "topic": "Cleaning",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/journaling-cards-3x4-pin-b.jpg",
-    "title": "24 Journaling Cards Printable | 3x4 Pocket Cards",
-    "description": "Print-at-home 3x4 journaling cards for pocket scrapbooking, junk journals and planners. Original designs, instant download. #pocketscrapbooking #journalcards #scrapbookideas",
-    "link": "https://karamat4.gumroad.com/l/journaling-cards",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/tea-room-junk-journal-kit-pin-b.jpg",
-    "title": "Tea Party Junk Journal Pages Printable | Vintage Recipe Cards",
-    "description": "Tea party themed junk journal pages to print at home. Vintage-style papers, recipe cards, tags and labels for journals, scrapbooks and card making. Digital download, original designs. #junkjournal #scrapbooking #printablepaper #journalideas",
-    "link": "https://karamat4.gumroad.com/l/tea-room-junk-journal-kit",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/2027-crochet-knitting-planner-pin-b.jpg",
-    "title": "Crochet Project Tracker Printable | 2027 Knitting Planner Pages",
-    "description": "Printable crochet and knitting project tracker pages for 2027: row counters, pattern notes, yarn logs and a year at a glance. Instant download. #crochetprojects #knittingprojects #plannerprintables",
-    "link": "https://karamat4.gumroad.com/l/2027-crochet-knitting-planner",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch1/junk-journal-mega-bundle-pin-b.jpg",
-    "title": "Junk Journal Starter Bundle | Printable Papers, Ephemera & Cards",
-    "description": "A printable junk journal starter bundle: two themed kits, ephemera and journaling cards. Great for beginners. Instant download. #junkjournalforbeginners #junkjournal #craftsupplies",
-    "link": "https://karamat4.gumroad.com/l/junk-journal-mega-bundle",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch2/christmas-gift-planner-budget-pin-b.jpg",
-    "title": "Christmas Gift Planner Spreadsheet | Instant Download",
-    "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
-    "link": "https://karamat4.gumroad.com/l/christmas-gift-planner",
-    "board": "Small Business Spreadsheets",
-    "topic": "Christmas",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch2/2027-monthly-budget-planner-pin-b.jpg",
-    "title": "2027 Budget Planner Spreadsheet | Instant Download",
-    "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
-    "link": "https://karamat4.gumroad.com/l/2027-budget-planner",
-    "board": "Small Business Spreadsheets",
-    "topic": "Budgeting",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch2/christmas-gift-tags-pin-b.jpg",
-    "title": "Printable Christmas Gift Tags | Instant Download",
-    "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
-    "link": "https://karamat4.gumroad.com/l/christmas-gift-tags",
-    "board": "Junk Journal Printables",
-    "topic": "Christmas",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch3/christmas-party-games-bundle-pin-b.jpg",
-    "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
-    "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
-    "link": "https://karamat4.gumroad.com/l/christmas-party-games",
-    "link_from": "batch3/listings.json:christmas-party-games-bundle:gumroad_url (planned slug christmas-party-games)",
-    "board": "Christmas Printables (create board)",
-    "topic": "Christmas",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch3/kids-christmas-activity-pack-pin-b.jpg",
-    "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
-    "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
-    "link": "https://karamat4.gumroad.com/l/kids-christmas-activity-pack",
-    "link_from": "batch3/listings.json:kids-christmas-activity-pack:gumroad_url (planned slug kids-christmas-activity-pack)",
-    "board": "Christmas Printables (create board)",
-    "topic": "Christmas",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch3/winter-woodland-wall-art-set-pin-b.jpg",
-    "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
-    "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
-    "link": "https://karamat4.gumroad.com/l/winter-woodland-wall-art",
-    "link_from": "batch3/listings.json:winter-woodland-wall-art-set:gumroad_url (planned slug winter-woodland-wall-art)",
-    "board": "Printable Wall Art (create board; until then Christmas Printables)",
-    "topic": "Home Decor",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/site/crochet-knitting-gift-planner.jpg",
-    "title": "Christmas Crochet & Knitting Gift Planner: Will Your Handmade Gifts Be Ready?",
-    "description": "Free handmade gift planner: add the hats, scarves and blankets you're making, your crafting hours a week, and see what will be finished by Christmas. Plus how long it takes to knit or crochet each gift. #christmascrochet #handmadegifts #knittinggifts #crochetgifts",
-    "link": "https://purlandpaperco.com/crochet-knitting-gift-planner",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "scheduled 2026-11-21 20:00"
-  },
-  {
-    "image": "pins/site/hat-size-chart.jpg",
-    "title": "Hat Size Chart for Knitting & Crochet: Head Sizes + Cast-On Calculator",
-    "description": "Free hat size chart from preemie to adult, with how much smaller to make the hat and a calculator for how many stitches to cast on, or how wide to crochet the crown. Perfect for handmade Christmas hats. #knittinghat #crochethat #hatsizechart #beaniepattern #knittingtips",
-    "link": "https://purlandpaperco.com/hat-size-chart",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "scheduled 2026-11-28 5:30 PM"
-  },
-  {
-    "image": "pins/site/granny-square-blanket-calculator.jpg",
-    "title": "Granny Square Blanket Calculator: How Many Squares & How Much Yarn?",
-    "description": "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, your layout drawn out, and how much yarn for the squares, joins and border. #grannysquare #crochetblanket #grannysquareblanket #crochetpattern #crochettips",
-    "link": "https://purlandpaperco.com/granny-square-blanket-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch4/candle-business-spreadsheet-pin-b.jpg",
-    "title": "Candle Business Spreadsheet | Candle Cost & Pricing Calculator for Excel & Google Sheets",
-    "description": "Know the true cost of every candle: wax, fragrance load, wick, jar and labels. Get wholesale and retail prices, a pour planner with exact wax and fragrance weights, stock alerts and a sales dashboard. #candlebusiness #candlemaking #candlepricing #smallbusiness #soycandles",
-    "link": "https://karamat4.gumroad.com/l/candle-business-spreadsheet",
-    "link_from": "batch4/listings.json:candle-business-spreadsheet:gumroad_url",
-    "board": "Small Business Spreadsheets",
-    "topic": "Candle Making",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch4/nordic-folk-christmas-clipart-pin-b.jpg",
-    "title": "Nordic Folk Christmas Clipart | 45 PNG & SVG Elements + Seamless Patterns",
-    "description": "Cosy Scandinavian folk Christmas clipart: gnomes, woven hearts, straw stars, toadstools, folk birds, baubles and more. Transparent PNG, SVG and 6 seamless patterns, small business commercial use. #christmasclipart #nordicchristmas #scandinavianchristmas #gnomes #svgfiles",
-    "link": "https://karamat4.gumroad.com/l/nordic-folk-christmas-clipart",
-    "link_from": "batch4/listings.json:nordic-folk-christmas-clipart:gumroad_url",
-    "board": "Christmas Printables",
-    "topic": "Christmas",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch4/december-days-journal-kit-pin-b.jpg",
-    "title": "December Daily Journal Kit | 25 Printable Prompt Cards, Papers & Ephemera",
-    "description": "Capture every day of December: 25 numbered prompt cards, number circles, journaling cards, patterned papers, tickets and tags in a cosy Nordic folk style. Print at home. #decemberdaily #junkjournal #christmasjournal #memorykeeping #journalingcards",
-    "link": "https://karamat4.gumroad.com/l/december-days-journal-kit",
-    "link_from": "batch4/listings.json:december-days-journal-kit:gumroad_url",
-    "board": "Junk Journal Printables",
-    "topic": "Journaling",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/site/increase-decrease-calculator.jpg",
-    "title": "Increase Evenly Calculator for Knitting & Crochet (Decrease Too)",
-    "description": "Free increase and decrease evenly calculator: type your stitches and how many to add or take away, and get the row written out (K5, M1 or 4 sc, inc), flat or in the round, with a stitch diagram. #knittingtips #crochettips #knittinghelp #crochethelp #knittingmath",
-    "link": "https://purlandpaperco.com/increase-decrease-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-price-crochet-items.jpg",
-    "title": "How to Price Crochet Items to Sell: Free Calculator + Formula",
-    "description": "How much to charge for crochet and knitted items: materials + your hourly rate + overheads, with Etsy and craft fair fees worked in. Free price calculator and example prices. #crochetbusiness #sellingcrochet #craftfair #etsyseller #howtopricecrochet",
-    "link": "https://purlandpaperco.com/how-to-price-crochet-items",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/sock-size-chart.jpg",
-    "title": "Sock Size Chart for Knitting + Free Cast-On Calculator (Baby to Men's 14)",
-    "description": "Free sock size chart with foot circumference, foot length and leg height from baby to men's 14, plus a sock knitting calculator: how many stitches to cast on, heel flap, gusset, when to start the toe, and yarn per pair. #sockknitting #knittingsocks #handknitsocks #knittinghelp #sockyarn",
-    "link": "https://purlandpaperco.com/sock-size-chart",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/yarn-substitution-calculator.jpg",
-    "title": "Yarn Substitution Calculator: How Many Balls of a Different Yarn Do I Need?",
-    "description": "Free yarn substitution calculator for knitting and crochet: turn the pattern's yarn into balls of your yarn (yards or metres), check the thickness by length per 100 g, and plan holding two strands together. #yarnsubstitution #knittingtips #crochettips #yarn #knittinghelp",
-    "link": "https://purlandpaperco.com/yarn-substitution-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-tea-stain-paper.jpg",
-    "title": "How to Tea Stain Paper for Junk Journals (Oven or Air Dry) + Shade Tester",
-    "description": "How to tea stain paper for junk journals: the tea recipe, 4 ways to apply it, the best paper, drying flat or in a low oven, and easy age spots, mug rings and torn edges. Try a shade before you stain. #junkjournal #teastainedpaper #junkjournalideas #papercraft #junkjournaling",
-    "link": "https://purlandpaperco.com/how-to-tea-stain-paper",
-    "board": "Junk Journal Printables",
-    "topic": "Junk Journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/cast-on-calculator.jpg",
-    "title": "Cast On Calculator: How Many Stitches to Cast On for a Scarf or Blanket",
-    "description": "How many stitches to cast on for a scarf, blanket, dishcloth or cowl? Enter your gauge and width: this free knitting calculator fits your rib or stitch repeat, adds borders and edge stitches, and tells you how long to leave the long-tail. #knitting #knittingtips #knittingforbeginners #knitscarf #knitblanket",
-    "link": "https://purlandpaperco.com/cast-on-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-b.jpg",
-    "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
-    "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
-    "link": "https://karamat4.gumroad.com/l/2027-reading-tracker",
-    "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:gumroad_url",
-    "board": "Planners & Trackers",
-    "topic": "Reading",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch5/new-years-eve-party-games-pin-b.jpg",
-    "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
-    "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
-    "link": "https://karamat4.gumroad.com/l/new-years-eve-party-games",
-    "link_from": "batch5/listings.json:new-years-eve-party-games:gumroad_url",
-    "board": "Christmas Printables",
-    "topic": "New Year's Eve",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch5/kids-routine-chore-chart-pack-pin-b.jpg",
-    "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
-    "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
-    "link": "https://karamat4.gumroad.com/l/kids-routine-chore-charts",
-    "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:gumroad_url",
-    "board": "Planners & Trackers",
-    "topic": "Parenting",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/site/crochet-circle-calculator.jpg",
-    "title": "Crochet Circle Calculator: Stitches Per Round and Increase Chart (sc, hdc, dc)",
-    "description": "How many stitches in each round of a flat crochet circle? This free calculator writes out every round in single, half double or double crochet, tells you how many rounds for your size, and gives a full amigurumi ball pattern. Increases are staggered so your circle stays round, not hexagon. #crochet #crochetforbeginners #crochettips #amigurumi #crochetcircle",
-    "link": "https://purlandpaperco.com/crochet-circle-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/knitting-abbreviations.jpg",
-    "title": "Knitting Abbreviations List: k2tog, ssk, M1, yo and 80 More in Plain English (+ Pattern Decoder)",
-    "description": "Stuck on a knitting pattern? This free list explains every common knitting abbreviation in plain English, with how to work each one and the UK names. Paste a pattern line into the decoder and it translates the whole row for you. #knitting #knittingforbeginners #knittingtips #knittingpattern #learntoknit",
-    "link": "https://purlandpaperco.com/knitting-abbreviations",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-ephemera-ideas.jpg",
-    "title": "62 Free Junk Journal Ephemera Ideas (Printable Checklist)",
-    "description": "What is ephemera and where do you find it for free? 62 junk journal ephemera ideas from around the house, the kitchen, the post and days out, with how to use each one on a page, how to store it, and why receipts fade. Tick off what you collect. #junkjournal #junkjournalideas #ephemera #junkjournaling #journalingideas",
-    "link": "https://purlandpaperco.com/junk-journal-ephemera-ideas",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/temperature-blanket-planner.jpg",
-    "title": "Temperature Blanket Planner 2027: Colors, Ranges & Yarn Calculator (Free)",
-    "description": "Plan your 2027 temperature blanket for free: choose your temperature ranges and colours, see how long a 365-row crochet or knit blanket will be, the foundation chain, and how much yarn to buy for each colour. Paste last year's temperatures to preview it. #temperatureblanket #crochetblanket #temperatureblanket2027 #crochetideas #knittingblanket",
-    "link": "https://purlandpaperco.com/temperature-blanket-planner",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Temperature blanket",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/yarn-yardage-calculator.jpg",
-    "title": "How Much Yarn Is Left? Free Yarn Yardage Calculator (Weigh Your Leftovers)",
-    "description": "Got a leftover ball and no idea how many yards are left? Weigh it and this free calculator turns grams into yards and metres, works even with no label, takes off a cone or core, and tells you if it's enough for your next project. #crochet #knitting #yarnstash #scrapyarn #crochettips",
-    "link": "https://purlandpaperco.com/yarn-yardage-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Yarn yardage",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/craft-fair-checklist.jpg",
-    "title": "Craft Fair Checklist: What to Bring (Free Printable for Crochet & Handmade Sellers)",
-    "description": "Selling at a Christmas craft fair or market? This free printable craft fair checklist covers 71 things to pack for your booth, payments, packaging and comfort, with extras for crochet, knitting and paper goods, plus how much stock and cash float to bring. #craftfair #craftfairideas #crochetbusiness #handmadebusiness #christmasmarket",
-    "link": "https://purlandpaperco.com/craft-fair-checklist",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Craft fair",
-    "status": "queued"
-  },
-  {
-    "id": "book-knit-a",
-    "image": "pins/books/knit-journal-pin-a.jpg",
-    "title": "Knit & Crochet Project Journal | Knitting Log Book with Row Counters",
-    "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
-    "board": "Crochet & Knitting Planners",
-    "status": "scheduled 2026-11-24 12:00 PM"
-  },
-  {
-    "id": "book-race",
-    "image": "pins/books/race-ready-pin.jpg",
-    "title": "Race Ready: 12-Week Training Log for Fitness Racing",
-    "link": "https://www.amazon.com/dp/B0HSM899WR?tag=purlandpaper-20",
-    "board": "Fitness Race Training (new)",
-    "status": "scheduled 2026-11-24 5:00 PM"
-  },
-  {
-    "id": "book-knit-b",
-    "image": "pins/books/knit-journal-pin-b.jpg",
-    "title": "Crochet Project Planner Book | Yarn, Hook and Row Tracker Journal",
-    "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
-    "board": "Crochet & Knitting Planners",
-    "status": "scheduled 2026-11-25 2:00 PM"
-  },
-  {
-    "image": "pins/batch6/soap-making-business-spreadsheet-pin-b.jpg",
-    "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
-    "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Soap Making",
-    "link": "https://karamat4.gumroad.com/l/soap-business-spreadsheet",
-    "link_from": "batch6/listings.json:soap-making-business-spreadsheet:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch6/family-advent-activity-calendar-pin-b.jpg",
-    "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
-    "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
-    "board": "Christmas Printables",
-    "topic": "Advent",
-    "link": "https://karamat4.gumroad.com/l/family-advent-calendar",
-    "link_from": "batch6/listings.json:family-advent-activity-calendar:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-b.jpg",
-    "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
-    "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
-    "board": "Printable Wall Art",
-    "topic": "Wall Art",
-    "link": "https://karamat4.gumroad.com/l/mid-century-wall-art-set",
-    "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/site/foundation-chain-calculator.jpg",
-    "title": "Foundation Chain Calculator: How Many Chains to Start a Crochet Blanket or Scarf",
-    "description": "How many chains do you need to start a crochet blanket? This free foundation chain calculator works it out for your yarn, gauge and stitch (sc, hdc, dc or treble), adds the right turning chain, rounds to your pattern's multiple and tells you how many rows to reach the length. Includes a chain chart for baby to queen blankets. #crochetblanket #crochetforbeginners #crochettips #crochetcalculator #crochetpattern",
-    "link": "https://purlandpaperco.com/foundation-chain-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Foundation chain",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-signature-calculator.jpg",
-    "title": "Junk Journal Signature Calculator: How Many Pages, Sheets and Sewing Holes",
-    "description": "Planning a junk journal? This free signature calculator tells you how many pages you'll get from your sheets and signatures, the page size for letter, A4 or 12x12 paper, how thick the spine will be, where to punch the sewing holes and how much thread to cut. #junkjournal #junkjournalideas #junkjournaling #bookbinding #junkjournalforbeginners",
-    "link": "https://purlandpaperco.com/junk-journal-signature-calculator",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal signatures",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-crochet-magic-ring.jpg",
-    "title": "How to Crochet a Magic Ring: Easy Step-by-Step Magic Circle for Beginners",
-    "description": "Learn the crochet magic ring (magic circle) in 6 simple drawings: which strand to pull, how many stitches go in for sc, hdc and dc, why it won't close and how to stop it coming undone. A free helper writes your first rounds for you. #crochetforbeginners #magicring #magiccircle #amigurumi #crochettutorial",
-    "link": "https://purlandpaperco.com/how-to-crochet-magic-ring",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet magic ring",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-change-colors-in-crochet.jpg",
-    "title": "How to Change Colors in Crochet Without Cutting: Stripes Made Easy",
-    "description": "Change colours on the last yarn over for sc, hdc and dc, at the end of a row, mid-row and in rounds. Carry yarn up the side for stripes with no cutting: the free stripe planner tells you which colours to carry and which to cut, and how many ends you'll weave in. #crochetstripes #crochettips #crochetforbeginners #temperatureblanket #crochettutorial",
-    "link": "https://purlandpaperco.com/how-to-change-colors-in-crochet",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet colour changes",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-bind-off-knitting.jpg",
-    "title": "How to Bind Off Knitting: Basic and Stretchy Bind Offs for Beginners",
-    "description": "Bind off (cast off) knitting in 4 simple steps, bind off in rib, fix a tight edge and the loose last stitch, and pick the right stretchy bind off for sock cuffs, sleeves and necklines. The free chooser also tells you how much yarn to keep. #knittingforbeginners #knittingtips #bindoff #castoff #learntoknit",
-    "link": "https://purlandpaperco.com/how-to-bind-off-knitting",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting bind off",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-weave-in-ends.jpg",
-    "title": "How to Weave in Ends in Crochet and Knitting So They Never Come Out",
-    "description": "Fasten off and weave in ends the neat way: how long a tail to leave, weaving in crochet and knitting (duplicate stitch), the invisible fasten off, slippery and chunky yarn, and hiding ends in amigurumi. Free helper for your yarn and project. #crochettips #knittingtips #weaveinends #crochetforbeginners #amigurumi",
-    "link": "https://purlandpaperco.com/how-to-weave-in-ends",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Weaving in ends",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-cast-on-knitting.jpg",
-    "title": "How to Cast On Knitting: Long-Tail Cast On + How Long a Tail to Leave",
-    "description": "Learn the long-tail cast on step by step, see exactly how long a tail to leave for 20 to 200 stitches in any yarn weight, and pick the right cast on for scarves, hats, socks and firm edges. Free tail calculator. #knittingforbeginners #castonknitting #longtailcaston #knittingtips #learntoknit",
-    "link": "https://purlandpaperco.com/how-to-cast-on-knitting",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting cast on",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-crochet-decrease.jpg",
-    "title": "How to Decrease in Crochet: sc2tog + Invisible Decrease for Amigurumi",
-    "description": "The single crochet decrease (sc2tog) and the invisible decrease step by step, hdc2tog and dc2tog, fixing holes and bumps, and how to close an amigurumi ball. Free helper writes your decrease rounds. #crochetforbeginners #amigurumi #crochettips #invisibledecrease #sc2tog",
-    "link": "https://purlandpaperco.com/how-to-crochet-decrease",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet decrease",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch7/resin-art-business-spreadsheet-pin-b.jpg",
-    "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
-    "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Resin Art",
-    "link": "https://karamat4.gumroad.com/l/resin-business-spreadsheet",
-    "link_from": "batch7/listings.json:resin-art-business-spreadsheet:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-b.jpg",
-    "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
-    "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Sublimation",
-    "link": "https://karamat4.gumroad.com/l/tumbler-pricing-spreadsheet",
-    "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/batch7/lash-tech-business-spreadsheet-pin-b.jpg",
-    "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
-    "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Eyelash Extensions",
-    "link": "https://karamat4.gumroad.com/l/lash-tech-spreadsheet",
-    "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:gumroad_url",
-    "status": "skipped: Gumroad dropped (26 Nov)"
-  },
-  {
-    "image": "pins/site/how-to-fix-a-dropped-stitch.jpg",
-    "title": "How to Fix a Dropped Stitch in Knitting (Even Several Rows Down)",
-    "description": "Dropped a stitch? Catch it, then ladder it back up with a crochet hook. Step-by-step drawings for stockinette, garter and rib, purl stitches, twisted stitches, fixing it after binding off, and when to rip back. Free helper tells you how to pick up each rung. #knittingforbeginners #knittingtips #droppedstitch #learntoknit #knittinghelp",
-    "link": "https://purlandpaperco.com/how-to-fix-a-dropped-stitch",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Dropped stitch knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-price-a-crochet-blanket.jpg",
-    "title": "How to Price a Crochet Blanket: Free Blanket Price Calculator",
-    "description": "How much to charge for a crochet blanket: yarn, hours and a fair hourly rate for any size from baby to king, plus Etsy fees. See why materials x 3 underprices blankets, how long blankets take, and how to price custom orders. #crochetbusiness #sellingcrochet #crochetblanket #crochetpricing #etsyseller",
-    "link": "https://purlandpaperco.com/how-to-price-a-crochet-blanket",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet blanket pricing",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-knit-in-the-round.jpg",
-    "title": "How to Knit in the Round: Join Without Twisting + Circular Needle Length Chart",
-    "description": "How to knit in the round on circular needles: join without twisting in 4 steps, which circular needle length you need for hats (16 in), socks, cowls and sweaters, magic loop and DPNs, and how to fix a twisted join. Free needle length finder. #knittingtips #learntoknit #knittingintheround #circularknitting #knittingforbeginners",
-    "link": "https://purlandpaperco.com/how-to-knit-in-the-round",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knitting in the round",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-supply-checklist.jpg",
-    "title": "Junk Journal Supply Checklist for Beginners (Mostly Free) + Free Template",
-    "description": "Everything you need to start a junk journal: what's free at home, what to buy first, the best glue and paper, and how to bind the pages. Tick what you have, get a short shopping list, and print a free pocket and tag template. #junkjournal #junkjournaling #junkjournalsupplies #junkjournalideas #papercrafts",
-    "link": "https://purlandpaperco.com/junk-journal-supply-checklist",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal supplies",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-pick-up-stitches-knitting.jpg",
-    "title": "How to Pick Up Stitches in Knitting (3 for Every 4 Rows) + Free Calculator",
-    "description": "How to pick up stitches along a side edge, garter edge, cast on edge or neckline, with step drawings. The free calculator tells you how many stitches to pick up and how to space them (pick up 3, skip 1) with markers, so bands lie flat with no holes. #knitting #knittingtips #knittinghelp #learntoknit #knittingtutorial",
-    "link": "https://purlandpaperco.com/how-to-pick-up-stitches-knitting",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Pick up stitches knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-price-amigurumi.jpg",
-    "title": "How to Price Amigurumi: Crochet Toy Price Calculator (Free)",
-    "description": "How much to charge for amigurumi and crochet toys. The free calculator estimates the hours from size and parts, adds stuffing, eyes and Etsy fees, and gives a fair price, with a chart from keyring to large plush, custom order tips and toy safety notes. #amigurumi #crochetbusiness #sellingcrochet #crochettoys #crochetpricing",
-    "link": "https://purlandpaperco.com/how-to-price-amigurumi",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Pricing amigurumi",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/c2c-blanket-calculator.jpg",
-    "title": "C2C Blanket Calculator: How Many Tiles, Rows and Yarn (Free)",
-    "description": "Free corner to corner crochet blanket calculator: how many C2C tiles wide and tall for any size from baby blanket to king, when to start decreasing for a rectangle, total rows and how much yarn to buy, with a tile chart. #c2ccrochet #crochetblanket #cornertocorner #crochetpattern #crochettips",
-    "link": "https://purlandpaperco.com/c2c-blanket-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "C2C blanket calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/scarf-size-chart.jpg",
-    "title": "Scarf Size Chart: How Long and Wide Should a Scarf Be? + Yarn Calculator",
-    "description": "Scarf sizes for kids, teens, women and men, plus infinity scarves and cowls. The free calculator gives the stitches to cast on, the chains to start and how many yards and skeins to buy, fringe included. Great for handmade Christmas gifts. #knittingscarf #crochetscarf #scarfsize #knittingtips #handmadegifts",
-    "link": "https://purlandpaperco.com/scarf-size-chart",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Scarf size chart",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-b.jpg",
-    "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
-    "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Laser Cutting",
-    "link": "https://www.etsy.com/listing/4625446969",
-    "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:gumroad_url",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch8/nail-tech-business-spreadsheet-pin-b.jpg",
-    "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
-    "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
-    "board": "Small Business Spreadsheets",
-    "topic": "Nail Salon",
-    "link": "https://www.etsy.com/listing/4625445559",
-    "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:gumroad_url",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-b.jpg",
-    "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
-    "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
-    "board": "Small Business Spreadsheets",
-    "topic": "Stickers",
-    "link": "https://www.etsy.com/listing/4625456612",
-    "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:gumroad_url",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/crochet-time-estimator.jpg",
-    "title": "How Long Does It Take to Crochet a Blanket? Free Crochet & Knitting Time Calculator",
-    "description": "Find out how many hours your blanket, scarf or hat will take. Pick the size, yarn and stitch, time yourself for one minute, and get the stitch count, hours and your finish date, plus whether a handmade Christmas gift will be ready in time. #crochetblanket #knittingtips #crochettips #handmadegifts #crochetcalculator",
-    "link": "https://purlandpaperco.com/crochet-time-estimator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet time calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/stripe-generator.jpg",
-    "title": "Random Stripe Generator for Crochet & Knitting Blankets (Free Tool)",
-    "description": "Pick your yarn colours and rows, press shuffle and get a random stripe pattern for a crochet or knit blanket, scarf or hat. Fibonacci and even stripes too, with a printable row-by-row list and yarn per colour. #stripedblanket #crochetblanket #knittingpattern #scrapyarn #crochetideas",
-    "link": "https://purlandpaperco.com/stripe-generator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Stripe generator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/basic-crochet-stitches.jpg",
-    "title": "Basic Crochet Stitches for Beginners: Step by Step (US & UK Terms)",
-    "description": "Learn the 6 basic crochet stitches: chain, slip stitch, single, half double, double and treble crochet. Step through each one with drawings and a loops-on-hook counter, switch US/UK names, and see turning chains and stitch heights in one chart. #crochetforbeginners #learntocrochet #crochetstitches #crochettutorial #ukcrochet",
-    "link": "https://purlandpaperco.com/basic-crochet-stitches",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Basic crochet stitches",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/sweater-size-calculator.jpg",
-    "title": "What Size Sweater Should I Knit or Crochet? Free Ease & Yarn Calculator",
-    "description": "Enter your chest and the fit you like (close, classic, loose or oversized) to find which pattern size to make, the ease in every size, and roughly how much yarn and how many skeins a pullover takes in DK, worsted or bulky. #knitsweater #crochetsweater #knittingtips #sweaterknitting #yarncalculator",
-    "link": "https://purlandpaperco.com/sweater-size-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Sweater size calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/2027-calendar-printable.jpg",
-    "title": "Free 2027 Calendar Printable: Yearly + Monthly with US & UK Holidays",
-    "description": "Make your own free printable 2027 calendar: the whole year on one page, a month per page, or a monthly planner with a projects checklist. US federal or UK bank holidays, Sunday or Monday start, US Letter or A4, print or save as PDF. #2027calendar #printablecalendar #freeprintable #2027planner #monthlyplanner",
-    "link": "https://purlandpaperco.com/2027-calendar-printable",
-    "board": "Junk Journal Printables",
-    "topic": "2027 calendar printable",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-knit-and-purl.jpg",
-    "title": "How to Knit and Purl for Beginners: Step by Step + Free Pattern Maker",
-    "description": "Learn the knit stitch and the purl stitch in four simple drawn steps each, how to tell them apart, and use the free pattern maker to write out the rows for stockinette, garter, 1x1 and 2x2 rib, seed stitch and basketweave for any stitch count. #learntoknit #knittingforbeginners #knitstitch #purlstitch #knittingtips",
-    "link": "https://purlandpaperco.com/how-to-knit-and-purl",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to knit and purl",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/craft-fair-profit-calculator.jpg",
-    "title": "Craft Fair Profit Calculator: How Many Sales to Cover the Booth Fee?",
-    "description": "Free craft fair profit calculator for makers: add your booth fee, travel, card reader fees, materials and hours to see your profit per hour, break-even sales and whether you meet the 3x booth fee rule. #craftfair #craftfairtips #handmadebusiness #craftbusiness #marketstall",
-    "link": "https://purlandpaperco.com/craft-fair-profit-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Craft fair profit calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/embroidery-stitches.jpg",
-    "title": "12 Basic Embroidery Stitches for Beginners (Step Diagrams)",
-    "description": "Learn hand embroidery: running stitch, backstitch, stem, split, satin, chain, lazy daisy, French knot, blanket, fly, cross and seed stitch, each with a step diagram, strands to use and a chooser for lines, fills, flowers and edges. #embroideryforbeginners #embroiderystitches #handembroidery #stitchguide #embroidery",
-    "link": "https://purlandpaperco.com/embroidery-stitches",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Embroidery stitches for beginners",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/christmas-stocking-calculator.jpg",
-    "title": "Christmas Stocking Size Chart + Yarn Calculator (Knit & Crochet)",
-    "description": "How big is a Christmas stocking and how much yarn do you need? Free calculator: mini 7 in to extra long 26 in, yarn for knitting or crochet in DK, worsted or bulky, stitches to cast on, and whether a name fits on the cuff. #christmasstocking #knitstocking #crochetstocking #christmasknitting #handmadechristmas",
-    "link": "https://purlandpaperco.com/christmas-stocking-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Christmas stocking size and yarn calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-read-crochet-patterns.jpg",
-    "title": "How to Read Crochet Patterns for Beginners (Free Line Explainer)",
-    "description": "Stars, brackets, 'rep from * around' and the number in brackets at the end of a row, explained. Paste any crochet pattern line into the free explainer to see it step by step and check your stitch count. Plus crochet chart symbols. #crochetforbeginners #crochetpatterns #learntocrochet #crochettips #amigurumi",
-    "link": "https://purlandpaperco.com/how-to-read-crochet-patterns",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to read crochet patterns",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/knit-stitch-patterns.jpg",
-    "title": "15 Easy Knit Stitch Patterns for Beginners (Knit & Purl Only)",
-    "description": "Garter, seed, moss, rib, double seed, basketweave, mistake rib and more: every row written out, the stitch multiple to cast on, and whether it lies flat. Free tool gives the rows for your own width. #knittingforbeginners #knitstitches #seedstitch #learntoknit #knittingpatterns",
-    "link": "https://purlandpaperco.com/knit-stitch-patterns",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Knit stitch patterns",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/scrapbook-page-sizes.jpg",
-    "title": "Scrapbook Page Sizes + How Many Photos Fit on a 12x12 Page",
-    "description": "Every scrapbook page size in inches and cm (12x12, 8.5x11, A4, 8x8, 6x6), how many 4x6 photos fit, photo mat sizes, and a free layout calculator that draws the page for you. #scrapbooking #scrapbooklayouts #scrapbookideas #papercrafts #memorykeeping",
-    "link": "https://purlandpaperco.com/scrapbook-page-sizes",
-    "board": "Junk Journal Printables",
-    "topic": "Scrapbook page sizes",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/fat-quarter-calculator.jpg",
-    "title": "How Many Fat Quarters Do I Need? Free Fat Quarter Calculator",
-    "description": "A fat quarter is 18 x 22 in. See how many 5 in, 2.5 in or 10 in squares and strips you can cut from one, and how many fat quarters a baby, throw or queen quilt needs. Free calculator with a cutting layout. #quilting #fatquarters #quiltingforbeginners #patchwork #sewing",
-    "link": "https://purlandpaperco.com/fat-quarter-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Fat quarter calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/sewing-seam-allowance.jpg",
-    "title": "Seam Allowance Guide: 5/8, 1/2 or 1/4 Inch? + Calculator",
-    "description": "Standard seam allowance for dressmaking (5/8 in / 1.5 cm), indie patterns, home decor and quilting (1/4 in), an inch to cm chart, and a free calculator that adds seam allowance to any finished size. #sewingforbeginners #sewingtips #sewing #dressmaking #quilting",
-    "link": "https://purlandpaperco.com/sewing-seam-allowance",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Seam allowance",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/crochet-project-planner.jpg",
-    "title": "Free Printable Crochet Project Planner (Fill In and Print)",
-    "description": "Free crochet and knitting project planner: type in the pattern, yarn, hook, gauge and dates, then print a project page, a row tracker, a yarn shopping list or a 2027 make list. No sign-up. #crochetplanner #crochet #knitting #freeprintable #crochetprojects",
-    "link": "https://purlandpaperco.com/crochet-project-planner",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Crochet project planner",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-b.jpg",
-    "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
-    "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
-    "link": "https://www.etsy.com/listing/4626203317",
-    "board": "Small Business Spreadsheets",
-    "topic": "Small business",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-b.jpg",
-    "title": "Embroidery Pricing Calculator - Price by Stitch Count",
-    "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
-    "link": "https://www.etsy.com/listing/4626204819",
-    "board": "Small Business Spreadsheets",
-    "topic": "Machine embroidery",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-b.jpg",
-    "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
-    "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
-    "link": "https://www.etsy.com/listing/4626206151",
-    "board": "Planners & Trackers",
-    "topic": "Habit tracker",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/fabric-yardage-calculator.jpg",
-    "title": "How Much Fabric Do I Need? Free Fabric Yardage Calculator",
-    "description": "Enter your pieces and fabric width (44, 54, 60 or 108 in) and get the yards or metres to buy, with a to-scale cutting layout and extra for shrinkage. Examples for cushion covers, tote bags, pillowcases and napkins. #sewing #sewingforbeginners #sewingtips #fabric #diysewing",
-    "link": "https://purlandpaperco.com/fabric-yardage-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Fabric yardage calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/christmas-crafts-to-sell.jpg",
-    "title": "19 Christmas Crafts to Make and Sell (With Prices)",
-    "description": "Crochet ornaments, beanies, mini stockings, gift bags, scrunchies, candles and cards: each Christmas craft idea with material cost, making time and a fair price for your own hourly rate. #craftstosell #christmascrafts #craftfair #crochettosell #etsyseller",
-    "link": "https://purlandpaperco.com/christmas-crafts-to-sell",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Christmas crafts to sell",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-vs-scrapbook.jpg",
-    "title": "Junk Journal vs Scrapbook: What's the Difference? (Quiz)",
-    "description": "A scrapbook tells a photo story on acid-free album pages; a junk journal is a handmade book of found paper, layers and pockets. Compare them side by side and take the 5-question quiz to see which suits you. #junkjournal #scrapbooking #junkjournaling #papercrafts #journalideas",
-    "link": "https://purlandpaperco.com/junk-journal-vs-scrapbook",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal vs scrapbook",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/etsy-shipping-calculator.jpg",
-    "title": "Etsy Shipping Calculator: What to Charge for Shipping",
-    "description": "Etsy takes its 6.5% transaction fee and 3% processing fee on shipping too. Type your label and packaging cost to see the shipping price that covers them, what to add for free shipping, and a USPS package weight check. Free, no sign-up. #etsyseller #etsytips #smallbusiness #etsyshop #handmadebusiness",
-    "link": "https://purlandpaperco.com/etsy-shipping-calculator",
-    "board": "Small Business Spreadsheets",
-    "topic": "Etsy shipping calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-cross-stitch.jpg",
-    "title": "How to Cross Stitch for Beginners (Step by Step)",
-    "description": "Learn to cross stitch: 14-count Aida, 2 strands of floss, a size 24 tapestry needle. Start in the centre without a knot and make each X in five drawn steps, plus a needle and strand helper for every fabric count. #crossstitch #crossstitchforbeginners #embroidery #needlework #stitching",
-    "link": "https://purlandpaperco.com/how-to-cross-stitch",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to cross stitch",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-crochet-a-granny-square.jpg",
-    "title": "How to Crochet a Granny Square for Beginners",
-    "description": "The classic granny square round by round with clear diagrams: ch 4 ring, four 3-dc clusters, then (3 dc, ch 2, 3 dc) in every corner. Free pattern writer for any number of rounds in US or UK terms, with size and yarn. #grannysquare #crochetforbeginners #crochetpattern #learntocrochet #crochet",
-    "link": "https://purlandpaperco.com/how-to-crochet-a-granny-square",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to crochet a granny square",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-join-granny-squares.jpg",
-    "title": "How to Join Granny Squares: 5 Easy Ways",
-    "description": "Five ways to join granny squares with clear diagrams: whip stitch, mattress stitch, slip stitch, single crochet and join as you go. Free calculator for seams and joining yarn for any blanket size. #grannysquare #grannysquareblanket #crochetforbeginners #crochettips #crochet",
-    "link": "https://purlandpaperco.com/how-to-join-granny-squares",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to join granny squares",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-increase-knitting.jpg",
-    "title": "How to Increase in Knitting: KFB, M1L, M1R",
-    "description": "Six knitting increases explained with diagrams: knit front and back, make 1 left and right, yarn over, lifted and backward loop. Free picker tells you which increase to use for edges, raglans and ribbing. #knittingforbeginners #knittingtips #learntoknit #knitting #knittinghelp",
-    "link": "https://purlandpaperco.com/how-to-increase-knitting",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to increase in knitting",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-crochet-increase.jpg",
-    "title": "How to Increase in Crochet: sc inc + Invisible Increase",
-    "description": "How to increase in crochet for beginners: single crochet increase, taller stitches, the invisible increase and edge increases with diagrams. Free writer spaces your increases evenly in any round or row, US or UK terms. #crochetforbeginners #crochettips #learntocrochet #amigurumi #crochet",
-    "link": "https://purlandpaperco.com/how-to-crochet-increase",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to increase in crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-transfer-embroidery-pattern.jpg",
-    "title": "How to Transfer an Embroidery Pattern (Even Dark Fabric)",
-    "description": "5 easy ways to transfer an embroidery pattern to fabric: window tracing, water-soluble stabilizer, carbon paper, tissue paper and iron-on. Free picker tells you the best method for dark, thick or delicate fabric. #embroideryforbeginners #handembroidery #embroiderytips #stitching #embroidery",
-    "link": "https://purlandpaperco.com/how-to-transfer-embroidery-pattern",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to transfer an embroidery pattern",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-sew-a-button.jpg",
-    "title": "How to Sew On a Button by Hand (4 Easy Steps)",
-    "description": "How to sew on a button by hand in 4 steps, with a thread shank so it stays on: flat, shank and coat buttons. Free button spacing calculator for cardigans, shirts and knitted button bands. #sewingforbeginners #sewingtips #sewinghacks #learntosew #knittingtips",
-    "link": "https://purlandpaperco.com/how-to-sew-a-button",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to sew on a button",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-pockets.jpg",
-    "title": "6 Easy Junk Journal Pockets (Free Template)",
-    "description": "How to make junk journal pockets: glue-on flap pockets, fold-up page pockets, envelope pockets, corner pockets, belly bands and washi tape pockets. Free size helper with a template that prints at actual size for your page and tags. #junkjournal #junkjournalideas #junkjournaling #papercrafts #journalideas",
-    "link": "https://purlandpaperco.com/junk-journal-pockets",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal pockets",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/2027-goal-planner-printable.jpg",
-    "title": "Free 2027 Goal Planner Printable (Fill In, Then Print)",
-    "description": "Free 2027 goal planner printable: fill in up to 4 goals with first steps and quarterly milestones, a word of the year, habits and a monthly check-in page. US Letter or A4, print or save as PDF. #2027planner #goalsetting #newyeargoals #freeprintable #plannerprintables",
-    "link": "https://purlandpaperco.com/2027-goal-planner-printable",
-    "board": "Junk Journal Printables",
-    "topic": "2027 goal planner printable",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-block-knitting-crochet.jpg",
-    "title": "How to Block Knitting and Crochet (Wet, Steam, Spray)",
-    "description": "How to block knitting and crochet: wet blocking, steam blocking for acrylic, spray blocking for granny squares, and superwash wool tips. Free helper picks the method for your yarn and counts blocking mats and pins. #knittingtips #crochettips #blocking #knittingforbeginners #crochetforbeginners",
-    "link": "https://purlandpaperco.com/how-to-block-knitting-crochet",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to block knitting and crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/macrame-knots.jpg",
-    "title": "Macrame Knots for Beginners: 10 Basic Knots Step by Step",
-    "description": "Learn the 10 basic macrame knots step by step: lark's head, square knot, half knot spiral, double half hitch, gathering knot and more, each drawn out. Free project finder lists the knots, cord size and cut lengths for plant hangers, wall hangings and keychains. #macrame #macrameknots #macrameforbeginners #diyplanthanger #fibercraft",
-    "link": "https://purlandpaperco.com/macrame-knots",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Macrame knots for beginners",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/junk-journal-page-ideas.jpg",
-    "title": "42 Junk Journal Page Ideas + Free Spread Generator",
-    "description": "42 junk journal page ideas by theme: memories, winter and Christmas, nature, vintage collage, writing prompts, interactive pages and free pages from what's at home. Six spread layouts drawn out and a free generator that picks your background, focal piece, pocket and prompt. #junkjournal #junkjournalideas #junkjournaling #journalinspiration #ephemera",
-    "link": "https://purlandpaperco.com/junk-journal-page-ideas",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal page ideas",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-slip-stitch-crochet.jpg",
-    "title": "How to Slip Stitch in Crochet (+ Join a Round)",
-    "description": "How to slip stitch in crochet in three drawn steps, where the join goes when the chain counts (or doesn't), joined rounds vs spiral, and the invisible join. Free round writer in US or UK terms. #crochetforbeginners #crochettips #learntocrochet #crochetstitches #slipstitch",
-    "link": "https://purlandpaperco.com/how-to-slip-stitch-crochet",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to slip stitch in crochet",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/embroidery-hoop-size-calculator.jpg",
-    "title": "What Size Embroidery Hoop Do I Need? Free Hoop Size Calculator",
-    "description": "Enter your embroidery design size and get the hoop to buy (corners checked for square designs), the fabric to cut, and a hoop size chart from 3 to 12 in. Free and printable. #embroidery #handembroidery #embroideryforbeginners #embroideryhoop #stitching",
-    "link": "https://purlandpaperco.com/embroidery-hoop-size-calculator",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Embroidery hoop size calculator",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-punch-needle.jpg",
-    "title": "How to Punch Needle for Beginners: 7 Easy Steps",
-    "description": "How to punch needle in seven drawn steps: stretch monk's cloth, draw on the back, punch to the handle, outline then fill. Plus a needle, yarn and fabric matcher and fixes for loops that pull out. #punchneedle #punchneedleforbeginners #rugmaking #fibreart #diycrafts",
-    "link": "https://purlandpaperco.com/how-to-punch-needle",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to punch needle",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-knit-a-scarf.jpg",
-    "title": "How to Knit a Scarf for Beginners (Free Pattern Writer)",
-    "description": "Knit your first scarf: yarn and needles, how many stitches to cast on, garter, seed or rib, and a free pattern writer for your yarn and size. Perfect handmade Christmas gift. #knittingforbeginners #knitscarf #learntoknit #handmadegifts #knitting",
-    "link": "https://purlandpaperco.com/how-to-knit-a-scarf",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to knit a scarf",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/how-to-crochet-a-scarf.jpg",
-    "title": "How to Crochet a Scarf for Beginners (Free Pattern Writer)",
-    "description": "Crochet your first scarf: yarn and hook, how many chains to start, single, half double, double or moss stitch, and a free pattern writer in US or UK terms. Perfect handmade Christmas gift. #crochetforbeginners #crochetscarf #learntocrochet #handmadegifts #crochet",
-    "link": "https://purlandpaperco.com/how-to-crochet-a-scarf",
-    "board": "Crochet & Knitting Planners",
-    "topic": "How to crochet a scarf",
-    "status": "queued"
-  },
-  {
-    "image": "pins/site/hand-sewing-stitches.jpg",
-    "title": "8 Basic Hand Sewing Stitches for Beginners",
-    "description": "Running stitch, backstitch, whip, ladder (invisible) stitch, blind hem, basting, blanket and catch stitch, drawn step by step, plus a chooser that picks the stitch, needle and thread for your job. #handsewing #sewingforbeginners #sewinghacks #mending #sewing",
-    "link": "https://purlandpaperco.com/hand-sewing-stitches",
-    "board": "Crochet & Knitting Planners",
-    "topic": "Hand sewing stitches",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/jewelry-business-spreadsheet-pin-b.jpg",
-    "title": "Jewelry Pricing Calculator Spreadsheet for Handmade Jewelry Makers",
-    "description": "Price every necklace, ring and pair of earrings from metal weight, findings and your time: classic jewelry formula, cost x multiplier and a margin price after Etsy fees side by side. Custom order tracker, inventory, sales dashboard. Excel + Google Sheets. #jewelrybusiness #handmadejewelry #pricingcalculator #silversmith #smallbusiness",
-    "link": "https://www.etsy.com/listing/4626872711",
-    "board": "Small Business Spreadsheets",
-    "topic": "Jewelry making",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/debt-payoff-planner-spreadsheet-pin-b.jpg",
-    "title": "Debt Payoff Planner Spreadsheet: Snowball or Avalanche + Colour-In Tracker",
-    "description": "See the month you'll be debt-free, the interest you save vs minimum payments, and colour in a 100-square chart as you pay. Up to 12 debts, savings goals too. Excel + Google Sheets. #debtfree #debtsnowball #budgeting #moneygoals #2027goals",
-    "link": "https://www.etsy.com/listing/4626884176",
-    "board": "Planners & Trackers",
-    "topic": "Debt free",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/wedding-budget-planner-spreadsheet-pin-b.jpg",
-    "title": "Wedding Budget Planner Spreadsheet with Guest List, RSVPs and Checklist",
-    "description": "Budget by category with guide %, vendor quotes and deposits, a payment schedule with due dates, guest list with RSVPs, meals and tables, and a 60-task checklist dated from your wedding day. Excel + Google Sheets. #weddingbudget #weddingplanning #engaged #bridetobe #weddingchecklist",
-    "link": "https://www.etsy.com/listing/4626885492",
-    "board": "Planners & Trackers",
-    "topic": "Wedding planning",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/winter-cottage-junk-journal-kit-pin-b.jpg",
-    "title": "Winter Cottage Junk Journal Kit: Printable Snowy Cottage + Nordic Knit Papers",
-    "description": "17 pages of original winter ephemera: a snowy cottage at dusk, winter greenery, cocoa recipe cards, Nordic knit and plaid papers, tags, tickets, stamps and journaling cards. US Letter + A4. #junkjournal #junkjournalkit #winterjournal #hygge #printableephemera",
-    "link": "https://www.etsy.com/listing/4626887026",
-    "board": "Junk Journal Printables",
-    "topic": "Junk journal",
-    "status": "queued"
-  },
-  {
-    "image": "pins/batch10/2027-printable-calendar-pin-b.jpg",
-    "title": "2027 Printable Calendar with Seasonal Patterns, Sunday + Monday Start",
-    "description": "12 monthly pages, each with its own hand-drawn seasonal pattern (snowflakes, tulips, lemons, sunflowers, pumpkins, holly...), plus a 2027 year at a glance. US Letter + A4. #2027calendar #printablecalendar #wallcalendar #2027planner #newyear",
-    "link": "https://www.etsy.com/listing/4626878631",
-    "board": "Planners & Trackers",
-    "topic": "Calendar",
-    "status": "queued"
-  }
+ {
+  "image": "pins/batch4/candle-business-spreadsheet-pin-a.jpg",
+  "title": "Candle Business Spreadsheet | Candle Cost & Pricing Calculator for Excel & Google Sheets",
+  "description": "Know the true cost of every candle: wax, fragrance load, wick, jar and labels. Get wholesale and retail prices, a pour planner with exact wax and fragrance weights, stock alerts and a sales dashboard. #candlebusiness #candlemaking #candlepricing #smallbusiness #soycandles",
+  "link": "https://www.etsy.com/listing/4622481559/candle-business-spreadsheet-candle-cost",
+  "link_from": "batch4/listings.json:candle-business-spreadsheet:etsy_url",
+  "board": "Small Business Spreadsheets",
+  "topic": "Candle Making",
+  "status": "scheduled 2026-11-22 12:00 PM"
+ },
+ {
+  "image": "pins/batch4/nordic-folk-christmas-clipart-pin-a.jpg",
+  "title": "Nordic Folk Christmas Clipart | 45 PNG & SVG Elements + Seamless Patterns",
+  "description": "Cosy Scandinavian folk Christmas clipart: gnomes, woven hearts, straw stars, toadstools, folk birds, baubles and more. Transparent PNG, SVG and 6 seamless patterns, small business commercial use. #christmasclipart #nordicchristmas #scandinavianchristmas #gnomes #svgfiles",
+  "link": "https://www.etsy.com/listing/4622493176/nordic-christmas-clipart-png-svg-bundle",
+  "link_from": "batch4/listings.json:nordic-folk-christmas-clipart:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "Christmas",
+  "status": "scheduled 2026-11-22 3:00 PM"
+ },
+ {
+  "image": "pins/batch4/december-days-journal-kit-pin-a.jpg",
+  "title": "December Daily Journal Kit | 25 Printable Prompt Cards, Papers & Ephemera",
+  "description": "Capture every day of December: 25 numbered prompt cards, number circles, journaling cards, patterned papers, tickets and tags in a cosy Nordic folk style. Print at home. #decemberdaily #junkjournal #christmasjournal #memorykeeping #journalingcards",
+  "link": "https://www.etsy.com/listing/4622484083/december-daily-journal-kit-printable-25",
+  "link_from": "batch4/listings.json:december-days-journal-kit:etsy_url",
+  "board": "Junk Journal Printables",
+  "topic": "Journaling",
+  "status": "scheduled 2026-11-22 6:00 PM"
+ },
+ {
+  "image": "pins/batch1/home-baker-cost-pricing-calculator-pin-a.jpg",
+  "title": "Baking Cost Calculator | Home Bakery Pricing Spreadsheet",
+  "description": "Work out what every bake really costs and what to charge. Ingredient costs, recipe costing and pricing for home bakers. Excel and Google Sheets. #homebakery #bakingbusiness #cakepricing #smallbusiness",
+  "link": "https://www.etsy.com/listing/4620604733/baking-cost-calculator-bakery-pricing",
+  "board": "Small Business Spreadsheets",
+  "topic": "Baking",
+  "status": "published 19 Nov"
+ },
+ {
+  "image": "pins/batch1/night-garden-junk-journal-kit-pin-a.jpg",
+  "title": "Night Garden Junk Journal Kit Printable | Celestial Moon Phases",
+  "description": "A dark, dreamy printable junk journal kit: moon phases, moths, midnight florals and celestial ephemera. Instant download to print at home. #junkjournal #celestial #moonphases #darkacademia #printables",
+  "link": "https://www.etsy.com/listing/4620614320/night-garden-junk-journal-kit-printable",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "scheduled 20 Nov 12:00"
+ },
+ {
+  "image": "pins/batch1/crochet-knitting-pricing-calculator-pin-a.jpg",
+  "title": "Crochet Pricing Calculator | How to Price Handmade Items",
+  "description": "Stop guessing what to charge. This crochet and knitting pricing calculator works out yarn cost, your time and profit for every item. Excel and Google Sheets. #crochetbusiness #pricinghandmade #crochet #smallbusiness",
+  "link": "https://www.etsy.com/listing/4620610040/crochet-pricing-calculator-knitting",
+  "board": "Small Business Spreadsheets",
+  "topic": "Crochet",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/batch1/yarn-stash-tracker-pin-a.jpg",
+  "title": "Yarn Stash Tracker Spreadsheet | Yarn Inventory for Knitters & Crocheters",
+  "description": "Track your yarn stash in Excel or Google Sheets: weight, fibre, colour, yardage and what you planned it for. Instant download. #yarnstash #yarnaddict #crochet #knitting #yarninventory",
+  "link": "https://www.etsy.com/listing/4620611752/yarn-stash-tracker-spreadsheet-yarn",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/batch1/vintage-ephemera-pack-pin-a.jpg",
+  "title": "Vintage Ephemera Printable Pack | Junk Journal Tickets & Tags",
+  "description": "A printable pack of vintage-style ephemera: tickets, tags, labels and postage pieces for junk journals, scrapbooks and collage. Instant download. #ephemera #junkjournal #vintageephemera #collage #scrapbooking",
+  "link": "https://www.etsy.com/listing/4620615058/vintage-ephemera-printable-pack-junk",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/batch1/cleaning-business-quote-client-tracker-pin-a.jpg",
+  "title": "Cleaning Business Spreadsheet | House Cleaning Price Calculator",
+  "description": "Quote cleaning jobs in seconds and keep regular clients organised: quote calculator, client list, weekly schedule and dashboard. Excel and Google Sheets. #cleaningbusiness #housecleaning #smallbusiness #cleaningtips",
+  "link": "https://www.etsy.com/listing/4620608954/cleaning-business-spreadsheet-house",
+  "board": "Small Business Spreadsheets",
+  "topic": "Cleaning",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/site/blanket-size-calculator.jpg",
+  "title": "Crochet Blanket Size Chart + Free Yarn Calculator (Baby to King)",
+  "description": "Free blanket size chart for crochet and knitting: lovey, baby, crib, throw, twin, queen and king sizes in inches and cm. Pick your yarn weight to see how many yards and skeins to buy. #crochetblanket #blanketsizes #knittingblanket #crochettips",
+  "link": "https://purlandpaperco.com/blanket-size-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "published 20 Nov"
+ },
+ {
+  "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-a.jpg",
+  "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
+  "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
+  "link": "https://www.etsy.com/listing/4623371099/2027-reading-tracker-spreadsheet-book",
+  "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:etsy_url",
+  "board": "Planners & Trackers",
+  "topic": "Reading",
+  "status": "published 2026-11-23"
+ },
+ {
+  "image": "pins/batch5/new-years-eve-party-games-pin-a.jpg",
+  "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
+  "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
+  "link": "https://www.etsy.com/listing/4623381612/new-years-eve-party-games-printable-nye",
+  "link_from": "batch5/listings.json:new-years-eve-party-games:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "New Year's Eve",
+  "status": "published 2026-11-23"
+ },
+ {
+  "image": "pins/batch5/kids-routine-chore-chart-pack-pin-a.jpg",
+  "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
+  "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
+  "link": "https://www.etsy.com/listing/4623374247/kids-chore-chart-printable-morning",
+  "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:etsy_url",
+  "board": "Planners & Trackers",
+  "topic": "Parenting",
+  "status": "published 2026-11-23"
+ },
+ {
+  "image": "pins/batch6/soap-making-business-spreadsheet-pin-a.jpg",
+  "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
+  "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Soap Making",
+  "link": "https://www.etsy.com/listing/4623878110",
+  "link_from": "batch6/listings.json:soap-making-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-24 10:30 AM"
+ },
+ {
+  "image": "pins/batch6/family-advent-activity-calendar-pin-a.jpg",
+  "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
+  "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
+  "board": "Christmas Printables",
+  "topic": "Advent",
+  "link": "https://www.etsy.com/listing/4623873061",
+  "link_from": "batch6/listings.json:family-advent-activity-calendar:etsy_url",
+  "status": "scheduled 2026-11-24 2:30 PM"
+ },
+ {
+  "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-a.jpg",
+  "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
+  "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
+  "board": "Printable Wall Art",
+  "topic": "Wall Art",
+  "link": "https://www.etsy.com/listing/4623882770",
+  "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:etsy_url",
+  "status": "scheduled 2026-11-24 8:00 PM"
+ },
+ {
+  "image": "pins/batch7/resin-art-business-spreadsheet-pin-a.jpg",
+  "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
+  "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Resin Art",
+  "link": "https://www.etsy.com/listing/4624644331",
+  "link_from": "batch7/listings.json:resin-art-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-25 12:00 PM"
+ },
+ {
+  "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-a.jpg",
+  "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
+  "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Sublimation",
+  "link": "https://www.etsy.com/listing/4624645405",
+  "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-25 5:00 PM"
+ },
+ {
+  "image": "pins/batch7/lash-tech-business-spreadsheet-pin-a.jpg",
+  "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
+  "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Eyelash Extensions",
+  "link": "https://www.etsy.com/listing/4624651798",
+  "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-25 8:30 PM"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-planner-budget-pin-a.jpg",
+  "title": "Christmas Gift Planner Spreadsheet | Christmas Budget Tracker",
+  "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
+  "link": "https://www.etsy.com/listing/4621713425/christmas-gift-planner-spreadsheet",
+  "board": "Small Business Spreadsheets",
+  "topic": "Christmas",
+  "status": "scheduled 2026-11-25 10:30 AM"
+ },
+ {
+  "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-a.jpg",
+  "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
+  "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Laser Cutting",
+  "link": "https://www.etsy.com/listing/4625446969",
+  "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-27 10:30 AM"
+ },
+ {
+  "image": "pins/batch8/nail-tech-business-spreadsheet-pin-a.jpg",
+  "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
+  "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Nail Salon",
+  "link": "https://www.etsy.com/listing/4625445559",
+  "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-27 5:30 PM"
+ },
+ {
+  "image": "pins/batch10/jewelry-business-spreadsheet-pin-a.jpg",
+  "title": "Jewelry Pricing Calculator Spreadsheet for Handmade Jewelry Makers",
+  "description": "Price every necklace, ring and pair of earrings from metal weight, findings and your time: classic jewelry formula, cost x multiplier and a margin price after Etsy fees side by side. Custom order tracker, inventory, sales dashboard. Excel + Google Sheets. #jewelrybusiness #handmadejewelry #pricingcalculator #silversmith #smallbusiness",
+  "link": "https://www.etsy.com/listing/4626872711",
+  "board": "Small Business Spreadsheets",
+  "topic": "Jewelry making",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/debt-payoff-planner-spreadsheet-pin-a.jpg",
+  "title": "Debt Payoff Planner Spreadsheet: Snowball or Avalanche + Colour-In Tracker",
+  "description": "See the month you'll be debt-free, the interest you save vs minimum payments, and colour in a 100-square chart as you pay. Up to 12 debts, savings goals too. Excel + Google Sheets. #debtfree #debtsnowball #budgeting #moneygoals #2027goals",
+  "link": "https://www.etsy.com/listing/4626884176",
+  "board": "Planners & Trackers",
+  "topic": "Debt free",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/wedding-budget-planner-spreadsheet-pin-a.jpg",
+  "title": "Wedding Budget Planner Spreadsheet with Guest List, RSVPs and Checklist",
+  "description": "Budget by category with guide %, vendor quotes and deposits, a payment schedule with due dates, guest list with RSVPs, meals and tables, and a 60-task checklist dated from your wedding day. Excel + Google Sheets. #weddingbudget #weddingplanning #engaged #bridetobe #weddingchecklist",
+  "link": "https://www.etsy.com/listing/4626885492",
+  "board": "Planners & Trackers",
+  "topic": "Wedding planning",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/winter-cottage-junk-journal-kit-pin-a.jpg",
+  "title": "Winter Cottage Junk Journal Kit: Printable Snowy Cottage + Nordic Knit Papers",
+  "description": "17 pages of original winter ephemera: a snowy cottage at dusk, winter greenery, cocoa recipe cards, Nordic knit and plaid papers, tags, tickets, stamps and journaling cards. US Letter + A4. #junkjournal #junkjournalkit #winterjournal #hygge #printableephemera",
+  "link": "https://www.etsy.com/listing/4626887026",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/2027-printable-calendar-pin-a.jpg",
+  "title": "2027 Printable Calendar with Seasonal Patterns, Sunday + Monday Start",
+  "description": "12 monthly pages, each with its own hand-drawn seasonal pattern (snowflakes, tulips, lemons, sunflowers, pumpkins, holly...), plus a 2027 year at a glance. US Letter + A4. #2027calendar #printablecalendar #wallcalendar #2027planner #newyear",
+  "link": "https://www.etsy.com/listing/4626878631",
+  "board": "Planners & Trackers",
+  "topic": "Calendar",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-a.jpg",
+  "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
+  "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
+  "board": "Small Business Spreadsheets",
+  "topic": "Stickers",
+  "link": "https://www.etsy.com/listing/4625456612",
+  "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:etsy_url",
+  "status": "scheduled 2026-11-28 10:30 AM"
+ },
+ {
+  "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-a.jpg",
+  "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
+  "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
+  "link": "https://www.etsy.com/listing/4626203317",
+  "board": "Small Business Spreadsheets",
+  "topic": "Small business",
+  "status": "scheduled 2026-11-27 12:00 PM"
+ },
+ {
+  "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-a.jpg",
+  "title": "Embroidery Pricing Calculator: Price by Stitch Count",
+  "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
+  "link": "https://www.etsy.com/listing/4626204819",
+  "board": "Small Business Spreadsheets",
+  "topic": "Machine embroidery",
+  "status": "scheduled 2026-11-27 3:00 PM"
+ },
+ {
+  "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-a.jpg",
+  "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
+  "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
+  "link": "https://www.etsy.com/listing/4626206151",
+  "board": "Planners & Trackers",
+  "topic": "Habit tracker",
+  "status": "scheduled 2026-11-27 8:00 PM"
+ },
+ {
+  "image": "pins/batch2/2027-monthly-budget-planner-pin-a.jpg",
+  "title": "2027 Budget Planner Spreadsheet | Monthly Budget Template",
+  "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
+  "link": "https://www.etsy.com/listing/4621714773/2027-budget-planner-spreadsheet-monthly",
+  "board": "Small Business Spreadsheets",
+  "topic": "Budgeting",
+  "status": "scheduled 2026-11-28 3:00 PM"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-tags-pin-a.jpg",
+  "title": "Printable Christmas Gift Tags | 48 Tags + Round Labels",
+  "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
+  "link": "https://www.etsy.com/listing/4621715645/printable-christmas-gift-tags-holiday",
+  "board": "Christmas Printables",
+  "topic": "Christmas",
+  "status": "scheduled 2026-11-28 12:30 PM"
+ },
+ {
+  "image": "pins/batch1/journaling-cards-3x4-pin-a.jpg",
+  "title": "Printable Journaling Cards 3x4 | Pocket Cards for Junk Journals",
+  "description": "24 printable journaling cards sized 3x4 inches for pocket pages, junk journals and project life albums. Instant download. #journalingcards #projectlife #pocketletters #junkjournal #printables",
+  "link": "https://www.etsy.com/listing/4620615728/printable-journaling-cards-3x4-pocket",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "scheduled 2026-11-28 8:00 PM"
+ },
+ {
+  "image": "pins/batch1/tea-room-junk-journal-kit-pin-a.jpg",
+  "title": "Tea Room Junk Journal Kit Printable | Vintage Tea Stained Paper",
+  "description": "A printable junk journal kit with a cosy tea room theme: tea-stained papers, vintage recipe cards, labels and ephemera. Instant download, print at home as often as you like. #junkjournal #junkjournalkit #printables #vintageephemera #teatime",
+  "link": "https://www.etsy.com/listing/4620607287/tea-room-junk-journal-kit-printable",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch1/2027-crochet-knitting-planner-pin-a.jpg",
+  "title": "2027 Crochet Planner Printable | Knitting Project Planner",
+  "description": "Plan a year of making: a printable 2027 crochet and knitting planner with project pages, pattern notes, yarn stash log and gift planning. Instant download. #crochetplanner #knittingplanner #crochet #knitting #2027planner",
+  "link": "https://www.etsy.com/listing/4620606347/2027-crochet-planner-printable-knitting",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch1/junk-journal-mega-bundle-pin-a.jpg",
+  "title": "Junk Journal Mega Bundle Printable | Tea Room & Night Garden Kits",
+  "description": "Everything in one printable bundle: the Tea Room and Night Garden junk journal kits, a vintage ephemera pack and 24 journaling cards. Instant download. #junkjournal #junkjournalkit #printablebundle #scrapbooking",
+  "link": "https://www.etsy.com/listing/4620610591/junk-journal-mega-bundle-printable-tea",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch3/christmas-party-games-bundle-pin-a.jpg",
+  "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
+  "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
+  "link": "https://www.etsy.com/listing/4621829841/christmas-party-games-bundle-printable",
+  "link_from": "batch3/listings.json:christmas-party-games-bundle:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "Christmas",
+  "status": "scheduled 2026-11-21 12:00"
+ },
+ {
+  "image": "pins/batch3/kids-christmas-activity-pack-pin-a.jpg",
+  "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
+  "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
+  "link": "https://www.etsy.com/listing/4621831051/kids-christmas-activity-pack-printable",
+  "link_from": "batch3/listings.json:kids-christmas-activity-pack:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "Christmas",
+  "status": "scheduled 2026-11-21 14:00"
+ },
+ {
+  "image": "pins/batch3/winter-woodland-wall-art-set-pin-a.jpg",
+  "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
+  "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
+  "link": "https://www.etsy.com/listing/4621832807/winter-wall-art-set-of-3-printable",
+  "link_from": "batch3/listings.json:winter-woodland-wall-art-set:etsy_url",
+  "board": "Christmas Printables",
+  "topic": "Home Decor",
+  "status": "scheduled 2026-11-21 17:00"
+ },
+ {
+  "image": "pins/batch1/home-baker-cost-pricing-calculator-pin-b.jpg",
+  "title": "How to Price Cakes | Recipe Cost Calculator Spreadsheet",
+  "description": "A recipe cost calculator for home bakers: enter ingredient prices once and see the cost and suggested price of every recipe. Instant download. #cakebusiness #bakerytips #recipecosting",
+  "link": "https://karamat4.gumroad.com/l/baking-cost-calculator",
+  "board": "Small Business Spreadsheets",
+  "topic": "Baking",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/night-garden-junk-journal-kit-pin-b.jpg",
+  "title": "Celestial Junk Journal Pages | Moon Phases & Moths Printable",
+  "description": "Celestial junk journal papers with moon phases, moths and night flowers. Print at home for journals, scrapbooks and witchy grimoires. Instant download. #junkjournal #celestialart #grimoire #journalsupplies",
+  "link": "https://karamat4.gumroad.com/l/night-garden-junk-journal-kit",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/crochet-knitting-pricing-calculator-pin-b.jpg",
+  "title": "Knitting Price Calculator Spreadsheet | Handmade Pricing Template",
+  "description": "A handmade pricing spreadsheet for crochet and knitting sellers: materials, hours, fees and profit margin give a fair price. Instant download. #handmadebusiness #craftfair #knittingbusiness",
+  "link": "https://karamat4.gumroad.com/l/crochet-pricing-calculator",
+  "board": "Small Business Spreadsheets",
+  "topic": "Crochet",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/yarn-stash-tracker-pin-b.jpg",
+  "title": "Yarn Inventory Spreadsheet | Organise Your Yarn Stash",
+  "description": "A yarn inventory spreadsheet for knitters and crocheters. Search your stash by weight, colour and yardage before you buy more. Excel and Google Sheets. #yarnstorage #yarnorganization #crochetlife",
+  "link": "https://karamat4.gumroad.com/l/yarn-stash-tracker",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/vintage-ephemera-pack-pin-b.jpg",
+  "title": "Printable Tickets, Tags & Labels | Junk Journal Ephemera",
+  "description": "Junk journal ephemera you can print at home again and again: vintage tickets, gift tags, labels and stamps. Original designs, instant download. #junkjournalideas #ephemerapack #printables #craftsupplies",
+  "link": "https://karamat4.gumroad.com/l/vintage-ephemera-pack",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/cleaning-business-quote-client-tracker-pin-b.jpg",
+  "title": "How to Price House Cleaning Jobs | Cleaning Quote Template",
+  "description": "A house cleaning quote template that uses your own hourly rate, supplies and travel to price every job. Includes client tracker and schedule. #cleaningbusinesstips #maidservice #businessplanner",
+  "link": "https://karamat4.gumroad.com/l/cleaning-business-tracker",
+  "board": "Small Business Spreadsheets",
+  "topic": "Cleaning",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/journaling-cards-3x4-pin-b.jpg",
+  "title": "24 Journaling Cards Printable | 3x4 Pocket Cards",
+  "description": "Print-at-home 3x4 journaling cards for pocket scrapbooking, junk journals and planners. Original designs, instant download. #pocketscrapbooking #journalcards #scrapbookideas",
+  "link": "https://karamat4.gumroad.com/l/journaling-cards",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/tea-room-junk-journal-kit-pin-b.jpg",
+  "title": "Tea Party Junk Journal Pages Printable | Vintage Recipe Cards",
+  "description": "Tea party themed junk journal pages to print at home. Vintage-style papers, recipe cards, tags and labels for journals, scrapbooks and card making. Digital download, original designs. #junkjournal #scrapbooking #printablepaper #journalideas",
+  "link": "https://karamat4.gumroad.com/l/tea-room-junk-journal-kit",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/2027-crochet-knitting-planner-pin-b.jpg",
+  "title": "Crochet Project Tracker Printable | 2027 Knitting Planner Pages",
+  "description": "Printable crochet and knitting project tracker pages for 2027: row counters, pattern notes, yarn logs and a year at a glance. Instant download. #crochetprojects #knittingprojects #plannerprintables",
+  "link": "https://karamat4.gumroad.com/l/2027-crochet-knitting-planner",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch1/junk-journal-mega-bundle-pin-b.jpg",
+  "title": "Junk Journal Starter Bundle | Printable Papers, Ephemera & Cards",
+  "description": "A printable junk journal starter bundle: two themed kits, ephemera and journaling cards. Great for beginners. Instant download. #junkjournalforbeginners #junkjournal #craftsupplies",
+  "link": "https://karamat4.gumroad.com/l/junk-journal-mega-bundle",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-planner-budget-pin-b.jpg",
+  "title": "Christmas Gift Planner Spreadsheet | Instant Download",
+  "description": "Plan every gift and stay on budget this Christmas: gift list, budget split, spending log, dashboard with countdown and a card list. Excel and Google Sheets. #christmasplanner #giftlist #christmasbudget #holidayplanning",
+  "link": "https://karamat4.gumroad.com/l/christmas-gift-planner",
+  "board": "Small Business Spreadsheets",
+  "topic": "Christmas",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch2/2027-monthly-budget-planner-pin-b.jpg",
+  "title": "2027 Budget Planner Spreadsheet | Instant Download",
+  "description": "Start 2027 with a simple budget: monthly view, expense tracker, year overview and savings goals. Excel and Google Sheets. #budgetplanner #2027planner #budgeting #savingmoney #personalfinance",
+  "link": "https://karamat4.gumroad.com/l/2027-budget-planner",
+  "board": "Small Business Spreadsheets",
+  "topic": "Budgeting",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch2/christmas-gift-tags-pin-b.jpg",
+  "title": "Printable Christmas Gift Tags | Instant Download",
+  "description": "48 original printable Christmas gift tags in 6 colourways, plus 12 round labels and 16 To/From labels. Print at home on cardstock. #christmasgifttags #printablegifttags #giftwrapping #christmasprintables",
+  "link": "https://karamat4.gumroad.com/l/christmas-gift-tags",
+  "board": "Junk Journal Printables",
+  "topic": "Christmas",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch3/christmas-party-games-bundle-pin-b.jpg",
+  "title": "Christmas Party Games Bundle | Printable Bingo, Trivia & Family Games",
+  "description": "8 printable Christmas party games: 30 bingo cards, trivia with answers, would you rather, most likely to, word scramble, scavenger hunt and a gift swap dice game. Print and play tonight. #christmasgames #christmasbingo #partygames #familygamenight #christmasparty",
+  "link": "https://karamat4.gumroad.com/l/christmas-party-games",
+  "link_from": "batch3/listings.json:christmas-party-games-bundle:gumroad_url (planned slug christmas-party-games)",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch3/kids-christmas-activity-pack-pin-b.jpg",
+  "title": "Kids Christmas Activity Pack | Printable Coloring Pages, Mazes & Word Search",
+  "description": "24 pages of screen-free Christmas fun for ages 4 to 9: original colouring pages, word searches, mazes, letter to Santa, countdown and a Nice List certificate. #kidschristmas #christmascoloring #kidsactivities #lettertosanta #printablesforkids",
+  "link": "https://karamat4.gumroad.com/l/kids-christmas-activity-pack",
+  "link_from": "batch3/listings.json:kids-christmas-activity-pack:gumroad_url (planned slug kids-christmas-activity-pack)",
+  "board": "Christmas Printables (create board)",
+  "topic": "Christmas",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch3/winter-woodland-wall-art-set-pin-b.jpg",
+  "title": "Winter Wall Art Set of 3 | Printable Mid Century Woodland Prints",
+  "description": "Moonlit pines, winter mountains and winter berries: three original printable prints in 6 ratios, up to 24x36. Cosy winter decor that lasts past Christmas. #winterdecor #printablewallart #gallerywall #midcenturyart #christmasdecor",
+  "link": "https://karamat4.gumroad.com/l/winter-woodland-wall-art",
+  "link_from": "batch3/listings.json:winter-woodland-wall-art-set:gumroad_url (planned slug winter-woodland-wall-art)",
+  "board": "Printable Wall Art (create board; until then Christmas Printables)",
+  "topic": "Home Decor",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/site/crochet-knitting-gift-planner.jpg",
+  "title": "Christmas Crochet & Knitting Gift Planner: Will Your Handmade Gifts Be Ready?",
+  "description": "Free handmade gift planner: add the hats, scarves and blankets you're making, your crafting hours a week, and see what will be finished by Christmas. Plus how long it takes to knit or crochet each gift. #christmascrochet #handmadegifts #knittinggifts #crochetgifts",
+  "link": "https://purlandpaperco.com/crochet-knitting-gift-planner",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "scheduled 2026-11-21 20:00"
+ },
+ {
+  "image": "pins/site/hat-size-chart.jpg",
+  "title": "Hat Size Chart for Knitting & Crochet: Head Sizes + Cast-On Calculator",
+  "description": "Free hat size chart from preemie to adult, with how much smaller to make the hat and a calculator for how many stitches to cast on, or how wide to crochet the crown. Perfect for handmade Christmas hats. #knittinghat #crochethat #hatsizechart #beaniepattern #knittingtips",
+  "link": "https://purlandpaperco.com/hat-size-chart",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "scheduled 2026-11-28 5:30 PM"
+ },
+ {
+  "image": "pins/site/granny-square-blanket-calculator.jpg",
+  "title": "Granny Square Blanket Calculator: How Many Squares & How Much Yarn?",
+  "description": "Free granny square calculator: how many squares for a baby, throw, twin, queen or king blanket, your layout drawn out, and how much yarn for the squares, joins and border. #grannysquare #crochetblanket #grannysquareblanket #crochetpattern #crochettips",
+  "link": "https://purlandpaperco.com/granny-square-blanket-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch4/candle-business-spreadsheet-pin-b.jpg",
+  "title": "Candle Business Spreadsheet | Candle Cost & Pricing Calculator for Excel & Google Sheets",
+  "description": "Know the true cost of every candle: wax, fragrance load, wick, jar and labels. Get wholesale and retail prices, a pour planner with exact wax and fragrance weights, stock alerts and a sales dashboard. #candlebusiness #candlemaking #candlepricing #smallbusiness #soycandles",
+  "link": "https://karamat4.gumroad.com/l/candle-business-spreadsheet",
+  "link_from": "batch4/listings.json:candle-business-spreadsheet:gumroad_url",
+  "board": "Small Business Spreadsheets",
+  "topic": "Candle Making",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch4/nordic-folk-christmas-clipart-pin-b.jpg",
+  "title": "Nordic Folk Christmas Clipart | 45 PNG & SVG Elements + Seamless Patterns",
+  "description": "Cosy Scandinavian folk Christmas clipart: gnomes, woven hearts, straw stars, toadstools, folk birds, baubles and more. Transparent PNG, SVG and 6 seamless patterns, small business commercial use. #christmasclipart #nordicchristmas #scandinavianchristmas #gnomes #svgfiles",
+  "link": "https://karamat4.gumroad.com/l/nordic-folk-christmas-clipart",
+  "link_from": "batch4/listings.json:nordic-folk-christmas-clipart:gumroad_url",
+  "board": "Christmas Printables",
+  "topic": "Christmas",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch4/december-days-journal-kit-pin-b.jpg",
+  "title": "December Daily Journal Kit | 25 Printable Prompt Cards, Papers & Ephemera",
+  "description": "Capture every day of December: 25 numbered prompt cards, number circles, journaling cards, patterned papers, tickets and tags in a cosy Nordic folk style. Print at home. #decemberdaily #junkjournal #christmasjournal #memorykeeping #journalingcards",
+  "link": "https://karamat4.gumroad.com/l/december-days-journal-kit",
+  "link_from": "batch4/listings.json:december-days-journal-kit:gumroad_url",
+  "board": "Junk Journal Printables",
+  "topic": "Journaling",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/site/increase-decrease-calculator.jpg",
+  "title": "Increase Evenly Calculator for Knitting & Crochet (Decrease Too)",
+  "description": "Free increase and decrease evenly calculator: type your stitches and how many to add or take away, and get the row written out (K5, M1 or 4 sc, inc), flat or in the round, with a stitch diagram. #knittingtips #crochettips #knittinghelp #crochethelp #knittingmath",
+  "link": "https://purlandpaperco.com/increase-decrease-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-price-crochet-items.jpg",
+  "title": "How to Price Crochet Items to Sell: Free Calculator + Formula",
+  "description": "How much to charge for crochet and knitted items: materials + your hourly rate + overheads, with Etsy and craft fair fees worked in. Free price calculator and example prices. #crochetbusiness #sellingcrochet #craftfair #etsyseller #howtopricecrochet",
+  "link": "https://purlandpaperco.com/how-to-price-crochet-items",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/sock-size-chart.jpg",
+  "title": "Sock Size Chart for Knitting + Free Cast-On Calculator (Baby to Men's 14)",
+  "description": "Free sock size chart with foot circumference, foot length and leg height from baby to men's 14, plus a sock knitting calculator: how many stitches to cast on, heel flap, gusset, when to start the toe, and yarn per pair. #sockknitting #knittingsocks #handknitsocks #knittinghelp #sockyarn",
+  "link": "https://purlandpaperco.com/sock-size-chart",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/yarn-substitution-calculator.jpg",
+  "title": "Yarn Substitution Calculator: How Many Balls of a Different Yarn Do I Need?",
+  "description": "Free yarn substitution calculator for knitting and crochet: turn the pattern's yarn into balls of your yarn (yards or metres), check the thickness by length per 100 g, and plan holding two strands together. #yarnsubstitution #knittingtips #crochettips #yarn #knittinghelp",
+  "link": "https://purlandpaperco.com/yarn-substitution-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-tea-stain-paper.jpg",
+  "title": "How to Tea Stain Paper for Junk Journals (Oven or Air Dry) + Shade Tester",
+  "description": "How to tea stain paper for junk journals: the tea recipe, 4 ways to apply it, the best paper, drying flat or in a low oven, and easy age spots, mug rings and torn edges. Try a shade before you stain. #junkjournal #teastainedpaper #junkjournalideas #papercraft #junkjournaling",
+  "link": "https://purlandpaperco.com/how-to-tea-stain-paper",
+  "board": "Junk Journal Printables",
+  "topic": "Junk Journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/cast-on-calculator.jpg",
+  "title": "Cast On Calculator: How Many Stitches to Cast On for a Scarf or Blanket",
+  "description": "How many stitches to cast on for a scarf, blanket, dishcloth or cowl? Enter your gauge and width: this free knitting calculator fits your rib or stitch repeat, adds borders and edge stitches, and tells you how long to leave the long-tail. #knitting #knittingtips #knittingforbeginners #knitscarf #knitblanket",
+  "link": "https://purlandpaperco.com/cast-on-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch5/2027-reading-tracker-spreadsheet-pin-b.jpg",
+  "title": "2027 Reading Tracker Spreadsheet | Book Log, Reading Goal Dashboard & 36-Prompt Challenge",
+  "description": "Track every book you read in 2027: star ratings, pages, genres and formats, a reading goal dashboard with progress bars, your top-rated reads and a 36-prompt reading challenge that ticks itself off. Excel & Google Sheets. #readingtracker #booktracker #readinggoals #bookstagram #readingchallenge",
+  "link": "https://karamat4.gumroad.com/l/2027-reading-tracker",
+  "link_from": "batch5/listings.json:2027-reading-tracker-spreadsheet:gumroad_url",
+  "board": "Planners & Trackers",
+  "topic": "Reading",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch5/new-years-eve-party-games-pin-b.jpg",
+  "title": "New Year's Eve Party Games 2027 | Printable Bingo, Trivia, Most Likely To & More",
+  "description": "9 printable New Year's Eve games: 24 bingo cards, traditions-around-the-world trivia, most likely to, would you rather, 2027 predictions, a countdown-to-midnight bag for every hour, score sheet and answer keys. #newyearseve #nyeparty #partygames #newyearsevegames #familygamenight",
+  "link": "https://karamat4.gumroad.com/l/new-years-eve-party-games",
+  "link_from": "batch5/listings.json:new-years-eve-party-games:gumroad_url",
+  "board": "Christmas Printables",
+  "topic": "New Year's Eve",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch5/kids-routine-chore-chart-pack-pin-b.jpg",
+  "title": "Kids Routine & Chore Charts Printable | Morning, Bedtime, Chores by Age & Reward Charts",
+  "description": "Calmer mornings and easier bedtimes: picture routine charts, weekly chore charts for ages 3-12, reward sticker charts, 28 cut-out routine cards, reward coupons and a My 2027 Goals page. #chorechart #kidsroutine #morningroutine #bedtimeroutine #parentingtips",
+  "link": "https://karamat4.gumroad.com/l/kids-routine-chore-charts",
+  "link_from": "batch5/listings.json:kids-routine-chore-chart-pack:gumroad_url",
+  "board": "Planners & Trackers",
+  "topic": "Parenting",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/site/crochet-circle-calculator.jpg",
+  "title": "Crochet Circle Calculator: Stitches Per Round and Increase Chart (sc, hdc, dc)",
+  "description": "How many stitches in each round of a flat crochet circle? This free calculator writes out every round in single, half double or double crochet, tells you how many rounds for your size, and gives a full amigurumi ball pattern. Increases are staggered so your circle stays round, not hexagon. #crochet #crochetforbeginners #crochettips #amigurumi #crochetcircle",
+  "link": "https://purlandpaperco.com/crochet-circle-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/knitting-abbreviations.jpg",
+  "title": "Knitting Abbreviations List: k2tog, ssk, M1, yo and 80 More in Plain English (+ Pattern Decoder)",
+  "description": "Stuck on a knitting pattern? This free list explains every common knitting abbreviation in plain English, with how to work each one and the UK names. Paste a pattern line into the decoder and it translates the whole row for you. #knitting #knittingforbeginners #knittingtips #knittingpattern #learntoknit",
+  "link": "https://purlandpaperco.com/knitting-abbreviations",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-ephemera-ideas.jpg",
+  "title": "62 Free Junk Journal Ephemera Ideas (Printable Checklist)",
+  "description": "What is ephemera and where do you find it for free? 62 junk journal ephemera ideas from around the house, the kitchen, the post and days out, with how to use each one on a page, how to store it, and why receipts fade. Tick off what you collect. #junkjournal #junkjournalideas #ephemera #junkjournaling #journalingideas",
+  "link": "https://purlandpaperco.com/junk-journal-ephemera-ideas",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/temperature-blanket-planner.jpg",
+  "title": "Temperature Blanket Planner 2027: Colors, Ranges & Yarn Calculator (Free)",
+  "description": "Plan your 2027 temperature blanket for free: choose your temperature ranges and colours, see how long a 365-row crochet or knit blanket will be, the foundation chain, and how much yarn to buy for each colour. Paste last year's temperatures to preview it. #temperatureblanket #crochetblanket #temperatureblanket2027 #crochetideas #knittingblanket",
+  "link": "https://purlandpaperco.com/temperature-blanket-planner",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Temperature blanket",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/yarn-yardage-calculator.jpg",
+  "title": "How Much Yarn Is Left? Free Yarn Yardage Calculator (Weigh Your Leftovers)",
+  "description": "Got a leftover ball and no idea how many yards are left? Weigh it and this free calculator turns grams into yards and metres, works even with no label, takes off a cone or core, and tells you if it's enough for your next project. #crochet #knitting #yarnstash #scrapyarn #crochettips",
+  "link": "https://purlandpaperco.com/yarn-yardage-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Yarn yardage",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/craft-fair-checklist.jpg",
+  "title": "Craft Fair Checklist: What to Bring (Free Printable for Crochet & Handmade Sellers)",
+  "description": "Selling at a Christmas craft fair or market? This free printable craft fair checklist covers 71 things to pack for your booth, payments, packaging and comfort, with extras for crochet, knitting and paper goods, plus how much stock and cash float to bring. #craftfair #craftfairideas #crochetbusiness #handmadebusiness #christmasmarket",
+  "link": "https://purlandpaperco.com/craft-fair-checklist",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Craft fair",
+  "status": "queued"
+ },
+ {
+  "id": "book-knit-a",
+  "image": "pins/books/knit-journal-pin-a.jpg",
+  "title": "Knit & Crochet Project Journal | Knitting Log Book with Row Counters",
+  "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
+  "board": "Crochet & Knitting Planners",
+  "status": "scheduled 2026-11-24 12:00 PM"
+ },
+ {
+  "id": "book-race",
+  "image": "pins/books/race-ready-pin.jpg",
+  "title": "Race Ready: 12-Week Training Log for Fitness Racing",
+  "link": "https://www.amazon.com/dp/B0HSM899WR?tag=purlandpaper-20",
+  "board": "Fitness Race Training (new)",
+  "status": "scheduled 2026-11-24 5:00 PM"
+ },
+ {
+  "id": "book-knit-b",
+  "image": "pins/books/knit-journal-pin-b.jpg",
+  "title": "Crochet Project Planner Book | Yarn, Hook and Row Tracker Journal",
+  "link": "https://www.amazon.com/dp/B0HSMCC4S9?tag=purlandpaper-20",
+  "board": "Crochet & Knitting Planners",
+  "status": "scheduled 2026-11-25 2:00 PM"
+ },
+ {
+  "image": "pins/batch6/soap-making-business-spreadsheet-pin-b.jpg",
+  "title": "Soap Making Business Spreadsheet | Soap Cost Calculator, Pricing, Batch Planner & Cure Tracker",
+  "description": "Know what every bar of handmade soap really costs: recipe costing line by line, % of oils, cost per bar with packaging and labour, wholesale and retail prices with Etsy fees, a batch planner with stock check and a cure-date tracker. Cold process, hot process and melt & pour. Excel & Google Sheets. #soapmaking #handmadesoap #soapbusiness #coldprocesssoap #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Soap Making",
+  "link": "https://karamat4.gumroad.com/l/soap-business-spreadsheet",
+  "link_from": "batch6/listings.json:soap-making-business-spreadsheet:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch6/family-advent-activity-calendar-pin-b.jpg",
+  "title": "Family Advent Activity Calendar Printable | 32 Christmas Activity Cards, Number Tags & Countdown",
+  "description": "25 days of family Christmas fun: 32 activity cards (make, bake, cosy nights in, kindness and outings), number tags 1-25 for envelopes or bags, a colour-in countdown tree, paper chain countdown, planner and bucket list. Print at home, US Letter & A4. #adventcalendar #christmascountdown #christmasactivities #kidsactivities #familychristmas",
+  "board": "Christmas Printables",
+  "topic": "Advent",
+  "link": "https://karamat4.gumroad.com/l/family-advent-calendar",
+  "link_from": "batch6/listings.json:family-advent-activity-calendar:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch6/mid-century-modern-wall-art-set-of-6-pin-b.jpg",
+  "title": "Mid Century Modern Wall Art Set of 6 | Terracotta & Sage Abstract Printable Gallery Wall",
+  "description": "Six original mid-century abstract prints in terracotta, mustard and sage: sun arches, Bauhaus blocks, sunset hills, a sage botanical, quarter arcs and balanced stones. A ready-made gallery wall in 6 print ratios up to 24x36. #midcenturymodern #gallerywall #boholiving #abstractart #printablewallart",
+  "board": "Printable Wall Art",
+  "topic": "Wall Art",
+  "link": "https://karamat4.gumroad.com/l/mid-century-wall-art-set",
+  "link_from": "batch6/listings.json:mid-century-modern-wall-art-set-of-6:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/site/foundation-chain-calculator.jpg",
+  "title": "Foundation Chain Calculator: How Many Chains to Start a Crochet Blanket or Scarf",
+  "description": "How many chains do you need to start a crochet blanket? This free foundation chain calculator works it out for your yarn, gauge and stitch (sc, hdc, dc or treble), adds the right turning chain, rounds to your pattern's multiple and tells you how many rows to reach the length. Includes a chain chart for baby to queen blankets. #crochetblanket #crochetforbeginners #crochettips #crochetcalculator #crochetpattern",
+  "link": "https://purlandpaperco.com/foundation-chain-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Foundation chain",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-signature-calculator.jpg",
+  "title": "Junk Journal Signature Calculator: How Many Pages, Sheets and Sewing Holes",
+  "description": "Planning a junk journal? This free signature calculator tells you how many pages you'll get from your sheets and signatures, the page size for letter, A4 or 12x12 paper, how thick the spine will be, where to punch the sewing holes and how much thread to cut. #junkjournal #junkjournalideas #junkjournaling #bookbinding #junkjournalforbeginners",
+  "link": "https://purlandpaperco.com/junk-journal-signature-calculator",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal signatures",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-crochet-magic-ring.jpg",
+  "title": "How to Crochet a Magic Ring: Easy Step-by-Step Magic Circle for Beginners",
+  "description": "Learn the crochet magic ring (magic circle) in 6 simple drawings: which strand to pull, how many stitches go in for sc, hdc and dc, why it won't close and how to stop it coming undone. A free helper writes your first rounds for you. #crochetforbeginners #magicring #magiccircle #amigurumi #crochettutorial",
+  "link": "https://purlandpaperco.com/how-to-crochet-magic-ring",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet magic ring",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-change-colors-in-crochet.jpg",
+  "title": "How to Change Colors in Crochet Without Cutting: Stripes Made Easy",
+  "description": "Change colours on the last yarn over for sc, hdc and dc, at the end of a row, mid-row and in rounds. Carry yarn up the side for stripes with no cutting: the free stripe planner tells you which colours to carry and which to cut, and how many ends you'll weave in. #crochetstripes #crochettips #crochetforbeginners #temperatureblanket #crochettutorial",
+  "link": "https://purlandpaperco.com/how-to-change-colors-in-crochet",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet colour changes",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-bind-off-knitting.jpg",
+  "title": "How to Bind Off Knitting: Basic and Stretchy Bind Offs for Beginners",
+  "description": "Bind off (cast off) knitting in 4 simple steps, bind off in rib, fix a tight edge and the loose last stitch, and pick the right stretchy bind off for sock cuffs, sleeves and necklines. The free chooser also tells you how much yarn to keep. #knittingforbeginners #knittingtips #bindoff #castoff #learntoknit",
+  "link": "https://purlandpaperco.com/how-to-bind-off-knitting",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting bind off",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-weave-in-ends.jpg",
+  "title": "How to Weave in Ends in Crochet and Knitting So They Never Come Out",
+  "description": "Fasten off and weave in ends the neat way: how long a tail to leave, weaving in crochet and knitting (duplicate stitch), the invisible fasten off, slippery and chunky yarn, and hiding ends in amigurumi. Free helper for your yarn and project. #crochettips #knittingtips #weaveinends #crochetforbeginners #amigurumi",
+  "link": "https://purlandpaperco.com/how-to-weave-in-ends",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Weaving in ends",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-cast-on-knitting.jpg",
+  "title": "How to Cast On Knitting: Long-Tail Cast On + How Long a Tail to Leave",
+  "description": "Learn the long-tail cast on step by step, see exactly how long a tail to leave for 20 to 200 stitches in any yarn weight, and pick the right cast on for scarves, hats, socks and firm edges. Free tail calculator. #knittingforbeginners #castonknitting #longtailcaston #knittingtips #learntoknit",
+  "link": "https://purlandpaperco.com/how-to-cast-on-knitting",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting cast on",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-crochet-decrease.jpg",
+  "title": "How to Decrease in Crochet: sc2tog + Invisible Decrease for Amigurumi",
+  "description": "The single crochet decrease (sc2tog) and the invisible decrease step by step, hdc2tog and dc2tog, fixing holes and bumps, and how to close an amigurumi ball. Free helper writes your decrease rounds. #crochetforbeginners #amigurumi #crochettips #invisibledecrease #sc2tog",
+  "link": "https://purlandpaperco.com/how-to-crochet-decrease",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet decrease",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch7/resin-art-business-spreadsheet-pin-b.jpg",
+  "title": "Resin Art Business Spreadsheet | Resin Calculator, Part A & B, Pricing & Custom Orders",
+  "description": "How much resin do I need, and what should I charge? Pick a shape, type the size and get total resin, Part A and Part B in fl oz and ml, layers and cost. Then price every coaster, tray and keychain with pigments, mould wear, hardware, labour and Etsy fees, and track custom orders with deposits and demould dates. Excel & Google Sheets. #resinart #epoxyresin #resinbusiness #resinpricing #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Resin Art",
+  "link": "https://karamat4.gumroad.com/l/resin-business-spreadsheet",
+  "link_from": "batch7/listings.json:resin-art-business-spreadsheet:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch7/sublimation-tumbler-business-spreadsheet-pin-b.jpg",
+  "title": "Tumbler Pricing Calculator | Sublimation Business Spreadsheet with Bulk Order Quotes",
+  "description": "Price every tumbler, mug and shirt to the cent: blank, paper, ink cost by coverage, tape, shrink wrap, design licence, packaging, misprints and press time. Quote a 36-mug order in seconds with discount tiers, deposit and your profit, and track orders from proof to shipped. Excel & Google Sheets. #sublimation #tumblerbusiness #sublimationtumbler #heatpress #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Sublimation",
+  "link": "https://karamat4.gumroad.com/l/tumbler-pricing-spreadsheet",
+  "link_from": "batch7/listings.json:sublimation-tumbler-business-spreadsheet:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/batch7/lash-tech-business-spreadsheet-pin-b.jpg",
+  "title": "Lash Tech Business Spreadsheet | Lash Pricing Calculator, Client Records & Fill Due Dates",
+  "description": "Is every set and fill paying you? Product cost per service, break-even and suggested price, profit per hour. Plus client records with lash map, curl, lengths and patch test date, next fill due for every client, an appointment log with tips, no-shows and rebook rate, and an income dashboard. Excel & Google Sheets. #lashtech #lashextensions #lashbusiness #lashartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Eyelash Extensions",
+  "link": "https://karamat4.gumroad.com/l/lash-tech-spreadsheet",
+  "link_from": "batch7/listings.json:lash-tech-business-spreadsheet:gumroad_url",
+  "status": "skipped: Gumroad dropped (26 Nov)"
+ },
+ {
+  "image": "pins/site/how-to-fix-a-dropped-stitch.jpg",
+  "title": "How to Fix a Dropped Stitch in Knitting (Even Several Rows Down)",
+  "description": "Dropped a stitch? Catch it, then ladder it back up with a crochet hook. Step-by-step drawings for stockinette, garter and rib, purl stitches, twisted stitches, fixing it after binding off, and when to rip back. Free helper tells you how to pick up each rung. #knittingforbeginners #knittingtips #droppedstitch #learntoknit #knittinghelp",
+  "link": "https://purlandpaperco.com/how-to-fix-a-dropped-stitch",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Dropped stitch knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-price-a-crochet-blanket.jpg",
+  "title": "How to Price a Crochet Blanket: Free Blanket Price Calculator",
+  "description": "How much to charge for a crochet blanket: yarn, hours and a fair hourly rate for any size from baby to king, plus Etsy fees. See why materials x 3 underprices blankets, how long blankets take, and how to price custom orders. #crochetbusiness #sellingcrochet #crochetblanket #crochetpricing #etsyseller",
+  "link": "https://purlandpaperco.com/how-to-price-a-crochet-blanket",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet blanket pricing",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-knit-in-the-round.jpg",
+  "title": "How to Knit in the Round: Join Without Twisting + Circular Needle Length Chart",
+  "description": "How to knit in the round on circular needles: join without twisting in 4 steps, which circular needle length you need for hats (16 in), socks, cowls and sweaters, magic loop and DPNs, and how to fix a twisted join. Free needle length finder. #knittingtips #learntoknit #knittingintheround #circularknitting #knittingforbeginners",
+  "link": "https://purlandpaperco.com/how-to-knit-in-the-round",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting in the round",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-supply-checklist.jpg",
+  "title": "Junk Journal Supply Checklist for Beginners (Mostly Free) + Free Template",
+  "description": "Everything you need to start a junk journal: what's free at home, what to buy first, the best glue and paper, and how to bind the pages. Tick what you have, get a short shopping list, and print a free pocket and tag template. #junkjournal #junkjournaling #junkjournalsupplies #junkjournalideas #papercrafts",
+  "link": "https://purlandpaperco.com/junk-journal-supply-checklist",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal supplies",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-pick-up-stitches-knitting.jpg",
+  "title": "How to Pick Up Stitches in Knitting (3 for Every 4 Rows) + Free Calculator",
+  "description": "How to pick up stitches along a side edge, garter edge, cast on edge or neckline, with step drawings. The free calculator tells you how many stitches to pick up and how to space them (pick up 3, skip 1) with markers, so bands lie flat with no holes. #knitting #knittingtips #knittinghelp #learntoknit #knittingtutorial",
+  "link": "https://purlandpaperco.com/how-to-pick-up-stitches-knitting",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Pick up stitches knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-price-amigurumi.jpg",
+  "title": "How to Price Amigurumi: Crochet Toy Price Calculator (Free)",
+  "description": "How much to charge for amigurumi and crochet toys. The free calculator estimates the hours from size and parts, adds stuffing, eyes and Etsy fees, and gives a fair price, with a chart from keyring to large plush, custom order tips and toy safety notes. #amigurumi #crochetbusiness #sellingcrochet #crochettoys #crochetpricing",
+  "link": "https://purlandpaperco.com/how-to-price-amigurumi",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Pricing amigurumi",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/c2c-blanket-calculator.jpg",
+  "title": "C2C Blanket Calculator: How Many Tiles, Rows and Yarn (Free)",
+  "description": "Free corner to corner crochet blanket calculator: how many C2C tiles wide and tall for any size from baby blanket to king, when to start decreasing for a rectangle, total rows and how much yarn to buy, with a tile chart. #c2ccrochet #crochetblanket #cornertocorner #crochetpattern #crochettips",
+  "link": "https://purlandpaperco.com/c2c-blanket-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "C2C blanket calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/scarf-size-chart.jpg",
+  "title": "Scarf Size Chart: How Long and Wide Should a Scarf Be? + Yarn Calculator",
+  "description": "Scarf sizes for kids, teens, women and men, plus infinity scarves and cowls. The free calculator gives the stitches to cast on, the chains to start and how many yards and skeins to buy, fringe included. Great for handmade Christmas gifts. #knittingscarf #crochetscarf #scarfsize #knittingtips #handmadegifts",
+  "link": "https://purlandpaperco.com/scarf-size-chart",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Scarf size chart",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch8/laser-engraving-business-spreadsheet-pin-b.jpg",
+  "title": "Laser Engraving Pricing Calculator | Machine Cost per Hour, Bulk Quotes & Orders",
+  "description": "What should I charge for laser engraving? Price every keychain, sign, coaster and tumbler from the part size, engrave and cut minutes, your hands-on time and materials, with your laser's real cost per hour built in. See profit per machine hour, quote bulk orders with discount tiers and track every order. Excel & Google Sheets. #laserengraving #lasercutting #laserbusiness #pricingcalculator #smallbusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Laser Cutting",
+  "link": "https://www.etsy.com/listing/4625446969",
+  "link_from": "batch8/listings.json:laser-engraving-business-spreadsheet:gumroad_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch8/nail-tech-business-spreadsheet-pin-b.jpg",
+  "title": "Nail Tech Business Spreadsheet | Nail Pricing Calculator, Client Records & Fill Dates",
+  "description": "Is every set, fill and add-on paying you? Product cost per service, break-even and suggested price, profit per hour for Gel-X, acrylic, BIAB, gel manicures and pedicures. Plus client records with nail shape, length, colours and allergy notes, next fill due, an appointment log with add-ons and tips, and an income dashboard. Excel & Google Sheets. #nailtech #nailbusiness #nailsalon #nailartist #beautybusiness",
+  "board": "Small Business Spreadsheets",
+  "topic": "Nail Salon",
+  "link": "https://www.etsy.com/listing/4625445559",
+  "link_from": "batch8/listings.json:nail-tech-business-spreadsheet:gumroad_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch8/sticker-shop-business-spreadsheet-pin-b.jpg",
+  "title": "Sticker Business Spreadsheet | Sticker Pricing Calculator, Print Runs & Inventory",
+  "description": "How much does one sticker really cost you? Paper, ink by coverage, laminate, cutting wear, backing cards and sleeves, worked out per sheet, per item and per sticker, with wholesale and retail prices. Plan print runs with a supply check and track stock for every design. Excel & Google Sheets. #stickershop #stickerbusiness #stickermaker #smallbusiness #etsyseller",
+  "board": "Small Business Spreadsheets",
+  "topic": "Stickers",
+  "link": "https://www.etsy.com/listing/4625456612",
+  "link_from": "batch8/listings.json:sticker-shop-business-spreadsheet:gumroad_url",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/crochet-time-estimator.jpg",
+  "title": "How Long Does It Take to Crochet a Blanket? Free Crochet & Knitting Time Calculator",
+  "description": "Find out how many hours your blanket, scarf or hat will take. Pick the size, yarn and stitch, time yourself for one minute, and get the stitch count, hours and your finish date, plus whether a handmade Christmas gift will be ready in time. #crochetblanket #knittingtips #crochettips #handmadegifts #crochetcalculator",
+  "link": "https://purlandpaperco.com/crochet-time-estimator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet time calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/stripe-generator.jpg",
+  "title": "Random Stripe Generator for Crochet & Knitting Blankets (Free Tool)",
+  "description": "Pick your yarn colours and rows, press shuffle and get a random stripe pattern for a crochet or knit blanket, scarf or hat. Fibonacci and even stripes too, with a printable row-by-row list and yarn per colour. #stripedblanket #crochetblanket #knittingpattern #scrapyarn #crochetideas",
+  "link": "https://purlandpaperco.com/stripe-generator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Stripe generator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/basic-crochet-stitches.jpg",
+  "title": "Basic Crochet Stitches for Beginners: Step by Step (US & UK Terms)",
+  "description": "Learn the 6 basic crochet stitches: chain, slip stitch, single, half double, double and treble crochet. Step through each one with drawings and a loops-on-hook counter, switch US/UK names, and see turning chains and stitch heights in one chart. #crochetforbeginners #learntocrochet #crochetstitches #crochettutorial #ukcrochet",
+  "link": "https://purlandpaperco.com/basic-crochet-stitches",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Basic crochet stitches",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/sweater-size-calculator.jpg",
+  "title": "What Size Sweater Should I Knit or Crochet? Free Ease & Yarn Calculator",
+  "description": "Enter your chest and the fit you like (close, classic, loose or oversized) to find which pattern size to make, the ease in every size, and roughly how much yarn and how many skeins a pullover takes in DK, worsted or bulky. #knitsweater #crochetsweater #knittingtips #sweaterknitting #yarncalculator",
+  "link": "https://purlandpaperco.com/sweater-size-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Sweater size calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/2027-calendar-printable.jpg",
+  "title": "Free 2027 Calendar Printable: Yearly + Monthly with US & UK Holidays",
+  "description": "Make your own free printable 2027 calendar: the whole year on one page, a month per page, or a monthly planner with a projects checklist. US federal or UK bank holidays, Sunday or Monday start, US Letter or A4, print or save as PDF. #2027calendar #printablecalendar #freeprintable #2027planner #monthlyplanner",
+  "link": "https://purlandpaperco.com/2027-calendar-printable",
+  "board": "Junk Journal Printables",
+  "topic": "2027 calendar printable",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-knit-and-purl.jpg",
+  "title": "How to Knit and Purl for Beginners: Step by Step + Free Pattern Maker",
+  "description": "Learn the knit stitch and the purl stitch in four simple drawn steps each, how to tell them apart, and use the free pattern maker to write out the rows for stockinette, garter, 1x1 and 2x2 rib, seed stitch and basketweave for any stitch count. #learntoknit #knittingforbeginners #knitstitch #purlstitch #knittingtips",
+  "link": "https://purlandpaperco.com/how-to-knit-and-purl",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to knit and purl",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/craft-fair-profit-calculator.jpg",
+  "title": "Craft Fair Profit Calculator: How Many Sales to Cover the Booth Fee?",
+  "description": "Free craft fair profit calculator for makers: add your booth fee, travel, card reader fees, materials and hours to see your profit per hour, break-even sales and whether you meet the 3x booth fee rule. #craftfair #craftfairtips #handmadebusiness #craftbusiness #marketstall",
+  "link": "https://purlandpaperco.com/craft-fair-profit-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Craft fair profit calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/embroidery-stitches.jpg",
+  "title": "12 Basic Embroidery Stitches for Beginners (Step Diagrams)",
+  "description": "Learn hand embroidery: running stitch, backstitch, stem, split, satin, chain, lazy daisy, French knot, blanket, fly, cross and seed stitch, each with a step diagram, strands to use and a chooser for lines, fills, flowers and edges. #embroideryforbeginners #embroiderystitches #handembroidery #stitchguide #embroidery",
+  "link": "https://purlandpaperco.com/embroidery-stitches",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Embroidery stitches for beginners",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/christmas-stocking-calculator.jpg",
+  "title": "Christmas Stocking Size Chart + Yarn Calculator (Knit & Crochet)",
+  "description": "How big is a Christmas stocking and how much yarn do you need? Free calculator: mini 7 in to extra long 26 in, yarn for knitting or crochet in DK, worsted or bulky, stitches to cast on, and whether a name fits on the cuff. #christmasstocking #knitstocking #crochetstocking #christmasknitting #handmadechristmas",
+  "link": "https://purlandpaperco.com/christmas-stocking-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Christmas stocking size and yarn calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-read-crochet-patterns.jpg",
+  "title": "How to Read Crochet Patterns for Beginners (Free Line Explainer)",
+  "description": "Stars, brackets, 'rep from * around' and the number in brackets at the end of a row, explained. Paste any crochet pattern line into the free explainer to see it step by step and check your stitch count. Plus crochet chart symbols. #crochetforbeginners #crochetpatterns #learntocrochet #crochettips #amigurumi",
+  "link": "https://purlandpaperco.com/how-to-read-crochet-patterns",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to read crochet patterns",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/knit-stitch-patterns.jpg",
+  "title": "15 Easy Knit Stitch Patterns for Beginners (Knit & Purl Only)",
+  "description": "Garter, seed, moss, rib, double seed, basketweave, mistake rib and more: every row written out, the stitch multiple to cast on, and whether it lies flat. Free tool gives the rows for your own width. #knittingforbeginners #knitstitches #seedstitch #learntoknit #knittingpatterns",
+  "link": "https://purlandpaperco.com/knit-stitch-patterns",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knit stitch patterns",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/scrapbook-page-sizes.jpg",
+  "title": "Scrapbook Page Sizes + How Many Photos Fit on a 12x12 Page",
+  "description": "Every scrapbook page size in inches and cm (12x12, 8.5x11, A4, 8x8, 6x6), how many 4x6 photos fit, photo mat sizes, and a free layout calculator that draws the page for you. #scrapbooking #scrapbooklayouts #scrapbookideas #papercrafts #memorykeeping",
+  "link": "https://purlandpaperco.com/scrapbook-page-sizes",
+  "board": "Junk Journal Printables",
+  "topic": "Scrapbook page sizes",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/fat-quarter-calculator.jpg",
+  "title": "How Many Fat Quarters Do I Need? Free Fat Quarter Calculator",
+  "description": "A fat quarter is 18 x 22 in. See how many 5 in, 2.5 in or 10 in squares and strips you can cut from one, and how many fat quarters a baby, throw or queen quilt needs. Free calculator with a cutting layout. #quilting #fatquarters #quiltingforbeginners #patchwork #sewing",
+  "link": "https://purlandpaperco.com/fat-quarter-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Fat quarter calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/sewing-seam-allowance.jpg",
+  "title": "Seam Allowance Guide: 5/8, 1/2 or 1/4 Inch? + Calculator",
+  "description": "Standard seam allowance for dressmaking (5/8 in / 1.5 cm), indie patterns, home decor and quilting (1/4 in), an inch to cm chart, and a free calculator that adds seam allowance to any finished size. #sewingforbeginners #sewingtips #sewing #dressmaking #quilting",
+  "link": "https://purlandpaperco.com/sewing-seam-allowance",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Seam allowance",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/crochet-project-planner.jpg",
+  "title": "Free Printable Crochet Project Planner (Fill In and Print)",
+  "description": "Free crochet and knitting project planner: type in the pattern, yarn, hook, gauge and dates, then print a project page, a row tracker, a yarn shopping list or a 2027 make list. No sign-up. #crochetplanner #crochet #knitting #freeprintable #crochetprojects",
+  "link": "https://purlandpaperco.com/crochet-project-planner",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet project planner",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch9/small-business-pricing-inventory-spreadsheet-pin-b.jpg",
+  "title": "Small Business Pricing Calculator + Inventory Tracker Spreadsheet",
+  "description": "Price every product so you keep your margin after Etsy fees, track stock and see your real profit. Materials cost per unit, suggested price, inventory, sales and a dashboard. Excel + Google Sheets. #smallbusiness #pricingcalculator #inventorytracker #etsyseller #handmadebusiness",
+  "link": "https://www.etsy.com/listing/4626203317",
+  "board": "Small Business Spreadsheets",
+  "topic": "Small business",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch9/machine-embroidery-business-spreadsheet-pin-b.jpg",
+  "title": "Embroidery Pricing Calculator - Price by Stitch Count",
+  "description": "Price hats, hoodies and towels from their stitch count: machine cost per hour, thread per 1,000 stitches, run time, bulk team-order quotes and an order tracker. Excel + Google Sheets. #machineembroidery #embroiderybusiness #embroiderypricing #smallbusiness",
+  "link": "https://www.etsy.com/listing/4626204819",
+  "board": "Small Business Spreadsheets",
+  "topic": "Machine embroidery",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch9/2027-habit-tracker-spreadsheet-pin-b.jpg",
+  "title": "2027 Habit Tracker Spreadsheet with Streaks and Year Heat Map",
+  "description": "Tick off up to 15 habits a day and watch your streaks, monthly goals, mood, sleep and whole year fill in with colour. 12 monthly tabs + 2027 goals page. Excel + Google Sheets. #habittracker #2027goals #newyearresolutions #googlesheets #selfcare",
+  "link": "https://www.etsy.com/listing/4626206151",
+  "board": "Planners & Trackers",
+  "topic": "Habit tracker",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/fabric-yardage-calculator.jpg",
+  "title": "How Much Fabric Do I Need? Free Fabric Yardage Calculator",
+  "description": "Enter your pieces and fabric width (44, 54, 60 or 108 in) and get the yards or metres to buy, with a to-scale cutting layout and extra for shrinkage. Examples for cushion covers, tote bags, pillowcases and napkins. #sewing #sewingforbeginners #sewingtips #fabric #diysewing",
+  "link": "https://purlandpaperco.com/fabric-yardage-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Fabric yardage calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/christmas-crafts-to-sell.jpg",
+  "title": "19 Christmas Crafts to Make and Sell (With Prices)",
+  "description": "Crochet ornaments, beanies, mini stockings, gift bags, scrunchies, candles and cards: each Christmas craft idea with material cost, making time and a fair price for your own hourly rate. #craftstosell #christmascrafts #craftfair #crochettosell #etsyseller",
+  "link": "https://purlandpaperco.com/christmas-crafts-to-sell",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Christmas crafts to sell",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-vs-scrapbook.jpg",
+  "title": "Junk Journal vs Scrapbook: What's the Difference? (Quiz)",
+  "description": "A scrapbook tells a photo story on acid-free album pages; a junk journal is a handmade book of found paper, layers and pockets. Compare them side by side and take the 5-question quiz to see which suits you. #junkjournal #scrapbooking #junkjournaling #papercrafts #journalideas",
+  "link": "https://purlandpaperco.com/junk-journal-vs-scrapbook",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal vs scrapbook",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/etsy-shipping-calculator.jpg",
+  "title": "Etsy Shipping Calculator: What to Charge for Shipping",
+  "description": "Etsy takes its 6.5% transaction fee and 3% processing fee on shipping too. Type your label and packaging cost to see the shipping price that covers them, what to add for free shipping, and a USPS package weight check. Free, no sign-up. #etsyseller #etsytips #smallbusiness #etsyshop #handmadebusiness",
+  "link": "https://purlandpaperco.com/etsy-shipping-calculator",
+  "board": "Small Business Spreadsheets",
+  "topic": "Etsy shipping calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-cross-stitch.jpg",
+  "title": "How to Cross Stitch for Beginners (Step by Step)",
+  "description": "Learn to cross stitch: 14-count Aida, 2 strands of floss, a size 24 tapestry needle. Start in the centre without a knot and make each X in five drawn steps, plus a needle and strand helper for every fabric count. #crossstitch #crossstitchforbeginners #embroidery #needlework #stitching",
+  "link": "https://purlandpaperco.com/how-to-cross-stitch",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to cross stitch",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-crochet-a-granny-square.jpg",
+  "title": "How to Crochet a Granny Square for Beginners",
+  "description": "The classic granny square round by round with clear diagrams: ch 4 ring, four 3-dc clusters, then (3 dc, ch 2, 3 dc) in every corner. Free pattern writer for any number of rounds in US or UK terms, with size and yarn. #grannysquare #crochetforbeginners #crochetpattern #learntocrochet #crochet",
+  "link": "https://purlandpaperco.com/how-to-crochet-a-granny-square",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to crochet a granny square",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-join-granny-squares.jpg",
+  "title": "How to Join Granny Squares: 5 Easy Ways",
+  "description": "Five ways to join granny squares with clear diagrams: whip stitch, mattress stitch, slip stitch, single crochet and join as you go. Free calculator for seams and joining yarn for any blanket size. #grannysquare #grannysquareblanket #crochetforbeginners #crochettips #crochet",
+  "link": "https://purlandpaperco.com/how-to-join-granny-squares",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to join granny squares",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-increase-knitting.jpg",
+  "title": "How to Increase in Knitting: KFB, M1L, M1R",
+  "description": "Six knitting increases explained with diagrams: knit front and back, make 1 left and right, yarn over, lifted and backward loop. Free picker tells you which increase to use for edges, raglans and ribbing. #knittingforbeginners #knittingtips #learntoknit #knitting #knittinghelp",
+  "link": "https://purlandpaperco.com/how-to-increase-knitting",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to increase in knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-crochet-increase.jpg",
+  "title": "How to Increase in Crochet: sc inc + Invisible Increase",
+  "description": "How to increase in crochet for beginners: single crochet increase, taller stitches, the invisible increase and edge increases with diagrams. Free writer spaces your increases evenly in any round or row, US or UK terms. #crochetforbeginners #crochettips #learntocrochet #amigurumi #crochet",
+  "link": "https://purlandpaperco.com/how-to-crochet-increase",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to increase in crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-transfer-embroidery-pattern.jpg",
+  "title": "How to Transfer an Embroidery Pattern (Even Dark Fabric)",
+  "description": "5 easy ways to transfer an embroidery pattern to fabric: window tracing, water-soluble stabilizer, carbon paper, tissue paper and iron-on. Free picker tells you the best method for dark, thick or delicate fabric. #embroideryforbeginners #handembroidery #embroiderytips #stitching #embroidery",
+  "link": "https://purlandpaperco.com/how-to-transfer-embroidery-pattern",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to transfer an embroidery pattern",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-sew-a-button.jpg",
+  "title": "How to Sew On a Button by Hand (4 Easy Steps)",
+  "description": "How to sew on a button by hand in 4 steps, with a thread shank so it stays on: flat, shank and coat buttons. Free button spacing calculator for cardigans, shirts and knitted button bands. #sewingforbeginners #sewingtips #sewinghacks #learntosew #knittingtips",
+  "link": "https://purlandpaperco.com/how-to-sew-a-button",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to sew on a button",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-pockets.jpg",
+  "title": "6 Easy Junk Journal Pockets (Free Template)",
+  "description": "How to make junk journal pockets: glue-on flap pockets, fold-up page pockets, envelope pockets, corner pockets, belly bands and washi tape pockets. Free size helper with a template that prints at actual size for your page and tags. #junkjournal #junkjournalideas #junkjournaling #papercrafts #journalideas",
+  "link": "https://purlandpaperco.com/junk-journal-pockets",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal pockets",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/2027-goal-planner-printable.jpg",
+  "title": "Free 2027 Goal Planner Printable (Fill In, Then Print)",
+  "description": "Free 2027 goal planner printable: fill in up to 4 goals with first steps and quarterly milestones, a word of the year, habits and a monthly check-in page. US Letter or A4, print or save as PDF. #2027planner #goalsetting #newyeargoals #freeprintable #plannerprintables",
+  "link": "https://purlandpaperco.com/2027-goal-planner-printable",
+  "board": "Junk Journal Printables",
+  "topic": "2027 goal planner printable",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-block-knitting-crochet.jpg",
+  "title": "How to Block Knitting and Crochet (Wet, Steam, Spray)",
+  "description": "How to block knitting and crochet: wet blocking, steam blocking for acrylic, spray blocking for granny squares, and superwash wool tips. Free helper picks the method for your yarn and counts blocking mats and pins. #knittingtips #crochettips #blocking #knittingforbeginners #crochetforbeginners",
+  "link": "https://purlandpaperco.com/how-to-block-knitting-crochet",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to block knitting and crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/macrame-knots.jpg",
+  "title": "Macrame Knots for Beginners: 10 Basic Knots Step by Step",
+  "description": "Learn the 10 basic macrame knots step by step: lark's head, square knot, half knot spiral, double half hitch, gathering knot and more, each drawn out. Free project finder lists the knots, cord size and cut lengths for plant hangers, wall hangings and keychains. #macrame #macrameknots #macrameforbeginners #diyplanthanger #fibercraft",
+  "link": "https://purlandpaperco.com/macrame-knots",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Macrame knots for beginners",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-page-ideas.jpg",
+  "title": "42 Junk Journal Page Ideas + Free Spread Generator",
+  "description": "42 junk journal page ideas by theme: memories, winter and Christmas, nature, vintage collage, writing prompts, interactive pages and free pages from what's at home. Six spread layouts drawn out and a free generator that picks your background, focal piece, pocket and prompt. #junkjournal #junkjournalideas #junkjournaling #journalinspiration #ephemera",
+  "link": "https://purlandpaperco.com/junk-journal-page-ideas",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal page ideas",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-slip-stitch-crochet.jpg",
+  "title": "How to Slip Stitch in Crochet (+ Join a Round)",
+  "description": "How to slip stitch in crochet in three drawn steps, where the join goes when the chain counts (or doesn't), joined rounds vs spiral, and the invisible join. Free round writer in US or UK terms. #crochetforbeginners #crochettips #learntocrochet #crochetstitches #slipstitch",
+  "link": "https://purlandpaperco.com/how-to-slip-stitch-crochet",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to slip stitch in crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/embroidery-hoop-size-calculator.jpg",
+  "title": "What Size Embroidery Hoop Do I Need? Free Hoop Size Calculator",
+  "description": "Enter your embroidery design size and get the hoop to buy (corners checked for square designs), the fabric to cut, and a hoop size chart from 3 to 12 in. Free and printable. #embroidery #handembroidery #embroideryforbeginners #embroideryhoop #stitching",
+  "link": "https://purlandpaperco.com/embroidery-hoop-size-calculator",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Embroidery hoop size calculator",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-punch-needle.jpg",
+  "title": "How to Punch Needle for Beginners: 7 Easy Steps",
+  "description": "How to punch needle in seven drawn steps: stretch monk's cloth, draw on the back, punch to the handle, outline then fill. Plus a needle, yarn and fabric matcher and fixes for loops that pull out. #punchneedle #punchneedleforbeginners #rugmaking #fibreart #diycrafts",
+  "link": "https://purlandpaperco.com/how-to-punch-needle",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to punch needle",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-knit-a-scarf.jpg",
+  "title": "How to Knit a Scarf for Beginners (Free Pattern Writer)",
+  "description": "Knit your first scarf: yarn and needles, how many stitches to cast on, garter, seed or rib, and a free pattern writer for your yarn and size. Perfect handmade Christmas gift. #knittingforbeginners #knitscarf #learntoknit #handmadegifts #knitting",
+  "link": "https://purlandpaperco.com/how-to-knit-a-scarf",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to knit a scarf",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-crochet-a-scarf.jpg",
+  "title": "How to Crochet a Scarf for Beginners (Free Pattern Writer)",
+  "description": "Crochet your first scarf: yarn and hook, how many chains to start, single, half double, double or moss stitch, and a free pattern writer in US or UK terms. Perfect handmade Christmas gift. #crochetforbeginners #crochetscarf #learntocrochet #handmadegifts #crochet",
+  "link": "https://purlandpaperco.com/how-to-crochet-a-scarf",
+  "board": "Crochet & Knitting Planners",
+  "topic": "How to crochet a scarf",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/hand-sewing-stitches.jpg",
+  "title": "8 Basic Hand Sewing Stitches for Beginners",
+  "description": "Running stitch, backstitch, whip, ladder (invisible) stitch, blind hem, basting, blanket and catch stitch, drawn step by step, plus a chooser that picks the stitch, needle and thread for your job. #handsewing #sewingforbeginners #sewinghacks #mending #sewing",
+  "link": "https://purlandpaperco.com/hand-sewing-stitches",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Hand sewing stitches",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/jewelry-business-spreadsheet-pin-b.jpg",
+  "title": "Jewelry Pricing Calculator Spreadsheet for Handmade Jewelry Makers",
+  "description": "Price every necklace, ring and pair of earrings from metal weight, findings and your time: classic jewelry formula, cost x multiplier and a margin price after Etsy fees side by side. Custom order tracker, inventory, sales dashboard. Excel + Google Sheets. #jewelrybusiness #handmadejewelry #pricingcalculator #silversmith #smallbusiness",
+  "link": "https://www.etsy.com/listing/4626872711",
+  "board": "Small Business Spreadsheets",
+  "topic": "Jewelry making",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/debt-payoff-planner-spreadsheet-pin-b.jpg",
+  "title": "Debt Payoff Planner Spreadsheet: Snowball or Avalanche + Colour-In Tracker",
+  "description": "See the month you'll be debt-free, the interest you save vs minimum payments, and colour in a 100-square chart as you pay. Up to 12 debts, savings goals too. Excel + Google Sheets. #debtfree #debtsnowball #budgeting #moneygoals #2027goals",
+  "link": "https://www.etsy.com/listing/4626884176",
+  "board": "Planners & Trackers",
+  "topic": "Debt free",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/wedding-budget-planner-spreadsheet-pin-b.jpg",
+  "title": "Wedding Budget Planner Spreadsheet with Guest List, RSVPs and Checklist",
+  "description": "Budget by category with guide %, vendor quotes and deposits, a payment schedule with due dates, guest list with RSVPs, meals and tables, and a 60-task checklist dated from your wedding day. Excel + Google Sheets. #weddingbudget #weddingplanning #engaged #bridetobe #weddingchecklist",
+  "link": "https://www.etsy.com/listing/4626885492",
+  "board": "Planners & Trackers",
+  "topic": "Wedding planning",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/winter-cottage-junk-journal-kit-pin-b.jpg",
+  "title": "Winter Cottage Junk Journal Kit: Printable Snowy Cottage + Nordic Knit Papers",
+  "description": "17 pages of original winter ephemera: a snowy cottage at dusk, winter greenery, cocoa recipe cards, Nordic knit and plaid papers, tags, tickets, stamps and journaling cards. US Letter + A4. #junkjournal #junkjournalkit #winterjournal #hygge #printableephemera",
+  "link": "https://www.etsy.com/listing/4626887026",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal",
+  "status": "queued"
+ },
+ {
+  "image": "pins/batch10/2027-printable-calendar-pin-b.jpg",
+  "title": "2027 Printable Calendar with Seasonal Patterns, Sunday + Monday Start",
+  "description": "12 monthly pages, each with its own hand-drawn seasonal pattern (snowflakes, tulips, lemons, sunflowers, pumpkins, holly...), plus a 2027 year at a glance. US Letter + A4. #2027calendar #printablecalendar #wallcalendar #2027planner #newyear",
+  "link": "https://www.etsy.com/listing/4626878631",
+  "board": "Planners & Trackers",
+  "topic": "Calendar",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-knit-cables.jpg",
+  "title": "How to Knit Cables for Beginners: C4F and C4B Step by Step + Free Chart Writer",
+  "description": "Cable knitting made simple: every step drawn, front vs back crosses, how to read a cable chart, and a free writer that turns your cable into rows, a cast-on number and a chart. #knittingforbeginners #cableknitting #knittingtips #howtoknit",
+  "link": "https://purlandpaperco.com/how-to-knit-cables",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/crochet-sheep-pattern.jpg",
+  "title": "Free Easy Crochet Sheep Pattern (Amigurumi for Beginners)",
+  "description": "A chubby amigurumi sheep in single crochet: round-by-round body, head, ears and legs with tick boxes, plus a yarn and size helper for DK to chenille. #crochetsheep #amigurumipattern #freecrochetpattern #crochetforbeginners",
+  "link": "https://purlandpaperco.com/crochet-sheep-pattern",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ }
 ]

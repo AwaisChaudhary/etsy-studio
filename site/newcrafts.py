@@ -154,7 +154,7 @@ for(var j=k-1;j>=1;j--){var c2=6*j;h.push("R"+(++r)+": "+(j==1?"dec x6":"(sc "+(
 h.push("Fasten off, weave the tail through the front loops of the last 6 stitches and pull closed.");
 document.getElementById("calc-out").innerHTML='<p><span class="big-n">'+mx+'</span> stitches at the widest round, <strong>'+r+'</strong> rounds in total.</p><ol style="padding-left:18px">'+h.map(function(t){return "<li>"+t+"</li>"}).join("")+"</ol>";''') + PROSE("amigurumi.html", '''
 <h2>Amigurumi for beginners</h2>
-<ol><li><strong>Magic ring:</strong> start every round piece with an adjustable ring so there's no hole. See <a href="{H:how-to-crochet-magic-ring.html}">how to crochet a magic ring</a>.</li>
+<ol><li><strong>Magic ring:</strong> start every round piece with an adjustable ring so there's no hole. See <a href="{H:how-to-crochet-magic-ring.html}">how to crochet a magic ring</a>. First toy? Try our <a href="{H:crochet-sheep-pattern.html}">free crochet sheep pattern</a>.</li>
 <li><strong>Work in a spiral:</strong> don't join rounds. Put a stitch marker in the first stitch of each round and move it up.</li>
 <li><strong>Tight stitches:</strong> use a hook one or two sizes smaller than the yarn label says so stuffing doesn't show. Our <a href="{H:hook-needle-sizes.html}">hook size chart</a> converts sizes.</li>
 <li><strong>Invisible decrease:</strong> insert the hook in the front loops only of the next two stitches, yarn over and pull through both loops, then finish as a single crochet. It's neater than a standard sc2tog.</li>

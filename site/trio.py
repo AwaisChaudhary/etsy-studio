@@ -173,6 +173,13 @@ cxp = top("How to cross stitch for beginners", "Everything you need for a first 
 <h2>How to read a cross stitch chart</h2>
 <p>Each square on the chart is one square of fabric. A symbol or colour in the square tells you the floss, and the <strong>key</strong> beside the chart matches each symbol to a thread number. Bold lines every 10 squares make counting easier. Solid lines across the squares are <strong>backstitch</strong>, usually done last with one strand to outline shapes. Half-filled squares are fractional stitches: quarter or three-quarter stitches for curves.</p>
 <p>Stitch one colour in an area, then the next, working outwards from the centre so the design stays in the middle. Mark off what you've done with a pencil on a copy of the chart.</p>
+<h2 id="finish-hoop">How to finish a cross stitch in a hoop</h2>
+<ol><li><strong>Wash and press</strong> the finished piece if it's grubby: cool water, roll it in a towel, then iron face down on a towel.</li>
+<li><strong>Re-hoop it centred</strong> and drum-tight, with the hoop's screw at the top (12 o'clock) for hanging. Tighten the screw fully.</li>
+<li><strong>Trim the spare fabric</strong> to about 1 to 1.5 in (2.5 to 4 cm) all round the hoop.</li>
+<li><strong>Gather the edge:</strong> sew a running stitch round the trimmed edge with strong thread, pull it tight so the fabric folds onto the back, and knot it.</li>
+<li><strong>Cover the back</strong> (optional but neat): cut a circle of felt the size of the inner hoop and whip stitch it over the gathered fabric, or glue it on.</li></ol>
+<p>Quicker option: skip the gathering and glue the trimmed fabric to the inside of the inner ring with fabric glue or a little hot glue. Hang it by the screw or tie a ribbon through. Our <a href="{href("embroidery-hoop-size-calculator.html")}">hoop size calculator</a> tells you which display hoop fits your design.</p>
 <h2>Beginner mistakes to avoid</h2>
 <ul><li><strong>Too many strands:</strong> stitches look lumpy and the holes stretch. Two strands on 14-count.</li>
 <li><strong>Long threads:</strong> longer than 18 in and the floss twists and frays. Let the needle hang to untwist it now and then.</li>
@@ -190,6 +197,7 @@ cx_faq = [
     ("Do you tie a knot in cross stitch?", "No. Knots make lumps and can pull through. Use a loop start or hold a tail at the back and stitch over it, and finish by weaving under a few stitches."),
     ("Which way should the top stitch go in cross stitch?", "It doesn't matter which way, as long as every top leg on the piece slants the same direction."),
     ("How long should my floss be for cross stitch?", "About 18 in (45 cm). Longer threads twist, knot and wear thin."),
+    ("How do you finish a cross stitch in a hoop?", "Re-hoop it centred and tight with the screw at the top, trim the fabric to about 1 in past the hoop, gather it to the back with a running stitch, and cover the back with a circle of felt or glue the edges down."),
 ]
 SHOP_FOR["how-to-cross-stitch.html"] = ["machine-embroidery-business-spreadsheet", "crochet-knitting-pricing-calculator", "2027-crochet-knitting-planner", "christmas-gift-tags"]
 page("how-to-cross-stitch.html", "How to Cross Stitch for Beginners (Step by Step) | Purl & Paper",

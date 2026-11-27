@@ -1,13 +1,20 @@
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
+## RADAR 27 Nov run 15 (web search, rotation: crochet sheep amigurumi / how to price crochet plushies / knitting how to cable / christmas junk journal ideas / cross stitch finish hoop / read a cable chart)
+P1. DONE 27 Nov (/how-to-knit-cables) 'how to knit cables for beginners' (SERP: LoveCrafts x3 regional, Knit Picks x2, B.Hooked, Yarnspirations, Mary Maxim x2, AllFreeKnitting x2, Knitting with Chopsticks, WonderHowTo, Dummies) + 'how to read a cable chart' (DMC, Dummies, Yarnspirations x2, LoveCrafts, Gathered, Purl Soho, Lion Brand) -> 6 SVG steps + cable pattern and chart writer (C4/C6/C8, F/B/alternate, flat/round).
+P2. DONE 27 Nov (/crochet-sheep-pattern) = E1 'crochet sheep' (Trends 1-d rising +80%; SERP almost all Ravelry/Ribblr paid listings + Hobbycraft) -> our own free amigurumi sheep pattern with round tick boxes + yarn/size helper.
+P3. DONE 27 Nov (/junk-journal-page-ideas#christmas) = N2 'christmas junk journal ideas' (SERP: Art Journalist x2, Graphics Fairy x8 journals, junkjournaleditions, Mashaplans) -> H2 + 12 ideas + 3 template drawings + 2 FAQs; shop box now December Days + Winter Cottage kits.
+P4. DONE 27 Nov (/how-to-cross-stitch#finish-hoop) NEW 'how to finish cross stitch in a hoop' (SERP: Stitched Modern, LoveCrafts, Make: x2, Wool Warehouse guide, Stitch and Story, Caterpillar, badasscrossstitch, pinoystitch, several blogs) -> H2 5 steps + FAQ (merge, not a thin page).
+P5. NOTE 'how to price crochet plushies' (Hostinger x8 mirrors, B.Hooked x2, Ribblr forum, Daisy Cottage) -> /how-to-price-amigurumi covers it (R4 partly served); next: check its title says 'plushies' if Search Console shows the query.
+
 ## EVENING RADAR 27 Nov 2026 (18:40 PKT)
-E1. OPEN: Trends crochet 1-d rising 'ikea crochet sheep' +130%, 'ikea x crochet' +100%, 'crochet sheep' +80%: a free crochet sheep pattern page (amigurumi sheep, beginner) if we can write an original pattern; do not copy IKEA's.
+E1. DONE 27 Nov run 15 (/crochet-sheep-pattern, own pattern): Trends crochet 1-d rising 'ikea crochet sheep' +130%, 'ikea x crochet' +100%, 'crochet sheep' +80%: a free crochet sheep pattern page (amigurumi sheep, beginner) if we can write an original pattern; do not copy IKEA's.
 E2. OPEN: 'christmas crafts' -> to make and sell, for adults to make and sell: check a 'christmas crafts to sell' page exists; if not, build it with links to our Etsy printables.
 E3. OPEN: 'coloring pages' -> for kids, for adults, christmas, for boys/girls: check our coloring page titles include 'printable christmas coloring pages'.
 
 ## RADAR 27 Nov run 14 (web search, rotation: crochet a scarf step by step / crochet scarf chains / hand sewing stitches / etsy offsite ads 2026 / junk journal christmas)
 N1. DONE 27 Nov (/hand-sewing-stitches) 'basic hand sewing stitches for beginners', 'how to sew by hand' (SERP: Bob Vila x2, Wayfair, Red Ted Art, Skillshare, Homedit 7 stitches, MasterClass, LoveCrafts 6 essential, Melly Sews, I Heart Naptime, Apartment Therapy, iFixit, Westport Library, SlideShare decks; we had only /how-to-sew-a-button) -> 8 stitches drawn + stitch/needle/thread chooser.
-N2. OPEN 'christmas junk journal' / 'christmas junk journal ideas' (SERP: Art Journalist x2, Graphics Fairy Nana's Christmas + Notes of Christmas, junkjournaleditions blog, 101 Planners) -> add H2 'Christmas junk journal ideas' (+ free tag/pocket SVGs) to /junk-journal-page-ideas, shop box December Days kit. Do this week (seasonal).
+N2. DONE 27 Nov run 15 (/junk-journal-page-ideas#christmas) 'christmas junk journal' / 'christmas junk journal ideas' (SERP: Art Journalist x2, Graphics Fairy Nana's Christmas + Notes of Christmas, junkjournaleditions blog, 101 Planners) -> add H2 'Christmas junk journal ideas' (+ free tag/pocket SVGs) to /junk-journal-page-ideas, shop box December Days kit. Do this week (seasonal).
 N3. OPEN 'how to hem pants by hand' / 'ladder stitch' (part of N1 SERP) -> if Search Console shows these, grow into own how-tos off /hand-sewing-stitches.
 
 ## RADAR 27 Nov run 13 (web search, rotation: knit a scarf how to / skeins for a crochet scarf / punch needle how to / embroidery hoop size / last-minute crochet Christmas gifts / etsy offsite ads calculator)

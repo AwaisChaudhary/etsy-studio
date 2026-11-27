@@ -153,7 +153,8 @@ ksp = top("Knit stitch patterns for beginners: 15 knit and purl stitches", "Fift
 <li><strong>Blanket:</strong> seed, moss, double seed or basketweave checks, which lie flat without a border. Plan the size in the <a href="{href("blanket-size-calculator.html")}">blanket size calculator</a>.</li>
 <li><strong>Hat:</strong> a 2x2 or 1x1 rib brim with a stockinette, welt or broken rib body. The <a href="{href("hat-size-chart.html")}">hat size calculator</a> gives the cast on.</li>
 <li><strong>Dishcloth:</strong> garter, seed or double seed in cotton: small, quick and good practice.</li>
-<li><strong>Sweater:</strong> stockinette body with rib cuffs; Andalusian or broken rib for texture. See the <a href="{href("sweater-size-calculator.html")}">sweater size calculator</a>.</li></ul>
+<li><strong>Sweater:</strong> stockinette body with rib cuffs; Andalusian or broken rib for texture. See the <a href="{href("sweater-size-calculator.html")}">sweater size calculator</a>.</li>
+<li><strong>Ready for cables?</strong> Reverse stockinette is the classic background. Learn the cross in <a href="{href("how-to-knit-cables.html")}">how to knit cables</a>, with a cable chart writer.</li></ul>
 <h2>Tips for neat textured knitting</h2>
 <ul><li>Place a stitch marker every repeat on wide pieces, so a mistake shows up within a few stitches.</li>
 <li>Add a 1-stitch garter edge each side (knit the first and last stitch of every row) for tidy edges. Cast on 2 extra stitches.</li>

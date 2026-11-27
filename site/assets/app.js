@@ -3954,4 +3954,88 @@
     hssRun();
   }
 
+  /* ---------- CABLE PATTERN AND CHART WRITER (run 15) ---------- */
+  if ($("#ckw-w") && $("#ckw-out")) {
+    var ckwF = "flat";
+    var ckwRun = function () {
+      var w = parseInt($("#ckw-w").value, 10), d = $("#ckw-d").value, R = parseInt($("#ckw-r").value, 10);
+      var p = Math.min(6, Math.max(1, parseInt($("#ckw-p").value, 10) || 2)), n = Math.min(8, Math.max(1, parseInt($("#ckw-n").value, 10) || 1));
+      var rnd = ckwF === "round", h = w / 2, tot = rnd ? n * (w + p) : p + n * (w + p);
+      var rows = d === "A" ? R * 2 : R;
+      var cx = function (r) { return d === "A" ? (r === 1 ? "F" : "B") : d; };
+      var plainRS = rnd ? "*p" + p + ", k" + w + "; repeat from * to the end" : "p" + p + ", *k" + w + ", p" + p + "; repeat from * to the end";
+      var crossRS = function (c) { return rnd ? "*p" + p + ", C" + w + c + "; repeat from * to the end" : "p" + p + ", *C" + w + c + ", p" + p + "; repeat from * to the end"; };
+      var plainWS = "k" + p + ", *p" + w + ", k" + p + "; repeat from * to the end";
+      var o = ['<p class="sub">Cast on</p><p class="big">' + tot + "<small> stitches</small></p><p>" + n + " cable" + (n > 1 ? "s" : "") + " of " + w + " stitches with " + p + " purl stitches " + (rnd ? "between each (joined in the round)" : "between and at each edge") + ". Add any edge or rib stitches your project needs.</p>"];
+      o.push("<h3>Your pattern" + (rnd ? " (rounds)" : " (rows)") + "</h3><ol>");
+      for (var r = 1; r <= rows; r++) {
+        var lbl = rnd ? "Round " + r : "Row " + r + (r % 2 ? " (RS)" : " (WS)");
+        var isX = d === "A" ? (r === 1 || r === R + 1) : r === 1;
+        var txt;
+        if (!rnd && r % 2 === 0) txt = plainWS; else txt = isX ? crossRS(d === "A" ? (r === 1 ? "F" : "B") : d) : plainRS;
+        o.push("<li><strong>" + lbl + ":</strong> " + txt + ".</li>");
+      }
+      o.push("</ol><p>Repeat " + (rnd ? "rounds" : "rows") + " 1 to " + rows + ".</p>");
+      var cdesc = function (c) { return "<strong>C" + w + c + "</strong>: slip " + h + " sts to a cable needle and hold in " + (c === "F" ? "front" : "back") + ", k" + h + ", then k" + h + " from the cable needle (leans " + (c === "F" ? "left" : "right") + ")."; };
+      o.push('<p class="sub">' + (d === "A" ? cdesc("F") + " " + cdesc("B") : cdesc(d)) + "</p>");
+      // chart: one repeat of p + cable + p (flat) or cable + p (round)
+      var cols = rnd ? w + p : p + w + p, cw = Math.min(26, Math.floor(300 / cols)), ch = 18, W = cols * cw, H = rows * ch, svg = [];
+      svg.push('<svg viewBox="-28 -4 ' + (W + 36) + " " + (H + 24) + '" role="img" aria-label="Cable chart, ' + rows + ' rows" style="max-width:100%;height:auto">');
+      var c0 = rnd ? 0 : p;
+      for (var y = 0; y < rows; y++) {
+        var rr = rows - y, isX2 = d === "A" ? (rr === 1 || rr === R + 1) : rr === 1, c2 = d === "A" ? (rr === 1 ? "F" : "B") : d;
+        for (var x = 0; x < cols; x++) {
+          var isP = x < c0 || x >= c0 + w;
+          svg.push('<rect x="' + x * cw + '" y="' + y * ch + '" width="' + cw + '" height="' + ch + '" fill="' + (isP ? "#efe6d2" : "#fbfcfa") + '" stroke="#1f2a44" stroke-width=".6"/>');
+          if (isP) svg.push('<circle cx="' + (x * cw + cw / 2) + '" cy="' + (y * ch + ch / 2) + '" r="2.2" fill="#1f2a44"/>');
+        }
+        if (isX2) {
+          var x1 = c0 * cw, x2 = (c0 + w) * cw, yt = y * ch + 2, yb = y * ch + ch - 2, mid = (x1 + x2) / 2;
+          svg.push('<rect x="' + x1 + '" y="' + y * ch + '" width="' + (x2 - x1) + '" height="' + ch + '" fill="#f4d9e4" stroke="#1f2a44" stroke-width=".8"/>');
+          if (c2 === "F") svg.push('<path d="M' + (x1 + 3) + " " + yb + " L" + (mid - 1) + " " + yt + " M" + (mid + 1) + " " + yb + " L" + (x2 - 3) + " " + yt + '" stroke="#b8326a" stroke-width="2.4" fill="none"/><path d="M' + (mid + 1) + " " + yt + " L" + (x2 - 3) + " " + yb + '" stroke="#b8326a" stroke-width="1" fill="none"/>');
+          else svg.push('<path d="M' + (x1 + 3) + " " + yt + " L" + (mid - 1) + " " + yb + '" stroke="#b8326a" stroke-width="1" fill="none"/><path d="M' + (mid + 1) + " " + yt + " L" + (x2 - 3) + " " + yb + " M" + (x1 + 3) + " " + yb + " L" + (mid - 1) + " " + yt + '" stroke="#b8326a" stroke-width="2.4" fill="none"/>');
+        }
+        svg.push('<text x="' + (rnd || rr % 2 ? W + 4 : -4) + '" y="' + (y * ch + 13) + '" font-size="10" font-family="Inter,sans-serif" fill="#1f2a44" text-anchor="' + (rnd || rr % 2 ? "start" : "end") + '">' + rr + "</text>");
+      }
+      svg.push("</svg>");
+      o.push("<h3>Chart (one repeat)</h3>" + svg.join("") + '<p class="sub">Blank = knit on the RS, dot = purl on the RS, pink = the cable cross. Start at the bottom; ' + (rnd ? "read every round right to left." : "RS rows (numbers on the right) right to left, WS rows left to right, knitting the purls and purling the knits.") + " Allow a little extra yarn: cables use more than plain knitting (see below).</p>");
+      $("#ckw-out").innerHTML = o.join("");
+      store.set("pp-ckw", { w: $("#ckw-w").value, d: d, r: $("#ckw-r").value, p: p, n: n, f: ckwF });
+    };
+    var ckwS = store.get("pp-ckw", null);
+    if (ckwS) { ["w", "d", "r"].forEach(function (k) { if (ckwS[k] && $("#ckw-" + k).querySelector('option[value="' + ckwS[k] + '"]')) $("#ckw-" + k).value = ckwS[k]; });
+      if (ckwS.p) $("#ckw-p").value = ckwS.p; if (ckwS.n) $("#ckw-n").value = ckwS.n;
+      if (ckwS.f === "round") { ckwF = "round"; $$("#ckw-f button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "round" ? "true" : "false"); }); } }
+    ["#ckw-w", "#ckw-d", "#ckw-r"].forEach(function (s) { $(s).addEventListener("change", ckwRun); });
+    ["#ckw-p", "#ckw-n"].forEach(function (s) { $(s).addEventListener("input", ckwRun); });
+    seg($("#ckw-f"), function (v) { ckwF = v; ckwRun(); });
+    ckwRun();
+  }
+
+  /* ---------- CROCHET SHEEP: ROUND TRACKER + YARN HELPER (run 15) ---------- */
+  if ($("#shp-y") && $("#shp-out")) {
+    // Stitch totals of our pattern: white 558 (body 504 + tuft 54), dark 440 (head 216 + ears 56 + legs 168). Yarn per tight sc and sizes are our estimates.
+    var SHPY = { dk: { per: 1.25, len: 3.3, hk: "3 mm (C-2 or D-3)", eye: "6 to 8 mm" }, w: { per: 1.6, len: 4, hk: "3.5 mm (E-4)", eye: "8 mm" },
+                 ch: { per: 2.3, len: 5.5, hk: "5 mm (H-8)", eye: "10 to 12 mm" }, sb: { per: 3.4, len: 8.5, hk: "6 mm (J-10)", eye: "12 to 15 mm" } };
+    var shpBoxes = $$("input[data-shp]"), shpN = shpBoxes.length;
+    var shpDone = store.get("pp-shp-done", []) || [];
+    shpBoxes.forEach(function (b) { if (shpDone.indexOf(b.getAttribute("data-shp")) >= 0) b.checked = true; });
+    var shpRun = function () {
+      var y = SHPY[$("#shp-y").value], wy = Math.ceil(558 * y.per / 36 * 1.1 + 5), dy = Math.ceil(440 * y.per / 36 * 1.1 + 5);
+      var done = shpBoxes.filter(function (b) { return b.checked; }).length;
+      var o = ['<p class="sub">Your sheep</p><p class="big">' + y.len + '<small> in long (about ' + Math.round(y.len * 2.54) + " cm)</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>White</td><td>about ' + wy + " yd (" + Math.round(wy * 0.9144) + ' m)</td></tr><tr><td>Dark grey</td><td>about ' + dy + " yd (" + Math.round(dy * 0.9144) + " m)</td></tr><tr><td>Hook</td><td>" + y.hk + "</td></tr><tr><td>Safety eyes</td><td>" + y.eye + " (or embroider)</td></tr></tbody></table>");
+      o.push('<p class="sub">Estimates from the stitch count of this pattern, with 10% spare and tails for sewing. Tension changes them.</p>');
+      o.push("<p><strong>" + done + " of " + shpN + "</strong> rounds ticked" + (done === shpN ? ": all done, time to sew it together!" : ".") + ' <button type="button" class="btn ghost" id="shp-reset">Clear ticks</button></p>');
+      $("#shp-out").innerHTML = o.join("");
+      $("#shp-reset").addEventListener("click", function () { shpBoxes.forEach(function (b) { b.checked = false; }); store.set("pp-shp-done", []); shpRun(); });
+      store.set("pp-shp", $("#shp-y").value);
+    };
+    var shpS = store.get("pp-shp", null); if (shpS && SHPY[shpS]) $("#shp-y").value = shpS;
+    shpBoxes.forEach(function (b) { b.addEventListener("change", function () {
+      store.set("pp-shp-done", shpBoxes.filter(function (x) { return x.checked; }).map(function (x) { return x.getAttribute("data-shp"); })); shpRun(); }); });
+    $("#shp-y").addEventListener("change", shpRun);
+    shpRun();
+  }
+
 })();
