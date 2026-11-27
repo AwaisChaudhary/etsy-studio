@@ -70,13 +70,18 @@ SHOP = {
  "small-business-pricing-inventory-spreadsheet": ("Small business pricing and inventory spreadsheet", "4.99", "4626203317", None),
  "machine-embroidery-business-spreadsheet": ("Machine embroidery pricing spreadsheet", "8.99", "4626204819", None),
  "2027-habit-tracker-spreadsheet": ("2027 habit tracker spreadsheet", "4.99", "4626206151", None),
+ "jewelry-business-spreadsheet": ("Jewelry pricing spreadsheet", "7.99", "4626872711", None),
+ "debt-payoff-planner-spreadsheet": ("Debt payoff planner spreadsheet", "4.99", "4626884176", None),
+ "wedding-budget-planner-spreadsheet": ("Wedding budget planner spreadsheet", "5.99", "4626885492", None),
+ "winter-cottage-junk-journal-kit": ("Winter Cottage junk journal kit", "4.99", "4626887026", None),
+ "2027-printable-calendar": ("2027 seasonal printable calendar", "3.99", "4626878631", None),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
-JJ = ["december-days-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "night-garden-junk-journal-kit"]
-SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-planner", "night-garden-junk-journal-kit", "yarn-stash-tracker"],
+JJ = ["winter-cottage-junk-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "december-days-journal-kit"]
+SHOP_FOR = {"2027-calendar-printable.html": ["2027-printable-calendar", "2027-habit-tracker-spreadsheet", "debt-payoff-planner-spreadsheet", "wedding-budget-planner-spreadsheet"], "2027-goal-planner-printable.html": ["2027-habit-tracker-spreadsheet", "2027-printable-calendar", "debt-payoff-planner-spreadsheet", "wedding-budget-planner-spreadsheet"], "index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-planner", "night-garden-junk-journal-kit", "yarn-stash-tracker"],
             "row-counter.html": KNIT, "yarn-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator"],
             "gauge-converter.html": KNIT, "projects.html": KNIT, "yarn-weights.html": KNIT, "hook-needle-sizes.html": KNIT, "crochet-terms.html": KNIT,
-            "journal-prompts.html": ["december-days-journal-kit", "journaling-cards-3x4", "vintage-ephemera-pack", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
+            "journal-prompts.html": ["winter-cottage-junk-journal-kit", "december-days-journal-kit", "journaling-cards-3x4", "junk-journal-mega-bundle"], "junk-journal-beginners.html": JJ,
             "blanket-size-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "hat-size-chart.html": ["2027-crochet-knitting-planner", "christmas-gift-tags", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],
             "granny-square-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
@@ -90,8 +95,8 @@ SHOP_FOR = {"index.html": ["junk-journal-mega-bundle", "2027-crochet-knitting-pl
             "knitting-abbreviations.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "junk-journal-ephemera-ideas.html": ["vintage-ephemera-pack", "journaling-cards-3x4", "junk-journal-mega-bundle", "tea-room-junk-journal-kit"],
             "yarn-yardage-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
-            "etsy-fee-calculator.html": ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"],
-            "craft-fair-checklist.html": ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"],
+            "etsy-fee-calculator.html": ["small-business-pricing-inventory-spreadsheet", "jewelry-business-spreadsheet", "crochet-knitting-pricing-calculator", "resin-art-business-spreadsheet"],
+            "craft-fair-checklist.html": ["small-business-pricing-inventory-spreadsheet", "jewelry-business-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet"],
             "temperature-blanket-planner.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "c2c-blanket-calculator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "scarf-size-chart.html": ["christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"],

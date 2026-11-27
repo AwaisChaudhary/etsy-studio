@@ -96,7 +96,7 @@ cfp_faq = [
     ("Is a craft fair worth it if I only break even?", "Sometimes. Count custom orders, new followers and wholesale contacts too. But if a fair only breaks even, your time has been unpaid, so try a cheaper fair, higher prices or more small add-on items."),
     ("Do I need to charge sales tax at a craft fair?", "In many US states and other countries you do, and you may need a seller's permit for the event. Check your state or local rules; the calculator leaves tax out of your takings."),
 ]
-SHOP_FOR["craft-fair-profit-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "crochet-knitting-pricing-calculator", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"]
+SHOP_FOR["craft-fair-profit-calculator.html"] = ["small-business-pricing-inventory-spreadsheet", "jewelry-business-spreadsheet", "soap-making-business-spreadsheet", "resin-art-business-spreadsheet"]
 page("craft-fair-profit-calculator.html", "Craft Fair Profit Calculator: Break-Even Sales vs Booth Fee | Purl & Paper",
      "Free craft fair profit calculator: add booth fee, travel, card fees, materials and hours to see profit per hour, break-even sales and the 3x booth fee rule.",
      cfp, cfp_faq, "Craft fair profit calculator", app_name="Craft fair profit and break-even calculator")

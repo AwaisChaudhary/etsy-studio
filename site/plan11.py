@@ -157,7 +157,7 @@ gpl_faq = [
     ("What is a word of the year?", "One word that sums up how you want the year to go, like finish, slow or brave. It helps when you're deciding what to say yes to."),
     ("How do I save the planner as a PDF?", "Press Print, then choose Save as PDF (or Microsoft Print to PDF) as the printer."),
 ]
-SHOP_FOR["2027-goal-planner-printable.html"] = ["2027-habit-tracker-spreadsheet", "2027-crochet-knitting-planner", "december-days-journal-kit", "christmas-gift-planner-budget"]
+SHOP_FOR["2027-goal-planner-printable.html"] = ["2027-habit-tracker-spreadsheet", "debt-payoff-planner-spreadsheet", "december-days-journal-kit", "christmas-gift-planner-budget"]
 page("2027-goal-planner-printable.html", "Free 2027 Goal Planner Printable (Fill In, Then Print)",
      "Free 2027 goal planner printable: fill in up to 4 goals with first steps and quarterly milestones, plus a monthly check-in. Letter or A4, print or save as PDF.",
      gplp, gpl_faq, "2027 goal planner printable", app_name="2027 goal planner printable")
