@@ -20,3 +20,7 @@
 3. Spreadsheets: also deliver a Google Sheets "make a copy" link (buyers search "google sheets"), not only .xlsx.
 4. Add a 5-15 s listing video (pan through the real pages/tabs, made with ffmpeg from the listing images); listings with video get more visibility.
 5. Volume of Pinterest pins up to 10/day only when there are enough distinct product + site pins (no duplicates within 7 days).
+
+## 27 Nov 20:40 PKT (Awais: 'Yes do it' to the pricing moves)
+- Starter items now $1.99 (were $3.99): journaling cards 4620615728, Christmas gift tags 4621715645, 2027 printable calendar 4626878631. With the running 25% sale they show about $1.49.
+- 40% sale NOT applied: Etsy can't edit a live sale; it must be ended and recreated, and ending it was blocked by the session's safety check. The 25% shop-wide sale stays until 2 Dec unless Awais ends it (Marketing > Sales and discounts > Shop-wide sale > End sale early) and asks for the 40% one.
