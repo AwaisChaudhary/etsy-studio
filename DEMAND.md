@@ -1,3 +1,11 @@
+## COMPETITOR WATCH 27 Nov 2026 (vs EasyCrochet (11 calculators), The Loopy Lamb, Naztazia Pattern Engineering Lab (new, Sep 2026), Viv Crochets)
+We have 110 site pages. Still open from 26 Nov: stash calculator, blanket resizer, scarf calculator, colour palette generator (none built yet).
+1. GAP (now 3 sites have it): blanket resizer / blanket planner from a swatch - EasyCrochet, Naztazia (Baby to King from your gauge), Loopy Lamb. Plan: /blanket-pattern-resizer first (highest volume): swatch gauge + stitch multiple -> chain count, rows, yards per size.
+2. GAP: stitch multiple finder (EasyCrochet + Naztazia). Plan: fold into the resizer as a tab.
+3. GAP: yarn stash calculator / leftover planner (EasyCrochet + Naztazia). Plan: stash table mode on /yarn-yardage-calculator.
+4. GAP: colour palette generator (Loopy Lamb). Plan: /yarn-color-palette-generator exporting to our stripe generator + temperature blanket planner.
+5. BETTER-THAN-THEM (own): 'Price my make' chain (time estimator + yarn cost + Etsy fees -> one price with profit) - still unique; nobody chains tools.
+
 ## COMPETITOR WATCH 26 Nov 2026 (vs easycrochet.com/calculators (14 tools), theloopylamb calculators, vivcrochets calculators, stitch-fiddle)
 We have 89 site pages (~35 calculators/charts incl. stripe generator, C2C calc, circle calc, time estimator, yarn substitution, increase/decrease; 12 how-tos). Since 24 Nov DONE: stripe generator, C2C calculator, basic stitches, bind off, cast on, knit in the round, pick up stitches, weave in ends, dropped stitch.
 1. GAP: yarn stash calculator (Easy Crochet: total yardage of your whole stash by weight). Our /yarn-yardage-calculator already does 'how much is left' for one skein. Plan: add a stash table mode to it (add skeins, totals per yarn weight, 'what can I make' link to /yarn-calculator), saved on device.
