@@ -160,7 +160,7 @@ document.getElementById("calc-out").innerHTML='<p><span class="big-n">'+mx+'</sp
 <li><strong>Invisible decrease:</strong> insert the hook in the front loops only of the next two stitches, yarn over and pull through both loops, then finish as a single crochet. It's neater than a standard sc2tog.</li>
 <li><strong>Stuffing:</strong> polyester fibrefill, added in small pieces. Stuff firmly before the hole gets too small.</li></ol>
 <h2>Safety eyes and children</h2>
-<p>Safety eyes lock with a washer and must go in before you close the piece. For toys for babies and children under 3, embroider the eyes with yarn instead: small parts can come loose.</p>
+<p>Safety eyes lock with a washer and must go in before you close the piece. For toys for babies and children under 3, embroider the eyes with yarn instead: small parts can come loose. Not sure which size to buy? See the <a href="{H:safety-eyes-size-chart.html}">safety eyes size chart</a>, which draws your toy's face at actual size.</p>
 <h2>Using the ball pattern</h2>
 <p>Heads, bodies, baubles and fruit all start from this ball. For an egg or body shape, add more even rounds; for a flat-bottomed piece, stop increasing earlier. Selling your makes? See <a href="{H:how-to-price-amigurumi.html}">how to price amigurumi</a>.</p>''')
 page("amigurumi.html", "Amigurumi Ball Pattern Calculator + Beginner Guide | Purl & Paper",

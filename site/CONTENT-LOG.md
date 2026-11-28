@@ -475,3 +475,13 @@
 - Pins queued: pins/site/how-to-knit-a-blanket.jpg, crochet-headband-pattern.jpg, how-to-wind-a-ball-of-yarn.jpg.
 - SHOP: no new live craft products since run 17; new pages use planner, pricing calculator, stash tracker, gift planner, gift tags.
 - IndexNow pending: https://purlandpaperco.com/how-to-knit-a-blanket https://purlandpaperco.com/crochet-headband-pattern https://purlandpaperco.com/how-to-wind-a-ball-of-yarn
+
+## 28 Nov 2026 run 19 (demand-first, plan19.py)
+- NEW /how-to-knit-a-christmas-stocking — 'how to knit a christmas stocking for beginners'. Own flat two-piece design (no DPNs, no heel turn): 6 SVG steps, flat vs round, stripes/white heel/name, sewing up, time; writer (xks-*: 5 sizes matching /christmas-stocking-calculator, DK to super bulky, swatch, garter/rib cuff) -> cast on, cuff, leg, toe cast on, foot, heel/toe decreases for both mirrored pieces, yarn, hours.
+- NEW /safety-eyes-size-chart — 'safety eyes size chart', 'what size safety eyes for amigurumi/worsted'. Chart by yarn weight (realistic vs cute), helper (sey-*: widest-round stitches + yarn -> head diameter, suggested eye mm, alternatives, gap in stitches, near-actual-size face + eye strip), placement, 4 SVG insertion steps, baby/pet safety, colour/3-piece eyes.
+- NEW /how-to-make-a-junk-journal-cover — 'how to make a junk journal cover', 'junk journal cover from cereal box'. 6 SVG steps, materials, sizing (1/8 in square), hinge gap, 6 cover ideas, sewing signatures; calculator (jjc-*: page size, signatures, sheets, paper, board, bulk -> boards, spine, hinge, cover paper + which sheet it fits, linings, hole rows, cutting diagram).
+- Links: footer Guides, home 'Fresh today', /christmas-stocking-calculator (flat pieces para), /amigurumi (safety eyes section), /junk-journal-signature-calculator (thickness section).
+- Sources: Repeat Crafter Me, Discount Craft, CrochetKim, PlanetJune (safety eyes, checked 28 Nov); Hobbycraft, Skillshare, Mary Maxim (stocking construction); Make:, Instructables, 101 Planners (covers) + standard bookbinding conventions. Eye ranges/proportions, yarn, hours, spine bulk labelled estimates; designs and drawings our own.
+- Pins queued: pins/site/how-to-knit-a-christmas-stocking.jpg, safety-eyes-size-chart.jpg, how-to-make-a-junk-journal-cover.jpg.
+- SHOP: no new live products since run 18 (batch9/10 all in SHOP). Boxes: gift tags/gift planner/pricing/planner (stocking), pricing/planner/stash/gift tags (eyes), Tea Room + Winter Cottage kits, ephemera pack, mega bundle (cover).
+- IndexNow pending: https://purlandpaperco.com/how-to-knit-a-christmas-stocking https://purlandpaperco.com/safety-eyes-size-chart https://purlandpaperco.com/how-to-make-a-junk-journal-cover

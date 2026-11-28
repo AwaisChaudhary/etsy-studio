@@ -4388,4 +4388,104 @@
     ywbRun();
   }
 
+  /* ---------- run 19: flat Christmas stocking writer (xks-*) ---------- */
+  if ($("#xks-z") && $("#xks-out")) {
+    // Sizes match /christmas-stocking-calculator [height, flat width, foot, cuff]. CYC knit gauge mid values; rows 1.35 x sts/in, garter 1.9.
+    // Yardage = same model as the stocking calculator (0.667 yd per sq in x weight factor x 1.1). Speed 13-20 sts a minute (beginner estimate) + 1 h sewing.
+    var XS = { mini: [7, 3.5, 4.5, 1.5], small: [12, 5, 7, 2.5], standard: [18, 7, 10, 3.5], large: [22, 8, 12, 4], xl: [26, 9, 14, 5] };
+    var XG = { 3: 22, 4: 18, 5: 14, 6: 9 }, XM = { 3: 1.18, 4: 1, 5: 0.72, 6: 0.52 }, XN = { 3: "US 6 (4 mm)", 4: "US 8 (5 mm)", 5: "US 10.5 (6.5 mm)", 6: "US 13 (9 mm)" };
+    var xkS0 = store.get("pp-xks", null) || {};
+    ["z", "y", "g", "c"].forEach(function (k) { if (xkS0[k] !== undefined && $("#xks-" + k)) $("#xks-" + k).value = xkS0[k]; });
+    var xkEven = function (v, m) { v = Math.max(m, Math.round(v)); return v % 2 ? v + 1 : v; };
+    var xksRun = function () {
+      var d = XS[$("#xks-z").value] || XS.standard, h = d[0], w = d[1], f = d[2], c = d[3], wt = $("#xks-y").value;
+      var base = XG[wt] || 18, g = parseFloat($("#xks-g").value) || 0, spi = (g > 0 ? g : base) / 4, rpi = spi * 1.35, rib = $("#xks-c").value === "rib";
+      var co = xkEven(w * spi, 6), cuffR = xkEven(c * spi * (rib ? 1.35 : 1.9), 4), legR = xkEven((h - c - w) * rpi, 2);
+      var toe = Math.max(2, Math.round((f - w) * spi)), N = Math.max(1, Math.round(spi * 0.7)), footR = xkEven(w * rpi - 2 * N, 2), last = co + toe - 2 * N;
+      var dens = g > 0 ? base / g : 1, k = 0.667 * (XM[wt] || 1) * 1.1 * dens, body = 2 * (w * Math.max(h - w, 0) + f * w), tot = body * k, cuffY = 2 * w * c * k;
+      var sts = 2 * (co * (cuffR + legR) + (co + toe) * (footR + 2 * N)), hLo = sts / 20 / 60 + 1, hHi = sts / 13 / 60 + 1;
+      var r5 = function (v) { return Math.round(v / 5) * 5; }, r1 = function (v) { return Math.round(v * 2) / 2; };
+      var cuffTxt = rib ? "*k1, p1; repeat from * to the end" : "knit every stitch";
+      var o = ['<p class="sub">' + h + " in tall, " + w + " in wide, foot " + f + ' in. Two pieces.</p><p class="big">' + co + "<small> stitches to cast on</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Yarn</td><td>about ' + r5(tot * 0.85) + " to " + r5(tot * 1.15) + " yd in all (" + r5(tot * 0.85 * 0.9144) + " to " + r5(tot * 1.15 * 0.9144) + " m), of which the cuff is about " + r5(cuffY * 1.15) + " yd</td></tr><tr><td>Needles</td><td>" + (g > 0 ? "the size that gave your swatch" : XN[wt]) + "</td></tr><tr><td>Time</td><td>about " + Math.round(hLo) + " to " + Math.round(hHi) + " hours, sewing included</td></tr></tbody></table>");
+      o.push("<h3>Piece 1 (toe points right)</h3><ol>" +
+        "<li><strong>Cuff:</strong> in the cuff colour, cast on " + co + " stitches. Rows 1 to " + cuffR + ": " + cuffTxt + ". (About " + c + " in.)</li>" +
+        "<li><strong>Leg:</strong> join the main colour. Row 1 (right side): knit. Row 2: purl. Repeat these 2 rows " + (legR / 2) + " times in all (" + legR + " rows, about " + r1(h - c - w) + " in), ending after a purl row.</li>" +
+        "<li><strong>Toe stitches:</strong> next row (right side): cast on " + toe + " stitches at the start of the row with the cable cast on, then knit to the end. (" + (co + toe) + " sts)</li>" +
+        "<li><strong>Foot:</strong> starting with a purl row, work " + footR + " rows of stockinette, ending after a purl row.</li>" +
+        "<li><strong>Round the heel and toe:</strong> right-side row: k2tog, knit to the last 2 stitches, ssk. Wrong-side row: purl. Repeat these 2 rows " + N + " time" + (N > 1 ? "s" : "") + " in all. (" + last + " sts)</li>" +
+        "<li>Bind off loosely. Leave a long tail on one piece for sewing.</li></ol>");
+      o.push("<h3>Piece 2 (toe points left)</h3><ol><li>Work the cuff and leg the same, then knit one more row so you finish after a right-side row.</li><li><strong>Toe stitches:</strong> next row (wrong side): cast on " + toe + " stitches at the start of the row, then purl to the end. (" + (co + toe) + " sts)</li><li>Starting with a knit row, work " + footR + " rows of stockinette, ending after a purl row, then round the heel and toe and bind off exactly as piece 1.</li></ol>");
+      o.push("<h3>Finishing</h3><ol><li>Weave in the ends. Put the pieces right sides together and sew round the leg, heel, foot and toe, leaving the top open.</li><li>Turn right side out. For a loop, knit a 3-stitch i-cord about 4 in long (or crochet 25 chains) and sew both ends inside the cuff at the heel side.</li></ol>");
+      o.push('<p class="sub">Estimates from typical gauge for this yarn' + (g > 0 ? " (using your swatch)" : "") + '. If your piece is wider than ' + w + ' in, go down a needle size. In the round instead? Use the <a href="' + (location.protocol === "file:" ? "christmas-stocking-calculator.html" : "/christmas-stocking-calculator") + '">stocking calculator</a>.</p>');
+      $("#xks-out").innerHTML = o.join("");
+      var sv = {}; ["z", "y", "g", "c"].forEach(function (k2) { sv[k2] = $("#xks-" + k2).value; }); store.set("pp-xks", sv);
+    };
+    ["z", "y", "g", "c"].forEach(function (k) { var el = $("#xks-" + k); el.addEventListener("change", xksRun); el.addEventListener("input", xksRun); });
+    xksRun();
+  }
+
+  /* ---------- run 19: safety eye size helper (sey-*) ---------- */
+  if ($("#sey-s") && $("#sey-out")) {
+    // Head diameter from the widest round: circumference = stitches / sts per inch (tight amigurumi single crochet, our estimates by weight).
+    // Eye diameter as a share of head width: cute 0.19, classic 0.14, realistic 0.10 (our design proportions). Snaps to common shop sizes.
+    var SPI = { 1: 7, 3: 5.5, 4: 4.5, 5: 3.5, 6: 2.6 }, SR = { cute: 0.19, classic: 0.14, real: 0.1 }, SDY = { cute: 0.12, classic: 0.05, real: -0.02 }, SGP = { cute: 1.6, classic: 1.4, real: 1.3 };
+    var SZ = [4, 5, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 24, 30], seS0 = store.get("pp-sey", null) || {};
+    ["y", "s", "l", "m"].forEach(function (k) { if (seS0[k] !== undefined && $("#sey-" + k)) $("#sey-" + k).value = seS0[k]; });
+    var seyNear = function (v) { var b = SZ[0]; SZ.forEach(function (z) { if (Math.abs(z - v) < Math.abs(b - v)) b = z; }); return b; };
+    var seyRun = function () {
+      var y = $("#sey-y").value, S = Math.min(180, Math.max(12, parseInt($("#sey-s").value, 10) || 42)), look = $("#sey-l").value, spi = SPI[y] || 4.5;
+      var circ = S / spi * 25.4, D = circ / Math.PI, ideal = D * SR[look], pick = $("#sey-m").value === "auto" ? seyNear(ideal) : parseFloat($("#sey-m").value);
+      var i = SZ.indexOf(seyNear(ideal)), alt = [SZ[Math.max(0, i - 1)], SZ[Math.min(SZ.length - 1, i + 1)]];
+      var gap = pick * SGP[look], stw = 25.4 / spi, gapSts = Math.max(1, Math.round(gap / stw)), cx = D / 2 + 4, cy = D / 2 + 4, ey = cy + D * SDY[look], off = (gap + pick) / 2, W = D + 8;
+      var face = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + W.toFixed(1) + '" style="width:' + W.toFixed(1) + "mm;max-width:100%;height:auto;display:block;margin:8px auto;background:#fbf8f1;border-radius:8px\" role=\"img\" aria-label=\"Head " + Math.round(D) + " mm wide with " + pick + ' mm eyes">' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="' + (D / 2).toFixed(1) + '" fill="#f2e3cf" stroke="#1f2a44" stroke-width="0.6"/>' +
+        [-1, 1].map(function (sgn) { var x = (cx + sgn * off).toFixed(1); return '<circle cx="' + x + '" cy="' + ey.toFixed(1) + '" r="' + (pick / 2) + '" fill="#1f2a44"/><circle cx="' + (cx + sgn * off - pick * 0.18).toFixed(1) + '" cy="' + (ey - pick * 0.18).toFixed(1) + '" r="' + (pick * 0.12).toFixed(2) + '" fill="#fff"/>'; }).join("") +
+        '<path d="M' + (cx - D * 0.06).toFixed(1) + " " + (ey + pick * 0.9).toFixed(1) + " q" + (D * 0.06).toFixed(1) + " " + (D * 0.05).toFixed(1) + " " + (D * 0.12).toFixed(1) + ' 0" fill="none" stroke="#b8326a" stroke-width="' + Math.max(0.6, D * 0.012).toFixed(2) + '"/></svg>';
+      var strip = '<p style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap">' + [alt[0], pick, alt[1]].filter(function (v, j, a) { return a.indexOf(v) === j; }).map(function (z) { return '<span style="text-align:center"><span style="display:block;width:' + z + "mm;height:" + z + 'mm;border-radius:50%;background:#fbf8f1;margin:0 auto 4px"></span>' + z + " mm</span>"; }).join("") + "</p>";
+      var o = ['<p class="sub">Head about ' + Math.round(D) + " mm (" + (D / 25.4).toFixed(1) + ' in) across</p><p class="big">' + pick + "<small> mm eyes" + ($("#sey-m").value === "auto" ? " suggested" : "") + "</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Also try</td><td>' + alt.filter(function (z) { return z !== pick; }).join(" mm or ") + " mm</td></tr><tr><td>Between the eyes</td><td>about " + Math.round(gap) + " mm, roughly " + gapSts + " stitch" + (gapSts > 1 ? "es" : "") + "</td></tr><tr><td>Height</td><td>" + (look === "cute" ? "a round or two below the middle of the head" : look === "classic" ? "just below the middle" : "on or just above the middle") + "</td></tr></tbody></table>");
+      o.push(face + strip);
+      o.push('<p class="sub">Drawn close to actual size on most screens (it shrinks to fit on small phones). Head size is an estimate from a typical tight amigurumi gauge: measure your real head across for a better check. Not for toys for under 3s or pets: embroider the eyes.</p>');
+      $("#sey-out").innerHTML = o.join("");
+      var sv = {}; ["y", "s", "l", "m"].forEach(function (k) { sv[k] = $("#sey-" + k).value; }); store.set("pp-sey", sv);
+    };
+    ["y", "s", "l", "m"].forEach(function (k) { var el = $("#sey-" + k); el.addEventListener("change", seyRun); el.addEventListener("input", seyRun); });
+    seyRun();
+  }
+
+  /* ---------- run 19: junk journal cover size calculator (jjc-*) ---------- */
+  if ($("#jjc-p") && $("#jjc-out")) {
+    // Boards: page + 1/8 in wide, + 1/4 in tall (1/8 in square on 3 sides). Spine: signatures x sheets x 2 leaves x paper thickness x bulk + thread.
+    // Hinge gap: 2 x board thickness, at least 1/8 in. Turn-in 3/4 in. Linings 1/8 in smaller than the board on each side.
+    var jjS0 = store.get("pp-jjc", null) || {};
+    ["p", "w", "h", "n", "s", "t", "b", "x"].forEach(function (k) { if (jjS0[k] !== undefined && $("#jjc-" + k)) $("#jjc-" + k).value = jjS0[k]; });
+    var jjcRun = function () {
+      var pv = $("#jjc-p").value, own = pv === "custom"; $("#jjc-own").hidden = !own;
+      var pw = own ? Math.min(14, Math.max(2, parseFloat($("#jjc-w").value) || 5)) : parseFloat(pv.split("x")[0]), ph = own ? Math.min(16, Math.max(2, parseFloat($("#jjc-h").value) || 7)) : parseFloat(pv.split("x")[1]);
+      var n = Math.min(12, Math.max(1, parseInt($("#jjc-n").value, 10) || 4)), sh = Math.min(20, Math.max(1, parseInt($("#jjc-s").value, 10) || 6)), t = parseFloat($("#jjc-t").value) || 0.006, b = parseFloat($("#jjc-b").value) || 0.02, x = parseFloat($("#jjc-x").value) || 1.5;
+      var bw = pw + 0.125, bh = ph + 0.25, stack = n * sh * 2 * t * x + n * 0.01, spine = Math.max(0.25, Math.ceil(stack * 16) / 16), hinge = Math.max(0.125, Math.ceil(2 * b * 16) / 16);
+      var cw = 2 * bw + 2 * hinge + spine + 1.5, ch = bh + 1.5, row = spine / (n + 1);
+      var q = function (v) { return (Math.round(v * 16) / 16).toFixed(2).replace(/0$/, "").replace(/\.0$/, ""); }, cm = function (v) { return (v * 2.54).toFixed(1); };
+      var dim = function (a, c) { return q(a) + " x " + q(c) + " in (" + cm(a) + " x " + cm(c) + " cm)"; };
+      var fits = cw <= 11 && ch <= 8.5 ? "letter or A4 paper (sideways)" : cw <= 12 && ch <= 12 ? "12 x 12 in scrapbook paper" : cw <= 17 && ch <= 11 ? "11 x 17 in (tabloid) or A3 paper" : "a big sheet: wrapping paper, fabric or two sheets joined at the spine";
+      var o = ['<p class="sub">' + q(pw) + " x " + q(ph) + " in pages, " + n + " signature" + (n > 1 ? "s" : "") + " of " + sh + ' sheets</p><p class="big">' + q(spine) + "<small> in spine (" + cm(spine) + " cm)</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Front and back boards</td><td>2 at ' + dim(bw, bh) + "</td></tr><tr><td>Spine strip</td><td>" + dim(spine, bh) + "</td></tr><tr><td>Hinge gap</td><td>" + q(hinge) + " in (" + cm(hinge) + " cm) each side of the spine</td></tr><tr><td>Cover paper or fabric</td><td>" + dim(cw, ch) + ", fits on " + fits + "</td></tr><tr><td>Lining papers</td><td>2 at " + dim(bw - 0.25, bh - 0.25) + "</td></tr><tr><td>Sewing rows on the spine</td><td>" + n + " rows of 3 holes, about " + q(row) + " in apart; holes 1 in from top and bottom and one in the middle</td></tr></tbody></table>");
+      var S = 300 / cw, H = ch * S, X = function (v) { return (v * S).toFixed(1); };
+      var a = 0.75, g = '<svg viewBox="0 0 300 ' + H.toFixed(1) + '" role="img" aria-label="Cover cutting layout" style="width:100%;max-width:520px;height:auto;display:block;margin:10px 0;background:#fbf8f1;border-radius:8px">' +
+        '<rect x="0.5" y="0.5" width="299" height="' + (H - 1).toFixed(1) + '" fill="#e9d9e8" stroke="#1f2a44"/>' +
+        '<rect x="' + X(a) + '" y="' + X(a) + '" width="' + X(bw) + '" height="' + X(bh) + '" fill="#c9a77c" stroke="#1f2a44"/>' +
+        '<rect x="' + X(a + bw + hinge) + '" y="' + X(a) + '" width="' + X(spine) + '" height="' + X(bh) + '" fill="#b48f63" stroke="#1f2a44"/>' +
+        '<rect x="' + X(a + bw + 2 * hinge + spine) + '" y="' + X(a) + '" width="' + X(bw) + '" height="' + X(bh) + '" fill="#c9a77c" stroke="#1f2a44"/>' +
+        '<text x="' + X(a + bw / 2) + '" y="' + X(a + bh / 2) + '" font-size="12" text-anchor="middle" fill="#1f2a44">back</text><text x="' + X(a + bw * 1.5 + 2 * hinge + spine) + '" y="' + X(a + bh / 2) + '" font-size="12" text-anchor="middle" fill="#1f2a44">front</text>' +
+        '<text x="150" y="' + (H - 4).toFixed(1) + '" font-size="10" text-anchor="middle" fill="#1f2a44">' + q(cw) + " x " + q(ch) + " in cover, " + q(a) + " in to fold in all round</text></svg>";
+      o.push(g);
+      o.push('<p class="sub">Paper thickness and bulk are estimates. For the best fit, stack your finished signatures, press them flat and measure, then add a little for what you will tuck in later.</p>');
+      $("#jjc-out").innerHTML = o.join("");
+      var sv = {}; ["p", "w", "h", "n", "s", "t", "b", "x"].forEach(function (k) { sv[k] = $("#jjc-" + k).value; }); store.set("pp-jjc", sv);
+    };
+    ["p", "w", "h", "n", "s", "t", "b", "x"].forEach(function (k) { var el = $("#jjc-" + k); el.addEventListener("change", jjcRun); el.addEventListener("input", jjcRun); });
+    jjcRun();
+  }
+
 })();
