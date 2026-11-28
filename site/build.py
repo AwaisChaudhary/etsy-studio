@@ -75,6 +75,11 @@ SHOP = {
  "wedding-budget-planner-spreadsheet": ("Wedding budget planner spreadsheet", "5.99", "4626885492", None),
  "winter-cottage-junk-journal-kit": ("Winter Cottage junk journal kit", "4.99", "4626887026", None),
  "2027-printable-calendar": ("2027 seasonal printable calendar", "1.99", "4626878631", None),
+ "self-employed-bookkeeping-spreadsheet": ("Self-employed bookkeeping spreadsheet 2027", "7.99", "4627573028", None),
+ "2027-workout-planner-fitness-tracker": ("2027 workout planner spreadsheet", "4.99", "4627563505", None),
+ "letter-from-santa-kit": ("Letter from Santa kit printable", "3.99", "4627571060", None),
+ "cricket-scorebook-printable": ("Cricket scorebook printable", "3.99", "4627565439", None),
+ "kids-valentine-cards-classroom": ("Kids classroom Valentine cards", "3.99", "4627577916", None),
 }
 KNIT = ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator"]
 JJ = ["winter-cottage-junk-journal-kit", "junk-journal-mega-bundle", "tea-room-junk-journal-kit", "december-days-journal-kit"]
@@ -119,10 +124,14 @@ SHOP_FOR = {"2027-calendar-printable.html": ["2027-printable-calendar", "2027-ha
             "sweater-size-calculator.html": ["2027-crochet-knitting-planner", "yarn-stash-tracker", "crochet-knitting-pricing-calculator", "christmas-gift-planner-budget"],
             "stripe-generator.html": ["yarn-stash-tracker", "2027-crochet-knitting-planner", "crochet-knitting-pricing-calculator", "christmas-gift-tags"],
             "crochet-knitting-gift-planner.html": ["christmas-gift-planner-budget", "christmas-gift-tags", "2027-crochet-knitting-planner", "yarn-stash-tracker"]}
+# 28 Nov: batch 11 products into craft-relevant shop boxes (prepend, keep max 4)
+SHOP_FIRST = dict([("christmas-crafts-to-sell.html", ["letter-from-santa-kit", "self-employed-bookkeeping-spreadsheet"]), ("how-to-sew-a-christmas-stocking.html", ["letter-from-santa-kit"]), ("how-to-knit-a-christmas-stocking.html", ["letter-from-santa-kit"]), ("craft-fair-profit-calculator.html", ["self-employed-bookkeeping-spreadsheet"]), ("craft-fair-checklist.html", ["self-employed-bookkeeping-spreadsheet"]), ("2027-goal-planner-printable.html", ["2027-workout-planner-fitness-tracker"])])  # applied at render time so later per-page overrides keep them
 
 
 def shop_box(file):
     keys = SHOP_FOR.get(file)
+    if file in SHOP_FIRST:
+        keys = (SHOP_FIRST[file] + [k for k in (keys or []) if k not in SHOP_FIRST[file]])[:4]
     if not keys:
         return ""
     cards = "".join(
