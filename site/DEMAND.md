@@ -262,3 +262,8 @@ Yesterday built from queues: NC 31, DOD 19, Pitchside 22, Padel 18, Purl 22, ZAW
 - [OPEN] R10 origami owl / crane / frog step pages (autocomplete top 3); link /origami hub.
 - [OPEN] R11 BUYING: yarn winder guide (ball winder + swift) and "yarn black friday sale" roundup (time-sensitive).
 - [OPEN] R12 BUYING: sewing machine black friday deals for beginners (autocomplete rank 2, until 30 Nov).
+
+## EVENING RADAR 2026-11-28 (18:40 PKT)
+- [OPEN] E-R1 "crochet how to fasten off" (autocomplete #2) and "knitting how to cast off" (#2): two how-to pages with photos/diagrams and a link to the pattern shop.
+- [OPEN] E-R2 "knitting how to join in the round" (#3).
+- [OPEN] E-R3 BUYING "crochet tree skirt" (Trends 1-d crochet +50%) + "crochet stocking pattern" +40%: free pattern page + Etsy pattern listing idea.
