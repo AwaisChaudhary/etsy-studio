@@ -137,7 +137,7 @@ CS = [("Crochet or knit beanie", "yarn", 6, 2.5, "The classic gift. Chunky yarn 
       ("Ear warmer headband", "yarn", 4, 1.5, "Quick, uses up leftover yarn, easy to make in stacks.", "hat-size-chart.html"),
       ("Amigurumi gnome or small toy", "yarn", 4, 3, "Gnomes, snowmen and reindeer. Use safety eyes or embroider them for babies.", "how-to-price-amigurumi.html"),
       ("Coasters (set of 4)", "yarn", 3, 1.5, "Cotton yarn, festive colours, tied with a ribbon.", "crochet-circle-calculator.html"),
-      ("Cotton dishcloths (set of 3)", "yarn", 4, 2, "Useful gifts that sell all year. Pair with a bar of soap.", "knit-stitch-patterns.html"),
+      ("Cotton dishcloths (set of 3)", "yarn", 4, 2, "Useful gifts that sell all year. Pair with a bar of soap.", "how-to-crochet-a-dishcloth.html"),
       ("Drawstring gift bags (set of 3)", "sewing", 4, 1, "Reusable wrapping. Christmas fabric, ribbon drawstring.", "fabric-yardage-calculator.html"),
       ("Mug rugs or potholders (pair)", "sewing", 5, 1.5, "Scrap-friendly quilting. Use insulated batting for potholders.", "fat-quarter-calculator.html"),
       ("Scrunchies (set of 3)", "sewing", 3, 0.75, "Stocking fillers at a low price point; velvet sells well in winter.", "fabric-yardage-calculator.html"),

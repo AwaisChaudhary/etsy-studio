@@ -5186,4 +5186,124 @@
   }
 
 
+  /* ---------- run 24: crochet tree skirt writer (cts-*) ---------- */
+  if ($("#cts-d") && $("#cts-out")) {
+    // CYC crochet gauge mid values (sts per 4 in). Rows/in: dc 0.54 x sts/in, hdc 0.78 x sts/in (typical), so a flat circle in rows adds
+    // 2 pi x sts/in / rows/in = 12 (dc) or 8 (hdc) stitches a row. Yarn: dc 0.75 / hdc 0.85 yd per sq in in worsted x weight factor; estimates.
+    var TG = { dc: { 4: 12, 5: 9, 6: 7 }, hdc: { 4: 13, 5: 10, 6: 8 } }, TM = { 4: 1, 5: 0.72, 6: 0.52 }, TH = { 4: "5 to 5.5 mm (H-8 or I-9)", 5: "6.5 mm (K-10.5)", 6: "9 mm (M/N-13)" };
+    var ctS0 = store.get("pp-cts", null) || {};
+    ["d", "od", "h", "y", "s", "t", "g", "e", "c"].forEach(function (k) { if (ctS0[k] !== undefined && $("#cts-" + k)) $("#cts-" + k).value = ctS0[k]; });
+    var ctsRun = function () {
+      var dv = $("#cts-d").value, own = dv === "own"; $("#cts-own").hidden = !own;
+      var D = own ? Math.min(72, Math.max(16, parseFloat($("#cts-od").value) || 40)) : parseFloat(dv), hole = Math.min(12, Math.max(3, parseFloat($("#cts-h").value) || 6));
+      if (hole > D / 2) hole = Math.round(D / 4);
+      var wt = $("#cts-y").value, st = $("#cts-s").value === "hdc" ? "hdc" : "dc", uk = $("#cts-t").value === "uk", g = parseFloat($("#cts-g").value) || 0;
+      var M = st === "dc" ? (uk ? "tr" : "dc") : (uk ? "htr" : "hdc"), SC = uk ? "dc" : "sc", base = TG[st][wt] || 12, spi = (g > 0 ? g : base) / 4;
+      var rpi = spi * (st === "dc" ? 0.54 : 0.78), k = st === "dc" ? 12 : 8;
+      var n0 = Math.max(k * 2, Math.round(Math.PI * hole * spi / k) * k), R = Math.max(2, Math.round((D - hole) / 2 * rpi));
+      var stripe = parseInt($("#cts-c").value, 10) || 0, rows = [], tot = 0;
+      rows.push([1, (st === "dc" ? M + " in the 4th chain from the hook" : M + " in the 3rd chain from the hook") + " and in each chain across", n0]); tot += n0;
+      for (var r = 2; r <= R; r++) {
+        var prev = n0 + k * (r - 2), a = prev / k - 1, n = prev + k, txt;
+        if (a < 1) txt = "2 " + M + " in each stitch";
+        else if (r % 2 === 1) txt = "*" + M + " in the next " + a + ", 2 " + M + " in the next; repeat from * " + k + " times";
+        else { var b = Math.floor(a / 2), rest = a - b; txt = (b > 0 ? M + " in the next " + b + ", " : "") + "2 " + M + " in the next, *" + M + " in the next " + a + ", 2 " + M + " in the next; repeat from * " + (k - 1) + " more times" + (rest > 0 ? ", " + M + " in the last " + rest : ""); }
+        rows.push([r, "Ch " + (st === "dc" ? 2 : 1) + ", turn. " + txt + (stripe && (r - 1) % stripe === 0 ? " <em>(change colour at the start of this row)</em>" : ""), n]); tot += n;
+      }
+      var N = n0 + k * (R - 1), dens = g > 0 ? base / g : 1, area = Math.PI * (D * D - hole * hole) / 4;
+      var yd = area * (st === "dc" ? 0.75 : 0.85) * (TM[wt] || 1) * dens * ($("#cts-e").value === "shell" ? 1.07 : 1.03), r10 = function (v) { return Math.round(v / 10) * 10; };
+      var hLo = tot / 13 / 60, hHi = tot / 8 / 60;
+      var o = ['<p class="sub">' + D + " in across, " + hole + " in centre hole, " + (Math.round(1 / rpi * 100) / 100) + ' in per row</p><p class="big">' + (n0 + (st === "dc" ? 3 : 2)) + "<small> chains to start, " + R + " rows</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Hook</td><td>' + (g > 0 ? "the size that gave your swatch" : TH[wt]) + "</td></tr><tr><td>Gauge</td><td>" + (Math.round(spi * 40) / 10) + " " + M + " per 4 in" + (g > 0 ? " (yours)" : " (typical for this yarn)") + ", about " + (Math.round(rpi * 40) / 10) + " rows per 4 in</td></tr><tr><td>Last row</td><td>" + N + " stitches (+" + k + " every row)</td></tr><tr><td>Yarn</td><td>about " + r10(yd * 0.85) + " to " + r10(yd * 1.15) + " yd (" + r10(yd * 0.85 * 0.9144) + " to " + r10(yd * 1.15 * 0.9144) + " m)" + (stripe ? ", split between your colours" : "") + "</td></tr><tr><td>Time</td><td>about " + Math.max(1, Math.round(hLo)) + " to " + Math.max(2, Math.round(hHi)) + " hours</td></tr></tbody></table>");
+      o.push("<h3>Foundation</h3><p>Chain " + (n0 + (st === "dc" ? 3 : 2)) + ". Do not join. (The skipped chains at the start do not count as a stitch; neither does the turning chain on later rows.)</p>");
+      o.push('<h3>Rows</h3><div class="tbl"><table class="mt cct-t"><thead><tr><th>Done</th><th>Row</th><th>Instructions</th><th>Sts</th></tr></thead><tbody>' + rows.map(function (q) { return '<tr><td><input type="checkbox" aria-label="Row ' + q[0] + ' done"></td><td>' + q[0] + "</td><td>" + q[1] + "</td><td>" + q[2] + "</td></tr>"; }).join("") + "</tbody></table></div>");
+      var ed;
+      if ($("#cts-e").value === "shell") { var m = Math.floor((N - 1) / 6), rem = N - 1 - 6 * m, f1 = 1 + Math.floor(rem / 2), f2 = rem - Math.floor(rem / 2);
+        ed = "Ch 1, turn. " + SC + " in the first " + f1 + ", *skip 2, 5 " + (uk ? "tr" : "dc") + " in the next, skip 2, " + SC + " in the next; repeat from * " + m + " times" + (f2 > 0 ? ", " + SC + " in the last " + f2 : "") + ". That's " + m + " shells along the outer edge."; }
+      else ed = "Ch 1, turn. " + SC + " in each stitch across the outer edge (" + N + " " + SC + ").";
+      o.push("<h3>Edging and ties</h3><ol><li><strong>Outer edge:</strong> " + ed + "</li><li><strong>Slit and centre:</strong> without fastening off, " + SC + " evenly down the slit edge (about " + (st === "dc" ? 2 : "1 or 2") + " " + SC + " per row end), round the centre hole (1 " + SC + " in each chain) and back up the other slit edge. Fasten off.</li><li><strong>Ties:</strong> join yarn at a slit corner, ch 40 (about 12 in), slip stitch back along the chain and fasten off. Make 6 ties in matching pairs: at the centre corners, halfway along the slit and at the outer corners.</li><li>Weave in all the ends and lay the skirt flat. A light steam (not touching acrylic with the iron) helps it lie smooth.</li></ol>");
+      o.push('<p class="sub">Your rows may be a little taller or shorter than typical. Every few rows, lay the skirt flat: if it ruffles, work ' + (k - 2) + " increases per row for a while; if it cups, work " + (k + 2) + ". Stitch counts are exact for this gauge; yarn and time are estimates.</p>");
+      $("#cts-out").innerHTML = o.join("");
+      var sv = {}; ["d", "od", "h", "y", "s", "t", "g", "e", "c"].forEach(function (k2) { sv[k2] = $("#cts-" + k2).value; }); store.set("pp-cts", sv);
+    };
+    ["d", "od", "h", "y", "s", "t", "g", "e", "c"].forEach(function (k) { var el = $("#cts-" + k); el.addEventListener("change", ctsRun); el.addEventListener("input", ctsRun); });
+    ctsRun();
+  }
+
+  /* ---------- run 24: knitted dishcloth writer (kdc-*) ---------- */
+  if ($("#kdc-p") && $("#kdc-out")) {
+    // CYC knit gauge mid values (sts per 4 in). Garter rows 1.9 x sts/in, seed 1.6 x, stockinette 1.35 x. Diagonal widest count = side x sts/in x 1.15
+    // (calibrated on the classic 44-stitch ~8.5 in cloth). Yarn = area x 0.667 yd/sq in x weight factor x stitch factor; estimates.
+    var DG = { 3: 22, 4: 18, 5: 14 }, DM = { 3: 1.18, 4: 1, 5: 0.72 }, DN = { 3: "4 mm (US 6)", 4: "4.5 to 5 mm (US 7 or 8)", 5: "6 to 6.5 mm (US 10 or 10.5)" };
+    var kdS0 = store.get("pp-kdc", null) || {};
+    ["p", "z", "y", "g"].forEach(function (k) { if (kdS0[k] !== undefined && $("#kdc-" + k)) $("#kdc-" + k).value = kdS0[k]; });
+    var kdcRun = function () {
+      var p = $("#kdc-p").value, S = parseFloat($("#kdc-z").value) || 8, wt = $("#kdc-y").value, base = DG[wt] || 18, g = parseFloat($("#kdc-g").value) || 0, spi = (g > 0 ? g : base) / 4;
+      var dens = g > 0 ? base / g : 1, yd = S * S * 0.667 * (DM[wt] || 1) * dens * (p === "border" ? 1.08 : 1.2), r5 = function (v) { return Math.max(5, Math.round(v / 5) * 5); };
+      var o = [], steps = [], sts = 0, head;
+      if (p === "diag") {
+        var W = Math.max(14, Math.round(S * spi * 1.15)); sts = (W - 4) * (W + 4);
+        head = W + "<small> stitches at the widest point</small>";
+        steps = ["<li>Cast on 4 stitches.</li>", "<li><strong>Row 1:</strong> knit across.</li>",
+          "<li><strong>Increase rows:</strong> k2, yo, knit to the end. Repeat this row until you have " + W + " stitches (about " + (W - 4) + " rows), or until the plain straight edge measures " + S + " in.</li>",
+          "<li><strong>Decrease rows:</strong> k1, k2tog, yo, k2tog, knit to the end. Repeat this row until 4 stitches remain (about " + (W - 4) + " rows).</li>",
+          "<li>Bind off the last 4 stitches. Weave in the ends.</li>"];
+      } else {
+        var co, rows, rf = p === "garter" ? 1.9 : p === "seed" ? 1.6 : 1.35;
+        co = Math.max(12, Math.round(S * spi)); if (p === "seed" && co % 2 === 0) co += 1;
+        rows = Math.round(S * spi * rf); if (p === "garter" && rows % 2) rows += 1; sts = co * rows;
+        head = co + "<small> stitches to cast on</small>";
+        steps.push("<li>Cast on " + co + " stitches.</li>");
+        if (p === "garter") steps.push("<li><strong>Every row:</strong> knit across.</li><li>Repeat until the cloth is " + S + " in tall and square: about " + rows + " rows (" + rows / 2 + " ridges).</li>");
+        else if (p === "seed") steps.push("<li><strong>Every row:</strong> *k1, p1; repeat from * to the last stitch, k1. (On an odd number every row is the same, and it makes seed stitch.)</li><li>Repeat until the cloth is " + S + " in tall and square: about " + rows + " rows.</li>");
+        else { var bd = Math.max(3, Math.round(spi * 0.75)), br = bd * 2;
+          steps.push("<li><strong>Border:</strong> knit " + br + " rows (" + bd + " ridges).</li><li><strong>Row A (right side):</strong> knit across.</li><li><strong>Row B (wrong side):</strong> k" + bd + ", purl to the last " + bd + " stitches, k" + bd + ".</li><li>Repeat rows A and B until the cloth measures about " + (Math.round((S - br / (spi * 1.9)) * 2) / 2) + " in, ending with row B.</li><li><strong>Border:</strong> knit " + br + " more rows.</li>"); }
+        steps.push("<li>Bind off loosely and weave in the ends.</li>");
+      }
+      o.push('<p class="sub">' + S + " x " + S + ' in dishcloth</p><p class="big">' + head + "</p>");
+      o.push('<table class="mt"><tbody><tr><td>Needles</td><td>' + (g > 0 ? "the size that gave your swatch" : DN[wt]) + ", straight</td></tr><tr><td>Gauge</td><td>" + (Math.round(spi * 40) / 10) + " sts per 4 in" + (g > 0 ? " (yours)" : " (typical for this yarn)") + "</td></tr><tr><td>Yarn</td><td>about " + r5(yd * 0.85) + " to " + r5(yd * 1.15) + " yd of cotton (" + r5(yd * 0.85 * 0.9144) + " to " + r5(yd * 1.15 * 0.9144) + " m)</td></tr><tr><td>Time</td><td>about " + Math.max(1, Math.round(sts / 20 / 60)) + " to " + Math.max(2, Math.round(sts / 12 / 60)) + " hours</td></tr></tbody></table>");
+      o.push("<h3>Pattern</h3><ol>" + steps.join("") + "</ol>");
+      o.push('<p class="sub">' + (p === "diag" ? "The widest count depends on your row gauge, so trust the tape measure: start decreasing when the plain edge reaches your size. " : "Check it's square by folding one corner to the opposite edge before you bind off. ") + "Yarn and time are estimates.</p>");
+      $("#kdc-out").innerHTML = o.join("");
+      var sv = {}; ["p", "z", "y", "g"].forEach(function (k2) { sv[k2] = $("#kdc-" + k2).value; }); store.set("pp-kdc", sv);
+    };
+    ["p", "z", "y", "g"].forEach(function (k) { var el = $("#kdc-" + k); el.addEventListener("change", kdcRun); el.addEventListener("input", kdcRun); });
+    kdcRun();
+  }
+
+  /* ---------- run 24: crochet dishcloth writer (cdc-*) ---------- */
+  if ($("#cdc-s") && $("#cdc-out")) {
+    // CYC crochet gauge mid values (sts per 4 in) by stitch; rows/in: sc 1.1 x sts/in, moss 1.1 x, hdc 0.78 x, dc 0.54 x (typical).
+    // Yarn per sq in in worsted: sc 0.95, moss 0.85, hdc 0.85, dc 0.75 x weight factor; border ~ perimeter x 0.25 yd/in; estimates.
+    var QG = { sc: { 3: 17, 4: 14, 5: 11 }, moss: { 3: 17, 4: 14, 5: 11 }, hdc: { 3: 15, 4: 13, 5: 10 }, dc: { 3: 14, 4: 12, 5: 9 } }, QM = { 3: 1.18, 4: 1, 5: 0.72 };
+    var QR = { sc: 1.1, moss: 1.1, hdc: 0.78, dc: 0.54 }, QY = { sc: 0.95, moss: 0.85, hdc: 0.85, dc: 0.75 }, QH = { 3: "4 mm (G-6)", 4: "5 mm (H-8)", 5: "6 mm (J-10)" };
+    var cdS0 = store.get("pp-cdc", null) || {};
+    ["s", "z", "y", "t", "b", "g"].forEach(function (k) { if (cdS0[k] !== undefined && $("#cdc-" + k)) $("#cdc-" + k).value = cdS0[k]; });
+    var cdcRun = function () {
+      var s = $("#cdc-s").value, S = parseFloat($("#cdc-z").value) || 8, wt = $("#cdc-y").value, uk = $("#cdc-t").value === "uk", bord = $("#cdc-b").value === "1", g = parseFloat($("#cdc-g").value) || 0;
+      var base = (QG[s] || QG.sc)[wt] || 14, spi = (g > 0 ? g : base) / 4, B = bord ? Math.round(spi * 1.1 * 0.25 * 2) / 2 : 0, inner = S - 2 * (bord ? 0.3 : 0);
+      var NM = { sc: uk ? "dc" : "sc", hdc: uk ? "htr" : "hdc", dc: uk ? "tr" : "dc" }, SC = NM.sc, n = Math.max(10, Math.round(inner * spi)), rows = Math.max(4, Math.round(inner * spi * QR[s])), ch, r1, rr;
+      if (s === "moss") { if (n % 2) n += 1; ch = n + 2;
+        r1 = SC + " in the 4th chain from the hook, *ch 1, skip 1 chain, " + SC + " in the next chain; repeat from * to the end";
+        rr = "Ch 2, turn. " + SC + " in the first ch-1 space, *ch 1, " + SC + " in the next ch-1 space; repeat from * across, ending with " + SC + " in the space under the turning chain"; }
+      else if (s === "sc") { ch = n + 1; r1 = SC + " in the 2nd chain from the hook and in each chain across (" + n + " " + SC + ")"; rr = "Ch 1 (doesn't count as a stitch), turn. " + SC + " in each stitch across (" + n + ")"; }
+      else if (s === "hdc") { ch = n + 2; r1 = NM.hdc + " in the 3rd chain from the hook and in each chain across (" + n + " " + NM.hdc + "; the skipped chains don't count)"; rr = "Ch 2 (doesn't count as a stitch), turn. " + NM.hdc + " in each stitch across (" + n + ")"; }
+      else { ch = n + 3; r1 = NM.dc + " in the 4th chain from the hook and in each chain across (" + n + " " + NM.dc + "; the skipped chains don't count)"; rr = "Ch 2 (doesn't count as a stitch), turn. " + NM.dc + " in each stitch across (" + n + ")"; }
+      var dens = g > 0 ? base / g : 1, yd = (inner * inner * QY[s] + (bord ? S * 4 * 0.25 * 1.1 : 0)) * (QM[wt] || 1) * dens, r5 = function (v) { return Math.max(5, Math.round(v / 5) * 5); };
+      var sts = n * rows * (s === "moss" ? 0.75 : 1) + (bord ? S * 4 * spi : 0), sp = s === "sc" || s === "moss" ? [12, 20] : [10, 16];
+      var o = ['<p class="sub">' + S + " x " + S + ' in dishcloth' + (bord ? ", with border" : "") + '</p><p class="big">' + ch + "<small> chains to start, " + rows + " rows</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Hook</td><td>' + (g > 0 ? "the size that gave your swatch" : QH[wt]) + "</td></tr><tr><td>Gauge</td><td>" + (Math.round(spi * 40) / 10) + " stitches per 4 in" + (g > 0 ? " (yours)" : " (typical for this yarn)") + "</td></tr><tr><td>Yarn</td><td>about " + r5(yd * 0.85) + " to " + r5(yd * 1.15) + " yd of cotton (" + r5(yd * 0.85 * 0.9144) + " to " + r5(yd * 1.15 * 0.9144) + " m)</td></tr><tr><td>Time</td><td>about " + Math.max(1, Math.round(sts / sp[1] / 60)) + " to " + Math.max(2, Math.round(sts / sp[0] / 60)) + " hours</td></tr></tbody></table>");
+      var steps = ["<li>Chain " + ch + ".</li>", "<li><strong>Row 1:</strong> " + r1 + ".</li>", "<li><strong>Row 2 and every row after:</strong> " + rr + ".</li>",
+        "<li>Repeat until the cloth is " + (Math.round(inner * 2) / 2) + " in tall and square: about " + rows + " rows in all. Check by folding a corner across.</li>"];
+      if (bord) steps.push("<li><strong>Border:</strong> don't fasten off. Ch 1 and work " + SC + " evenly round all four sides: 1 in each stitch across the top and bottom, about " + (s === "dc" ? 2 : s === "hdc" ? "3 for every 2 rows" : 1) + " per row end on the sides, and 3 " + SC + " in each corner. Slip stitch to the first " + SC + ".</li>");
+      steps.push("<li>Fasten off and weave in the ends securely.</li>");
+      o.push("<h3>Pattern</h3><ol>" + steps.join("") + "</ol>");
+      o.push('<p class="sub">' + (s === "moss" ? "Moss stitch needs an even number of stitches. " : "") + "Rows depend on your tension, so measure as you go. Yarn and time are estimates.</p>");
+      $("#cdc-out").innerHTML = o.join("");
+      var sv = {}; ["s", "z", "y", "t", "b", "g"].forEach(function (k2) { sv[k2] = $("#cdc-" + k2).value; }); store.set("pp-cdc", sv);
+    };
+    ["s", "z", "y", "t", "b", "g"].forEach(function (k) { var el = $("#cdc-" + k); el.addEventListener("change", cdcRun); el.addEventListener("input", cdcRun); });
+    cdcRun();
+  }
+
 })();
