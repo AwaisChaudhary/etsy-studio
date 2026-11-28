@@ -231,3 +231,11 @@ R2. OPEN Pricing long-tail [24 Nov: blanket page DONE (/how-to-price-a-crochet-b
 R3. [25 Nov: supply checklist + free pocket/tag template DONE (/junk-journal-supply-checklist)] Junk journal kit / supplies / sticker book / ideas -> supplies checklist page + free printable sample (lead to shop).
 R4. OPEN 'yarn store lahore' (Awais is in Lahore; local page only if 3+ confirmed shops) — low priority.
 
+
+## DAILY RADAR 2026-11-28 (06:40 PKT)
+Yesterday built from queues: NC 31, DOD 19, Pitchside 22, Padel 18, Purl 22, ZAWN 10 new pages. Revenue rule: at least half of new pages buying-intent.
+- [OPEN] R8 how to price crochet plushies + commissions (autocomplete ranks 2 and 7); extend pricing calculator, link the pricing printable.
+- [OPEN] R9 BUYING: amigurumi safety eyes guide (sizes chart by yarn weight, affiliate links).
+- [OPEN] R10 origami owl / crane / frog step pages (autocomplete top 3); link /origami hub.
+- [OPEN] R11 BUYING: yarn winder guide (ball winder + swift) and "yarn black friday sale" roundup (time-sensitive).
+- [OPEN] R12 BUYING: sewing machine black friday deals for beginners (autocomplete rank 2, until 30 Nov).
