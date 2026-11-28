@@ -1,3 +1,6 @@
+## GOAL (Awais, 29 Nov 2026) - READ FIRST
+Target: 5,000+ visitors a day on this site, the same goal as NeonCoast. Awais: "Keep checking what trends, what people search, we have to add all of it ... based on trends searches and traffic." Every run: research what people search NOW (Google autocomplete incl. a-z suffix sweeps, Google Trends rising, news, GSC queries with impressions) and build the highest-demand items first: the interactive tools, data pages and guides people actually search for, not just articles. Improve pages that already get impressions but rank low before making new ones. Rank this file by search demand x how fast we can reach page one. Report demand evidence for every page. Site focus: crochet/knitting/junk-journal calculators, charts, free printables and step-by-step guides, seasonal makes 6 weeks ahead; every page keeps a shop box.
+
 ## SEO PLAYBOOK — standing rules for every run (Awais 26 Nov 01:35: "do SEO like the best SEO guy in the world for all sites")
 
 ## SITE REVENUE (Awais 28 Nov: "Dont just rely on etsy kdp... huge potential to earn from the site as well")
