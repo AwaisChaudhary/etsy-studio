@@ -176,6 +176,7 @@ khp = top("How to knit a hat for beginners", "A plain beanie knit in the round i
 <li><strong>Dropped a stitch:</strong> catch it with a crochet hook: <a href="{href("how-to-fix-a-dropped-stitch.html")}">how to fix a dropped stitch</a>.</li></ul>
 <h2>Gifting or selling hats</h2>
 <p>A worsted beanie takes about 4 to 6 hours to knit, a chunky one 2 to 3, so a hat is a realistic last-minute Christmas gift: check timings in the <a href="{href("crochet-knitting-gift-planner.html")}">handmade gift planner</a>. Selling them? The <a href="{href("how-to-price-crochet-items.html")}">pricing guide</a> works for knits too. Top it with a <a href="{href("how-to-make-a-pom-pom.html")}">pom pom</a>, and if you prefer a hook, here's <a href="{href("how-to-crochet-a-hat.html")}">how to crochet a hat</a>.</p>
+<p>Keep the set going with <a href="{href("how-to-knit-mittens.html")}">how to knit mittens</a>: the same yarn and a pattern writer for any hand size.</p>
 <p class="note">Hat sizes follow the Craft Yarn Council head ranges (as on our hat size chart); gauges are the CYC knit ranges; the 8-section crown is standard technique, checked against Knit Picks, Dummies and AllFreeKnitting hat tutorials (28 Nov 2026). Row gauge and yarn amounts are our estimates: measure as you go. Drawings, wording and the writer are our own.</p>
 </div></div></section>'''
 kh_faq = [

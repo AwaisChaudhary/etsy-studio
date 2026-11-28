@@ -1534,5 +1534,32 @@
   "board": "Junk Journal Printables",
   "topic": "Scrapbooking",
   "status": "queued"
+ },
+ {
+  "image": "pins/site/how-to-knit-mittens.jpg",
+  "title": "How to Knit Mittens for Beginners (Any Size)",
+  "description": "Easy knit mittens for beginners: six drawn steps, a mitten size chart and a free pattern writer for any hand size and yarn, from cuff to thumb gusset. #knittingpattern #knitmittens #beginnerknitting #freeknittingpattern",
+  "link": "https://purlandpaperco.com/how-to-knit-mittens",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Knitting",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/crochet-christmas-tree-pattern.jpg",
+  "title": "Free Crochet Christmas Tree Pattern: Any Size",
+  "description": "Free beginner crochet Christmas tree pattern: a writer gives every round for any height, from a tree ornament to a tabletop tree, with a star topper and yarn amounts. #crochetchristmas #crochettree #amigurumi #freecrochetpattern",
+  "link": "https://purlandpaperco.com/crochet-christmas-tree-pattern",
+  "board": "Crochet & Knitting Planners",
+  "topic": "Crochet",
+  "status": "queued"
+ },
+ {
+  "image": "pins/site/junk-journal-tags.jpg",
+  "title": "How to Make Junk Journal Tags + Free Printable",
+  "description": "Make junk journal tags: six easy steps, 30 tag ideas, standard tag sizes and a free printable tag template maker in any size and shape. #junkjournal #junkjournaltags #junkjournalideas #papercrafts",
+  "link": "https://purlandpaperco.com/junk-journal-tags",
+  "board": "Junk Journal Printables",
+  "topic": "Junk journal",
+  "status": "queued"
  }
 ]

@@ -89,6 +89,7 @@ jpkp = top("Junk journal pockets", "Six easy pockets for junk journals, each dra
 <li><strong>Strong glue or stitches</strong> on the sides: a glue stick lifts with use. Double-sided tape, PVA or a machine zigzag holds.</li>
 <li><strong>Tea-stain</strong> new white card so it matches old pages: see <a href="{href("how-to-tea-stain-paper.html")}">how to tea stain paper</a>.</li></ul>
 <p>New to all of this? Start with <a href="{href("junk-journal-beginners.html")}">junk journaling for beginners</a> and the <a href="{href("junk-journal-supply-checklist.html")}">supply checklist</a> (it has a free pocket and tag template too). Stuck for words? Try the <a href="{href("journal-prompts.html")}">journal prompt generator</a>.</p>
+<p>Something to tuck in your pockets: <a href="{href("junk-journal-tags.html")}">how to make junk journal tags</a>, with a free printable tag template maker that checks the tag fits your pocket.</p>
 <p class="note">Pocket methods are standard paper-craft techniques, shown in similar ways by The Graphics Fairy, Archer &amp; Olive, Splitcoast Stampers and 101 Planners (checked 27 Nov 2026). Tag and envelope sizes are the usual US stationery sizes. Our wording, drawings and size rules (pocket 1/4 in wider and about 1 in shorter than its contents).</p>
 </div></div></section>'''
 jpk_faq = [

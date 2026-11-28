@@ -704,3 +704,15 @@ fieldset.gpl-g legend { font-weight: 700; padding: 0 6px; }
 .shp-list .shp-note { margin: 6px 0 6px 26px; font-style: italic; color: var(--muted, #555); }
 .shp-list em { color: var(--muted, #555); font-style: normal; }
 .result svg text { user-select: none; }
+
+/* run 21: tag template sheet, tree round table */
+.jjt-sheet { margin: 12px 0; }
+.jjt-sheet svg { display: block; width: 100%; max-width: 460px; height: auto; margin: 0 auto; border: 2px dashed var(--line); border-radius: 8px; background: #fff; }
+.cct-t td:first-child { width: 46px; text-align: center; }
+.cct-t input[type=checkbox] { width: 20px; height: 20px; }
+@media print {
+  html.print-jjt body * { visibility: hidden !important; }
+  html.print-jjt .jjt-sheet, html.print-jjt .jjt-sheet * { visibility: visible !important; }
+  html.print-jjt .jjt-sheet { position: absolute; left: 0; top: 0; margin: 0; }
+  html.print-jjt .jjt-sheet svg { width: auto; max-width: none; height: auto; border: 0; border-radius: 0; }
+}

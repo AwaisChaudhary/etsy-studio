@@ -4689,4 +4689,167 @@
     sblRun();
   }
 
+  /* ---------- run 21: mitten writer (mkm-*), crochet Christmas tree writer (cct-*), junk journal tag template maker (jjt-*) ---------- */
+  if ($("#mkm-z") && $("#mkm-out")) {
+    // Typical hand sizes [around, wrist to fingertip] in inches (measure the hand). Firm mitten gauges near the Craft Yarn Council ranges.
+    var MKS = [[5.5, 4.75], [6, 5.25], [6.5, 5.75], [7, 6.5], [7.5, 7], [8, 7.25], [8.5, 7.75], [9, 8]];
+    var MKY = { "3": { g: 24, nd: "3.5 to 3.75 mm (US 4 to 5)", nm: "DK", yf: 1.2 }, "4": { g: 20, nd: "4 to 4.5 mm (US 6 to 7)", nm: "worsted", yf: 1 }, "5": { g: 14, nd: "5.5 to 6 mm (US 9 to 10)", nm: "chunky", yf: 0.7 } };
+    var q4 = function (n) { return Math.round(n * 4) / 4; }, cmT = function (n) { return Math.round(n * 2.54); };
+    var mkmRun = function () {
+      var z = $("#mkm-z").value, own = z === "m", c, L;
+      $("#mkm-own").hidden = !own;
+      if (own) { c = Math.min(11, Math.max(4, parseFloat($("#mkm-c").value) || 7.5)); L = Math.min(9.5, Math.max(3.5, parseFloat($("#mkm-l").value) || 7)); }
+      else { c = MKS[+z][0]; L = MKS[+z][1]; }
+      var yk = $("#mkm-y").value, y = MKY[yk] || MKY["4"], mine = parseFloat($("#mkm-g").value), g = mine >= 8 && mine <= 36 ? mine : y.g;
+      var spi = g / 4, rpi = spi * 1.4, rib = $("#mkm-r").value === "1" ? "*k1, p1; repeat from * to the end" : "*k2, p2; repeat from * to the end";
+      var N = Math.max(20, Math.round((c + 0.25) * spi / 4) * 4);
+      var cuff = (L < 5 ? 1.5 : L < 6.5 ? 2 : 2.5) + ($("#mkm-k").value === "long" ? 1.5 : 0);
+      var k = Math.max(2, Math.round((N * 0.34 - 1) / 2)), T = 1 + 2 * k;
+      var cnt = N, a = 0, b = 0;
+      while (cnt - 4 >= N / 2 && cnt - 4 >= 8) { cnt -= 4; a++; }
+      var mid = cnt;
+      while (cnt - 4 >= 8) { cnt -= 4; b++; }
+      var D = (2 * a + b) / rpi, X = Math.max(1, q4(L - D)), tl = q4(L * 0.3), tN = T + 1;
+      var o = [];
+      o.push('<p class="sub">Cast on</p><p class="big">' + N + "<small> stitches</small></p><p>" + y.nd + " needles, " + y.nm + " yarn, " + (mine ? "your gauge of " + g + " sts per 4 in" : "about " + g + " sts per 4 in (a firm gauge for mittens)") + ". For a hand " + c + " in around and " + L + " in from wrist to fingertip.</p>");
+      o.push("<h3>Your pattern (make 2 the same)</h3><ol>");
+      o.push("<li><strong>Cuff:</strong> cast on " + N + " sts onto double-pointed needles or a long circular for the magic loop. Join in the round without twisting and place a marker. " + rib.charAt(0).toUpperCase() + rib.slice(1) + ". Repeat this round for <strong>" + cuff + " in (" + cmT(cuff) + " cm)</strong>, about " + Math.round(cuff * rpi) + " rounds.</li>");
+      o.push("<li>Knit 2 rounds.</li>");
+      o.push("<li><strong>Gusset set-up:</strong> k1, place marker, M1L, place marker, knit to the end (" + (N + 1) + " sts; 1 stitch between the gusset markers).</li>");
+      o.push("<li><strong>Increase round:</strong> knit to the first gusset marker, slip it, M1L, knit to the next marker, M1R, slip it, knit to the end (+2 sts).</li>");
+      o.push("<li>Knit 2 rounds.</li>");
+      o.push("<li>Repeat the last 3 rounds " + (k - 1) + " more times, until there are <strong>" + T + " stitches between the markers</strong> (" + (N + T) + " sts in all). That's about " + q4((1 + 3 * k) / rpi) + " in of gusset.</li>");
+      o.push("<li><strong>Thumb on hold:</strong> knit to the first gusset marker, remove it, slip the " + T + " gusset sts onto waste yarn, remove the second marker, cast on 1 st over the gap with a backward loop, knit to the end (" + (N + 1) + " sts). <strong>Next round:</strong> knit to the cast-on st, knit it together with the next st, knit to the end (" + N + " sts).</li>");
+      o.push("<li><strong>Hand:</strong> knit every round until the mitten measures <strong>" + X + " in (" + cmT(X) + " cm) from the top of the cuff</strong>, about " + Math.max(1, Math.round(X * rpi) - (1 + 3 * k) - 4) + " more rounds. Try it on: it should just cover the little finger.</li>");
+      o.push("<li><strong>Set up the top:</strong> place a second marker after " + (N / 2) + " sts, so the back and the palm have " + (N / 2) + " sts each.</li>");
+      o.push("<li><strong>Decrease round:</strong> *k1, ssk, knit to 3 sts before the next marker, k2tog, k1; repeat from * once more (−4 sts).</li>");
+      o.push("<li>Work a decrease round and then a plain knit round " + a + (a === 1 ? " time" : " times") + " (" + mid + " sts)" + (b ? ", then a decrease round every round " + b + (b === 1 ? " time" : " times") + " (" + cnt + " sts)" : "") + ".</li>");
+      o.push("<li>Cut the yarn with an 8 in tail. Thread it through the " + cnt + " sts, pull tight and fasten off inside (or graft the top flat with Kitchener stitch).</li>");
+      o.push("<li><strong>Thumb:</strong> slip the " + T + " held sts onto needles, pick up 2 sts from the gap (" + (T + 2) + " sts) and knit 1 round, knitting the 2 picked-up sts together (" + tN + " sts). Knit until the thumb measures <strong>" + q4(Math.max(0.75, tl - 0.4)) + " in (" + cmT(Math.max(0.75, tl - 0.4)) + " cm)</strong>, about the middle of the thumbnail.</li>");
+      o.push("<li><strong>Thumb top:</strong> *k2tog; repeat from * to the end" + (tN % 2 ? ", k1" : "") + " (" + Math.ceil(tN / 2) + " sts). Knit 1 round. K2tog around again (" + Math.ceil(Math.ceil(tN / 2) / 2) + " sts). Thread the yarn through, pull tight and weave in the ends.</li></ol>");
+      var area = c * (cuff + L) + (T / spi) * tl, yd = 2 * area * 0.93 * y.yf * 1.05 * (g === y.g ? 1 : y.g / g);
+      o.push('<p class="sub">Top shaping is about ' + q4(D) + " in deep (our estimate from a typical row gauge). Yarn for the pair: about <strong>" + r10(yd * 0.9) + " to " + r10(yd * 1.2) + " yd</strong> (" + Math.round(yd * 0.9 * 0.9144) + " to " + Math.round(yd * 1.2 * 0.9144) + " m), our estimate. Track rounds with the <a href=\"" + ($("#mkm-out").getAttribute("data-rc") || "row-counter") + "\">row counter</a>.</p>");
+      $("#mkm-out").innerHTML = o.join("");
+      store.set("pp-mkm", { z: z, c: $("#mkm-c").value, l: $("#mkm-l").value, y: yk, g: $("#mkm-g").value, r: $("#mkm-r").value, k: $("#mkm-k").value });
+    };
+    var mkmS = store.get("pp-mkm", null);
+    if (mkmS) { ["z", "c", "l", "y", "g", "r", "k"].forEach(function (q) { if (mkmS[q] != null && $("#mkm-" + q)) $("#mkm-" + q).value = mkmS[q]; });
+      if (!$("#mkm-z").value) $("#mkm-z").value = "4"; if (!MKY[$("#mkm-y").value]) $("#mkm-y").value = "4"; if (!$("#mkm-r").value) $("#mkm-r").value = "2"; if (!$("#mkm-k").value) $("#mkm-k").value = "std"; }
+    ["#mkm-z", "#mkm-y", "#mkm-r", "#mkm-k"].forEach(function (s) { $(s).addEventListener("change", mkmRun); });
+    ["#mkm-c", "#mkm-l", "#mkm-g"].forEach(function (s) { $(s).addEventListener("input", mkmRun); });
+    mkmRun();
+  }
+
+  if ($("#cct-z") && $("#cct-out")) {
+    // Tight amigurumi single crochet gauges (sc per 4 in) and yarn factors are our estimates. Cone worked from the tip, increases spread evenly.
+    var CTY = { "3": { g: 20, yf: 1.25, nm: "DK" }, "4": { g: 16, yf: 1, nm: "worsted" }, "5": { g: 12, yf: 0.7, nm: "chunky" }, "6": { g: 9, yf: 0.5, nm: "velvet / chenille" } };
+    var cctRun = function () {
+      var z = $("#cct-z").value, own = z === "m"; $("#cct-own").hidden = !own;
+      var H = own ? Math.min(16, Math.max(2, parseFloat($("#cct-h").value) || 6)) : +z, wr = parseFloat($("#cct-s").value) || 0.6;
+      var yk = $("#cct-y").value, y = CTY[yk] || CTY["4"], uk = $("#cct-t").value === "uk", st = uk ? "dc" : "sc", x = $("#cct-x").value;
+      var sw = 4 / y.g, rh = sw * 0.95, Db = H * wr, sl = Math.sqrt(H * H + Db * Db / 4);
+      var R = Math.max(4, Math.round(sl / rh)), Nb = Math.max(12, Math.round(Math.PI * Db / sw / 6) * 6);
+      var rows = [], p = 4, tot = 4;
+      rows.push([1, "Magic ring, 4 " + st + " into it. Pull tight; don't join. Mark the first stitch.", 4]);
+      for (var r = 2; r <= R; r++) {
+        var t = r === R ? Nb : Math.round(4 + (Nb - 4) * (r - 1) / (R - 1)), k = Math.min(p, Math.max(0, t - p)), txt;
+        if (!k) txt = st + " in each st around";
+        else if (k === p) txt = "inc in each st around";
+        else {
+          var a = Math.floor(p / k) - 1, rem = p - k * (a + 1), lead = r % 2 === 0 && a >= 2 ? Math.floor(a / 2) : 0;
+          if (lead) txt = st + " in the next " + lead + ", *inc, " + st + " in the next " + a + "; repeat from * " + (k - 1) + " more " + (k - 1 === 1 ? "time" : "times") + ", inc, " + st + " in the last " + (a - lead + rem);
+          else txt = "*" + (a ? st + " in the next " + a + ", " : "") + "inc; repeat from * " + (k > 1 ? (k - 1) + " more " + (k - 1 === 1 ? "time" : "times") : "once only") + (rem ? ", " + st + " in the last " + rem : "");
+          if (k === 1 && !lead) txt = (a ? st + " in the next " + a + ", " : "") + "inc" + (rem ? ", " + st + " in the last " + rem : "");
+        }
+        p += k; tot += p; rows.push([r, txt.replace(/ in the next 1,/g, " in the next st,").replace(/ in the last 1$/, " in the last st"), p]);
+      }
+      var bR = Nb / 6, base = [];
+      base.push("<li><strong>Round 1:</strong> magic ring, 6 " + st + " into it (6).</li><li><strong>Round 2:</strong> inc in each st around (12).</li>");
+      for (var j = 3; j <= bR; j++) base.push("<li><strong>Round " + j + ":</strong> *" + st + " in the next " + (j - 2 === 1 ? "st" : j - 2) + ", inc; repeat from * 5 more times (" + (6 * j) + ").</li>");
+      tot += 3 * bR * (bR + 1) + Nb;
+      var o = [];
+      o.push('<p class="sub">Your tree</p><p class="big">' + R + "<small> cone rounds to " + Nb + " stitches</small></p><p>About " + H + " in tall and " + (Math.round(Db * 4) / 4) + " in wide at the base, " + y.nm + " yarn, " + (uk ? "UK" : "US") + " terms. <strong>inc</strong> = 2 " + st + " in the same stitch. Work in a spiral; move your marker up every round.</p>");
+      o.push('<h3>Cone (green)</h3><div class="tbl"><table class="mt cct-t"><thead><tr><th>Done</th><th>Round</th><th>Instructions</th><th>Sts</th></tr></thead><tbody>' + rows.map(function (q) { return '<tr><td><input type="checkbox" aria-label="Round ' + q[0] + ' done"></td><td>' + q[0] + "</td><td>" + q[1] + "</td><td>" + q[2] + "</td></tr>"; }).join("") + "</tbody></table></div>");
+      o.push("<p>Slip stitch into the next stitch and fasten off, leaving a long tail. Check the cone is about " + H + " in tall; if it's short, add a plain round or two.</p>");
+      o.push("<h3>Base (green)</h3><ol>" + base.join("") + "<li>Slip stitch to join and fasten off. The circle should be about " + (Math.round(Db * 4) / 4) + " in across.</li></ol>");
+      o.push("<h3>Finishing</h3><ol><li>Stuff the cone firmly, pushing the stuffing into the tip with the end of your hook." + (H >= 7 ? " For a tree this size, put a card circle the size of the base (or a small bag of pellets) on top of the stuffing so it stands steady." : "") + "</li>");
+      o.push("<li>Hold the base under the cone, wrong sides together, stitches lined up. Join the yarn and " + st + " through both edges all the way round (" + Nb + "), topping up the stuffing before you close the last few stitches. Fasten off and weave the tail into the tree.</li>");
+      if (x === "star" || x === "both") o.push("<li><strong>Star (yellow):</strong> magic ring, 5 " + st + " into it, join with a sl st. *Ch 4, sl st in the 2nd ch from the hook, " + st + " in the next ch, " + (uk ? "htr" : "hdc") + " in the next ch, sl st in the next " + st + " of the ring; repeat from * 4 more times. Fasten off and sew to the tip.</li>");
+      if (x === "both") { var tr = Math.max(2, Math.round(H * 0.1 / rh)), ts = H <= 4 ? 6 : 12;
+        o.push("<li><strong>Trunk (brown):</strong> magic ring, 6 " + st + " into it" + (ts === 12 ? "; next round inc in each st around (12)" : "") + ". Next round " + st + " in the back loop of each st (" + ts + "). Work " + tr + " more rounds of " + st + " (" + ts + "). Fasten off, stuff lightly and sew it under the centre of the base.</li>"); }
+      if (x === "loop") o.push("<li><strong>Hanging loop:</strong> thread a 6 in piece of yarn or thin ribbon through the tip with a tapestry needle and knot the ends. Skip beads and buttons if it will hang within reach of small children.</li>");
+      o.push("<li>Decorate with French knots, small pom poms or beads (see the ideas below).</li></ol>");
+      var area = Math.PI * (Db / 2) * sl + Math.PI * Db * Db / 4, yd = area * 1.48 * y.yf, extra = x === "none" || x === "loop" ? 0 : x === "both" ? 10 : 5;
+      var r5 = function (n) { return Math.max(5, Math.round(n / 5) * 5); }, hrs = tot / 360 + 0.35;
+      o.push('<p class="sub">Yarn: about <strong>' + r5(yd * 0.9) + " to " + r5(yd * 1.2) + " yd</strong> of green (" + Math.round(yd * 0.9 * 0.9144) + " to " + Math.round(yd * 1.2 * 0.9144) + " m)" + (extra ? " plus about " + extra + " yd for the extras" : "") + ". Time: about " + (Math.round(hrs * 0.8 * 2) / 2 || 0.5) + " to " + Math.max(1, Math.round(hrs * 1.3 * 2) / 2) + " hours. Both are our estimates for tight amigurumi stitches (" + tot + " stitches in all).</p>");
+      $("#cct-out").innerHTML = o.join("");
+      store.set("pp-cct", { z: z, h: $("#cct-h").value, s: $("#cct-s").value, y: yk, x: x, t: $("#cct-t").value });
+    };
+    var cctS = store.get("pp-cct", null);
+    if (cctS) { ["z", "h", "s", "y", "x", "t"].forEach(function (q) { if (cctS[q] != null && $("#cct-" + q)) $("#cct-" + q).value = cctS[q]; });
+      ["z", "s", "y", "x", "t"].forEach(function (q) { if (!$("#cct-" + q).value) $("#cct-" + q).selectedIndex = q === "z" || q === "s" || q === "y" ? 1 : 0; }); }
+    ["#cct-z", "#cct-s", "#cct-y", "#cct-x", "#cct-t"].forEach(function (s) { $(s).addEventListener("change", cctRun); });
+    $("#cct-h").addEventListener("input", cctRun);
+    cctRun();
+  }
+
+  if ($("#jjt-z") && $("#jjt-out")) {
+    // Standard numbered manila shipping tag sizes [height, width] in inches.
+    var JTS = { "1": [2.75, 1.375], "2": [3.25, 1.625], "3": [3.75, 1.875], "4": [4.25, 2.125], "5": [4.75, 2.375], "6": [5.25, 2.625], "7": [5.75, 2.875], "8": [6.25, 3.125], "b": [6, 2] };
+    var fr = function (n) { var w = Math.floor(n + 1e-9), f = Math.round((n - w) * 8), F = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"]; if (f === 8) { w++; f = 0; } return (w ? w : "") + (f ? (w ? " " : "") + F[f] : "") || "0"; };
+    var jjtShape = function (sh, w, h, ln) {
+      var c = Math.min(w * 0.28, 0.6), d, hy = 0.45;
+      if (sh === "clip" || sh === "flag") { var nb = sh === "flag" ? "L" + (w / 2) + "," + (h - Math.min(w * 0.35, 0.7)) + " " : ""; d = "M" + c + ",0 H" + (w - c) + " L" + w + "," + c + " V" + h + " " + nb + "H0 V" + c + " Z"; if (sh === "flag") d = d.replace(" " + nb + "H0", " " + nb.replace("L", "L") + "L0," + h); hy = c + 0.22; }
+      else if (sh === "round") { var r = Math.min(w, h) * 0.14; d = "M" + r + ",0 H" + (w - r) + " A" + r + "," + r + " 0 0 1 " + w + "," + r + " V" + (h - r) + " A" + r + "," + r + " 0 0 1 " + (w - r) + "," + h + " H" + r + " A" + r + "," + r + " 0 0 1 0," + (h - r) + " V" + r + " A" + r + "," + r + " 0 0 1 " + r + ",0 Z"; hy = Math.max(0.4, r + 0.15); }
+      else if (sh === "arch") { d = "M0," + (w / 2) + " A" + (w / 2) + "," + (w / 2) + " 0 0 1 " + w + "," + (w / 2) + " V" + h + " H0 Z"; hy = Math.min(w / 2, 0.5); }
+      else d = "M0,0 H" + w + " V" + h + " H0 Z";
+      var g = '<path d="' + d + '" fill="#fff" stroke="#1f2a44" stroke-width="0.012"/><circle cx="' + (w / 2) + '" cy="' + hy.toFixed(3) + '" r="0.125" fill="none" stroke="#1f2a44" stroke-width="0.012"/><circle cx="' + (w / 2) + '" cy="' + hy.toFixed(3) + '" r="0.26" fill="none" stroke="#b8326a" stroke-width="0.01" stroke-dasharray="0.04 0.04"/>';
+      var bot = sh === "flag" ? h - Math.min(w * 0.35, 0.7) - 0.2 : h - 0.25;
+      if (ln === "lines") for (var L = Math.max(hy + 0.5, h * 0.42); L <= bot; L += 0.3) g += '<path d="M0.2,' + L.toFixed(3) + " H" + (w - 0.2) + '" stroke="#9aa3b5" stroke-width="0.01"/>';
+      if (ln === "frame") g += '<rect x="0.15" y="' + (hy + 0.38).toFixed(3) + '" width="' + (w - 0.3) + '" height="' + Math.max(0.3, bot - hy - 0.38).toFixed(3) + '" fill="none" stroke="#9aa3b5" stroke-width="0.01" stroke-dasharray="0.06 0.04"/>';
+      return g;
+    };
+    var jjtRun = function () {
+      var z = $("#jjt-z").value, own = z === "m"; $("#jjt-own").hidden = !own;
+      var t = own ? [Math.min(10, Math.max(1.5, parseFloat($("#jjt-h").value) || 4)), Math.min(7, Math.max(1, parseFloat($("#jjt-w").value) || 2))] : JTS[z] || JTS["5"];
+      var h = t[0], w = t[1]; if (w > h) { var sw = w; w = h; h = sw; }
+      var a4 = $("#jjt-p").value === "a4", PW = (a4 ? 8.27 : 8.5) - 1, PH = (a4 ? 11.69 : 11) - 1, gap = 0.12, sh = $("#jjt-s").value, ln = $("#jjt-l").value;
+      var fit = function (cw, ch) { return [Math.max(0, Math.floor((PW + gap) / (cw + gap))), Math.max(0, Math.floor((PH + gap) / (ch + gap)))]; };
+      var up = fit(w, h), side = fit(h, w), rot = side[0] * side[1] > up[0] * up[1], lay = rot ? side : up, n = lay[0] * lay[1];
+      var cw = rot ? h : w, ch = rot ? w : h, ox = (PW - (lay[0] * cw + (lay[0] - 1) * gap)) / 2, oy = (PH - (lay[1] * ch + (lay[1] - 1) * gap)) / 2;
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Printable sheet of ' + n + ' junk journal tags" width="' + PW + 'in" height="' + PH + 'in" viewBox="0 0 ' + PW + " " + PH + '"><rect width="' + PW + '" height="' + PH + '" fill="#fff"/>';
+      for (var i = 0; i < lay[0]; i++) for (var j = 0; j < lay[1]; j++) {
+        var X = ox + i * (cw + gap), Y = oy + j * (ch + gap);
+        svg += '<g transform="translate(' + X.toFixed(3) + "," + (rot ? (Y + w).toFixed(3) : Y.toFixed(3)) + ")" + (rot ? " rotate(-90)" : "") + '">' + jjtShape(sh, w, h, ln) + "</g>";
+      }
+      svg += '<text x="0.05" y="' + (PH - 0.06) + '" font-family="Inter,sans-serif" font-size="0.13" fill="#9aa3b5">purlandpaperco.com  ·  ' + fr(h) + " x " + fr(w) + ' in tags  ·  print at 100%</text></svg>';
+      var o = [];
+      if (!n) { $("#jjt-out").innerHTML = '<p class="big">Too big</p><p>That tag doesn\'t fit on one ' + (a4 ? "A4" : "Letter") + " sheet. Try a smaller size.</p>"; return; }
+      o.push('<p class="sub">Your sheet</p><p class="big">' + n + "<small> tags per " + (a4 ? "A4" : "Letter") + " sheet</small></p><p>Each tag " + fr(h) + " x " + fr(w) + " in (" + (Math.round(h * 25.4)) + " x " + Math.round(w * 25.4) + " mm)" + (rot ? ", laid sideways to fit more" : "") + ". Solid line: cut. Small circle: 1/4 in hole punch. Dashed pink ring: where a reinforcer goes.</p>");
+      var pw = parseFloat($("#jjt-pw").value), ph = parseFloat($("#jjt-ph").value);
+      if (pw > 0 && ph > 0) {
+        var dw = pw - w, dh = h - ph, msg = [];
+        msg.push(dw < 0.2 ? "<strong>Too wide</strong> for a " + fr(pw) + " in pocket: it will catch. Aim for " + fr(Math.max(0.5, pw - 0.375)) + " in wide." : dw > 1 ? "Narrow for the pocket (it will slide about); " + fr(pw - 0.375) + " in wide would fit snugly." : "<strong>Width fits</strong> the " + fr(pw) + " in pocket.");
+        msg.push(dh < 0.25 ? "It will sit <strong>inside</strong> the pocket; make it about " + fr(ph + 0.75) + " in tall so the top sticks out, or use a long ribbon to pull it." : dh > 1.5 ? "It sticks out " + fr(dh) + " in, which is a lot; " + fr(ph + 0.75) + " in tall is easier to tuck away." : "<strong>Height is good:</strong> the top sticks out " + fr(dh) + " in.");
+        o.push('<p class="sub">Pocket check: ' + msg.join(" ") + "</p>");
+      }
+      o.push('<div class="jjt-sheet">' + svg + "</div>");
+      o.push('<p><button type="button" class="btn gold sm" id="jjt-print">Print the tag sheet</button></p><p class="sub">Print at 100% (turn off "fit to page") on card stock, then measure one tag with a ruler. The sheet leaves a 1/2 in margin for your printer.</p>');
+      $("#jjt-out").innerHTML = o.join("");
+      $("#jjt-print").addEventListener("click", function () {
+        document.documentElement.classList.add("print-jjt");
+        var off = function () { document.documentElement.classList.remove("print-jjt"); window.removeEventListener("afterprint", off); };
+        window.addEventListener("afterprint", off); window.print(); setTimeout(off, 1500);
+      });
+      store.set("pp-jjt", { z: z, h: $("#jjt-h").value, w: $("#jjt-w").value, s: sh, p: $("#jjt-p").value, l: ln, pw: $("#jjt-pw").value, ph: $("#jjt-ph").value });
+    };
+    var jjtS = store.get("pp-jjt", null);
+    if (jjtS) { ["z", "h", "w", "s", "p", "l", "pw", "ph"].forEach(function (q) { if (jjtS[q] != null && $("#jjt-" + q)) $("#jjt-" + q).value = jjtS[q]; });
+      if (!$("#jjt-z").value) $("#jjt-z").value = "5"; if (!$("#jjt-s").value) $("#jjt-s").value = "clip"; if (!$("#jjt-p").value) $("#jjt-p").value = "letter"; if (!$("#jjt-l").value) $("#jjt-l").value = "none"; }
+    ["#jjt-z", "#jjt-s", "#jjt-p", "#jjt-l"].forEach(function (s) { $(s).addEventListener("change", jjtRun); });
+    ["#jjt-h", "#jjt-w", "#jjt-pw", "#jjt-ph"].forEach(function (s) { $(s).addEventListener("input", jjtRun); });
+    jjtRun();
+  }
+
+
 })();
