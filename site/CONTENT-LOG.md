@@ -465,3 +465,13 @@
 - Remaining / acceptable: google7cb8a0335ce88e7c.html verification file flagged by seo_audit.py as expected. Not deployed (hand deploy).
 - Checked 390px render: /crochet-snowflake-pattern, /macrame-knots: no JS errors, no overflow.
 - IndexNow pending: https://purlandpaperco.com/crochet-snowflake-pattern https://purlandpaperco.com/how-to-transfer-embroidery-pattern https://purlandpaperco.com/macrame-knots
+
+## 28 Nov 2026 run 18 (demand-first, plan18.py)
+- NEW /how-to-knit-a-blanket — 'how to knit a blanket for beginners step by step'. 6 own SVG steps, best stitch, cast-on maths, neat edges, time, finishing; writer (kbk-*: 12 sizes or own, weight 3-7, garter/seed/stockinette with garter frame, optional swatch, yards per ball) -> cast on, rows, yarn, balls, needle + circular cable length, hours, full pattern.
+- NEW /crochet-headband-pattern — 'crochet ear warmer headband pattern easy'. Own ribbed hdc-BLO strip with twist finish, 6 SVG steps, sizing, fixes, gift/selling links; writer (chb-*: CYC head sizes or own, width, weight 4-6, twist/seam, swatch, US/UK) -> chains, rows, length, yarn, hook, time.
+- NEW /how-to-wind-a-ball-of-yarn — 'how to wind a ball of yarn by hand center pull'. 6 SVG steps (thumb method), hank opening, tube/nostepinne/winder, tips, splitting H2; skein splitter (ywb-*: equal 2-4 balls or yards needed -> grams to wind, scale readings).
+- Links: footer Guides, home 'Fresh today', /blanket-size-calculator + /how-to-crochet-a-blanket -> knit blanket, /crochet-knitting-gift-planner#last-minute + /how-to-crochet-a-hat -> headband, /yarn-yardage-calculator -> winding.
+- Sources: CYC gauge ranges and head sizes (data.json); method checked against Gathered, Make and Do Crew, B.Hooked (knit blanket), B.Hooked + Handy Little Me (headband twist), Lion Brand, Purl Soho, AllFreeCrochet (winding). Patterns, drawings, wording our own; amounts and hours labelled estimates.
+- Pins queued: pins/site/how-to-knit-a-blanket.jpg, crochet-headband-pattern.jpg, how-to-wind-a-ball-of-yarn.jpg.
+- SHOP: no new live craft products since run 17; new pages use planner, pricing calculator, stash tracker, gift planner, gift tags.
+- IndexNow pending: https://purlandpaperco.com/how-to-knit-a-blanket https://purlandpaperco.com/crochet-headband-pattern https://purlandpaperco.com/how-to-wind-a-ball-of-yarn

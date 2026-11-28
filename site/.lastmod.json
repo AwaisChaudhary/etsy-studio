@@ -24,7 +24,7 @@
 "2026-11-27"
 ],
 "blanket-size-calculator.html": [
-"81a58a4cddf2acda",
+"450688d202b45c46",
 "2026-11-28"
 ],
 "bookbinding.html": [
@@ -87,8 +87,12 @@
 "0fc2baf663f9e726",
 "2026-11-27"
 ],
+"crochet-headband-pattern.html": [
+"ec087cf696e8e432",
+"2026-11-28"
+],
 "crochet-knitting-gift-planner.html": [
-"ddb7c089892d006e",
+"280b4d7385a50945",
 "2026-11-28"
 ],
 "crochet-project-planner.html": [
@@ -208,7 +212,7 @@
 "2026-11-27"
 ],
 "how-to-crochet-a-blanket.html": [
-"42a4401fe92f3fb9",
+"2901bddb4cdcd0cc",
 "2026-11-28"
 ],
 "how-to-crochet-a-granny-square.html": [
@@ -216,7 +220,7 @@
 "2026-11-27"
 ],
 "how-to-crochet-a-hat.html": [
-"c9ffdb40fd5b4788",
+"98bee6666e35265b",
 "2026-11-28"
 ],
 "how-to-crochet-a-scarf.html": [
@@ -250,6 +254,10 @@
 "how-to-join-granny-squares.html": [
 "b89aa02d5b62ebcc",
 "2026-11-27"
+],
+"how-to-knit-a-blanket.html": [
+"2b201439359b70b5",
+"2026-11-28"
 ],
 "how-to-knit-a-hat.html": [
 "2bda531bed5d3ced",
@@ -319,12 +327,16 @@
 "44c2c7b8b31423fb",
 "2026-11-27"
 ],
+"how-to-wind-a-ball-of-yarn.html": [
+"afedcb2c9a2aee62",
+"2026-11-28"
+],
 "increase-decrease-calculator.html": [
 "4d35d6e9bae3d05a",
 "2026-11-27"
 ],
 "index.html": [
-"641f114aec5d0162",
+"5f79679c6a4b27ed",
 "2026-11-28"
 ],
 "journal-prompts.html": [
@@ -480,7 +492,7 @@
 "2026-11-27"
 ],
 "yarn-yardage-calculator.html": [
-"8d6fd20896d8b76d",
-"2026-11-27"
+"3431b1b958cfa153",
+"2026-11-28"
 ]
 }

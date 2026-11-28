@@ -4294,4 +4294,98 @@
     cbkRun();
   }
 
+  /* ---------- run 18: beginner knit blanket writer (kbk-*) ---------- */
+  if ($("#kbk-z") && $("#kbk-out") && P.tblanket) {
+    // CYC knit gauge by weight (tblanket.kg, sts per 4 in); row ratio garter 2.0, stockinette 1.33, seed 1.6 (typical); yardage 0.667 yd per sq in
+    // x weight factor x stitch density. Speed 25-40 sts a minute (our estimate for a comfortable knitter).
+    var KBK = P.tblanket, kbkW = P.weights || [], kbkS0 = store.get("pp-kbk", null) || {};
+    var KST = { garter: { r: 2.0, d: 1.2 }, seed: { r: 1.6, d: 1.2 }, st: { r: 1.33, d: 1.05 } };
+    ["z", "w", "l", "y", "s", "k", "g"].forEach(function (f) { if (kbkS0[f] !== undefined && $("#kbk-" + f)) $("#kbk-" + f).value = kbkS0[f]; });
+    var kbkRun = function () {
+      var z = $("#kbk-z").value, own = z === "custom", bl = (P.blankets || []).filter(function (b) { return b.id === z; })[0];
+      if (!own && !bl) { z = "custom"; own = true; }
+      $("#kbk-own").hidden = !own;
+      var W = own ? Math.min(120, Math.max(8, parseFloat($("#kbk-w").value) || 40)) : bl.w, L = own ? Math.min(120, Math.max(8, parseFloat($("#kbk-l").value) || 50)) : bl.l;
+      var wn = $("#kbk-y").value, wt = kbkW.filter(function (x) { return String(x.n) === wn; })[0] || { m: 1, needle: "" }, sk = $("#kbk-s").value, st = KST[sk] || KST.garter;
+      var base = KBK.kg[wn] || 18, g = parseFloat($("#kbk-g").value) || 0, spi = (g > 0 ? g : base) / 4, rpi = spi * st.r;
+      var co = Math.max(6, Math.round(W * spi)); if (sk === "seed" && co % 2 === 0) co += 1;
+      var rows = Math.max(4, Math.round(L * rpi)); if (rows % 2) rows += 1;
+      var dens = g > 0 ? base / g : 1, yd = W * L * 0.667 * (wt.m || 1) * st.d * dens, lo = yd * 0.88, hi = yd * 1.12;
+      var per = parseFloat($("#kbk-k").value) || 0, balls = per > 0 ? Math.ceil(hi / per) : 0, total = co * rows, hLo = total / 40 / 60, hHi = total / 25 / 60;
+      var cable = W <= 30 ? "32 in (80 cm)" : W <= 45 ? "40 in (100 cm)" : "47 in (120 cm) or longer", f = function (v) { return Math.round(v).toLocaleString(); };
+      var o = ['<p class="sub">' + (own ? "Your blanket" : bl.name) + ", " + W + " x " + L + ' in</p><p class="big">' + co + "<small> stitches to cast on</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Rows</td><td>about ' + f(rows) + (sk === "garter" ? " (" + f(rows / 2) + " ridges)" : "") + ", or knit until it's " + L + " in long</td></tr><tr><td>Yarn</td><td>about " + f(lo) + " to " + f(hi) + " yd (" + f(lo * 0.9144) + " to " + f(hi * 0.9144) + " m)</td></tr><tr><td>Balls</td><td>" + (balls ? balls + " of " + per + " yd (covers the high end)" : "enter yards per ball") + "</td></tr><tr><td>Needle</td><td>" + wt.needle + ", " + cable + " circular, worked flat</td></tr><tr><td>Time</td><td>about " + f(hLo) + " to " + f(hHi) + " hours</td></tr></tbody></table>");
+      var rowsTxt, b = 5, frame = 8;
+      if (sk === "garter") rowsTxt = "<li><strong>Every row:</strong> knit all " + co + " stitches. (Optional neat edge: slip the first stitch purlwise with the yarn in front, then knit to the end.)</li><li>Repeat until you have knit about " + f(rows) + " rows, or the blanket measures " + L + " in, ending after a right-side row.</li>";
+      else if (sk === "seed") rowsTxt = "<li><strong>Every row:</strong> *k1, p1; repeat from * to the last stitch, k1. (With an odd number of stitches every row is the same.)</li><li>Repeat until you have knit about " + f(rows) + " rows, or it measures " + L + " in.</li>";
+      else rowsTxt = "<li><strong>Rows 1 to " + frame + ":</strong> knit (garter border).</li><li><strong>Right-side rows:</strong> knit all stitches.</li><li><strong>Wrong-side rows:</strong> k" + b + ", purl to the last " + b + " stitches, k" + b + ".</li><li>Repeat these two rows until it measures about " + (L - 1.5) + " in (" + f(rows - 2 * frame) + " rows), ending after a wrong-side row.</li><li><strong>Last " + frame + " rows:</strong> knit.</li>";
+      o.push("<h3>Your pattern</h3><ol><li>Cast on " + co + " stitches with the long-tail cast on.</li>" + rowsTxt + "<li>Bind off loosely knitwise" + (sk === "seed" ? " (or in pattern)" : "") + ". Weave in the ends, then wash and lay flat.</li></ol>");
+      o.push('<p class="sub">Estimates from typical gauge for this yarn' + (g > 0 ? " (using your swatch)" : "") + ". Your tension changes everything: knit a 6 in swatch first, and buy one spare ball in the same dye lot.</p>");
+      $("#kbk-out").innerHTML = o.join("");
+      var sv = {}; ["z", "w", "l", "y", "s", "k", "g"].forEach(function (k) { sv[k] = $("#kbk-" + k).value; }); store.set("pp-kbk", sv);
+    };
+    ["z", "w", "l", "y", "s", "k", "g"].forEach(function (k) { var el = $("#kbk-" + k); el.addEventListener("change", kbkRun); el.addEventListener("input", kbkRun); });
+    kbkRun();
+  }
+
+  /* ---------- run 18: crochet ear warmer writer (chb-*) ---------- */
+  if ($("#chb-z") && $("#chb-out") && P.tblanket) {
+    // Strip of hdc in back loop only, worked sideways. Gauge: CYC sc gauge (tblanket.cg) x 0.95 for hdc width, 0.8 for rows; BLO rows ~10% shorter.
+    // Length = 90% of head (rib stretch). Yardage 0.667 yd/sq in x weight factor x 1.27 (crochet) x 1.15 (hdc BLO). Speed 5-8 sts/min incl. turning (beginner-friendly estimate).
+    var chbW = P.weights || [], chbT = "us", chbS0 = store.get("pp-chb", null) || {};
+    ["z", "c", "y", "w", "f", "g"].forEach(function (k) { if (chbS0[k] !== undefined && $("#chb-" + k)) $("#chb-" + k).value = chbS0[k]; });
+    if (chbS0.t === "uk") { chbT = "uk"; $$("#chb-t button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === "uk" ? "true" : "false"); }); }
+    var chbRun = function () {
+      var z = $("#chb-z").value, hz = (P.hats || []).filter(function (h) { return h.id === z; })[0], own = !hz;
+      $("#chb-own").hidden = !own;
+      var head = own ? Math.min(26, Math.max(14, parseFloat($("#chb-c").value) || 22)) : hz.head;
+      var wn = $("#chb-y").value, wt = chbW.filter(function (x) { return String(x.n) === wn; })[0] || { m: 1, hook: "" }, base = (P.tblanket.cg || {})[wn] || 12.5;
+      var g = parseFloat($("#chb-g").value) || 0, spi = g > 0 ? g / 4 : base * 0.95 / 4, rpi = (g > 0 ? g / 0.95 : base) * 0.8 * 1.1 / 4;
+      var W = parseFloat($("#chb-w").value) || 3.5, len = head * 0.9, sts = Math.max(4, Math.round(W * spi)), ch = sts + 2, rows = Math.max(6, Math.round(len * rpi));
+      var yd = W * len * 0.667 * (wt.m || 1) * 1.27 * 1.15 * (g > 0 ? (base * 0.95 / 4) / spi : 1) + 2, lo = yd * 0.85, hi = yd * 1.15;
+      var mins = sts * rows, hLo = mins / 8 / 60 + 0.25, hHi = mins / 5 / 60 + 0.4;
+      var H = chbT === "uk" ? "htr" : "hdc", SS = "sl st", tw = $("#chb-f").value === "twist", r1 = function (v) { return Math.round(v * 10) / 10; };
+      var o = ['<p class="sub">' + (own ? "Your head, " + head + " in" : hz.name + ", " + hz.head + " in head") + ", " + W + ' in wide</p><p class="big">' + ch + "<small> chains to start</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Stitches per row</td><td>' + sts + "</td></tr><tr><td>Rows</td><td>about " + rows + " (strip about " + r1(len) + " in long, unstretched)</td></tr><tr><td>Yarn</td><td>about " + Math.round(lo) + " to " + Math.round(hi) + " yd (" + Math.round(lo * 0.9144) + " to " + Math.round(hi * 0.9144) + " m)</td></tr><tr><td>Hook</td><td>" + wt.hook + "</td></tr><tr><td>Time</td><td>about " + r1(hLo) + " to " + r1(hHi) + " hours</td></tr></tbody></table>");
+      o.push("<h3>Your pattern (" + (chbT === "uk" ? "UK" : "US") + " terms)</h3><ol>" +
+        "<li>Leave a 12 in tail for sewing. Chain " + ch + ".</li>" +
+        "<li><strong>Row 1:</strong> " + H + " in the 3rd chain from the hook and in each chain to the end. Turn. (" + sts + " sts)</li>" +
+        "<li><strong>Row 2:</strong> ch 2 (doesn't count as a stitch), " + H + " in the back loop only of each stitch across. Turn. (" + sts + " sts)</li>" +
+        "<li><strong>Rows 3 to " + rows + ":</strong> repeat row 2. Wrap it round the head: it should feel snug when slightly stretched. Add or take off rows to fit.</li>" +
+        (tw ? "<li><strong>Twist:</strong> fasten off, leaving a 12 in tail. Lay the strip right side up. Fold each short end in half lengthwise, then slide one folded end inside the other so they hug. Pin.</li><li><strong>Sew</strong> through all four layers with the tail, using small whip stitches. Turn right side out and weave in the ends.</li>"
+            : "<li><strong>Join:</strong> bring the short ends together, right sides facing, and " + SS + " through both layers (or sew with the tail). Turn right side out and weave in the ends.</li>") + "</ol>");
+      o.push('<p class="sub">Estimates from typical gauge' + (g > 0 ? " (using your swatch)" : "") + ". Back-loop rows stretch a lot, so trust the try-on more than the row count. One skein of most yarns makes two or three ear warmers.</p>");
+      $("#chb-out").innerHTML = o.join("");
+      var sv = { t: chbT }; ["z", "c", "y", "w", "f", "g"].forEach(function (k) { sv[k] = $("#chb-" + k).value; }); store.set("pp-chb", sv);
+    };
+    ["z", "c", "y", "w", "f", "g"].forEach(function (k) { var el = $("#chb-" + k); el.addEventListener("change", chbRun); el.addEventListener("input", chbRun); });
+    seg($("#chb-t"), function (v) { chbT = v; chbRun(); });
+    chbRun();
+  }
+
+  /* ---------- run 18: skein splitter (ywb-*) ---------- */
+  if ($("#ywb-g") && $("#ywb-out")) {
+    var ywbS0 = store.get("pp-ywb", null) || {};
+    ["g", "lg", "ly", "n", "need"].forEach(function (k) { if (ywbS0[k] !== undefined && $("#ywb-" + k)) $("#ywb-" + k).value = ywbS0[k]; });
+    var ywbRun = function () {
+      var g = Math.max(0.5, parseFloat($("#ywb-g").value) || 100), lg = Math.max(1, parseFloat($("#ywb-lg").value) || 100), ly = Math.max(1, parseFloat($("#ywb-ly").value) || 400);
+      var ypg = ly / lg, totY = g * ypg, n = $("#ywb-n").value, o = [], r1 = function (v) { return Math.round(v * 10) / 10; };
+      $("#ywb-need-f").hidden = n !== "yd";
+      if (n === "yd") {
+        var need = Math.max(1, parseFloat($("#ywb-need").value) || 100), w = need / ypg;
+        if (need >= totY) o.push('<p class="big">' + Math.round(totY) + '<small> yd in this skein</small></p><p>That\'s less than the ' + need + " yd you need: you'll need another skein.</p>");
+        else o.push('<p class="sub">Wind the first ball until it weighs</p><p class="big">' + r1(w) + '<small> g</small></p><table class="mt"><tbody><tr><td>First ball</td><td>' + need + " yd (" + Math.round(need * 0.9144) + " m)</td></tr><tr><td>What's left</td><td>" + r1(g - w) + " g, about " + Math.round(totY - need) + " yd</td></tr><tr><td>Or watch the skein</td><td>stop when the skein on the scale reads " + r1(g - w) + " g</td></tr></tbody></table>");
+      } else {
+        var k = parseInt(n, 10) || 2, each = g / k, rows = "";
+        for (var i = 1; i < k; i++) rows += "<tr><td>After ball " + i + "</td><td>skein reads " + r1(g - each * i) + " g</td></tr>";
+        o.push('<p class="sub">Each of ' + k + " balls</p><p class=\"big\">" + r1(each) + '<small> g</small></p><table class="mt"><tbody><tr><td>Yards in each</td><td>about ' + Math.round(totY / k) + " yd (" + Math.round(totY / k * 0.9144) + " m)</td></tr>" + rows + "</tbody></table>");
+      }
+      o.push('<p class="sub">Yards from the label\'s ' + r1(ypg) + " yd per gram. Weigh the real skein: labels round the weight and skeins vary by a few grams. Tare the scale with a bowl, wind loosely, check often.</p>");
+      $("#ywb-out").innerHTML = o.join("");
+      var sv = {}; ["g", "lg", "ly", "n", "need"].forEach(function (k) { sv[k] = $("#ywb-" + k).value; }); store.set("pp-ywb", sv);
+    };
+    ["g", "lg", "ly", "n", "need"].forEach(function (k) { var el = $("#ywb-" + k); el.addEventListener("change", ywbRun); el.addEventListener("input", ywbRun); });
+    ywbRun();
+  }
+
 })();
