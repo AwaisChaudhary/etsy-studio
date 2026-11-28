@@ -263,6 +263,7 @@ ywb = top("How to wind a ball of yarn by hand (centre pull)", "A centre-pull bal
 <li><strong>Not sure how much is left?</strong> Weigh a part-used ball in the <a href="{href("yarn-yardage-calculator.html")}">yarn yardage calculator</a>.</li></ul>
 <h2>How to split a skein in half</h2>
 <p>Weigh the skein on a kitchen scale and work out half. Wind one ball, putting it on the scale now and then, until it reaches that weight; then cut and wind the rest. The calculator above does the sum, including a split by yards for when a pattern needs a set length. Labels round the weight, and skeins vary by a few grams, so always weigh the real skein rather than trusting the label. Splitting for socks? See the <a href="{href("sock-size-chart.html")}">sock size chart</a> for how much each sock needs.</p>
+<p>Want somewhere to keep the ball while you work? Crochet a soft <a href="{href("crochet-basket-pattern.html")}">yarn bowl or basket</a> with our free pattern writer.</p>
 <p class="note">Method is standard practice, checked against Lion Brand, Purl Soho and AllFreeCrochet winding tutorials (28 Nov 2026). Drawings and wording are our own. Yards per ball are worked out from the label's yards per gram, so they're close estimates.</p>
 </div></div></section>'''
 ywb_faq = [

@@ -4555,4 +4555,138 @@
     sdRun();
   }
 
+  /* ---------- run 20: crochet basket pattern writer (cbb-*) ---------- */
+  if ($("#cbb-z") && $("#cbb-out")) {
+    // Flat sc circle: 6 sts per round; base rounds from circumference (6R sts = pi x D x g). Walls: rounds = H x g (firm sc is near square).
+    // Yarn = (base area + wall area) x yd per sq in (firm sc, estimates) x 1.1 for rim and ends.
+    var CBY = { w2: { g: 3, k: 1.5, hook: "6 mm (US J-10)", ball: 200, n: "worsted held double (yards counted for both strands)" }, w1: { g: 4, k: 1.0, hook: "4.5 mm (US 7)", ball: 200, n: "worsted, one strand" },
+      b: { g: 3, k: 0.75, hook: "5.5 to 6 mm (US I-9 to J-10)", ball: 130, n: "bulky (5)" }, sb: { g: 2.25, k: 0.55, hook: "8 mm (US L-11)", ball: 100, n: "super bulky (6)" }, t: { g: 1.75, k: 0.45, hook: "10 mm (US N/P-15)", ball: 120, n: "T-shirt yarn or cotton cord" } };
+    var cbbS0 = store.get("pp-cbb", null) || {};
+    ["z", "d", "h", "y", "g", "x", "t"].forEach(function (k) { if (cbbS0[k] !== undefined && $("#cbb-" + k)) $("#cbb-" + k).value = cbbS0[k]; });
+    var cbbRun = function () {
+      var zv = $("#cbb-z").value, own = zv === "custom"; $("#cbb-own").hidden = !own;
+      var D = own ? Math.min(20, Math.max(3, parseFloat($("#cbb-d").value) || 8)) : parseFloat(zv.split("x")[0]), H = own ? Math.min(18, Math.max(1, parseFloat($("#cbb-h").value) || 6)) : parseFloat(zv.split("x")[1]);
+      var Y = CBY[$("#cbb-y").value] || CBY.sb, sw = parseFloat($("#cbb-g").value), g = sw >= 4 && sw <= 24 ? sw / 4 : Y.g, x = $("#cbb-x").value, uk = $("#cbb-t").value === "uk";
+      var sc = uk ? "dc" : "sc", inc = "inc (2 " + sc + " in next st)";
+      var Rb = Math.max(3, Math.round(D * Math.PI * g / 6)), S = 6 * Rb, Dr = S / (Math.PI * g), W = Math.max(3, Math.round(H * g));
+      var rows = [];
+      for (var r = 1; r <= Rb; r++) {
+        var t, k = r - 2;
+        if (r === 1) t = "6 " + sc + " in a magic ring";
+        else if (r === 2) t = "inc in each st around";
+        else if (r % 2 === 1 || k < 2) t = "(" + sc + " " + k + ", inc) x 6";
+        else { var a = Math.floor(k / 2), b = k - a; t = sc + " " + a + ", inc, (" + sc + " " + k + ", inc) x 5, " + sc + " " + b; }
+        rows.push(["Round " + r, t + " (" + 6 * r + ")"]);
+      }
+      var first = Rb + 1, last = Rb + W, rim = last, warn = [];
+      rows.push(["Round " + first, sc + " in the back loop only of each st around (" + S + "). This turns the corner."]);
+      var hasH = x === "handles" || x === "both", hasY = x === "hole" || x === "both";
+      var hR = hasH ? rim - 3 : 0, yR = hasY ? (hasH ? hR - 2 : rim - 3) : 0;
+      if (hasH && hR <= first) { warn.push("The basket is too short for handle slots, so they're left out. Make it taller, or add a strap later."); hasH = false; hR = 0; }
+      if (hasY && yR <= first) { yR = first + 1 < rim ? first + 1 : 0; if (!yR) { warn.push("Too short for a yarn hole; make it at least 2 in tall."); hasY = false; } }
+      var L = Math.max(3, Math.round(3 * g)), half = Math.floor(S / 2), aa = Math.floor((half - L) / 2), c3 = Math.round(S / 4);
+      var special = {};
+      if (hasH) { special[hR] = sc + " " + aa + ", ch " + L + ", skip " + L + ", " + sc + " " + (half - L) + ", ch " + L + ", skip " + L + ", " + sc + " " + (S - aa - half - L) + " (two handle slots)"; special[hR + 1] = sc + " in each st and " + L + " " + sc + " into each chain space around (" + S + ")"; }
+      if (hasY) { special[yR] = sc + " " + c3 + ", ch 3, skip 3, " + sc + " " + (S - c3 - 3) + " (yarn hole)"; special[yR + 1] = sc + " in each st and 3 " + sc + " into the ch-3 space (" + S + ")"; }
+      var run0 = null, flush = function (to) { if (run0 !== null) { rows.push([run0 === to ? "Round " + run0 : "Rounds " + run0 + "-" + to, sc + " in each st around (" + S + ")"]); run0 = null; } };
+      for (var q = first + 1; q < rim; q++) { if (special[q]) { flush(q - 1); rows.push(["Round " + q, special[q]]); } else if (run0 === null) run0 = q; }
+      flush(rim - 1);
+      rows.push(["Round " + rim, "sl st in next st, then reverse " + sc + " (crab stitch) in each st around, or sl st around for a plain rim. Fasten off and weave in."]);
+      var area = Math.PI * Dr * Dr / 4 + Math.PI * Dr * H, yd = area * Y.k * 1.1 * (g / Y.g), balls = Math.ceil(yd / Y.ball);
+      var sts = 3 * Rb * (Rb + 1) + S * W, hrs = sts / 9 / 60;
+      var o = ['<p class="sub">' + D + " x " + H + " in basket in " + Y.n + ", about " + (g * 4).toFixed(1).replace(/\.0$/, "") + " " + sc + ' per 4 in</p><p class="big">' + Rb + "<small> base rounds, then " + W + " wall rounds</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Hook</td><td>' + Y.hook + " for firm fabric (go down a size if it's floppy)</td></tr><tr><td>Base</td><td>" + S + " sts, about " + Dr.toFixed(1) + " in (" + (Dr * 2.54).toFixed(0) + " cm) across</td></tr><tr><td>Yarn</td><td>about " + fmt(yd) + " yd (" + fmt(yd * 0.9144) + " m), roughly " + balls + " ball" + (balls > 1 ? "s" : "") + " of " + Y.ball + " yd</td></tr><tr><td>Time</td><td>about " + (hrs < 1 ? Math.max(15, Math.round(hrs * 60 / 5) * 5) + " minutes" : hrs.toFixed(1).replace(/\.0$/, "") + " hours") + " (" + fmt(sts) + " stitches)</td></tr></tbody></table>");
+      if (warn.length) o.push("<ul>" + warn.map(function (w) { return "<li>" + esc(w) + "</li>"; }).join("") + "</ul>");
+      o.push('<p><strong>Pattern</strong> (' + (uk ? "UK" : "US") + " terms; work in a spiral, moving your marker up each round)</p>");
+      o.push('<ol class="sd-list" style="list-style:none;padding-left:0">' + rows.map(function (r) { return '<li style="margin:4px 0"><label><input type="checkbox"> <strong>' + r[0] + ":</strong> " + esc(r[1]) + "</label></li>"; }).join("") + "</ol>");
+      o.push('<p class="sub">Yardage and time are estimates for firm ' + sc + ". Count your stitches at the end of each base round: if the base cups or ripples, see the tips below.</p>");
+      o.push('<p><button type="button" class="btn ghost sm" onclick="window.print()">Print pattern</button></p>');
+      $("#cbb-out").innerHTML = o.join("");
+      var sv = {}; ["z", "d", "h", "y", "g", "x", "t"].forEach(function (k) { sv[k] = $("#cbb-" + k).value; }); store.set("pp-cbb", sv);
+    };
+    ["z", "d", "h", "y", "g", "x", "t"].forEach(function (k) { var el = $("#cbb-" + k); el.addEventListener("change", cbbRun); el.addEventListener("input", cbbRun); });
+    cbbRun();
+  }
+
+  /* ---------- run 20: pants hem calculator (hem-*) ---------- */
+  if ($("#hem-m") && $("#hem-out")) {
+    // Typical allowances (in): dress 1.5, tapered 1, jeans 0.5 + 0.5 double fold, wide 2, kids 2.5. Blind stitch every ~1/3 in. Thread ~ 2 x circumference + 8 in.
+    var HEMT = { dress: { a: 1.5, d: false, n: "dress trousers", s: "blind hem" }, tapered: { a: 1, d: false, n: "a tapered leg", s: "blind hem" }, jeans: { a: 1, d: true, n: "jeans", s: "back stitch or running stitch close to the top fold" },
+      wide: { a: 2, d: false, n: "wide-leg trousers", s: "blind hem" }, kids: { a: 2.5, d: false, n: "kids' trousers (let down later)", s: "loose blind hem" } };
+    var hmS0 = store.get("pp-hem", null) || {};
+    ["m", "u", "off", "c", "w", "t", "o"].forEach(function (k) { if (hmS0[k] !== undefined && $("#hem-" + k)) $("#hem-" + k).value = hmS0[k]; });
+    var hemRun = function () {
+      var byLen = $("#hem-m").value === "len", cm = $("#hem-u").value === "cm", U = cm ? 2.54 : 1, un = cm ? " cm" : " in";
+      $("#hem-off-f").hidden = byLen; $("#hem-len-f").hidden = !byLen;
+      var T = HEMT[$("#hem-t").value] || HEMT.dress;
+      var off = byLen ? (parseFloat($("#hem-c").value) - parseFloat($("#hem-w").value)) / U : parseFloat($("#hem-off").value) / U;
+      var sv = {}; ["m", "u", "off", "c", "w", "t", "o"].forEach(function (k) { sv[k] = $("#hem-" + k).value; }); store.set("pp-hem", sv);
+      var f = function (v) { if (cm) return (Math.round(v * 2.54 * 2) / 2).toFixed(1).replace(/\.0$/, "") + " cm"; var w = Math.floor(v + 1e-9), fr = Math.round((v - w) * 8), F = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"]; if (fr === 8) { w++; fr = 0; } return (w ? w + (fr ? " " : "") : (fr ? "" : "0")) + (fr ? F[fr] : "") + " in"; };
+      if (!(off > 0)) { $("#hem-out").innerHTML = '<p class="sub">' + (byLen ? "The inseam you want must be shorter than the inseam now." : "Enter how much shorter you want them.") + "</p>"; return; }
+      var cut = off - T.a, o = ['<p class="sub">Shortening ' + T.n + " by " + f(off) + '</p><p class="big">' + f(T.a) + "<small> hem allowance</small></p>"];
+      var rowsT = [["Fold line", f(off) + " above the current bottom edge (mark it with chalk, both legs)"],
+        ["Cut line", cut > 0.05 ? f(T.a) + " below the fold line, which is " + f(cut) + " above the current bottom edge" : "Don't cut: the amount you're taking off is less than the hem allowance. Unpick the old hem, press it flat and fold at the new line; the old hem fabric becomes part of the new hem. You need at least " + f(T.a - off) + " of fabric below the old edge."],
+        ["How to fold", T.d ? "Fold up 1/2 in" + (cm ? " (1 cm)" : "") + ", then 1/2 in again, so the raw edge is hidden" : "Overcast or zigzag the raw edge, then fold up once along the fold line (or turn the raw edge under 1/4 in first: then cut " + f(0.25) + " lower)"],
+        ["Stitch", T.s]];
+      var op = parseFloat($("#hem-o").value);
+      if (op > 0) { var circ = 2 * op / U, nst = Math.ceil(circ / 0.33), thr = 2 * circ + 8; rowsT.push(["Each leg", "about " + f(circ) + " round, roughly " + nst + " stitches 1/3 in apart; cut a single strand of thread about " + f(thr) + " (a bit more for jeans)"]); }
+      o.push('<table class="mt"><tbody>' + rowsT.map(function (r) { return "<tr><td>" + r[0] + "</td><td>" + esc(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>");
+      var S = 280, sc = 150 / Math.max(off + 1, T.a + 1.5), y0 = 20, fy = y0 + 20, cy = fy + T.a * sc, by = fy + off * sc;
+      var svg = '<svg viewBox="0 0 ' + S + " " + (Math.max(cy, by) + 30).toFixed(0) + '" role="img" aria-label="Fold and cut lines on the trouser leg" style="width:100%;max-width:420px;height:auto;display:block;margin:10px 0;background:#fbf8f1;border-radius:8px">' +
+        '<path d="M70 ' + y0 + " h110 l6 " + (Math.max(cy, by) - y0).toFixed(1) + ' h-122 z" fill="#7d8db5" stroke="#1f2a44" stroke-width="1.5"/>' +
+        '<line x1="55" y1="' + fy + '" x2="200" y2="' + fy + '" stroke="#b8326a" stroke-width="2"/><text x="204" y="' + (fy + 4) + '" font-size="11" fill="#1f2a44">fold line</text>' +
+        (cut > 0.05 ? '<line x1="55" y1="' + cy.toFixed(1) + '" x2="200" y2="' + cy.toFixed(1) + '" stroke="#fff" stroke-width="2" stroke-dasharray="6 4"/><text x="204" y="' + (cy + 4).toFixed(1) + '" font-size="11" fill="#1f2a44">cut line</text>' : "") +
+        '<line x1="55" y1="' + by.toFixed(1) + '" x2="200" y2="' + by.toFixed(1) + '" stroke="#1f2a44" stroke-width="2"/><text x="204" y="' + (by + 4).toFixed(1) + '" font-size="11" fill="#1f2a44">bottom now</text>' +
+        '<text x="60" y="' + (fy - 6) + '" font-size="11" fill="#1f2a44" text-anchor="end">' + f(off) + "</text></svg>";
+      o.push(svg);
+      o.push('<p class="sub">Measure both legs separately, and pin and try on before cutting. Allowances are typical figures; if the old hem is deeper, you can match it.</p>');
+      $("#hem-out").innerHTML = o.join("");
+    };
+    ["m", "u", "off", "c", "w", "t", "o"].forEach(function (k) { var el = $("#hem-" + k); el.addEventListener("change", hemRun); el.addEventListener("input", hemRun); });
+    hemRun();
+  }
+
+  /* ---------- run 20: scrapbook layout sketch generator (sbl-*) ---------- */
+  if ($("#sbl-p") && $("#sbl-out")) {
+    // Templates on a 12 x 12 unit page: [type, x, y, w, h]; p photo, t title, j journaling, e embellishments. Scaled to the page size.
+    var SBT = {
+      1: [[["t", 1, 1, 10, 1.2], ["p", 2, 2.6, 8, 6], ["j", 2, 9, 5.4, 1.8], ["e", 8, 9, 2, 2]], [["p", 1, 1, 6, 8], ["t", 7.6, 1.5, 3.4, 1.4], ["j", 7.6, 3.4, 3.4, 4], ["e", 7.6, 8, 3.4, 2.8]], [["t", 3, 1.2, 6, 1.2], ["p", 3, 3, 6, 6], ["j", 3, 9.4, 4.6, 1.4], ["e", 8, 9.2, 2, 1.8]]],
+      2: [[["p", 0.9, 2.4, 6, 4], ["p", 5.1, 6.8, 6, 4], ["t", 7.3, 2.6, 3.8, 1.2], ["j", 7.3, 4.2, 3.8, 2], ["e", 1, 7, 3.6, 3.6]], [["p", 1, 1, 4.8, 6.4], ["p", 6.2, 1, 4.8, 6.4], ["t", 1, 7.9, 10, 1.2], ["j", 1, 9.5, 6.6, 1.6], ["e", 8.2, 9.3, 2.8, 2]]],
+      3: [[["p", 1, 1, 6, 4], ["p", 7.4, 1, 3.6, 4], ["p", 1, 5.4, 4, 3], ["t", 5.4, 5.6, 5.6, 1.2], ["j", 5.4, 7.2, 5.6, 1.8], ["e", 1, 9, 10, 2]], [["t", 1, 1.2, 10, 1.2], ["p", 1, 3, 3.1, 4.2], ["p", 4.45, 3, 3.1, 4.2], ["p", 7.9, 3, 3.1, 4.2], ["j", 1, 7.8, 7, 2], ["e", 8.4, 7.8, 2.6, 2.6]]],
+      4: [[["p", 1, 1, 4.8, 3.6], ["p", 6.2, 1, 4.8, 3.6], ["p", 1, 5, 4.8, 3.6], ["p", 6.2, 5, 4.8, 3.6], ["t", 1, 9, 6, 1.2], ["j", 1, 10.4, 6, 0.8], ["e", 7.6, 9, 3.4, 2.2]], [["p", 1, 1, 7, 5], ["p", 8.4, 1, 2.6, 2.2], ["p", 8.4, 3.6, 2.6, 2.2], ["p", 8.4, 6.2, 2.6, 2.2], ["t", 1, 6.6, 7, 1.2], ["j", 1, 8.2, 7, 1.6], ["e", 8.4, 8.8, 2.6, 2.2]]],
+      5: [[["p", 1, 1, 6, 4.5], ["p", 7.4, 1, 3.6, 2.1], ["p", 7.4, 3.4, 3.6, 2.1], ["p", 1, 6, 3.2, 2.4], ["p", 4.6, 6, 3.2, 2.4], ["t", 8.2, 6, 2.8, 1.2], ["j", 8.2, 7.4, 2.8, 1.6], ["e", 1, 9, 10, 2]], [["p", 1, 1, 3.1, 3.1], ["p", 4.45, 1, 3.1, 3.1], ["p", 7.9, 1, 3.1, 3.1], ["p", 1, 4.5, 4.8, 3.4], ["p", 6.2, 4.5, 4.8, 3.4], ["t", 1, 8.3, 10, 1.2], ["j", 1, 9.8, 7, 1.2], ["e", 8.4, 9.6, 2.6, 1.6]]],
+      6: [[["p", 1, 1, 3.1, 3.6], ["p", 4.45, 1, 3.1, 3.6], ["p", 7.9, 1, 3.1, 3.6], ["p", 1, 5, 3.1, 3.6], ["p", 4.45, 5, 3.1, 3.6], ["p", 7.9, 5, 3.1, 3.6], ["t", 1, 9, 10, 1.2], ["j", 1, 10.4, 7, 0.8], ["e", 8.4, 10.2, 2.6, 1]], [["t", 1, 0.8, 7, 1.2], ["e", 8.4, 0.6, 2.6, 1.6], ["p", 1, 2.4, 4.8, 2.8], ["p", 6.2, 2.4, 4.8, 2.8], ["p", 1, 5.5, 4.8, 2.8], ["p", 6.2, 5.5, 4.8, 2.8], ["p", 1, 8.6, 4.8, 2.8], ["p", 6.2, 8.6, 4.8, 2.8]]]
+    };
+    var sbV = 0, sbS0 = store.get("pp-sbl", null) || {};
+    ["p", "n", "m"].forEach(function (k) { if (sbS0[k] !== undefined && $("#sbl-" + k)) $("#sbl-" + k).value = sbS0[k]; });
+    var sblRun = function () {
+      var pv = $("#sbl-p").value.split("x"), W = parseFloat(pv[0]), H = parseFloat(pv[1]), n = parseInt($("#sbl-n").value, 10) || 3, m = parseFloat($("#sbl-m").value) || 0;
+      var list = SBT[n] || SBT[3], tp = list[sbV % list.length], sx = W / 12, sy = H / 12, Z = 300 / Math.max(W, H);
+      var q = function (v) { var r = Math.round(v * 8) / 8; return (r % 1 === 0 ? r.toFixed(0) : r.toFixed(3).replace(/0+$/, "")); };
+      var frac = function (v) { var w = Math.floor(v + 1e-9), fr = Math.round((v - w) * 8), F = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"]; if (fr === 8) { w++; fr = 0; } return (w ? w + (fr ? " " : "") : "") + (fr ? F[fr] : ""); };
+      var g = '<svg viewBox="0 0 ' + (W * Z).toFixed(0) + " " + (H * Z).toFixed(0) + '" role="img" aria-label="Scrapbook page sketch" style="width:100%;max-width:420px;height:auto;display:block;margin:10px 0;border-radius:6px"><rect width="100%" height="100%" fill="#fbf8f1" stroke="#1f2a44" stroke-width="2"/>';
+      var pn = 0, sizes = [];
+      tp.forEach(function (it) {
+        var x = it[1] * sx * Z, y = it[2] * sy * Z, w = it[3] * sx * Z, h = it[4] * sy * Z, ty = it[0];
+        if (ty === "p") {
+          pn++; var mm = m * Z;
+          if (m > 0) g += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="#b8326a"/>';
+          g += '<rect x="' + (x + mm).toFixed(1) + '" y="' + (y + mm).toFixed(1) + '" width="' + (w - 2 * mm).toFixed(1) + '" height="' + (h - 2 * mm).toFixed(1) + '" fill="' + (pn === 1 ? "#a9d2cc" : "#cfe3e0") + '" stroke="#1f2a44" stroke-width="1"/><text x="' + (x + w / 2).toFixed(1) + '" y="' + (y + h / 2 + 5).toFixed(1) + '" font-size="14" text-anchor="middle" fill="#1f2a44">' + pn + "</text>";
+          var pw = it[3] * sx, ph = it[4] * sy; sizes.push([pn, pw, ph]);
+        } else if (ty === "t") g += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="3" fill="#f4dfb8"/><text x="' + (x + w / 2).toFixed(1) + '" y="' + (y + h / 2 + 5).toFixed(1) + '" font-family="Georgia,serif" font-size="14" text-anchor="middle" fill="#b8326a">Title</text>';
+        else if (ty === "j") { g += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="#fff" stroke="#1f2a44" stroke-dasharray="3 3"/>'; for (var L = y + 8; L < y + h - 3; L += 7) g += '<path d="M' + (x + 5).toFixed(1) + " " + L.toFixed(1) + " h" + (w - 10).toFixed(1) + '" stroke="#9aa1ad" stroke-width="1"/>'; }
+        else { var cx = x + w / 2, cy = y + h / 2, r = Math.min(w, h) / 5; g += '<circle cx="' + (cx - r * 1.3).toFixed(1) + '" cy="' + (cy + r * 0.6).toFixed(1) + '" r="' + r.toFixed(1) + '" fill="#e39a14"/><circle cx="' + (cx + r * 1.2).toFixed(1) + '" cy="' + (cy + r * 0.8).toFixed(1) + '" r="' + (r * 0.8).toFixed(1) + '" fill="#2f8f8a"/><circle cx="' + cx.toFixed(1) + '" cy="' + (cy - r * 0.9).toFixed(1) + '" r="' + (r * 0.7).toFixed(1) + '" fill="#e47aa3"/>'; }
+      });
+      g += "</svg>";
+      var o = ['<p class="sub">' + W + " x " + H + " in page, " + n + " photo" + (n > 1 ? "s" : "") + ", sketch " + (sbV % list.length + 1) + " of " + list.length + "</p>", g];
+      o.push('<table class="mt"><thead><tr><th>Photo</th><th>' + (m > 0 ? "Mat" : "Size") + "</th>" + (m > 0 ? "<th>Trim photo to</th>" : "") + "</tr></thead><tbody>" + sizes.map(function (s) { return "<tr><td>" + s[0] + (s[0] === 1 ? " (star)" : "") + "</td><td>" + frac(s[1]) + " x " + frac(s[2]) + " in</td>" + (m > 0 ? "<td>" + frac(s[1] - 2 * m) + " x " + frac(s[2] - 2 * m) + " in</td>" : "") + "</tr>"; }).join("") + "</tbody></table>");
+      o.push('<p class="sub">Gold: title. Dashed box: journaling. Dots: a cluster of 3 embellishments. Photo 1 is the star; put your best photo there. Turn the sketch upside down or mirror it for a new look.</p><p><button type="button" class="btn ghost sm" onclick="window.print()">Print sketch</button></p>');
+      $("#sbl-out").innerHTML = o.join("");
+      store.set("pp-sbl", { p: $("#sbl-p").value, n: $("#sbl-n").value, m: $("#sbl-m").value });
+    };
+    ["p", "n", "m"].forEach(function (k) { $("#sbl-" + k).addEventListener("change", function () { sbV = 0; sblRun(); }); });
+    $("#sbl-go").addEventListener("click", function () { sbV++; sblRun(); });
+    sblRun();
+  }
+
 })();

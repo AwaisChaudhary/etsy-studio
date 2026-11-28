@@ -279,6 +279,7 @@ sbp = top("Scrapbook page sizes and how many photos fit", "Every common scrapboo
 <li><strong>Group embellishments in threes</strong> near the hero photo, and repeat a colour from the photo in the paper.</li>
 <li><strong>Glue down last.</strong> Lay everything out, take a phone photo of it, then stick it down with acid-free adhesive.</li></ol>
 <p>Like a looser, layered look? <a href="{href("junk-journal-beginners.html")}">Junk journaling</a> uses the same skills with found paper, and our <a href="{href("junk-journal-ephemera-ideas.html")}">ephemera ideas</a> and <a href="{href("how-to-tea-stain-paper.html")}">tea-staining guide</a> make backgrounds for scrapbook pages too. Making a card from the offcuts? The <a href="{href("card-making.html")}">card and envelope size calculator</a> has every size.</p>
+<p>Ready to fill a page? Our <a href="{href("scrapbook-layout-ideas.html")}">scrapbook layout ideas</a> has 30 ideas and a sketch generator that gives every photo and mat size for these page sizes.</p>
 <p class="note">Sizes from album and paper makers' published sizes and scrapbooking guides (hometosight's standard page sizes, Creative Memories' album guide, Get It Scrapped's album formats, Simple Scrapper on 8.5 x 11 layouts) and the Print File six-pocket 12 x 12 refill (checked 26 Nov 2026). Photo counts and mat sizes are our own maths.</p>
 </div></div></section>'''
 sb_faq = [
