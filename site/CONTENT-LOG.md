@@ -485,3 +485,8 @@
 - Pins queued: pins/site/how-to-knit-a-christmas-stocking.jpg, safety-eyes-size-chart.jpg, how-to-make-a-junk-journal-cover.jpg.
 - SHOP: no new live products since run 18 (batch9/10 all in SHOP). Boxes: gift tags/gift planner/pricing/planner (stocking), pricing/planner/stash/gift tags (eyes), Tea Room + Winter Cottage kits, ephemera pack, mega bundle (cover).
 - IndexNow pending: https://purlandpaperco.com/how-to-knit-a-christmas-stocking https://purlandpaperco.com/safety-eyes-size-chart https://purlandpaperco.com/how-to-make-a-junk-journal-cover
+
+## 2026-11-28 (competitor watch quick win: sleeve decrease calculator)
+- NEW /sleeve-decrease-calculator (Sleeve Decrease Calculator: Shaping Over Rows). Gap from COMPETITOR WATCH 28 Nov: stitchmath, pyknit, kcguild, everycalculators all spread shaping over rows; we only spread across one row. Knit/crochet, increase/decrease, 1/2/4 sts per shaping row, rows or length x row gauge, right-side-rows-only (even gaps), two-gap split ("every 6th row 3 times, then every 8th row 9 times"), tick-off row list with stitch counts, print, and "Add to my row counter" (creates a counter with target rows + repeat = gap; nobody else links a calculator to a row counter). Pure maths, own wording. Source in sleevedec.py, JS sd-* in assets/app.js.
+- Linked from /increase-decrease-calculator (What next), /sweater-size-calculator (What next), footer tools list (TOOLS_MORE). Sitemap + OG image auto.
+- IndexNow pending: https://purlandpaperco.com/sleeve-decrease-calculator https://purlandpaperco.com/increase-decrease-calculator https://purlandpaperco.com/sweater-size-calculator

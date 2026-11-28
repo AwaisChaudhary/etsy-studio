@@ -1,3 +1,12 @@
+## COMPETITOR WATCH 28 Nov 2026 (daily; vs knitcalcs.pages.dev (~96 calculators), stitchmath.pages.dev, Omni crafts, EasyCrochet, Jimmy Beans)
+We have 132 pages on purlandpaperco.com. Still open from earlier runs (not repeated): stash, resizer, scarf calc, palette, pixel maker, raglan.
+1. GAP: sleeve/shaping "decrease over rows" calculator (stitchmath, pyknit, kcguild, everycalculators), we only had /increase-decrease-calculator (across one row). Plan: DONE 28 Nov -> /sleeve-decrease-calculator (see CONTENT-LOG).
+2. GAP: button/buttonhole spacing calculator (knitcalcs; knittinghelp forum asks), we have /how-to-sew-a-button only. Plan: band length/sts + buttons + hole width + margins -> sts between holes, SVG band preview.
+3. GAP: crochet border calculator (knitcalcs, daisyfarmcrafts), we have no border step. Plan: border tab on /blanket-size-calculator picking nearest valid count per side for the border's multiple.
+4. GAP: fringe/tassel yardage calculator (knitcalcs), we have pom pom how-to only. Plan: fringe yardage block on scarf + blanket pages.
+5. GAP: short row calculator (knitcalcs), we have none. Plan: wrap-and-turn / German short row spacing for back neck and heel.
+6. BETTER-THAN-THEM: knitcalcs = 96 separate single pages. Ours: one "Shaping planner" combining across-row inc/dec, decreases over rows and buttonholes, printing a numbered row checklist that loads into /row-counter with alerts ("row 36: decrease + buttonhole"). Nobody links tools to a row counter. First step shipped today: sleeve calculator sends its row list to /row-counter where possible.
+
 ## COMPETITOR WATCH 27 Nov 2026 (vs EasyCrochet (11 calculators), The Loopy Lamb, Naztazia Pattern Engineering Lab (new, Sep 2026), Viv Crochets)
 We have 110 site pages. Still open from 26 Nov: stash calculator, blanket resizer, scarf calculator, colour palette generator (none built yet).
 1. GAP (now 3 sites have it): blanket resizer / blanket planner from a swatch - EasyCrochet, Naztazia (Baby to King from your gauge), Loopy Lamb. Plan: /blanket-pattern-resizer first (highest volume): swatch gauge + stitch multiple -> chain count, rows, yards per size.

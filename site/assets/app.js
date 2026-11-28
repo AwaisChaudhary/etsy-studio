@@ -4488,4 +4488,71 @@
     jjcRun();
   }
 
+  /* ---------- SLEEVE DECREASE CALCULATOR (28 Nov) ---------- */
+  if (page === "sleeve-decrease-calculator") {
+    var sdS0 = store.get("pp-sleevedec", {});
+    ["s", "e", "k", "r", "len", "rg"].forEach(function (k) { if (sdS0[k] !== undefined && $("#sd-" + k)) $("#sd-" + k).value = sdS0[k]; });
+    if (sdS0.rs !== undefined) $("#sd-rs").checked = sdS0.rs;
+    var sdLink = function (f, t) { return '<a href="' + (location.protocol === "file:" ? f + ".html" : "/" + f) + '">' + t + "</a>"; };
+    var sdPlan = null;
+    var sdRun = function () {
+      var knit = segVal($("#sd-craft")) !== "crochet", inc = segVal($("#sd-dir")) === "inc";
+      $("#sd-rs-f").hidden = !knit;
+      var len = parseFloat($("#sd-len").value), rg = parseFloat($("#sd-rg").value), per = segVal($("#sd-u")) === "cm" ? 10 : 4;
+      if (len > 0 && rg > 0) $("#sd-r").value = Math.max(1, Math.round(len / per * rg));
+      var S = parseInt($("#sd-s").value, 10) || 0, E = parseInt($("#sd-e").value, 10) || 0, k = parseInt($("#sd-k").value, 10) || 2, R = parseInt($("#sd-r").value, 10) || 0;
+      var rs = knit && $("#sd-rs").checked, word = inc ? "increase" : "decrease", rw = knit ? "row" : "row";
+      var diff = inc ? E - S : S - E, out = [];
+      var sv = { s: $("#sd-s").value, e: $("#sd-e").value, k: $("#sd-k").value, r: $("#sd-r").value, len: $("#sd-len").value, rg: $("#sd-rg").value, rs: $("#sd-rs").checked }; store.set("pp-sleevedec", sv);
+      sdPlan = null;
+      if (S < 1 || E < 1 || R < 1) { $("#sd-out").innerHTML = '<p class="sub">Enter your stitch counts and rows.</p>'; return; }
+      if (diff <= 0) { $("#sd-out").innerHTML = '<p class="sub">To ' + word + ", the end count must be " + (inc ? "more" : "fewer") + " than the start count. Switch Increase/Decrease above or check the numbers.</p>"; return; }
+      var n = Math.ceil(diff / k), extra = n * k - diff;
+      var unit = rs ? 2 : 1, slots = Math.floor(R / unit);
+      if (n > slots) {
+        $("#sd-out").innerHTML = '<p class="big">' + n + "<small> shaping rows needed</small></p><p class=\"sub\">That's more than the " + slots + (rs ? " right-side rows" : " rows") + " you have. Shape more stitches per row (try 4), add rows, or change the end count.</p>";
+        return;
+      }
+      var q = Math.floor(slots / n), rem = slots - q * n, gA = q * unit, gB = (q + 1) * unit, nB = rem, nA = n - rem;
+      var parts = [];
+      if (nA > 0) parts.push({ g: gA, t: nA });
+      if (nB > 0) parts.push({ g: gB, t: nB });
+      var used = nA * gA + nB * gB, left = R - used;
+      var ord = function (x) { var s = ["th", "st", "nd", "rd"], v = x % 100; return x + (s[(v - 20) % 10] || s[v] || s[0]); };
+      var edge = k === 2 ? "1 st at each end" : k === 1 ? "1 st at one edge" : "2 sts at each end (or at each marker)";
+      var phr = parts.map(function (p, i) { return (i ? "then " : "") + "every " + (p.g === 1 ? "row" : ord(p.g) + " row") + " " + p.t + " time" + (p.t > 1 ? "s" : ""); }).join(", ");
+      var line = word.charAt(0).toUpperCase() + word.slice(1) + " " + edge + (k === 1 ? " on " : " of ") + phr + ".";
+      out.push('<p class="sub">' + S + " to " + E + " stitches over " + R + " rows</p>");
+      out.push('<p class="big">' + n + "<small> shaping rows</small></p>");
+      out.push('<p style="font-size:1.1em"><strong>' + esc(line) + "</strong></p>");
+      var notes = [];
+      if (extra > 0) notes.push("The last shaping row only needs " + (k - extra) + " stitch" + (k - extra > 1 ? "es" : "") + " " + word + "d, so you land exactly on " + E + ".");
+      if (left > 0) notes.push("That uses " + used + " rows; work the last " + left + " row" + (left > 1 ? "s" : "") + " plain.");
+      if (rs) notes.push("Gaps are even, so every shaping row is a right-side row. Count the first shaping row as row " + parts[0].g + ".");
+      if (knit && !inc) notes.push("Neat pair: k1, ssk at the start and k2tog, k1 at the end of the row.");
+      if (knit && inc) notes.push("Neat pair: k1, M1R at the start and M1L, k1 at the end of the row.");
+      if (!knit) notes.push(inc ? "Work 2 stitches into the second stitch from each end." : "Work sc2tog (or dc2tog) one stitch in from each end.");
+      out.push("<ul>" + notes.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>");
+      var rows = [], r = 0, st = S;
+      parts.forEach(function (p) { for (var i = 0; i < p.t; i++) { r += p.g; var d = Math.min(k, Math.abs(E - st)); st += inc ? d : -d; rows.push([r, st]); } });
+      out.push('<details open><summary>Row-by-row list (' + rows.length + ' shaping rows)</summary><ol class="sd-list" style="columns:2;column-gap:24px;padding-left:22px">' + rows.map(function (x) { return '<li><label><input type="checkbox"> row ' + x[0] + ": " + x[1] + " sts</label></li>"; }).join("") + "</ol></details>");
+      out.push('<p><button type="button" class="btn sm" id="sd-rc">Add to my row counter</button> <button type="button" class="btn ghost sm" onclick="window.print()">Print</button></p>');
+      out.push('<p class="sub">Next: ' + sdLink("increase-decrease-calculator", "increase evenly across a row") + ", " + sdLink("sweater-size-calculator", "sweater size") + ", " + sdLink("row-counter", "row counter") + ".</p>");
+      $("#sd-out").innerHTML = out.join("");
+      sdPlan = { g: parts[0].g, total: used, name: "Sleeve: " + word + " every " + ord(parts[0].g) + (parts.length > 1 ? " then " + ord(parts[1].g) : "") };
+      $("#sd-rc").addEventListener("click", function () {
+        var C = store.get("pp-counters", null);
+        if (!C || !C.list) C = { list: [], buzz: true, next: 1 };
+        C.list.push({ id: C.next || (C.list.length + 1), name: sdPlan.name.slice(0, 40), n: 0, target: String(sdPlan.total), rep: String(sdPlan.g) });
+        C.next = (C.next || C.list.length) + 1;
+        store.set("pp-counters", C);
+        toast("Added to your row counter");
+        setTimeout(function () { location.href = location.protocol === "file:" ? "row-counter.html" : "/row-counter"; }, 600);
+      });
+    };
+    seg($("#sd-craft"), sdRun); seg($("#sd-dir"), sdRun); seg($("#sd-u"), sdRun);
+    ["s", "e", "k", "r", "len", "rg", "rs"].forEach(function (k) { var el = $("#sd-" + k); el.addEventListener("change", sdRun); el.addEventListener("input", sdRun); });
+    sdRun();
+  }
+
 })();
