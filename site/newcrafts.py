@@ -63,7 +63,7 @@ return s;''', '["t-motif","t-col","t-text"]') + PROSE("christmas-crafts.html", '
 <li><strong>Mini stockings and hats:</strong> knit a tiny hat on a few stitches; the <a href="{H:cast-on-calculator.html}">cast on calculator</a> works for any size, and the <a href="{H:christmas-stocking-calculator.html}">Christmas stocking calculator</a> sizes stockings from 7 in minis to 26 in.</li>
 <li><strong>Pom-pom garlands:</strong> wrap yarn around a fork for mini pom-poms and thread them on a long strand.</li>
 <li><strong>Making extra to sell?</strong> See <a href="{H:christmas-crafts-to-sell.html}">Christmas crafts to make and sell</a>: 19 ideas with material cost, time and a price for your hourly rate.</li>
-<li><strong>Crochet ornaments:</strong> our free <a href="{H:crochet-christmas-ornament-pattern.html}">crochet bauble pattern</a> and <a href="{H:crochet-snowflake-pattern.html}">crochet snowflake pattern</a> each take under an hour.</li><li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
+<li><strong>Paper snowflakes:</strong> fold a square into a six-point wedge and cut; our <a href="{href("how-to-make-paper-snowflakes.html")}">paper snowflake maker</a> prints a template for every design.</li><li><strong>Crochet ornaments:</strong> our free <a href="{H:crochet-christmas-ornament-pattern.html}">crochet bauble pattern</a> and <a href="{H:crochet-snowflake-pattern.html}">crochet snowflake pattern</a> each take under an hour.</li><li><strong>Last-minute knitted gifts:</strong> check what you can finish in time with the <a href="{H:crochet-knitting-gift-planner.html}">handmade gift planner</a>.</li></ul>
 <p>Counting down? See our <a href="{H:advent-calendar-ideas.html}">advent calendar ideas</a> and printable number cards.</p>''')
 page("christmas-crafts.html", "Christmas Crafts for Paper and Yarn + Gift Tags | Purl & Paper",
      "Easy Christmas crafts for paper crafters, knitters and crocheters, plus a free printable gift tag maker with stars, trees or snowflakes and your own message.",
@@ -215,7 +215,7 @@ for(var i=0;i<rows;i++)for(var j=0;j<cols;j++){var x=ox+j*z,y=oy+i*z,p=pt=="mix"
  s+='</g><rect x="'+x+'" y="'+y+'" width="'+z+'" height="'+z+'" fill="none" stroke="#999" stroke-width=".2" stroke-dasharray="2 1.5"/>'}
 return s;''', '["o-sz","o-p","o-c"]') + PROSE("origami.html", '''
 <h2>Easy origami for beginners</h2>
-<p>Start with models that use only valley and mountain folds: a <strong>paper cup</strong>, a <strong>fortune teller</strong>, a <strong>jumping frog</strong>, a <strong>heart</strong>, then the <strong>crane</strong> once you know the square base and petal fold.</p>
+<p>Start with models that use only valley and mountain folds: a <strong>paper cup</strong>, a <strong>fortune teller</strong>, a <strong>jumping frog</strong>, a <strong>heart</strong>, then the <strong>crane</strong> once you know the square base and petal fold. For winter windows, try <a href="{href("how-to-make-paper-snowflakes.html")}">six-pointed paper snowflakes</a> with free printable templates.</p>
 <h3>Fortune teller (cootie catcher) in 6 folds</h3>
 <ol><li>Fold a square in half both ways diagonally and unfold.</li>
 <li>Fold all four corners to the centre point.</li>

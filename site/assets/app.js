@@ -5033,4 +5033,157 @@
   }
 
 
+
+  /* ---------- run 23: flat crochet stocking writer (ccs-*) ---------- */
+  if ($("#ccs-z") && $("#ccs-out")) {
+    // Sizes = /christmas-stocking-calculator [height, flat width, foot, cuff]. CYC crochet gauge, mid values (sts per 4 in) for hdc and sc.
+    // Row height: hdc 0.78 x sts/in, sc 1.1 x sts/in (typical). Yarn: 0.85 yd per sq in (hdc worsted) / 0.95 (sc) x weight factor; estimates.
+    var CS = { mini: [7, 3.5, 4.5, 1.5], small: [12, 5, 7, 2.5], standard: [18, 7, 10, 3.5], large: [22, 8, 12, 4], xl: [26, 9, 14, 5] };
+    var CG = { hdc: { 3: 15, 4: 13, 5: 10, 6: 8 }, sc: { 3: 17, 4: 14, 5: 11, 6: 9 } }, CM = { 3: 1.18, 4: 1, 5: 0.72, 6: 0.52 };
+    var CH = { 3: "4 mm (G-6)", 4: "5 mm (H-8)", 5: "6.5 mm (K-10.5)", 6: "9 mm (M/N-13)" };
+    var ccS0 = store.get("pp-ccs", null) || {};
+    ["z", "y", "s", "t", "g", "c"].forEach(function (k) { if (ccS0[k] !== undefined && $("#ccs-" + k)) $("#ccs-" + k).value = ccS0[k]; });
+    var ccsRun = function () {
+      var d = CS[$("#ccs-z").value] || CS.standard, h = d[0], w = d[1], f = d[2], c = d[3], wt = $("#ccs-y").value, stt = $("#ccs-s").value === "sc" ? "sc" : "hdc", uk = $("#ccs-t").value === "uk";
+      var N_ = { sc: uk ? "dc" : "sc", hdc: uk ? "htr" : "hdc" }, M = N_[stt], SC = N_.sc, base = CG[stt][wt] || 13, g = parseFloat($("#ccs-g").value) || 0;
+      var spi = (g > 0 ? g : base) / 4, rpi = spi * (stt === "sc" ? 1.1 : 0.78), scR = (CG.sc[wt] || 14) / 4 * 1.1, blo = $("#ccs-c").value === "blo";
+      var co = Math.max(6, Math.round(w * spi)), tch = stt === "sc" ? 1 : 2, cuffR = Math.max(2, Math.round(c * scR)), legR = Math.max(2, Math.round((h - c - w) * rpi));
+      var toe = Math.max(2, Math.round((f - w) * spi)), N = Math.max(1, Math.round(spi * 0.5)), footR = Math.max(1, Math.round(w * rpi) - N), last = co + toe - 2 * N;
+      var dens = g > 0 ? base / g : 1, k = (stt === "sc" ? 0.95 : 0.85) * (CM[wt] || 1) * dens, tot = 2 * (w * Math.max(h - w, 0) + f * w) * k + 8;
+      var sts = 2 * (co * (cuffR + legR) + (co + toe) * (footR + N)), hLo = sts / 12 / 60 + 1, hHi = sts / 7 / 60 + 1, cuffY = 2 * w * c * 0.95 * (CM[wt] || 1) * dens;
+      var r5 = function (v) { return Math.round(v / 5) * 5; };
+      var cuffSt = blo ? SC + " in the back loop only of each st across" : SC + " in each st across";
+      var dec = M + "2tog", rowTxt = "ch " + tch + " (doesn't count as a stitch), turn, " + M + " in each st across";
+      var o = ['<p class="sub">' + h + " in tall, " + w + " in wide, foot " + f + " in. Two pieces, " + (uk ? "UK" : "US") + ' terms.</p><p class="big">' + (co + 1) + "<small> chains to start each piece</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Yarn</td><td>about ' + r5(tot * 0.85) + " to " + r5(tot * 1.15) + " yd in all (" + r5(tot * 0.85 * 0.9144) + " to " + r5(tot * 1.15 * 0.9144) + " m), of which the cuff is about " + r5(cuffY * 1.15) + " yd</td></tr><tr><td>Hook</td><td>" + (g > 0 ? "the size that gave your swatch" : CH[wt]) + "</td></tr><tr><td>Gauge</td><td>" + (Math.round(spi * 40) / 10) + " " + M + " per 4 in" + (g > 0 ? " (yours)" : " (typical)") + "</td></tr><tr><td>Time</td><td>about " + Math.round(hLo) + " to " + Math.round(hHi) + " hours, joining included</td></tr></tbody></table>");
+      o.push("<h3>Piece 1</h3><ol>" +
+        "<li><strong>Cuff:</strong> in the cuff colour, ch " + (co + 1) + ". Row 1: " + SC + " in the 2nd ch from the hook and in each ch across. (" + co + " sts) Rows 2 to " + cuffR + ": ch 1, turn, " + cuffSt + ". (About " + c + " in.)</li>" +
+        "<li><strong>Leg:</strong> change to the main colour. Next " + legR + " rows: " + rowTxt + ". (" + co + " sts, about " + (Math.round((h - c - w) * 2) / 2) + " in)</li>" +
+        "<li><strong>Toe chains:</strong> at the end of the last leg row, don't turn yet: ch " + (toe + tch) + ". Turn, " + M + " in the " + (tch + 1 === 2 ? "2nd" : "3rd") + " ch from the hook and in the next " + (toe - 1) + " ch, then " + M + " in each st across. (" + (co + toe) + " sts)</li>" +
+        "<li><strong>Foot:</strong> next " + footR + " rows: " + rowTxt + ".</li>" +
+        "<li><strong>Round the heel and toe:</strong> next " + N + " row" + (N > 1 ? "s" : "") + ": ch " + tch + ", turn, " + dec + " over the first 2 sts, " + M + " to the last 2 sts, " + dec + ". (" + last + " sts after the last one)</li>" +
+        "<li>Fasten off, leaving a short tail.</li></ol>");
+      o.push("<h3>Piece 2 (the mirror)</h3><ol><li>Work the cuff exactly as piece 1, then work <strong>" + (legR + 1) + "</strong> leg rows (one more than piece 1). This moves the toe to the other side.</li><li>Add the toe chains, work the foot and round the heel and toe exactly as piece 1. Fasten off.</li></ol>");
+      o.push("<h3>Joining</h3><ol><li>Weave in the ends. Hold the pieces wrong sides together with the cuffs lined up.</li><li>Join the yarn at the top on the heel side. " + SC + " through both layers all round the edge (about 1 st per row end, 3 sts in one spot at corners), stopping at the top of the other side.</li><li>Loop: ch 20, sl st back into the top of the seam, fasten off and weave in.</li></ol>");
+      o.push('<p class="sub">Estimates from typical gauge' + (g > 0 ? " (using your swatch)" : "") + ". If your piece is wider than " + w + ' in, go down a hook size. All sizes are drawn from the <a href="' + (location.protocol === "file:" ? "christmas-stocking-calculator.html" : "/christmas-stocking-calculator") + '">stocking size chart</a>.</p>');
+      $("#ccs-out").innerHTML = o.join("");
+      var sv = {}; ["z", "y", "s", "t", "g", "c"].forEach(function (k2) { sv[k2] = $("#ccs-" + k2).value; }); store.set("pp-ccs", sv);
+    };
+    ["z", "y", "s", "t", "g", "c"].forEach(function (k) { var el = $("#ccs-" + k); el.addEventListener("change", ccsRun); el.addEventListener("input", ccsRun); });
+    ccsRun();
+  }
+
+  /* ---------- run 23: paper snowflake maker + actual-size cutting template (psf-*) ---------- */
+  if ($("#psf-st") && $("#psf-out")) {
+    // Wedge = 30 degrees (square -> triangle -> thirds -> half), 12 mirrored copies. Notches alternate between the two fold edges in separate
+    // radial bands and never pass 11 degrees from their edge, so an uncut strip (11-19 deg) always holds the snowflake together.
+    var psfSeed = 1;
+    try { psfSeed = parseInt(store.get("pp-psf-n", 1), 10) || 1; } catch (er) { psfSeed = 1; }
+    var psfRng = function (a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; };
+    var psfTipAng = function (r, Rb) { // widest angle (deg) of paper left at radius r once the top is cut
+      if (r <= Rb) return 30; if (r >= 1) return 0; var bx = Rb * Math.cos(30 / 57.29578), by = Rb * Math.sin(30 / 57.29578), best = 0;
+      for (var t = 0; t <= 1; t += 0.002) { var x = 1 + (bx - 1) * t, y = by * t, rr = Math.sqrt(x * x + y * y); if (Math.abs(rr - r) < 0.004) best = Math.max(best, Math.atan2(y, x) * 57.29578); }
+      return best; };
+    var psfDesign = function (seed, style, tip, hole) {
+      var rnd = psfRng(seed * 7919 + (style === "lacy" ? 3 : style === "simple" ? 5 : 1)), cuts = [];
+      var nb = style === "lacy" ? 8 : style === "simple" ? 4 : 6, maxD = style === "simple" ? 10.5 : 11, Rb = tip === "hex" ? 0.866 : tip === "sharp" ? 0.48 : 0.62;
+      var r0 = 0.16, r1 = 0.84, bw = (r1 - r0) / nb, sideA = rnd() < 0.5;
+      for (var i = 0; i < nb; i++) {
+        var ra = r0 + i * bw + bw * 0.12, rb = r0 + (i + 1) * bw - bw * 0.12, fromA = (i % 2 === 0) === sideA, typ = Math.floor(rnd() * 4), dep = maxD * (0.55 + rnd() * 0.45);
+        if (!fromA && rb > Rb * 0.9) fromA = true;
+        if (fromA) dep = Math.min(dep, 0.45 * psfTipAng(rb, Rb));
+        if (dep < 1.2) continue;
+        var e0 = fromA ? -4 : 34, sg = fromA ? 1 : -1, ed = fromA ? 0 : 30, rm = (ra + rb) / 2, pts;
+        if (typ === 0) pts = [[ra, e0], [rm, ed + sg * dep], [rb, e0]];
+        else if (typ === 1) pts = [[ra + bw * 0.12, e0], [ra + bw * 0.12, ed + sg * dep], [rb - bw * 0.12, ed + sg * dep], [rb - bw * 0.12, e0]];
+        else if (typ === 2) { pts = [[ra, e0]]; for (var q = 0; q <= 8; q++) { var an = Math.PI * q / 8; pts.push([rm - Math.cos(an) * (rb - ra) / 2, ed + sg * dep * Math.sin(an)]); } pts.push([rb, e0]); }
+        else pts = [[ra, e0], [ra + (rb - ra) * 0.25, ed + sg * dep], [rm, ed + sg * dep * 0.35], [rb - (rb - ra) * 0.25, ed + sg * dep], [rb, e0]];
+        cuts.push(pts);
+        if ((style === "lacy" || (style === "classic" && rnd() < 0.5)) && (fromA ? psfTipAng(rb + 0.03, Rb) > 27 : rb < Rb * 0.9)) {
+          var hc = fromA ? 23 : 7, hr = Math.min((rb - ra) * 0.32, rm * Math.sin(2.6 / 57.3)), hp = [];
+          var dia = rnd() < 0.5; for (q = 0; q < (dia ? 4 : 10); q++) { var a2 = 2 * Math.PI * q / (dia ? 4 : 10); hp.push(["xy", rm + hr * Math.cos(a2), hc, hr * Math.sin(a2)]); }
+          cuts.push(hp);
+        }
+      }
+      var tAng = 0.4 * psfTipAng(0.93, Rb); if (style !== "simple" && rnd() < 0.7 && tAng > 1.5) cuts.push([[0.96, -4], [0.9, tAng], [0.84, -4]]);
+      cuts.push([[1, -4], [1, 0], [Rb, 30], [Rb, 34], [1.4, 34], [1.4, -4]]);
+      if (hole) { var hpts = [[0, -4]]; for (q = 0; q <= 6; q++) hpts.push([0.07, -4 + q * 38 / 6]); cuts.push(hpts); }
+      return cuts;
+    };
+    // point -> [x, y] in wedge-local coordinates (edge A along +x, edge B at 30 deg), unit radius
+    var psfXY = function (p) {
+      if (p[0] === "xy") { var rr = p[1], th = p[2] / 57.29578; var bx = rr * Math.cos(th), by = rr * Math.sin(th); return [bx - p[3] * Math.sin(th), by + p[3] * Math.cos(th)]; }
+      var t = p[1] / 57.29578; return [p[0] * Math.cos(t), p[0] * Math.sin(t)];
+    };
+    var psfPath = function (cuts, map) { return cuts.map(function (c) { return "M" + c.map(function (p) { var v = map(psfXY(p)); return v[0].toFixed(4) + " " + v[1].toFixed(4); }).join(" L") + "Z"; }).join(" "); };
+    var psfWedge = function (map, pad, rad) { pad = pad || 0; rad = rad || 1.02; var pts = [[0, 0]]; for (var q = 0; q <= 12; q++) { var aq = (-pad + q * (30 + 2 * pad) / 12) / 57.29578; pts.push([Math.cos(aq) * rad, Math.sin(aq) * rad]); } return "M" + pts.map(function (p) { var v = map(p); return v[0].toFixed(4) + " " + v[1].toFixed(4); }).join(" L") + "Z"; };
+    var psfRun = function () {
+      var st = $("#psf-st").value, tip = $("#psf-tip").value, hole = $("#psf-c").value === "hole", side = parseFloat($("#psf-p").value) || 8.5;
+      var cuts = psfDesign(psfSeed, st, tip, hole), id = function (v) { return [v[0], -v[1]]; };
+      var wp = psfWedge(id), wc = psfWedge(id, 0.3, 1.08), cp = psfPath(hole ? cuts.slice(0, -1) : cuts, id), usesP = "", usesC = "";
+      for (var k = 0; k < 6; k++) { usesP += '<use href="#psf-pp" transform="rotate(' + (k * 60) + ')"/><use href="#psf-pp" transform="rotate(' + (k * 60) + ') scale(1,-1)"/>'; usesC += '<use href="#psf-w" transform="rotate(' + (k * 60) + ')"/><use href="#psf-w" transform="rotate(' + (k * 60) + ') scale(1,-1)"/>'; }
+      var prev = '<svg viewBox="-1.08 -1.08 2.16 2.16" style="width:100%;max-width:340px;display:block;margin:6px auto;background:#2f5f8f;border-radius:12px" role="img" aria-label="Open paper snowflake, design ' + psfSeed + '"><defs><clipPath id="psf-clip"><path d="' + wc + '"/></clipPath><path id="psf-pp" d="' + wp + '" fill="#fbfcfa" stroke="#fbfcfa" stroke-width="0.008"/><g id="psf-w" clip-path="url(#psf-clip)"><path d="' + cp + '" fill="#2f5f8f"/></g></defs>' + usesP + usesC + (hole ? '<circle r="0.07" fill="#2f5f8f"/>' : "") + "</svg>";
+      // Template: wedge pointing up, apex at the bottom, actual size. Radius = 0.95 x half the square side.
+      var R = side / 2 * 0.95, oy = 1.35 + R * 1.02, ca = Math.cos(75 / 57.29578), sa = Math.sin(75 / 57.29578), rot = function (v) { return [3.7 + R * (v[0] * ca - v[1] * sa), oy - R * (v[0] * sa + v[1] * ca)]; };
+      var tw = psfWedge(rot), tc = psfPath(cuts, rot), apex = rot([0, 0]), eA = rot([1, 0]), eB = rot([Math.cos(30 / 57.29578), Math.sin(30 / 57.29578)]);
+      var fs = 0.17, inner = '<defs><clipPath id="psf-tclip"><path d="' + tw + '"/></clipPath><pattern id="psf-hatch" width="0.12" height="0.12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="0.12" height="0.12" fill="#e3e5df"/><line x1="0" y1="0" x2="0" y2="0.12" stroke="#9aa3b5" stroke-width="0.03"/></pattern></defs>'
+        + '<text x="0.6" y="0.5" font-family="Georgia,serif" font-size="0.26" fill="#1f2a44">Paper snowflake template · design ' + psfSeed + " · " + (side === 8.27 ? "21 cm" : side + " in") + " square</text>"
+        + '<text x="0.6" y="0.74" font-family="Inter,sans-serif" font-size="' + fs + '" fill="#1f2a44">Cut out the wedge. Lay it on your folded paper with the point at the centre</text>'
+        + '<text x="0.6" y="0.96" font-family="Inter,sans-serif" font-size="' + fs + '" fill="#1f2a44">of the folds, then cut away the shaded parts through all the layers.</text>'
+        + '<g clip-path="url(#psf-tclip)"><path d="' + tw + '" fill="#fff"/><path d="' + tc + '" fill="url(#psf-hatch)" stroke="#b8326a" stroke-width="0.02"/></g><path d="' + tw + '" fill="none" stroke="#1f2a44" stroke-width="0.025"/>'
+        + '<text x="' + (apex[0] + 0.1).toFixed(3) + '" y="' + (apex[1] + 0.25).toFixed(3) + '" font-family="Inter,sans-serif" font-size="' + fs + '" fill="#1f2a44">centre (point of all the folds)</text>'
+        + '<text transform="translate(' + ((apex[0] + eA[0]) / 2 + 0.2).toFixed(3) + " " + ((apex[1] + eA[1]) / 2).toFixed(3) + ') rotate(-75)" font-family="Inter,sans-serif" font-size="' + fs + '" fill="#2f8f8a" text-anchor="middle">fold edge</text>'
+        + '<text transform="translate(' + ((apex[0] + eB[0]) / 2 - 0.2).toFixed(3) + " " + ((apex[1] + eB[1]) / 2).toFixed(3) + ') rotate(75)" font-family="Inter,sans-serif" font-size="' + fs + '" fill="#2f8f8a" text-anchor="middle">fold edge</text>'
+        + '<rect x="6.2" y="' + (oy - 1.1).toFixed(3) + '" width="1" height="1" fill="none" stroke="#1f2a44" stroke-width="0.02"/><text x="6.7" y="' + (oy + 0.15).toFixed(3) + '" font-family="Inter,sans-serif" font-size="0.14" fill="#1f2a44" text-anchor="middle">1 in test square</text>';
+      var tiles = ppTiles(inner, 7.4, Math.max(5.6, oy + 0.8), side === 8.27, "Paper snowflake template");
+      var tprev = '<svg viewBox="0 0 7.4 ' + Math.max(5.6, oy + 0.8).toFixed(2) + '" style="width:100%;height:auto;display:block;background:#fff;border-radius:8px" role="img" aria-label="Cutting template preview">' + inner + "</svg>";
+      var o = ['<p class="sub">Design ' + psfSeed + ": " + ({ simple: "simple", classic: "classic", lacy: "lacy" })[st] + ", " + ({ star: "star points", sharp: "long sharp points", hex: "hexagon" })[tip] + '</p>' + prev,
+        '<p class="sub">This is how it opens up. The template below is the folded wedge at actual size: cut away the shaded parts.</p>' + tprev,
+        '<p class="sub">Folded wedge about ' + (R).toFixed(1) + " in long. Print at 100% and check the 1 in square.</p>"];
+      $("#psf-out").innerHTML = o.join("");
+      $("#psf-n").textContent = psfSeed;
+      $("#psf-print").onclick = function () { ppPrint(tiles.html); };
+      store.set("pp-psf", { st: st, tip: tip, c: $("#psf-c").value, p: $("#psf-p").value }); store.set("pp-psf-n", psfSeed);
+    };
+    var psS = store.get("pp-psf", null);
+    if (psS) { ["st", "tip", "c", "p"].forEach(function (q) { if (psS[q] != null && $("#psf-" + q)) $("#psf-" + q).value = psS[q]; }); ["st", "tip", "c", "p"].forEach(function (q) { if (!$("#psf-" + q).value) $("#psf-" + q).selectedIndex = 0; }); }
+    ["#psf-st", "#psf-tip", "#psf-c", "#psf-p"].forEach(function (s) { $(s).addEventListener("change", psfRun); });
+    $("#psf-new").addEventListener("click", function () { psfSeed = psfSeed % 999 + 1; psfRun(); });
+    psfRun();
+  }
+
+  /* ---------- run 23: cowl pattern writer (kcw-*) ---------- */
+  if ($("#kcw-z") && $("#kcw-out")) {
+    // CYC knit gauge mid values (sts per 4 in). Rows/in: stockinette & rib 1.35 x sts/in, seed 1.6 x, garter 1.9 x (rounds).
+    // Yarn = area x 0.667 yd/sq in x weight factor x 1.1 x stitch factor (rib/seed/garter 1.15); estimates. Speed 13-20 sts/min.
+    var KG = { 3: 22, 4: 18, 5: 14, 6: 9, 7: 5 }, KM = { 3: 1.18, 4: 1, 5: 0.72, 6: 0.52, 7: 0.35 }, KN = { 3: "US 6 (4 mm)", 4: "US 8 (5 mm)", 5: "US 10.5 (6.5 mm)", 6: "US 13 (9 mm)", 7: "US 19 (15 mm) or bigger" };
+    var kcS0 = store.get("pp-kcw", null) || {};
+    ["z", "y", "s", "g", "cw", "ch"].forEach(function (k) { if (kcS0[k] !== undefined && $("#kcw-" + k)) $("#kcw-" + k).value = kcS0[k]; });
+    var kcwRun = function () {
+      var z = $("#kcw-z").value, own = z === "own"; $("#kcw-own").hidden = !own;
+      var C = own ? Math.min(80, Math.max(14, parseFloat($("#kcw-cw").value) || 26)) : parseFloat(z.split("x")[0]), H = own ? Math.min(24, Math.max(3, parseFloat($("#kcw-ch").value) || 10)) : parseFloat(z.split("x")[1]);
+      var wt = $("#kcw-y").value, s = $("#kcw-s").value, base = KG[wt] || 14, g = parseFloat($("#kcw-g").value) || 0, spi = (g > 0 ? g : base) / 4;
+      var mult = { r11: 2, r22: 4, seed: 2, garter: 1, st: 2 }[s], raw = C * spi, co = Math.max(mult * 4, Math.round(raw / mult) * mult);
+      if (s === "seed") co = co + 1;
+      var rf = s === "garter" ? 1.9 : s === "seed" ? 1.6 : 1.35, rnds = Math.max(4, Math.round(H * spi * rf)), edge = s === "st" ? Math.max(3, Math.round(spi * 1.35 * 0.75)) : 0;
+      var dens = g > 0 ? base / g : 1, tot = C * H * 0.667 * (KM[wt] || 1) * 1.1 * dens * (s === "st" ? 1.05 : 1.15);
+      var cable = C <= 28 ? "16 in (40 cm)" : C <= 44 ? "24 in (60 cm)" : C <= 60 ? "32 in (80 cm)" : "40 in (100 cm)";
+      var sts = co * rnds, hLo = sts / 20 / 60, hHi = sts / 13 / 60, r5 = function (v) { return Math.round(v / 5) * 5; };
+      var patt = { r11: "*k1, p1; repeat from * to the end of the round", r22: "*k2, p2; repeat from * to the end of the round", seed: "*k1, p1; repeat from * to the last stitch, k1. (On an odd number of stitches this makes seed stitch by itself: every round starts the same way.)", garter: "knit 1 round, then purl 1 round; repeat these 2 rounds", st: "knit every stitch" }[s];
+      var o = ['<p class="sub">' + C + " in round, " + H + ' in tall</p><p class="big">' + co + "<small> stitches to cast on</small></p>"];
+      o.push('<table class="mt"><tbody><tr><td>Needle</td><td>' + (g > 0 ? "the size that gave your swatch" : KN[wt]) + ", circular, " + cable + " cable</td></tr><tr><td>Gauge</td><td>" + (Math.round(spi * 40) / 10) + " sts per 4 in" + (g > 0 ? " (yours)" : " (typical for this yarn)") + "</td></tr><tr><td>Yarn</td><td>about " + r5(tot * 0.85) + " to " + r5(tot * 1.15) + " yd (" + r5(tot * 0.85 * 0.9144) + " to " + r5(tot * 1.15 * 0.9144) + " m)</td></tr><tr><td>Time</td><td>about " + Math.max(1, Math.round(hLo)) + " to " + Math.max(2, Math.round(hHi)) + " hours</td></tr></tbody></table>");
+      var steps = ["<li>Cast on " + co + " stitches loosely with the long-tail cast on.</li>", "<li>Spread them round the needle with the cast-on edge facing inwards and nothing twisted. Place a marker and join in the round.</li>"];
+      if (s === "st") steps.push("<li><strong>Rib edge:</strong> " + edge + " rounds of *k1, p1; repeat from * to the end.</li><li><strong>Body:</strong> knit every round until the cowl measures " + (Math.round((H - edge / (spi * 1.35)) * 2) / 2) + " in from the cast on (about " + Math.max(1, rnds - 2 * edge) + " rounds).</li><li><strong>Rib edge:</strong> " + edge + " more rounds of *k1, p1.</li>");
+      else steps.push("<li><strong>Every round:</strong> " + patt + ".</li><li>Repeat until the cowl measures " + H + " in from the cast-on edge: about " + rnds + " rounds" + (s === "garter" ? " (" + Math.round(rnds / 2) + " ridges)" : "") + ".</li>");
+      steps.push("<li>Bind off loosely in pattern" + (s === "garter" ? " on a knit round" : "") + ", with a needle one size bigger.</li><li>Weave in the ends. Steam or wet block if you like.</li>");
+      o.push("<h3>Pattern</h3><ol>" + steps.join("") + "</ol>");
+      o.push('<p class="sub">Stitch count rounded to a multiple of ' + mult + (s === "seed" ? ", plus 1" : "") + " for the stitch pattern. " + (C < 22 && !/^18x/.test(z) ? "Under 22 in round may not pull over an adult head unless it's very stretchy rib. " : "") + "Ribbing pulls in when relaxed and stretches when worn, so cowls in rib are sized from the stockinette gauge. Yarn and time are estimates.</p>");
+      $("#kcw-out").innerHTML = o.join("");
+      var sv = {}; ["z", "y", "s", "g", "cw", "ch"].forEach(function (k2) { sv[k2] = $("#kcw-" + k2).value; }); store.set("pp-kcw", sv);
+    };
+    ["z", "y", "s", "g", "cw", "ch"].forEach(function (k) { var el = $("#kcw-" + k); el.addEventListener("change", kcwRun); el.addEventListener("input", kcwRun); });
+    kcwRun();
+  }
+
+
 })();

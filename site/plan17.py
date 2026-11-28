@@ -209,6 +209,7 @@ csf = top("Free crochet snowflake pattern (easy, 4 rounds)", "This little six-po
 <li><strong>Dry</strong> it completely, usually overnight (up to 24 hours for glue in a cool room). Don't use a hair dryer on sugar syrup.</li>
 <li><strong>Unpin</strong> and check: if it's still floppy, give it a second, slightly stronger coat.</li></ol>
 <p>Our guide to <a href="{href("how-to-block-knitting-crochet.html")}">blocking knitting and crochet</a> covers pinning and spray blocking for larger pieces.</p>
+<p>Want a whole flurry for the windows in minutes? Cut some <a href="{href("how-to-make-paper-snowflakes.html")}">paper snowflakes</a> with our free printable templates.</p>
 <h2>Snowflake problems and fixes</h2>
 <ul><li><strong>It cups or curls:</strong> your chains are tighter than your stitches. Go up a hook size for round 2, or chain more loosely; stiffening also flattens it.</li>
 <li><strong>It ruffles:</strong> the shells are too big for the loops. Use 1 dc either side of the ch 2 instead of 2.</li>
