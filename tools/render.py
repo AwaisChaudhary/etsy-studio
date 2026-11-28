@@ -2,7 +2,7 @@
 import pathlib, tempfile
 from playwright.sync_api import sync_playwright
 
-SIZES = {"letter": ("8.5in", "11in", "Letter"), "a4": ("210mm", "297mm", "A4")}
+SIZES = {"letter": ("8.5in", "11in", "Letter"), "a4": ("210mm", "297mm", "A4"), "letter-l": ("11in", "8.5in", "Letter"), "a4-l": ("297mm", "210mm", "A4")}
 
 def html_doc(css, pages, size):
     pw, ph, _ = SIZES[size]

@@ -98,7 +98,7 @@ h1 { font-family: Lora, serif; font-weight: 700; font-size: 96px; line-height: 1
 .sheet td { padding: 2px 8px; white-space: nowrap; overflow: hidden; border-right: 1px solid #edf0f2; border-bottom: 1px solid #edf0f2; vertical-align: middle; }
 .sheet th { background: #f3f5f7; color: #7a8394; font-weight: 500; font-size: 13px; border: 1px solid #e2e6ea; height: 26px; }
 .sheet th.rn { width: 40px; }
-.tabs { display: flex; gap: 2px; background: #f3f5f7; padding: 8px 12px 0; border-top: 1px solid #e2e6ea; }
+.tabs { display: flex; gap: 2px; contain: inline-size; overflow: hidden; white-space: nowrap; background: #f3f5f7; padding: 8px 12px 0; border-top: 1px solid #e2e6ea; }
 .tabs span { font-family: Arial; font-size: 15px; padding: 8px 16px; color: #5b6478; }
 .tabs span.on { background: #fff; color: var(--main); font-weight: 700; border-bottom: 3px solid var(--main); }
 .pagecard { position: absolute; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,0,0,.5); }

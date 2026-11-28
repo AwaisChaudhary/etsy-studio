@@ -12,6 +12,8 @@ def fmt(v, nf):
         if "ddd" in nf: return v.strftime("%a %d %b")
         return v.strftime("%d %b %Y")
     if isinstance(v, datetime.time): return v.strftime("%I:%M %p").lstrip("0")
+    if isinstance(v, datetime.timedelta):
+        t = round(v.total_seconds()); return f"{t // 60}:{t % 60:02d}"
     if isinstance(v, (int, float)):
         if "%" in nf: return f"{v * 100:.0f}%" if "0%" == nf else f"{v * 100:.1f}%"
         if "$" in nf:
@@ -159,7 +161,7 @@ XL_CSS = """
 .sheet td { padding: 2px 8px; white-space: nowrap; overflow: hidden; border-right: 1px solid #edf0f2; border-bottom: 1px solid #edf0f2; vertical-align: middle; }
 .sheet th { background: #f3f5f7; color: #7a8394; font-weight: 500; font-size: 13px; border: 1px solid #e2e6ea; height: 26px; }
 .sheet th.rn { width: 40px; }
-.tabs { display: flex; gap: 2px; background: #f3f5f7; padding: 8px 12px 0; border-top: 1px solid #e2e6ea; }
+.tabs { display: flex; gap: 2px; contain: inline-size; overflow: hidden; white-space: nowrap; background: #f3f5f7; padding: 8px 12px 0; border-top: 1px solid #e2e6ea; }
 .tabs span { font-family: Arial; font-size: 15px; padding: 8px 16px; color: #5b6478; }
 .tabs span.on { background: #fff; color: var(--xl); font-weight: 700; border-bottom: 3px solid var(--xl); }
 """
