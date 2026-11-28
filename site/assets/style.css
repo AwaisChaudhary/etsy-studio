@@ -716,3 +716,14 @@ fieldset.gpl-g legend { font-weight: 700; padding: 0 6px; }
   html.print-jjt .jjt-sheet { position: absolute; left: 0; top: 0; margin: 0; }
   html.print-jjt .jjt-sheet svg { width: auto; max-width: none; height: auto; border: 0; border-radius: 0; }
 }
+
+/* run 22: tiled printable templates (name embroidery, sewn stocking) */
+.pp-tiles { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; justify-content: center; }
+.pp-tiles svg { display: block; width: calc(50% - 4px); max-width: 220px; height: auto; border: 2px dashed var(--line); border-radius: 6px; background: #fff; }
+#pp-print { display: none; }
+@media print {
+  html.print-tiles body > *:not(#pp-print) { display: none !important; }
+  html.print-tiles #pp-print { display: block !important; }
+  html.print-tiles #pp-print svg { display: block; break-after: page; page-break-after: always; margin: 0; }
+  html.print-tiles #pp-print svg:last-child { break-after: auto; page-break-after: auto; }
+}

@@ -4852,4 +4852,185 @@
   }
 
 
+  /* ---------- run 22: gnome pattern writer (gnm-*), name embroidery template maker (eml-*), sewn stocking template (sws-*) ---------- */
+  // Shared: split an inch-unit drawing into printable pages and print only those pages.
+  var ppTiles = function (inner, W, H, a4, tag) {
+    var pw = a4 ? 7.2 : 7.5, ph = a4 ? 10.6 : 10, cols = Math.max(1, Math.ceil(W / pw)), rows = Math.max(1, Math.ceil(H / ph)), out = [], L = "ABCDEFGH";
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+      var x = c * pw, y = r * ph, id = L[r] + (c + 1);
+      out.push('<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Template page ' + id + '" width="' + pw + 'in" height="' + ph + 'in" viewBox="' + x + " " + y + " " + pw + " " + ph + '"><rect x="' + x + '" y="' + y + '" width="' + pw + '" height="' + ph + '" fill="#fff"/>' + inner
+        + '<rect x="' + (x + 0.01) + '" y="' + (y + 0.01) + '" width="' + (pw - 0.02) + '" height="' + (ph - 0.02) + '" fill="none" stroke="#9aa3b5" stroke-width="0.015" stroke-dasharray="0.08 0.06"/>'
+        + '<text x="' + (x + pw - 0.12) + '" y="' + (y + ph - 0.12) + '" text-anchor="end" font-family="Inter,sans-serif" font-size="0.16" fill="#9aa3b5">' + tag + " · page " + id + " of " + (rows * cols) + (rows * cols > 1 ? " · trim on the dashed border, butt pages and tape" : "") + " · purlandpaperco.com</text></svg>");
+    }
+    return { html: out.join(""), n: rows * cols, cols: cols, rows: rows };
+  };
+  var ppPrint = function (html) {
+    var box = document.getElementById("pp-print");
+    if (!box) { box = document.createElement("div"); box.id = "pp-print"; document.body.appendChild(box); }
+    box.innerHTML = html; document.documentElement.classList.add("print-tiles");
+    var off = function () { document.documentElement.classList.remove("print-tiles"); window.removeEventListener("afterprint", off); };
+    window.addEventListener("afterprint", off); window.print(); setTimeout(off, 1500);
+  };
+
+  if ($("#gnm-z") && $("#gnm-out")) {
+    // Tight amigurumi single crochet gauges (sc per 4 in) and yarn factors: our estimates (same as the tree writer).
+    var GNY = { "3": { g: 20, yf: 1.25, nm: "DK" }, "4": { g: 16, yf: 1, nm: "worsted" }, "5": { g: 12, yf: 0.7, nm: "chunky" }, "6": { g: 9, yf: 0.5, nm: "velvet / chenille" } };
+    var gTab = function (rows) { return '<div class="tbl"><table class="mt cct-t"><thead><tr><th>Done</th><th>Round</th><th>Instructions</th><th>Sts</th></tr></thead><tbody>' + rows.map(function (q) { return '<tr><td><input type="checkbox" aria-label="' + q[0] + ' done"></td><td>' + q[0] + "</td><td>" + q[1] + "</td><td>" + q[2] + "</td></tr>"; }).join("") + "</tbody></table></div>"; };
+    var gnmRun = function () {
+      var z = $("#gnm-z").value, own = z === "m"; $("#gnm-own").hidden = !own;
+      var H = own ? Math.min(16, Math.max(3, parseFloat($("#gnm-h").value) || 7)) : +z;
+      var yk = $("#gnm-y").value, y = GNY[yk] || GNY["4"], uk = $("#gnm-t").value === "uk", st = uk ? "dc" : "sc", dec = uk ? "dc2tog" : "sc2tog", bd = $("#gnm-b").value, x = $("#gnm-x").value;
+      var sw = 4 / y.g, rh = sw * 0.95, n1 = function (k) { return k === 1 ? "st" : k; };
+      // Body
+      var Db = H * 0.42, Nb = Math.max(12, Math.round(Math.PI * Db / sw / 6) * 6), bR = Nb / 6, dR = bR - 1, domeH = dR * rh * 0.8;
+      var S = Math.max(2, Math.round((H * 0.4 - domeH) / rh) - 1), body = [], tot = 0;
+      body.push(["1", "Magic ring, 6 " + st + " into it. Pull tight; don't join. Mark the first stitch.", 6]);
+      body.push(["2", "Inc in each st around", 12]);
+      for (var j = 3; j <= bR; j++) body.push([String(j), "*" + st + " in the next " + n1(j - 2) + ", inc; repeat from * 5 more times", 6 * j]);
+      body.push([String(bR + 1), "Working in the <strong>back loops only</strong>, " + st + " in each st around", Nb]);
+      body.push([(bR + 2) + (S > 1 ? " to " + (bR + 1 + S) : ""), st + " in each st around", Nb]);
+      var rn = bR + 2 + S;
+      for (var k = bR; k >= 2; k--) { body.push([String(rn), (k > 2 ? "*" + st + " in the next " + n1(k - 2) + ", " + dec + "; repeat from * 5 more times" : dec + " 6 times") + (k === 3 ? ". Stuff firmly now" : ""), 6 * (k - 1)]); rn++; }
+      tot += 3 * bR * (bR + 1) + (1 + S) * Nb; for (k = bR; k >= 2; k--) tot += 6 * (k - 1);
+      // Hat cone from the tip
+      var Nh = Nb + 6, Dh = Nh * sw / Math.PI, Hv = Math.max(H * 0.45, H - S * rh * 0.85 - rh), sl = Math.sqrt(Hv * Hv + Dh * Dh / 4), R = Math.max(5, Math.round(sl / rh));
+      var hat = [["1", "Magic ring, 4 " + st + " into it. Pull tight; don't join.", 4]], p = 4, ht = 4;
+      for (var r = 2; r <= R; r++) {
+        var t = r === R ? Nh : Math.round(4 + (Nh - 4) * Math.pow((r - 1) / (R - 1), 1.15)), q = Math.min(p, Math.max(0, t - p)), txt;
+        if (!q) txt = st + " in each st around";
+        else if (q === p) txt = "inc in each st around";
+        else { var a = Math.floor(p / q) - 1, rem = p - q * (a + 1);
+          txt = q === 1 ? (a ? st + " in the next " + n1(a) + ", " : "") + "inc" + (rem ? ", " + st + " in the last " + n1(rem) : "")
+            : "*" + (a ? st + " in the next " + n1(a) + ", " : "") + "inc; repeat from * " + (q - 1) + " more " + (q - 1 === 1 ? "time" : "times") + (rem ? ", " + st + " in the last " + n1(rem) : ""); }
+        p += q; ht += p; hat.push([String(r), txt, p]);
+      }
+      if (x === "brim") { hat.push([(R + 1) + " to " + (R + 3), st + " in each st around", Nh]); ht += 3 * Nh; }
+      tot += ht;
+      // Nose
+      var nn = H < 6 ? 12 : H < 10 ? 18 : 24, nose = [["1", "Magic ring, 6 " + st + " into it", 6], ["2", "Inc in each st around", 12]], nr = 3, ns = 18;
+      if (nn >= 18) nose.push([String(nr++), "*" + st + " in the next st, inc; repeat from * 5 more times", 18]);
+      if (nn >= 24) nose.push([String(nr++), "*" + st + " in the next 2, inc; repeat from * 5 more times", 24]);
+      var pl = nn / 6 - 1; nose.push([nr + (pl > 1 ? " to " + (nr + pl - 1) : ""), st + " in each st around", nn]); nr += pl;
+      if (nn >= 24) nose.push([String(nr++), "*" + st + " in the next 2, " + dec + "; repeat from * 5 more times", 18]);
+      if (nn >= 18) nose.push([String(nr++), "*" + st + " in the next st, " + dec + "; repeat from * 5 more times", 12]);
+      nose.push([String(nr), "Stuff. " + dec + " 6 times", 6]);
+      nose.forEach(function (q) { ns += q[2]; }); tot += ns;
+      // Beard triangle in rows
+      var Wst = Math.max(5, Math.round(H * 0.4 / sw)), c = Wst, bt = [], rw = 2, bs = Wst;
+      bt.push("<li><strong>Row 1:</strong> chain " + (Wst + 1) + ", " + st + " in the 2nd chain from the hook and in each chain across (" + Wst + ").</li>");
+      while (c - 2 >= 2) { bt.push("<li><strong>Row " + rw + ":</strong> ch 1, turn, " + st + " across (" + c + ").</li><li><strong>Row " + (rw + 1) + ":</strong> ch 1, turn, " + dec + ", " + st + " across to the last 2 sts, " + dec + " (" + (c - 2) + ").</li>"); c -= 2; bs += 2 * c + 2; rw += 2; }
+      bt.push("<li><strong>Row " + rw + ":</strong> ch 1, turn, " + (c === 3 ? (uk ? "dc3tog" : "sc3tog") : dec) + " (1). Fasten off with a long tail for sewing.</li>"); tot += bs;
+      var bH = rw * rh, strands = Math.round(bs / 2), sLen = Math.round((bH * 0.6 + 0.5) * 2 * 4) / 4;
+      var o = [];
+      o.push('<p class="sub">Your gnome</p><p class="big">' + Math.round(H * 2) / 2 + '<small> in tall, ' + (Math.round(Db * 4) / 4) + " in wide</small></p><p>" + y.nm + " yarn, " + (uk ? "UK" : "US") + " terms. <strong>inc</strong> = 2 " + st + " in the same stitch; <strong>" + dec + "</strong> = " + st + " 2 together (the invisible decrease is neatest). Work in a spiral and move your marker up every round. Tick each round as you go.</p>");
+      o.push("<h3>Body (any colour)</h3>" + gTab(body) + "<p>Fasten off, thread the tail through the front loops of the last 6 sts, pull tight and weave it in." + (H >= 8 ? " For a gnome this size, drop a card circle (or a small bag of pellets) onto the base before you stuff, so it stands steady." : "") + "</p>");
+      o.push("<h3>Hat (red)</h3>" + gTab(hat) + "<p>" + (x === "brim" ? "Fasten off. Fold the last 2 rounds up to the outside for a brim. " : "Slip stitch into the next st and fasten off, leaving a long tail. ") + "The hat should be about " + (Math.round(Hv * 4) / 4) + " in tall. Don't stuff it, or stuff just the tip lightly so it flops; a pipe cleaner inside lets you bend it.</p>");
+      o.push("<h3>Nose (skin tone or pink)</h3>" + gTab(nose) + "<p>Fasten off with a long tail; close the hole with the tail.</p>");
+      o.push("<h3>Beard (white or grey)</h3><ol>" + bt.join("") + "</ol>");
+      if (bd === "fringe") o.push("<p><strong>Fringe:</strong> cut about <strong>" + strands + " strands, " + sLen + " in long</strong>. Fold one in half, push your hook through a stitch from the front, pull the fold through, then pull the ends through the loop (a lark's head knot). Fill every stitch on every other row, from the bottom up. Trim to a point and untwist the strands with a pin or brush them.</p>");
+      else o.push("<p>Brush the beard hard with a pet brush or stiff comb for a fluffy look (works best with acrylic).</p>");
+      o.push("<h3>Putting it together</h3><ol><li>Pin the beard to the front of the body, the wide edge just below the closed top, the point towards the base. Sew round it with the tail.</li><li>Sew the nose on top of the beard, at the middle of the wide edge.</li><li>Pull the hat down over the top of the body until the edge rests on the nose. Sew round the edge of the hat to the body (and the top of the nose).</li>" + (x === "loop" ? "<li><strong>Hanging loop:</strong> thread 6 in of yarn or thin ribbon through the hat tip and knot it.</li>" : "") + "<li>Weave in all the ends inside the body.</li></ol>");
+      var Ab = Math.PI * Db * Db / 4 * 3 + Math.PI * Db * (1 + S) * rh, Ah = Math.PI * (Dh / 2) * sl + (x === "brim" ? Math.PI * Dh * 3 * rh : 0), An = Math.PI * Math.pow(nn * sw / Math.PI, 2), Ad = 0.5 * Wst * sw * bH, f = 1.48 * y.yf;
+      var r5 = function (n) { return Math.max(3, Math.round(n / 5) * 5 || 3); }, rg = function (A) { return r5(A * f * 0.9) + " to " + r5(A * f * 1.25) + " yd"; };
+      var fy = bd === "fringe" ? Math.round(strands * sLen / 36) : 0, hrs = tot / 360 + 0.5 + (bd === "fringe" ? strands * 0.4 / 60 : 0);
+      o.push('<p class="sub">Yarn: hat about <strong>' + rg(Ah) + "</strong>, body <strong>" + rg(Ab) + "</strong>, beard <strong>" + rg(Ad) + (fy ? " plus " + fy + " yd for the fringe" : "") + "</strong>, nose about " + r5(An * f * 1.2) + " yd. Time: about " + (Math.round(hrs * 0.8 * 2) / 2) + " to " + (Math.round(hrs * 1.35 * 2) / 2) + " hours. Both are our estimates for tight amigurumi stitches (" + tot + " stitches in all).</p>");
+      $("#gnm-out").innerHTML = o.join("");
+      store.set("pp-gnm", { z: z, h: $("#gnm-h").value, y: yk, b: bd, x: x, t: $("#gnm-t").value });
+    };
+    var gnmS = store.get("pp-gnm", null);
+    if (gnmS) { ["z", "h", "y", "b", "x", "t"].forEach(function (q) { if (gnmS[q] != null && $("#gnm-" + q)) $("#gnm-" + q).value = gnmS[q]; });
+      ["z", "y", "b", "x", "t"].forEach(function (q) { if (!$("#gnm-" + q).value) $("#gnm-" + q).selectedIndex = q === "t" ? 0 : 1; }); }
+    ["#gnm-z", "#gnm-y", "#gnm-b", "#gnm-x", "#gnm-t"].forEach(function (s) { $(s).addEventListener("change", gnmRun); });
+    $("#gnm-h").addEventListener("input", gnmRun);
+    gnmRun();
+  }
+
+  if ($("#eml-n") && $("#eml-out")) {
+    // Cap height as a share of the font size (measured roughly for each font) and stroke length per letter: our estimates.
+    var EMF = { script: { f: "'Dancing Script', cursive", c: 0.62, L: 3.2, nm: "flowing script" }, mono: { f: "Sacramento, cursive", c: 0.5, L: 3.6, nm: "thin script" },
+      serif: { f: "Georgia, 'Times New Roman', serif", c: 0.69, L: 2.8, nm: "classic serif" }, print: { f: "'Atkinson Hyperlegible', Arial, sans-serif", c: 0.7, L: 2.6, nm: "simple print" } };
+    var emCv = document.createElement("canvas").getContext("2d"), emLast = "";
+    var esc = function (t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); };
+    var emlRun = function () {
+      var nm = ($("#eml-n").value || "").replace(/\s+/g, " ").trim().slice(0, 24) || "Name", fk = $("#eml-f").value, F = EMF[fk] || EMF.script;
+      var H = parseFloat($("#eml-h").value) || 1, fs = H / F.c, fab = $("#eml-o").value, mir = $("#eml-m").value === "r", a4 = $("#eml-p").value === "a4";
+      var w = 0; try { emCv.font = "100px " + F.f; w = emCv.measureText(nm).width / 100 * fs; } catch (er) { w = 0; }
+      if (!w) w = nm.length * fs * 0.5;
+      var pad = 0.5, W = w + 2 * pad, Hh = fs * 1.25 + 2 * pad + 1.2, base = pad + fs * 0.95, letters = nm.replace(/\s/g, "").length;
+      var tx = mir ? ' transform="translate(' + (2 * pad + w) + ',0) scale(-1,1)"' : "";
+      var inner = '<g' + tx + '><path d="M' + pad + "," + base + " H" + (pad + w) + '" stroke="#c7cdd8" stroke-width="0.015" stroke-dasharray="0.08 0.06"/><path d="M' + pad + "," + (base - H) + " H" + (pad + w) + '" stroke="#e2c7a0" stroke-width="0.015" stroke-dasharray="0.08 0.06"/>'
+        + '<text x="' + pad + '" y="' + base + '" font-family="' + F.f.replace(/"/g, "") + '" font-size="' + fs.toFixed(3) + '" fill="#1f2a44">' + esc(nm) + "</text></g>"
+        + '<rect x="' + pad + '" y="' + (base + fs * 0.35) + '" width="1" height="1" fill="none" stroke="#b8326a" stroke-width="0.02"/><text x="' + (pad + 1.15) + '" y="' + (base + fs * 0.35 + 0.6) + '" font-family="Inter,sans-serif" font-size="0.16" fill="#4a5470">1 in test square · capital height ' + H + " in" + (mir ? " · mirrored for an iron-on transfer" : "") + "</text>";
+      var tiles = ppTiles(inner, W, Hh, a4, "Name template");
+      var str = H <= 0.5 ? 1 : H <= 1 ? 2 : H <= 2 ? 3 : 4, stc, why;
+      if (H <= 0.5) { stc = "Backstitch"; why = "tiny letters need the simplest stitch; keep stitches about 1/16 in long on curves"; }
+      else if (fk === "script" || fk === "mono") { stc = H <= 1 ? "Split stitch or backstitch" : H <= 2 ? "Stem stitch or whipped backstitch" : "Chain stitch or stem stitch"; why = "they follow the curves of script smoothly"; }
+      else if (fk === "serif") { stc = H <= 1 ? "Backstitch" : "Backstitch outline, with satin stitch on the thick strokes"; why = "the thick and thin strokes of serif letters look best filled"; }
+      else { stc = H <= 1 ? "Backstitch" : "Chain stitch or backstitch"; why = "simple print letters suit an even, bold line"; }
+      var line = letters * H * F.L, thr = line * 2.6 + letters * 3, skeinIn = 8.7 * 36 * (6 / str);
+      var hoops = [4, 5, 6, 7, 8, 9, 10, 12, 14], need = Math.max(w, H * 1.4) + 2.5, hoop = 0; for (var i = 0; i < hoops.length; i++) if (hoops[i] >= need) { hoop = hoops[i]; break; }
+      var o = [];
+      o.push('<p class="sub">Your name template</p><p class="big">' + (Math.round(w * 4) / 4) + '<small> in wide, ' + H + " in capitals</small></p><p>" + esc(nm) + " in " + F.nm + ", " + letters + " letters" + (tiles.n > 1 ? ", on " + tiles.n + " pages (trim and tape them side by side)" : ", on 1 page") + ". Check the 1 in test square after printing; the dashed lines show the baseline and capital height.</p>");
+      o.push('<p><strong>Stitch:</strong> ' + stc + " with <strong>" + str + (str === 1 ? " strand" : " strands") + "</strong> of floss: " + why + ". Stitches about " + (H <= 1 ? "1/8" : "3/16") + " in long, shorter on tight curves.</p>");
+      o.push("<p><strong>Hoop:</strong> " + (hoop ? "a " + hoop + " in hoop" : "a 14 in hoop or a scroll frame, or move a smaller hoop along as you go") + ". <strong>Floss:</strong> about " + Math.max(1, Math.round(thr / 18)) + " pieces of 18 in thread, " + (thr < skeinIn * 0.7 ? "well under 1 skein" : "about " + Math.ceil(thr / skeinIn) + " skeins") + " (our estimate).</p>");
+      o.push("<p><strong>Transfer:</strong> " + (mir ? "trace the mirrored letters on the back of the print with an iron-on transfer pencil, then iron it face down onto the fabric." : fab === "knit" ? "print or trace it onto stick-on wash-away stabiliser and stick it to the front; add a stabiliser on the back so the knit doesn't stretch. Soak it away after stitching." : fab === "dark" ? "use stick-on wash-away stabiliser, or a white chalk or white gel pen over a light box." : "tape the print to a window or light box and trace it with a water-soluble or heat-erasable pen.") + "</p>");
+      o.push('<div class="pp-tiles">' + tiles.html + '</div><p><button type="button" class="btn gold sm" id="eml-print">Print the name template</button></p><p class="sub">Print at 100% (turn off "fit to page").</p>');
+      $("#eml-out").innerHTML = o.join("");
+      $("#eml-print").addEventListener("click", function () { ppPrint(tiles.html); });
+      store.set("pp-eml", { n: $("#eml-n").value, f: fk, h: $("#eml-h").value, o: fab, m: $("#eml-m").value, p: $("#eml-p").value });
+    };
+    var emlS = store.get("pp-eml", null);
+    if (emlS) { ["n", "f", "h", "o", "m", "p"].forEach(function (q) { if (emlS[q] != null && $("#eml-" + q)) $("#eml-" + q).value = emlS[q]; });
+      ["f", "h", "o", "m", "p"].forEach(function (q) { if (!$("#eml-" + q).value) $("#eml-" + q).selectedIndex = q === "h" ? 1 : 0; }); }
+    ["#eml-f", "#eml-h", "#eml-o", "#eml-m", "#eml-p"].forEach(function (s) { $(s).addEventListener("change", emlRun); });
+    $("#eml-n").addEventListener("input", emlRun);
+    emlRun();
+    if (document.fonts && document.fonts.load) Promise.all([document.fonts.load("40px 'Dancing Script'"), document.fonts.load("40px Sacramento"), document.fonts.load("40px 'Atkinson Hyperlegible'")]).then(emlRun, function () {});
+  }
+
+  if ($("#sws-z") && $("#sws-out")) {
+    // Finished stocking sizes [height, leg width, foot length, cuff depth] in inches (same as the stocking calculator).
+    var SWZ = { mini: [7, 3.5, 4.5, 1.5], small: [12, 5, 7, 2.5], standard: [18, 7, 10, 3.5], large: [22, 8, 12, 4], xl: [26, 9, 14, 5] };
+    var e8 = function (n) { return Math.ceil(n * 8 - 1e-6) / 8; };
+    var yfr = function (n) { var w = Math.floor(n + 1e-9), f = Math.round((n - w) * 8), F = ["", "1/8", "1/4", "3/8", "1/2", "5/8", "3/4", "7/8"]; return (w ? w + (f ? " " : "") : "") + (f ? F[f] : w ? "" : "0"); };
+    var swsRun = function () {
+      var z = $("#sws-z").value, own = z === "m", d; $("#sws-own").hidden = !own;
+      if (own) { var hh = Math.min(32, Math.max(5, parseFloat($("#sws-h").value) || 16)), ww = Math.min(12, Math.max(2.5, parseFloat($("#sws-w").value) || 6.5)); d = [hh, ww, Math.min(18, Math.max(3.5, parseFloat($("#sws-f").value) || 9)), Math.max(1.25, Math.round(hh * 0.2 * 4) / 4)]; }
+      else d = SWZ[z] || SWZ.standard;
+      var Ht = d[0], W = d[1], s = parseFloat($("#sws-s").value) || 0.5, cuf = $("#sws-c").value === "fold", lin = $("#sws-l").value === "y", pp = $("#sws-p").value.split("|"), fw = +pp[0], a4 = pp[1] === "a4";
+      var fh = W * 0.8, rc = Math.max(0.3, Math.min(1, W * 0.15, d[2] - fh / 2 - W)), tc = Math.max(d[2] - fh / 2, W + rc), Ft = tc + fh / 2, cd = d[3];
+      var shape = function (o) { var r = fh / 2 + o, yf = Ht - fh - o;
+        return "M" + (-o) + "," + (-o) + " H" + (W + o) + " V" + (yf - rc) + " Q" + (W + o) + "," + yf + " " + (W + o + rc) + "," + yf + " H" + tc + " A" + r + "," + r + " 0 0 1 " + tc + "," + (Ht + o) + " H" + (fh / 2) + " A" + r + "," + r + " 0 0 1 " + (-o) + "," + (Ht - fh / 2) + " Z"; };
+      var gp = Math.min(4, Math.round(Ht * 0.3 * 2) / 2), m = s + 0.3, fz = Math.max(0.2, Math.min(0.3, W * 0.045));
+      var T = function (x, y, t, sz, col, an) { return '<text x="' + x + '" y="' + y + '" font-family="Inter,sans-serif" font-size="' + (sz || fz) + '" fill="' + (col || "#1f2a44") + '"' + (an ? ' text-anchor="' + an + '"' : "") + ">" + t + "</text>"; };
+      var inner = '<g transform="translate(' + m + "," + m + ')"><path d="' + shape(s) + '" fill="#fbf7ef" stroke="#1f2a44" stroke-width="0.03"/><path d="' + shape(0) + '" fill="none" stroke="#b8326a" stroke-width="0.02" stroke-dasharray="0.12 0.08"/>'
+        + (cuf ? '<path d="M0,' + cd + " H" + W + '" stroke="#2f8f8a" stroke-width="0.02" stroke-dasharray="0.05 0.05"/>' + T(W / 2, cd - 0.15, "cuff covers to here", fz * 0.8, "#2f8f8a", "middle") : "")
+        + '<path d="M' + (W * 0.55) + "," + (cd + 1.6) + " V" + (Ht - fh - 0.6) + '" stroke="#1f2a44" stroke-width="0.025"/><path d="M' + (W * 0.55 - 0.12) + "," + (cd + 1.8) + " L" + (W * 0.55) + "," + (cd + 1.6) + " L" + (W * 0.55 + 0.12) + "," + (cd + 1.8) + '" fill="none" stroke="#1f2a44" stroke-width="0.025"/>' + T(W * 0.55 + 0.15, cd + 2.4, "grain", fz * 0.8)
+        + T(0.25, Math.min(Ht - fh - 0.4, cd + 1), "Cut 2 outer" + (lin ? " + 2 lining" : ""), fz) + T(0.25, Math.min(Ht - fh, cd + 1) + fz * 1.4, "(fabric folded, right sides together)", fz * 0.75, "#4a5470")
+        + (lin ? '<path d="M' + (-s - 0.02) + "," + (Ht * 0.3) + " h0.25 M" + (-s - 0.02) + "," + (Ht * 0.3 + gp) + ' h0.25" stroke="#2f8f8a" stroke-width="0.04"/>' + T(0.25, Ht * 0.3 + gp / 2, "lining: leave " + yfr(gp) + " in open", fz * 0.8, "#2f8f8a") : "")
+        + T(0.08, 0.35, "loop at this back seam", fz * 0.7, "#4a5470")
+        + '<rect x="' + (W * 0.12) + '" y="' + (Ht - fh - 0.3 - 1 > cd + 3 ? Ht - fh - 1.4 : cd + 3.1) + '" width="1" height="1" fill="none" stroke="#b8326a" stroke-width="0.02"/>' + T(W * 0.12 + 1.1, (Ht - fh - 0.3 - 1 > cd + 3 ? Ht - fh - 1.4 : cd + 3.1) + 0.6, "1 in test", fz * 0.7, "#4a5470")
+        + T(0.25, Math.min(Ht - fh, cd + 1) + fz * 2.6, "solid: cut · dashed: stitch (" + yfr(s) + " in seam)", fz * 0.7, "#4a5470") + "</g>";
+      var BW = Ft + 2 * m, BH = Ht + 2 * m, tiles = ppTiles(inner, BW, BH, a4, "Stocking template " + Ht + " in");
+      var pw = Ft + 2 * s, ph = Ht + 2 * s, use = fw - 1, len = 2 * pw <= use ? ph : (pw <= use ? 2 * ph : 2 * ph), outer = e8((len + 2) / 36);
+      var cw = 2 * W + 2 * s + 0.25, chh = 2 * cd + 2 * s, cl = cw <= use ? chh : 2 * chh, cufY = e8(Math.max(cl + 2, 9) / 36);
+      var fq = (2 * pw <= 21 && ph <= 17.5) || (2 * pw <= 17.5 && ph <= 21) || (2 * ph <= 21 && pw <= 17.5);
+      var m2 = function (y) { return (Math.round(y * 0.9144 * 100) / 100) + " m"; }, o = [];
+      o.push('<p class="sub">Your stocking</p><p class="big">' + Ht + '<small> in tall, ' + W + " in leg, " + (Math.round(Ft * 4) / 4) + " in foot</small></p><p>Finished size (" + Math.round(Ht * 2.54) + " x " + Math.round(W * 2.54) + " x " + Math.round(Ft * 2.54) + " cm). The template prints on <strong>" + tiles.n + (tiles.n === 1 ? " page" : " pages") + "</strong> (" + tiles.rows + " down x " + tiles.cols + " across) with a " + yfr(s) + " in seam allowance included.</p>");
+      o.push("<h3>Cutting list</h3><ul><li><strong>Outer fabric:</strong> 2 stockings (one facing each way: cut with the fabric folded).</li>" + (lin ? "<li><strong>Lining:</strong> 2 stockings, cut the same way.</li>" : "") + (cuf ? "<li><strong>Cuff:</strong> 1 rectangle <strong>" + yfr(e8(cw)) + " x " + yfr(e8(chh)) + " in</strong> (" + Math.round(cw * 2.54) + " x " + Math.round(chh * 2.54) + " cm), long side across. It folds in half to a " + yfr(cd) + " in deep cuff" + (cw > use ? "; your fabric is too narrow, so cut 2 pieces " + yfr(e8(cw / 2 + s)) + " in wide and seam both sides" : "") + ".</li>" : "") + "<li><strong>Loop:</strong> " + (Ht <= 8 ? "4" : "7") + " in of ribbon, or a fabric strip " + (Ht <= 8 ? "1 1/2 x 4" : "2 x 7") + " in folded in four and stitched.</li><li><strong>Optional:</strong> 2 pieces of fusible fleece or batting the size of the outer stocking, for a padded stocking.</li></ul>");
+      o.push("<h3>Fabric to buy</h3><p>Outer: about <strong>" + yfr(outer) + " yd</strong> (" + m2(outer) + ")" + (lin ? ". Lining: about <strong>" + yfr(outer) + " yd</strong> (" + m2(outer) + ")" : "") + (cuf ? ". Cuff: about <strong>" + yfr(cufY) + " yd</strong> (" + m2(cufY) + ")" : "") + ", from " + fw + " in (" + Math.round(fw * 2.54) + " cm) wide fabric. " + (fq ? "The outer pieces also fit on <strong>one fat quarter</strong>. " : "") + "Our estimate, with a little extra for straightening the ends.</p>");
+      o.push('<div class="pp-tiles">' + tiles.html + '</div><p><button type="button" class="btn gold sm" id="sws-print">Print the stocking template</button></p><p class="sub">Print at 100% (turn off "fit to page") and check the 1 in test square. Pages are labelled A1, A2 (top row), B1, B2 and so on.</p>');
+      $("#sws-out").innerHTML = o.join("");
+      $("#sws-print").addEventListener("click", function () { ppPrint(tiles.html); });
+      store.set("pp-sws", { z: z, h: $("#sws-h").value, w: $("#sws-w").value, f: $("#sws-f").value, c: $("#sws-c").value, l: $("#sws-l").value, s: $("#sws-s").value, p: $("#sws-p").value });
+    };
+    var swsS = store.get("pp-sws", null);
+    if (swsS) { ["z", "h", "w", "f", "c", "l", "s", "p"].forEach(function (q) { if (swsS[q] != null && $("#sws-" + q)) $("#sws-" + q).value = swsS[q]; });
+      if (!$("#sws-z").value) $("#sws-z").value = "standard"; ["c", "l", "p"].forEach(function (q) { if (!$("#sws-" + q).value) $("#sws-" + q).selectedIndex = 0; }); if (!$("#sws-s").value) $("#sws-s").value = "0.5"; }
+    ["#sws-z", "#sws-c", "#sws-l", "#sws-s", "#sws-p"].forEach(function (s) { $(s).addEventListener("change", swsRun); });
+    ["#sws-h", "#sws-w", "#sws-f"].forEach(function (s) { $(s).addEventListener("input", swsRun); });
+    swsRun();
+  }
+
+
 })();

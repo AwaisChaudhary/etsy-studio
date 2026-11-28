@@ -81,6 +81,7 @@ stk = top("Christmas stocking size and yarn calculator", "Pick a stocking size, 
 <section><div class="wrap"><div class="narrow prose">
 <h2>Christmas stocking size chart</h2>
 <div class="tbl-wrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Height</th><th scope="col">Flat width</th><th scope="col">Foot</th><th scope="col">Knit, worsted</th><th scope="col">Crochet, worsted</th><th scope="col">Knit, bulky</th></tr></thead><tbody>{stk_rows}</tbody></table></div>
+<p>Sewing a fabric stocking instead? <a href="{href("how-to-sew-a-christmas-stocking.html")}">How to sew a Christmas stocking</a> prints a full-size template in these sizes, with the cutting list and fabric to buy.</p>
 <p class="note">Height runs from the top of the cuff to the bottom of the heel; foot runs from the back of the heel to the tip of the toe. Sizes are typical of shop-bought and pattern stockings, not a fixed standard. Yarn amounts are our estimates for plain stitches with a folded cuff, a hanging loop and ends; colourwork, cables and furry yarn use more.</p>
 <figure style="margin:20px auto;max-width:360px">{stk_svg()}<figcaption class="note" style="text-align:center">How to measure a stocking, or the one you want to match.</figcaption></figure>
 <h2>How many stitches to cast on for a stocking</h2>

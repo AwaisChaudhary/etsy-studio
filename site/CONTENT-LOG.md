@@ -510,3 +510,9 @@
 - Pins queued: pins/site/how-to-knit-mittens.jpg, crochet-christmas-tree-pattern.jpg, junk-journal-tags.jpg.
 - SHOP: no new live products since run 20. Boxes: planner, stash tracker, gift planner, gift tags (mittens); pricing calculator, gift tags, gift planner, planner (tree); ephemera pack, journaling cards, Winter Cottage kit, mega bundle (tags).
 - IndexNow pending: https://purlandpaperco.com/how-to-knit-mittens https://purlandpaperco.com/crochet-christmas-tree-pattern https://purlandpaperco.com/junk-journal-tags
+
+## 28 Nov 2026 run 22
+- NEW /crochet-gnome-pattern: free easy crochet gnome, 6 SVG steps, pattern writer (any height, yarn, fringe or plain beard, brim/loop, US/UK) with tick-box rounds and yarn per colour. Targets 'free crochet gnome pattern easy', 'crochet christmas gnome'. Checked against Gathered, Red Ted Art, Love Life Yarn gnome patterns (construction standard; pattern ours).
+- NEW /how-to-embroider-letters: how to embroider names by hand, 6 SVG steps, stitch table, strands, sweater/stabiliser H2; name template maker (Dancing Script / Sacramento / serif / print, cap height, mirror, tiled actual-size print). Targets 'how to embroider a name by hand', 'how to embroider letters'. Sources: Needle'nThread, LoveCrafts, Gathered.
+- NEW /how-to-sew-a-christmas-stocking: lined stocking with cuff, 6 SVG steps, sizes table; full-size tiled printable template (5 sizes or own), cutting list, yardage. Targets 'how to sew a christmas stocking', 'christmas stocking template printable'. Method checked against Bernina, FaveCrafts, Polka Dot Chair.
+- Shared tiled-print helper (ppTiles/ppPrint in app.js, .pp-tiles/#pp-print CSS). Links from /crochet-christmas-tree-pattern, /christmas-stocking-calculator, /embroidery-stitches, homepage, footer guides. 3 pins queued.
