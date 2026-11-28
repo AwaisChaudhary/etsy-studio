@@ -1,3 +1,10 @@
+# DEMAND GATE (Awais, 29 Nov 2026 00:43: "Whatever you post on Pinterest, Etsy and KDP make sure it's trendy and high on demand")
+Nothing is built, listed, pinned or published unless it passes this gate. Record the evidence in the batch NOTE.md / KDP LOG.md line.
+1. ETSY product idea: (a) appears in Etsy search autocomplete for its main keyword; (b) page 1 of that Etsy search shows real sales (2+ Bestseller badges, or listings with 500+ reviews / "in N baskets"); (c) Google Trends (past 90 days, US) for the keyword is rising, or it is a seasonal term timed 4-8 weeks BEFORE its peak (Valentine's now, then Easter / tax season / wedding season / back to school). Fail any of the three = don't make it.
+2. PINTEREST: before scheduling, check trends.pinterest.com (US, top/growing) for the product's keyword; schedule pins in order of trend strength (seasonal 45-60 days ahead first, then rising, then evergreen). Pin titles lead with the exact trending phrase. Pins for products that fail the gate wait at the back of the queue.
+3. KDP book: (a) the main keyword shows in Amazon search autocomplete (Books); (b) at least 3 of the top 10 results have a Best Sellers Rank under 100,000 in Books (proof people buy it); (c) we can clearly beat the top 3 on content or design; (d) seasonal books go live 6-8 weeks before the peak. Fail = pick the next idea.
+4. Re-check existing ideas in NEXT BATCHES against this gate before building them.
+
 # Why no sales yet (diagnosis 27 Nov 2026, 20:30 PKT) and the plan
 
 ## Diagnosis
